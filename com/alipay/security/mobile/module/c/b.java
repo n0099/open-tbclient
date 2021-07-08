@@ -17,10 +17,10 @@ public final class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public File f2066a;
+    public File f2067a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.alipay.security.mobile.module.http.v2.a f2067b;
+    public com.alipay.security.mobile.module.http.v2.a f2068b;
 
     public b(String str, com.alipay.security.mobile.module.http.v2.a aVar) {
         Interceptable interceptable = $ic;
@@ -37,10 +37,10 @@ public final class b {
                 return;
             }
         }
-        this.f2066a = null;
-        this.f2067b = null;
-        this.f2066a = new File(str);
-        this.f2067b = aVar;
+        this.f2067a = null;
+        this.f2068b = null;
+        this.f2067a = new File(str);
+        this.f2068b = aVar;
     }
 
     public static String a(String str) {
@@ -64,12 +64,12 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             synchronized (this) {
-                if (this.f2066a == null) {
+                if (this.f2067a == null) {
                     return;
                 }
-                if (this.f2066a.exists() && this.f2066a.isDirectory() && this.f2066a.list().length != 0) {
+                if (this.f2067a.exists() && this.f2067a.isDirectory() && this.f2067a.list().length != 0) {
                     ArrayList arrayList = new ArrayList();
-                    for (String str : this.f2066a.list()) {
+                    for (String str : this.f2067a.list()) {
                         arrayList.add(str);
                     }
                     Collections.sort(arrayList);
@@ -82,11 +82,11 @@ public final class b {
                         str2 = (String) arrayList.get(arrayList.size() - 2);
                         size--;
                     }
-                    if (!this.f2067b.a(a(com.alipay.security.mobile.module.a.b.a(this.f2066a.getAbsolutePath(), str2)))) {
+                    if (!this.f2068b.a(a(com.alipay.security.mobile.module.a.b.a(this.f2067a.getAbsolutePath(), str2)))) {
                         size--;
                     }
                     for (int i2 = 0; i2 < size; i2++) {
-                        new File(this.f2066a, (String) arrayList.get(i2)).delete();
+                        new File(this.f2067a, (String) arrayList.get(i2)).delete();
                     }
                 }
             }

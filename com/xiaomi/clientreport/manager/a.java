@@ -27,12 +27,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f42722a;
+    public static final int f39736a;
 
     /* renamed from: a  reason: collision with other field name */
     public static volatile a f30a;
@@ -60,7 +60,7 @@ public class a {
     public ExecutorService f37a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> f42723b;
+    public HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> f39737b;
 
     static {
         InterceptResult invokeClinit;
@@ -75,7 +75,7 @@ public class a {
                 return;
             }
         }
-        f42722a = l.m535a() ? 30 : 10;
+        f39736a = l.m535a() ? 30 : 10;
     }
 
     public a(Context context) {
@@ -95,7 +95,7 @@ public class a {
         }
         this.f37a = Executors.newSingleThreadExecutor();
         this.f36a = new HashMap<>();
-        this.f42723b = new HashMap<>();
+        this.f39737b = new HashMap<>();
         this.f31a = context;
     }
 
@@ -104,11 +104,11 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> hashMap = this.f42723b;
+            HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> hashMap = this.f39737b;
             if (hashMap != null) {
                 int i2 = 0;
                 for (String str : hashMap.keySet()) {
-                    ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f42723b.get(str);
+                    ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f39737b.get(str);
                     i2 += arrayList != null ? arrayList.size() : 0;
                 }
                 return i2;
@@ -121,7 +121,7 @@ public class a {
     public static a a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             if (f30a == null) {
                 synchronized (a.class) {
                     if (f30a == null) {
@@ -175,7 +175,7 @@ public class a {
         }
         iEventProcessor.mo78a(eventClientReport);
         if (a() < 10) {
-            a(new d(this), f42722a);
+            a(new d(this), f39736a);
             return;
         }
         d();
@@ -191,7 +191,7 @@ public class a {
         }
         iPerfProcessor.mo78a(perfClientReport);
         if (b() < 10) {
-            a(new f(this), f42722a);
+            a(new f(this), f39736a);
             return;
         }
         e();
@@ -313,7 +313,7 @@ public class a {
             this.f32a = config;
             this.f33a = iEventProcessor;
             this.f34a = iPerfProcessor;
-            iEventProcessor.setEventMap(this.f42723b);
+            iEventProcessor.setEventMap(this.f39737b);
             this.f34a.setPerfMap(this.f36a);
         }
     }

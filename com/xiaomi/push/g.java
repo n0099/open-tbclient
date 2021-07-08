@@ -14,6 +14,7 @@ import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
 import androidx.core.app.NotificationManagerCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -27,27 +28,27 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f43144a;
+        public static final a f40158a;
 
         /* renamed from: a  reason: collision with other field name */
         public static final /* synthetic */ a[] f421a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f43145b;
+        public static final a f40159b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f43146c;
+        public static final a f40160c;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
@@ -66,11 +67,11 @@ public class g {
                     return;
                 }
             }
-            f43144a = new a(RomUtils.UNKNOWN, 0, 0);
-            f43145b = new a("ALLOWED", 1, 1);
+            f40158a = new a(RomUtils.UNKNOWN, 0, 0);
+            f40159b = new a("ALLOWED", 1, 1);
             a aVar = new a("NOT_ALLOWED", 2, 2);
-            f43146c = aVar;
-            f421a = new a[]{f43144a, f43145b, aVar};
+            f40160c = aVar;
+            f421a = new a[]{f40158a, f40159b, aVar};
         }
 
         public a(String str, int i2, int i3) {
@@ -178,7 +179,7 @@ public class g {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, applicationInfo)) == null) {
             int i2 = Build.VERSION.SDK_INT;
             if (applicationInfo == null || i2 < 24) {
-                return a.f43144a;
+                return a.f40158a;
             }
             Boolean bool = null;
             try {
@@ -191,12 +192,12 @@ public class g {
                     }
                 }
                 if (bool != null) {
-                    return bool.booleanValue() ? a.f43145b : a.f43146c;
+                    return bool.booleanValue() ? a.f40159b : a.f40160c;
                 }
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.m70a("are notifications enabled error " + e2);
             }
-            return a.f43144a;
+            return a.f40158a;
         }
         return (a) invokeLL.objValue;
     }
@@ -207,9 +208,9 @@ public class g {
         ApplicationInfo applicationInfo;
         a a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65540, null, context, str, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, z)) == null) {
             if (context == null || TextUtils.isEmpty(str) || Build.VERSION.SDK_INT < 19) {
-                return a.f43144a;
+                return a.f40158a;
             }
             try {
                 applicationInfo = str.equals(context.getPackageName()) ? context.getApplicationInfo() : context.getPackageManager().getApplicationInfo(str, 0);
@@ -217,12 +218,12 @@ public class g {
             } catch (Throwable th) {
                 com.xiaomi.channel.commonutils.logger.b.m70a("get app op error " + th);
             }
-            if (a2 != a.f43144a) {
+            if (a2 != a.f40158a) {
                 return a2;
             }
             Integer num = (Integer) bh.a((Class<? extends Object>) AppOpsManager.class, NotificationManagerCompat.OP_POST_NOTIFICATION);
             if (num == null) {
-                return a.f43144a;
+                return a.f40158a;
             }
             Integer num2 = (Integer) bh.a((Object) ((AppOpsManager) context.getSystemService("appops")), NotificationManagerCompat.CHECK_OP_NO_THROW, num, Integer.valueOf(applicationInfo.uid), str);
             int i2 = (Integer) bh.a((Class<? extends Object>) AppOpsManager.class, "MODE_ALLOWED");
@@ -235,9 +236,9 @@ public class g {
                 i3 = 1;
             }
             if (num2 != null) {
-                return z ? !num2.equals(i3) ? a.f43145b : a.f43146c : num2.equals(i2) ? a.f43145b : a.f43146c;
+                return z ? !num2.equals(i3) ? a.f40159b : a.f40160c : num2.equals(i2) ? a.f40159b : a.f40160c;
             }
-            return a.f43144a;
+            return a.f40158a;
         }
         return (a) invokeLLZ.objValue;
     }

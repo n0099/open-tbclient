@@ -89,7 +89,7 @@ public class SimpleArrayMap<K, V> {
     public static int binarySearchHashes(int[] iArr, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65540, null, iArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, iArr, i2, i3)) == null) {
             try {
                 return ContainerHelpers.binarySearch(iArr, i2, i3);
             } catch (ArrayIndexOutOfBoundsException unused) {
@@ -598,7 +598,7 @@ public class SimpleArrayMap<K, V> {
                 } else {
                     sb.append("(this Map)");
                 }
-                sb.append(a.f1889h);
+                sb.append(a.f1890h);
                 V valueAt = valueAt(i2);
                 if (valueAt != this) {
                     sb.append(valueAt);

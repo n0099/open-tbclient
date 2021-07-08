@@ -8,30 +8,30 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class af {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final af f42752a;
+    public static final af f39766a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ af[] f61a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final af f42753b;
+    public static final af f39767b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final af f42754c;
+    public static final af f39768c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final af f42755d;
+    public static final af f39769d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final af f42756e;
+    public static final af f39770e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final af f42757f;
+    public static final af f39771f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,14 +47,14 @@ public final class af {
                 return;
             }
         }
-        f42752a = new af("HUAWEI", 0);
-        f42753b = new af("MEIZU", 1);
-        f42754c = new af("FCM", 2);
-        f42755d = new af("OPPO", 3);
-        f42756e = new af("VIVO", 4);
+        f39766a = new af("HUAWEI", 0);
+        f39767b = new af("MEIZU", 1);
+        f39768c = new af("FCM", 2);
+        f39769d = new af("OPPO", 3);
+        f39770e = new af("VIVO", 4);
         af afVar = new af("OTHER", 5);
-        f42757f = afVar;
-        f61a = new af[]{f42752a, f42753b, f42754c, f42755d, f42756e, afVar};
+        f39771f = afVar;
+        f61a = new af[]{f39766a, f39767b, f39768c, f39769d, f39770e, afVar};
     }
 
     public af(String str, int i2) {

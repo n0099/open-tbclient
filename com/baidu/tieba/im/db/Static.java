@@ -10,28 +10,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.z0.f0;
-import d.a.r0.z0.i0;
-import d.a.r0.z0.n;
-import d.a.s0.i1.h.g;
-/* loaded from: classes5.dex */
+import d.a.o0.z0.f0;
+import d.a.o0.z0.i0;
+import d.a.o0.z0.n;
+import d.a.p0.i1.h.g;
+/* loaded from: classes4.dex */
 public class Static {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.tieba.im.db.Static$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public class C0208a extends f0<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f17422a;
+            public final /* synthetic */ CustomResponsedMessage f17461a;
 
             public C0208a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
@@ -48,18 +48,18 @@ public class Static {
                         return;
                     }
                 }
-                this.f17422a = customResponsedMessage;
+                this.f17461a = customResponsedMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.r0.z0.f0
+            @Override // d.a.o0.z0.f0
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    if (this.f17422a.getData() instanceof String) {
-                        g.a((String) this.f17422a.getData());
+                    if (this.f17461a.getData() instanceof String) {
+                        g.a((String) this.f17461a.getData());
                         return null;
                     }
                     return null;
@@ -68,7 +68,7 @@ public class Static {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public class b implements n<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +90,7 @@ public class Static {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.r0.z0.n
+            @Override // d.a.o0.z0.n
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
                 Interceptable interceptable = $ic;

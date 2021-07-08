@@ -3,6 +3,7 @@ package org.webrtc.voiceengine;
 import android.media.AudioDeviceInfo;
 import android.media.AudioManager;
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -18,7 +19,8 @@ import java.util.Arrays;
 import java.util.List;
 import org.webrtc.ContextUtils;
 import org.webrtc.Logging;
-/* loaded from: classes10.dex */
+import org.webrtc.MediaStreamTrack;
+/* loaded from: classes9.dex */
 public final class WebRtcAudioUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] BLACKLISTED_AEC_MODELS;
@@ -129,7 +131,7 @@ public final class WebRtcAudioUtils {
     public static List<String> getBlackListedModelsForAecUsage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? Arrays.asList(BLACKLISTED_AEC_MODELS) : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Arrays.asList(BLACKLISTED_AEC_MODELS) : (List) invokeV.objValue;
     }
 
     public static List<String> getBlackListedModelsForNsUsage() {
@@ -252,7 +254,7 @@ public final class WebRtcAudioUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65551, null, str) == null) {
             logDeviceInfo(str);
-            AudioManager audioManager = (AudioManager) ContextUtils.getApplicationContext().getSystemService("audio");
+            AudioManager audioManager = (AudioManager) ContextUtils.getApplicationContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
             logAudioStateBasic(str, audioManager);
             logAudioStateVolume(str, audioManager);
             logAudioDeviceInfo(str, audioManager);

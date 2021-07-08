@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f72965a;
+    public final String f70068a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<String> f72966b;
+    public final List<String> f70069b;
 
     public c(String str, List<String> list) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public abstract class c {
                 return;
             }
         }
-        this.f72965a = str;
-        this.f72966b = Collections.unmodifiableList(list);
+        this.f70068a = str;
+        this.f70069b = Collections.unmodifiableList(list);
     }
 }

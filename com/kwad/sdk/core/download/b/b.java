@@ -1,6 +1,8 @@
 package com.kwad.sdk.core.download.b;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
@@ -9,8 +11,6 @@ import androidx.annotation.UiThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,127 +19,61 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.KsAppDownloadListener;
 import com.kwad.sdk.core.diskcache.ApkCacheManager;
-import com.kwad.sdk.core.download.DOWNLOADSTAUS;
 import com.kwad.sdk.core.download.DownloadParams;
 import com.kwad.sdk.core.download.DownloadStatusManager;
 import com.kwad.sdk.core.download.f;
+import com.kwad.sdk.core.download.g;
+import com.kwad.sdk.core.page.AdLandPageActivityProxy;
 import com.kwad.sdk.core.page.AdWebViewActivityProxy;
-import com.kwad.sdk.core.report.b;
+import com.kwad.sdk.core.report.a;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.export.proxy.AdDownloadProxy;
-import com.kwad.sdk.utils.y;
+import com.kwad.sdk.utils.ac;
+import com.kwad.sdk.utils.an;
+import com.kwad.sdk.utils.r;
+import com.kwad.sdk.utils.s;
 import java.io.File;
-import java.util.HashSet;
-import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b implements com.kwad.sdk.core.download.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f36056a;
+    public Handler f34345a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f36057b;
+    public AdTemplate f34346b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public AdInfo f36058c;
+    public AdInfo f34347c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f36059d;
+    public JSONObject f34348d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f36060e;
+    public long f34349e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f36061f;
+    public boolean f34350f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f36062g;
+    public boolean f34351g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f36063h;
+    public a f34352h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HashSet<KsAppDownloadListener> f36064i;
+    public List<KsAppDownloadListener> f34353i;
 
-    /* renamed from: com.kwad.sdk.core.download.b.b$5  reason: invalid class name */
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass5 {
-        public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f36069a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(595524615, "Lcom/kwad/sdk/core/download/b/b$5;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(595524615, "Lcom/kwad/sdk/core/download/b/b$5;");
-                    return;
-                }
-            }
-            int[] iArr = new int[DOWNLOADSTAUS.values().length];
-            f36069a = iArr;
-            try {
-                iArr[DOWNLOADSTAUS.UNKNOWN.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                f36069a[DOWNLOADSTAUS.START.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                f36069a[DOWNLOADSTAUS.DOWNLOADING.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                f36069a[DOWNLOADSTAUS.PROGRESS.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                f36069a[DOWNLOADSTAUS.PAUSED.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                f36069a[DOWNLOADSTAUS.FAILED.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
-            try {
-                f36069a[DOWNLOADSTAUS.FINISHED.ordinal()] = 7;
-            } catch (NoSuchFieldError unused7) {
-            }
-            try {
-                f36069a[DOWNLOADSTAUS.INSTALL.ordinal()] = 8;
-            } catch (NoSuchFieldError unused8) {
-            }
-            try {
-                f36069a[DOWNLOADSTAUS.INSTALL_FINSHED.ordinal()] = 9;
-            } catch (NoSuchFieldError unused9) {
-            }
-            try {
-                f36069a[DOWNLOADSTAUS.INSTALL_FAILED.ordinal()] = 10;
-            } catch (NoSuchFieldError unused10) {
-            }
-            try {
-                f36069a[DOWNLOADSTAUS.CANCELLED.ordinal()] = 11;
-            } catch (NoSuchFieldError unused11) {
-            }
-            try {
-                f36069a[DOWNLOADSTAUS.DELETED.ordinal()] = 12;
-            } catch (NoSuchFieldError unused12) {
-            }
-        }
+    /* loaded from: classes6.dex */
+    public interface a {
+        boolean a(DialogInterface.OnClickListener onClickListener);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -220,114 +154,131 @@ public class b implements com.kwad.sdk.core.download.d {
                 return;
             }
         }
-        this.f36056a = new Handler(Looper.getMainLooper());
-        this.f36064i = new HashSet<>();
-        this.f36057b = adTemplate;
-        this.f36058c = com.kwad.sdk.core.response.b.c.j(adTemplate);
-        this.f36059d = jSONObject;
+        this.f34345a = new Handler(Looper.getMainLooper());
+        this.f34353i = new ArrayList();
+        this.f34346b = adTemplate;
+        this.f34347c = com.kwad.sdk.core.response.b.c.i(adTemplate);
+        this.f34348d = jSONObject;
         if (ksAppDownloadListener != null) {
             a(ksAppDownloadListener);
         }
-        DownloadStatusManager.a().a(this, this.f36057b);
-        DownloadStatusManager.a().a(this.f36057b);
-        this.f36063h = com.kwad.sdk.core.response.b.c.j(this.f36057b).downloadSafeInfo.downloadPauseEnable;
+        DownloadStatusManager.a().a(this, this.f34346b);
+        DownloadStatusManager.a().a(this.f34346b);
+        this.f34351g = com.kwad.sdk.core.response.b.a.ak(com.kwad.sdk.core.response.b.c.i(this.f34346b));
     }
 
-    public static void a(b bVar, boolean z) {
+    private int b(Context context, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(AdIconUtil.BAIDU_LOGO_ID, null, bVar, z) == null) || bVar == null) {
-            return;
-        }
-        bVar.a(z);
-    }
-
-    private void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65543, this, z) == null) {
-            this.f36062g = z;
-        }
-    }
-
-    private void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, this, context) == null) {
-            String str = this.f36058c.adConversionInfo.marketUrl;
-            com.kwad.sdk.core.d.a.b("ApkDownloadHelper", "Market URL Schema=" + str);
-            if (!TextUtils.isEmpty(str) ? com.kwad.sdk.utils.e.a(KsAdSDKImpl.get().getContext(), str, this.f36058c.adBaseInfo.appPackageName) : false) {
-                com.kwad.sdk.core.report.b.j(this.f36057b);
-            } else if (c(context)) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(AdIconUtil.BAIDU_LOGO_ID, this, context, z)) == null) {
+            String str = this.f34347c.adConversionInfo.marketUrl;
+            if (!TextUtils.isEmpty(str) ? com.kwad.sdk.utils.e.a(KsAdSDKImpl.get().getContext(), str, this.f34347c.adBaseInfo.appPackageName) : false) {
+                com.kwad.sdk.core.report.a.k(this.f34346b);
+                return 0;
+            } else if (!com.ksad.download.d.b.a(context)) {
+                r.a(context, s.a(context));
+                return 0;
+            } else if (c(context, z)) {
+                return 0;
             } else {
-                j();
+                n();
+                return 1;
             }
         }
+        return invokeLZ.intValue;
     }
 
-    private boolean c(Context context) {
-        InterceptResult invokeL;
+    private boolean c(Context context, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, context)) == null) {
-            if (context == null || com.kwad.sdk.core.download.a.b.a() || this.f36058c.status == DOWNLOADSTAUS.PAUSED || !com.kwad.sdk.core.download.a.b.b(context, this.f36057b)) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65545, this, context, z)) == null) {
+            if (context == null) {
                 return false;
             }
-            return com.kwad.sdk.core.download.a.b.a(context, this.f36057b);
+            if (l()) {
+                return true;
+            }
+            if (!com.kwad.sdk.core.config.c.W() || an.a(this.f34347c.downloadSafeInfo.autoDownloadUrl)) {
+                if (com.kwad.sdk.core.download.a.b.a() || this.f34347c.status == 4 || !com.kwad.sdk.core.download.a.b.b(context, this.f34346b) || z) {
+                    return false;
+                }
+                return com.kwad.sdk.core.download.a.b.a(context, this.f34346b);
+            } else if (this.f34347c.status == 4 || !com.kwad.sdk.core.response.b.c.b(this.f34346b) || AdLandPageActivityProxy.isDownloadDialogShowing()) {
+                return false;
+            } else {
+                AdLandPageActivityProxy.launch(context, this.f34346b, this.f34347c.downloadSafeInfo.autoDownloadUrl);
+                return true;
+            }
         }
-        return invokeL.booleanValue;
+        return invokeLZ.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(@NonNull KsAppDownloadListener ksAppDownloadListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, this, ksAppDownloadListener) == null) {
-            AdInfo adInfo = this.f36058c;
+        if (interceptable == null || interceptable.invokeL(65546, this, ksAppDownloadListener) == null) {
+            AdInfo adInfo = this.f34347c;
             int i2 = adInfo.progress;
-            switch (AnonymousClass5.f36069a[adInfo.status.ordinal()]) {
-                case 1:
-                    ksAppDownloadListener.onIdle();
+            int i3 = adInfo.status;
+            if (i3 == 0) {
+                ksAppDownloadListener.onIdle();
+            } else if (i3 == 1) {
+                ksAppDownloadListener.onProgressUpdate(0);
+                if (ksAppDownloadListener instanceof c) {
+                    ((c) ksAppDownloadListener).onDownloadStarted();
                     return;
-                case 2:
-                    ksAppDownloadListener.onProgressUpdate(0);
-                    try {
-                        ksAppDownloadListener.onDownloadStarted();
-                        return;
-                    } catch (Throwable th) {
-                        com.kwad.sdk.core.d.a.b(th);
-                        return;
-                    }
-                case 3:
-                case 4:
-                    ksAppDownloadListener.onProgressUpdate(i2);
-                    return;
-                case 5:
-                    if (ksAppDownloadListener instanceof c) {
-                        ((c) ksAppDownloadListener).a(i2);
-                        return;
-                    }
-                    return;
-                case 6:
-                    ksAppDownloadListener.onDownloadFailed();
-                    return;
-                case 7:
-                case 8:
-                    ksAppDownloadListener.onDownloadFinished();
-                    return;
-                case 9:
-                    ksAppDownloadListener.onInstalled();
-                    return;
-                default:
-                    return;
+                }
+                try {
+                    ksAppDownloadListener.onDownloadStarted();
+                } catch (Throwable th) {
+                    com.kwad.sdk.core.d.a.b(th);
+                }
+            } else if (i3 == 2 || i3 == 3) {
+                ksAppDownloadListener.onProgressUpdate(i2);
+            } else if (i3 == 4) {
+                if (ksAppDownloadListener instanceof c) {
+                    ((c) ksAppDownloadListener).a(i2);
+                }
+            } else if (i3 == 7) {
+                ksAppDownloadListener.onDownloadFailed();
+            } else if (i3 == 8 || i3 == 9) {
+                ksAppDownloadListener.onDownloadFinished();
+            } else if (i3 != 12) {
+            } else {
+                ksAppDownloadListener.onInstalled();
             }
         }
     }
 
-    private void g() {
+    private boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            this.f36056a.post(new Runnable(this) { // from class: com.kwad.sdk.core.download.b.b.3
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+            boolean z = false;
+            if (Build.VERSION.SDK_INT < 29) {
+                if (this.f34346b.mIsFromContent && com.kwad.sdk.core.config.c.I()) {
+                    z = m();
+                    if (z) {
+                        com.kwad.sdk.core.report.a.f(this.f34346b);
+                    }
+                } else if (!this.f34346b.mIsFromContent && com.kwad.sdk.core.config.c.am() && (z = m())) {
+                    com.kwad.sdk.core.report.a.g(this.f34346b);
+                }
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
+            this.f34345a.post(new Runnable(this) { // from class: com.kwad.sdk.core.download.b.b.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f36067a;
+                public final /* synthetic */ b f34357a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -344,18 +295,18 @@ public class b implements com.kwad.sdk.core.download.d {
                             return;
                         }
                     }
-                    this.f36067a = this;
+                    this.f34357a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        Iterator it = this.f36067a.f36064i.iterator();
-                        while (it.hasNext()) {
-                            KsAppDownloadListener ksAppDownloadListener = (KsAppDownloadListener) it.next();
+                        ArrayList<KsAppDownloadListener> arrayList = new ArrayList(this.f34357a.f34353i.size());
+                        arrayList.addAll(this.f34357a.f34353i);
+                        for (KsAppDownloadListener ksAppDownloadListener : arrayList) {
                             if (ksAppDownloadListener != null) {
-                                this.f36067a.d(ksAppDownloadListener);
+                                this.f34357a.d(ksAppDownloadListener);
                             }
                         }
                     }
@@ -364,267 +315,73 @@ public class b implements com.kwad.sdk.core.download.d {
         }
     }
 
-    private void h() {
+    private void j() {
         AdDownloadProxy proxyForDownload;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            String str = this.f36058c.adBaseInfo.appPackageName;
+        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
+            String str = this.f34347c.adBaseInfo.appPackageName;
             Context context = KsAdSDKImpl.get().getContext();
             if (context == null) {
                 return;
             }
-            if (y.a(context, str)) {
-                this.f36058c.status = DOWNLOADSTAUS.INSTALL_FINSHED;
+            if (ac.a(context, str)) {
+                this.f34347c.status = 12;
                 return;
             }
-            AdInfo adInfo = this.f36058c;
-            if (adInfo.status == DOWNLOADSTAUS.INSTALL_FINSHED) {
-                adInfo.status = DOWNLOADSTAUS.UNKNOWN;
+            AdInfo adInfo = this.f34347c;
+            if (adInfo.status == 12) {
+                adInfo.status = 0;
                 adInfo.progress = 0;
             }
-            AdInfo adInfo2 = this.f36058c;
-            if (adInfo2.status == DOWNLOADSTAUS.FINISHED) {
+            AdInfo adInfo2 = this.f34347c;
+            if (adInfo2.status == 8) {
                 String str2 = adInfo2.downloadFilePath;
                 if (TextUtils.isEmpty(str2) || !new File(str2).exists()) {
-                    AdInfo adInfo3 = this.f36058c;
-                    adInfo3.status = DOWNLOADSTAUS.UNKNOWN;
+                    AdInfo adInfo3 = this.f34347c;
+                    adInfo3.status = 0;
                     adInfo3.progress = 0;
                 }
             }
-            if (this.f36058c.status != DOWNLOADSTAUS.UNKNOWN || (proxyForDownload = KsAdSDKImpl.get().getProxyForDownload()) == null) {
+            if (this.f34347c.status != 0 || (proxyForDownload = KsAdSDKImpl.get().getProxyForDownload()) == null) {
                 return;
             }
-            String downloadFilePath = proxyForDownload.getDownloadFilePath(DownloadParams.transfrom(this.f36058c));
+            String downloadFilePath = proxyForDownload.getDownloadFilePath(DownloadParams.transfrom(this.f34347c));
             if (TextUtils.isEmpty(downloadFilePath) || !new File(downloadFilePath).exists()) {
                 return;
             }
-            AdInfo adInfo4 = this.f36058c;
+            AdInfo adInfo4 = this.f34347c;
             adInfo4.downloadFilePath = downloadFilePath;
-            adInfo4.status = DOWNLOADSTAUS.FINISHED;
+            adInfo4.status = 8;
         }
     }
 
-    private boolean i() {
+    private boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
-            String str = this.f36058c.adConversionInfo.marketUrl;
-            com.kwad.sdk.core.d.a.b("ApkDownloadHelper", "isMarKet URL Schema=" + str);
-            boolean a2 = !TextUtils.isEmpty(str) ? com.kwad.sdk.utils.e.a(KsAdSDKImpl.get().getContext(), str, this.f36058c.adBaseInfo.appPackageName) : false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
+            String str = this.f34347c.adConversionInfo.marketUrl;
+            com.kwad.sdk.core.d.a.c("ApkDownloadHelper", "isMarKet URL Schema=" + str);
+            boolean a2 = !TextUtils.isEmpty(str) ? com.kwad.sdk.utils.e.a(KsAdSDKImpl.get().getContext(), str, this.f34347c.adBaseInfo.appPackageName) : false;
             if (a2) {
-                com.kwad.sdk.core.report.b.j(this.f36057b);
+                com.kwad.sdk.core.report.a.k(this.f34346b);
             }
             return a2;
         }
         return invokeV.booleanValue;
     }
 
-    private void j() {
-        Context context;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65551, this) == null) || (context = KsAdSDKImpl.get().getContext()) == null) {
-            return;
-        }
-        if (com.ksad.download.d.b.a(context)) {
-            com.kwad.sdk.core.download.e.a(context, this.f36058c);
-        } else {
-            com.kwad.sdk.core.d.a.d("ApkDownloadHelper", "no network while download app");
-        }
-    }
-
-    private void k() {
-        Context context;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65552, this) == null) || (context = KsAdSDKImpl.get().getContext()) == null) {
-            return;
-        }
-        com.kwad.sdk.core.download.e.a(context, this.f36058c.downloadId);
-    }
-
-    @Override // com.kwad.sdk.core.download.d
-    public String a() {
+    private boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36058c.downloadId : (String) invokeV.objValue;
-    }
-
-    public void a(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f36057b.downloadSource = i2;
-        }
-    }
-
-    public void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.f36061f = false;
-            h();
-            switch (AnonymousClass5.f36069a[this.f36058c.status.ordinal()]) {
-                case 1:
-                case 2:
-                case 5:
-                case 6:
-                case 11:
-                case 12:
-                    b(context);
-                    break;
-                case 3:
-                case 4:
-                    if (this.f36062g && this.f36063h) {
-                        k();
-                        break;
-                    }
-                    break;
-                case 7:
-                case 8:
-                case 10:
-                    e();
-                    break;
-                case 9:
-                    d();
-                    break;
-            }
-            this.f36062g = false;
-        }
-    }
-
-    @UiThread
-    public void a(KsAppDownloadListener ksAppDownloadListener) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, ksAppDownloadListener) == null) || ksAppDownloadListener == null) {
-            return;
-        }
-        this.f36064i.add(ksAppDownloadListener);
-        h();
-        d(ksAppDownloadListener);
-    }
-
-    @Override // com.kwad.sdk.core.download.d
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f36058c.status = DOWNLOADSTAUS.INSTALLING;
-            g();
-        }
-    }
-
-    @Override // com.kwad.sdk.core.download.d
-    public void a(String str, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIII(1048581, this, str, i2, i3, i4) == null) && this.f36058c.downloadId.equals(str)) {
-            AdInfo adInfo = this.f36058c;
-            adInfo.status = DOWNLOADSTAUS.PROGRESS;
-            adInfo.progress = i2;
-            adInfo.soFarBytes = i3;
-            adInfo.totalBytes = i4;
-            g();
-        }
-    }
-
-    @Override // com.kwad.sdk.core.download.d
-    public void a(String str, int i2, f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048582, this, str, i2, fVar) == null) {
-            if (fVar.b()) {
-                com.kwad.sdk.core.report.b.d(this.f36057b);
-                fVar.a();
-            }
-            com.kwad.sdk.utils.f.a(new Runnable(this) { // from class: com.kwad.sdk.core.download.b.b.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f36066a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f36066a = this;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        com.kwad.sdk.home.download.a.a().b(this.f36066a.f36057b);
-                        com.kwad.sdk.home.download.a.a().c(this.f36066a.f36057b);
-                    }
-                }
-            });
-            com.kwad.sdk.core.a.a().d(com.kwad.sdk.core.response.b.c.j(this.f36057b).downloadId);
-            this.f36058c.status = DOWNLOADSTAUS.INSTALL_FINSHED;
-            g();
-        }
-    }
-
-    @Override // com.kwad.sdk.core.download.d
-    public void a(String str, int i2, String str2, f fVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLILL(1048583, this, str, i2, str2, fVar) == null) && this.f36058c.downloadId.equals(str)) {
-            this.f36058c.status = DOWNLOADSTAUS.FAILED;
-            g();
-            if (fVar.b()) {
-                b.a aVar = new b.a(i2, str2);
-                com.kwad.sdk.core.report.b.a(this.f36057b, aVar);
-                com.kwad.sdk.core.report.e.d(this.f36057b, this.f36058c.adConversionInfo.appDownloadUrl, aVar.toJson().toString());
-                fVar.a();
-            }
-            if (this.f36058c.adConversionInfo.retryH5TimeStep <= 0 || this.f36061f) {
-                return;
-            }
-            long currentTimeMillis = System.currentTimeMillis() - this.f36060e;
-            AdInfo adInfo = this.f36058c;
-            if (currentTimeMillis >= adInfo.adConversionInfo.retryH5TimeStep || TextUtils.isEmpty(com.kwad.sdk.core.response.b.a.B(adInfo))) {
-                return;
-            }
-            AdWebViewActivityProxy.launch(KsAdSDKImpl.get().getContext(), this.f36057b);
-            this.f36061f = true;
-        }
-    }
-
-    @Override // com.kwad.sdk.core.download.d
-    public void a(String str, f fVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, fVar) == null) && this.f36058c.downloadId.equals(str)) {
-            if (this.f36058c.status != DOWNLOADSTAUS.START) {
-                if (fVar.b()) {
-                    com.kwad.sdk.core.report.b.b(this.f36057b);
-                    fVar.a();
-                }
-                this.f36060e = System.currentTimeMillis();
-            }
-            this.f36058c.status = DOWNLOADSTAUS.START;
-            g();
-        }
-    }
-
-    @Override // com.kwad.sdk.core.download.d
-    public void a(String str, String str2, f fVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048585, this, str, str2, fVar) == null) && this.f36058c.downloadId.equals(str)) {
-            AdInfo adInfo = this.f36058c;
-            adInfo.downloadFilePath = str2;
-            adInfo.progress = 100;
-            if (adInfo.status != DOWNLOADSTAUS.FINISHED && !this.f36057b.mDownloadFinishReported) {
-                com.kwad.sdk.utils.f.a(new Runnable(this) { // from class: com.kwad.sdk.core.download.b.b.1
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
+            a aVar = this.f34352h;
+            if (aVar != null) {
+                return aVar.a(new DialogInterface.OnClickListener(this) { // from class: com.kwad.sdk.core.download.b.b.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ b f36065a;
+                    public final /* synthetic */ b f34358a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -641,25 +398,377 @@ public class b implements com.kwad.sdk.core.download.d {
                                 return;
                             }
                         }
-                        this.f36065a = this;
+                        this.f34358a = this;
+                    }
+
+                    @Override // android.content.DialogInterface.OnClickListener
+                    public void onClick(DialogInterface dialogInterface, int i2) {
+                        Interceptable interceptable2 = $ic;
+                        if ((interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) && i2 == -1) {
+                            switch (this.f34358a.f34347c.status) {
+                                case 0:
+                                case 1:
+                                case 4:
+                                case 5:
+                                case 6:
+                                case 7:
+                                    this.f34358a.n();
+                                    return;
+                                case 2:
+                                case 3:
+                                case 10:
+                                default:
+                                    return;
+                                case 8:
+                                case 9:
+                                case 11:
+                                    this.f34358a.e();
+                                    return;
+                                case 12:
+                                    this.f34358a.d();
+                                    return;
+                            }
+                        }
+                    }
+                });
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65553, this)) == null) {
+            String q = com.kwad.sdk.core.response.b.a.q(this.f34347c);
+            Context context = KsAdSDKImpl.get().getContext();
+            com.kwad.sdk.core.d.a.a("ApkDownloadHelper", "run forceOpenApp appContext:" + context + "--appPkgName:" + q);
+            if (d.a(context, this.f34346b, 1) == 1) {
+                return true;
+            }
+            if (context == null || TextUtils.isEmpty(q)) {
+                com.kwad.sdk.core.d.a.e("ApkDownloadHelper", "forceOpenApp fail appContext:" + context + "--appPkgName:" + q);
+                return false;
+            }
+            return ac.c(context, q);
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void n() {
+        Context context;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65554, this) == null) || (context = KsAdSDKImpl.get().getContext()) == null) {
+            return;
+        }
+        if (com.ksad.download.d.b.a(context)) {
+            com.kwad.sdk.core.download.e.a(context, this.f34347c);
+        } else {
+            com.kwad.sdk.core.d.a.e("ApkDownloadHelper", "no network while download app");
+        }
+    }
+
+    private void o() {
+        Context context;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65555, this) == null) || (context = KsAdSDKImpl.get().getContext()) == null) {
+            return;
+        }
+        com.kwad.sdk.core.download.e.a(context, this.f34347c.downloadId);
+    }
+
+    public int a(Context context, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, context, z)) == null) ? a(context, z, false) : invokeLZ.intValue;
+    }
+
+    public int a(Context context, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            this.f34350f = false;
+            j();
+            switch (this.f34347c.status) {
+                case 0:
+                case 1:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                    return b(context, z2);
+                case 2:
+                case 3:
+                    if (z && this.f34351g) {
+                        o();
+                        return 0;
+                    }
+                    return 1;
+                case 8:
+                case 9:
+                case 11:
+                    e();
+                    return 0;
+                case 10:
+                default:
+                    return 0;
+                case 12:
+                    d();
+                    return 0;
+            }
+        }
+        return invokeCommon.intValue;
+    }
+
+    @Override // com.kwad.sdk.core.download.d
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34347c.downloadId : (String) invokeV.objValue;
+    }
+
+    public void a(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+            this.f34346b.downloadSource = i2;
+        }
+    }
+
+    @UiThread
+    public void a(KsAppDownloadListener ksAppDownloadListener) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, ksAppDownloadListener) == null) || ksAppDownloadListener == null) {
+            return;
+        }
+        if (Looper.myLooper() != Looper.getMainLooper()) {
+            this.f34345a.post(new Runnable(this, ksAppDownloadListener) { // from class: com.kwad.sdk.core.download.b.b.6
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ KsAppDownloadListener f34360a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ b f34361b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, ksAppDownloadListener};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f34361b = this;
+                    this.f34360a = ksAppDownloadListener;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f34361b.f34353i.contains(this.f34360a)) {
+                        return;
+                    }
+                    this.f34361b.f34353i.add(0, this.f34360a);
+                }
+            });
+        } else if (!this.f34353i.contains(ksAppDownloadListener)) {
+            this.f34353i.add(0, ksAppDownloadListener);
+        }
+        j();
+        d(ksAppDownloadListener);
+    }
+
+    public void a(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+            this.f34352h = aVar;
+        }
+    }
+
+    @Override // com.kwad.sdk.core.download.d
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.f34347c.status = 10;
+            i();
+        }
+    }
+
+    @Override // com.kwad.sdk.core.download.d
+    public void a(String str, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLIII(1048583, this, str, i2, i3, i4) == null) && this.f34347c.downloadId.equals(str)) {
+            AdInfo adInfo = this.f34347c;
+            adInfo.status = 3;
+            adInfo.progress = i2;
+            adInfo.soFarBytes = i3;
+            adInfo.totalBytes = i4;
+            i();
+        }
+    }
+
+    @Override // com.kwad.sdk.core.download.d
+    public void a(String str, int i2, g gVar) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2, gVar) == null) {
+            AdInfo i3 = com.kwad.sdk.core.response.b.c.i(this.f34346b);
+            if (gVar.b()) {
+                com.kwad.sdk.core.report.a.c(this.f34346b);
+                gVar.a();
+                z = h();
+                f.a().b(i3, this.f34346b);
+            } else {
+                z = false;
+            }
+            com.kwad.sdk.utils.g.a(new Runnable(this, z) { // from class: com.kwad.sdk.core.download.b.b.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ boolean f34355a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ b f34356b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Boolean.valueOf(z)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i4 = newInitContext.flag;
+                        if ((i4 & 1) != 0) {
+                            int i5 = i4 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f34356b = this;
+                    this.f34355a = z;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        com.kwad.sdk.home.download.a.a().b(this.f34356b.f34346b);
+                        if (this.f34355a) {
+                            return;
+                        }
+                        com.kwad.sdk.home.download.a.a().c(this.f34356b.f34346b);
+                    }
+                }
+            });
+            com.kwad.sdk.core.a.a().d(i3.downloadId);
+            this.f34347c.status = 12;
+            i();
+        }
+    }
+
+    @Override // com.kwad.sdk.core.download.d
+    public void a(String str, int i2, String str2, g gVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLILL(1048585, this, str, i2, str2, gVar) == null) && this.f34347c.downloadId.equals(str)) {
+            this.f34347c.status = 7;
+            i();
+            if (gVar.b()) {
+                a.C0421a c0421a = new a.C0421a(i2, str2);
+                com.kwad.sdk.core.report.a.a(this.f34346b, c0421a);
+                com.kwad.sdk.core.report.d.b(this.f34346b, this.f34347c.adConversionInfo.appDownloadUrl, c0421a.toJson().toString());
+                gVar.a();
+            }
+            if (this.f34347c.adConversionInfo.retryH5TimeStep <= 0 || this.f34350f) {
+                return;
+            }
+            long currentTimeMillis = System.currentTimeMillis() - this.f34349e;
+            AdInfo adInfo = this.f34347c;
+            if (currentTimeMillis >= adInfo.adConversionInfo.retryH5TimeStep || TextUtils.isEmpty(com.kwad.sdk.core.response.b.a.y(adInfo))) {
+                return;
+            }
+            AdWebViewActivityProxy.launch(KsAdSDKImpl.get().getContext(), this.f34346b);
+            this.f34350f = true;
+        }
+    }
+
+    @Override // com.kwad.sdk.core.download.d
+    public void a(String str, g gVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048586, this, str, gVar) == null) && this.f34347c.downloadId.equals(str)) {
+            if (this.f34347c.status != 1) {
+                if (gVar.b()) {
+                    com.kwad.sdk.core.report.a.b(this.f34346b);
+                    gVar.a();
+                }
+                this.f34349e = System.currentTimeMillis();
+            }
+            this.f34347c.status = 1;
+            i();
+        }
+    }
+
+    @Override // com.kwad.sdk.core.download.d
+    public void a(String str, String str2, g gVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048587, this, str, str2, gVar) == null) && this.f34347c.downloadId.equals(str)) {
+            AdInfo adInfo = this.f34347c;
+            adInfo.downloadFilePath = str2;
+            adInfo.progress = 100;
+            if (adInfo.status != 8 && !this.f34346b.mDownloadFinishReported) {
+                com.kwad.sdk.utils.g.a(new Runnable(this) { // from class: com.kwad.sdk.core.download.b.b.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ b f34354a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f34354a = this;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            com.kwad.sdk.home.download.a.a().a(this.f36065a.f36057b);
+                            com.kwad.sdk.home.download.a.a().a(this.f34354a.f34346b);
                         }
                     }
                 });
-                if (fVar.b()) {
-                    com.kwad.sdk.core.report.b.e(this.f36057b, this.f36059d);
-                    fVar.a();
+                if (gVar.b()) {
+                    com.kwad.sdk.core.report.a.e(this.f34346b, this.f34348d);
+                    gVar.a();
                 }
-                this.f36057b.mDownloadFinishReported = true;
+                f.a().a(this.f34347c, this.f34346b);
+                this.f34346b.mDownloadFinishReported = true;
             }
-            this.f36058c.status = DOWNLOADSTAUS.FINISHED;
-            g();
+            this.f34347c.status = 8;
+            i();
             ApkCacheManager.a().b();
         }
     }
@@ -668,102 +777,143 @@ public class b implements com.kwad.sdk.core.download.d {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f36058c.adBaseInfo.appPackageName : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f34347c.adBaseInfo.appPackageName : (String) invokeV.objValue;
     }
 
     public void b(KsAppDownloadListener ksAppDownloadListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, ksAppDownloadListener) == null) || ksAppDownloadListener == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, ksAppDownloadListener) == null) || ksAppDownloadListener == null) {
             return;
         }
-        this.f36064i.remove(ksAppDownloadListener);
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            this.f34353i.remove(ksAppDownloadListener);
+        } else {
+            this.f34345a.post(new Runnable(this, ksAppDownloadListener) { // from class: com.kwad.sdk.core.download.b.b.7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ KsAppDownloadListener f34362a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ b f34363b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, ksAppDownloadListener};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f34363b = this;
+                    this.f34362a = ksAppDownloadListener;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.f34363b.f34353i.remove(this.f34362a);
+                    }
+                }
+            });
+        }
     }
 
     @Override // com.kwad.sdk.core.download.d
     public void b(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && this.f36058c.downloadId.equals(str)) {
-            this.f36058c.status = DOWNLOADSTAUS.INSTALL_FAILED;
-            g();
+        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && this.f34347c.downloadId.equals(str)) {
+            this.f34347c.status = 11;
+            i();
         }
     }
 
     @Override // com.kwad.sdk.core.download.d
-    public void b(String str, f fVar) {
+    public void b(String str, g gVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048589, this, str, fVar) == null) && this.f36058c.downloadId.equals(str)) {
-            if (this.f36058c.status != DOWNLOADSTAUS.PAUSED && fVar.b()) {
-                com.kwad.sdk.core.report.b.c(this.f36057b, this.f36059d);
-                fVar.a();
+        if ((interceptable == null || interceptable.invokeLL(1048591, this, str, gVar) == null) && this.f34347c.downloadId.equals(str)) {
+            if (this.f34347c.status != 4 && gVar.b()) {
+                com.kwad.sdk.core.report.a.c(this.f34346b, this.f34348d);
+                gVar.a();
             }
-            this.f36058c.status = DOWNLOADSTAUS.PAUSED;
-            g();
+            this.f34347c.status = 4;
+            i();
         }
     }
 
     public void c(KsAppDownloadListener ksAppDownloadListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, ksAppDownloadListener) == null) || ksAppDownloadListener == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, ksAppDownloadListener) == null) || ksAppDownloadListener == null) {
             return;
         }
-        h();
+        j();
         d(ksAppDownloadListener);
     }
 
     @Override // com.kwad.sdk.core.download.d
-    public void c(String str, f fVar) {
+    public void c(String str, g gVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048591, this, str, fVar) == null) && this.f36058c.downloadId.equals(str)) {
-            if (this.f36058c.status != DOWNLOADSTAUS.DOWNLOADING && fVar.b()) {
-                com.kwad.sdk.core.report.b.d(this.f36057b, this.f36059d);
-                fVar.a();
+        if ((interceptable == null || interceptable.invokeLL(1048593, this, str, gVar) == null) && this.f34347c.downloadId.equals(str)) {
+            if (this.f34347c.status != 2 && gVar.b()) {
+                com.kwad.sdk.core.report.a.d(this.f34346b, this.f34348d);
+                gVar.a();
             }
-            this.f36058c.status = DOWNLOADSTAUS.DOWNLOADING;
-            g();
+            this.f34347c.status = 2;
+            i();
         }
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            int i2 = AnonymousClass5.f36069a[this.f36058c.status.ordinal()];
-            if (i2 != 1 && i2 != 2) {
-                switch (i2) {
-                    case 5:
-                    case 6:
-                    case 11:
-                    case 12:
-                        break;
-                    case 7:
-                    case 8:
-                    case 10:
-                        e();
-                        return true;
-                    case 9:
-                        d();
-                        return true;
-                    default:
-                        return false;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            switch (this.f34347c.status) {
+                case 0:
+                case 1:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                    return k();
+                case 2:
+                case 3:
+                case 10:
+                default:
+                    return false;
+                case 8:
+                case 9:
+                case 11:
+                    e();
+                    return true;
+                case 12:
+                    d();
+                    return true;
             }
-            return i();
         }
         return invokeV.booleanValue;
     }
 
     public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            String str = this.f36058c.adBaseInfo.appPackageName;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            String str = this.f34347c.adBaseInfo.appPackageName;
             Context context = KsAdSDKImpl.get().getContext();
             if (context != null && !TextUtils.isEmpty(str)) {
-                com.kwad.sdk.utils.f.a(new Runnable(this) { // from class: com.kwad.sdk.core.download.b.b.4
+                com.kwad.sdk.utils.g.a(new Runnable(this) { // from class: com.kwad.sdk.core.download.b.b.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ b f36068a;
+                    public final /* synthetic */ b f34359a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -780,81 +930,87 @@ public class b implements com.kwad.sdk.core.download.d {
                                 return;
                             }
                         }
-                        this.f36068a = this;
+                        this.f34359a = this;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            com.kwad.sdk.home.download.a.a().d(this.f36068a.f36057b);
+                            com.kwad.sdk.home.download.a.a().d(this.f34359a.f34346b);
                         }
                     }
                 });
-                com.kwad.sdk.core.report.b.f(this.f36057b);
-                y.b(context, str);
+                com.kwad.sdk.core.report.a.e(this.f34346b);
+                ac.c(context, str);
                 return;
             }
-            com.kwad.sdk.core.d.a.d("ApkDownloadHelper", "openApp fail appContext:" + context + "--appPkgName:" + str);
+            com.kwad.sdk.core.d.a.e("ApkDownloadHelper", "openApp fail appContext:" + context + "--appPkgName:" + str);
         }
     }
 
     @Override // com.kwad.sdk.core.download.d
-    public void d(String str, f fVar) {
+    public void d(String str, g gVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048594, this, str, fVar) == null) && this.f36058c.downloadId.equals(str)) {
-            if (this.f36058c.status != DOWNLOADSTAUS.CANCELLED && fVar.b()) {
-                com.kwad.sdk.core.report.b.f(this.f36057b, this.f36059d);
-                fVar.a();
+        if ((interceptable == null || interceptable.invokeLL(1048596, this, str, gVar) == null) && this.f34347c.downloadId.equals(str)) {
+            if (this.f34347c.status != 5 && gVar.b()) {
+                com.kwad.sdk.core.report.a.f(this.f34346b, this.f34348d);
+                gVar.a();
             }
-            this.f36058c.status = DOWNLOADSTAUS.CANCELLED;
-            g();
+            this.f34347c.status = 5;
+            i();
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            String str = this.f36058c.downloadFilePath;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            String str = this.f34347c.downloadFilePath;
             Context context = KsAdSDKImpl.get().getContext();
             if (context != null && !TextUtils.isEmpty(str)) {
-                com.kwad.sdk.core.report.b.g(this.f36057b);
+                com.kwad.sdk.core.report.a.h(this.f34346b);
                 KsAdSDKImpl.get().getProxyForAdInstall().installApp(context, str);
                 return;
             }
-            com.kwad.sdk.core.d.a.d("ApkDownloadHelper", "openApp fail appContext:" + context + "--filePath:" + str);
+            com.kwad.sdk.core.d.a.e("ApkDownloadHelper", "openApp fail appContext:" + context + "--filePath:" + str);
         }
     }
 
     @Override // com.kwad.sdk.core.download.d
-    public void e(String str, f fVar) {
+    public void e(String str, g gVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048596, this, str, fVar) == null) && this.f36058c.downloadId.equals(str)) {
-            if (fVar.b()) {
-                com.kwad.sdk.core.report.b.g(this.f36057b);
-                fVar.a();
+        if ((interceptable == null || interceptable.invokeLL(1048598, this, str, gVar) == null) && this.f34347c.downloadId.equals(str)) {
+            if (gVar.b()) {
+                com.kwad.sdk.core.report.a.h(this.f34346b);
+                gVar.a();
             }
-            this.f36058c.status = DOWNLOADSTAUS.INSTALL;
-            g();
+            this.f34347c.status = 9;
+            i();
         }
     }
 
     public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            HashSet<KsAppDownloadListener> hashSet = this.f36064i;
-            if (hashSet != null) {
-                hashSet.clear();
-            }
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            g();
             DownloadStatusManager.a().a(this);
         }
     }
 
     @Override // com.kwad.sdk.core.download.d
-    public void f(String str, f fVar) {
+    public void f(String str, g gVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048598, this, str, fVar) == null) && this.f36058c.downloadId.equals(str)) {
-            com.kwad.sdk.core.report.b.e(this.f36057b);
+        if ((interceptable == null || interceptable.invokeLL(1048600, this, str, gVar) == null) && this.f34347c.downloadId.equals(str)) {
+            com.kwad.sdk.core.report.a.d(this.f34346b);
         }
+    }
+
+    public void g() {
+        List<KsAppDownloadListener> list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048601, this) == null) || (list = this.f34353i) == null) {
+            return;
+        }
+        list.clear();
     }
 }

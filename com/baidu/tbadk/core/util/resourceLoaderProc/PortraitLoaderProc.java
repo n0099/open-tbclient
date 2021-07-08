@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.l.b;
 import d.a.c.k.d.a;
-import d.a.r0.a0.c;
-/* loaded from: classes4.dex */
+import d.a.o0.a0.c;
+/* loaded from: classes3.dex */
 public class PortraitLoaderProc extends AbstractImageLoaderProc {
     public static /* synthetic */ Interceptable $ic;
     public static BdAsyncTaskParallel mBdAsyncTaskTwo;

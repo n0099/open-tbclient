@@ -22,13 +22,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class f implements d.l.a.e.b.o.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f31008a;
+    public final WeakReference<Context> f31118a;
 
     public f(Context context) {
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class f implements d.l.a.e.b.o.a {
                 return;
             }
         }
-        this.f31008a = new WeakReference<>(context);
+        this.f31118a = new WeakReference<>(context);
     }
 
     @Nullable
@@ -99,19 +99,19 @@ public class f implements d.l.a.e.b.o.a {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ InputStream f31009a;
+                    public final /* synthetic */ InputStream f31119a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Map f31010b;
+                    public final /* synthetic */ Map f31120b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ int f31011c;
+                    public final /* synthetic */ int f31121c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ HttpURLConnection f31012d;
+                    public final /* synthetic */ HttpURLConnection f31122d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ f f31013e;
+                    public final /* synthetic */ f f31123e;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -128,25 +128,25 @@ public class f implements d.l.a.e.b.o.a {
                                 return;
                             }
                         }
-                        this.f31013e = this;
-                        this.f31009a = r7;
-                        this.f31010b = a3;
-                        this.f31011c = responseCode;
-                        this.f31012d = a2;
+                        this.f31123e = this;
+                        this.f31119a = r7;
+                        this.f31120b = a3;
+                        this.f31121c = responseCode;
+                        this.f31122d = a2;
                     }
 
                     @Override // d.l.a.e.b.o.k
                     public InputStream a() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f31009a : (InputStream) invokeV.objValue;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f31119a : (InputStream) invokeV.objValue;
                     }
 
                     @Override // d.l.a.e.b.o.i
                     public int b() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31011c : invokeV.intValue;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31121c : invokeV.intValue;
                     }
 
                     @Override // d.l.a.e.b.o.i
@@ -161,7 +161,7 @@ public class f implements d.l.a.e.b.o.a {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
                             try {
-                                this.f31012d.disconnect();
+                                this.f31122d.disconnect();
                             } catch (Exception unused) {
                             }
                         }
@@ -171,7 +171,7 @@ public class f implements d.l.a.e.b.o.a {
                     public String a(String str2) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2)) == null) ? (String) this.f31010b.get(str2) : (String) invokeL.objValue;
+                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2)) == null) ? (String) this.f31120b.get(str2) : (String) invokeL.objValue;
                     }
                 };
             }

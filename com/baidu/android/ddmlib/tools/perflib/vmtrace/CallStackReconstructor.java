@@ -1,6 +1,7 @@
 package com.baidu.android.ddmlib.tools.perflib.vmtrace;
 
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.ddmlib.tools.perflib.vmtrace.Call;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -139,7 +140,7 @@ public class CallStackReconstructor {
         int i4;
         int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), list}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), list}) == null) {
             if (list == null || list.isEmpty()) {
                 int i6 = i3 + 1;
                 i4 = i2 + 1;

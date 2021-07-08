@@ -83,7 +83,7 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
     private LayoutInflater getInflater() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             if (this.mInflater == null) {
                 this.mInflater = LayoutInflater.from(getContext());
             }

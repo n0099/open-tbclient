@@ -17,25 +17,25 @@ import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Integer> f29835a;
+    public static final Map<String, Integer> f29945a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29836b;
+    public String f29946b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f29837c;
+    public String f29947c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f29838d;
+    public d f29948d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f29839e;
+    public d f29949e;
 
     static {
         InterceptResult invokeClinit;
@@ -51,39 +51,39 @@ public class c {
             }
         }
         HashMap hashMap = new HashMap();
-        f29835a = hashMap;
+        f29945a = hashMap;
         hashMap.put("title", 0);
-        f29835a.put(SubtitleLog.TAG, 0);
-        f29835a.put("source", 0);
-        f29835a.put("score-count", 0);
-        f29835a.put("text_star", 0);
-        f29835a.put("image", 1);
-        f29835a.put("image-wide", 1);
-        f29835a.put("image-square", 1);
-        f29835a.put("image-long", 1);
-        f29835a.put("image-splash", 1);
-        f29835a.put("image-cover", 1);
-        f29835a.put("app-icon", 1);
-        f29835a.put("icon-download", 1);
-        f29835a.put(AccountConstants.LOGIN_TYPE_NATIVE_SRC_STAR, 1);
-        f29835a.put("logoad", 4);
-        f29835a.put("logounion", 5);
-        f29835a.put("logo-union", 6);
-        f29835a.put("dislike", 3);
-        f29835a.put(IntentConfig.CLOSE, 3);
-        f29835a.put("close-fill", 3);
-        f29835a.put("text", 2);
-        f29835a.put("button", 2);
-        f29835a.put("downloadWithIcon", 2);
-        f29835a.put("downloadButton", 2);
-        f29835a.put("fillButton", 2);
-        f29835a.put("laceButton", 2);
-        f29835a.put("cardButton", 2);
-        f29835a.put("colourMixtureButton", 2);
-        f29835a.put("arrowButton", 2);
-        f29835a.put("vessel", 6);
-        f29835a.put("video-hd", 7);
-        f29835a.put("video-vd", 7);
+        f29945a.put(SubtitleLog.TAG, 0);
+        f29945a.put("source", 0);
+        f29945a.put("score-count", 0);
+        f29945a.put("text_star", 0);
+        f29945a.put("image", 1);
+        f29945a.put("image-wide", 1);
+        f29945a.put("image-square", 1);
+        f29945a.put("image-long", 1);
+        f29945a.put("image-splash", 1);
+        f29945a.put("image-cover", 1);
+        f29945a.put("app-icon", 1);
+        f29945a.put("icon-download", 1);
+        f29945a.put(AccountConstants.LOGIN_TYPE_NATIVE_SRC_STAR, 1);
+        f29945a.put("logoad", 4);
+        f29945a.put("logounion", 5);
+        f29945a.put("logo-union", 6);
+        f29945a.put("dislike", 3);
+        f29945a.put(IntentConfig.CLOSE, 3);
+        f29945a.put("close-fill", 3);
+        f29945a.put("text", 2);
+        f29945a.put("button", 2);
+        f29945a.put("downloadWithIcon", 2);
+        f29945a.put("downloadButton", 2);
+        f29945a.put("fillButton", 2);
+        f29945a.put("laceButton", 2);
+        f29945a.put("cardButton", 2);
+        f29945a.put("colourMixtureButton", 2);
+        f29945a.put("arrowButton", 2);
+        f29945a.put("vessel", 6);
+        f29945a.put("video-hd", 7);
+        f29945a.put("video-vd", 7);
     }
 
     public c() {
@@ -104,14 +104,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f29836b)) {
+            if (TextUtils.isEmpty(this.f29946b)) {
                 return 0;
             }
-            if (this.f29836b.equals("logo")) {
-                this.f29836b += this.f29837c;
+            if (this.f29946b.equals("logo")) {
+                this.f29946b += this.f29947c;
             }
-            if (f29835a.get(this.f29836b) != null) {
-                return f29835a.get(this.f29836b).intValue();
+            if (f29945a.get(this.f29946b) != null) {
+                return f29945a.get(this.f29946b).intValue();
             }
             return 0;
         }
@@ -121,46 +121,46 @@ public class c {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29837c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29947c : (String) invokeV.objValue;
     }
 
     public d c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f29838d : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f29948d : (d) invokeV.objValue;
     }
 
     public d d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f29839e : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f29949e : (d) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f29837c = str;
+            this.f29947c = str;
         }
     }
 
     public void b(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-            this.f29839e = dVar;
+            this.f29949e = dVar;
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f29836b = str;
+            this.f29946b = str;
         }
     }
 
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-            this.f29838d = dVar;
+            this.f29948d = dVar;
         }
     }
 

@@ -13,37 +13,37 @@ import com.bytedance.sdk.component.b.b.u;
 import com.bytedance.sdk.component.b.b.z;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class g implements u.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<u> f28129a;
+    public final List<u> f28239a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.component.b.b.a.b.g f28130b;
+    public final com.bytedance.sdk.component.b.b.a.b.g f28240b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c f28131c;
+    public final c f28241c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.bytedance.sdk.component.b.b.a.b.c f28132d;
+    public final com.bytedance.sdk.component.b.b.a.b.c f28242d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f28133e;
+    public final int f28243e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final z f28134f;
+    public final z f28244f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final com.bytedance.sdk.component.b.b.e f28135g;
+    public final com.bytedance.sdk.component.b.b.e f28245g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final p f28136h;
+    public final p f28246h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f28137i;
+    public final int f28247i;
     public final int j;
     public final int k;
     public int l;
@@ -63,15 +63,15 @@ public final class g implements u.a {
                 return;
             }
         }
-        this.f28129a = list;
-        this.f28132d = cVar2;
-        this.f28130b = gVar;
-        this.f28131c = cVar;
-        this.f28133e = i2;
-        this.f28134f = zVar;
-        this.f28135g = eVar;
-        this.f28136h = pVar;
-        this.f28137i = i3;
+        this.f28239a = list;
+        this.f28242d = cVar2;
+        this.f28240b = gVar;
+        this.f28241c = cVar;
+        this.f28243e = i2;
+        this.f28244f = zVar;
+        this.f28245g = eVar;
+        this.f28246h = pVar;
+        this.f28247i = i3;
         this.j = i4;
         this.k = i5;
     }
@@ -80,14 +80,14 @@ public final class g implements u.a {
     public z a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28134f : (z) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28244f : (z) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.component.b.b.u.a
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28137i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28247i : invokeV.intValue;
     }
 
     @Override // com.bytedance.sdk.component.b.b.u.a
@@ -107,55 +107,55 @@ public final class g implements u.a {
     public com.bytedance.sdk.component.b.b.i e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f28132d : (com.bytedance.sdk.component.b.b.i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f28242d : (com.bytedance.sdk.component.b.b.i) invokeV.objValue;
     }
 
     public com.bytedance.sdk.component.b.b.a.b.g f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f28130b : (com.bytedance.sdk.component.b.b.a.b.g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f28240b : (com.bytedance.sdk.component.b.b.a.b.g) invokeV.objValue;
     }
 
     public c g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f28131c : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f28241c : (c) invokeV.objValue;
     }
 
     public com.bytedance.sdk.component.b.b.e h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f28135g : (com.bytedance.sdk.component.b.b.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f28245g : (com.bytedance.sdk.component.b.b.e) invokeV.objValue;
     }
 
     public p i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f28136h : (p) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f28246h : (p) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.component.b.b.u.a
     public ab a(z zVar) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zVar)) == null) ? a(zVar, this.f28130b, this.f28131c, this.f28132d) : (ab) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zVar)) == null) ? a(zVar, this.f28240b, this.f28241c, this.f28242d) : (ab) invokeL.objValue;
     }
 
     public ab a(z zVar, com.bytedance.sdk.component.b.b.a.b.g gVar, c cVar, com.bytedance.sdk.component.b.b.a.b.c cVar2) throws IOException {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zVar, gVar, cVar, cVar2)) == null) {
-            if (this.f28133e < this.f28129a.size()) {
+            if (this.f28243e < this.f28239a.size()) {
                 this.l++;
-                if (this.f28131c != null && !this.f28132d.a(zVar.a())) {
-                    throw new IllegalStateException("network interceptor " + this.f28129a.get(this.f28133e - 1) + " must retain the same host and port");
-                } else if (this.f28131c != null && this.l > 1) {
-                    throw new IllegalStateException("network interceptor " + this.f28129a.get(this.f28133e - 1) + " must call proceed() exactly once");
+                if (this.f28241c != null && !this.f28242d.a(zVar.a())) {
+                    throw new IllegalStateException("network interceptor " + this.f28239a.get(this.f28243e - 1) + " must retain the same host and port");
+                } else if (this.f28241c != null && this.l > 1) {
+                    throw new IllegalStateException("network interceptor " + this.f28239a.get(this.f28243e - 1) + " must call proceed() exactly once");
                 } else {
-                    g gVar2 = new g(this.f28129a, gVar, cVar, cVar2, this.f28133e + 1, zVar, this.f28135g, this.f28136h, this.f28137i, this.j, this.k);
-                    u uVar = this.f28129a.get(this.f28133e);
+                    g gVar2 = new g(this.f28239a, gVar, cVar, cVar2, this.f28243e + 1, zVar, this.f28245g, this.f28246h, this.f28247i, this.j, this.k);
+                    u uVar = this.f28239a.get(this.f28243e);
                     ab intercept = uVar.intercept(gVar2);
-                    if (cVar != null && this.f28133e + 1 < this.f28129a.size() && gVar2.l != 1) {
+                    if (cVar != null && this.f28243e + 1 < this.f28239a.size() && gVar2.l != 1) {
                         throw new IllegalStateException("network interceptor " + uVar + " must call proceed() exactly once");
                     } else if (intercept != null) {
                         if (intercept.h() != null) {

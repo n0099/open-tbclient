@@ -2,6 +2,7 @@ package com.baidu.adp.lib.util;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -219,7 +220,7 @@ public class BdLog {
     public static int d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? printLog(3, str) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? printLog(3, str) : invokeL.intValue;
     }
 
     public static int e(Throwable th) {

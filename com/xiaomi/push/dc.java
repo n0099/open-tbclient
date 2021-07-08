@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.db;
 import java.io.File;
 import java.util.Date;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class dc extends db.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f42954a;
+    public final /* synthetic */ int f39968a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ db f224a;
@@ -32,7 +32,7 @@ public class dc extends db.b {
     public final /* synthetic */ boolean f228a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f42955b;
+    public final /* synthetic */ String f39969b;
 
     /* renamed from: b  reason: collision with other field name */
     public final /* synthetic */ Date f229b;
@@ -56,11 +56,11 @@ public class dc extends db.b {
             }
         }
         this.f224a = dbVar;
-        this.f42954a = i2;
+        this.f39968a = i2;
         this.f227a = date;
         this.f229b = date2;
         this.f226a = str;
-        this.f42955b = str2;
+        this.f39969b = str2;
         this.f228a = z;
     }
 
@@ -73,7 +73,7 @@ public class dc extends db.b {
                 file.mkdirs();
                 if (file.isDirectory()) {
                     da daVar = new da();
-                    daVar.a(this.f42954a);
+                    daVar.a(this.f39968a);
                     this.f225a = daVar.a(this.f224a.f217a, this.f227a, this.f229b, file);
                 }
             } catch (NullPointerException unused) {
@@ -88,7 +88,7 @@ public class dc extends db.b {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             File file = this.f225a;
             if (file != null && file.exists()) {
-                this.f224a.f218a.add(new db.c(this.f224a, this.f226a, this.f42955b, this.f225a, this.f228a));
+                this.f224a.f218a.add(new db.c(this.f224a, this.f226a, this.f39969b, this.f225a, this.f228a));
             }
             this.f224a.a(0L);
         }

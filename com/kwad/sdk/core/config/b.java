@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,12 +14,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, com.kwad.sdk.core.config.item.a> f35917a;
+    public static final Map<String, com.kwad.sdk.core.config.item.b> f34173a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +35,7 @@ public class b {
                 return;
             }
         }
-        f35917a = new ConcurrentHashMap();
+        f34173a = new ConcurrentHashMap();
     }
 
     public static void a(SharedPreferences.Editor editor) {
@@ -42,8 +43,8 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(65537, null, editor) == null) || editor == null) {
             return;
         }
-        for (String str : f35917a.keySet()) {
-            f35917a.get(str).a(editor);
+        for (String str : f34173a.keySet()) {
+            f34173a.get(str).a(editor);
         }
     }
 
@@ -52,25 +53,32 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(65538, null, sharedPreferences) == null) || sharedPreferences == null) {
             return;
         }
-        for (String str : f35917a.keySet()) {
-            f35917a.get(str).a(sharedPreferences);
+        for (String str : f34173a.keySet()) {
+            try {
+                f34173a.get(str).a(sharedPreferences);
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.b(e2);
+            }
         }
     }
 
-    public static <T> void a(@NonNull com.kwad.sdk.core.config.item.a<T> aVar) {
+    public static <T> void a(@NonNull com.kwad.sdk.core.config.item.b<T> bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, aVar) == null) {
-            f35917a.put(aVar.a(), aVar);
+        if (interceptable == null || interceptable.invokeL(65539, null, bVar) == null) {
+            f34173a.put(bVar.b(), bVar);
         }
     }
 
     public static void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, null, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        for (String str : f35917a.keySet()) {
-            f35917a.get(str).a(jSONObject);
+        for (String str : f34173a.keySet()) {
+            com.kwad.sdk.core.config.item.b bVar = f34173a.get(str);
+            if (jSONObject.has(str)) {
+                bVar.a(jSONObject);
+            }
         }
     }
 

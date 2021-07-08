@@ -1,5 +1,6 @@
 package androidx.core.math;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,6 +46,6 @@ public class MathUtils {
     public static long clamp(long j, long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) ? j < j2 ? j2 : j > j3 ? j3 : j : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) ? j < j2 ? j2 : j > j3 ? j3 : j : invokeCommon.longValue;
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.android.util.time;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,7 +59,7 @@ public final class TimestampUtil {
 
     public static void setDeltaTime(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, null, str) == null) || str == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) || str == null) {
             return;
         }
         try {

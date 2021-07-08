@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class c implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IBinder f43737a;
+    public IBinder f40752a;
 
     public c(IBinder iBinder) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class c implements a {
                 return;
             }
         }
-        this.f43737a = iBinder;
+        this.f40752a = iBinder;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.j.a
@@ -43,7 +43,7 @@ public final class c implements a {
             Parcel obtain2 = Parcel.obtain();
             try {
                 obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                this.f43737a.transact(3, obtain, obtain2, 0);
+                this.f40752a.transact(3, obtain, obtain2, 0);
                 obtain2.readException();
                 return obtain2.readString();
             } finally {
@@ -58,43 +58,6 @@ public final class c implements a {
     public final IBinder asBinder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43737a : (IBinder) invokeV.objValue;
-    }
-
-    @Override // com.yxcorp.kuaishou.addfp.a.b.j.a
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Parcel obtain = Parcel.obtain();
-            Parcel obtain2 = Parcel.obtain();
-            try {
-                obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                this.f43737a.transact(1, obtain, obtain2, 0);
-                obtain2.readException();
-                return obtain2.readInt() != 0;
-            } finally {
-                obtain2.recycle();
-                obtain.recycle();
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.yxcorp.kuaishou.addfp.a.b.j.a
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Parcel obtain = Parcel.obtain();
-            Parcel obtain2 = Parcel.obtain();
-            try {
-                obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                this.f43737a.transact(6, obtain, obtain2, 0);
-                obtain2.readException();
-            } finally {
-                obtain2.recycle();
-                obtain.recycle();
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40752a : (IBinder) invokeV.objValue;
     }
 }

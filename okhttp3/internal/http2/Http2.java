@@ -1,5 +1,6 @@
 package okhttp3.internal.http2;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import okhttp3.internal.Util;
 import okio.ByteString;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class Http2 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] BINARY;
@@ -161,7 +162,7 @@ public final class Http2 {
     public static IllegalArgumentException illegalArgument(String str, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, objArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, objArr)) == null) {
             throw new IllegalArgumentException(Util.format(str, objArr));
         }
         return (IllegalArgumentException) invokeLL.objValue;

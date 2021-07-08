@@ -19,10 +19,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.b;
 import d.a.c.e.p.k;
-import d.a.s0.i1.s.a;
-import d.a.s0.i1.w.c;
+import d.a.p0.i1.s.a;
+import d.a.p0.i1.w.c;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CommonMsgPojo extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DELETEED = 1;
@@ -622,7 +622,7 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
             if (chatMessage instanceof CommonGroupChatMessage) {
                 this.gid = ((CommonGroupChatMessage) chatMessage).getGroupId();
             } else if (chatMessage instanceof PersonalChatMessage) {
-                this.gid = String.valueOf(a.f61853i);
+                this.gid = String.valueOf(a.f58618i);
             } else if (chatMessage instanceof OfficialChatMessage) {
                 this.gid = String.valueOf(a.j);
             }

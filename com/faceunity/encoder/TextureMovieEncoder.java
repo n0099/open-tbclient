@@ -27,16 +27,16 @@ import com.faceunity.gles.FullFrameRect;
 import com.faceunity.gles.GeneratedTexture;
 import com.faceunity.gles.Texture2dProgram;
 import com.faceunity.gles.WindowSurface;
-import d.a.s0.x1.a;
-import d.a.s0.x1.g;
-import d.a.s0.x1.k;
+import d.a.p0.x1.a;
+import d.a.p0.x1.g;
+import d.a.p0.x1.k;
 import java.io.File;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 import kotlinx.coroutines.CoroutineContextKt;
 @TargetApi(18)
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TextureMovieEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] AUDIO_SOURCES;
@@ -85,13 +85,13 @@ public class TextureMovieEncoder {
     public boolean videoEncoderReadyFlag;
 
     /* renamed from: com.faceunity.encoder.TextureMovieEncoder$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class AudioThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -171,7 +171,7 @@ public class TextureMovieEncoder {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class EncoderConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -219,14 +219,14 @@ public class TextureMovieEncoder {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnEncoderStatusUpdateListener {
         void onStartSuccess();
 
         void onStopSuccess();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class VideoEncoderHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -284,7 +284,7 @@ public class TextureMovieEncoder {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class VideoThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

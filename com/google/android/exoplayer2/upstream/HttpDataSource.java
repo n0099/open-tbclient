@@ -13,10 +13,10 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface HttpDataSource extends e {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class InvalidContentTypeException extends HttpDataSourceException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public interface HttpDataSource extends e {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class InvalidResponseCodeException extends HttpDataSourceException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,13 +76,13 @@ public interface HttpDataSource extends e {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static abstract class a implements e.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final b f32822a;
+        public final b f32932a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public interface HttpDataSource extends e {
                     return;
                 }
             }
-            this.f32822a = new b();
+            this.f32932a = new b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -106,22 +106,22 @@ public interface HttpDataSource extends e {
         public final HttpDataSource a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c(this.f32822a) : (HttpDataSource) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c(this.f32932a) : (HttpDataSource) invokeV.objValue;
         }
 
         public abstract HttpDataSource c(b bVar);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Map<String, String> f32823a;
+        public final Map<String, String> f32933a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Map<String, String> f32824b;
+        public Map<String, String> f32934b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -136,7 +136,7 @@ public interface HttpDataSource extends e {
                     return;
                 }
             }
-            this.f32823a = new HashMap();
+            this.f32933a = new HashMap();
         }
 
         public synchronized Map<String, String> a() {
@@ -145,10 +145,10 @@ public interface HttpDataSource extends e {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 synchronized (this) {
-                    if (this.f32824b == null) {
-                        this.f32824b = Collections.unmodifiableMap(new HashMap(this.f32823a));
+                    if (this.f32934b == null) {
+                        this.f32934b = Collections.unmodifiableMap(new HashMap(this.f32933a));
                     }
-                    map = this.f32824b;
+                    map = this.f32934b;
                 }
                 return map;
             }
@@ -156,7 +156,7 @@ public interface HttpDataSource extends e {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class HttpDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TYPE_CLOSE = 3;

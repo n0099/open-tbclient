@@ -15,16 +15,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b implements com.bytedance.sdk.component.d.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f28637a;
+    public long f28747a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f28638b;
+    public a f28748b;
 
     public b(File file, long j, ExecutorService executorService) {
         Interceptable interceptable = $ic;
@@ -41,9 +41,9 @@ public class b implements com.bytedance.sdk.component.d.b {
                 return;
             }
         }
-        this.f28637a = j;
+        this.f28747a = j;
         try {
-            this.f28638b = a.a(file, 20210302, 1, j, executorService);
+            this.f28748b = a.a(file, 20210302, 1, j, executorService);
         } catch (IOException e2) {
             com.bytedance.sdk.component.d.c.c.a("LruCountDiskCache", e2.toString());
         }
@@ -58,7 +58,7 @@ public class b implements com.bytedance.sdk.component.d.b {
         if (interceptable != null && (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr)) != null) {
             return invokeLL.booleanValue;
         }
-        a aVar = this.f28638b;
+        a aVar = this.f28748b;
         if (aVar == null || bArr == null || str == null) {
             return false;
         }
@@ -74,14 +74,14 @@ public class b implements com.bytedance.sdk.component.d.b {
                         return false;
                     }
                     OutputStream a2 = b2.a(0);
-                    if (a2 == a.f28611c) {
+                    if (a2 == a.f28721c) {
                         com.bytedance.sdk.component.d.c.c.a("LruCountDiskCache", "save " + str + " failed for null OutputStream");
                         com.bytedance.sdk.component.d.c.c.a.a(a2);
                         return false;
                     }
                     a2.write(bArr);
                     b2.a();
-                    this.f28638b.a();
+                    this.f28748b.a();
                     com.bytedance.sdk.component.d.c.c.a.a(a2);
                     return true;
                 } catch (IOException e2) {
@@ -127,7 +127,7 @@ public class b implements com.bytedance.sdk.component.d.b {
         if (interceptable != null && (invokeL = interceptable.invokeL(1048579, this, str)) != null) {
             return (byte[]) invokeL.objValue;
         }
-        a aVar = this.f28638b;
+        a aVar = this.f28748b;
         InputStream inputStream2 = null;
         if (aVar == null || str == null) {
             return null;

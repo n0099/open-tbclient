@@ -1,5 +1,6 @@
 package com.baidu.tieba.view.bubbleView;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class ArrowDirection {
     public static final /* synthetic */ ArrowDirection[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -85,7 +86,7 @@ public final class ArrowDirection {
     public static ArrowDirection[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (ArrowDirection[]) $VALUES.clone() : (ArrowDirection[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ArrowDirection[]) $VALUES.clone() : (ArrowDirection[]) invokeV.objValue;
     }
 
     public int getValue() {

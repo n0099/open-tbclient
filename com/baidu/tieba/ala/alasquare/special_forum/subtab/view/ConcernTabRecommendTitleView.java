@@ -14,27 +14,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.a0.b;
-import d.a.s0.v.d.f.c.g;
-/* loaded from: classes5.dex */
+import d.a.p0.a0.b;
+import d.a.p0.v.d.f.c.g;
+/* loaded from: classes4.dex */
 public class ConcernTabRecommendTitleView extends b<g> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder m;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f14112a;
+        public View f14151a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f14113b;
+        public TextView f14152b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f14114c;
+        public View f14153c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(View view) {
@@ -54,9 +54,9 @@ public class ConcernTabRecommendTitleView extends b<g> {
                     return;
                 }
             }
-            this.f14112a = view;
-            this.f14113b = (TextView) view.findViewById(R.id.title);
-            this.f14114c = this.f14112a.findViewById(R.id.divider);
+            this.f14151a = view;
+            this.f14152b = (TextView) view.findViewById(R.id.title);
+            this.f14153c = this.f14151a.findViewById(R.id.divider);
         }
     }
 
@@ -79,22 +79,22 @@ public class ConcernTabRecommendTitleView extends b<g> {
                 return;
             }
         }
-        this.m = new ViewHolder(l());
-        n(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        this.m = new ViewHolder(k());
+        m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // d.a.s0.a0.b
-    public int h() {
+    @Override // d.a.p0.a0.b
+    public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.special_bar_concern_recommend_title : invokeV.intValue;
     }
 
-    @Override // d.a.s0.a0.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    @Override // d.a.p0.a0.b
+    public void m(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            SkinManager.setViewTextColor(this.m.f14113b, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.m.f14152b, R.color.CAM_X0109);
         }
     }
 
@@ -106,18 +106,18 @@ public class ConcernTabRecommendTitleView extends b<g> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.s0.a0.b
-    /* renamed from: s */
-    public void m(g gVar) {
+    @Override // d.a.p0.a0.b
+    /* renamed from: q */
+    public void l(g gVar) {
         ViewHolder viewHolder;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) || (viewHolder = this.m) == null) {
             return;
         }
-        if (gVar.f67747e) {
-            viewHolder.f14114c.setVisibility(0);
+        if (gVar.f64529e) {
+            viewHolder.f14153c.setVisibility(0);
         } else {
-            viewHolder.f14114c.setVisibility(8);
+            viewHolder.f14153c.setVisibility(8);
         }
     }
 }

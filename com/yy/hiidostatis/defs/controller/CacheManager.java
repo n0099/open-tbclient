@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.DefaultPreference;
 import com.yy.hiidostatis.inner.util.Util;
 import com.yy.hiidostatis.inner.util.cipher.Base64Util;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class CacheManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f43742c;
+    public Context f40758c;
     public String mCacheKey;
     public String mCacheValue;
     public String mPrefCacheKey;
@@ -37,7 +37,7 @@ public class CacheManager {
                 return;
             }
         }
-        this.f43742c = context;
+        this.f40758c = context;
         this.mPrefCacheKey = str;
         this.mPrefCacheValue = str2;
         String cacheKey = getCacheKey();
@@ -92,7 +92,7 @@ public class CacheManager {
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            saveCacheValue(this.f43742c, this.mCacheKey, this.mCacheValue);
+            saveCacheValue(this.f40758c, this.mCacheKey, this.mCacheValue);
             this.mCacheValue = null;
         }
     }

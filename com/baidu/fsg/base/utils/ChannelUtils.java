@@ -1,5 +1,6 @@
 package com.baidu.fsg.base.utils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,24 +9,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class ChannelUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f5336a = false;
+    public static boolean f5353a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f5337b = null;
+    public static String f5354b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f5338c = "";
+    public static String f5355c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f5339d;
+    public static String f5356d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f5340e;
+    public static String f5357e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -60,53 +61,53 @@ public final class ChannelUtils {
     public static String getHostAppId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f5340e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f5357e : (String) invokeV.objValue;
     }
 
     public static String getHostPackageName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f5338c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f5355c : (String) invokeV.objValue;
     }
 
     public static String getHostUA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? f5339d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f5356d : (String) invokeV.objValue;
     }
 
     public static String getSDKVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f5337b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f5354b : (String) invokeV.objValue;
     }
 
     public static void initBussinessParams(String str, boolean z, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{str, Boolean.valueOf(z), str2}) == null) {
-            f5337b = str;
-            f5336a = z;
-            f5340e = str2;
+            f5354b = str;
+            f5353a = z;
+            f5357e = str2;
         }
     }
 
     public static void initHostParams(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            f5339d = str;
+            f5356d = str;
         }
     }
 
     public static boolean isSpecailPackage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f5336a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f5353a : invokeV.booleanValue;
     }
 
     public static void setHostPackageName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            f5338c = str;
+            f5355c = str;
         }
     }
 }

@@ -13,24 +13,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class u {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Field f44459a;
+    public static Field f41475a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Field f44460b;
+    public static Field f41476b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Handler f44461a;
+        public Handler f41477a;
 
         public a(Handler handler) {
             Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public class u {
                     return;
                 }
             }
-            this.f44461a = handler;
+            this.f41477a = handler;
         }
 
         @Override // android.os.Handler
@@ -66,8 +66,8 @@ public class u {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
                 try {
-                    if (this.f44461a != null) {
-                        this.f44461a.handleMessage(message);
+                    if (this.f41477a != null) {
+                        this.f41477a.handleMessage(message);
                     }
                 } catch (Exception unused) {
                 }
@@ -91,10 +91,10 @@ public class u {
         try {
             if (Build.VERSION.SDK_INT < 28) {
                 Field declaredField = Toast.class.getDeclaredField("mTN");
-                f44459a = declaredField;
+                f41475a = declaredField;
                 declaredField.setAccessible(true);
-                Field declaredField2 = f44459a.getType().getDeclaredField("mHandler");
-                f44460b = declaredField2;
+                Field declaredField2 = f41475a.getType().getDeclaredField("mHandler");
+                f41476b = declaredField2;
                 declaredField2.setAccessible(true);
             }
         } catch (Exception unused) {
@@ -107,10 +107,10 @@ public class u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, toast) == null) {
             try {
-                if (Build.VERSION.SDK_INT >= 28 || f44459a == null || f44460b == null || (obj = f44459a.get(toast)) == null || (handler = (Handler) f44460b.get(obj)) == null) {
+                if (Build.VERSION.SDK_INT >= 28 || f41475a == null || f41476b == null || (obj = f41475a.get(toast)) == null || (handler = (Handler) f41476b.get(obj)) == null) {
                     return;
                 }
-                f44460b.set(obj, new a(handler));
+                f41476b.set(obj, new a(handler));
             } catch (Exception unused) {
             }
         }

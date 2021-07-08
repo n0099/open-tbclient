@@ -9,21 +9,21 @@ import h.j;
 import h.n.a;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class OperatorWindowWithSize$WindowOverlap<T> extends j<T> implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f76222e;
+    public final int f73256e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f76223f;
+    public final int f73257f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicLong f76224g;
+    public final AtomicLong f73258g;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public final class WindowOverlapProducer extends AtomicBoolean implements f {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4625807964358024108L;
@@ -58,11 +58,11 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends j<T> implemen
                 } else if (i2 != 0) {
                     OperatorWindowWithSize$WindowOverlap operatorWindowWithSize$WindowOverlap = this.this$0;
                     if (!get() && compareAndSet(false, true)) {
-                        operatorWindowWithSize$WindowOverlap.request(h.o.a.a.a(h.o.a.a.c(operatorWindowWithSize$WindowOverlap.f76223f, j - 1), operatorWindowWithSize$WindowOverlap.f76222e));
+                        operatorWindowWithSize$WindowOverlap.request(h.o.a.a.a(h.o.a.a.c(operatorWindowWithSize$WindowOverlap.f73257f, j - 1), operatorWindowWithSize$WindowOverlap.f73256e));
                     } else {
-                        this.this$0.request(h.o.a.a.c(operatorWindowWithSize$WindowOverlap.f76223f, j));
+                        this.this$0.request(h.o.a.a.c(operatorWindowWithSize$WindowOverlap.f73257f, j));
                     }
-                    h.o.a.a.b(operatorWindowWithSize$WindowOverlap.f76224g, j);
+                    h.o.a.a.b(operatorWindowWithSize$WindowOverlap.f73258g, j);
                     operatorWindowWithSize$WindowOverlap.d();
                 }
             }

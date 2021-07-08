@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.soloader.SoLoader;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.NoProGuard;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class NativeCrashCapture implements NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -31,7 +32,7 @@ public class NativeCrashCapture implements NoProGuard {
     public static d.a.o.a.b sNativeCrashHandler;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +44,7 @@ public class NativeCrashCapture implements NoProGuard {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,7 +112,7 @@ public class NativeCrashCapture implements NoProGuard {
 
     public static void init(@NonNull Context context, @NonNull d.a.o.a.b bVar, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(65540, null, context, bVar, z) == null) || sInit || bVar == null || context == null) {
+        if (!(interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, bVar, z) == null) || sInit || bVar == null || context == null) {
             return;
         }
         sContext = context;

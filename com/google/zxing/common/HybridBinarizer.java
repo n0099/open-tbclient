@@ -1,5 +1,6 @@
 package com.google.zxing.common;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +11,7 @@ import com.google.zxing.Binarizer;
 import com.google.zxing.LuminanceSource;
 import com.google.zxing.NotFoundException;
 import java.lang.reflect.Array;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class HybridBinarizer extends GlobalHistogramBinarizer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BLOCK_SIZE = 8;
@@ -147,7 +148,7 @@ public final class HybridBinarizer extends GlobalHistogramBinarizer {
 
     public static void thresholdBlock(byte[] bArr, int i2, int i3, int i4, int i5, BitMatrix bitMatrix) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), bitMatrix}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), bitMatrix}) == null) {
             int i6 = (i3 * i5) + i2;
             int i7 = 0;
             while (i7 < 8) {

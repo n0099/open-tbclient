@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,12 +21,12 @@ import java.io.UnsupportedEncodingException;
 import java.nio.channels.FileLock;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f27421a;
+    public static String f27531a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static int a(String str) {
@@ -45,7 +46,7 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (TextUtils.isEmpty(f27421a)) {
+            if (TextUtils.isEmpty(f27531a)) {
                 Context d2 = com.baidu.webkit.logsdk.a.b.d();
                 if (d2 == null || d2.getFilesDir() == null) {
                     return "";
@@ -54,12 +55,12 @@ public final class c {
                 if (str.endsWith(File.separator)) {
                     str = str.substring(0, str.length() - 1);
                 }
-                f27421a = str;
-                new File(f27421a).mkdirs();
-                e("BdLogSDK", "Workspace = " + f27421a);
-                return f27421a;
+                f27531a = str;
+                new File(f27531a).mkdirs();
+                e("BdLogSDK", "Workspace = " + f27531a);
+                return f27531a;
             }
-            return f27421a;
+            return f27531a;
         }
         return (String) invokeV.objValue;
     }
@@ -195,7 +196,7 @@ public final class c {
     public static String a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             int a2 = a(str2);
             com.baidu.webkit.logsdk.b.b e2 = com.baidu.webkit.logsdk.a.b.a().e();
             if (a2 != 0) {
@@ -212,8 +213,8 @@ public final class c {
     public static void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, str3) == null) {
-            if (!com.baidu.webkit.logsdk.a.f27360b || TextUtils.isEmpty(str3)) {
-                if (com.baidu.webkit.logsdk.a.f27359a) {
+            if (!com.baidu.webkit.logsdk.a.f27470b || TextUtils.isEmpty(str3)) {
+                if (com.baidu.webkit.logsdk.a.f27469a) {
                     Log.i(str, str2);
                     return;
                 }
@@ -227,7 +228,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, th) == null) {
             th.printStackTrace();
-            if (com.baidu.webkit.logsdk.a.f27360b) {
+            if (com.baidu.webkit.logsdk.a.f27470b) {
                 System.exit(0);
             }
         }
@@ -430,7 +431,7 @@ public final class c {
 
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65549, null, str, str2) == null) && com.baidu.webkit.logsdk.a.f27359a) {
+        if ((interceptable == null || interceptable.invokeLL(65549, null, str, str2) == null) && com.baidu.webkit.logsdk.a.f27469a) {
             Log.w(str, str2);
         }
     }

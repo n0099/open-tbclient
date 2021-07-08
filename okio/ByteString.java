@@ -30,7 +30,7 @@ import java.util.Arrays;
 import javax.annotation.Nullable;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class ByteString implements Serializable, Comparable<ByteString> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ByteString EMPTY;
@@ -119,7 +119,7 @@ public class ByteString implements Serializable, Comparable<ByteString> {
     public static ByteString decodeHex(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (str != null) {
                 if (str.length() % 2 == 0) {
                     int length = str.length() / 2;

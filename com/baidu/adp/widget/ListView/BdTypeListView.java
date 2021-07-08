@@ -36,46 +36,9 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdTypeListView f2385e;
-
-        public a(BdTypeListView bdTypeListView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bdTypeListView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f2385e = bdTypeListView;
-        }
-
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-            TypeAdapter typeAdapter;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || (typeAdapter = this.f2385e.K) == null) {
-                return;
-            }
-            typeAdapter.f(adapterView, view, i2, j);
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class b implements AdapterView.OnItemLongClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ BdTypeListView f2386e;
 
-        public b(BdTypeListView bdTypeListView) {
+        public a(BdTypeListView bdTypeListView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,12 +56,49 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
             this.f2386e = bdTypeListView;
         }
 
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+            TypeAdapter typeAdapter;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || (typeAdapter = this.f2386e.K) == null) {
+                return;
+            }
+            typeAdapter.f(adapterView, view, i2, j);
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class b implements AdapterView.OnItemLongClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ BdTypeListView f2387e;
+
+        public b(BdTypeListView bdTypeListView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bdTypeListView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f2387e = bdTypeListView;
+        }
+
         @Override // android.widget.AdapterView.OnItemLongClickListener
         public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i2, long j) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
-                TypeAdapter typeAdapter = this.f2386e.K;
+                TypeAdapter typeAdapter = this.f2387e.K;
                 if (typeAdapter != null) {
                     return typeAdapter.g(adapterView, view, i2, j);
                 }
@@ -163,7 +163,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
                     if (aVar.y() != null) {
                         bdUniqueId = aVar.y();
                         if (!this.M.containsKey(bdUniqueId)) {
-                            h hVar = new h(aVar.f44821e, bdUniqueId, aVar.f44825i);
+                            h hVar = new h(aVar.f41837e, bdUniqueId, aVar.f41841i);
                             hVar.h0(aVar);
                             this.K.a(hVar);
                             this.M.put(bdUniqueId, hVar);
@@ -172,7 +172,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
                     if (aVar.w() != null) {
                         bdUniqueId = aVar.w();
                         if (!this.M.containsKey(bdUniqueId)) {
-                            h hVar2 = new h(aVar.f44821e, bdUniqueId, aVar.f44825i);
+                            h hVar2 = new h(aVar.f41837e, bdUniqueId, aVar.f41841i);
                             hVar2.h0(aVar);
                             this.K.a(hVar2);
                             this.M.put(bdUniqueId, hVar2);
@@ -181,7 +181,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
                     if (aVar.x() != null) {
                         bdUniqueId = aVar.x();
                         if (!this.M.containsKey(bdUniqueId)) {
-                            h hVar3 = new h(aVar.f44821e, bdUniqueId, aVar.f44825i);
+                            h hVar3 = new h(aVar.f41837e, bdUniqueId, aVar.f41841i);
                             hVar3.h0(aVar);
                             this.K.a(hVar3);
                             this.M.put(bdUniqueId, hVar3);
@@ -190,7 +190,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
                     if (aVar.v() != null) {
                         bdUniqueId = aVar.v();
                         if (!this.M.containsKey(bdUniqueId)) {
-                            h hVar4 = new h(aVar.f44821e, bdUniqueId, aVar.f44825i);
+                            h hVar4 = new h(aVar.f41837e, bdUniqueId, aVar.f41841i);
                             hVar4.h0(aVar);
                             this.K.a(hVar4);
                             this.M.put(bdUniqueId, hVar4);
@@ -199,7 +199,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
                     if (bdUniqueId == null) {
                         this.K.a(aVar);
                     } else {
-                        this.L.put(aVar.f44824h, aVar);
+                        this.L.put(aVar.f41840h, aVar);
                     }
                 }
             }

@@ -2,6 +2,7 @@ package com.win.opensdk.bridge;
 
 import android.webkit.WebView;
 import android.widget.Toast;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.bridge.core.JsCallback;
 import com.win.opensdk.f1;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class JsInvokeJavaScope {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +53,7 @@ public class JsInvokeJavaScope {
 
     public static void onRewardedAdStart(WebView webView, JSONObject jSONObject, JsCallback jsCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, null, webView, jSONObject, jsCallback) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, webView, jSONObject, jsCallback) == null) {
             f1.a("onRewardedAdStart", "onRewardedAdStart", null);
         }
     }

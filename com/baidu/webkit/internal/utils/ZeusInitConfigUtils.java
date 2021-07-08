@@ -2,6 +2,7 @@ package com.baidu.webkit.internal.utils;
 
 import android.content.SharedPreferences;
 import androidx.annotation.Keep;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebViewFactory;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ZeusInitConfigUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ENGINE_CLOUDSETTINGS_DATA = "engineCloudSettingsData";
@@ -63,7 +64,7 @@ public class ZeusInitConfigUtils {
 
     public static void set(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
             SharedPreferences.Editor edit = getPrefs().edit();
             edit.putString(str, str2);
             edit.apply();

@@ -1,241 +1,171 @@
 package com.kwad.sdk.widget;
 
 import android.content.Context;
-import android.graphics.Rect;
+import android.content.res.TypedArray;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.RectF;
+import android.os.Build;
 import android.util.AttributeSet;
-import android.view.ViewTreeObserver;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.ah;
-import com.kwad.sdk.utils.an;
-/* loaded from: classes7.dex */
-public class b extends com.kwad.sdk.feed.widget.base.b {
+import com.kwad.sdk.R;
+import java.util.Arrays;
+/* loaded from: classes6.dex */
+public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f39453a;
+    public float[] f36668a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f39454b;
+    public float f36669b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f39455c;
+    public Path f36670c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f39456d;
+    public Paint f36671d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewTreeObserver.OnScrollChangedListener f39457e;
+    public RectF f36672e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewTreeObserver f39458f;
+    public boolean f36673f;
 
-    /* renamed from: g  reason: collision with root package name */
-    public an f39459g;
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(@NonNull Context context) {
-        super(context);
+    public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f39453a = 500L;
-        this.f39455c = true;
-        b();
+        this.f36668a = new float[8];
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
+    private float[] a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            float[] fArr = this.f36668a;
+            float f2 = this.f36669b;
+            fArr[0] = f2;
+            fArr[1] = f2;
+            fArr[2] = f2;
+            fArr[3] = f2;
+            fArr[4] = f2;
+            fArr[5] = f2;
+            fArr[6] = f2;
+            fArr[7] = f2;
+            return fArr;
+        }
+        return (float[]) invokeV.objValue;
+    }
+
+    private Path b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            try {
+                this.f36670c.reset();
+            } catch (Exception unused) {
+            }
+            this.f36670c.addRoundRect(this.f36672e, a(), Path.Direction.CW);
+            return this.f36670c;
+        }
+        return (Path) invokeV.objValue;
+    }
+
+    public void a(float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048576, this, f2) == null) {
+            this.f36669b = f2;
+        }
+    }
+
+    public void a(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
+            this.f36672e.set(0.0f, 0.0f, i2, i3);
+        }
+    }
+
+    public void a(Context context, @Nullable AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
+            if (attributeSet != null) {
+                int i2 = R.attr.ksad_radius;
+                int i3 = R.attr.ksad_clipBackground;
+                int[] iArr = {i2, i3};
+                Arrays.sort(iArr);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
+                this.f36669b = obtainStyledAttributes.getDimensionPixelOffset(Arrays.binarySearch(iArr, i2), 0);
+                this.f36673f = obtainStyledAttributes.getBoolean(Arrays.binarySearch(iArr, i3), true);
+                obtainStyledAttributes.recycle();
+            }
+            this.f36670c = new Path();
+            this.f36671d = new Paint(1);
+            this.f36672e = new RectF();
+            this.f36671d.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+        }
+    }
+
+    public void a(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) && this.f36673f) {
+            if (Build.VERSION.SDK_INT < 28) {
+                canvas.saveLayer(this.f36672e, null, 31);
                 return;
             }
-        }
-        this.f39453a = 500L;
-        this.f39455c = true;
-        b();
-    }
-
-    private void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f39459g = new an(this);
-            this.f39456d = ah.h(getContext());
-            this.f39455c = d();
+            canvas.save();
+            canvas.clipPath(b());
         }
     }
 
-    private void c() {
+    public void b(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
-            if (g()) {
-                a();
-            } else {
-                h();
+        if ((interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) && this.f36673f) {
+            if (Build.VERSION.SDK_INT < 28) {
+                canvas.drawPath(b(), this.f36671d);
             }
+            canvas.restore();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean g() {
-        InterceptResult invokeV;
+    public void c(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
-            if (!this.f39459g.a() || Math.abs(this.f39459g.f39369a.height() - getHeight()) > getHeight() * 0.9f || getHeight() <= 0 || getWidth() <= 0) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
+            if (Build.VERSION.SDK_INT < 28) {
+                canvas.saveLayer(this.f36672e, null, 31);
+                return;
             }
-            Rect rect = this.f39459g.f39369a;
-            return rect.bottom > 0 && rect.top < this.f39456d;
+            canvas.save();
+            canvas.clipPath(b());
         }
-        return invokeV.booleanValue;
     }
 
-    private void h() {
+    public void d(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) && this.f39457e == null) {
-            this.f39457e = new ViewTreeObserver.OnScrollChangedListener(this) { // from class: com.kwad.sdk.widget.b.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f39460a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f39460a = this;
-                }
-
-                @Override // android.view.ViewTreeObserver.OnScrollChangedListener
-                public void onScrollChanged() {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f39460a.g()) {
-                        this.f39460a.a();
-                    }
-                }
-            };
-            ViewTreeObserver viewTreeObserver = getViewTreeObserver();
-            this.f39458f = viewTreeObserver;
-            if (viewTreeObserver != null) {
-                viewTreeObserver.addOnScrollChangedListener(this.f39457e);
+        if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
+            if (Build.VERSION.SDK_INT < 28) {
+                canvas.drawPath(b(), this.f36671d);
             }
-        }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            f();
-        }
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f39455c) {
-            c();
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            try {
-                if (this.f39457e == null || this.f39458f == null) {
-                    return;
-                }
-                this.f39458f.removeOnScrollChangedListener(this.f39457e);
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.a(e2);
-            }
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onAttachedToWindow();
-            h();
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.onDetachedFromWindow();
-            f();
-            this.f39454b = false;
-        }
-    }
-
-    @Override // android.view.View
-    public void onSizeChanged(int i2, int i3, int i4, int i5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048582, this, i2, i3, i4, i5) == null) {
-            boolean z = true;
-            if (this.f39454b || (i4 | i5) != 0 || (i2 | i3) == 0) {
-                z = false;
-            } else {
-                this.f39454b = true;
-            }
-            super.onSizeChanged(i2, i3, i4, i5);
-            if (z) {
-                e();
-            }
+            canvas.restore();
         }
     }
 }

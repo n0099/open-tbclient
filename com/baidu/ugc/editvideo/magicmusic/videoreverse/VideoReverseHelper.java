@@ -10,6 +10,7 @@ import android.media.MediaFormat;
 import android.media.MediaMuxer;
 import android.text.TextUtils;
 import android.view.Surface;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.container.util.XAdSimpleImageLoader;
@@ -21,11 +22,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.listener.OnTimeReverseListener;
 import com.baidu.ugc.editvideo.record.RecordConstants;
 import com.baidu.ugc.utils.FileUtils;
-import com.kwai.video.player.KsMediaMeta;
-import com.kwai.video.player.misc.IMediaFormat;
-import d.a.y0.t.c;
-import d.a.y0.t.h;
-import d.a.y0.t.n;
+import d.a.v0.t.c;
+import d.a.v0.t.h;
+import d.a.v0.t.n;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -37,7 +36,7 @@ import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.List;
 @TargetApi(18)
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class VideoReverseHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String OUTPUT_VIDEO_MIME_TYPE = "video/avc";
@@ -53,7 +52,7 @@ public class VideoReverseHelper {
     public MediaCodec mVideoDecoder;
     public MediaCodec mVideoEncoder;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class BuffeInfoWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -310,7 +309,7 @@ public class VideoReverseHelper {
     public static String getMimeTypeFor(MediaFormat mediaFormat) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, mediaFormat)) == null) ? mediaFormat.getString(IMediaFormat.KEY_MIME) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaFormat)) == null) ? mediaFormat.getString("mime") : (String) invokeL.objValue;
     }
 
     private int getSupportColorFormat() {
@@ -634,7 +633,7 @@ public class VideoReverseHelper {
                                         createVideoFormat.setInteger("crop-top", 0);
                                         createVideoFormat.setInteger("crop-bottom", i5 - 1);
                                     }
-                                    setMediaFormatProperty(trackFormat, createVideoFormat, KsMediaMeta.KSM_KEY_BITRATE, RecordConstants.DEFAULT_BIT_RATE_GTE_API18);
+                                    setMediaFormatProperty(trackFormat, createVideoFormat, "bitrate", RecordConstants.DEFAULT_BIT_RATE_GTE_API18);
                                     setMediaFormatProperty(trackFormat, createVideoFormat, "frame-rate", 30);
                                     setMediaFormatProperty(trackFormat, createVideoFormat, "i-frame-interval", 5);
                                     this.mVideoEncoder.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
@@ -653,7 +652,7 @@ public class VideoReverseHelper {
                             createVideoFormat.setInteger("crop-right", i4 - 1);
                             createVideoFormat.setInteger("crop-top", 0);
                             createVideoFormat.setInteger("crop-bottom", i5 - 1);
-                            setMediaFormatProperty(trackFormat, createVideoFormat, KsMediaMeta.KSM_KEY_BITRATE, RecordConstants.DEFAULT_BIT_RATE_GTE_API18);
+                            setMediaFormatProperty(trackFormat, createVideoFormat, "bitrate", RecordConstants.DEFAULT_BIT_RATE_GTE_API18);
                             setMediaFormatProperty(trackFormat, createVideoFormat, "frame-rate", 30);
                             setMediaFormatProperty(trackFormat, createVideoFormat, "i-frame-interval", 5);
                             this.mVideoEncoder.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
@@ -681,7 +680,7 @@ public class VideoReverseHelper {
                     createVideoFormat2.setInteger("crop-right", i4 - 1);
                     createVideoFormat2.setInteger("crop-top", 0);
                     createVideoFormat2.setInteger("crop-bottom", i5 - 1);
-                    setMediaFormatProperty(trackFormat, createVideoFormat2, KsMediaMeta.KSM_KEY_BITRATE, RecordConstants.DEFAULT_BIT_RATE_GTE_API18);
+                    setMediaFormatProperty(trackFormat, createVideoFormat2, "bitrate", RecordConstants.DEFAULT_BIT_RATE_GTE_API18);
                     setMediaFormatProperty(trackFormat, createVideoFormat2, "frame-rate", 30);
                     setMediaFormatProperty(trackFormat, createVideoFormat2, "i-frame-interval", 5);
                     this.mVideoEncoder.configure(createVideoFormat2, (Surface) null, (MediaCrypto) null, 1);

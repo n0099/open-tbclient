@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.kwad.sdk.api.core.IKsAdSDK;
 import com.kwad.sdk.api.core.RequestParamsUtils;
+import com.kwad.sdk.api.core.TLSConnectionUtils;
 import com.kwad.sdk.api.loader.a;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -25,21 +26,21 @@ import java.net.URLConnection;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f34190a;
+    public String f33804a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34191b;
+    public String f33805b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f34192c;
+    public int f33806c;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(a.b bVar);
 
@@ -61,8 +62,8 @@ public class e {
                 return;
             }
         }
-        this.f34191b = str;
-        this.f34190a = str;
+        this.f33805b = str;
+        this.f33804a = str;
     }
 
     private String a() {
@@ -71,7 +72,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             Context context = Loader.get().getContext();
-            int i3 = com.kwad.sdk.api.a.f34151a;
+            int i3 = com.kwad.sdk.api.a.f33764a;
             String valueOf = String.valueOf(Loader.get().a(context));
             IKsAdSDK ksAdSDKImpl = Loader.get().getKsAdSDKImpl();
             if (ksAdSDKImpl != null) {
@@ -87,8 +88,8 @@ public class e {
             JSONObject networkInfo = Loader.get().getKsAdSDKImpl().getNetworkInfo();
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("sdkApiVersion", "3.3.9");
-                jSONObject.put("sdkApiVersionCode", 3030900);
+                jSONObject.put("sdkApiVersion", "3.3.11");
+                jSONObject.put("sdkApiVersionCode", 3031100);
                 jSONObject.put(CommandMessage.SDK_VERSION, valueOf);
                 jSONObject.put("SDKVersionCode", i2);
                 jSONObject.put("sdkType", i3);
@@ -160,6 +161,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
             URLConnection openConnection = new URL(str).openConnection();
+            TLSConnectionUtils.wrapHttpURLConnection(openConnection);
             openConnection.setRequestProperty("Accept-Language", "zh-CN");
             if (i2 > 0) {
                 openConnection.setConnectTimeout(i2);
@@ -181,10 +183,10 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
-            if (TextUtils.isEmpty(this.f34190a)) {
+            if (TextUtils.isEmpty(this.f33804a)) {
                 return null;
             }
-            HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.f34190a, 10000, 30000, false);
+            HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.f33804a, 10000, 30000, false);
             httpURLConnection.setRequestMethod("POST");
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setInstanceFollowRedirects(true);
@@ -216,9 +218,9 @@ public class e {
                         aVar.a(bVar);
                     } else if (responseCode / 100 != 3) {
                         throw new RuntimeException("response code = " + responseCode);
-                    } else if (this.f34192c < 21) {
-                        this.f34190a = httpURLConnection.getHeaderField("Location");
-                        this.f34192c++;
+                    } else if (this.f33806c < 21) {
+                        this.f33804a = httpURLConnection.getHeaderField("Location");
+                        this.f33806c++;
                         b(aVar);
                     }
                 }
@@ -254,10 +256,10 @@ public class e {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f34193a;
+                public final /* synthetic */ a f33807a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ e f34194b;
+                public final /* synthetic */ e f33808b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -274,15 +276,15 @@ public class e {
                             return;
                         }
                     }
-                    this.f34194b = this;
-                    this.f34193a = aVar;
+                    this.f33808b = this;
+                    this.f33807a = aVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f34194b.b(this.f34193a);
+                        this.f33808b.b(this.f33807a);
                     }
                 }
             });

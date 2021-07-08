@@ -431,7 +431,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         InterceptResult invokeLIL;
         int next;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65540, null, resources, i2, theme)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, resources, i2, theme)) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
                 VectorDrawableCompat vectorDrawableCompat = new VectorDrawableCompat();
                 vectorDrawableCompat.mDelegateDrawable = ResourcesCompat.getDrawable(resources, i2, theme);
@@ -1493,7 +1493,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
 
         private void updateStateFromTypedArray(TypedArray typedArray, XmlPullParser xmlPullParser, Resources.Theme theme) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(65540, this, typedArray, xmlPullParser, theme) == null) {
+            if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, typedArray, xmlPullParser, theme) == null) {
                 this.mThemeAttrs = null;
                 if (TypedArrayUtils.hasAttribute(xmlPullParser, "pathData")) {
                     String string = typedArray.getString(0);
@@ -1779,7 +1779,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
 
         private void drawGroupTree(VGroup vGroup, Matrix matrix, Canvas canvas, int i2, int i3, ColorFilter colorFilter) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65540, this, new Object[]{vGroup, matrix, canvas, Integer.valueOf(i2), Integer.valueOf(i3), colorFilter}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{vGroup, matrix, canvas, Integer.valueOf(i2), Integer.valueOf(i3), colorFilter}) == null) {
                 vGroup.mStackedMatrix.set(matrix);
                 vGroup.mStackedMatrix.preConcat(vGroup.mLocalMatrix);
                 canvas.save();

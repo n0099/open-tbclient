@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.appcompat.widget.ActivityChooserModel;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.armor.RimArmor;
 import com.baidu.fsg.base.restnet.beans.IBeanResponseCallback;
@@ -21,7 +22,7 @@ import com.baidu.walletfacesdk.LightInvokerImpl;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BdWalletUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEVICE_FP = "rim_device_fp";
@@ -70,7 +71,7 @@ public class BdWalletUtils {
     public static String getDeviceFP(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             String str = (String) SharedPreferencesUtils.getParam(context, PREF_FILE_NAME_FP, DEVICE_FP, "");
             return !TextUtils.isEmpty(str) ? RimArmor.getInstance().localDecrypt(str) : str;
         }

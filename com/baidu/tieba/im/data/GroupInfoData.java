@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.k.e.n;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GroupInfoData extends AbstractImageProvider implements n, Serializable, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId TYPE_FRS_GROUP;

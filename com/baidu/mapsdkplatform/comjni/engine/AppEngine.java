@@ -2,13 +2,14 @@ package com.baidu.mapsdkplatform.comjni.engine;
 
 import android.content.Context;
 import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AppEngine {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +51,7 @@ public class AppEngine {
     public static boolean StartSocketProc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? JNIEngine.StartSocketProc() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? JNIEngine.StartSocketProc() : invokeV.booleanValue;
     }
 
     public static boolean UnInitEngine() {

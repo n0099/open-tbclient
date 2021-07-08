@@ -1,5 +1,6 @@
 package okhttp3.internal.ws;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 import okio.Buffer;
 import okio.BufferedSource;
 import okio.ByteString;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class WebSocketReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +29,7 @@ public final class WebSocketReader {
     public int opcode;
     public final BufferedSource source;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface FrameCallback {
         void onReadClose(int i2, String str);
 
@@ -203,7 +204,7 @@ public final class WebSocketReader {
 
     private void readMessageFrame() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             int i2 = this.opcode;
             if (i2 != 1 && i2 != 2) {
                 throw new ProtocolException("Unknown opcode: " + Integer.toHexString(i2));

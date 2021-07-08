@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.j;
 import h.r.c;
 import rx.exceptions.MissingBackpressureException;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class OnSubscribeFromEmitter$ErrorEmitter<T> extends OnSubscribeFromEmitter$NoOverflowBaseEmitter<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 338953216916120960L;

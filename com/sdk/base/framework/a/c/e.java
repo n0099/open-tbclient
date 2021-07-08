@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class e extends FutureTask<Result> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ c f41108a;
+    public /* synthetic */ c f38122a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(c cVar, Callable callable) {
@@ -32,7 +32,7 @@ public final class e extends FutureTask<Result> {
                 return;
             }
         }
-        this.f41108a = cVar;
+        this.f38122a = cVar;
     }
 
     @Override // java.util.concurrent.FutureTask
@@ -40,10 +40,10 @@ public final class e extends FutureTask<Result> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                c.b(this.f41108a, super.get());
+                c.b(this.f38122a, super.get());
             } catch (Exception e2) {
-                c.b(this.f41108a, null);
-                com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", e2.getMessage(), this.f41108a.f41101a);
+                c.b(this.f38122a, null);
+                com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", e2.getMessage(), this.f38122a.f38115a);
             }
         }
     }

@@ -24,7 +24,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = JsNativeDomainWhiteListListener.JSNATIVE_DOMAIN_WLIST_ACTION, module = "scheme")
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class JsNativeDomainWhiteListListener extends JSONObjectCommandListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;

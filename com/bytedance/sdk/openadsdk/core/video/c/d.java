@@ -35,7 +35,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+import org.webrtc.MediaStreamTrack;
+/* loaded from: classes5.dex */
 public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
     public static /* synthetic */ Interceptable $ic;
     public static boolean m;
@@ -43,31 +44,31 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f30513a;
+    public c f30623a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f30514b;
+    public boolean f30624b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f30515c;
+    public boolean f30625c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f30516d;
+    public boolean f30626d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f30517e;
+    public boolean f30627e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30518f;
+    public int f30628f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f30519g;
+    public long f30629g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Handler f30520h;
+    public final Handler f30630h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f30521i;
+    public Handler f30631i;
     public ArrayList<Runnable> j;
     public int k;
     public int l;
@@ -125,7 +126,7 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            AudioManager audioManager = (AudioManager) o.a().getSystemService("audio");
+            AudioManager audioManager = (AudioManager) o.a().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
             if (audioManager != null) {
                 return audioManager.getStreamVolume(3);
             }
@@ -136,7 +137,7 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
 
     private void B() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65540, this) == null) && m) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && m) {
             a(this.l, false);
             m = false;
         }
@@ -162,24 +163,24 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
     /* JADX INFO: Access modifiers changed from: private */
     public void q() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65556, this) == null) && this.f30513a == null) {
+        if ((interceptable == null || interceptable.invokeV(65556, this) == null) && this.f30623a == null) {
             j.b("SSMediaPlayeWrapper", "SSMediaPlayerWrapper use System Mediaplayer");
             b bVar = new b();
-            this.f30513a = bVar;
+            this.f30623a = bVar;
             this.n = "0";
             bVar.a((c.e) this);
-            this.f30513a.a((c.b) this);
-            this.f30513a.a((c.InterfaceC0343c) this);
-            this.f30513a.a((c.a) this);
-            this.f30513a.a((c.f) this);
-            this.f30513a.a((c.d) this);
-            this.f30513a.a((c.g) this);
+            this.f30623a.a((c.b) this);
+            this.f30623a.a((c.InterfaceC0343c) this);
+            this.f30623a.a((c.a) this);
+            this.f30623a.a((c.f) this);
+            this.f30623a.a((c.d) this);
+            this.f30623a.a((c.g) this);
             try {
-                this.f30513a.b(this.f30514b);
+                this.f30623a.b(this.f30624b);
             } catch (Throwable th) {
                 j.a("SSMediaPlayeWrapper", "setLooping error: ", th);
             }
-            this.f30515c = false;
+            this.f30625c = false;
         }
     }
 
@@ -192,7 +193,7 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f30523a;
+                public final /* synthetic */ d f30633a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -209,16 +210,16 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                             return;
                         }
                     }
-                    this.f30523a = this;
+                    this.f30633a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f30523a.f30520h == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f30633a.f30630h == null) {
                         return;
                     }
-                    this.f30523a.f30520h.sendEmptyMessage(104);
+                    this.f30633a.f30630h.sendEmptyMessage(104);
                     j.b("tag_video_play", "[video] MediaPlayerProxy#start first play prepare invoke ! sendMsg --> OP_PREPARE_ASYNC");
                 }
             });
@@ -228,7 +229,7 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
     private void s() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65558, this) == null) || (cVar = this.f30513a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65558, this) == null) || (cVar = this.f30623a) == null) {
             return;
         }
         try {
@@ -236,15 +237,15 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
         } catch (Throwable th) {
             j.a("SSMediaPlayeWrapper", "releaseMediaplayer error1: ", th);
         }
-        this.f30513a.a((c.b) null);
-        this.f30513a.a((c.g) null);
-        this.f30513a.a((c.a) null);
-        this.f30513a.a((c.d) null);
-        this.f30513a.a((c.InterfaceC0343c) null);
-        this.f30513a.a((c.e) null);
-        this.f30513a.a((c.f) null);
+        this.f30623a.a((c.b) null);
+        this.f30623a.a((c.g) null);
+        this.f30623a.a((c.a) null);
+        this.f30623a.a((c.d) null);
+        this.f30623a.a((c.InterfaceC0343c) null);
+        this.f30623a.a((c.e) null);
+        this.f30623a.a((c.f) null);
         try {
-            this.f30513a.k();
+            this.f30623a.k();
         } catch (Throwable th2) {
             j.a("SSMediaPlayeWrapper", "releaseMediaplayer error2: ", th2);
         }
@@ -253,12 +254,12 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
     private void t() {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65559, this) == null) || (handler = this.f30520h) == null || handler.getLooper() == null) {
+        if (!(interceptable == null || interceptable.invokeV(65559, this) == null) || (handler = this.f30630h) == null || handler.getLooper() == null) {
             return;
         }
         try {
             j.b("SSMediaPlayeWrapper", "onDestory............");
-            this.f30520h.getLooper().quit();
+            this.f30630h.getLooper().quit();
         } catch (Throwable th) {
             j.a("SSMediaPlayeWrapper", "onDestroy error: ", th);
         }
@@ -286,16 +287,16 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
 
     private void w() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65562, this) == null) || this.f30516d) {
+        if (!(interceptable == null || interceptable.invokeV(65562, this) == null) || this.f30626d) {
             return;
         }
-        this.f30516d = true;
+        this.f30626d = true;
         Iterator it = new ArrayList(this.j).iterator();
         while (it.hasNext()) {
             ((Runnable) it.next()).run();
         }
         this.j.clear();
-        this.f30516d = false;
+        this.f30626d = false;
     }
 
     private void x() {
@@ -336,7 +337,7 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f30524a;
+                public final /* synthetic */ d f30634a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -353,16 +354,16 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                             return;
                         }
                     }
-                    this.f30524a = this;
+                    this.f30634a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f30524a.f30520h == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f30634a.f30630h == null) {
                         return;
                     }
-                    this.f30524a.f30520h.sendEmptyMessage(105);
+                    this.f30634a.f30630h.sendEmptyMessage(105);
                 }
             });
         }
@@ -371,7 +372,7 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
     public void e() {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (handler = this.f30520h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (handler = this.f30630h) == null) {
             return;
         }
         handler.obtainMessage(108).sendToTarget();
@@ -380,7 +381,7 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
     public void f() {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (handler = this.f30520h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (handler = this.f30630h) == null) {
             return;
         }
         handler.obtainMessage(109).sendToTarget();
@@ -389,7 +390,7 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? (this.f30518f == 206 || this.f30520h.hasMessages(100)) && !this.r : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? (this.f30628f == 206 || this.f30630h.hasMessages(100)) && !this.r : invokeV.booleanValue;
     }
 
     public boolean h() {
@@ -401,25 +402,25 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? (this.f30518f == 207 || this.r) && !this.f30520h.hasMessages(100) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? (this.f30628f == 207 || this.r) && !this.f30630h.hasMessages(100) : invokeV.booleanValue;
     }
 
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f30518f == 203 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f30628f == 203 : invokeV.booleanValue;
     }
 
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f30518f == 205 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f30628f == 205 : invokeV.booleanValue;
     }
 
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f30518f == 209 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f30628f == 209 : invokeV.booleanValue;
     }
 
     public void m() {
@@ -475,11 +476,11 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                 return;
             }
         }
-        this.f30513a = null;
-        this.f30514b = false;
-        this.f30515c = false;
-        this.f30518f = 201;
-        this.f30519g = -1L;
+        this.f30623a = null;
+        this.f30624b = false;
+        this.f30625c = false;
+        this.f30628f = 201;
+        this.f30629g = -1L;
         this.k = 0;
         this.n = "0";
         this.q = new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.core.video.c.d.1
@@ -487,7 +488,7 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d f30522a;
+            public final /* synthetic */ d f30632a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -504,14 +505,14 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                         return;
                     }
                 }
-                this.f30522a = this;
+                this.f30632a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f30522a.f30520h.sendEmptyMessageDelayed(100, 0L);
+                    this.f30632a.f30630h.sendEmptyMessageDelayed(100, 0L);
                     j.b("tag_video_play", "[video] MediaPlayerProxy#start not first play ! sendMsg --> OP_START , video start to play !");
                 }
             }
@@ -525,10 +526,10 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
         this.y = 0L;
         this.z = false;
         this.k = 0;
-        this.f30521i = handler;
+        this.f30631i = handler;
         HandlerThread handlerThread = new HandlerThread("VideoManager");
         handlerThread.start();
-        this.f30520h = new u(handlerThread.getLooper(), this);
+        this.f30630h = new u(handlerThread.getLooper(), this);
         this.z = Build.VERSION.SDK_INT >= 17;
         q();
     }
@@ -536,9 +537,9 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f30520h.removeMessages(100);
+            this.f30630h.removeMessages(100);
             this.r = true;
-            this.f30520h.sendEmptyMessage(101);
+            this.f30630h.sendEmptyMessage(101);
             D();
         }
     }
@@ -546,16 +547,16 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f30518f = 203;
+            this.f30628f = 203;
             D();
             z();
-            if (this.f30520h != null) {
+            if (this.f30630h != null) {
                 try {
                     b("release");
-                    this.f30520h.removeCallbacksAndMessages(null);
-                    if (this.f30513a != null) {
-                        this.f30517e = true;
-                        this.f30520h.sendEmptyMessage(103);
+                    this.f30630h.removeCallbacksAndMessages(null);
+                    if (this.f30623a != null) {
+                        this.f30627e = true;
+                        this.f30630h.sendEmptyMessage(103);
                     }
                 } catch (Throwable th) {
                     t();
@@ -576,7 +577,7 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c cVar = this.f30513a;
+            c cVar = this.f30623a;
             if (cVar != null) {
                 return ((b) cVar).e();
             }
@@ -591,14 +592,14 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048591, this, cVar, i2, i3)) == null) {
             j.f("SSMediaPlayeWrapper", "what,extra:" + i2 + "," + i3);
-            if (this.f30513a != cVar) {
+            if (this.f30623a != cVar) {
                 return false;
             }
-            Handler handler = this.f30521i;
+            Handler handler = this.f30631i;
             if (handler != null) {
                 handler.obtainMessage(304, i2, i3).sendToTarget();
                 if (i3 == -1004) {
-                    this.f30521i.obtainMessage(303, i2, i3).sendToTarget();
+                    this.f30631i.obtainMessage(303, i2, i3).sendToTarget();
                 }
             }
             b(i2, i3);
@@ -613,26 +614,26 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
             j.b("tag_video_play", "[video] MediaPlayerProxy#start firstSeekToPosition=" + j + ",firstPlay :" + z + ",isPauseOtherMusicVolume=" + z2);
             this.r = false;
             if (!z2) {
-                if (this.f30513a != null) {
+                if (this.f30623a != null) {
                     b(true);
                 }
-            } else if (this.f30513a != null) {
+            } else if (this.f30623a != null) {
                 b(false);
             }
             if (z) {
                 j.b("tag_video_play", "[video] first start , SSMediaPlayer  start method !");
                 r();
-                this.f30519g = j;
+                this.f30629g = j;
                 return;
             }
             C();
-            c cVar = this.f30513a;
+            c cVar = this.f30623a;
             if (cVar != null) {
                 try {
                     if (j <= cVar.i()) {
-                        j = this.f30513a.i();
+                        j = this.f30623a.i();
                     }
-                    this.f30519g = j;
+                    this.f30629g = j;
                 } catch (Throwable th) {
                     j.b("tag_video_play", "[video] MediaPlayerProxy#start  error: getCurrentPosition :" + th.toString());
                 }
@@ -669,7 +670,7 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
     public void c(c cVar) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, cVar) == null) || (handler = this.f30521i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, cVar) == null) || (handler = this.f30631i) == null) {
             return;
         }
         handler.sendEmptyMessage(ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA);
@@ -679,14 +680,14 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
     public void b(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, cVar) == null) {
-            this.f30518f = 205;
+            this.f30628f = 205;
             if (this.r) {
-                this.f30520h.post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.core.video.c.d.8
+                this.f30630h.post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.core.video.c.d.8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ d f30533a;
+                    public final /* synthetic */ d f30643a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -703,7 +704,7 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                                 return;
                             }
                         }
-                        this.f30533a = this;
+                        this.f30643a = this;
                     }
 
                     @Override // java.lang.Runnable
@@ -711,9 +712,9 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
-                                this.f30533a.f30513a.h();
-                                this.f30533a.f30518f = 207;
-                                this.f30533a.r = false;
+                                this.f30643a.f30623a.h();
+                                this.f30643a.f30628f = 207;
+                                this.f30643a.r = false;
                             } catch (Throwable th) {
                                 j.a("SSMediaPlayeWrapper", "onPrepared error: ", th);
                             }
@@ -721,11 +722,11 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                     }
                 });
             } else {
-                Handler handler = this.f30520h;
+                Handler handler = this.f30630h;
                 handler.sendMessage(handler.obtainMessage(100, -1, -1));
             }
             o.delete(this.k);
-            Handler handler2 = this.f30521i;
+            Handler handler2 = this.f30631i;
             if (handler2 != null) {
                 handler2.sendEmptyMessage(305);
             }
@@ -737,17 +738,17 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             D();
-            int i2 = this.f30518f;
+            int i2 = this.f30628f;
             if (i2 == 207 || i2 == 206 || i2 == 209) {
                 b(new Runnable(this, j) { // from class: com.bytedance.sdk.openadsdk.core.video.c.d.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ long f30525a;
+                    public final /* synthetic */ long f30635a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ d f30526b;
+                    public final /* synthetic */ d f30636b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -764,17 +765,17 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                                 return;
                             }
                         }
-                        this.f30526b = this;
-                        this.f30525a = j;
+                        this.f30636b = this;
+                        this.f30635a = j;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f30526b.f30520h == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f30636b.f30630h == null) {
                             return;
                         }
-                        this.f30526b.f30520h.obtainMessage(106, Long.valueOf(this.f30525a)).sendToTarget();
+                        this.f30636b.f30630h.obtainMessage(106, Long.valueOf(this.f30635a)).sendToTarget();
                     }
                 });
             }
@@ -789,10 +790,10 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SurfaceTexture f30527a;
+                public final /* synthetic */ SurfaceTexture f30637a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ d f30528b;
+                public final /* synthetic */ d f30638b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -809,17 +810,17 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                             return;
                         }
                     }
-                    this.f30528b = this;
-                    this.f30527a = surfaceTexture;
+                    this.f30638b = this;
+                    this.f30637a = surfaceTexture;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f30528b.q();
-                        if (this.f30528b.f30520h != null) {
-                            this.f30528b.f30520h.obtainMessage(111, this.f30527a).sendToTarget();
+                        this.f30638b.q();
+                        if (this.f30638b.f30630h != null) {
+                            this.f30638b.f30630h.obtainMessage(111, this.f30637a).sendToTarget();
                         }
                     }
                 }
@@ -835,10 +836,10 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SurfaceHolder f30529a;
+                public final /* synthetic */ SurfaceHolder f30639a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ d f30530b;
+                public final /* synthetic */ d f30640b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -855,17 +856,17 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                             return;
                         }
                     }
-                    this.f30530b = this;
-                    this.f30529a = surfaceHolder;
+                    this.f30640b = this;
+                    this.f30639a = surfaceHolder;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f30530b.q();
-                        if (this.f30530b.f30520h != null) {
-                            this.f30530b.f30520h.obtainMessage(110, this.f30529a).sendToTarget();
+                        this.f30640b.q();
+                        if (this.f30640b.f30630h != null) {
+                            this.f30640b.f30630h.obtainMessage(110, this.f30639a).sendToTarget();
                         }
                     }
                 }
@@ -881,10 +882,10 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.o.f.b f30531a;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.o.f.b f30641a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ d f30532b;
+                public final /* synthetic */ d f30642b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -901,17 +902,17 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                             return;
                         }
                     }
-                    this.f30532b = this;
-                    this.f30531a = bVar;
+                    this.f30642b = this;
+                    this.f30641a = bVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f30532b.q();
-                        if (this.f30532b.f30520h != null) {
-                            this.f30532b.f30520h.obtainMessage(107, this.f30531a).sendToTarget();
+                        this.f30642b.q();
+                        if (this.f30642b.f30630h != null) {
+                            this.f30642b.f30630h.obtainMessage(107, this.f30641a).sendToTarget();
                         }
                     }
                 }
@@ -935,25 +936,25 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
             return;
         }
         int i3 = message.what;
-        j.b("tag_video_play", "[video]  execute , mCurrentState = " + this.f30518f + " handlerMsg=" + i3);
-        c cVar = this.f30513a;
+        j.b("tag_video_play", "[video]  execute , mCurrentState = " + this.f30628f + " handlerMsg=" + i3);
+        c cVar = this.f30623a;
         if (cVar != null) {
             long j = 0;
             switch (message.what) {
                 case 100:
-                    int i4 = this.f30518f;
+                    int i4 = this.f30628f;
                     if (i4 == 205 || i4 == 206 || i4 == 207 || i4 == 209) {
                         try {
-                            this.f30513a.f();
+                            this.f30623a.f();
                             j.b("tag_video_play", "[video] OP_START execute , mMediaPlayer real start !");
-                            this.f30518f = 206;
-                            if (this.f30519g >= 0) {
-                                this.f30513a.a(this.f30519g);
-                                this.f30519g = -1L;
+                            this.f30628f = 206;
+                            if (this.f30629g >= 0) {
+                                this.f30623a.a(this.f30629g);
+                                this.f30629g = -1L;
                             }
-                            if (this.f30521i != null) {
-                                this.f30521i.removeMessages(312);
-                                this.f30521i.sendEmptyMessage(313);
+                            if (this.f30631i != null) {
+                                this.f30631i.removeMessages(312);
+                                this.f30631i.sendEmptyMessage(313);
                             }
                         } catch (Throwable th) {
                             j.a("tag_video_play", "OP_START error: ", th);
@@ -964,12 +965,12 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                     z = true;
                     break;
                 case 101:
-                    int i5 = this.f30518f;
+                    int i5 = this.f30628f;
                     if (i5 == 206 || i5 == 207 || i5 == 209) {
                         try {
                             j.b("tag_video_play", "[video] OP_PAUSE execute , mMediaPlayer  OP_PAUSE !");
-                            this.f30513a.h();
-                            this.f30518f = 207;
+                            this.f30623a.h();
+                            this.f30628f = 207;
                             try {
                                 this.r = false;
                             } catch (Throwable th2) {
@@ -990,7 +991,7 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                     try {
                         cVar.l();
                         j.b("tag_video_play", "[video] OP_RELEASE execute , releaseMediaplayer !");
-                        this.f30518f = 201;
+                        this.f30628f = 201;
                         break;
                     } catch (Throwable th4) {
                         j.a("SSMediaPlayeWrapper", "OP_RESET error: ", th4);
@@ -1003,20 +1004,20 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                     } catch (Throwable th5) {
                         j.c("NativeVideoController", "OP_RELEASE error: ", th5);
                     }
-                    this.f30517e = false;
+                    this.f30627e = false;
                     a(309, (Object) null);
-                    this.f30518f = 203;
-                    this.f30513a = null;
+                    this.f30628f = 203;
+                    this.f30623a = null;
                     y();
                     break;
                 case 104:
-                    int i6 = this.f30518f;
+                    int i6 = this.f30628f;
                     if (i6 == 202 || i6 == 208) {
                         try {
-                            ((b) this.f30513a).e().prepareAsync();
+                            ((b) this.f30623a).e().prepareAsync();
                             j.b("tag_video_play", "[video] OP_PREPARE_ASYNC execute , mMediaPlayer real prepareAsync !");
-                            if (this.f30521i != null) {
-                                this.f30521i.sendEmptyMessageDelayed(312, 10000L);
+                            if (this.f30631i != null) {
+                                this.f30631i.sendEmptyMessageDelayed(312, 10000L);
                                 break;
                             }
                         } catch (Throwable th6) {
@@ -1027,11 +1028,11 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                     z = true;
                     break;
                 case 105:
-                    int i7 = this.f30518f;
+                    int i7 = this.f30628f;
                     if (i7 == 205 || i7 == 206 || i7 == 208 || i7 == 207 || i7 == 209) {
                         try {
-                            this.f30513a.g();
-                            this.f30518f = 208;
+                            this.f30623a.g();
+                            this.f30628f = 208;
                             break;
                         } catch (Throwable th7) {
                             j.a("SSMediaPlayeWrapper", "OP_STOP error: ", th7);
@@ -1041,10 +1042,10 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                     z = true;
                     break;
                 case 106:
-                    int i8 = this.f30518f;
+                    int i8 = this.f30628f;
                     if (i8 == 206 || i8 == 207 || i8 == 209) {
                         try {
-                            this.f30513a.a(((Long) message.obj).longValue());
+                            this.f30623a.a(((Long) message.obj).longValue());
                             break;
                         } catch (Throwable th8) {
                             j.a("SSMediaPlayeWrapper", "OP_SEEKTO error: ", th8);
@@ -1054,7 +1055,7 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                     z = true;
                     break;
                 case 107:
-                    int i9 = this.f30518f;
+                    int i9 = this.f30628f;
                     if (i9 == 201 || i9 == 203) {
                         try {
                             com.bytedance.sdk.openadsdk.o.f.b bVar = (com.bytedance.sdk.openadsdk.o.f.b) message.obj;
@@ -1070,14 +1071,14 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                                     a(file.getAbsolutePath());
                                 } else {
-                                    this.f30513a.a(file.getAbsolutePath());
+                                    this.f30623a.a(file.getAbsolutePath());
                                 }
                             } else {
                                 j.b("SSMediaPlayeWrapper", "paly net:" + bVar.a());
-                                if (bVar.f31648b == 1 && Build.VERSION.SDK_INT < 23) {
-                                    this.f30513a.a(bVar.a());
+                                if (bVar.f31758b == 1 && Build.VERSION.SDK_INT < 23) {
+                                    this.f30623a.a(bVar.a());
                                 } else if (Build.VERSION.SDK_INT >= 23) {
-                                    this.f30513a.a(bVar);
+                                    this.f30623a.a(bVar);
                                 } else {
                                     String b2 = com.bytedance.sdk.openadsdk.o.f.a.a().b(bVar);
                                     j.f("cache009", "使用Video缓存-OP_SET_DATASOURCE-proxyurl=" + b2);
@@ -1086,13 +1087,13 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                                         j.f("cache010", "使用uri parse =" + parse.getPath());
                                         a(parse.getPath());
                                     } else {
-                                        this.f30513a.a(b2);
+                                        this.f30623a.a(b2);
                                     }
                                 }
                             }
-                            this.f30518f = 202;
-                            if (this.f30521i != null) {
-                                this.f30521i.obtainMessage(314).sendToTarget();
+                            this.f30628f = 202;
+                            if (this.f30631i != null) {
+                                this.f30631i.obtainMessage(314).sendToTarget();
                                 break;
                             }
                         } catch (Throwable th9) {
@@ -1103,10 +1104,10 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                     z = true;
                     break;
                 case 108:
-                    int i10 = this.f30518f;
+                    int i10 = this.f30628f;
                     if (i10 == 206 || i10 == 207) {
                         try {
-                            j = this.f30513a.j();
+                            j = this.f30623a.j();
                         } catch (Throwable th10) {
                             j.a("SSMediaPlayeWrapper", "OP_REQUEST_DURATION error: ", th10);
                         }
@@ -1114,10 +1115,10 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                     a(108, Long.valueOf(j));
                     break;
                 case 109:
-                    int i11 = this.f30518f;
+                    int i11 = this.f30628f;
                     if (i11 == 206 || i11 == 207) {
                         try {
-                            i2 = this.f30513a.i();
+                            i2 = this.f30623a.i();
                         } catch (Throwable th11) {
                             j.a("SSMediaPlayeWrapper", "OP_REQUEST_CUR_POSITION error: ", th11);
                         }
@@ -1134,9 +1135,9 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                     try {
                         cVar.a((SurfaceHolder) message.obj);
                         if (this.k == 2) {
-                            this.f30513a.a(o.a(), 10);
+                            this.f30623a.a(o.a(), 10);
                         }
-                        this.f30513a.a(true);
+                        this.f30623a.a(true);
                         break;
                     } catch (Throwable th12) {
                         j.a("SSMediaPlayeWrapper", "OP_SET_DISPLAY error: ", th12);
@@ -1147,8 +1148,8 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                         if (Build.VERSION.SDK_INT >= 14) {
                             cVar.a(new Surface((SurfaceTexture) message.obj));
                         }
-                        this.f30513a.a(true);
-                        this.f30513a.a(o.a(), 10);
+                        this.f30623a.a(true);
+                        this.f30623a.a(o.a(), 10);
                         x();
                         break;
                     } catch (Throwable th13) {
@@ -1157,12 +1158,12 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                     }
             }
             if (z) {
-                this.f30518f = 200;
-                if (this.f30515c) {
+                this.f30628f = 200;
+                if (this.f30625c) {
                     return;
                 }
                 a(308, Integer.valueOf(i3));
-                this.f30515c = true;
+                this.f30625c = true;
                 return;
             }
             return;
@@ -1177,7 +1178,7 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
         if (!(interceptable == null || interceptable.invokeL(65553, this, runnable) == null) || runnable == null) {
             return;
         }
-        if (!this.f30517e) {
+        if (!this.f30627e) {
             runnable.run();
         } else {
             a(runnable);
@@ -1189,9 +1190,9 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             try {
                 if (z) {
-                    this.f30513a.a(0.0f, 0.0f);
+                    this.f30623a.a(0.0f, 0.0f);
                 } else {
-                    this.f30513a.a(1.0f, 1.0f);
+                    this.f30623a.a(1.0f, 1.0f);
                 }
             } catch (Throwable th) {
                 j.a("SSMediaPlayeWrapper", "setQuietPlay error: ", th);
@@ -1202,7 +1203,7 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
     private void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65554, this, str) == null) {
-            Handler handler = this.f30520h;
+            Handler handler = this.f30630h;
             if (handler != null) {
                 handler.removeMessages(201);
             }
@@ -1218,7 +1219,7 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, this, str) == null) {
             FileInputStream fileInputStream = new FileInputStream(str);
-            this.f30513a.a(fileInputStream.getFD());
+            this.f30623a.a(fileInputStream.getFD());
             fileInputStream.close();
         }
     }
@@ -1229,7 +1230,7 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
             if (i2 == 309) {
                 B();
             }
-            Handler handler = this.f30521i;
+            Handler handler = this.f30631i;
             if (handler != null) {
                 handler.obtainMessage(i2, obj).sendToTarget();
             }
@@ -1240,7 +1241,7 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
     public void a(c cVar, int i2) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048582, this, cVar, i2) == null) && this.f30513a == cVar && (handler = this.f30521i) != null) {
+        if ((interceptable == null || interceptable.invokeLI(1048582, this, cVar, i2) == null) && this.f30623a == cVar && (handler = this.f30631i) != null) {
             handler.obtainMessage(301, Integer.valueOf(i2)).sendToTarget();
         }
     }
@@ -1249,9 +1250,9 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
     public void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.f30518f = !this.f30514b ? FAUEnum.PR_TIMEOUT : 206;
+            this.f30628f = !this.f30624b ? FAUEnum.PR_TIMEOUT : 206;
             o.delete(this.k);
-            Handler handler = this.f30521i;
+            Handler handler = this.f30631i;
             if (handler != null) {
                 handler.obtainMessage(302).sendToTarget();
             }
@@ -1267,19 +1268,19 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048587, this, cVar, i2, i3)) == null) {
             j.f("SSMediaPlayeWrapper", "what=" + i2 + "extra=" + i3);
             u();
-            this.f30518f = 200;
-            Handler handler = this.f30521i;
+            this.f30628f = 200;
+            Handler handler = this.f30631i;
             if (handler != null) {
                 handler.obtainMessage(303, i2, i3).sendToTarget();
             }
-            Handler handler2 = this.f30520h;
+            Handler handler2 = this.f30630h;
             if (handler2 != null) {
                 handler2.removeMessages(108);
-                this.f30520h.removeMessages(109);
+                this.f30630h.removeMessages(109);
             }
-            if (!this.f30515c) {
+            if (!this.f30625c) {
                 a(308, Integer.valueOf(i2));
-                this.f30515c = true;
+                this.f30625c = true;
             }
             if (a(i2, i3)) {
                 t();
@@ -1321,7 +1322,7 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
                 m = true;
                 this.l = A;
             }
-            AudioManager audioManager = (AudioManager) o.a().getSystemService("audio");
+            AudioManager audioManager = (AudioManager) o.a().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
             if (audioManager != null) {
                 audioManager.setStreamVolume(3, i2, 0);
             }
@@ -1332,7 +1333,7 @@ public class d implements u.a, c.a, c.b, c.InterfaceC0343c, c.d, c.e, c.f, c.g {
     public void a(c cVar, int i2, int i3, int i4, int i5) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{cVar, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || (handler = this.f30521i) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{cVar, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || (handler = this.f30631i) == null) {
             return;
         }
         handler.obtainMessage(311, i2, i3).sendToTarget();

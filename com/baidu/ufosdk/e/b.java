@@ -11,12 +11,12 @@ import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f23208a;
+    public static String f23318a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:70:0x015c */
@@ -67,10 +67,10 @@ public final class b {
                 httpURLConnection.setDoOutput(true);
                 httpURLConnection.setUseCaches(false);
                 httpURLConnection.setInstanceFollowRedirects(true);
-                if (f23208a == null) {
-                    f23208a = "UfoSDK/2.9.10 (" + e.a() + " " + e.b() + SmallTailInfo.EMOTION_SUFFIX;
+                if (f23318a == null) {
+                    f23318a = "UfoSDK/2.9.10 (" + e.a() + " " + e.b() + SmallTailInfo.EMOTION_SUFFIX;
                 }
-                httpURLConnection.setRequestProperty("User-Agent", f23208a);
+                httpURLConnection.setRequestProperty("User-Agent", f23318a);
                 httpURLConnection.setConnectTimeout(5000);
                 httpURLConnection.setReadTimeout(5000);
                 httpURLConnection.setChunkedStreamingMode(0);

@@ -20,7 +20,7 @@ import com.googlecode.mp4parser.authoring.TrackMetaData;
 import java.nio.ByteBuffer;
 import java.util.AbstractList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ReplaceSampleTrack extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,13 +30,13 @@ public class ReplaceSampleTrack extends AbstractTrack {
     public List<Sample> samples;
 
     /* renamed from: com.googlecode.mp4parser.authoring.tracks.ReplaceSampleTrack$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class ReplaceASingleEntryList extends AbstractList<Sample> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

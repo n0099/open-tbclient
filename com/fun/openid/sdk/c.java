@@ -20,33 +20,33 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.a;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.fun.openid.sdk.a f32652a = null;
+    public com.fun.openid.sdk.a f32762a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32653b = null;
+    public String f32763b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f32654c = null;
+    public String f32764c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f32655d = new Object();
+    public final Object f32765d = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f32656e = new a(this);
+    public ServiceConnection f32766e = new a(this);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f32657a;
+        public final /* synthetic */ c f32767a;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class c {
                     return;
                 }
             }
-            this.f32657a = cVar;
+            this.f32767a = cVar;
         }
 
         @Override // android.content.ServiceConnection
@@ -71,17 +71,17 @@ public class c {
             com.fun.openid.sdk.a c0375a;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-                c cVar = this.f32657a;
-                int i2 = a.AbstractBinderC0374a.f32648a;
+                c cVar = this.f32767a;
+                int i2 = a.AbstractBinderC0374a.f32758a;
                 if (iBinder == null) {
                     c0375a = null;
                 } else {
                     IInterface queryLocalInterface = iBinder.queryLocalInterface("com.heytap.openid.IOpenID");
                     c0375a = (queryLocalInterface == null || !(queryLocalInterface instanceof com.fun.openid.sdk.a)) ? new a.AbstractBinderC0374a.C0375a(iBinder) : (com.fun.openid.sdk.a) queryLocalInterface;
                 }
-                cVar.f32652a = c0375a;
-                synchronized (this.f32657a.f32655d) {
-                    this.f32657a.f32655d.notify();
+                cVar.f32762a = c0375a;
+                synchronized (this.f32767a.f32765d) {
+                    this.f32767a.f32765d.notify();
                 }
             }
         }
@@ -90,17 +90,17 @@ public class c {
         public void onServiceDisconnected(ComponentName componentName) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                this.f32657a.f32652a = null;
+                this.f32767a.f32762a = null;
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f32658a;
+        public static final c f32768a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -116,7 +116,7 @@ public class c {
                     return;
                 }
             }
-            f32658a = new c();
+            f32768a = new c();
         }
     }
 
@@ -125,13 +125,13 @@ public class c {
         Signature[] signatureArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
-            if (TextUtils.isEmpty(this.f32653b)) {
-                this.f32653b = context.getPackageName();
+            if (TextUtils.isEmpty(this.f32763b)) {
+                this.f32763b = context.getPackageName();
             }
-            if (TextUtils.isEmpty(this.f32654c)) {
+            if (TextUtils.isEmpty(this.f32764c)) {
                 String str2 = null;
                 try {
-                    signatureArr = context.getPackageManager().getPackageInfo(this.f32653b, 64).signatures;
+                    signatureArr = context.getPackageManager().getPackageInfo(this.f32763b, 64).signatures;
                 } catch (PackageManager.NameNotFoundException e2) {
                     e2.printStackTrace();
                     signatureArr = null;
@@ -152,11 +152,11 @@ public class c {
                         e3.printStackTrace();
                     }
                 }
-                this.f32654c = str2;
+                this.f32764c = str2;
             }
-            com.fun.openid.sdk.a aVar = this.f32652a;
-            String str3 = this.f32653b;
-            String str4 = this.f32654c;
+            com.fun.openid.sdk.a aVar = this.f32762a;
+            String str3 = this.f32763b;
+            String str4 = this.f32764c;
             a.AbstractBinderC0374a.C0375a c0375a = (a.AbstractBinderC0374a.C0375a) aVar;
             c0375a.getClass();
             Parcel obtain = Parcel.obtain();
@@ -166,7 +166,7 @@ public class c {
                 obtain.writeString(str3);
                 obtain.writeString(str4);
                 obtain.writeString(str);
-                c0375a.f32649a.transact(1, obtain, obtain2, 0);
+                c0375a.f32759a.transact(1, obtain, obtain2, 0);
                 obtain2.readException();
                 String readString = obtain2.readString();
                 obtain2.recycle();

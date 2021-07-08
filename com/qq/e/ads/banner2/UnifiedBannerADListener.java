@@ -1,7 +1,7 @@
 package com.qq.e.ads.banner2;
 
 import com.qq.e.comm.util.AdError;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface UnifiedBannerADListener {
     void onADClicked();
 

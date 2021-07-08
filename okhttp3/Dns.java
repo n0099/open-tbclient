@@ -9,7 +9,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public interface Dns {
     public static final Dns SYSTEM = new Dns() { // from class: okhttp3.Dns.1
         public static /* synthetic */ Interceptable $ic;

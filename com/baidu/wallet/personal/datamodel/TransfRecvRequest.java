@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.beans.BeanRequestBase;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TransfRecvRequest extends BeanRequestBase implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

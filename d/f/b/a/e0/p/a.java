@@ -28,33 +28,33 @@ import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class a extends d.f.b.a.e0.c {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern o;
     public static final Pattern p;
     public static final Pattern q;
     public static final Pattern r;
-    public static final C2017a s;
+    public static final C1986a s;
     public transient /* synthetic */ FieldHolder $fh;
     public final XmlPullParserFactory n;
 
     /* renamed from: d.f.b.a.e0.p.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static final class C2017a {
+    /* loaded from: classes8.dex */
+    public static final class C1986a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final float f73130a;
+        public final float f70233a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f73131b;
+        public final int f70234b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f73132c;
+        public final int f70235c;
 
-        public C2017a(float f2, int i2, int i3) {
+        public C1986a(float f2, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,9 +69,9 @@ public final class a extends d.f.b.a.e0.c {
                     return;
                 }
             }
-            this.f73130a = f2;
-            this.f73131b = i2;
-            this.f73132c = i3;
+            this.f70233a = f2;
+            this.f70234b = i2;
+            this.f70235c = i3;
         }
     }
 
@@ -92,7 +92,7 @@ public final class a extends d.f.b.a.e0.c {
         p = Pattern.compile("^([0-9]+(?:\\.[0-9]+)?)(h|m|s|ms|f|t)$");
         q = Pattern.compile("^(([0-9]*.)?[0-9]+)(px|em|%)$");
         r = Pattern.compile("^(\\d+\\.?\\d*?)% (\\d+\\.?\\d*?)%$");
-        s = new C2017a(30.0f, 1, 1);
+        s = new C1986a(30.0f, 1, 1);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -176,20 +176,20 @@ public final class a extends d.f.b.a.e0.c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static long J(String str, C2017a c2017a) throws SubtitleDecoderException {
+    public static long J(String str, C1986a c1986a) throws SubtitleDecoderException {
         InterceptResult invokeLL;
         double d2;
         double d3;
         String group;
         String group2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, c2017a)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, c1986a)) == null) {
             Matcher matcher = o.matcher(str);
             char c2 = 2;
             if (matcher.matches()) {
                 double parseLong = (Long.parseLong(matcher.group(1)) * 3600) + (Long.parseLong(matcher.group(2)) * 60) + Long.parseLong(matcher.group(3));
                 String group3 = matcher.group(4);
-                return (long) ((parseLong + (group3 != null ? Double.parseDouble(group3) : 0.0d) + (matcher.group(5) != null ? ((float) Long.parseLong(group)) / c2017a.f73130a : 0.0d) + (matcher.group(6) != null ? (Long.parseLong(group2) / c2017a.f73131b) / c2017a.f73130a : 0.0d)) * 1000000.0d);
+                return (long) ((parseLong + (group3 != null ? Double.parseDouble(group3) : 0.0d) + (matcher.group(5) != null ? ((float) Long.parseLong(group)) / c1986a.f70233a : 0.0d) + (matcher.group(6) != null ? (Long.parseLong(group2) / c1986a.f70234b) / c1986a.f70233a : 0.0d)) * 1000000.0d);
             }
             Matcher matcher2 = p.matcher(str);
             if (matcher2.matches()) {
@@ -229,11 +229,11 @@ public final class a extends d.f.b.a.e0.c {
                         d3 = 1000.0d;
                     } else if (c2 != 4) {
                         if (c2 == 5) {
-                            d3 = c2017a.f73132c;
+                            d3 = c1986a.f70235c;
                         }
                         return (long) (parseDouble * 1000000.0d);
                     } else {
-                        d3 = c2017a.f73130a;
+                        d3 = c1986a.f70233a;
                     }
                     parseDouble /= d3;
                     return (long) (parseDouble * 1000000.0d);
@@ -264,14 +264,14 @@ public final class a extends d.f.b.a.e0.c {
                 int i3 = 0;
                 newPullParser.setInput(new ByteArrayInputStream(bArr, 0, i2), null);
                 LinkedList linkedList = new LinkedList();
-                C2017a c2017a = s;
+                C1986a c1986a = s;
                 for (int eventType = newPullParser.getEventType(); eventType != 1; eventType = newPullParser.getEventType()) {
                     b bVar = (b) linkedList.peekLast();
                     if (i3 == 0) {
                         String name = newPullParser.getName();
                         if (eventType == 2) {
                             if (PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP.equals(name)) {
-                                c2017a = D(newPullParser);
+                                c1986a = D(newPullParser);
                             }
                             if (!B(name)) {
                                 Log.i("TtmlDecoder", "Ignoring unsupported tag: " + newPullParser.getName());
@@ -279,7 +279,7 @@ public final class a extends d.f.b.a.e0.c {
                                 E(newPullParser, hashMap, hashMap2);
                             } else {
                                 try {
-                                    b F = F(newPullParser, bVar, hashMap2, c2017a);
+                                    b F = F(newPullParser, bVar, hashMap2, c1986a);
                                     linkedList.addLast(F);
                                     if (bVar != null) {
                                         bVar.a(F);
@@ -317,7 +317,7 @@ public final class a extends d.f.b.a.e0.c {
         return (f) invokeCommon.objValue;
     }
 
-    public final C2017a D(XmlPullParser xmlPullParser) throws SubtitleDecoderException {
+    public final C1986a D(XmlPullParser xmlPullParser) throws SubtitleDecoderException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xmlPullParser)) == null) {
@@ -333,19 +333,19 @@ public final class a extends d.f.b.a.e0.c {
                     throw new SubtitleDecoderException("frameRateMultiplier doesn't have 2 parts");
                 }
             }
-            int i2 = s.f73131b;
+            int i2 = s.f70234b;
             String attributeValue3 = xmlPullParser.getAttributeValue("http://www.w3.org/ns/ttml#parameter", "subFrameRate");
             if (attributeValue3 != null) {
                 i2 = Integer.parseInt(attributeValue3);
             }
-            int i3 = s.f73132c;
+            int i3 = s.f70235c;
             String attributeValue4 = xmlPullParser.getAttributeValue("http://www.w3.org/ns/ttml#parameter", "tickRate");
             if (attributeValue4 != null) {
                 i3 = Integer.parseInt(attributeValue4);
             }
-            return new C2017a(parseInt * f2, i2, i3);
+            return new C1986a(parseInt * f2, i2, i3);
         }
-        return (C2017a) invokeL.objValue;
+        return (C1986a) invokeL.objValue;
     }
 
     public final Map<String, e> E(XmlPullParser xmlPullParser, Map<String, e> map, Map<String, c> map2) throws IOException, XmlPullParserException {
@@ -367,7 +367,7 @@ public final class a extends d.f.b.a.e0.c {
                         map.put(H.g(), H);
                     }
                 } else if (w.e(xmlPullParser, "region") && (G = G(xmlPullParser)) != null) {
-                    map2.put(G.f73142a, G);
+                    map2.put(G.f70245a, G);
                 }
             } while (!w.c(xmlPullParser, "head"));
             return map;
@@ -376,13 +376,13 @@ public final class a extends d.f.b.a.e0.c {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public final b F(XmlPullParser xmlPullParser, b bVar, Map<String, c> map, C2017a c2017a) throws SubtitleDecoderException {
+    public final b F(XmlPullParser xmlPullParser, b bVar, Map<String, c> map, C1986a c1986a) throws SubtitleDecoderException {
         InterceptResult invokeLLLL;
         long j;
         long j2;
         char c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, xmlPullParser, bVar, map, c2017a)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, xmlPullParser, bVar, map, c1986a)) == null) {
             int attributeCount = xmlPullParser.getAttributeCount();
             e H = H(xmlPullParser, null);
             String[] strArr = null;
@@ -434,11 +434,11 @@ public final class a extends d.f.b.a.e0.c {
                         break;
                 }
                 if (c2 == 0) {
-                    j3 = J(attributeValue, c2017a);
+                    j3 = J(attributeValue, c1986a);
                 } else if (c2 == 1) {
-                    j4 = J(attributeValue, c2017a);
+                    j4 = J(attributeValue, c1986a);
                 } else if (c2 == 2) {
-                    j5 = J(attributeValue, c2017a);
+                    j5 = J(attributeValue, c1986a);
                 } else if (c2 != 3) {
                     if (c2 == 4 && map.containsKey(attributeValue)) {
                         str = attributeValue;
@@ -451,14 +451,14 @@ public final class a extends d.f.b.a.e0.c {
                 }
             }
             if (bVar != null) {
-                long j6 = bVar.f73136d;
+                long j6 = bVar.f70239d;
                 j = -9223372036854775807L;
                 if (j6 != -9223372036854775807L) {
                     if (j3 != -9223372036854775807L) {
                         j3 += j6;
                     }
                     if (j4 != -9223372036854775807L) {
-                        j4 += bVar.f73136d;
+                        j4 += bVar.f70239d;
                     }
                 }
             } else {
@@ -469,7 +469,7 @@ public final class a extends d.f.b.a.e0.c {
                 if (j5 != j) {
                     j2 = j7 + j5;
                 } else if (bVar != null) {
-                    long j8 = bVar.f73137e;
+                    long j8 = bVar.f70240e;
                     if (j8 != j) {
                         j2 = j8;
                     }

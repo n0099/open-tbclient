@@ -29,13 +29,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.j0.b.a.a;
+import d.a.g0.b.a.a;
 import java.io.File;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BaseUncaughtException";

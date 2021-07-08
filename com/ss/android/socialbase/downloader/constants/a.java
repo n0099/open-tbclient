@@ -8,27 +8,27 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f41441a;
+    public static final a f38455a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f41442b;
+    public static final a f38456b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final a f41443c;
+    public static final a f38457c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final a f41444d;
+    public static final a f38458d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final a f41445e;
+    public static final a f38459e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final /* synthetic */ a[] f41446f;
+    public static final /* synthetic */ a[] f38460f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,13 +44,13 @@ public final class a {
                 return;
             }
         }
-        f41441a = new a("ASYNC_HANDLE_NONE", 0);
-        f41442b = new a("ASYNC_HANDLE_WAITING", 1);
-        f41443c = new a("ASYNC_HANDLE_RESTART", 2);
-        f41444d = new a("ASYNC_HANDLE_DOWNLOADING", 3);
+        f38455a = new a("ASYNC_HANDLE_NONE", 0);
+        f38456b = new a("ASYNC_HANDLE_WAITING", 1);
+        f38457c = new a("ASYNC_HANDLE_RESTART", 2);
+        f38458d = new a("ASYNC_HANDLE_DOWNLOADING", 3);
         a aVar = new a("ASYNC_HANDLE_DOWNLOADED", 4);
-        f41445e = aVar;
-        f41446f = new a[]{f41441a, f41442b, f41443c, f41444d, aVar};
+        f38459e = aVar;
+        f38460f = new a[]{f38455a, f38456b, f38457c, f38458d, aVar};
     }
 
     public a(String str, int i2) {
@@ -81,6 +81,6 @@ public final class a {
     public static a[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f41446f.clone() : (a[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f38460f.clone() : (a[]) invokeV.objValue;
     }
 }

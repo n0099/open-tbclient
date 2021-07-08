@@ -15,16 +15,16 @@ import com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout;
 import com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase;
 import com.baidu.wallet.lightapp.base.LightappWebView;
 import com.baidu.wallet.lightapp.base.LightappWebViewCenter;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LightappBrowserWebView f25264a;
+    public LightappBrowserWebView f25374a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f25265b;
+    public boolean f25375b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LangBrigdeSlideLayout(Context context) {
@@ -44,7 +44,7 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
                 return;
             }
         }
-        this.f25265b = true;
+        this.f25375b = true;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
@@ -66,7 +66,7 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ LangBrigdeSlideLayout f25266a;
+            public final /* synthetic */ LangBrigdeSlideLayout f25376a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -86,7 +86,7 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
                         return;
                     }
                 }
-                this.f25266a = this;
+                this.f25376a = this;
             }
 
             @Override // com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout
@@ -114,7 +114,7 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
     public boolean isReadyForPullDown() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f25264a.isTop && this.f25265b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f25374a.isTop && this.f25375b : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
@@ -130,7 +130,7 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
     public void setSupportPullDown(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f25265b = z;
+            this.f25375b = z;
             if (z) {
                 return;
             }
@@ -152,11 +152,11 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, attributeSet)) == null) {
             LightappBrowserWebView lightappWebView = LightappWebViewCenter.getInstance().getLightappWebView(context);
-            this.f25264a = lightappWebView;
+            this.f25374a = lightappWebView;
             if (lightappWebView != null) {
                 lightappWebView.setId(ResUtils.id(context, "cust_webview"));
             }
-            return this.f25264a;
+            return this.f25374a;
         }
         return (LightappWebView) invokeLL.objValue;
     }
@@ -180,6 +180,6 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
                 return;
             }
         }
-        this.f25265b = true;
+        this.f25375b = true;
     }
 }

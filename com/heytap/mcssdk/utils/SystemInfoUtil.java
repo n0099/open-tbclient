@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.SystemProperties;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SystemInfoUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MODEL_NULL = "0";
@@ -152,7 +153,7 @@ public class SystemInfoUtil {
     public static String getOperator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             try {
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 return telephonyManager != null ? telephonyManager.getNetworkOperatorName() : "";

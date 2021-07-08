@@ -1,6 +1,7 @@
 package com.baidu.android.imsdk.group;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
@@ -86,7 +87,7 @@ public class GroupInfoSyncManagerImpl {
 
     public static void activeSyncAllMembers(Context context, String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65540, null, context, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, i2) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
             arrayList.add(str);
             if (i2 == 3) {

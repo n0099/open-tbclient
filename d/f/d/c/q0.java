@@ -3,7 +3,7 @@ package d.f.d.c;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public interface q0<K, V> {
     Map<K, Collection<V>> asMap();
 

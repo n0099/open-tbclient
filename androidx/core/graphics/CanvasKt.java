@@ -5,6 +5,7 @@ import android.graphics.Matrix;
 import android.graphics.Path;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
@@ -223,7 +224,7 @@ public final class CanvasKt {
 
     public static final void withClip(Canvas canvas, RectF rectF, Function1<? super Canvas, Unit> function1) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, null, canvas, rectF, function1) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, canvas, rectF, function1) == null) {
             int save = canvas.save();
             canvas.clipRect(rectF);
             try {

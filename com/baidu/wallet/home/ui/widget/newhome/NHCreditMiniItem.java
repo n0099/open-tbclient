@@ -16,22 +16,22 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.MaskTextView;
 import com.baidu.wallet.home.ui.widget.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class NHCreditMiniItem extends BaseItemView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f25090a;
+    public NetImageView f25200a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f25091b;
+    public MaskTextView f25201b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f25092c;
+    public MaskTextView f25202c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MaskTextView f25093d;
+    public MaskTextView f25203d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NHCreditMiniItem(Context context) {
@@ -67,10 +67,10 @@ public class NHCreditMiniItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_credit_mini_item"), this);
-            this.f25090a = (NetImageView) findViewById(ResUtils.id(getContext(), "bg_pic"));
-            this.f25091b = (MaskTextView) findViewById(ResUtils.id(getContext(), "title_top"));
-            this.f25092c = (MaskTextView) findViewById(ResUtils.id(getContext(), "title_mid"));
-            this.f25093d = (MaskTextView) findViewById(ResUtils.id(getContext(), "title_bottom"));
+            this.f25200a = (NetImageView) findViewById(ResUtils.id(getContext(), "bg_pic"));
+            this.f25201b = (MaskTextView) findViewById(ResUtils.id(getContext(), "title_top"));
+            this.f25202c = (MaskTextView) findViewById(ResUtils.id(getContext(), "title_mid"));
+            this.f25203d = (MaskTextView) findViewById(ResUtils.id(getContext(), "title_bottom"));
         }
     }
 
@@ -82,14 +82,14 @@ public class NHCreditMiniItem extends BaseItemView {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || getData() == null) {
             return;
         }
-        setNetImageViewUrl(this.f25090a, getData().logo);
-        if (!TextUtils.isEmpty(getData().name) && (maskTextView3 = this.f25091b) != null) {
+        setNetImageViewUrl(this.f25200a, getData().logo);
+        if (!TextUtils.isEmpty(getData().name) && (maskTextView3 = this.f25201b) != null) {
             maskTextView3.setMaskText(getData().name);
         }
-        if (!TextUtils.isEmpty(getData().value1) && (maskTextView2 = this.f25092c) != null) {
+        if (!TextUtils.isEmpty(getData().value1) && (maskTextView2 = this.f25202c) != null) {
             maskTextView2.setMaskText(getData().value1);
         }
-        if (TextUtils.isEmpty(getData().value2) || (maskTextView = this.f25093d) == null) {
+        if (TextUtils.isEmpty(getData().value2) || (maskTextView = this.f25203d) == null) {
             return;
         }
         maskTextView.setMaskText(getData().value2);

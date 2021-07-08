@@ -1,6 +1,7 @@
 package com.baidu.tieba.wallet;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -12,9 +13,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.l0.f;
+import d.a.o0.l0.f;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CurrencyJumpHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +48,7 @@ public class CurrencyJumpHelper {
     public static void goYYPay(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            MessageManager.getInstance().runTask(2921546, String.class, new f(context, 0, null, null));
+            MessageManager.getInstance().runTask(2921546, String.class, new f(context, 0, null, null, null));
         }
     }
 
@@ -139,7 +140,7 @@ public class CurrencyJumpHelper {
 
     public static void gotoBuyTBeanPage(Context context, float f2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{context, Float.valueOf(f2), str, str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, Float.valueOf(f2), str, str2}) == null) {
             if (CurrencySwitchUtil.isYyIsConvert()) {
                 goYYPay(context);
                 return;

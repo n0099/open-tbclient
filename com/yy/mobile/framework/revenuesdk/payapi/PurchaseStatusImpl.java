@@ -2,6 +2,7 @@ package com.yy.mobile.framework.revenuesdk.payapi;
 
 import android.app.Activity;
 import android.app.Application;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,7 +22,7 @@ import java.util.List;
 import java.util.Properties;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class PurchaseStatusImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PURCHASE_CHORDERID = "chorderid";
@@ -191,7 +192,7 @@ public class PurchaseStatusImpl {
     public static void readAllPurchaseStatus(Activity activity, IResult<List<PurchaseStatusInfo>> iResult) {
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, activity, iResult) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, iResult) == null) {
             FileInputStream fileInputStream2 = null;
             if (activity == null) {
                 RLog.error(TAG, "read purchaseStatus fail err: %d", "activity == null");

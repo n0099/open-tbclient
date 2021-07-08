@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ChildrenAlphaProperty extends Property<ViewGroup, Float> {
     public static /* synthetic */ Interceptable $ic;
     public static final Property<ViewGroup, Float> CHILDREN_ALPHA;

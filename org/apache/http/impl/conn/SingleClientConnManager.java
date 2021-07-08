@@ -17,7 +17,7 @@ import org.apache.http.conn.routing.HttpRoute;
 import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class SingleClientConnManager implements ClientConnectionManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MISUSE_MESSAGE = "Invalid use of SingleClientConnManager: connection still allocated.\nMake sure to release the connection before allocating another one.";
@@ -31,7 +31,7 @@ public class SingleClientConnManager implements ClientConnectionManager {
     public SchemeRegistry schemeRegistry;
     public PoolEntry uniquePoolEntry;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class ConnAdapter extends AbstractPooledConnAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class SingleClientConnManager implements ClientConnectionManager {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class PoolEntry extends AbstractPoolEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

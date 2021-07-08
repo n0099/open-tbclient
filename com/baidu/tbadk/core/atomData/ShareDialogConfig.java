@@ -17,10 +17,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.s.l;
+import d.a.o0.r.s.l;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ShareDialogConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,6 +30,7 @@ public class ShareDialogConfig extends IntentConfig {
     public l.d dialogDownloadOriginListener;
     public l.d dialogRecognizePicListener;
     public l.d dialogSaveToDiskListener;
+    public View.OnClickListener disLikeListener;
     public boolean hasSpecialItem;
     public int hideMode;
     public boolean isCopyLink;
@@ -55,13 +56,14 @@ public class ShareDialogConfig extends IntentConfig {
     public l.d qrCodeClickListener;
     public ShareItem shareItem;
     public boolean showAddEmotion;
+    public boolean showDisLike;
     public boolean showLocation;
     public boolean showQRCode;
     public ShareItem[] specialShareItems;
     public ArrayList<Pair<Integer, Pair<Integer, View.OnClickListener>>> textViewList;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class From {
         public static final /* synthetic */ From[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

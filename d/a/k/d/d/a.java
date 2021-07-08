@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f45940a;
+    public c f42823a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             a aVar = new a();
             c cVar = new c();
-            aVar.f45940a = cVar;
+            aVar.f42823a = cVar;
             cVar.e("PKCS1Padding");
             return aVar;
         }
@@ -44,7 +44,7 @@ public class a {
     public void b(int i2, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, dVar) == null) {
-            this.f45940a.a(i2, dVar, b.f45941a);
+            this.f42823a.a(i2, dVar, b.f42824a);
         }
     }
 
@@ -53,7 +53,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
             if (bArr != null) {
-                return this.f45940a.d(bArr, 0, bArr.length);
+                return this.f42823a.d(bArr, 0, bArr.length);
             }
             throw new IllegalArgumentException("Null input buffer");
         }

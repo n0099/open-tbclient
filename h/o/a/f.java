@@ -7,30 +7,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.d;
 import rx.exceptions.OnErrorThrowable;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class f<T> implements d.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.d<T> f75407e;
+    public final h.d<T> f72441e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final h.n.f<? super T, Boolean> f75408f;
+    public final h.n.f<? super T, Boolean> f72442f;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class a<T> extends h.j<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.j<? super T> f75409e;
+        public final h.j<? super T> f72443e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final h.n.f<? super T, Boolean> f75410f;
+        public final h.n.f<? super T, Boolean> f72444f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f75411g;
+        public boolean f72445g;
 
         public a(h.j<? super T> jVar, h.n.f<? super T, Boolean> fVar) {
             Interceptable interceptable = $ic;
@@ -47,30 +47,30 @@ public final class f<T> implements d.a<T> {
                     return;
                 }
             }
-            this.f75409e = jVar;
-            this.f75410f = fVar;
+            this.f72443e = jVar;
+            this.f72444f = fVar;
             request(0L);
         }
 
         @Override // h.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f75411g) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f72445g) {
                 return;
             }
-            this.f75409e.onCompleted();
+            this.f72443e.onCompleted();
         }
 
         @Override // h.e
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                if (this.f75411g) {
+                if (this.f72445g) {
                     h.r.c.j(th);
                     return;
                 }
-                this.f75411g = true;
-                this.f75409e.onError(th);
+                this.f72445g = true;
+                this.f72443e.onError(th);
             }
         }
 
@@ -79,8 +79,8 @@ public final class f<T> implements d.a<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
                 try {
-                    if (this.f75410f.call(t).booleanValue()) {
-                        this.f75409e.onNext(t);
+                    if (this.f72444f.call(t).booleanValue()) {
+                        this.f72443e.onNext(t);
                     } else {
                         request(1L);
                     }
@@ -97,7 +97,7 @@ public final class f<T> implements d.a<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
                 super.setProducer(fVar);
-                this.f75409e.setProducer(fVar);
+                this.f72443e.setProducer(fVar);
             }
         }
     }
@@ -117,8 +117,8 @@ public final class f<T> implements d.a<T> {
                 return;
             }
         }
-        this.f75407e = dVar;
-        this.f75408f = fVar;
+        this.f72441e = dVar;
+        this.f72442f = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -127,9 +127,9 @@ public final class f<T> implements d.a<T> {
     public void call(h.j<? super T> jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-            a aVar = new a(jVar, this.f75408f);
+            a aVar = new a(jVar, this.f72442f);
             jVar.add(aVar);
-            this.f75407e.I(aVar);
+            this.f72441e.I(aVar);
         }
     }
 }

@@ -343,7 +343,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
 
     private void abortAnimatedScroll() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             this.mScroller.abortAnimation();
             stopNestedScroll(1);
         }

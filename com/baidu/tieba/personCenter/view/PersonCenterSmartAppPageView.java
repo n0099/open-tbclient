@@ -13,22 +13,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.k2.e.c;
+import d.a.p0.k2.e.c;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PersonCenterSmartAppPageView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c> f19994e;
+    public List<c> f20034e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<PersonCenterSmartAppItemView> f19995f;
+    public List<PersonCenterSmartAppItemView> f20035f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19996g;
+    public int f20036g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PersonCenterSmartAppPageView(Context context) {
@@ -53,11 +53,11 @@ public class PersonCenterSmartAppPageView extends LinearLayout {
 
     public void a(c cVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || cVar == null || this.f19994e.size() == this.f19996g) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || cVar == null || this.f20034e.size() == this.f20036g) {
             return;
         }
-        this.f19994e.add(cVar);
-        PersonCenterSmartAppItemView personCenterSmartAppItemView = (PersonCenterSmartAppItemView) ListUtils.getItem(this.f19995f, this.f19994e.size() - 1);
+        this.f20034e.add(cVar);
+        PersonCenterSmartAppItemView personCenterSmartAppItemView = (PersonCenterSmartAppItemView) ListUtils.getItem(this.f20035f, this.f20034e.size() - 1);
         personCenterSmartAppItemView.a(cVar);
         personCenterSmartAppItemView.setVisibility(0);
     }
@@ -65,13 +65,13 @@ public class PersonCenterSmartAppPageView extends LinearLayout {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19994e.size() < this.f19996g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20034e.size() < this.f20036g : invokeV.booleanValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (PersonCenterSmartAppItemView personCenterSmartAppItemView : this.f19995f) {
+            for (PersonCenterSmartAppItemView personCenterSmartAppItemView : this.f20035f) {
                 if (personCenterSmartAppItemView != null) {
                     personCenterSmartAppItemView.c();
                 }
@@ -119,19 +119,19 @@ public class PersonCenterSmartAppPageView extends LinearLayout {
                 return;
             }
         }
-        this.f19996g = 4;
+        this.f20036g = 4;
         ViewGroup.LayoutParams layoutParams = new ViewPager.LayoutParams();
         layoutParams.width = -1;
         layoutParams.height = -2;
         setLayoutParams(layoutParams);
         setOrientation(0);
-        this.f19994e = new ArrayList();
-        this.f19995f = new ArrayList();
-        for (int i5 = 0; i5 < this.f19996g; i5++) {
+        this.f20034e = new ArrayList();
+        this.f20035f = new ArrayList();
+        for (int i5 = 0; i5 < this.f20036g; i5++) {
             PersonCenterSmartAppItemView personCenterSmartAppItemView = new PersonCenterSmartAppItemView(getContext());
             addView(personCenterSmartAppItemView, new LinearLayout.LayoutParams(0, -1, 1.0f));
             personCenterSmartAppItemView.setVisibility(4);
-            this.f19995f.add(personCenterSmartAppItemView);
+            this.f20035f.add(personCenterSmartAppItemView);
         }
         c();
     }

@@ -1,5 +1,6 @@
 package com.baidu.webkit.internal;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.utils.UtilsBlink;
 import io.flutter.plugin.common.StandardMessageCodec;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class Base64 implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte INTERNAL_PADDING = 35;
@@ -175,7 +176,7 @@ public class Base64 implements INoProGuard {
     public static byte[] getSubData(byte[] bArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i2)) == null) {
             if (i2 <= 0) {
                 return null;
             }

@@ -1,5 +1,6 @@
 package com.baidu.mobads.container.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.XAdRemoteCommonUtils;
 import com.baidu.mobads.container.XAdSDKRemoteConfig;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SDKLogSecurityManager {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] TYPE_LIST_DANGER;
@@ -21,7 +22,7 @@ public class SDKLogSecurityManager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class LogTypeLevel {
         public static final /* synthetic */ LogTypeLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -167,7 +168,7 @@ public class SDKLogSecurityManager {
     public static boolean isEnvSecurity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             NetworkRequestFilterManager networkRequestFilterManager = NetworkRequestFilterManager.getInstance(XAdRemoteCommonUtils.getApplicationContext());
             return networkRequestFilterManager.isAdbDebugConnected() || networkRequestFilterManager.isProxyRunning() || networkRequestFilterManager.isRooted();
         }

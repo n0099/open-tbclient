@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.pngencrypt.PngjException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class v extends aa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f38751h;
+    public int f35823h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int[] f38752i;
+    public int[] f35824i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public v(com.kwad.sdk.pngencrypt.k kVar) {
@@ -36,13 +36,13 @@ public class v extends aa {
                 return;
             }
         }
-        this.f38751h = 0;
+        this.f35823h = 0;
     }
 
     public void a(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048576, this, i2, i3, i4, i5) == null) {
-            this.f38752i[i2] = (i3 << 16) | (i4 << 8) | i5;
+            this.f35824i[i2] = (i3 << 16) | (i4 << 8) | i5;
         }
     }
 
@@ -50,11 +50,11 @@ public class v extends aa {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-            b(dVar.f38717a / 3);
+            b(dVar.f35789a / 3);
             int i2 = 0;
             int i3 = 0;
-            while (i2 < this.f38751h) {
-                byte[] bArr = dVar.f38720d;
+            while (i2 < this.f35823h) {
+                byte[] bArr = dVar.f35792d;
                 int i4 = i3 + 1;
                 int i5 = i4 + 1;
                 a(i2, bArr[i3] & 255, bArr[i4] & 255, bArr[i5] & 255);
@@ -67,13 +67,13 @@ public class v extends aa {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f38751h = i2;
+            this.f35823h = i2;
             if (i2 < 1 || i2 > 256) {
-                throw new PngjException("invalid pallette - nentries=" + this.f38751h);
+                throw new PngjException("invalid pallette - nentries=" + this.f35823h);
             }
-            int[] iArr = this.f38752i;
+            int[] iArr = this.f35824i;
             if (iArr == null || iArr.length != i2) {
-                this.f38752i = new int[this.f38751h];
+                this.f35824i = new int[this.f35823h];
             }
         }
     }

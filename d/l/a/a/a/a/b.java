@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.l.a.a.a.c.h;
 import d.l.a.a.a.c.t;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class b implements h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public t f74020a;
+    public t f71072a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class b implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, strArr, tVar) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
-                this.f74020a = tVar;
+                this.f71072a = tVar;
                 activity.requestPermissions(strArr, 1);
             } else if (tVar != null) {
                 tVar.a();
@@ -60,7 +60,7 @@ public class b implements h {
     public void a(@NonNull Activity activity, int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         t tVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLILL(1048576, this, activity, i2, strArr, iArr) == null) || iArr.length <= 0 || (tVar = this.f74020a) == null) {
+        if (!(interceptable == null || interceptable.invokeLILL(1048576, this, activity, i2, strArr, iArr) == null) || iArr.length <= 0 || (tVar = this.f71072a) == null) {
             return;
         }
         if (iArr[0] == -1) {

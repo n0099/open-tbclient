@@ -22,13 +22,13 @@ import kotlin.jvm.internal.ByteCompanionObject;
 import ms.bd.c.h;
 import ms.bd.c.j;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class c extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SSLSocketFactory f71797a;
+    public SSLSocketFactory f68900a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -102,16 +102,16 @@ public final class c extends b {
             }
             try {
                 if (httpURLConnection instanceof HttpsURLConnection) {
-                    if (this.f71797a == null) {
+                    if (this.f68900a == null) {
                         synchronized (c.class) {
-                            if (this.f71797a == null) {
+                            if (this.f68900a == null) {
                                 SSLContext sSLContext = SSLContext.getInstance((String) h.a(16777217, 0, 0L, "5187f3", new byte[]{16, 31, 120}));
                                 sSLContext.init(null, null, null);
-                                this.f71797a = sSLContext.getSocketFactory();
+                                this.f68900a = sSLContext.getSocketFactory();
                             }
                         }
                     }
-                    ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(this.f71797a);
+                    ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(this.f68900a);
                 }
                 httpURLConnection.setConnectTimeout(10000);
                 httpURLConnection.setReadTimeout(5000);

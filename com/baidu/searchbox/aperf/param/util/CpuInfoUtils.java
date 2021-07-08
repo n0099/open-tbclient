@@ -1,6 +1,7 @@
 package com.baidu.searchbox.aperf.param.util;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,7 +18,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CpuInfoUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CPU_INFO_DIR = "/sys/devices/system/cpu/";
@@ -91,7 +92,7 @@ public class CpuInfoUtils {
     public static int getNumCores() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             FileFilter fileFilter = new FileFilter() { // from class: com.baidu.searchbox.aperf.param.util.CpuInfoUtils.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

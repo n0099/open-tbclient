@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Callable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class h<Params, Result> implements Callable<Result> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Params[] f41111a;
+    public Params[] f38125a;
 
     public h() {
         Interceptable interceptable = $ic;

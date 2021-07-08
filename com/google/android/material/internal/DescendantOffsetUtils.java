@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DescendantOffsetUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final ThreadLocal<Matrix> matrix;
@@ -81,7 +82,7 @@ public class DescendantOffsetUtils {
 
     public static void offsetDescendantRect(@NonNull ViewGroup viewGroup, @NonNull View view, @NonNull Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, null, viewGroup, view, rect) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup, view, rect) == null) {
             Matrix matrix2 = matrix.get();
             if (matrix2 == null) {
                 matrix2 = new Matrix();

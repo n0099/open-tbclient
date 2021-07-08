@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
 import okhttp3.RealCall;
 import okhttp3.internal.Util;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class Dispatcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public final class Dispatcher {
     private int runningCallsForHost(RealCall.AsyncCall asyncCall) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, asyncCall)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, asyncCall)) == null) {
             int i2 = 0;
             for (RealCall.AsyncCall asyncCall2 : this.runningAsyncCalls) {
                 if (!asyncCall2.get().forWebSocket && asyncCall2.host().equals(asyncCall.host())) {

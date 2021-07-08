@@ -12,11 +12,11 @@ import i.a.a.e.l.c;
 import java.util.List;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.model.PaySource;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public interface IYYPayWayView extends i.a.a.e.o.a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class PayViewState {
         public static final /* synthetic */ PayViewState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -75,35 +75,35 @@ public interface IYYPayWayView extends i.a.a.e.o.a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a(c cVar, i.a.a.e.l.a aVar, AppCustomExpand appCustomExpand);
 
         void onRefreshViewFail(int i2, String str);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<PayWayInfo> f76700a;
+        public List<PayWayInfo> f73734a;
 
         /* renamed from: b  reason: collision with root package name */
-        public i.a.a.e.l.a f76701b;
+        public i.a.a.e.l.a f73735b;
 
         /* renamed from: c  reason: collision with root package name */
-        public AppCustomExpand f76702c;
+        public AppCustomExpand f73736c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f76703d;
+        public boolean f73737d;
 
         /* renamed from: e  reason: collision with root package name */
-        public AbsViewEventHandler f76704e;
+        public AbsViewEventHandler f73738e;
 
         /* renamed from: f  reason: collision with root package name */
-        public PaySource f76705f;
+        public PaySource f73739f;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -118,8 +118,8 @@ public interface IYYPayWayView extends i.a.a.e.o.a {
                     return;
                 }
             }
-            this.f76703d = false;
-            this.f76705f = PaySource.UNKNOW;
+            this.f73737d = false;
+            this.f73739f = PaySource.UNKNOW;
         }
     }
 

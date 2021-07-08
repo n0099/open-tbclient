@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface a {
     int a(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr);
 

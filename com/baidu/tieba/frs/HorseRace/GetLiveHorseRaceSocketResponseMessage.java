@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.s0.u0.k0.a;
+import d.a.p0.u0.k0.a;
 import tbclient.Error;
 import tbclient.GetHorseRaceLampList.GetHorseRaceLampListResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GetLiveHorseRaceSocketResponseMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

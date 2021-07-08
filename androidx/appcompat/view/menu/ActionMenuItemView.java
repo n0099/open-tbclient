@@ -155,7 +155,7 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
 
     private void updateTextButtonVisibility() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             boolean z = true;
             boolean z2 = !TextUtils.isEmpty(this.mTitle);
             if (this.mIcon != null && (!this.mItemData.showsTextAsAction() || (!this.mAllowTextWithIcon && !this.mExpandedFormat))) {

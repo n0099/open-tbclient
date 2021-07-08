@@ -17,6 +17,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.internal.view.SupportMenu;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -36,36 +37,36 @@ import java.util.Enumeration;
 import java.util.Random;
 import java.util.UUID;
 import org.apache.http.conn.util.InetAddressUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5636a = "armeabi";
+    public static final String f5653a = "armeabi";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5637b = "armeabi-v7a";
+    public static final String f5654b = "armeabi-v7a";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5638c = "x86";
+    public static final String f5655c = "x86";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5639d = "arm64-v8a";
+    public static final String f5656d = "arm64-v8a";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f5640e = 480;
+    public static final int f5657e = 480;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f5641f = 480;
+    public static final int f5658f = 480;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f5642g = 192;
+    public static final int f5659g = 192;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f5643h = 480;
+    public static final int f5660h = 480;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f5644i = 620;
+    public static final int f5661i = 620;
     public static final int j = 728;
     public static final int k = 750;
     public static final int l = 1335;
@@ -351,7 +352,7 @@ public class h {
     public static Rect a(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, bitmap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmap)) == null) {
             int width = ((bitmap.getWidth() * 480) / 750) / 2;
             Point point = new Point();
             point.set(bitmap.getWidth() / 2, (bitmap.getHeight() * 728) / 1335);
@@ -468,7 +469,7 @@ public class h {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, context)) == null) {
-            return str + "-" + d(context) + "-Android-sapi_bio-" + com.baidu.fsg.face.base.c.f5607a;
+            return str + "-" + d(context) + "-Android-sapi_bio-" + com.baidu.fsg.face.base.c.f5624a;
         }
         return (String) invokeLL.objValue;
     }

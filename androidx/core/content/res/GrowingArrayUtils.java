@@ -1,5 +1,6 @@
 package androidx.core.content.res;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -124,7 +125,7 @@ public final class GrowingArrayUtils {
     public static boolean[] append(boolean[] zArr, int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{zArr, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{zArr, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             if (i2 + 1 > zArr.length) {
                 boolean[] zArr2 = new boolean[growSize(i2)];
                 System.arraycopy(zArr, 0, zArr2, 0, i2);

@@ -18,14 +18,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.e0.b;
-import d.a.r0.e0.c;
-/* loaded from: classes5.dex */
+import d.a.o0.e0.b;
+import d.a.o0.e0.c;
+/* loaded from: classes4.dex */
 public class ThreadDelegateStatic extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,14 +55,14 @@ public class ThreadDelegateStatic extends b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             c fragmentTabStructure;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016207 && (customResponsedMessage.getData() instanceof d.a.r0.q.a)) {
-                d.a.r0.q.a aVar = (d.a.r0.q.a) customResponsedMessage.getData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016207 && (customResponsedMessage.getData() instanceof d.a.o0.q.a)) {
+                d.a.o0.q.a aVar = (d.a.o0.q.a) customResponsedMessage.getData();
                 ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
                 aVar.a(threadDelegateStatic);
                 if (aVar.b() == null || (fragmentTabStructure = threadDelegateStatic.getFragmentTabStructure()) == null) {
                     return;
                 }
-                fragmentTabStructure.f55251a.setArguments(new Bundle());
+                fragmentTabStructure.f51956a.setArguments(new Bundle());
             }
         }
     }
@@ -99,21 +99,21 @@ public class ThreadDelegateStatic extends b {
         }
     }
 
-    @Override // d.a.r0.e0.b
+    @Override // d.a.o0.e0.b
     public c createFragmentTabStructure() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c();
-            cVar.f55251a = ThreadFragment.V0();
-            cVar.f55255e = 1;
-            cVar.f55252b = R.string.collect_thread;
+            cVar.f51956a = ThreadFragment.W0();
+            cVar.f51960e = 1;
+            cVar.f51957b = R.string.collect_thread;
             return cVar;
         }
         return (c) invokeV.objValue;
     }
 
-    @Override // d.a.r0.e0.b
+    @Override // d.a.o0.e0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public class ThreadDelegateStatic extends b {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // d.a.r0.e0.b
+    @Override // d.a.o0.e0.b
     public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

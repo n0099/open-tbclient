@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class u extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<a> f28806a;
+    public final WeakReference<a> f28916a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(Message message);
     }
@@ -36,14 +36,14 @@ public class u extends Handler {
                 return;
             }
         }
-        this.f28806a = new WeakReference<>(aVar);
+        this.f28916a = new WeakReference<>(aVar);
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (aVar = this.f28806a.get()) == null || message == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (aVar = this.f28916a.get()) == null || message == null) {
             return;
         }
         aVar.a(message);
@@ -67,6 +67,6 @@ public class u extends Handler {
                 return;
             }
         }
-        this.f28806a = new WeakReference<>(aVar);
+        this.f28916a = new WeakReference<>(aVar);
     }
 }

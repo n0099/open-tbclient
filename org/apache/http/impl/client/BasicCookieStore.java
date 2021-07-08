@@ -11,7 +11,7 @@ import java.util.List;
 import org.apache.http.client.CookieStore;
 import org.apache.http.cookie.Cookie;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class BasicCookieStore implements CookieStore {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

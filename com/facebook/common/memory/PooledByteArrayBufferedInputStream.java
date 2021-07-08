@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PooledByteArrayBufferedInputStream extends InputStream {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PooledByteInputStream";

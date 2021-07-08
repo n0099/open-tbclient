@@ -9,6 +9,7 @@ import android.os.Environment;
 import android.os.Process;
 import android.provider.Settings;
 import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -32,7 +33,7 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.Calendar;
 import java.util.Enumeration;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic = null;
     public static float A = 2.2f;
@@ -63,7 +64,7 @@ public class k {
     public static int Z = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f6792a = false;
+    public static boolean f6809a = false;
     public static String aA = "http://loc.map.baidu.com/oqur.php";
     public static String aB = "http://loc.map.baidu.com/tcu.php";
     public static String aC = "http://loc.map.baidu.com/rtbu.php";
@@ -97,28 +98,28 @@ public class k {
     public static String az = "http://loc.map.baidu.com/user_err.php";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f6793b = false;
+    public static boolean f6810b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f6794c = false;
+    public static boolean f6811c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f6795d = 0;
+    public static int f6812d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f6796e = "http://loc.map.baidu.com/sdk_ep.php";
+    public static String f6813e = "http://loc.map.baidu.com/sdk_ep.php";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f6797f = "https://loc.map.baidu.com/sdk.php";
+    public static String f6814f = "https://loc.map.baidu.com/sdk.php";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f6798g = "no";
+    public static String f6815g = "no";
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f6799h = false;
+    public static boolean f6816h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public static boolean f6800i = false;
+    public static boolean f6817i = false;
     public static boolean j = false;
     public static boolean k = false;
     public static boolean l = false;
@@ -209,7 +210,7 @@ public class k {
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             Calendar calendar = Calendar.getInstance();
             return String.format(Locale.CHINA, "%d-%02d-%02d %02d:%02d:%02d", Integer.valueOf(calendar.get(1)), Integer.valueOf(calendar.get(2) + 1), Integer.valueOf(calendar.get(5)), Integer.valueOf(calendar.get(11)), Integer.valueOf(calendar.get(12)), Integer.valueOf(calendar.get(13)));
         }
@@ -239,7 +240,7 @@ public class k {
                 }
             }
             if (location != null) {
-                String b4 = (f6795d == 0 || i2 == 0) ? com.baidu.location.c.e.b(location) : com.baidu.location.c.e.c(location);
+                String b4 = (f6812d == 0 || i2 == 0) ? com.baidu.location.c.e.b(location) : com.baidu.location.c.e.c(location);
                 if (b4 != null) {
                     stringBuffer.append(b4);
                 }
@@ -258,7 +259,7 @@ public class k {
             if (location != null && hVar != null) {
                 try {
                     float speed = location.getSpeed();
-                    int i3 = f6795d;
+                    int i3 = f6812d;
                     int h2 = hVar.h();
                     int a4 = hVar.a();
                     boolean i4 = hVar.i();

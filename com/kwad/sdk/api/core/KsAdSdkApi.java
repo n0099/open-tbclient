@@ -9,6 +9,6 @@ import java.lang.annotation.Target;
 @KsAdSdkDynamicApi
 @Keep
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public @interface KsAdSdkApi {
 }

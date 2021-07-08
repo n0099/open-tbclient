@@ -1,5 +1,6 @@
 package com.baidu.mobads.cid.cesium.c.d;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,25 +15,25 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import javax.crypto.BadPaddingException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Map<String, byte[]> f8312e;
+    public static final Map<String, byte[]> f8329e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f8313a;
+    public final int f8330a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f8314b;
+    public final int f8331b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SecureRandom f8315c;
+    public SecureRandom f8332c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f8316d;
+    public final int f8333d;
 
     static {
         InterceptResult invokeClinit;
@@ -47,7 +48,7 @@ public final class f {
                 return;
             }
         }
-        f8312e = Collections.synchronizedMap(new HashMap());
+        f8329e = Collections.synchronizedMap(new HashMap());
     }
 
     public f(int i2, int i3, SecureRandom secureRandom) {
@@ -65,9 +66,9 @@ public final class f {
                 return;
             }
         }
-        this.f8313a = i2;
-        this.f8314b = i3;
-        this.f8315c = secureRandom;
+        this.f8330a = i2;
+        this.f8331b = i3;
+        this.f8332c = secureRandom;
         if (i3 < 64) {
             throw new InvalidKeyException("Padded size must be at least 64");
         }
@@ -76,7 +77,7 @@ public final class f {
         } else if (i2 != 3) {
             throw new InvalidKeyException("Invalid padding: " + i2);
         }
-        this.f8316d = i3;
+        this.f8333d = i3;
     }
 
     public static f a(int i2, int i3, SecureRandom secureRandom) {
@@ -91,18 +92,18 @@ public final class f {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, bArr)) == null) {
-            int i4 = this.f8314b;
+            int i4 = this.f8331b;
             byte[] bArr2 = new byte[i4];
             System.arraycopy(bArr, 0, bArr2, i4 - bArr.length, bArr.length);
-            int length = (this.f8314b - 3) - bArr.length;
+            int length = (this.f8331b - 3) - bArr.length;
             bArr2[0] = 0;
-            int i5 = this.f8313a;
+            int i5 = this.f8330a;
             bArr2[1] = (byte) i5;
             int i6 = -1;
             int i7 = 2;
             if (i5 != 1) {
-                if (this.f8315c == null) {
-                    this.f8315c = b.f8301a;
+                if (this.f8332c == null) {
+                    this.f8332c = b.f8318a;
                 }
                 byte[] bArr3 = new byte[64];
                 while (true) {
@@ -112,7 +113,7 @@ public final class f {
                     }
                     while (true) {
                         if (i6 < 0) {
-                            this.f8315c.nextBytes(bArr3);
+                            this.f8332c.nextBytes(bArr3);
                             i6 = 63;
                         }
                         i2 = i6 - 1;
@@ -146,14 +147,14 @@ public final class f {
     private byte[] d(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65540, this, bArr)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, bArr)) != null) {
             return (byte[]) invokeL.objValue;
         }
         if (bArr[0] != 0) {
             throw new BadPaddingException("Data must start with zero");
         }
         int i2 = 2;
-        if (bArr[1] != this.f8313a) {
+        if (bArr[1] != this.f8330a) {
             throw new BadPaddingException("Blocktype mismatch: " + ((int) bArr[1]));
         }
         while (true) {
@@ -161,7 +162,7 @@ public final class f {
             int i4 = bArr[i2] & 255;
             if (i4 == 0) {
                 int length = bArr.length - i3;
-                if (length <= this.f8316d) {
+                if (length <= this.f8333d) {
                     byte[] bArr2 = new byte[length];
                     System.arraycopy(bArr, bArr.length - length, bArr2, 0, length);
                     return bArr2;
@@ -170,7 +171,7 @@ public final class f {
             } else if (i3 == bArr.length) {
                 throw new BadPaddingException("Padding string not terminated");
             } else {
-                if (this.f8313a == 1 && i4 != 255) {
+                if (this.f8330a == 1 && i4 != 255) {
                     throw new BadPaddingException("Padding byte not 0xff: " + i4);
                 }
                 i2 = i3;
@@ -181,17 +182,17 @@ public final class f {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8316d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8333d : invokeV.intValue;
     }
 
     public byte[] a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-            if (bArr.length > this.f8316d) {
-                throw new BadPaddingException("Data must be shorter than " + (this.f8316d + 1) + " bytes");
+            if (bArr.length > this.f8333d) {
+                throw new BadPaddingException("Data must be shorter than " + (this.f8333d + 1) + " bytes");
             }
-            int i2 = this.f8313a;
+            int i2 = this.f8330a;
             if (i2 == 1 || i2 == 2) {
                 return c(bArr);
             }
@@ -213,10 +214,10 @@ public final class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
-            if (bArr.length != this.f8314b) {
-                throw new BadPaddingException("Padded length must be " + this.f8314b);
+            if (bArr.length != this.f8331b) {
+                throw new BadPaddingException("Padded length must be " + this.f8331b);
             }
-            int i2 = this.f8313a;
+            int i2 = this.f8330a;
             if (i2 == 1 || i2 == 2) {
                 return d(bArr);
             }

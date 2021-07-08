@@ -1,5 +1,6 @@
 package cn.com.chinatelecom.gateway.lib.a;
 
+import androidx.core.view.InputDeviceCompat;
 import cn.com.chinatelecom.gateway.lib.CtAuth;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -19,10 +20,10 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1530a = "d";
+    public static final String f1531a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f1531b = "RSA/ECB/PKCS1Padding";
+    public static String f1532b = "RSA/ECB/PKCS1Padding";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -73,11 +74,11 @@ public class d {
     public static RSAPublicKey a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             try {
                 return (RSAPublicKey) a("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC5se07mkN71qsSJHjZ2Z0+Z+4LlLvf2sz7Md38VAa3EmAOvI7vZp3hbAxicL724ylcmisTPtZQhT/9C+25AELqy9PN9JmzKpwoVTUoJvxG4BoyT49+gGVl6s6zo1byNoHUzTfkmRfmC9MC53HvG8GwKP5xtcdptFjAIcgIR7oAWQIDAQAB");
             } catch (Throwable th) {
-                CtAuth.warn(f1530a, "getPublicKey error", th);
+                CtAuth.warn(f1531a, "getPublicKey error", th);
                 return null;
             }
         }
@@ -89,11 +90,11 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, rSAPublicKey, bArr)) == null) {
             try {
-                Cipher cipher = Cipher.getInstance(f1531b);
+                Cipher cipher = Cipher.getInstance(f1532b);
                 cipher.init(1, rSAPublicKey);
                 return cipher.doFinal(bArr);
             } catch (Throwable th) {
-                CtAuth.warn(f1530a, "Rsa encrypt4Ux error", th);
+                CtAuth.warn(f1531a, "Rsa encrypt4Ux error", th);
                 return null;
             }
         }

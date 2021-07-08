@@ -1,5 +1,6 @@
 package com.google.zxing.common;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,7 +16,7 @@ import java.util.Map;
 import org.apache.commons.base.CharEncoding;
 import org.apache.http.protocol.HTTP;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class CharacterSetECI {
     public static final /* synthetic */ CharacterSetECI[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -132,7 +133,7 @@ public final class CharacterSetECI {
     public static CharacterSetECI getCharacterSetECIByName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? NAME_TO_ECI.get(str) : (CharacterSetECI) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? NAME_TO_ECI.get(str) : (CharacterSetECI) invokeL.objValue;
     }
 
     public static CharacterSetECI getCharacterSetECIByValue(int i2) throws FormatException {

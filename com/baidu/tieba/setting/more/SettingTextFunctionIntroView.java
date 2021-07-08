@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SettingTextFunctionIntroView extends TbSettingTextTipView {
     public static /* synthetic */ Interceptable $ic = null;
     public static String m = "has_shown_funtion_intro";

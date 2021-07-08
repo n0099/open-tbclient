@@ -1,5 +1,6 @@
 package com.baidu.clientupdate.download;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mobads.container.info.XDeviceInfo;
 import com.baidu.mobads.container.util.AdDownloadApkUtils;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class DownloadState {
     public static final /* synthetic */ DownloadState[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -86,6 +87,6 @@ public final class DownloadState {
     public static DownloadState[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (DownloadState[]) $VALUES.clone() : (DownloadState[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (DownloadState[]) $VALUES.clone() : (DownloadState[]) invokeV.objValue;
     }
 }

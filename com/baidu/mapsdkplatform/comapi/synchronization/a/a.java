@@ -26,22 +26,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a implements k, d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7775a = "a";
+    public static final String f7792a = "a";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public l f7776b;
+    public l f7793b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f7777c;
+    public e f7794c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SynchronizationDisplayListener f7778d;
+    public SynchronizationDisplayListener f7795d;
 
     static {
         InterceptResult invokeClinit;
@@ -73,8 +73,8 @@ public class a implements k, d {
                 return;
             }
         }
-        this.f7776b = null;
-        this.f7777c = null;
+        this.f7793b = null;
+        this.f7794c = null;
         if (context == null) {
             throw new IllegalArgumentException("BDMapSDKException: Context invalid, please check!");
         }
@@ -85,10 +85,10 @@ public class a implements k, d {
             throw new IllegalArgumentException("BDMapSDKException: RoleOptions is invalid, please check!");
         }
         l lVar = new l(roleOptions, displayOptions);
-        this.f7776b = lVar;
+        this.f7793b = lVar;
         lVar.a(this);
         e eVar = new e(context, baiduMap);
-        this.f7777c = eVar;
+        this.f7794c = eVar;
         eVar.a(this);
     }
 
@@ -147,13 +147,13 @@ public class a implements k, d {
     private boolean b(RoleOptions roleOptions) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, roleOptions)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, roleOptions)) == null) {
             if (roleOptions == null || roleOptions.getOrderId() == null || roleOptions.getOrderId().equals("") || roleOptions.getRoleType() != 0 || roleOptions.getDriverId() == null || roleOptions.getDriverId().equals("") || roleOptions.getUserId() == null || roleOptions.getUserId().equals("") || !a(roleOptions.getCoordType()) || !a(roleOptions.getStartPosition(), roleOptions)) {
                 if (roleOptions == null) {
-                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7775a, "The roleOptions is null");
+                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7792a, "The roleOptions is null");
                     return false;
                 }
-                String str = f7775a;
+                String str = f7792a;
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(str, "The roleOptions content is: OrderId = " + roleOptions.getOrderId() + "; DriverId = " + roleOptions.getDriverId() + "; UserId = " + roleOptions.getUserId() + "; StartPosition = " + roleOptions.getStartPosition() + "; EndPosition = " + roleOptions.getEndPosition() + "; DriverPosition = " + roleOptions.getDriverPosition() + "; CoordType = " + roleOptions.getCoordType());
                 return false;
             }
@@ -171,12 +171,12 @@ public class a implements k, d {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7775a, MissionEvent.MESSAGE_RESUME);
-            l lVar = this.f7776b;
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7792a, MissionEvent.MESSAGE_RESUME);
+            l lVar = this.f7793b;
             if (lVar != null) {
                 lVar.a();
             }
-            e eVar = this.f7777c;
+            e eVar = this.f7794c;
             if (eVar != null) {
                 eVar.a();
             }
@@ -187,7 +187,7 @@ public class a implements k, d {
     public void a(float f2, long j) {
         SynchronizationDisplayListener synchronizationDisplayListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Long.valueOf(j)}) == null) || (synchronizationDisplayListener = this.f7778d) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Long.valueOf(j)}) == null) || (synchronizationDisplayListener = this.f7795d) == null) {
             return;
         }
         synchronizationDisplayListener.onRoutePlanInfoFreshFinished(f2, j);
@@ -196,20 +196,20 @@ public class a implements k, d {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            String str = f7775a;
+            String str = f7792a;
             com.baidu.mapsdkplatform.comapi.synchronization.d.a.c(str, "The order state = " + i2);
             if (!e(i2)) {
-                SynchronizationDisplayListener synchronizationDisplayListener = this.f7778d;
+                SynchronizationDisplayListener synchronizationDisplayListener = this.f7795d;
                 if (synchronizationDisplayListener != null) {
                     synchronizationDisplayListener.onSynchronizationProcessResult(1002, SynchronizationConstants.LBS_STATUS_MESSAGE_ORDER_STATE_INVALID);
                 }
                 i2 = 0;
             }
-            e eVar = this.f7777c;
+            e eVar = this.f7794c;
             if (eVar != null) {
                 eVar.a(i2);
             }
-            l lVar = this.f7776b;
+            l lVar = this.f7793b;
             if (lVar != null) {
                 lVar.a(i2);
             }
@@ -219,7 +219,7 @@ public class a implements k, d {
     public void a(int i2, int i3, int i4, int i5) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) || (eVar = this.f7777c) == null) {
+        if (!(interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) || (eVar = this.f7794c) == null) {
             return;
         }
         eVar.a(i2, i3, i4, i5);
@@ -229,7 +229,7 @@ public class a implements k, d {
     public void a(int i2, String str) {
         SynchronizationDisplayListener synchronizationDisplayListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048580, this, i2, str) == null) || (synchronizationDisplayListener = this.f7778d) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048580, this, i2, str) == null) || (synchronizationDisplayListener = this.f7795d) == null) {
             return;
         }
         synchronizationDisplayListener.onSynchronizationProcessResult(i2, str);
@@ -238,7 +238,7 @@ public class a implements k, d {
     public void a(View view) {
         l lVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, view) == null) || (lVar = this.f7776b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, view) == null) || (lVar = this.f7793b) == null) {
             return;
         }
         lVar.a(view);
@@ -247,7 +247,7 @@ public class a implements k, d {
     public void a(DisplayOptions displayOptions) {
         l lVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, displayOptions) == null) || (lVar = this.f7776b) == null || displayOptions == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, displayOptions) == null) || (lVar = this.f7793b) == null || displayOptions == null) {
             return;
         }
         lVar.a(displayOptions);
@@ -257,14 +257,14 @@ public class a implements k, d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, roleOptions) == null) {
             if (roleOptions == null || !b(roleOptions)) {
-                SynchronizationDisplayListener synchronizationDisplayListener = this.f7778d;
+                SynchronizationDisplayListener synchronizationDisplayListener = this.f7795d;
                 if (synchronizationDisplayListener != null) {
                     synchronizationDisplayListener.onSynchronizationProcessResult(1003, SynchronizationConstants.LBS_STATUS_MESSAGE_ORDER_PARAM_INVALID);
                     return;
                 }
                 return;
             }
-            l lVar = this.f7776b;
+            l lVar = this.f7793b;
             if (lVar != null) {
                 lVar.a(roleOptions);
             }
@@ -275,9 +275,9 @@ public class a implements k, d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, synchronizationDisplayListener) == null) {
             if (synchronizationDisplayListener != null) {
-                this.f7778d = synchronizationDisplayListener;
+                this.f7795d = synchronizationDisplayListener;
             } else {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7775a, "SynchronizationDisplayListener is null, must be applied.");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7792a, "SynchronizationDisplayListener is null, must be applied.");
                 throw new IllegalArgumentException("BDMapSDKException: synchronizationDisplayListener is null");
             }
         }
@@ -286,19 +286,19 @@ public class a implements k, d {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            c.f7821b = z;
+            c.f7838b = z;
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7775a, MissionEvent.MESSAGE_PAUSE);
-            l lVar = this.f7776b;
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7792a, MissionEvent.MESSAGE_PAUSE);
+            l lVar = this.f7793b;
             if (lVar != null) {
                 lVar.b();
             }
-            e eVar = this.f7777c;
+            e eVar = this.f7794c;
             if (eVar != null) {
                 eVar.b();
             }
@@ -314,11 +314,11 @@ public class a implements k, d {
             if (i2 > 30) {
                 i2 = 30;
             }
-            l lVar = this.f7776b;
+            l lVar = this.f7793b;
             if (lVar != null) {
                 lVar.b(i2);
             }
-            e eVar = this.f7777c;
+            e eVar = this.f7794c;
             if (eVar != null) {
                 eVar.b(i2);
             }
@@ -329,7 +329,7 @@ public class a implements k, d {
     public void b(int i2, String str) {
         SynchronizationDisplayListener synchronizationDisplayListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048588, this, i2, str) == null) || (synchronizationDisplayListener = this.f7778d) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048588, this, i2, str) == null) || (synchronizationDisplayListener = this.f7795d) == null) {
             return;
         }
         synchronizationDisplayListener.onSynchronizationProcessResult(i2, str);
@@ -338,7 +338,7 @@ public class a implements k, d {
     public void b(View view) {
         l lVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, view) == null) || (lVar = this.f7776b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, view) == null) || (lVar = this.f7793b) == null) {
             return;
         }
         lVar.b(view);
@@ -346,26 +346,26 @@ public class a implements k, d {
 
     public void b(SynchronizationDisplayListener synchronizationDisplayListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, synchronizationDisplayListener) == null) || this.f7778d == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, synchronizationDisplayListener) == null) || this.f7795d == null) {
             return;
         }
-        this.f7778d = null;
+        this.f7795d = null;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7775a, "release");
-            l lVar = this.f7776b;
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7792a, "release");
+            l lVar = this.f7793b;
             if (lVar != null) {
                 lVar.c();
             }
-            e eVar = this.f7777c;
+            e eVar = this.f7794c;
             if (eVar != null) {
                 eVar.f();
             }
-            if (this.f7778d != null) {
-                this.f7778d = null;
+            if (this.f7795d != null) {
+                this.f7795d = null;
             }
         }
     }
@@ -379,7 +379,7 @@ public class a implements k, d {
             if (i2 > 30) {
                 i2 = 30;
             }
-            e eVar = this.f7777c;
+            e eVar = this.f7794c;
             if (eVar != null) {
                 eVar.c(i2);
             }
@@ -390,7 +390,7 @@ public class a implements k, d {
     public void c(int i2, String str) {
         SynchronizationDisplayListener synchronizationDisplayListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048593, this, i2, str) == null) || (synchronizationDisplayListener = this.f7778d) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048593, this, i2, str) == null) || (synchronizationDisplayListener = this.f7795d) == null) {
             return;
         }
         synchronizationDisplayListener.onSynchronizationProcessResult(i2, str);
@@ -399,7 +399,7 @@ public class a implements k, d {
     public void c(View view) {
         l lVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, view) == null) || (lVar = this.f7776b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, view) == null) || (lVar = this.f7793b) == null) {
             return;
         }
         lVar.c(view);
@@ -409,9 +409,9 @@ public class a implements k, d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            e eVar = this.f7777c;
+            e eVar = this.f7794c;
             if (eVar == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7775a, "Data manager instance is null");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7792a, "Data manager instance is null");
                 return null;
             }
             return eVar.c();
@@ -428,7 +428,7 @@ public class a implements k, d {
             if (i2 > 30) {
                 i2 = 30;
             }
-            e eVar = this.f7777c;
+            e eVar = this.f7794c;
             if (eVar != null) {
                 eVar.d(i2);
             }
@@ -439,9 +439,9 @@ public class a implements k, d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            e eVar = this.f7777c;
+            e eVar = this.f7794c;
             if (eVar == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7775a, "Data manager instance is null");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7792a, "Data manager instance is null");
                 return null;
             }
             return eVar.d();
@@ -453,9 +453,9 @@ public class a implements k, d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            e eVar = this.f7777c;
+            e eVar = this.f7794c;
             if (eVar == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7775a, "Data manager instance is null");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7792a, "Data manager instance is null");
                 return null;
             }
             return eVar.e();
@@ -466,7 +466,7 @@ public class a implements k, d {
     public void g() {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048599, this) == null) || (eVar = this.f7777c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048599, this) == null) || (eVar = this.f7794c) == null) {
             return;
         }
         eVar.g();
@@ -475,6 +475,6 @@ public class a implements k, d {
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? c.f7821b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? c.f7838b : invokeV.booleanValue;
     }
 }

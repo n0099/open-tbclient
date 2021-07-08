@@ -22,14 +22,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class StatService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DOMAIN_NSCLICK_URL = "https://nsclick.baidu.com/v.gif";
     public static final String TAG = "StatService";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, String> f9142a;
+    public static final Map<String, String> f9159a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,10 +46,10 @@ public final class StatService {
             }
         }
         HashMap hashMap = new HashMap();
-        f9142a = hashMap;
+        f9159a = hashMap;
         hashMap.put("pid", "111");
-        f9142a.put("type", "1023");
-        f9142a.put("device", "android");
+        f9159a.put("type", "1023");
+        f9159a.put("device", "android");
     }
 
     public StatService() {
@@ -74,7 +74,7 @@ public final class StatService {
         try {
             if (NetworkUtils.isNetworkAvailable(context)) {
                 HashMap hashMap = new HashMap();
-                hashMap.putAll(f9142a);
+                hashMap.putAll(f9159a);
                 map.put("v", String.valueOf(System.currentTimeMillis()));
                 hashMap.put("name", str);
                 hashMap.put("model", Build.MODEL);

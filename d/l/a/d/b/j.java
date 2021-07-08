@@ -2,6 +2,7 @@ package d.l.a.d.b;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +15,7 @@ import d.l.a.e.b.j.a;
 import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +36,7 @@ public class j {
             }
             iVar.L(i2);
             if (i2 == 0) {
-                iVar.E(new d.C2060d());
+                iVar.E(new d.C2028d());
             }
             if (!iVar.N()) {
                 iVar.E(new d.e());
@@ -47,15 +48,15 @@ public class j {
             c2.K0(System.currentTimeMillis());
             c2.O0(0L);
             a g2 = a.g(iVar.R());
-            if (!g(iVar, g2, a2) && fVar.f74225b.k()) {
-                String H = fVar.f74225b.H();
+            if (!g(iVar, g2, a2) && fVar.f71277b.k()) {
+                String H = fVar.f71277b.H();
                 if (TextUtils.isEmpty(H)) {
                     H = g2.t("download_start_toast_text");
                 }
                 if (TextUtils.isEmpty(H)) {
                     H = z ? "已开始下载，可在\"我的\"里查看管理" : "已开始下载";
                 }
-                l.p().a(2, iVar.S(), fVar.f74225b, H, null, 0);
+                l.p().a(2, iVar.S(), fVar.f71277b, H, null, 0);
             }
             return a2;
         }
@@ -114,11 +115,11 @@ public class j {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, fVar, i2)) == null) {
-            d.l.a.b.a.c.b bVar = new d.l.a.b.a.c.b(fVar.f74225b, fVar.f74226c, fVar.f74227d, i2);
+            d.l.a.b.a.c.b bVar = new d.l.a.b.a.c.b(fVar.f71277b, fVar.f71278c, fVar.f71279d, i2);
             boolean z = true;
             if (a.d(i2).b("download_event_opt", 1) > 1) {
                 try {
-                    String v = fVar.f74225b.v();
+                    String v = fVar.f71277b.v();
                     if (!TextUtils.isEmpty(v)) {
                         if (l.a().getPackageManager().getPackageInfo(v, 0) == null) {
                             z = false;
@@ -156,7 +157,7 @@ public class j {
     public static boolean e(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) ? i2 == 0 || i2 == 1 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? i2 == 0 || i2 == 1 : invokeI.booleanValue;
     }
 
     public static boolean f(d.l.a.a.a.d.d dVar) {
@@ -235,13 +236,13 @@ public class j {
                                 case 1:
                                 case 2:
                                 case 3:
-                                    if (d.l.a.e.a.c.b(optJSONObject, aVar).f74523b == 0) {
+                                    if (d.l.a.e.a.c.b(optJSONObject, aVar).f71575b == 0) {
                                         break;
                                     } else {
                                         continue;
                                     }
                                 case 6:
-                                    if (d.l.a.e.a.c.v(optJSONObject, aVar).f74523b == 0) {
+                                    if (d.l.a.e.a.c.v(optJSONObject, aVar).f71575b == 0) {
                                         break;
                                     } else {
                                         continue;

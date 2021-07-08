@@ -19,7 +19,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.request.ChargeCurrencyReqParams
 import com.yy.mobile.framework.revenuesdk.payservice.utils.JsonDataParerUtil;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayEventType;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class PayCallbackProxy implements IPayCallback<PurchaseInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

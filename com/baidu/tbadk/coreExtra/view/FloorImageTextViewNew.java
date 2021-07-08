@@ -21,9 +21,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.s0.z3.c;
+import d.a.p0.z3.c;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class FloorImageTextViewNew extends AbsFloorImageTextView {
     public static /* synthetic */ Interceptable $ic;
     public static final int r;
@@ -101,7 +101,7 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
     public void f(ImageUrlData imageUrlData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageUrlData) == null) {
-            this.f12832e = imageUrlData;
+            this.f12849e = imageUrlData;
             JSONArray jSONArray = null;
             if (imageUrlData != null) {
                 try {
@@ -132,9 +132,9 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         }
         if (((Integer) pair.second).intValue() > 2) {
             if (i()) {
-                this.p = s + AbsFloorImageTextView.f12830h + AbsFloorImageTextView.f12831i;
+                this.p = s + AbsFloorImageTextView.f12847h + AbsFloorImageTextView.f12848i;
             } else {
-                this.p = r + AbsFloorImageTextView.f12830h + AbsFloorImageTextView.f12831i;
+                this.p = r + AbsFloorImageTextView.f12847h + AbsFloorImageTextView.f12848i;
             }
         } else {
             this.p = -2;
@@ -154,8 +154,8 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
             this.n.T = true;
             EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.scrollview);
             this.o = editorScrollView;
-            editorScrollView.setPadding(0, l.g(TbadkApplication.getInst(), R.dimen.tbds34), 0, AbsFloorImageTextView.f12831i);
-            this.o.setOnTouchListener(this.f12834g);
+            editorScrollView.setPadding(0, l.g(TbadkApplication.getInst(), R.dimen.tbds34), 0, AbsFloorImageTextView.f12848i);
+            this.o.setOnTouchListener(this.f12851g);
             ((ViewGroup.MarginLayoutParams) this.o.getLayoutParams()).topMargin = l.g(TbadkApplication.getInst(), R.dimen.tbds174);
             setVisibility(8);
         }

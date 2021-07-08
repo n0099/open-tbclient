@@ -5,6 +5,7 @@ import android.media.MediaMetadata;
 import android.media.Rating;
 import android.os.Parcel;
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -58,7 +59,7 @@ public class MediaMetadataCompatApi21 {
 
         public static void putLong(Object obj, String str, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{obj, str, Long.valueOf(j)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{obj, str, Long.valueOf(j)}) == null) {
                 ((MediaMetadata.Builder) obj).putLong(str, j);
             }
         }
@@ -120,7 +121,7 @@ public class MediaMetadataCompatApi21 {
     public static Object getRating(Object obj, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, obj, str)) == null) ? ((MediaMetadata) obj).getRating(str) : invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str)) == null) ? ((MediaMetadata) obj).getRating(str) : invokeLL.objValue;
     }
 
     public static CharSequence getText(Object obj, String str) {

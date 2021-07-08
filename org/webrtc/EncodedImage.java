@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class EncodedImage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,13 +26,13 @@ public class EncodedImage {
     public final int rotation;
 
     /* renamed from: org.webrtc.EncodedImage$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -162,7 +162,7 @@ public class EncodedImage {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class FrameType {
         public static final /* synthetic */ FrameType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -238,7 +238,7 @@ public class EncodedImage {
         public static FrameType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (FrameType[]) $VALUES.clone() : (FrameType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (FrameType[]) $VALUES.clone() : (FrameType[]) invokeV.objValue;
         }
 
         public int getNative() {

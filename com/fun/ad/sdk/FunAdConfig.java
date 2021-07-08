@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTCustomController;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class FunAdConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TITLE_BAR_THEME_DARK = 1;
@@ -33,7 +33,7 @@ public final class FunAdConfig {
     public final TTCustomController ttCustomCtr;
     public final String userId;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -229,7 +229,7 @@ public final class FunAdConfig {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

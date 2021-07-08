@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.math.BigInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class e implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BigInteger f8310a;
+    public BigInteger f8327a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BigInteger f8311b;
+    public BigInteger f8328b;
 
     public e(byte[] bArr, byte[] bArr2) {
         Interceptable interceptable = $ic;
@@ -33,21 +33,21 @@ public class e implements d {
                 return;
             }
         }
-        this.f8310a = new BigInteger(bArr);
-        this.f8311b = new BigInteger(bArr2);
+        this.f8327a = new BigInteger(bArr);
+        this.f8328b = new BigInteger(bArr2);
     }
 
     @Override // com.baidu.mobads.cid.cesium.c.d.d
     public BigInteger a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8310a : (BigInteger) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8327a : (BigInteger) invokeV.objValue;
     }
 
     @Override // com.baidu.mobads.cid.cesium.c.d.d
     public BigInteger b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f8311b : (BigInteger) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f8328b : (BigInteger) invokeV.objValue;
     }
 }

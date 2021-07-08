@@ -12,7 +12,7 @@ import java.net.Proxy;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public final class i {
         try {
             URL url = new URL(str2);
             if (com.baidu.crabsdk.lite.a.l != null) {
-                HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4688a.get(str);
+                HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4705a.get(str);
                 if (hashMap != null) {
                     Object obj = hashMap.get("domain_proxy");
                     openConnection = obj != null ? url.openConnection((Proxy) obj) : url.openConnection();

@@ -1,5 +1,6 @@
 package com.facebook.imageutils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.manage.DownloadConstants;
@@ -13,7 +14,7 @@ import com.facebook.common.internal.Preconditions;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class JfifUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP1_EXIF_MAGIC = 1165519206;
@@ -58,7 +59,7 @@ public class JfifUtil {
     public static boolean isSOFn(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             switch (i2) {
                 case 192:
                 case 193:

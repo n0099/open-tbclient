@@ -7,9 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.c3.j;
+import d.a.p0.c3.j;
 @Autowired
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class HttpRuntime {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

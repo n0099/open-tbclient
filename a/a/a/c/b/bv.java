@@ -12,16 +12,16 @@ public class bv {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1441a;
+    public String f1432a;
 
     /* renamed from: b  reason: collision with root package name */
-    public File f1442b;
+    public File f1433b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f1443c;
+    public long f1434c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f1444d;
+    public long f1435d;
 
     public bv(String str, String str2, File file) {
         Interceptable interceptable = $ic;
@@ -38,14 +38,14 @@ public class bv {
                 return;
             }
         }
-        this.f1441a = str;
-        this.f1442b = file;
+        this.f1432a = str;
+        this.f1433b = file;
     }
 
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            this.f1444d = j;
+            this.f1435d = j;
         }
     }
 

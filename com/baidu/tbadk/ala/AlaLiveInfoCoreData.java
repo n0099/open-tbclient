@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.q.p;
+import d.a.o0.r.q.p;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.AlaLiveInfo;
 import tbclient.AlaUserInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AlaLiveInfoCoreData extends p implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5768965545624138312L;
@@ -78,7 +78,7 @@ public class AlaLiveInfoCoreData extends p implements Serializable {
         this.threadId = alaInfoData.thread_id;
     }
 
-    @Override // d.a.r0.r.q.p
+    @Override // d.a.o0.r.q.p
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {

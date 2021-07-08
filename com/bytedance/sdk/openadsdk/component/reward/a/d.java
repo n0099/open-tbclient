@@ -33,7 +33,7 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d extends a implements u.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,9 +64,9 @@ public class d extends a implements u.a {
         }
         this.v = true;
         this.t = new u(Looper.getMainLooper(), this);
-        Activity activity2 = this.f29261a;
-        this.f29266f = (SSWebView) activity2.findViewById(r.e(activity2, "tt_browser_webview_loading"));
-        Activity activity3 = this.f29261a;
+        Activity activity2 = this.f29371a;
+        this.f29376f = (SSWebView) activity2.findViewById(r.e(activity2, "tt_browser_webview_loading"));
+        Activity activity3 = this.f29371a;
         this.w = (PlayableLoadingView) activity3.findViewById(r.e(activity3, "tt_reward_playable_loading"));
     }
 
@@ -76,18 +76,18 @@ public class d extends a implements u.a {
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
             this.u = o.h().p();
             j.c("Playable", "getPlayableLoadH5Url->loadH5Url=" + this.u);
-            if (TextUtils.isEmpty(this.u) || (mVar = this.f29262b) == null || mVar.al() == null) {
+            if (TextUtils.isEmpty(this.u) || (mVar = this.f29372b) == null || mVar.al() == null) {
                 return;
             }
-            String c2 = this.f29262b.al().c();
-            int e2 = this.f29262b.al().e();
-            int f2 = this.f29262b.al().f();
-            String a2 = this.f29262b.Y().a();
-            String ak = this.f29262b.ak();
-            String d2 = this.f29262b.al().d();
-            String b2 = this.f29262b.al().b();
-            String c3 = this.f29262b.al().c();
-            String ah = this.f29262b.ah();
+            String c2 = this.f29372b.al().c();
+            int e2 = this.f29372b.al().e();
+            int f2 = this.f29372b.al().f();
+            String a2 = this.f29372b.Y().a();
+            String ak = this.f29372b.ak();
+            String d2 = this.f29372b.al().d();
+            String b2 = this.f29372b.al().b();
+            String c3 = this.f29372b.al().c();
+            String ah = this.f29372b.ah();
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append("appname=");
             stringBuffer.append(URLEncoder.encode(c2));
@@ -119,7 +119,7 @@ public class d extends a implements u.a {
     public void u() {
         SSWebView sSWebView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (sSWebView = this.f29266f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (sSWebView = this.f29376f) == null) {
             return;
         }
         sSWebView.loadUrl(this.u);
@@ -128,11 +128,11 @@ public class d extends a implements u.a {
     public void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (com.bytedance.sdk.openadsdk.core.e.o.f(this.f29262b)) {
+            if (com.bytedance.sdk.openadsdk.core.e.o.f(this.f29372b)) {
                 PlayableLoadingView playableLoadingView = this.w;
                 if (playableLoadingView != null) {
                     playableLoadingView.b();
-                    if (com.bytedance.sdk.openadsdk.core.e.o.h(this.f29262b)) {
+                    if (com.bytedance.sdk.openadsdk.core.e.o.h(this.f29372b)) {
                         this.t.sendMessageDelayed(a(2), 10000L);
                         return;
                     }
@@ -156,7 +156,7 @@ public class d extends a implements u.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d f29287a;
+            public final /* synthetic */ d f29397a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -173,15 +173,15 @@ public class d extends a implements u.a {
                         return;
                     }
                 }
-                this.f29287a = this;
+                this.f29397a = this;
             }
 
             @Override // com.bytedance.sdk.openadsdk.j.d
             public void a() {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && !this.f29287a.f29261a.isFinishing() && com.bytedance.sdk.openadsdk.core.e.o.f(this.f29287a.f29262b) && com.bytedance.sdk.openadsdk.core.e.o.h(this.f29287a.f29262b)) {
-                    this.f29287a.t.removeMessages(10);
-                    d dVar = this.f29287a;
+                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && !this.f29397a.f29371a.isFinishing() && com.bytedance.sdk.openadsdk.core.e.o.f(this.f29397a.f29372b) && com.bytedance.sdk.openadsdk.core.e.o.h(this.f29397a.f29372b)) {
+                    this.f29397a.t.removeMessages(10);
+                    d dVar = this.f29397a;
                     dVar.t.sendMessage(dVar.a(1));
                 }
             }
@@ -189,8 +189,8 @@ public class d extends a implements u.a {
             @Override // com.bytedance.sdk.openadsdk.j.d
             public void b() {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.f29287a.f29261a.isFinishing() && com.bytedance.sdk.openadsdk.core.e.o.j(this.f29287a.f29262b) && com.bytedance.sdk.openadsdk.core.e.o.f(this.f29287a.f29262b) && com.bytedance.sdk.openadsdk.core.e.o.g(this.f29287a.f29262b)) {
-                    d dVar = this.f29287a;
+                if ((interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.f29397a.f29371a.isFinishing() && com.bytedance.sdk.openadsdk.core.e.o.j(this.f29397a.f29372b) && com.bytedance.sdk.openadsdk.core.e.o.f(this.f29397a.f29372b) && com.bytedance.sdk.openadsdk.core.e.o.g(this.f29397a.f29372b)) {
+                    d dVar = this.f29397a;
                     dVar.t.sendMessageDelayed(dVar.a(0), 1000L);
                 }
             }
@@ -199,16 +199,16 @@ public class d extends a implements u.a {
             public boolean c() {
                 InterceptResult invokeV2;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048579, this)) == null) ? this.f29287a.w != null && this.f29287a.w.getVisibility() == 0 : invokeV2.booleanValue;
+                return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048579, this)) == null) ? this.f29397a.w != null && this.f29397a.w.getVisibility() == 0 : invokeV2.booleanValue;
             }
 
             @Override // com.bytedance.sdk.openadsdk.j.d
             public void a(int i2) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || !com.bytedance.sdk.openadsdk.core.e.o.f(this.f29287a.f29262b) || this.f29287a.f29261a.isFinishing() || this.f29287a.w == null) {
+                if (!(interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || !com.bytedance.sdk.openadsdk.core.e.o.f(this.f29397a.f29372b) || this.f29397a.f29371a.isFinishing() || this.f29397a.w == null) {
                     return;
                 }
-                this.f29287a.w.setProgress(i2);
+                this.f29397a.w.setProgress(i2);
             }
         } : (com.bytedance.sdk.openadsdk.j.d) invokeV.objValue;
     }
@@ -227,10 +227,10 @@ public class d extends a implements u.a {
     public void a(boolean z, Map<String, Object> map, View view, com.bytedance.sdk.openadsdk.j.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), map, view, eVar}) == null) {
-            this.f29269i = new com.bytedance.sdk.openadsdk.e.j(this.f29261a, this.f29262b, this.f29266f).b(true);
-            w wVar = new w(this.f29261a);
-            this.f29267g = wVar;
-            wVar.b(this.f29266f).a(this.f29262b).b(this.f29262b.ak()).c(this.f29262b.ao()).a(z ? 7 : 5).a(this.f29266f).a(this.f29268h).a(this.f29263c).d(com.bytedance.sdk.openadsdk.r.o.i(this.f29262b)).a(view);
+            this.f29379i = new com.bytedance.sdk.openadsdk.e.j(this.f29371a, this.f29372b, this.f29376f).b(true);
+            w wVar = new w(this.f29371a);
+            this.f29377g = wVar;
+            wVar.b(this.f29376f).a(this.f29372b).b(this.f29372b.ak()).c(this.f29372b.ao()).a(z ? 7 : 5).a(this.f29376f).a(this.f29378h).a(this.f29373c).d(com.bytedance.sdk.openadsdk.r.o.i(this.f29372b)).a(view);
             y();
         }
     }
@@ -238,14 +238,14 @@ public class d extends a implements u.a {
     public void a(DownloadListener downloadListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadListener) == null) {
-            a(this.f29266f);
-            if (com.bytedance.sdk.openadsdk.core.e.o.j(this.f29262b)) {
-                this.f29266f.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.c(this, this.f29261a, this.f29267g, this.f29262b.ak(), null) { // from class: com.bytedance.sdk.openadsdk.component.reward.a.d.1
+            a(this.f29376f);
+            if (com.bytedance.sdk.openadsdk.core.e.o.j(this.f29372b)) {
+                this.f29376f.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.c(this, this.f29371a, this.f29377g, this.f29372b.ak(), null) { // from class: com.bytedance.sdk.openadsdk.component.reward.a.d.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ d f29286a;
+                    public final /* synthetic */ d f29396a;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -266,17 +266,17 @@ public class d extends a implements u.a {
                                 return;
                             }
                         }
-                        this.f29286a = this;
+                        this.f29396a = this;
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
                     public void onPageFinished(WebView webView, String str) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView, str) == null) {
-                            if (this.f29286a.v) {
-                                Context context = this.f30852c;
-                                d dVar = this.f29286a;
-                                com.bytedance.sdk.openadsdk.e.d.c(context, dVar.f29262b, dVar.f29263c, "loading_h5_success", (JSONObject) null);
+                            if (this.f29396a.v) {
+                                Context context = this.f30962c;
+                                d dVar = this.f29396a;
+                                com.bytedance.sdk.openadsdk.e.d.c(context, dVar.f29372b, dVar.f29373c, "loading_h5_success", (JSONObject) null);
                             }
                             super.onPageFinished(webView, str);
                         }
@@ -287,7 +287,7 @@ public class d extends a implements u.a {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, webResourceRequest, webResourceError) == null) {
                             super.onReceivedError(webView, webResourceRequest, webResourceError);
-                            this.f29286a.v = false;
+                            this.f29396a.v = false;
                         }
                     }
 
@@ -296,7 +296,7 @@ public class d extends a implements u.a {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLLL(1048579, this, webView, webResourceRequest, webResourceResponse) == null) {
                             super.onReceivedHttpError(webView, webResourceRequest, webResourceResponse);
-                            this.f29286a.v = false;
+                            this.f29396a.v = false;
                         }
                     }
 
@@ -305,14 +305,14 @@ public class d extends a implements u.a {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, i2, str, str2) == null) {
                             super.onReceivedError(webView, i2, str, str2);
-                            this.f29286a.v = false;
+                            this.f29396a.v = false;
                         }
                     }
                 });
-                this.f29266f.setBackgroundColor(-16777216);
-                this.f29266f.getSettings().setDisplayZoomControls(false);
-                this.f29266f.setWebChromeClient(new com.bytedance.sdk.openadsdk.core.widget.webview.b(this.f29267g, this.f29269i));
-                this.f29266f.setDownloadListener(downloadListener);
+                this.f29376f.setBackgroundColor(-16777216);
+                this.f29376f.getSettings().setDisplayZoomControls(false);
+                this.f29376f.setWebChromeClient(new com.bytedance.sdk.openadsdk.core.widget.webview.b(this.f29377g, this.f29379i));
+                this.f29376f.setDownloadListener(downloadListener);
             }
         }
     }
@@ -355,10 +355,10 @@ public class d extends a implements u.a {
             j.b("lfz", "hide playable loading");
             HashMap hashMap = new HashMap();
             hashMap.put("remove_loading_page_type", Integer.valueOf(message.arg1));
-            if (this.f29262b.V() != null) {
-                hashMap.put("playable_url", com.bytedance.sdk.openadsdk.core.e.o.e(this.f29262b) + "");
+            if (this.f29372b.V() != null) {
+                hashMap.put("playable_url", com.bytedance.sdk.openadsdk.core.e.o.e(this.f29372b) + "");
             }
-            com.bytedance.sdk.openadsdk.e.d.k(this.f29261a, this.f29262b, this.f29263c, "remove_loading_page", hashMap);
+            com.bytedance.sdk.openadsdk.e.d.k(this.f29371a, this.f29372b, this.f29373c, "remove_loading_page", hashMap);
             this.t.removeMessages(10);
             PlayableLoadingView playableLoadingView = this.w;
             if (playableLoadingView != null) {

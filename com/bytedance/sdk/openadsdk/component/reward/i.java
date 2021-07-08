@@ -15,16 +15,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.core.o;
 import com.bytedance.sdk.openadsdk.r.l;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29437a;
+    public String f29547a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f29438b;
+    public Context f29548b;
 
     public i(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public class i {
                 return;
             }
         }
-        this.f29438b = context;
-        this.f29437a = TextUtils.isEmpty(str) ? "" : str;
+        this.f29548b = context;
+        this.f29547a = TextUtils.isEmpty(str) ? "" : str;
     }
 
     @Nullable
@@ -50,7 +50,7 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            Context context = this.f29438b;
+            Context context = this.f29548b;
             return context == null ? o.a() : context;
         }
         return (Context) invokeV.objValue;
@@ -60,7 +60,7 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            return this.f29437a + "_adslot";
+            return this.f29547a + "_adslot";
         }
         return (String) invokeV.objValue;
     }
@@ -69,7 +69,7 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            return this.f29437a + "_adslot_preload";
+            return this.f29547a + "_adslot_preload";
         }
         return (String) invokeV.objValue;
     }
@@ -78,7 +78,7 @@ public class i {
     private SharedPreferences f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
             try {
                 if (b() != null) {
                     return b().getSharedPreferences(str, 0);
@@ -98,7 +98,7 @@ public class i {
             if (TextUtils.isEmpty(str)) {
                 str = "0";
             }
-            return this.f29437a + "_cache_" + str;
+            return this.f29547a + "_cache_" + str;
         }
         return (String) invokeL.objValue;
     }

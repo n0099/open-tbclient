@@ -1,5 +1,6 @@
 package com.facebook.datasource;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,12 +11,12 @@ import com.facebook.common.internal.Supplier;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DataSources {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ValueHolder<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,7 +116,7 @@ public class DataSources {
     public static <T> T waitForFinalResult(DataSource<T> dataSource) throws Throwable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, dataSource)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, dataSource)) == null) {
             CountDownLatch countDownLatch = new CountDownLatch(1);
             ValueHolder valueHolder = new ValueHolder();
             ValueHolder valueHolder2 = new ValueHolder();

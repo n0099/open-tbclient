@@ -25,6 +25,7 @@ import androidx.collection.SimpleArrayMap;
 import androidx.collection.SparseArrayCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.core.view.InputDeviceCompat;
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -295,7 +296,7 @@ public final class ResourceManagerInternal {
 
     private void addTintListToCache(@NonNull Context context, @DrawableRes int i2, @NonNull ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65540, this, context, i2, colorStateList) == null) {
+        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, i2, colorStateList) == null) {
             if (this.mTintLists == null) {
                 this.mTintLists = new WeakHashMap<>();
             }

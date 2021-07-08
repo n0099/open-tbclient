@@ -563,7 +563,7 @@ public class ViewCompat {
         private SparseArray<WeakReference<View>> getCapturedKeys() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
                 if (this.mCapturedKeys == null) {
                     this.mCapturedKeys = new SparseArray<>();
                 }
@@ -2953,7 +2953,7 @@ public class ViewCompat {
 
     public static void addAccessibilityAction(@NonNull View view, @NonNull AccessibilityNodeInfoCompat.AccessibilityActionCompat accessibilityActionCompat) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65540, null, view, accessibilityActionCompat) == null) || Build.VERSION.SDK_INT < 21) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, view, accessibilityActionCompat) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
         getOrCreateAccessibilityDelegateCompat(view);

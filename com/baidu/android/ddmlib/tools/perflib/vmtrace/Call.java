@@ -262,7 +262,7 @@ public class Call {
     private long sumInclusiveTimes(@NonNull List<Call> list, ClockType clockType) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, list, clockType)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, list, clockType)) == null) {
             long j = 0;
             for (Call call : list) {
                 j += call.getInclusiveTime(clockType, TimeUnit.MICROSECONDS);

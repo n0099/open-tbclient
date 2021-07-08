@@ -11,7 +11,7 @@ import com.coremedia.iso.Hex;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @Descriptor(tags = {19})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ExtensionProfileLevelDescriptor extends BaseDescriptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

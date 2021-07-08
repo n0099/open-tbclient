@@ -1,10 +1,11 @@
 package d.l.a.e.b.d;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +37,7 @@ public class a {
     public static boolean e(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) ? i2 == -3 || i2 == -1 || i2 == -4 || i2 == -2 || i2 == 5 || i2 == 7 || i2 == 8 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? i2 == -3 || i2 == -1 || i2 == -4 || i2 == -2 || i2 == 5 || i2 == 7 || i2 == 8 : invokeI.booleanValue;
     }
 
     public static boolean f(int i2) {

@@ -7,6 +7,7 @@ import android.content.ServiceConnection;
 import android.os.Build;
 import android.os.IBinder;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mobads.container.executor.BaseTask;
@@ -31,7 +32,7 @@ import java.lang.reflect.Method;
 import java.nio.ByteBuffer;
 import kotlin.jvm.internal.ByteCompanionObject;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class HuaWeiOAID {
     public static /* synthetic */ Interceptable $ic;
     public static boolean hwTrackLimited;
@@ -73,7 +74,7 @@ public class HuaWeiOAID {
 
     public static void hwBindService(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             try {
                 UniqueIdUtils.sendSDKTypeLog(context, "hw-start", "");
                 TaskScheduler.getInstance().submit(new BaseTask(context, new ServiceConnection(context) { // from class: com.baidu.mobads.container.util.oaid.HuaWeiOAID.1

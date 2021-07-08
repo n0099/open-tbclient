@@ -3,6 +3,7 @@ package com.baidu.webkit.sdk;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,7 +16,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FilenameFilter;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FileUtils";
@@ -129,7 +130,7 @@ public class FileUtils {
 
     public static void clearTimestamp(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, null, context, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2) == null) {
             File file = new File(str);
             if (file.exists() && file.isDirectory()) {
                 String[] list = file.list(new FilenameFilter(str2) { // from class: com.baidu.webkit.sdk.FileUtils.2

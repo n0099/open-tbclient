@@ -1,5 +1,6 @@
 package d.f.b.a.a0.r;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +14,7 @@ import d.f.b.a.a0.r.k;
 import d.f.b.a.i0.l;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class j extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,22 +24,22 @@ public final class j extends h {
     public k.d q;
     public k.b r;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final k.d f72370a;
+        public final k.d f69473a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final byte[] f72371b;
+        public final byte[] f69474b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final k.c[] f72372c;
+        public final k.c[] f69475c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f72373d;
+        public final int f69476d;
 
         public a(k.d dVar, k.b bVar, byte[] bArr, k.c[] cVarArr, int i2) {
             Interceptable interceptable = $ic;
@@ -55,10 +56,10 @@ public final class j extends h {
                     return;
                 }
             }
-            this.f72370a = dVar;
-            this.f72371b = bArr;
-            this.f72372c = cVarArr;
-            this.f72373d = i2;
+            this.f69473a = dVar;
+            this.f69474b = bArr;
+            this.f69475c = cVarArr;
+            this.f69476d = i2;
         }
     }
 
@@ -80,10 +81,10 @@ public final class j extends h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65537, null, lVar, j) == null) {
             lVar.I(lVar.d() + 4);
-            lVar.f73386a[lVar.d() - 4] = (byte) (j & 255);
-            lVar.f73386a[lVar.d() - 3] = (byte) ((j >>> 8) & 255);
-            lVar.f73386a[lVar.d() - 2] = (byte) ((j >>> 16) & 255);
-            lVar.f73386a[lVar.d() - 1] = (byte) ((j >>> 24) & 255);
+            lVar.f70489a[lVar.d() - 4] = (byte) (j & 255);
+            lVar.f70489a[lVar.d() - 3] = (byte) ((j >>> 8) & 255);
+            lVar.f70489a[lVar.d() - 2] = (byte) ((j >>> 16) & 255);
+            lVar.f70489a[lVar.d() - 1] = (byte) ((j >>> 24) & 255);
         }
     }
 
@@ -91,10 +92,10 @@ public final class j extends h {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Byte.valueOf(b2), aVar})) == null) {
-            if (!aVar.f72372c[n(b2, aVar.f72373d, 1)].f72374a) {
-                return aVar.f72370a.f72378d;
+            if (!aVar.f69475c[n(b2, aVar.f69476d, 1)].f69477a) {
+                return aVar.f69473a.f69481d;
             }
-            return aVar.f72370a.f72379e;
+            return aVar.f69473a.f69482e;
         }
         return invokeCommon.intValue;
     }
@@ -108,7 +109,7 @@ public final class j extends h {
     public static boolean p(l lVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, lVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, lVar)) == null) {
             try {
                 return k.k(1, lVar, true);
             } catch (ParserException unused) {
@@ -125,7 +126,7 @@ public final class j extends h {
             super.d(j);
             this.p = j != 0;
             k.d dVar = this.q;
-            this.o = dVar != null ? dVar.f72378d : 0;
+            this.o = dVar != null ? dVar.f69481d : 0;
         }
     }
 
@@ -134,7 +135,7 @@ public final class j extends h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar)) == null) {
-            byte[] bArr = lVar.f73386a;
+            byte[] bArr = lVar.f70489a;
             if ((bArr[0] & 1) == 1) {
                 return -1L;
             }
@@ -162,10 +163,10 @@ public final class j extends h {
                 return true;
             }
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.n.f72370a.f72380f);
-            arrayList.add(this.n.f72371b);
-            k.d dVar = this.n.f72370a;
-            bVar.f72364a = Format.createAudioSampleFormat(null, "audio/vorbis", null, dVar.f72377c, -1, dVar.f72375a, (int) dVar.f72376b, arrayList, null, 0, null);
+            arrayList.add(this.n.f69473a.f69483f);
+            arrayList.add(this.n.f69474b);
+            k.d dVar = this.n.f69473a;
+            bVar.f69467a = Format.createAudioSampleFormat(null, "audio/vorbis", null, dVar.f69480c, -1, dVar.f69478a, (int) dVar.f69479b, arrayList, null, 0, null);
             return true;
         }
         return invokeCommon.booleanValue;
@@ -198,8 +199,8 @@ public final class j extends h {
                 return null;
             } else {
                 byte[] bArr = new byte[lVar.d()];
-                System.arraycopy(lVar.f73386a, 0, bArr, 0, lVar.d());
-                k.c[] j = k.j(lVar, this.q.f72375a);
+                System.arraycopy(lVar.f70489a, 0, bArr, 0, lVar.d());
+                k.c[] j = k.j(lVar, this.q.f69478a);
                 return new a(this.q, this.r, bArr, j, k.a(j.length - 1));
             }
         }

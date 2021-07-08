@@ -7,9 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.s0.l1.b.b;
+import d.a.p0.l1.b.b;
 import tbclient.GetTagList.GetTagListResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ResponseSocketGetLabelMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

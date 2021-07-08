@@ -1,5 +1,6 @@
 package com.baidu.ar.plugin.reflect;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -65,7 +66,7 @@ public class MethodUtils {
     public static Method getAccessibleMethod(Method method) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, method)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, method)) == null) {
             if (MemberUtils.isAccessible(method)) {
                 Class<?> declaringClass = method.getDeclaringClass();
                 if (Modifier.isPublic(declaringClass.getModifiers())) {

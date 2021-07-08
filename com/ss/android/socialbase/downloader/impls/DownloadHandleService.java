@@ -14,24 +14,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.l.a.e.b.g.e;
 import d.l.a.e.b.g.f;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DownloadHandleService extends Service {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f41590a;
+    public static final String f38604a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f41591e;
+        public final /* synthetic */ int f38605e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DownloadHandleService f41592f;
+        public final /* synthetic */ DownloadHandleService f38606f;
 
         public a(DownloadHandleService downloadHandleService, int i2) {
             Interceptable interceptable = $ic;
@@ -48,8 +48,8 @@ public class DownloadHandleService extends Service {
                     return;
                 }
             }
-            this.f41592f = downloadHandleService;
-            this.f41591e = i2;
+            this.f38606f = downloadHandleService;
+            this.f38605e = i2;
         }
 
         @Override // java.lang.Runnable
@@ -57,7 +57,7 @@ public class DownloadHandleService extends Service {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    f.c().J(this.f41591e);
+                    f.c().J(this.f38605e);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -78,7 +78,7 @@ public class DownloadHandleService extends Service {
                 return;
             }
         }
-        f41590a = DownloadHandleService.class.getSimpleName();
+        f38604a = DownloadHandleService.class.getSimpleName();
     }
 
     public DownloadHandleService() {

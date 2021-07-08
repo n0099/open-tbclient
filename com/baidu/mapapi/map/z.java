@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class z implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ WearMapView f7189a;
+    public final /* synthetic */ WearMapView f7206a;
 
     public z(WearMapView wearMapView) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class z implements View.OnClickListener {
                 return;
             }
         }
-        this.f7189a = wearMapView;
+        this.f7206a = wearMapView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -38,10 +38,10 @@ public class z implements View.OnClickListener {
         com.baidu.mapsdkplatform.comapi.map.j jVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            jVar = this.f7189a.f7133f;
+            jVar = this.f7206a.f7150f;
             ab E = jVar.a().E();
-            E.f7644a += 1.0f;
-            jVar2 = this.f7189a.f7133f;
+            E.f7661a += 1.0f;
+            jVar2 = this.f7206a.f7150f;
             jVar2.a().a(E, 300);
         }
     }

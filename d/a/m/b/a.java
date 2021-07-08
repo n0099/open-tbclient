@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f46186b;
+    public static a f43184b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f46187a;
+    public String f43185a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -36,14 +36,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f46186b == null) {
+            if (f43184b == null) {
                 synchronized (a.class) {
-                    if (f46186b == null) {
-                        f46186b = new a();
+                    if (f43184b == null) {
+                        f43184b = new a();
                     }
                 }
             }
-            return f46186b;
+            return f43184b;
         }
         return (a) invokeV.objValue;
     }
@@ -52,8 +52,8 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.f46187a)) {
-                return this.f46187a;
+            if (!TextUtils.isEmpty(this.f43185a)) {
+                return this.f43185a;
             }
             return b.a().getAppName();
         }
@@ -63,7 +63,7 @@ public class a {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f46187a = str;
+            this.f43185a = str;
         }
     }
 }

@@ -12,28 +12,28 @@ import java.nio.charset.Charset;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class v {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f28525a;
+    public static final Pattern f28635a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f28526b;
+    public static final Pattern f28636b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f28527c;
+    public final String f28637c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f28528d;
+    public final String f28638d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f28529e;
+    public final String f28639e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f28530f;
+    public final String f28640f;
 
     static {
         InterceptResult invokeClinit;
@@ -48,8 +48,8 @@ public final class v {
                 return;
             }
         }
-        f28525a = Pattern.compile("([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)/([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)");
-        f28526b = Pattern.compile(";\\s*(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)=(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)|\"([^\"]*)\"))?");
+        f28635a = Pattern.compile("([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)/([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)");
+        f28636b = Pattern.compile(";\\s*(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)=(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)|\"([^\"]*)\"))?");
     }
 
     public v(String str, String str2, String str3, String str4) {
@@ -67,21 +67,21 @@ public final class v {
                 return;
             }
         }
-        this.f28527c = str;
-        this.f28528d = str2;
-        this.f28529e = str3;
-        this.f28530f = str4;
+        this.f28637c = str;
+        this.f28638d = str2;
+        this.f28639e = str3;
+        this.f28640f = str4;
     }
 
     public static v a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            Matcher matcher = f28525a.matcher(str);
+            Matcher matcher = f28635a.matcher(str);
             if (matcher.lookingAt()) {
                 String lowerCase = matcher.group(1).toLowerCase(Locale.US);
                 String lowerCase2 = matcher.group(2).toLowerCase(Locale.US);
-                Matcher matcher2 = f28526b.matcher(str);
+                Matcher matcher2 = f28636b.matcher(str);
                 String str2 = null;
                 for (int end = matcher.end(); end < str.length(); end = matcher2.end()) {
                     matcher2.region(end, str.length());
@@ -114,19 +114,19 @@ public final class v {
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? (obj instanceof v) && ((v) obj).f28527c.equals(this.f28527c) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? (obj instanceof v) && ((v) obj).f28637c.equals(this.f28637c) : invokeL.booleanValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28527c.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28637c.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f28527c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f28637c : (String) invokeV.objValue;
     }
 
     public Charset a() {
@@ -140,7 +140,7 @@ public final class v {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charset)) == null) {
             try {
-                return this.f28530f != null ? Charset.forName(this.f28530f) : charset;
+                return this.f28640f != null ? Charset.forName(this.f28640f) : charset;
             } catch (IllegalArgumentException unused) {
                 return charset;
             }

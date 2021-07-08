@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.c1.b.e;
-/* loaded from: classes4.dex */
+import d.a.o0.c1.b.e;
+/* loaded from: classes3.dex */
 public class PostSearchActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FORUM_ID = "forum_id";

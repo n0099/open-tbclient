@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String S = "a";
@@ -57,31 +57,31 @@ public class a {
     public boolean R;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9196a;
+    public String f9213a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9197b;
+    public String f9214b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9198c;
+    public String f9215c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f9199d;
+    public int f9216d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f9200e;
+    public int f9217e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f9201f;
+    public int f9218f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f9202g;
+    public int f9219g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f9203h;
+    public int f9220h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f9204i;
+    public int f9221i;
     public int j;
     public String k;
     public int l;
@@ -128,14 +128,14 @@ public class a {
                 return;
             }
         }
-        this.f9196a = "";
-        this.f9197b = "";
-        this.f9199d = -1;
-        this.f9200e = -1;
-        this.f9201f = -1;
-        this.f9202g = -1;
-        this.f9203h = 0;
-        this.f9204i = 0;
+        this.f9213a = "";
+        this.f9214b = "";
+        this.f9216d = -1;
+        this.f9217e = -1;
+        this.f9218f = -1;
+        this.f9219g = -1;
+        this.f9220h = 0;
+        this.f9221i = 0;
         this.j = 0;
         this.k = "-1";
         this.l = -1;
@@ -189,23 +189,23 @@ public class a {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             HashMap hashMap = new HashMap();
             Log.w(S, "onStat");
-            if (this.f9199d != -1) {
-                hashMap.put("camera_with_per", this.f9199d + "");
+            if (this.f9216d != -1) {
+                hashMap.put("camera_with_per", this.f9216d + "");
             }
-            if (this.f9200e != -1) {
-                hashMap.put("camera_open_per", this.f9200e + "");
+            if (this.f9217e != -1) {
+                hashMap.put("camera_open_per", this.f9217e + "");
             }
-            if (this.f9201f != -1) {
-                hashMap.put("net_get_potrt", this.f9201f + "");
+            if (this.f9218f != -1) {
+                hashMap.put("net_get_potrt", this.f9218f + "");
             }
-            if (this.f9202g != -1) {
-                hashMap.put("find_face_last", this.f9202g + "");
+            if (this.f9219g != -1) {
+                hashMap.put("find_face_last", this.f9219g + "");
             }
-            if (this.f9203h != 0) {
-                hashMap.put("find_face_num", this.f9203h + "");
+            if (this.f9220h != 0) {
+                hashMap.put("find_face_num", this.f9220h + "");
             }
-            if (this.f9204i != 0) {
-                hashMap.put("living_pass_eye_num", this.f9204i + "");
+            if (this.f9221i != 0) {
+                hashMap.put("living_pass_eye_num", this.f9221i + "");
             }
             if (this.j != 0) {
                 hashMap.put("living_pass_mouth_num", this.j + "");
@@ -289,7 +289,7 @@ public class a {
             hashMap.put("abtest_illum", this.n + "");
             hashMap.put("time_whole", (this.P - this.E) + "");
             hashMap.put("error_code", this.Q + "");
-            hashMap.put("recog_type", this.f9196a);
+            hashMap.put("recog_type", this.f9213a);
             hashMap.put("guide_liveness", this.o + "");
             DisplayMetrics displayMetrics = new DisplayMetrics();
             ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
@@ -297,12 +297,12 @@ public class a {
             int i3 = displayMetrics.widthPixels;
             hashMap.put("screen_size", i3 + "," + i2);
             hashMap.put("os_ver", PassBiometricUtil.getOSVersion());
-            if (!TextUtils.isEmpty(this.f9197b)) {
-                hashMap.put("subpro", this.f9197b);
+            if (!TextUtils.isEmpty(this.f9214b)) {
+                hashMap.put("subpro", this.f9214b);
             }
             hashMap.put("net_type", NetworkUtils.getNetworkClass(context));
-            if (!TextUtils.isEmpty(this.f9198c)) {
-                hashMap.put("pre_size", this.f9198c);
+            if (!TextUtils.isEmpty(this.f9215c)) {
+                hashMap.put("pre_size", this.f9215c);
             }
             String str2 = S;
             Log.w(str2, "onStat|map|" + new JSONObject(hashMap));

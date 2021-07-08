@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class TrackUI {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SEPERATOR = "\t";
@@ -81,7 +81,7 @@ public class TrackUI {
         InterceptResult invokeL;
         String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (TextUtils.isEmpty(str) || (split = str.split(SEPERATOR)) == null || split.length != 4) {
                 return null;
             }

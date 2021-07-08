@@ -5,6 +5,7 @@ import android.os.Environment;
 import android.os.Process;
 import android.provider.Settings;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,16 +19,16 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f8329a;
+    public Context f8346a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f8330b;
+    public c f8347b;
 
     public f(Context context, c cVar) {
         Interceptable interceptable = $ic;
@@ -44,8 +45,8 @@ public class f {
                 return;
             }
         }
-        this.f8329a = context;
-        this.f8330b = cVar;
+        this.f8346a = context;
+        this.f8347b = cVar;
     }
 
     private e a() {
@@ -65,18 +66,18 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, context)) == null) {
-            List<b> b2 = this.f8330b.b(context);
+            List<b> b2 = this.f8347b.b(context);
             e eVar = null;
             if (b2 != null) {
-                String str = com.baidu.fsg.face.base.b.c.f5570g;
+                String str = com.baidu.fsg.face.base.b.c.f5587g;
                 File filesDir = context.getFilesDir();
-                if (!com.baidu.fsg.face.base.b.c.f5570g.equals(filesDir.getName())) {
+                if (!com.baidu.fsg.face.base.b.c.f5587g.equals(filesDir.getName())) {
                     Log.e("CuidV266Manager", "fetal error:: app files dir name is unexpectedly :: " + filesDir.getAbsolutePath());
                     str = filesDir.getName();
                 }
                 for (b bVar : b2) {
-                    if (!bVar.f8195d) {
-                        File file = new File(new File(bVar.f8192a.dataDir, str), "libcuid.so");
+                    if (!bVar.f8212d) {
+                        File file = new File(new File(bVar.f8209a.dataDir, str), "libcuid.so");
                         if (file.exists() && (eVar = e.b(com.baidu.mobads.cid.cesium.f.c.a(file))) != null) {
                             break;
                         }
@@ -97,7 +98,7 @@ public class f {
     private boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, this, str)) == null) ? this.f8329a.checkPermission(str, Process.myPid(), Process.myUid()) == 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) ? this.f8346a.checkPermission(str, Process.myPid(), Process.myUid()) == 0 : invokeL.booleanValue;
     }
 
     private String c(String str) {
@@ -105,7 +106,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
             try {
-                return Settings.System.getString(this.f8329a.getContentResolver(), str);
+                return Settings.System.getString(this.f8346a.getContentResolver(), str);
             } catch (Exception e2) {
                 com.baidu.mobads.cid.cesium.f.c.a(e2);
                 return null;
@@ -165,7 +166,7 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            e a2 = a(this.f8329a);
+            e a2 = a(this.f8346a);
             if (a2 == null) {
                 a2 = e.b(c("com.baidu.deviceid.v2"));
             }

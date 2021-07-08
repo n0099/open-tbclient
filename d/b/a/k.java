@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class k extends s1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f71690e;
+    public final Context f68793e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(Context context) {
@@ -36,7 +36,7 @@ public class k extends s1 {
                 return;
             }
         }
-        this.f71690e = context;
+        this.f68793e = context;
     }
 
     @Override // d.b.a.s1
@@ -49,7 +49,7 @@ public class k extends s1 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
             String str = null;
             try {
-                packageInfo = this.f71690e.getPackageManager().getPackageInfo(this.f71690e.getPackageName(), 64);
+                packageInfo = this.f68793e.getPackageManager().getPackageInfo(this.f68793e.getPackageName(), 64);
             } catch (Throwable th) {
                 h0.b(th);
                 packageInfo = null;

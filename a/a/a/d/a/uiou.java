@@ -33,9 +33,9 @@ public class uiou implements bv {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, file) == null) {
             PathClassLoader pathClassLoader = (PathClassLoader) context.getClassLoader();
-            String[] strArr = (String[]) a.b(pathClassLoader, "mLibPaths");
+            String[] strArr = (String[]) shuoy.b(pathClassLoader, "mLibPaths");
             if (strArr != null) {
-                a.a(pathClassLoader, "mLibPaths", a.a(String.class, strArr, file.getAbsolutePath()));
+                shuoy.a(pathClassLoader, "mLibPaths", shuoy.a(String.class, strArr, file.getAbsolutePath()));
             }
         }
     }
@@ -44,6 +44,6 @@ public class uiou implements bv {
     public boolean b(Context context, File file) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, file)) == null) ? a.a((String[]) a.b((PathClassLoader) context.getClassLoader(), "mLibPaths"), file.getAbsolutePath()) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, file)) == null) ? shuoy.a((String[]) shuoy.b((PathClassLoader) context.getClassLoader(), "mLibPaths"), file.getAbsolutePath()) : invokeLL.booleanValue;
     }
 }

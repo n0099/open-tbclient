@@ -6,11 +6,11 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import d.a.g0.k.a.b;
+import d.a.d0.k.a.b;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class HttpSigner {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class HttpSigner {
             sb.append(str);
             sb.append("=");
             sb.append(nativeGetStatisticsKey(i2));
-            return d.a.g0.k.g.b.c(sb.toString());
+            return d.a.d0.k.g.b.c(sb.toString());
         }
         return (String) invokeLLI.objValue;
     }
@@ -87,7 +87,7 @@ public class HttpSigner {
         sb.append(nativeGetCommissionSk());
         sb.append("&");
         sb.append(bVar.b("timestamp"));
-        bVar.e("sign", d.a.g0.k.g.b.c(sb.toString()));
+        bVar.e("sign", d.a.d0.k.g.b.c(sb.toString()));
     }
 
     public static native String nativeGetCommissionSk();

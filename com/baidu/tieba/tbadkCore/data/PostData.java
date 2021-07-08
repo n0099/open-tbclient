@@ -57,12 +57,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
 import d.a.c.k.e.n;
 import d.a.c.k.g;
-import d.a.r0.b1.m.e;
-import d.a.r0.r.q.c1;
-import d.a.r0.r.q.x1;
-import d.a.r0.t.g;
-import d.a.s0.h3.h0.i;
-import d.a.s0.h3.h0.l;
+import d.a.o0.b1.m.e;
+import d.a.o0.r.f0.j;
+import d.a.o0.r.q.c1;
+import d.a.o0.r.q.x1;
+import d.a.o0.t.g;
+import d.a.p0.h3.h0.i;
+import d.a.p0.h3.h0.l;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -78,7 +79,7 @@ import tbclient.SkinInfo;
 import tbclient.SubPost;
 import tbclient.SubPostList;
 import tbclient.TPointPost;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PostData implements PreLoadImageProvider, n {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId A0;
@@ -96,9 +97,9 @@ public class PostData implements PreLoadImageProvider, n {
     public x1 C;
     public boolean D;
     public int E;
-    public d.a.r0.b1.m.i F;
+    public d.a.o0.b1.m.i F;
     public TbRichTextVoiceInfo G;
-    public ArrayList<d.a.r0.t.c> H;
+    public ArrayList<d.a.o0.t.c> H;
     public String I;
     public SkinInfo J;
     public String K;
@@ -122,19 +123,19 @@ public class PostData implements PreLoadImageProvider, n {
     public boolean c0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21082e;
+    public int f21128e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f21083f;
+    public String f21129f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f21084g;
+    public long f21130g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f21085h;
+    public int f21131h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f21086i;
+    public long f21132i;
     public int i0;
     public MetaData j;
     public StatisticItem j0;
@@ -154,18 +155,18 @@ public class PostData implements PreLoadImageProvider, n {
     public ArrayList<PostData> q;
     public int q0;
     public TbRichText r;
-    public d.a.r0.t.a r0;
+    public d.a.o0.t.a r0;
     public PraiseData s;
     public d s0;
     public SmallTailInfo t;
     public c1 u;
-    public d.a.s0.h3.h0.c v;
+    public d.a.p0.h3.h0.c v;
     public String w;
     public HashMap<String, MetaData> x;
-    public d.a.r0.t.c y;
+    public d.a.o0.t.c y;
     public g z;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class CustomForegroundColorSpan extends ForegroundColorSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -201,13 +202,13 @@ public class PostData implements PreLoadImageProvider, n {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PostData f21087a;
+        public final /* synthetic */ PostData f21133a;
 
         public a(PostData postData) {
             Interceptable interceptable = $ic;
@@ -224,14 +225,14 @@ public class PostData implements PreLoadImageProvider, n {
                     return;
                 }
             }
-            this.f21087a = postData;
+            this.f21133a = postData;
         }
 
         @Override // com.baidu.tieba.tbadkCore.data.PostData.d
         public void onClick() {
             StatisticItem statisticItem;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (statisticItem = this.f21087a.j0) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (statisticItem = this.f21133a.j0) == null) {
                 return;
             }
             StatisticItem copy = statisticItem.copy();
@@ -241,30 +242,30 @@ public class PostData implements PreLoadImageProvider, n {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IconData f21088a;
+        public final /* synthetic */ IconData f21134a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ BdUniqueId f21089b;
+        public final /* synthetic */ BdUniqueId f21135b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ PostData f21090c;
+        public final /* synthetic */ PostData f21136c;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public class a extends d.a.c.e.l.c<d.a.c.k.d.a> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d.a.c.k.g f21091a;
+            public final /* synthetic */ d.a.c.k.g f21137a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f21092b;
+            public final /* synthetic */ b f21138b;
 
             public a(b bVar, d.a.c.k.g gVar) {
                 Interceptable interceptable = $ic;
@@ -281,8 +282,8 @@ public class PostData implements PreLoadImageProvider, n {
                         return;
                     }
                 }
-                this.f21092b = bVar;
-                this.f21091a = gVar;
+                this.f21138b = bVar;
+                this.f21137a = gVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -294,8 +295,8 @@ public class PostData implements PreLoadImageProvider, n {
                     if (aVar == null || !aVar.w()) {
                         return;
                     }
-                    this.f21091a.a(this.f21092b.f21090c.i(aVar));
-                    this.f21092b.f21090c.r.isChanged = true;
+                    this.f21137a.a(this.f21138b.f21136c.i(aVar));
+                    this.f21138b.f21136c.r.isChanged = true;
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2004005));
                 }
             }
@@ -316,9 +317,9 @@ public class PostData implements PreLoadImageProvider, n {
                     return;
                 }
             }
-            this.f21090c = postData;
-            this.f21088a = iconData;
-            this.f21089b = bdUniqueId;
+            this.f21136c = postData;
+            this.f21134a = iconData;
+            this.f21135b = bdUniqueId;
         }
 
         @Override // d.a.c.k.g.a
@@ -326,32 +327,32 @@ public class PostData implements PreLoadImageProvider, n {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
-                d.a.c.k.d.a aVar = (d.a.c.k.d.a) d.a.c.e.l.d.h().n(this.f21088a.getIcon(), 21, new Object[0]);
+                d.a.c.k.d.a aVar = (d.a.c.k.d.a) d.a.c.e.l.d.h().n(this.f21134a.getIcon(), 21, new Object[0]);
                 if (aVar == null) {
-                    d.a.c.e.l.d.h().m(this.f21088a.getIcon(), 21, new a(this, gVar), this.f21089b);
+                    d.a.c.e.l.d.h().m(this.f21134a.getIcon(), 21, new a(this, gVar), this.f21135b);
                 }
-                return this.f21090c.i(aVar);
+                return this.f21136c.i(aVar);
             }
             return (Drawable) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class c extends ClickableSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f21093e;
+        public String f21139e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f21094f;
+        public String f21140f;
 
         /* renamed from: g  reason: collision with root package name */
-        public SoftReference<Context> f21095g;
+        public SoftReference<Context> f21141g;
 
         /* renamed from: h  reason: collision with root package name */
-        public d f21096h;
+        public d f21142h;
 
         public c(Context context, String str, String str2, d dVar) {
             Interceptable interceptable = $ic;
@@ -368,44 +369,44 @@ public class PostData implements PreLoadImageProvider, n {
                     return;
                 }
             }
-            this.f21093e = null;
-            this.f21094f = null;
-            this.f21093e = str;
-            this.f21094f = str2;
-            this.f21095g = new SoftReference<>(context);
-            this.f21096h = dVar;
+            this.f21139e = null;
+            this.f21140f = null;
+            this.f21139e = str;
+            this.f21140f = str2;
+            this.f21141g = new SoftReference<>(context);
+            this.f21142h = dVar;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
             SoftReference<Context> softReference;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f21093e == null || this.f21094f == null || (softReference = this.f21095g) == null || softReference.get() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f21139e == null || this.f21140f == null || (softReference = this.f21141g) == null || softReference.get() == null) {
                 return;
             }
-            d dVar = this.f21096h;
+            d dVar = this.f21142h;
             if (dVar != null) {
                 dVar.onClick();
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f21095g.get(), this.f21094f, this.f21093e, null, AddFriendActivityConfig.TYPE_PB_FLOOR)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f21141g.get(), this.f21140f, this.f21139e, null, AddFriendActivityConfig.TYPE_PB_FLOOR)));
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
-                if (d.a.r0.b.d.y()) {
+                if (d.a.o0.b.d.I()) {
                     textPaint.setColor(SkinManager.getColor(R.color.CAM_X0318));
                 } else {
                     textPaint.setColor(SkinManager.getColor(R.color.CAM_X0108));
                 }
                 textPaint.setUnderlineText(false);
-                textPaint.setFakeBoldText(!d.a.r0.b.d.y());
+                textPaint.setFakeBoldText(!d.a.o0.b.d.I());
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface d {
         void onClick();
     }
@@ -448,7 +449,7 @@ public class PostData implements PreLoadImageProvider, n {
                 return;
             }
         }
-        this.f21082e = 0;
+        this.f21128e = 0;
         this.o = null;
         this.p = false;
         this.q = null;
@@ -470,9 +471,9 @@ public class PostData implements PreLoadImageProvider, n {
         this.m0 = false;
         this.o0 = 4;
         this.s0 = new a(this);
-        this.f21083f = null;
-        this.f21085h = 0;
-        this.f21086i = 0L;
+        this.f21129f = null;
+        this.f21131h = 0;
+        this.f21132i = 0L;
         this.j = new MetaData();
         this.l = new ArrayList<>();
         this.m = new ArrayList<>();
@@ -480,7 +481,7 @@ public class PostData implements PreLoadImageProvider, n {
         this.o = new ArrayList<>();
         this.s = new PraiseData();
         this.u = new c1();
-        this.v = new d.a.s0.h3.h0.c();
+        this.v = new d.a.p0.h3.h0.c();
         this.H = new ArrayList<>();
         this.O = 0;
         this.L = new AgreeData();
@@ -489,7 +490,7 @@ public class PostData implements PreLoadImageProvider, n {
     public int A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21085h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21131h : invokeV.intValue;
     }
 
     public void A0(Context context) {
@@ -555,7 +556,7 @@ public class PostData implements PreLoadImageProvider, n {
     public String E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f21083f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f21129f : (String) invokeV.objValue;
     }
 
     public Item F() {
@@ -576,10 +577,10 @@ public class PostData implements PreLoadImageProvider, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.K : (String) invokeV.objValue;
     }
 
-    public d.a.r0.t.g I() {
+    public d.a.o0.t.g I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.z : (d.a.r0.t.g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.z : (d.a.o0.t.g) invokeV.objValue;
     }
 
     public OriginalThreadInfo J() {
@@ -653,13 +654,13 @@ public class PostData implements PreLoadImageProvider, n {
     public long Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f21084g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f21130g : invokeV.longValue;
     }
 
     public long R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f21086i : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f21132i : invokeV.longValue;
     }
 
     public HashMap<String, MetaData> S() {
@@ -674,11 +675,11 @@ public class PostData implements PreLoadImageProvider, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.I : (String) invokeV.objValue;
     }
 
-    public d.a.r0.b1.m.i U() {
+    public d.a.o0.b1.m.i U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            d.a.r0.b1.m.i iVar = this.F;
+            d.a.o0.b1.m.i iVar = this.F;
             if (iVar != null) {
                 return iVar;
             }
@@ -690,14 +691,14 @@ public class PostData implements PreLoadImageProvider, n {
             while (it.hasNext()) {
                 TbRichTextData next = it.next();
                 if (next != null && next.getType() == 32) {
-                    d.a.r0.b1.m.i H = next.H();
+                    d.a.o0.b1.m.i H = next.H();
                     this.F = H;
                     return H;
                 }
             }
             return null;
         }
-        return (d.a.r0.b1.m.i) invokeV.objValue;
+        return (d.a.o0.b1.m.i) invokeV.objValue;
     }
 
     public TbRichTextVoiceInfo V() {
@@ -764,12 +765,12 @@ public class PostData implements PreLoadImageProvider, n {
             return;
         }
         try {
-            this.f21083f = String.valueOf(post.id);
-            this.f21084g = post.tid.longValue();
+            this.f21129f = String.valueOf(post.id);
+            this.f21130g = post.tid.longValue();
             String str = post.title;
-            this.f21085h = post.floor.intValue();
+            this.f21131h = post.floor.intValue();
             long intValue = post.time.intValue() * 1000;
-            this.f21086i = intValue;
+            this.f21132i = intValue;
             StringHelper.getFormatTime(intValue);
             String str2 = post.time_ex;
             String valueOf = String.valueOf(post.author_id);
@@ -800,19 +801,19 @@ public class PostData implements PreLoadImageProvider, n {
             if (post.item != null && post.item.item_id.longValue() != 0) {
                 this.l0 = post.item;
             }
-            if (this.l0 == null && post.outer_item != null && post.outer_item.item_id.longValue() > 0 && d.a.r0.b.d.A()) {
+            if (this.l0 == null && post.outer_item != null && post.outer_item.item_id.longValue() > 0 && d.a.o0.b.d.K()) {
                 this.p0 = post.outer_item;
             }
             TbRichText T = TbRichTextView.T(context, list, String.valueOf(post.tid), true);
             this.r = T;
             if (T != null) {
-                T.E(d.a.c.e.m.b.f(this.f21083f, -1L));
-                this.r.D(this.f21085h);
+                T.E(d.a.c.e.m.b.f(this.f21129f, -1L));
+                this.r.D(this.f21131h);
                 if (this.j != null) {
                     this.r.setAuthorId(this.j.getUserId());
                 }
                 int count = ListUtils.getCount(this.k0);
-                if (this.f21085h == 1 && count != 0 && this.k0 != null) {
+                if (this.f21131h == 1 && count != 0 && this.k0 != null) {
                     ArrayList<TbRichTextData> y = this.r.y();
                     if (count == 1) {
                         TbRichTextData tbRichTextData = (TbRichTextData) ListUtils.getItem(y, 0);
@@ -838,7 +839,7 @@ public class PostData implements PreLoadImageProvider, n {
                         }
                     }
                 }
-                if (this.f21085h == 1 && this.l0 != null) {
+                if (this.f21131h == 1 && this.l0 != null) {
                     TbRichTextData tbRichTextData2 = new TbRichTextData(1281);
                     tbRichTextData2.L(new TbRichTextEvaluateItemInfo(this.l0));
                     ListUtils.add(this.r.y(), tbRichTextData2);
@@ -866,12 +867,12 @@ public class PostData implements PreLoadImageProvider, n {
             }
             this.w = post.bimg_url;
             if (post.tail_info != null) {
-                d.a.r0.t.c cVar = new d.a.r0.t.c();
+                d.a.o0.t.c cVar = new d.a.o0.t.c();
                 this.y = cVar;
                 cVar.b(post.tail_info);
             }
             if (post.lbs_info != null) {
-                d.a.r0.t.g gVar = new d.a.r0.t.g();
+                d.a.o0.t.g gVar = new d.a.o0.t.g();
                 this.z = gVar;
                 gVar.c(post.lbs_info);
             }
@@ -897,7 +898,7 @@ public class PostData implements PreLoadImageProvider, n {
             }
             if (post.ext_tails != null) {
                 for (int i4 = 0; i4 != post.ext_tails.size(); i4++) {
-                    d.a.r0.t.c cVar2 = new d.a.r0.t.c();
+                    d.a.o0.t.c cVar2 = new d.a.o0.t.c();
                     cVar2.b(post.ext_tails.get(i4));
                     this.H.add(cVar2);
                 }
@@ -906,7 +907,7 @@ public class PostData implements PreLoadImageProvider, n {
             this.K = post.lego_card;
             TPointPost tPointPost = post.tpoint_post;
             if (post.agree != null) {
-                this.L.postId = this.f21083f;
+                this.L.postId = this.f21129f;
                 this.L.parseProtobuf(post.agree);
             }
             this.S = post.is_post_visible.intValue() == 1;
@@ -920,7 +921,7 @@ public class PostData implements PreLoadImageProvider, n {
             this.W = post.is_fold.intValue();
             this.X = post.fold_tip;
             if (post.advertisement != null) {
-                d.a.r0.t.a aVar = new d.a.r0.t.a();
+                d.a.o0.t.a aVar = new d.a.o0.t.a();
                 this.r0 = aVar;
                 aVar.h(post.advertisement);
             }
@@ -971,15 +972,15 @@ public class PostData implements PreLoadImageProvider, n {
             return;
         }
         try {
-            this.f21083f = String.valueOf(subPostList.id);
+            this.f21129f = String.valueOf(subPostList.id);
             String str = subPostList.title;
-            this.f21085h = subPostList.floor.intValue();
+            this.f21131h = subPostList.floor.intValue();
             long intValue = subPostList.time.intValue() * 1000;
-            this.f21086i = intValue;
+            this.f21132i = intValue;
             StringHelper.getFormatTime(intValue);
             this.k = String.valueOf(subPostList.author_id);
             subPostList.is_giftpost.intValue();
-            this.L.postId = this.f21083f;
+            this.L.postId = this.f21129f;
             this.L.parseProtobuf(subPostList.agree);
             MetaData metaData2 = new MetaData();
             metaData2.parserProtobuf(subPostList.author);
@@ -992,7 +993,7 @@ public class PostData implements PreLoadImageProvider, n {
             TbRichText U = TbRichTextView.U(context, subPostList.content, z);
             this.r = U;
             if (U != null) {
-                U.E(d.a.c.e.m.b.f(this.f21083f, -1L));
+                U.E(d.a.c.e.m.b.f(this.f21129f, -1L));
             }
             this.q0 = subPostList.is_author_view.intValue();
         } catch (Exception e2) {
@@ -1016,7 +1017,7 @@ public class PostData implements PreLoadImageProvider, n {
         }
     }
 
-    public void f0(d.a.r0.t.a aVar) {
+    public void f0(d.a.o0.t.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048612, this, aVar) == null) {
             this.r0 = aVar;
@@ -1090,7 +1091,7 @@ public class PostData implements PreLoadImageProvider, n {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
-            int i2 = this.f21082e;
+            int i2 = this.f21128e;
             if (i2 == 52) {
                 return z0;
             }
@@ -1117,7 +1118,7 @@ public class PostData implements PreLoadImageProvider, n {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public final d.a.r0.r.f0.b h(boolean z, boolean z2, String str) {
+    public final d.a.o0.r.f0.b h(boolean z, boolean z2, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048616, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str})) == null) {
@@ -1130,13 +1131,13 @@ public class PostData implements PreLoadImageProvider, n {
                 int g6 = d.a.c.e.p.l.g(context, R.dimen.tbds40);
                 if (" 楼主".equals(str)) {
                     int i2 = R.color.CAM_X0302;
-                    d.a.r0.r.f0.b bVar = new d.a.r0.r.f0.b(g2, -1, i2, g4, i2, g5, g6);
+                    d.a.o0.r.f0.b bVar = new d.a.o0.r.f0.b(g2, -1, i2, g4, i2, g5, g6);
                     bVar.b(g3);
                     bVar.f(false);
                     bVar.e(str);
                     return bVar;
                 } else if (" 吧主".equals(str) || " 小吧主".equals(str) || " 品牌官".equals(str)) {
-                    d.a.r0.r.f0.b bVar2 = new d.a.r0.r.f0.b(g2, -1, R.color.CAM_X0302, g4, R.color.CAM_X0101, g5, g6);
+                    d.a.o0.r.f0.b bVar2 = new d.a.o0.r.f0.b(g2, -1, R.color.CAM_X0302, g4, R.color.CAM_X0101, g5, g6);
                     bVar2.b(g3);
                     bVar2.a(0.7f);
                     bVar2.f(true);
@@ -1148,7 +1149,7 @@ public class PostData implements PreLoadImageProvider, n {
             }
             return null;
         }
-        return (d.a.r0.r.f0.b) invokeCommon.objValue;
+        return (d.a.o0.r.f0.b) invokeCommon.objValue;
     }
 
     public void h0(Context context) {
@@ -1221,7 +1222,7 @@ public class PostData implements PreLoadImageProvider, n {
     public void i0(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
-            this.f21085h = i2;
+            this.f21131h = i2;
         }
     }
 
@@ -1272,7 +1273,7 @@ public class PostData implements PreLoadImageProvider, n {
     public void l0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048624, this, str) == null) {
-            this.f21083f = str;
+            this.f21129f = str;
         }
     }
 
@@ -1346,10 +1347,10 @@ public class PostData implements PreLoadImageProvider, n {
         }
     }
 
-    public d.a.r0.t.a p() {
+    public d.a.o0.t.a p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.r0 : (d.a.r0.t.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.r0 : (d.a.o0.t.a) invokeV.objValue;
     }
 
     public void p0(boolean z) {
@@ -1375,7 +1376,7 @@ public class PostData implements PreLoadImageProvider, n {
     public void r0(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048634, this, i2) == null) {
-            this.f21082e = i2;
+            this.f21128e = i2;
         }
     }
 
@@ -1440,7 +1441,7 @@ public class PostData implements PreLoadImageProvider, n {
     public void w0(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048644, this, j) == null) {
-            this.f21086i = j;
+            this.f21132i = j;
             StringHelper.getFormatTime(j);
         }
     }
@@ -1499,7 +1500,7 @@ public class PostData implements PreLoadImageProvider, n {
 
     public String z() {
         InterceptResult invokeV;
-        d.a.s0.h3.h0.k a2;
+        d.a.p0.h3.h0.k a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048649, this)) == null) {
             PreLoadImageInfo y = y();
@@ -1591,15 +1592,15 @@ public class PostData implements PreLoadImageProvider, n {
             if (bitmap != null) {
                 bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
             }
-            d.a.r0.r.f0.i iVar = new d.a.r0.r.f0.i(bitmapDrawable);
-            iVar.b(d.a.c.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.ds2));
+            j jVar = new j(bitmapDrawable);
+            jVar.b(d.a.c.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.ds2));
             int size = arrayList.size() + this.j.getSealPrefix().length() + 1;
-            spannableString.setSpan(iVar, size, size + 1, 17);
+            spannableString.setSpan(jVar, size, size + 1, 17);
         }
         spannableString.setSpan(new c(tbPageContext.getPageActivity(), str2, str3, this.s0), 0, spannableString.length(), 18);
         if (!StringUtils.isNull(str) && (z || ((metaData = this.j) != null && metaData.getIs_bawu() == 1))) {
             MetaData metaData3 = this.j;
-            d.a.r0.r.f0.b h2 = h(z, metaData3 != null && metaData3.getIs_bawu() == 1, str);
+            d.a.o0.r.f0.b h2 = h(z, metaData3 != null && metaData3.getIs_bawu() == 1, str);
             if (h2 != null) {
                 MetaData metaData4 = this.j;
                 if (metaData4 != null) {

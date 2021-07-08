@@ -1,6 +1,7 @@
 package com.xiaomi.push;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,13 +17,13 @@ import com.xiaomi.push.service.XMPushService;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class gx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f43225a;
+    public int f40239a;
 
     /* renamed from: a  reason: collision with other field name */
     public long f461a;
@@ -39,12 +40,12 @@ public class gx {
     /* renamed from: a  reason: collision with other field name */
     public boolean f465a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final gx f43226a;
+        public static final gx f40240a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -60,7 +61,7 @@ public class gx {
                     return;
                 }
             }
-            f43226a = new gx();
+            f40240a = new gx();
         }
     }
 
@@ -143,8 +144,8 @@ public class gx {
         gw gwVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (a.f43226a) {
-                gwVar = a.f43226a.f463a;
+            synchronized (a.f40240a) {
+                gwVar = a.f40240a.f463a;
             }
             return gwVar;
         }
@@ -155,13 +156,13 @@ public class gx {
     public static gx m363a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? a.f43226a : (gx) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.f40240a : (gx) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     private void m364a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) && this.f465a && System.currentTimeMillis() - this.f461a > this.f43225a) {
+        if ((interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) && this.f465a && System.currentTimeMillis() - this.f461a > this.f40239a) {
             this.f465a = false;
             this.f461a = 0L;
         }
@@ -212,12 +213,12 @@ public class gx {
         if (i3 > 604800000) {
             i3 = 604800000;
         }
-        if (this.f43225a == i3 && this.f465a) {
+        if (this.f40239a == i3 && this.f465a) {
             return;
         }
         this.f465a = true;
         this.f461a = System.currentTimeMillis();
-        this.f43225a = i3;
+        this.f40239a = i3;
         com.xiaomi.channel.commonutils.logger.b.c("enable dot duration = " + i3 + " start = " + this.f461a);
     }
 

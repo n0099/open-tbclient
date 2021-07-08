@@ -1,5 +1,6 @@
 package com.google.zxing.pdf417;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +25,7 @@ import com.google.zxing.pdf417.detector.Detector;
 import com.google.zxing.pdf417.detector.PDF417DetectorResult;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class PDF417Reader implements Reader, MultipleBarcodeReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +65,7 @@ public final class PDF417Reader implements Reader, MultipleBarcodeReader {
     public static int getMinCodewordWidth(ResultPoint[] resultPointArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, resultPointArr)) == null) ? Math.min(Math.min(getMinWidth(resultPointArr[0], resultPointArr[4]), (getMinWidth(resultPointArr[6], resultPointArr[2]) * 17) / 18), Math.min(getMinWidth(resultPointArr[1], resultPointArr[5]), (getMinWidth(resultPointArr[7], resultPointArr[3]) * 17) / 18)) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, resultPointArr)) == null) ? Math.min(Math.min(getMinWidth(resultPointArr[0], resultPointArr[4]), (getMinWidth(resultPointArr[6], resultPointArr[2]) * 17) / 18), Math.min(getMinWidth(resultPointArr[1], resultPointArr[5]), (getMinWidth(resultPointArr[7], resultPointArr[3]) * 17) / 18)) : invokeL.intValue;
     }
 
     public static int getMinWidth(ResultPoint resultPoint, ResultPoint resultPoint2) {

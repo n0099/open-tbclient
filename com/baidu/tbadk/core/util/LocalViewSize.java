@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LocalViewSize {
     public static /* synthetic */ Interceptable $ic;
     public static LocalViewSize sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class ImageSize implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

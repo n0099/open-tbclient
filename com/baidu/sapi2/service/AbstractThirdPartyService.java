@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import com.baidu.sapi2.shell.listener.ThirdLoginCallback;
 import com.baidu.sapi2.utils.enums.SocialType;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface AbstractThirdPartyService {
     public static final String EXTRA_RESULT_CODE = "result_code";
     public static final String EXTRA_RESULT_MSG = "result_msg";

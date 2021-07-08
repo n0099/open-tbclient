@@ -2,6 +2,7 @@ package com.baidu.ar.face.attributes;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arrender.l;
 import com.baidu.ar.face.FaceResultData;
@@ -91,7 +92,7 @@ public class a {
     private boolean d(m mVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, mVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, mVar)) == null) {
             if (this.nZ) {
                 if (mVar.isTracked()) {
                     return true;

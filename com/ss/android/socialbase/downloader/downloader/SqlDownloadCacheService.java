@@ -19,12 +19,12 @@ import d.l.a.e.b.g.e;
 import d.l.a.e.b.g.k;
 import d.l.a.e.b.g.t;
 import d.l.a.e.b.m.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SqlDownloadCacheService extends Service {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f41517a;
+    public static final String f38531a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public class SqlDownloadCacheService extends Service {
                 return;
             }
         }
-        f41517a = SqlDownloadCacheService.class.getSimpleName();
+        f38531a = SqlDownloadCacheService.class.getSimpleName();
     }
 
     public SqlDownloadCacheService() {
@@ -69,7 +69,7 @@ public class SqlDownloadCacheService extends Service {
             }
             context.startService(intent);
         } catch (Throwable th) {
-            Log.w(f41517a, "startServiceAndBind fail", th);
+            Log.w(f38531a, "startServiceAndBind fail", th);
         }
     }
 

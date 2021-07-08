@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,7 +12,7 @@ import com.bytedance.sdk.component.utils.j;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +37,7 @@ public class a {
     public static String b(String str, @NonNull String str2, @NonNull String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, str, str2, str3)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }

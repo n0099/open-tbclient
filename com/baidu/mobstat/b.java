@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f8789a;
+    public static b f8806a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public class b {
                 return;
             }
         }
-        f8789a = new b();
+        f8806a = new b();
     }
 
     public b() {
@@ -53,7 +53,7 @@ public class b {
             synchronized (this) {
                 String o = bw.o(context);
                 if (!TextUtils.isEmpty(o)) {
-                    k.f8973a.a(System.currentTimeMillis(), o);
+                    k.f8990a.a(System.currentTimeMillis(), o);
                 }
             }
         }

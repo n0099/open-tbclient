@@ -149,7 +149,7 @@ public final class GestureDetectorCompat {
 
         private void init(Context context) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65540, this, context) == null) {
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
                 if (context != null) {
                     if (this.mListener != null) {
                         this.mIsLongpressEnabled = true;

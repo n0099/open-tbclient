@@ -8,6 +8,7 @@ import android.os.Process;
 import android.telephony.TelephonyManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,12 +24,12 @@ import java.net.Socket;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Boolean f74623a;
+    public static Boolean f71675a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -57,8 +58,8 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             synchronized (f.class) {
-                if (f74623a == null) {
-                    f74623a = Boolean.valueOf((d() || e(context) || g(context) || !i(context) || f() || k(context)) ? false : true);
+                if (f71675a == null) {
+                    f71675a = Boolean.valueOf((d() || e(context) || g(context) || !i(context) || f() || k(context)) ? false : true);
                 }
             }
         }
@@ -68,7 +69,7 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            Boolean bool = f74623a;
+            Boolean bool = f71675a;
             if (bool == null) {
                 return true;
             }
@@ -80,7 +81,7 @@ public class f {
     public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (h() == 0) {
                 return true;
             }

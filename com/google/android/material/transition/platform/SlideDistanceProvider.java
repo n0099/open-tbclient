@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.Px;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -23,7 +24,7 @@ import com.google.android.material.R;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @RequiresApi(21)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_DISTANCE = -1;
@@ -34,7 +35,7 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface GravityFlag {
     }
 
@@ -120,7 +121,7 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
     public static Animator createTranslationYAnimator(View view, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)})) == null) ? ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat(View.TRANSLATION_Y, f2, f3)) : (Animator) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)})) == null) ? ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat(View.TRANSLATION_Y, f2, f3)) : (Animator) invokeCommon.objValue;
     }
 
     private int getSlideDistanceOrDefault(Context context) {

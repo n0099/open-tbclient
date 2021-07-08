@@ -3,6 +3,7 @@ package com.baidu.pass.face.platform.stat;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -26,14 +27,14 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 import org.json.JSONException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class NetUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final HostnameVerifier DO_NOT_VERIFY;
     public static final String TAG = "NetUtil";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static abstract class RequestAdapter<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CONNECT_TIMEOUT = 5000;
@@ -255,7 +256,7 @@ public class NetUtil {
         SocketTimeoutException e5;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(65540, null, requestAdapter) != null) {
+        if (interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, requestAdapter) != null) {
             return;
         }
         int retryCount = requestAdapter.getRetryCount();

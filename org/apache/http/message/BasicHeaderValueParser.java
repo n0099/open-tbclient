@@ -1,5 +1,6 @@
 package org.apache.http.message;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,7 +15,7 @@ import org.apache.http.NameValuePair;
 import org.apache.http.ParseException;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class BasicHeaderValueParser implements HeaderValueParser {
     public static /* synthetic */ Interceptable $ic;
     public static final BasicHeaderValueParser DEFAULT = null;
@@ -72,7 +73,7 @@ public class BasicHeaderValueParser implements HeaderValueParser {
     public static final NameValuePair parseNameValuePair(String str, HeaderValueParser headerValueParser) throws ParseException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, headerValueParser)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, headerValueParser)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (NameValuePair) invokeLL.objValue;

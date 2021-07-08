@@ -2,6 +2,7 @@ package com.baidu.android.pushservice.g;
 
 import android.content.Context;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +53,7 @@ public class a {
 
     public static void c(String str, String str2, Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65540, null, str, str2, context) == null) && PushSettings.e(context) && str2 != null) {
+        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, context) == null) && PushSettings.e(context) && str2 != null) {
             Log.i("BDPushSDK-" + str, str2);
         }
     }

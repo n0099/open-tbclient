@@ -15,6 +15,7 @@ import android.telephony.CellLocation;
 import android.telephony.TelephonyManager;
 import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.container.util.PermissionUtils;
 import com.baidu.mobads.container.util.RemoteXAdLogger;
@@ -29,7 +30,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LocationDexLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "loc tiny String";
@@ -45,7 +46,7 @@ public class LocationDexLoader {
     public TelephonyManager mTeleman;
 
     /* renamed from: com.baidu.mobads.container.remote.location.LocationDexLoader$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -174,7 +175,7 @@ public class LocationDexLoader {
     private BDCellInfo getBDCellInfo(CellInfo cellInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, cellInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, cellInfo)) == null) {
             int intValue = Integer.valueOf(Build.VERSION.SDK_INT).intValue();
             if (intValue < 17) {
                 return null;
@@ -401,7 +402,7 @@ public class LocationDexLoader {
         return (String) invokeV.objValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class BDCellInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

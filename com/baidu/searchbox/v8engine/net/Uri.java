@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.net.tnc.TNCManager;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class Uri implements Comparable<Uri> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_ENCODING = "UTF-8";
@@ -25,13 +25,13 @@ public abstract class Uri implements Comparable<Uri> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.searchbox.v8engine.net.Uri$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static abstract class AbstractHierarchicalUri extends Uri {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,7 +96,7 @@ public abstract class Uri implements Comparable<Uri> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static abstract class AbstractPart {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -123,7 +123,7 @@ public abstract class Uri implements Comparable<Uri> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class AuthorityPart extends AbstractPart {
         public static /* synthetic */ Interceptable $ic;
         public static final AuthorityPart EMPTY;
@@ -204,7 +204,7 @@ public abstract class Uri implements Comparable<Uri> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -346,7 +346,7 @@ public abstract class Uri implements Comparable<Uri> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class HierarchicalUri extends AbstractHierarchicalUri {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -474,7 +474,7 @@ public abstract class Uri implements Comparable<Uri> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class OpaqueUri extends Uri {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -608,14 +608,14 @@ public abstract class Uri implements Comparable<Uri> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Part extends AbstractPart {
         public static /* synthetic */ Interceptable $ic;
         public static final Part EMPTY;
         public static final Part NULL;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public static class EmptyPart extends Part {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -697,7 +697,7 @@ public abstract class Uri implements Comparable<Uri> {
         public static Part fromDecoded(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? from(Uri.NOT_CACHED, str) : (Part) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? from(Uri.NOT_CACHED, str) : (Part) invokeL.objValue;
         }
 
         public static Part fromEncoded(String str) {
@@ -757,7 +757,7 @@ public abstract class Uri implements Comparable<Uri> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class PathPart extends AbstractPart {
         public static /* synthetic */ Interceptable $ic;
         public static final PathPart EMPTY;
@@ -828,7 +828,7 @@ public abstract class Uri implements Comparable<Uri> {
             String str;
             String str2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, pathPart)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, pathPart)) == null) {
                 boolean z = pathPart.encoded != Uri.NOT_CACHED;
                 String str3 = z ? pathPart.encoded : pathPart.decoded;
                 if (str3 == null || str3.length() == 0 || str3.startsWith("/")) {
@@ -864,7 +864,7 @@ public abstract class Uri implements Comparable<Uri> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class StringUri extends AbstractHierarchicalUri {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -924,7 +924,7 @@ public abstract class Uri implements Comparable<Uri> {
         private AuthorityPart getAuthorityPart() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
                 AuthorityPart authorityPart = this.authority;
                 if (authorityPart == null) {
                     AuthorityPart fromEncoded = AuthorityPart.fromEncoded(encodeAuthority(parseAuthority(this.uriString, findSchemeSeparator())));
@@ -1075,7 +1075,7 @@ public abstract class Uri implements Comparable<Uri> {
     public static String encode(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? encode(str, null) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? encode(str, null) : (String) invokeL.objValue;
     }
 
     public static boolean isAllowed(char c2, String str) {

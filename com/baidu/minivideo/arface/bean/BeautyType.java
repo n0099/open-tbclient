@@ -1,5 +1,6 @@
 package com.baidu.minivideo.arface.bean;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.filter.FilterParam;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.biometrics.face.liveness.b.a;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class BeautyType {
     public static final /* synthetic */ BeautyType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -141,7 +142,7 @@ public final class BeautyType {
     public static BeautyType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (BeautyType) Enum.valueOf(BeautyType.class, str) : (BeautyType) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (BeautyType) Enum.valueOf(BeautyType.class, str) : (BeautyType) invokeL.objValue;
     }
 
     public static BeautyType[] values() {

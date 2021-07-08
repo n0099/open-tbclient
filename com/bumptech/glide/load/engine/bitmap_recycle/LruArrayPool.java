@@ -3,6 +3,7 @@ package com.bumptech.glide.load.engine.bitmap_recycle;
 import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class LruArrayPool implements ArrayPool {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SIZE = 4194304;
@@ -30,7 +31,7 @@ public final class LruArrayPool implements ArrayPool {
     public final int maxSize;
     public final Map<Class<?>, NavigableMap<Integer, Integer>> sortedSizes;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class Key implements Poolable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -106,7 +107,7 @@ public final class LruArrayPool implements ArrayPool {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class KeyPool extends BaseKeyPool<Key> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -194,7 +195,7 @@ public final class LruArrayPool implements ArrayPool {
 
     private void evictToSize(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65540, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
             while (this.currentSize > i2) {
                 Object removeLast = this.groupedMap.removeLast();
                 Preconditions.checkNotNull(removeLast);

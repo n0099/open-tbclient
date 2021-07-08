@@ -2,6 +2,7 @@ package com.baidu.searchbox.pms.utils;
 
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
@@ -15,7 +16,7 @@ import java.io.File;
 import java.util.Collection;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CommonUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "pmsCommonUtils";
@@ -83,7 +84,7 @@ public class CommonUtils {
     public static boolean isEmpty(Collection collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, collection)) == null) ? collection == null || collection.size() == 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, collection)) == null) ? collection == null || collection.size() == 0 : invokeL.booleanValue;
     }
 
     public static String mergePath(String str, String str2) {

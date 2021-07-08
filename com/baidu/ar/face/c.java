@@ -2,6 +2,7 @@ package com.baidu.ar.face;
 
 import android.graphics.PointF;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.face.algo.FAUFaceBox;
 import com.baidu.ar.face.algo.FAUPoint2D;
 import com.baidu.ar.face.algo.FaceAlgoData;
@@ -141,7 +142,7 @@ public class c {
         InterceptResult invokeCommon;
         String str8;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{str, str2, str3, strArr, str4, str5, str6, str7})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, strArr, str4, str5, str6, str7})) == null) {
             if (TextUtils.isEmpty(str)) {
                 str8 = "error: imbinModelPath is null!";
             } else if (TextUtils.isEmpty(str2)) {

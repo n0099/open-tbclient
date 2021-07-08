@@ -1,6 +1,7 @@
 package com.ta.utdid2.a.a;
 
 import android.annotation.SuppressLint;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
@@ -13,15 +14,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.utils.UtilsBlink;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ boolean f41650a;
+    public static final /* synthetic */ boolean f38664a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,19 +45,19 @@ public class b {
     }
 
     /* renamed from: com.ta.utdid2.a.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0552b extends a {
+    /* loaded from: classes6.dex */
+    public static class C0513b extends a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int[] f41651a;
+        public static final int[] f38665a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int[] f41652b;
+        public static final int[] f38666b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int[] f41653c;
+        public final int[] f38667c;
         public int state;
         public int value;
 
@@ -73,11 +74,11 @@ public class b {
                     return;
                 }
             }
-            f41651a = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
-            f41652b = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+            f38665a = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+            f38666b = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
         }
 
-        public C0552b(int i2, byte[] bArr) {
+        public C0513b(int i2, byte[] bArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,7 +94,7 @@ public class b {
                 }
             }
             this.output = bArr;
-            this.f41653c = (i2 & 8) == 0 ? f41651a : f41652b;
+            this.f38667c = (i2 & 8) == 0 ? f38665a : f38666b;
             this.state = 0;
             this.value = 0;
         }
@@ -109,7 +110,7 @@ public class b {
                 int i5 = i3 + i2;
                 int i6 = this.value;
                 byte[] bArr2 = this.output;
-                int[] iArr = this.f41653c;
+                int[] iArr = this.f38667c;
                 int i7 = i6;
                 int i8 = 0;
                 int i9 = i4;
@@ -227,29 +228,29 @@ public class b {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class c extends a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ boolean f41654a;
+        public static final /* synthetic */ boolean f38668a;
 
         /* renamed from: a  reason: collision with other field name */
         public static final byte[] f3a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final byte[] f41655b;
+        public static final byte[] f38669b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
         public int f4a;
 
         /* renamed from: c  reason: collision with root package name */
-        public final byte[] f41656c;
+        public final byte[] f38670c;
         public int count;
 
         /* renamed from: d  reason: collision with root package name */
-        public final byte[] f41657d;
+        public final byte[] f38671d;
         public final boolean do_cr;
         public final boolean do_newline;
         public final boolean do_padding;
@@ -267,9 +268,9 @@ public class b {
                     return;
                 }
             }
-            f41654a = !b.class.desiredAssertionStatus();
+            f38668a = !b.class.desiredAssertionStatus();
             f3a = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
-            f41655b = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, UtilsBlink.VER_TYPE_SEPARATOR, 95};
+            f38669b = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, UtilsBlink.VER_TYPE_SEPARATOR, 95};
         }
 
         public c(int i2, byte[] bArr) {
@@ -291,8 +292,8 @@ public class b {
             this.do_padding = (i2 & 1) == 0;
             this.do_newline = (i2 & 2) == 0;
             this.do_cr = (i2 & 4) != 0;
-            this.f41657d = (i2 & 8) == 0 ? f3a : f41655b;
-            this.f41656c = new byte[2];
+            this.f38671d = (i2 & 8) == 0 ? f3a : f38669b;
+            this.f38670c = new byte[2];
             this.f4a = 0;
             this.count = this.do_newline ? 19 : -1;
         }
@@ -329,7 +330,7 @@ public class b {
             if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) != null) {
                 return invokeCommon.booleanValue;
             }
-            byte[] bArr2 = this.f41657d;
+            byte[] bArr2 = this.f38671d;
             byte[] bArr3 = this.output;
             int i11 = this.count;
             int i12 = i3 + i2;
@@ -337,7 +338,7 @@ public class b {
             int i14 = 0;
             if (i13 != 1) {
                 if (i13 == 2 && (i10 = i2 + 1) <= i12) {
-                    byte[] bArr4 = this.f41656c;
+                    byte[] bArr4 = this.f38670c;
                     i5 = ((bArr4[1] & 255) << 8) | ((bArr4[0] & 255) << 16) | (bArr[i2] & 255);
                     this.f4a = 0;
                     i4 = i10;
@@ -348,7 +349,7 @@ public class b {
                 if (i2 + 2 <= i12) {
                     int i15 = i2 + 1;
                     i4 = i15 + 1;
-                    i5 = (bArr[i15] & 255) | ((this.f41656c[0] & 255) << 16) | ((bArr[i2] & 255) << 8);
+                    i5 = (bArr[i15] & 255) | ((this.f38670c[0] & 255) << 16) | ((bArr[i2] & 255) << 8);
                     this.f4a = 0;
                 }
                 i4 = i2;
@@ -395,7 +396,7 @@ public class b {
                         int i18 = this.f4a;
                         if (i4 - i18 == i12 - 1) {
                             if (i18 > 0) {
-                                b4 = this.f41656c[0];
+                                b4 = this.f38670c[0];
                                 i14 = 1;
                             } else {
                                 byte b5 = bArr[i4];
@@ -423,16 +424,16 @@ public class b {
                                 bArr3[i6] = 10;
                                 i6 = i7;
                             }
-                            if (f41654a && this.f4a != 0) {
+                            if (f38668a && this.f4a != 0) {
                                 throw new AssertionError();
                             }
-                            if (!f41654a && i4 != i12) {
+                            if (!f38668a && i4 != i12) {
                                 throw new AssertionError();
                             }
                         } else {
                             if (i4 - i18 == i12 - 2) {
                                 if (i18 > 1) {
-                                    b2 = this.f41656c[0];
+                                    b2 = this.f38670c[0];
                                     i14 = 1;
                                 } else {
                                     byte b6 = bArr[i4];
@@ -442,7 +443,7 @@ public class b {
                                 int i22 = (b2 & 255) << 10;
                                 if (this.f4a > 0) {
                                     i8 = i14 + 1;
-                                    b3 = this.f41656c[i14];
+                                    b3 = this.f38670c[i14];
                                 } else {
                                     i8 = i14;
                                     b3 = bArr[i4];
@@ -478,19 +479,19 @@ public class b {
                                 bArr3[i6] = 10;
                                 i6 = i7;
                             }
-                            if (f41654a) {
+                            if (f38668a) {
                             }
-                            if (!f41654a) {
+                            if (!f38668a) {
                                 throw new AssertionError();
                             }
                         }
                     } else if (i4 == i12 - 1) {
-                        byte[] bArr5 = this.f41656c;
+                        byte[] bArr5 = this.f38670c;
                         int i27 = this.f4a;
                         this.f4a = i27 + 1;
                         bArr5[i27] = bArr[i4];
                     } else if (i4 == i12 - 2) {
-                        byte[] bArr6 = this.f41656c;
+                        byte[] bArr6 = this.f38670c;
                         int i28 = this.f4a;
                         int i29 = i28 + 1;
                         this.f4a = i29;
@@ -519,7 +520,7 @@ public class b {
                 return;
             }
         }
-        f41650a = !b.class.desiredAssertionStatus();
+        f38664a = !b.class.desiredAssertionStatus();
     }
 
     public b() {
@@ -591,7 +592,7 @@ public class b {
             }
             cVar.output = new byte[i5];
             cVar.process(bArr, i2, i3, true);
-            if (f41650a || cVar.op == i5) {
+            if (f38664a || cVar.op == i5) {
                 return cVar.output;
             }
             throw new AssertionError();
@@ -602,11 +603,11 @@ public class b {
     public static byte[] decode(byte[] bArr, int i2, int i3, int i4) {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65540, null, bArr, i2, i3, i4)) == null) {
-            C0552b c0552b = new C0552b(i4, new byte[(i3 * 3) / 4]);
-            if (c0552b.process(bArr, i2, i3, true)) {
-                int i5 = c0552b.op;
-                byte[] bArr2 = c0552b.output;
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i2, i3, i4)) == null) {
+            C0513b c0513b = new C0513b(i4, new byte[(i3 * 3) / 4]);
+            if (c0513b.process(bArr, i2, i3, true)) {
+                int i5 = c0513b.op;
+                byte[] bArr2 = c0513b.output;
                 if (i5 == bArr2.length) {
                     return bArr2;
                 }

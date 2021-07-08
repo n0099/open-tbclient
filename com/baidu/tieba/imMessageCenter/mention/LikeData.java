@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.User;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class LikeData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1250162253971653314L;

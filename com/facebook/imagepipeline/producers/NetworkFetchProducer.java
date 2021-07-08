@@ -1,6 +1,7 @@
 package com.facebook.imagepipeline.producers;
 
 import android.os.SystemClock;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +22,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class NetworkFetchProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERMEDIATE_RESULT_PRODUCER_EVENT = "intermediate_result";
@@ -64,7 +65,7 @@ public class NetworkFetchProducer implements Producer<EncodedImage> {
     private Map<String, String> getExtraMap(FetchState fetchState, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, this, fetchState, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, fetchState, i2)) == null) {
             if (fetchState.getListener().requiresExtraMap(fetchState.getId())) {
                 return this.mNetworkFetcher.getExtraMap(fetchState, i2);
             }

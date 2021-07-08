@@ -1,5 +1,6 @@
 package d.a.c.e.b.a;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +12,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -146,7 +147,7 @@ public class a {
     public static final boolean e(Class<?> cls, Class<?> cls2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, cls, cls2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, cls2)) == null) {
             if (cls == null || cls2 == null) {
                 return false;
             }

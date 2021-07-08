@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.n1.o.b;
-import d.a.s0.n1.o.g.a;
-import d.a.s0.n1.o.l.e;
-/* loaded from: classes5.dex */
+import d.a.p0.n1.o.b;
+import d.a.p0.n1.o.g.a;
+import d.a.p0.n1.o.l.e;
+/* loaded from: classes4.dex */
 public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     public TbPageContext<?> o;
     public ICardInfo p;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class LegoDelegateViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,14 +113,14 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
             ICardInfo iCardInfo2 = this.p;
             if (eVar != null && iCardInfo2 != null) {
                 eVar.setPosition(i2);
-                eVar.i(iCardInfo2);
+                eVar.h(iCardInfo2);
             }
             return (View) eVar;
         }
         return (View) invokeCommon.objValue;
     }
 
-    @Override // d.a.s0.n1.f
+    @Override // d.a.p0.n1.f
     public final void setUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {

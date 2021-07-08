@@ -1,5 +1,6 @@
 package com.baidu.ar.audio;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -76,7 +77,7 @@ public class d {
     public static double b(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
             double d2 = 0.0d;
             for (int i2 = 0; i2 < bArr.length; i2 += 2) {
                 d2 += Math.abs(a(bArr[i2], bArr[i2 + 1]));

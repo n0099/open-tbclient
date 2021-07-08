@@ -1,6 +1,7 @@
 package d.a.c.h.h;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,28 +17,28 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Map<String, b> f44675d;
+    public static final Map<String, b> f41691d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Object f44676e;
+    public static final Object f41692e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static DateFormat f44677f;
+    public static DateFormat f41693f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinkedList<a> f44678a;
+    public LinkedList<a> f41694a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f44679b;
+    public String f41695b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f44680c;
+    public long f41696c;
 
     static {
         InterceptResult invokeClinit;
@@ -52,9 +53,9 @@ public class b {
                 return;
             }
         }
-        f44675d = new HashMap();
-        f44676e = new Object();
-        f44677f = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINESE);
+        f41691d = new HashMap();
+        f41692e = new Object();
+        f41693f = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINESE);
     }
 
     public b(String str) {
@@ -72,8 +73,8 @@ public class b {
                 return;
             }
         }
-        this.f44678a = new LinkedList<>();
-        this.f44679b = str;
+        this.f41694a = new LinkedList<>();
+        this.f41695b = str;
     }
 
     public static b c() {
@@ -89,23 +90,23 @@ public class b {
             if (TextUtils.isEmpty(str)) {
                 str = "Default";
             }
-            if (!f44675d.containsKey(str)) {
-                synchronized (f44676e) {
-                    if (!f44675d.containsKey(str)) {
+            if (!f41691d.containsKey(str)) {
+                synchronized (f41692e) {
+                    if (!f41691d.containsKey(str)) {
                         b bVar = new b(str);
-                        f44675d.put(str, bVar);
+                        f41691d.put(str, bVar);
                         return bVar;
                     }
                 }
             }
-            return f44675d.get(str);
+            return f41691d.get(str);
         }
         return (b) invokeL.objValue;
     }
 
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
             c().f(str, str2);
         }
     }
@@ -113,16 +114,16 @@ public class b {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            while (this.f44678a.size() >= 70) {
-                this.f44678a.poll();
+            while (this.f41694a.size() >= 70) {
+                this.f41694a.poll();
             }
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f44680c == 0) {
-            this.f44680c = System.currentTimeMillis();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f41696c == 0) {
+            this.f41696c = System.currentTimeMillis();
         }
     }
 
@@ -131,7 +132,7 @@ public class b {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
             b();
             a();
-            this.f44678a.add(new a(str, str2));
+            this.f41694a.add(new a(str, str2));
         }
     }
 
@@ -140,11 +141,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append("trace_" + this.f44679b + "{begin@" + f44677f.format(new Date(this.f44680c)) + "->");
-            for (int i2 = 0; i2 < this.f44678a.size(); i2++) {
-                a aVar = this.f44678a.get(i2);
-                sb.append(String.format("%s(%s)@%s", aVar.f44681a, aVar.f44682b, f44677f.format(new Date(aVar.f44683c))));
-                if (i2 < this.f44678a.size() - 1) {
+            sb.append("trace_" + this.f41695b + "{begin@" + f41693f.format(new Date(this.f41696c)) + "->");
+            for (int i2 = 0; i2 < this.f41694a.size(); i2++) {
+                a aVar = this.f41694a.get(i2);
+                sb.append(String.format("%s(%s)@%s", aVar.f41697a, aVar.f41698b, f41693f.format(new Date(aVar.f41699c))));
+                if (i2 < this.f41694a.size() - 1) {
                     sb.append("->");
                 }
             }
@@ -154,19 +155,19 @@ public class b {
         return (String) invokeV.objValue;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f44681a;
+        public String f41697a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f44682b;
+        public String f41698b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f44683c;
+        public long f41699c;
 
         public a(String str, String str2, long j) {
             Interceptable interceptable = $ic;
@@ -183,9 +184,9 @@ public class b {
                     return;
                 }
             }
-            this.f44681a = str;
-            this.f44682b = str2;
-            this.f44683c = j;
+            this.f41697a = str;
+            this.f41698b = str2;
+            this.f41699c = j;
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

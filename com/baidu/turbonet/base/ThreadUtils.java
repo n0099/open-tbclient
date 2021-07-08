@@ -3,6 +3,7 @@ package com.baidu.turbonet.base;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Process;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,18 +13,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.annotations.CalledByNative;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ThreadUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f22921a;
+    public static final Object f23031a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f22922b;
+    public static boolean f23032b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Handler f22923c;
+    public static Handler f23033c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +40,7 @@ public class ThreadUtils {
                 return;
             }
         }
-        f22921a = new Object();
+        f23031a = new Object();
     }
 
     public ThreadUtils() {
@@ -61,15 +62,15 @@ public class ThreadUtils {
         Handler handler;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (f22921a) {
-                if (f22923c == null) {
-                    if (!f22922b) {
-                        f22923c = new Handler(Looper.getMainLooper());
+            synchronized (f23031a) {
+                if (f23033c == null) {
+                    if (!f23032b) {
+                        f23033c = new Handler(Looper.getMainLooper());
                     } else {
                         throw new RuntimeException("Did not yet override the UI thread");
                     }
                 }
-                handler = f22923c;
+                handler = f23033c;
             }
             return handler;
         }
@@ -85,7 +86,7 @@ public class ThreadUtils {
 
     public static void c(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, runnable) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable) == null) {
             if (d()) {
                 runnable.run();
             } else {

@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f73359a;
+    public boolean f70462a;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                while (!this.f73359a) {
+                while (!this.f70462a) {
                     wait();
                 }
             }
@@ -45,8 +45,8 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                z = this.f73359a;
-                this.f73359a = false;
+                z = this.f70462a;
+                this.f70462a = false;
             }
             return z;
         }
@@ -58,10 +58,10 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                if (this.f73359a) {
+                if (this.f70462a) {
                     return false;
                 }
-                this.f73359a = true;
+                this.f70462a = true;
                 notifyAll();
                 return true;
             }

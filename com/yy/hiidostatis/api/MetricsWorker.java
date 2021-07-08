@@ -2,6 +2,7 @@ package com.yy.hiidostatis.api;
 
 import android.content.Context;
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,7 +26,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class MetricsWorker implements IMetricsAPI {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACT = "mmetric";
@@ -100,7 +101,7 @@ public class MetricsWorker implements IMetricsAPI {
         InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, jSONObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONObject)) == null) {
             try {
                 StatisContent statisContent = new StatisContent();
                 String valueOf = String.valueOf(Util.wallTimeSec());

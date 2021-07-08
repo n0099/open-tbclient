@@ -9,22 +9,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.h.h;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class j implements i.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final h f45552a;
+    public final h f42406a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BDHttpDns f45553b;
+    public final BDHttpDns f42407b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final BDHttpDns.CachePolicy f45554c;
+    public final BDHttpDns.CachePolicy f42408c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.baidu.bdhttpdns.i f45555d;
+    public final com.baidu.bdhttpdns.i f42409d;
 
     public j(Context context) {
         Interceptable interceptable = $ic;
@@ -42,10 +42,10 @@ public class j implements i.a {
             }
         }
         BDHttpDns j = BDHttpDns.j(context);
-        this.f45553b = j;
-        this.f45552a = j.a();
-        this.f45554c = this.f45553b.f();
-        this.f45555d = this.f45553b.g();
+        this.f42407b = j;
+        this.f42406a = j.a();
+        this.f42408c = this.f42407b.f();
+        this.f42409d = this.f42407b.g();
     }
 
     @Override // com.baidu.bdhttpdns.i.a
@@ -64,21 +64,21 @@ public class j implements i.a {
                             aVar.a(value.b());
                             aVar.e(System.currentTimeMillis() / 1000);
                             aVar.b(value.a());
-                            this.f45552a.c(key, aVar);
-                        } else if (this.f45554c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
-                            this.f45552a.f(key);
+                            this.f42406a.c(key, aVar);
+                        } else if (this.f42408c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
+                            this.f42406a.f(key);
                         }
                     }
                 }
-            } else if (dVar.equals(i.d.f4308a) && this.f45554c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
+            } else if (dVar.equals(i.d.f4311a) && this.f42408c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
                 for (String str2 : str.split(",")) {
-                    this.f45552a.f(str2);
+                    this.f42406a.f(str2);
                 }
             }
-            if (this.f45553b.h() <= 0 || this.f45555d.C()) {
+            if (this.f42407b.h() <= 0 || this.f42409d.C()) {
                 return;
             }
-            this.f45555d.s(true);
+            this.f42409d.s(true);
             k.a("preResolve has finished", new Object[0]);
         }
     }

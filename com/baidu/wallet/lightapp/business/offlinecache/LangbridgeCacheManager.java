@@ -25,39 +25,39 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LangbridgeCacheManager implements NoProguard, IOfflineCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String OFFLINE_FAIL_OVER_OCCUR;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f25481a;
+    public final int f25591a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IOfflineCache f25482b;
+    public IOfflineCache f25592b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25483c;
+    public String f25593c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f25484d;
+    public boolean f25594d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f25485e;
+    public String f25595e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f25486f;
+    public long f25596f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f25487g;
+    public int f25597g;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static LangbridgeCacheManager f25488a;
+        public static LangbridgeCacheManager f25598a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -73,7 +73,7 @@ public class LangbridgeCacheManager implements NoProguard, IOfflineCache {
                     return;
                 }
             }
-            f25488a = new LangbridgeCacheManager();
+            f25598a = new LangbridgeCacheManager();
         }
     }
 
@@ -91,18 +91,18 @@ public class LangbridgeCacheManager implements NoProguard, IOfflineCache {
             }
         }
         this.OFFLINE_FAIL_OVER_OCCUR = "OfflineFailOverOccur";
-        this.f25481a = 5000;
-        this.f25484d = true;
-        this.f25485e = "";
-        this.f25486f = 0L;
-        this.f25487g = 5000;
+        this.f25591a = 5000;
+        this.f25594d = true;
+        this.f25595e = "";
+        this.f25596f = 0L;
+        this.f25597g = 5000;
     }
 
     private void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, str) == null) {
             try {
-                this.f25487g = new JSONObject(str).optInt("refreshInterval", 5000);
+                this.f25597g = new JSONObject(str).optInt("refreshInterval", 5000);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -112,7 +112,7 @@ public class LangbridgeCacheManager implements NoProguard, IOfflineCache {
     public static LangbridgeCacheManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f25488a : (LangbridgeCacheManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f25598a : (LangbridgeCacheManager) invokeV.objValue;
     }
 
     public void forceLangbridgeCacheOnly(Context context, Boolean bool) {
@@ -126,14 +126,14 @@ public class LangbridgeCacheManager implements NoProguard, IOfflineCache {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            String str = this.f25483c;
+            String str = this.f25593c;
             if (TextUtils.isEmpty(str)) {
                 if (Looper.myLooper() == Looper.getMainLooper()) {
                     String userAgentString = new LightappBrowserWebView(context.getApplicationContext()).getSettings().getUserAgentString();
                     if (userAgentString != null && !userAgentString.contains("BaiduWallet")) {
                         userAgentString = userAgentString + " " + BussinessUtils.getUA(context.getApplicationContext());
                     }
-                    this.f25483c = userAgentString;
+                    this.f25593c = userAgentString;
                     return userAgentString;
                 }
                 return BussinessUtils.getUA(context.getApplicationContext());
@@ -155,7 +155,7 @@ public class LangbridgeCacheManager implements NoProguard, IOfflineCache {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             if (a()) {
-                return this.f25482b.getOfflineCacheInfo(str);
+                return this.f25592b.getOfflineCacheInfo(str);
             }
             return null;
         }
@@ -168,7 +168,7 @@ public class LangbridgeCacheManager implements NoProguard, IOfflineCache {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (this.f25482b != null && !TextUtils.isEmpty(str) && (offlineCacheInfo = this.f25482b.getOfflineCacheInfo(str)) != null) {
+            if (this.f25592b != null && !TextUtils.isEmpty(str) && (offlineCacheInfo = this.f25592b.getOfflineCacheInfo(str)) != null) {
                 try {
                     jSONObject.put("package_name", offlineCacheInfo.optString("name"));
                     jSONObject.put("package_version", offlineCacheInfo.optString("decryVersion"));
@@ -185,7 +185,7 @@ public class LangbridgeCacheManager implements NoProguard, IOfflineCache {
     public void handleCreateLangbirdge(String str, WebView webView) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048581, this, str, webView) == null) && a()) {
-            this.f25482b.handleCreateLangbirdge(str, webView);
+            this.f25592b.handleCreateLangbirdge(str, webView);
         }
     }
 
@@ -193,7 +193,7 @@ public class LangbridgeCacheManager implements NoProguard, IOfflineCache {
     public void handleFinishLangbirdge(long j) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && a()) {
-            this.f25482b.handleFinishLangbirdge(j);
+            this.f25592b.handleFinishLangbirdge(j);
         }
     }
 
@@ -201,7 +201,7 @@ public class LangbridgeCacheManager implements NoProguard, IOfflineCache {
     public void handleFinishPage(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && a()) {
-            this.f25482b.handleFinishPage(str);
+            this.f25592b.handleFinishPage(str);
         }
     }
 
@@ -209,7 +209,7 @@ public class LangbridgeCacheManager implements NoProguard, IOfflineCache {
     public void handleLoadUrl(long j, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j, str) == null) && a()) {
-            this.f25482b.handleLoadUrl(j, str);
+            this.f25592b.handleLoadUrl(j, str);
         }
     }
 
@@ -217,7 +217,7 @@ public class LangbridgeCacheManager implements NoProguard, IOfflineCache {
     public void handleStartLangbirdge(long j, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJL(1048585, this, j, str) == null) && a()) {
-            this.f25482b.handleStartLangbirdge(j, str);
+            this.f25592b.handleStartLangbirdge(j, str);
         }
     }
 
@@ -225,7 +225,7 @@ public class LangbridgeCacheManager implements NoProguard, IOfflineCache {
     public void handleStartPage(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048586, this, str) == null) && a()) {
-            this.f25482b.handleStartPage(str);
+            this.f25592b.handleStartPage(str);
         }
     }
 
@@ -235,7 +235,7 @@ public class LangbridgeCacheManager implements NoProguard, IOfflineCache {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, map)) == null) {
             if (a()) {
-                return this.f25482b.interceptRequest(str, map);
+                return this.f25592b.interceptRequest(str, map);
             }
             return null;
         }
@@ -248,7 +248,7 @@ public class LangbridgeCacheManager implements NoProguard, IOfflineCache {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
             if (a()) {
-                return this.f25482b.isOfflineCacheReady(str);
+                return this.f25592b.isOfflineCacheReady(str);
             }
             return false;
         }
@@ -259,7 +259,7 @@ public class LangbridgeCacheManager implements NoProguard, IOfflineCache {
     public void offlineConfigUpdate(String str) {
         IOfflineCache iOfflineCache;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || (iOfflineCache = this.f25482b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || (iOfflineCache = this.f25592b) == null) {
             return;
         }
         iOfflineCache.offlineConfigUpdate(str);
@@ -270,29 +270,29 @@ public class LangbridgeCacheManager implements NoProguard, IOfflineCache {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048590, this, context, str) == null) && a()) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (this.f25485e.equals(str) && currentTimeMillis - this.f25486f < this.f25487g) {
-                this.f25484d = false;
+            if (this.f25595e.equals(str) && currentTimeMillis - this.f25596f < this.f25597g) {
+                this.f25594d = false;
                 HashMap hashMap = new HashMap();
                 hashMap.put("code", "2");
                 hashMap.put("pageUrl", str);
                 Tracker.send("OfflineFailOverOccur", hashMap, context);
             }
-            this.f25485e = str;
-            this.f25486f = currentTimeMillis;
+            this.f25595e = str;
+            this.f25596f = currentTimeMillis;
         }
     }
 
     public void setLangbridgeUA(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, str) == null) && TextUtils.isEmpty(this.f25483c)) {
-            this.f25483c = str;
+        if ((interceptable == null || interceptable.invokeL(1048591, this, str) == null) && TextUtils.isEmpty(this.f25593c)) {
+            this.f25593c = str;
         }
     }
 
     public void setOfflineCacheImpl(IOfflineCache iOfflineCache) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, iOfflineCache) == null) {
-            this.f25482b = iOfflineCache;
+            this.f25592b = iOfflineCache;
         }
     }
 
@@ -302,7 +302,7 @@ public class LangbridgeCacheManager implements NoProguard, IOfflineCache {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
             if (a()) {
-                return this.f25482b.showProgressLine(str);
+                return this.f25592b.showProgressLine(str);
             }
             return true;
         }
@@ -312,6 +312,6 @@ public class LangbridgeCacheManager implements NoProguard, IOfflineCache {
     private boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.f25482b != null && this.f25484d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.f25592b != null && this.f25594d : invokeV.booleanValue;
     }
 }

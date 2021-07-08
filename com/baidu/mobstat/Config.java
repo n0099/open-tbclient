@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Config {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String APPKEY_META_NAME = "BaiduMobAd_STAT_ID";
@@ -234,7 +234,7 @@ public class Config {
     public static final String WIFI_LOCATION = "wl2";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class AppLaunchType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int AppCall = 1;
@@ -257,7 +257,7 @@ public class Config {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class CrashChannel {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int SYS_TRACK = 0;
@@ -282,18 +282,18 @@ public class Config {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class EventViewType {
         public static /* synthetic */ Interceptable $ic;
         public static final EventViewType BUTTON;
         public static final EventViewType EDIT;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ EventViewType[] f8491b;
+        public static final /* synthetic */ EventViewType[] f8508b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f8492a;
+        public int f8509a;
 
         static {
             InterceptResult invokeClinit;
@@ -311,7 +311,7 @@ public class Config {
             EDIT = new EventViewType("EDIT", 0, 0);
             EventViewType eventViewType = new EventViewType("BUTTON", 1, 1);
             BUTTON = eventViewType;
-            f8491b = new EventViewType[]{EDIT, eventViewType};
+            f8508b = new EventViewType[]{EDIT, eventViewType};
         }
 
         public EventViewType(String str, int i2, int i3) {
@@ -332,7 +332,7 @@ public class Config {
                     return;
                 }
             }
-            this.f8492a = i3;
+            this.f8509a = i3;
         }
 
         public static EventViewType valueOf(String str) {
@@ -344,24 +344,24 @@ public class Config {
         public static EventViewType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EventViewType[]) f8491b.clone() : (EventViewType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EventViewType[]) f8508b.clone() : (EventViewType[]) invokeV.objValue;
         }
 
         public int getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8492a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8509a : invokeV.intValue;
         }
 
         @Override // java.lang.Enum
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? String.valueOf(this.f8492a) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? String.valueOf(this.f8509a) : (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class SessionInvokeCategory {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ActivityInvoke = 1;
@@ -385,7 +385,7 @@ public class Config {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class StartType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int NORMAL_START = 0;
@@ -407,7 +407,7 @@ public class Config {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class TraceType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int AUTO_TRACE = 1;

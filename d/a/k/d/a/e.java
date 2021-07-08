@@ -11,37 +11,37 @@ import java.security.SecureRandom;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.ShortBufferException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f45916a;
+    public byte[] f42799a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f45917b;
+    public int f42800b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f45918c;
+    public int f42801c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f45919d;
+    public int f42802d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f45920e;
+    public int f42803e;
 
     /* renamed from: f  reason: collision with root package name */
-    public i f45921f;
+    public i f42804f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f45922g;
+    public f f42805g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f45923h;
+    public int f42806h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f45924i;
+    public boolean f42807i;
 
     public e(b bVar, int i2) {
         Interceptable interceptable = $ic;
@@ -58,36 +58,36 @@ public final class e {
                 return;
             }
         }
-        this.f45916a = null;
-        this.f45917b = 0;
-        this.f45918c = 0;
-        this.f45919d = 0;
-        this.f45920e = 0;
-        this.f45921f = null;
-        this.f45922g = null;
-        this.f45923h = 1;
-        this.f45924i = false;
-        this.f45917b = i2;
-        this.f45918c = i2;
-        this.f45920e = i2;
-        this.f45916a = new byte[i2 * 2];
-        this.f45922g = new d(bVar);
-        this.f45921f = new h(this.f45917b);
+        this.f42799a = null;
+        this.f42800b = 0;
+        this.f42801c = 0;
+        this.f42802d = 0;
+        this.f42803e = 0;
+        this.f42804f = null;
+        this.f42805g = null;
+        this.f42806h = 1;
+        this.f42807i = false;
+        this.f42800b = i2;
+        this.f42801c = i2;
+        this.f42803e = i2;
+        this.f42799a = new byte[i2 * 2];
+        this.f42805g = new d(bVar);
+        this.f42804f = new h(this.f42800b);
     }
 
     public int a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            int i3 = this.f45919d + i2;
-            i iVar = this.f45921f;
-            if (iVar == null || this.f45924i) {
+            int i3 = this.f42802d + i2;
+            i iVar = this.f42804f;
+            if (iVar == null || this.f42807i) {
                 return i3;
             }
-            int i4 = this.f45918c;
-            int i5 = this.f45917b;
+            int i4 = this.f42801c;
+            int i5 = this.f42800b;
             if (i4 != i5) {
-                int i6 = this.f45920e;
+                int i6 = this.f42803e;
                 return i3 < i6 ? i6 : (i3 + i5) - ((i3 - i6) % i5);
             }
             return i3 + iVar.a(i3);
@@ -102,18 +102,18 @@ public final class e {
             if (bArr == null || i4 == 0) {
                 return 0;
             }
-            int i5 = this.f45923h;
-            if (i5 == 2 || i5 == 3 || i4 % this.f45918c == 0 || i5 == 6) {
-                if (this.f45924i) {
-                    this.f45922g.h(bArr, i2, i4, bArr2, i3);
+            int i5 = this.f42806h;
+            if (i5 == 2 || i5 == 3 || i4 % this.f42801c == 0 || i5 == 6) {
+                if (this.f42807i) {
+                    this.f42805g.h(bArr, i2, i4, bArr2, i3);
                 } else {
-                    this.f45922g.f(bArr, i2, i4, bArr2, i3);
+                    this.f42805g.f(bArr, i2, i4, bArr2, i3);
                 }
                 return i4;
-            } else if (this.f45921f != null) {
-                throw new IllegalBlockSizeException("Input length (with padding) not multiple of " + this.f45918c + " bytes");
+            } else if (this.f42804f != null) {
+                throw new IllegalBlockSizeException("Input length (with padding) not multiple of " + this.f42801c + " bytes");
             } else {
-                throw new IllegalBlockSizeException("Input length not multiple of " + this.f45918c + " bytes");
+                throw new IllegalBlockSizeException("Input length not multiple of " + this.f42801c + " bytes");
             }
         }
         return invokeCommon.intValue;
@@ -123,8 +123,8 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), bArr, bArr2, secureRandom}) == null) {
             boolean z = i2 == 2 || i2 == 4;
-            this.f45924i = z;
-            if (this.f45923h == 0) {
+            this.f42807i = z;
+            if (this.f42806h == 0) {
                 if (bArr2 != null) {
                     throw new InvalidAlgorithmParameterException("ECB mode cannot use IV");
                 }
@@ -133,14 +133,14 @@ public final class e {
                     throw new InvalidAlgorithmParameterException("Parameters missing");
                 }
                 if (secureRandom == null) {
-                    secureRandom = c.f45911b;
+                    secureRandom = c.f42794b;
                 }
-                bArr2 = new byte[this.f45917b];
+                bArr2 = new byte[this.f42800b];
                 secureRandom.nextBytes(bArr2);
             }
-            this.f45919d = 0;
-            this.f45920e = this.f45917b;
-            this.f45922g.a(this.f45924i, "", bArr, bArr2);
+            this.f42802d = 0;
+            this.f42803e = this.f42800b;
+            this.f42805g.a(this.f42807i, "", bArr, bArr2);
         }
     }
 
@@ -153,55 +153,55 @@ public final class e {
         int b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), bArr2, Integer.valueOf(i4)})) == null) {
-            int i6 = this.f45919d + i3;
-            int i7 = this.f45918c;
-            int i8 = this.f45917b;
+            int i6 = this.f42802d + i3;
+            int i7 = this.f42801c;
+            int i8 = this.f42800b;
             if (i7 != i8) {
-                int i9 = this.f45920e;
+                int i9 = this.f42803e;
                 a2 = i6 < i9 ? i9 - i6 : i8 - ((i6 - i9) % i8);
             } else {
-                i iVar2 = this.f45921f;
+                i iVar2 = this.f42804f;
                 a2 = iVar2 != null ? iVar2.a(i6) : 0;
             }
-            if (a2 > 0 && a2 != this.f45917b && this.f45921f != null && this.f45924i) {
-                throw new IllegalBlockSizeException("Input length must be multiple of " + this.f45917b + " when decrypting with padded cipher");
+            if (a2 > 0 && a2 != this.f42800b && this.f42804f != null && this.f42807i) {
+                throw new IllegalBlockSizeException("Input length must be multiple of " + this.f42800b + " when decrypting with padded cipher");
             }
-            int i10 = (this.f45924i || this.f45921f == null) ? i6 : i6 + a2;
+            int i10 = (this.f42807i || this.f42804f == null) ? i6 : i6 + a2;
             if (bArr2 != null) {
                 int length = bArr2.length - i4;
-                if (((!this.f45924i || this.f45921f == null) && length < i10) || (this.f45924i && length < i10 - this.f45917b)) {
+                if (((!this.f42807i || this.f42804f == null) && length < i10) || (this.f42807i && length < i10 - this.f42800b)) {
                     throw new ShortBufferException("Output buffer too short: " + length + " bytes given, " + i10 + " bytes needed");
                 }
-                if (this.f45919d == 0 && (this.f45924i || this.f45921f == null)) {
+                if (this.f42802d == 0 && (this.f42807i || this.f42804f == null)) {
                     bArr3 = bArr;
                     i5 = i2;
                 } else {
                     byte[] bArr4 = new byte[i10];
-                    int i11 = this.f45919d;
+                    int i11 = this.f42802d;
                     if (i11 != 0) {
-                        System.arraycopy(this.f45916a, 0, bArr4, 0, i11);
+                        System.arraycopy(this.f42799a, 0, bArr4, 0, i11);
                     }
                     if (i3 != 0) {
-                        System.arraycopy(bArr, i2, bArr4, this.f45919d, i3);
+                        System.arraycopy(bArr, i2, bArr4, this.f42802d, i3);
                     }
-                    if (!this.f45924i && (iVar = this.f45921f) != null) {
+                    if (!this.f42807i && (iVar = this.f42804f) != null) {
                         iVar.a(bArr4, i6, a2);
                     }
                     bArr3 = bArr4;
                     i5 = 0;
                 }
-                if (this.f45924i) {
+                if (this.f42807i) {
                     if (length < i10) {
-                        this.f45922g.e();
+                        this.f42805g.e();
                     }
                     byte[] bArr5 = new byte[i6];
                     b2 = b(bArr3, i5, bArr5, 0, i6);
-                    i iVar3 = this.f45921f;
+                    i iVar3 = this.f42804f;
                     if (iVar3 != null && (b2 = iVar3.b(bArr5, 0, b2)) < 0) {
                         throw new BadPaddingException("Given final block not properly padded");
                     }
                     if (bArr2.length - i4 < b2) {
-                        this.f45922g.g();
+                        this.f42805g.g();
                         throw new ShortBufferException("Output buffer too short: " + (bArr2.length - i4) + " bytes given, " + b2 + " bytes needed");
                     }
                     for (int i12 = 0; i12 < b2; i12++) {
@@ -210,10 +210,10 @@ public final class e {
                 } else {
                     b2 = b(bArr3, i5, bArr2, i4, i10);
                 }
-                this.f45919d = 0;
-                this.f45920e = this.f45917b;
-                if (this.f45923h != 0) {
-                    this.f45922g.c();
+                this.f42802d = 0;
+                this.f42803e = this.f42800b;
+                if (this.f42806h != 0) {
+                    this.f42805g.c();
                 }
                 return b2;
             }

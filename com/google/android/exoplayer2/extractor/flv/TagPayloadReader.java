@@ -7,15 +7,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.ParserException;
 import d.f.b.a.a0.m;
 import d.f.b.a.i0.l;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class TagPayloadReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final m f32722a;
+    public final m f32832a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class UnsupportedFormatException extends ParserException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public abstract class TagPayloadReader {
                 return;
             }
         }
-        this.f32722a = mVar;
+        this.f32832a = mVar;
     }
 
     public final void a(l lVar, long j) throws ParserException {

@@ -5,18 +5,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.concurrent.Executor;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class NetworkQualityListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Executor f23050a;
+    public final Executor f23160a;
 
     public Executor a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23050a : (Executor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23160a : (Executor) invokeV.objValue;
     }
 
     public abstract void b(int i2);

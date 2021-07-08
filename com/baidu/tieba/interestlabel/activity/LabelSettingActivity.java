@@ -17,21 +17,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.j;
-import d.a.s0.l1.b.b;
+import d.a.p0.l1.b.b;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> implements d.a.s0.l1.c.a {
+/* loaded from: classes4.dex */
+public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> implements d.a.p0.l1.c.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LabelSettingModel mLabelSettingModel;
     public LabelSettingView mLabelSettingView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f18024a;
+        public static final /* synthetic */ int[] f18064a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -48,13 +48,13 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
                 }
             }
             int[] iArr = new int[LabelRequestEnum.values().length];
-            f18024a = iArr;
+            f18064a = iArr;
             try {
                 iArr[LabelRequestEnum.GET_LABEL.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f18024a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
+                f18064a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -74,40 +74,40 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         }
     }
 
-    @Override // d.a.s0.l1.c.a
+    @Override // d.a.p0.l1.c.a
     public void callback(LabelRequestEnum labelRequestEnum, b bVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, labelRequestEnum, bVar, i2) == null) {
-            int i3 = a.f18024a[labelRequestEnum.ordinal()];
+            int i3 = a.f18064a[labelRequestEnum.ordinal()];
             if (i3 != 1) {
                 if (i3 == 2 && i2 == 0) {
-                    d.a.r0.r.d0.b.j().t("set_recommend_label", true);
+                    d.a.o0.r.d0.b.j().t("set_recommend_label", true);
                     finish();
                     return;
                 }
                 return;
             }
-            this.mLabelSettingView.h();
+            this.mLabelSettingView.g();
             if (bVar != null && !ListUtils.isEmpty(bVar.b())) {
-                this.mLabelSettingView.i();
+                this.mLabelSettingView.h();
                 this.mLabelSettingView.setData(bVar);
                 return;
             }
-            this.mLabelSettingView.p(true);
+            this.mLabelSettingView.o(true);
         }
     }
 
-    @Override // d.a.s0.l1.c.a
+    @Override // d.a.p0.l1.c.a
     public void getLabel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (!j.A()) {
-                this.mLabelSettingView.h();
-                this.mLabelSettingView.p(true);
+                this.mLabelSettingView.g();
+                this.mLabelSettingView.o(true);
                 return;
             }
-            this.mLabelSettingView.i();
-            this.mLabelSettingView.o(true);
+            this.mLabelSettingView.h();
+            this.mLabelSettingView.n(true);
             this.mLabelSettingModel.B();
         }
     }
@@ -117,7 +117,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             super.onChangeSkinType(i2);
-            this.mLabelSettingView.m();
+            this.mLabelSettingView.l();
         }
     }
 
@@ -141,7 +141,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i2, keyEvent)) == null) {
             if (i2 == 4 && (labelSettingView = this.mLabelSettingView) != null && labelSettingView.f()) {
-                this.mLabelSettingView.n();
+                this.mLabelSettingView.m();
                 return true;
             }
             return super.onKeyDown(i2, keyEvent);
@@ -149,7 +149,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         return invokeIL.booleanValue;
     }
 
-    @Override // d.a.s0.l1.c.a
+    @Override // d.a.p0.l1.c.a
     public void subLabel(List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {

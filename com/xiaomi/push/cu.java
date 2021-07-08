@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class cu extends co {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public co f42940a;
+    public co f39954a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ cs f208a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ co f42941b;
+    public final /* synthetic */ co f39955b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cu(cs csVar, String str, co coVar) {
@@ -41,12 +41,12 @@ public class cu extends co {
             }
         }
         this.f208a = csVar;
-        this.f42941b = coVar;
-        co coVar2 = this.f42941b;
-        this.f42940a = coVar2;
+        this.f39955b = coVar;
+        co coVar2 = this.f39955b;
+        this.f39954a = coVar2;
         ((co) this).f194b = ((co) this).f194b;
         if (coVar2 != null) {
-            this.f42929f = coVar2.f42929f;
+            this.f39943f = coVar2.f39943f;
         }
     }
 
@@ -58,11 +58,11 @@ public class cu extends co {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             synchronized (this) {
                 arrayList = new ArrayList<>();
-                if (this.f42940a != null) {
-                    arrayList.addAll(this.f42940a.a(true));
+                if (this.f39954a != null) {
+                    arrayList.addAll(this.f39954a.a(true));
                 }
-                synchronized (cs.f42936b) {
-                    co coVar = cs.f42936b.get(((co) this).f194b);
+                synchronized (cs.f39950b) {
+                    co coVar = cs.f39950b.get(((co) this).f194b);
                     if (coVar != null) {
                         Iterator<String> it = coVar.a(true).iterator();
                         while (it.hasNext()) {
@@ -86,8 +86,8 @@ public class cu extends co {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cnVar) == null) {
             synchronized (this) {
-                if (this.f42940a != null) {
-                    this.f42940a.a(str, cnVar);
+                if (this.f39954a != null) {
+                    this.f39954a.a(str, cnVar);
                 }
             }
         }

@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,25 +21,25 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Executor f42005a;
+    public static final Executor f39019a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Object f42006b;
+    public static Object f39020b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Handler f42007c;
+    public static Handler f39021c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static HandlerThread f42008d;
+    public static HandlerThread f39022d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.tencent.open.utils.i$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,8 +58,8 @@ public final class i {
                 return;
             }
         }
-        f42006b = new Object();
-        f42005a = c();
+        f39020b = new Object();
+        f39019a = c();
     }
 
     public i() {
@@ -79,15 +80,15 @@ public final class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f42007c == null) {
+            if (f39021c == null) {
                 synchronized (i.class) {
                     HandlerThread handlerThread = new HandlerThread("SDK_SUB");
-                    f42008d = handlerThread;
+                    f39022d = handlerThread;
                     handlerThread.start();
-                    f42007c = new Handler(f42008d.getLooper());
+                    f39021c = new Handler(f39022d.getLooper());
                 }
             }
-            return f42007c;
+            return f39021c;
         }
         return (Handler) invokeV.objValue;
     }
@@ -95,7 +96,7 @@ public final class i {
     public static Executor b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? new a(null) : (Executor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new a(null) : (Executor) invokeV.objValue;
     }
 
     public static Executor c() {
@@ -122,16 +123,16 @@ public final class i {
         return (Executor) invokeV.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Executor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Queue<Runnable> f42009a;
+        public final Queue<Runnable> f39023a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Runnable f42010b;
+        public Runnable f39024b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -146,17 +147,17 @@ public final class i {
                     return;
                 }
             }
-            this.f42009a = new LinkedList();
+            this.f39023a = new LinkedList();
         }
 
         public synchronized void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this) {
-                    Runnable poll = this.f42009a.poll();
-                    this.f42010b = poll;
+                    Runnable poll = this.f39023a.poll();
+                    this.f39024b = poll;
                     if (poll != null) {
-                        i.f42005a.execute(poll);
+                        i.f39019a.execute(poll);
                     }
                 }
             }
@@ -167,15 +168,15 @@ public final class i {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
                 synchronized (this) {
-                    this.f42009a.offer(new Runnable(this, runnable) { // from class: com.tencent.open.utils.i.a.1
+                    this.f39023a.offer(new Runnable(this, runnable) { // from class: com.tencent.open.utils.i.a.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Runnable f42011a;
+                        public final /* synthetic */ Runnable f39025a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ a f42012b;
+                        public final /* synthetic */ a f39026b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -192,8 +193,8 @@ public final class i {
                                     return;
                                 }
                             }
-                            this.f42012b = this;
-                            this.f42011a = runnable;
+                            this.f39026b = this;
+                            this.f39025a = runnable;
                         }
 
                         @Override // java.lang.Runnable
@@ -201,14 +202,14 @@ public final class i {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 try {
-                                    this.f42011a.run();
+                                    this.f39025a.run();
                                 } finally {
-                                    this.f42012b.a();
+                                    this.f39026b.a();
                                 }
                             }
                         }
                     });
-                    if (this.f42010b == null) {
+                    if (this.f39024b == null) {
                         a();
                     }
                 }

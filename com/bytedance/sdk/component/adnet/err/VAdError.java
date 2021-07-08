@@ -1,5 +1,6 @@
 package com.bytedance.sdk.component.adnet.err;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -7,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.adnet.core.i;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class VAdError extends Exception {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CACHE_DISPATCH_FAIL_CODE = 607;
@@ -25,10 +26,10 @@ public class VAdError extends Exception {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f27953a;
+    public int f28063a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f27954b;
+    public long f28064b;
     public final i networkResponse;
 
     public VAdError(i iVar) {
@@ -52,26 +53,26 @@ public class VAdError extends Exception {
     public int getErrorCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27953a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28063a : invokeV.intValue;
     }
 
     public long getNetworkTimeMs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27954b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28064b : invokeV.longValue;
     }
 
     public void setErrorCode(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f27953a = i2;
+            this.f28063a = i2;
         }
     }
 
     public void setNetworkTimeMs(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.f27954b = j;
+            this.f28064b = j;
         }
     }
 
@@ -91,7 +92,7 @@ public class VAdError extends Exception {
             }
         }
         this.networkResponse = null;
-        this.f27953a = i2;
+        this.f28063a = i2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -113,7 +114,7 @@ public class VAdError extends Exception {
             }
         }
         this.networkResponse = null;
-        this.f27953a = i2;
+        this.f28063a = i2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -136,7 +137,7 @@ public class VAdError extends Exception {
             }
         }
         this.networkResponse = null;
-        this.f27953a = i2;
+        this.f28063a = i2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -147,17 +148,17 @@ public class VAdError extends Exception {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {th, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 super((Throwable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }
         this.networkResponse = null;
-        this.f27953a = i2;
+        this.f28063a = i2;
     }
 }

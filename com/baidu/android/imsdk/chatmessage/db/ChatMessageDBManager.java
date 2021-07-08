@@ -118,7 +118,7 @@ public class ChatMessageDBManager extends DBBase {
     private long addReliableMsg(@NonNull TextMsg textMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, textMsg)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, textMsg)) == null) {
             SQLiteDatabase openDatabase = openDatabase();
             try {
                 if (openDatabase == null) {

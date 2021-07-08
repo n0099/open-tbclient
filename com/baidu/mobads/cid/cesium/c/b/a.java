@@ -3,7 +3,7 @@ package com.baidu.mobads.cid.cesium.c.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

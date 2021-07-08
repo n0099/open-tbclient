@@ -2,6 +2,7 @@ package com.yy.mobile.framework.revenuesdk.baseapi.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,13 +14,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class SPUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FILE_NAME = "revenuesdk_share_data";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class SharedPreferencesCompat {
         public static /* synthetic */ Interceptable $ic;
         public static final Method sApplyMethod;
@@ -156,7 +157,7 @@ public class SPUtils {
     public static Map<String, ?> getAll(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             if (context == null) {
                 return null;
             }

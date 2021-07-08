@@ -64,9 +64,16 @@ public class j extends a.a.a.a.c<KsRewardVideoAd> {
         }
 
         @Override // com.kwad.sdk.api.KsLoadManager.RewardVideoAdListener
+        public void onRequestResult(int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            }
+        }
+
+        @Override // com.kwad.sdk.api.KsLoadManager.RewardVideoAdListener
         public void onRewardVideoAdLoad(@Nullable List<KsRewardVideoAd> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
                 a.a.a.a.y.d.a();
                 if (list != null && !list.isEmpty()) {
                     this.f1279b.f1017h.b();

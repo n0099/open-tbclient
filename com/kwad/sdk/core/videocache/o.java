@@ -4,9 +4,9 @@ import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kwad.sdk.utils.ad;
+import com.kwad.sdk.utils.al;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -14,6 +14,6 @@ public final class o {
     public static File a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? new File(ad.b(context), "video-cache") : (File) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? new File(al.b(context), "video-cache") : (File) invokeL.objValue;
     }
 }

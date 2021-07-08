@@ -8,15 +8,15 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f32650a;
+    public static boolean f32760a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f32651b;
+    public static boolean f32761b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static f a() {

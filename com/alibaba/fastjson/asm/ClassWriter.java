@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.asm;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -83,7 +84,7 @@ public class ClassWriter {
 
     private void put(Item item) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, item) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, item) == null) {
             if (this.index > this.threshold) {
                 int length = this.items.length;
                 int i2 = (length * 2) + 1;

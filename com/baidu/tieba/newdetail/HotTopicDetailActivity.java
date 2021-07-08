@@ -26,19 +26,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.a.g;
-import d.a.r0.r.q.a1;
-import d.a.s0.g1.b.b;
-import d.a.s0.g1.c.d;
-import d.a.s0.g1.c.e;
-import d.a.s0.g1.c.f;
-import d.a.s0.g1.c.i;
+import d.a.o0.a.g;
+import d.a.o0.r.q.a1;
+import d.a.p0.g1.b.b;
+import d.a.p0.g1.c.d;
+import d.a.p0.g1.c.e;
+import d.a.p0.g1.c.f;
+import d.a.p0.g1.c.i;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
-public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity> implements d.a.s0.b2.a, BdListView.p {
+/* loaded from: classes4.dex */
+public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity> implements d.a.p0.b2.a, BdListView.p {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCHEME_TOPIC_DETAIL = "tbtopicdetail://";
     public static final String TOPIC_ID_PREFFIX = "topic_id=";
@@ -51,19 +51,19 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
     public boolean mIsFromYunPush;
     public HotTopicDetailModel mModel;
     public long mTid;
-    public d.a.s0.b2.b mView;
+    public d.a.p0.b2.b mView;
     public String secondDir;
     public String topicId;
     public long topicIdLong;
     public String topicName;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements g.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotTopicDetailActivity f18727a;
+        public final /* synthetic */ HotTopicDetailActivity f18767a;
 
         public a(HotTopicDetailActivity hotTopicDetailActivity) {
             Interceptable interceptable = $ic;
@@ -80,10 +80,10 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
                     return;
                 }
             }
-            this.f18727a = hotTopicDetailActivity;
+            this.f18767a = hotTopicDetailActivity;
         }
 
-        @Override // d.a.r0.a.g.b
+        @Override // d.a.o0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(g.v) instanceof String)) {
@@ -91,7 +91,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
                 if (StringUtils.isNull(str)) {
                     return;
                 }
-                this.f18727a.topicIdLong = d.a.c.e.m.b.f(str, -1L);
+                this.f18767a.topicIdLong = d.a.c.e.m.b.f(str, -1L);
             }
         }
     }
@@ -155,7 +155,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         int i2;
         String substring;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, intent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, intent)) == null) {
             if (intent.getParcelableExtra(IntentConfig.KEY_URI) != null) {
                 Uri uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI);
                 String uri2 = uri.toString();
@@ -197,7 +197,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
             }
             this.mView.r(k);
             if (i2 == 0 && dVar != null && !ListUtils.isEmpty(dVar.P3)) {
-                d.a.s0.b2.b bVar = this.mView;
+                d.a.p0.b2.b bVar = this.mView;
                 if (!z && bVar.o(k).M3 != null) {
                     r1 = false;
                 }
@@ -243,7 +243,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.r0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.o0.k0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -280,7 +280,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         }
     }
 
-    @Override // d.a.s0.b2.a
+    @Override // d.a.p0.b2.a
     public void netCallback(int i2, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048582, this, i2, eVar) == null) {
@@ -292,7 +292,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
             this.mView.l();
             if (i2 == 0 && eVar != null) {
                 if (eVar.h() != null) {
-                    resetTopicId(eVar.h().f59674e, eVar.h().f59675f);
+                    resetTopicId(eVar.h().f56416e, eVar.h().f56417f);
                 }
                 this.mView.m(eVar);
                 this.mView.q();
@@ -303,7 +303,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         }
     }
 
-    @Override // d.a.s0.b2.a
+    @Override // d.a.p0.b2.a
     public void netLoadMoreCallback(int i2, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048583, this, i2, dVar) == null) {
@@ -311,7 +311,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         }
     }
 
-    @Override // d.a.s0.b2.a
+    @Override // d.a.p0.b2.a
     public void netPkCallback(int i2, long j, long j2, int i3) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i3)}) == null) || i2 != 0 || j <= 0 || i3 < 0) {
@@ -431,7 +431,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         }
     }
 
-    @Override // d.a.s0.b2.a
+    @Override // d.a.p0.b2.a
     public void refreshFullData(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
@@ -451,7 +451,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         }
     }
 
-    public boolean sendBlessData(d.a.s0.g1.c.a aVar) {
+    public boolean sendBlessData(d.a.p0.g1.c.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, aVar)) == null) ? this.mModel.F(aVar) : invokeL.booleanValue;
@@ -463,7 +463,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         return (interceptable == null || (invokeLI = interceptable.invokeLI(1048595, this, iVar, i2)) == null) ? this.mModel.G(iVar, i2) : invokeLI.booleanValue;
     }
 
-    @Override // d.a.s0.b2.a
+    @Override // d.a.p0.b2.a
     public void shareTopic(e eVar) {
         f h2;
         Interceptable interceptable = $ic;
@@ -474,6 +474,6 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         if (!TextUtils.isEmpty(this.topicName)) {
             str = str + "&topic_name=" + URLEncoder.encode(this.topicName);
         }
-        this.hotTopicShareModel.e(h2.f59674e, h2.f59675f, str, h2.k, h2.j, true);
+        this.hotTopicShareModel.e(h2.f56416e, h2.f56417f, str, h2.k, h2.j, true);
     }
 }

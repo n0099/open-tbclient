@@ -5,10 +5,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.Closeable;
-import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +51,7 @@ public class d {
         }
         try {
             closeable.close();
-        } catch (IOException unused) {
+        } catch (Throwable unused) {
         }
     }
 

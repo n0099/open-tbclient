@@ -13,11 +13,11 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Map;
 import org.apache.http.client.methods.HttpDelete;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface IRequestParam {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class RequestType {
         public static final /* synthetic */ RequestType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -80,7 +80,7 @@ public interface IRequestParam {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ValuePart<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

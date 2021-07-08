@@ -1,6 +1,7 @@
 package com.baidu.lbsapi.auth;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,21 +10,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f6368a;
+    public Context f6385a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f6369b;
+    public HashMap<String, String> f6386b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a<String> f6370c;
+    public a<String> f6387c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface a<Result> {
         void a(Result result);
     }
@@ -43,9 +44,9 @@ public class c {
                 return;
             }
         }
-        this.f6369b = null;
-        this.f6370c = null;
-        this.f6368a = context;
+        this.f6386b = null;
+        this.f6387c = null;
+        this.f6385a = context;
     }
 
     private HashMap<String, String> a(HashMap<String, String> hashMap) {
@@ -66,7 +67,7 @@ public class c {
     public void a(String str) {
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) {
             if (str == null) {
                 str = "";
             }
@@ -83,7 +84,7 @@ public class c {
                     e2.printStackTrace();
                 }
             }
-            a<String> aVar = this.f6370c;
+            a<String> aVar = this.f6387c;
             if (aVar != null) {
                 aVar.a(jSONObject.toString());
             }
@@ -93,8 +94,8 @@ public class c {
     public void a(HashMap<String, String> hashMap, a<String> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, hashMap, aVar) == null) {
-            this.f6369b = a(hashMap);
-            this.f6370c = aVar;
+            this.f6386b = a(hashMap);
+            this.f6387c = aVar;
             new Thread(new d(this)).start();
         }
     }

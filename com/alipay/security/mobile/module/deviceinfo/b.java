@@ -60,12 +60,13 @@ import java.util.Locale;
 import java.util.TimeZone;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.webrtc.MediaStreamTrack;
 /* loaded from: classes.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f2073a;
+    public static b f2074a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -81,7 +82,7 @@ public class b {
                 return;
             }
         }
-        f2073a = new b();
+        f2074a = new b();
     }
 
     public b() {
@@ -206,7 +207,7 @@ public class b {
         BufferedReader bufferedReader;
         String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65540, null)) != null) {
+        if (interceptable != null && (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) != null) {
             return (String) invokeV.objValue;
         }
         String str = "";
@@ -249,7 +250,7 @@ public class b {
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f2073a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f2074a : (b) invokeV.objValue;
     }
 
     public static String a(BluetoothAdapter bluetoothAdapter) {
@@ -333,7 +334,7 @@ public class b {
                         if (subtype != 3 && subtype != 5 && subtype != 6 && subtype != 8 && subtype != 9 && subtype != 10 && subtype != 12 && subtype != 14 && subtype != 15) {
                             return subtype == 13 ? "4G" : "UNKNOW";
                         }
-                        return g.f3983b;
+                        return g.f3986b;
                     }
                     return "2G";
                 }
@@ -551,7 +552,7 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                AudioManager audioManager = (AudioManager) context.getSystemService("audio");
+                AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
                 int i2 = audioManager.getRingerMode() == 0 ? 1 : 0;
                 int streamVolume = audioManager.getStreamVolume(0);
                 int streamVolume2 = audioManager.getStreamVolume(1);

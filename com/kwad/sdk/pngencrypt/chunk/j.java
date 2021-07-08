@@ -4,16 +4,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class j extends s {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f38737h;
+    public int f35809h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f38738i;
+    public int f35810i;
     public int j;
     public int k;
     public int l;
@@ -47,14 +47,14 @@ public class j extends s {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            this.f38737h = com.kwad.sdk.pngencrypt.n.c(dVar.f38720d, 0);
-            this.f38738i = com.kwad.sdk.pngencrypt.n.c(dVar.f38720d, 4);
-            this.j = com.kwad.sdk.pngencrypt.n.c(dVar.f38720d, 8);
-            this.k = com.kwad.sdk.pngencrypt.n.c(dVar.f38720d, 12);
-            this.l = com.kwad.sdk.pngencrypt.n.c(dVar.f38720d, 16);
-            this.m = com.kwad.sdk.pngencrypt.n.b(dVar.f38720d, 20);
-            this.n = com.kwad.sdk.pngencrypt.n.b(dVar.f38720d, 22);
-            byte[] bArr = dVar.f38720d;
+            this.f35809h = com.kwad.sdk.pngencrypt.n.c(dVar.f35792d, 0);
+            this.f35810i = com.kwad.sdk.pngencrypt.n.c(dVar.f35792d, 4);
+            this.j = com.kwad.sdk.pngencrypt.n.c(dVar.f35792d, 8);
+            this.k = com.kwad.sdk.pngencrypt.n.c(dVar.f35792d, 12);
+            this.l = com.kwad.sdk.pngencrypt.n.c(dVar.f35792d, 16);
+            this.m = com.kwad.sdk.pngencrypt.n.b(dVar.f35792d, 20);
+            this.n = com.kwad.sdk.pngencrypt.n.b(dVar.f35792d, 22);
+            byte[] bArr = dVar.f35792d;
             this.o = bArr[24];
             this.p = bArr[25];
         }

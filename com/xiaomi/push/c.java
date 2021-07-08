@@ -13,13 +13,13 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import kotlinx.coroutines.scheduling.CoroutineScheduler;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f42902a;
+    public final int f39916a;
 
     /* renamed from: a  reason: collision with other field name */
     public final OutputStream f170a;
@@ -28,9 +28,9 @@ public final class c {
     public final byte[] f171a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f42903b;
+    public int f39917b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class a extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,8 +71,8 @@ public final class c {
         }
         this.f170a = outputStream;
         this.f171a = bArr;
-        this.f42903b = 0;
-        this.f42902a = bArr.length;
+        this.f39917b = 0;
+        this.f39916a = bArr.length;
     }
 
     public c(byte[] bArr, int i2, int i3) {
@@ -92,8 +92,8 @@ public final class c {
         }
         this.f170a = null;
         this.f171a = bArr;
-        this.f42903b = i2;
-        this.f42902a = i2 + i3;
+        this.f39917b = i2;
+        this.f39916a = i2 + i3;
     }
 
     public static int a(int i2) {
@@ -117,7 +117,7 @@ public final class c {
     public static int a(int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) ? c(i2) + a(j) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) ? c(i2) + a(j) : invokeCommon.intValue;
     }
 
     public static int a(int i2, com.xiaomi.push.a aVar) {
@@ -277,8 +277,8 @@ public final class c {
             if (outputStream == null) {
                 throw new a();
             }
-            outputStream.write(this.f171a, 0, this.f42903b);
-            this.f42903b = 0;
+            outputStream.write(this.f171a, 0, this.f39917b);
+            this.f39917b = 0;
         }
     }
 
@@ -286,7 +286,7 @@ public final class c {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65560, null, i2)) == null) {
-            if ((i2 & com.alipay.sdk.encrypt.a.f1888g) == 0) {
+            if ((i2 & com.alipay.sdk.encrypt.a.f1889g) == 0) {
                 return 1;
             }
             if ((i2 & (-16384)) == 0) {
@@ -305,7 +305,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.f170a == null) {
-                return this.f42902a - this.f42903b;
+                return this.f39916a - this.f39917b;
             }
             throw new UnsupportedOperationException("spaceLeft() can only be called on CodedOutputStreams that are writing to a flat array.");
         }
@@ -324,12 +324,12 @@ public final class c {
     public void a(byte b2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeB(Constants.METHOD_SEND_USER_MSG, this, b2) == null) {
-            if (this.f42903b == this.f42902a) {
+            if (this.f39917b == this.f39916a) {
                 c();
             }
             byte[] bArr = this.f171a;
-            int i2 = this.f42903b;
-            this.f42903b = i2 + 1;
+            int i2 = this.f39917b;
+            this.f39917b = i2 + 1;
             bArr[i2] = b2;
         }
     }
@@ -456,25 +456,25 @@ public final class c {
     public void m206a(byte[] bArr, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048592, this, bArr, i2, i3) == null) {
-            int i4 = this.f42902a;
-            int i5 = this.f42903b;
+            int i4 = this.f39916a;
+            int i5 = this.f39917b;
             if (i4 - i5 >= i3) {
                 System.arraycopy(bArr, i2, this.f171a, i5, i3);
-                this.f42903b += i3;
+                this.f39917b += i3;
                 return;
             }
             int i6 = i4 - i5;
             System.arraycopy(bArr, i2, this.f171a, i5, i6);
             int i7 = i2 + i6;
             int i8 = i3 - i6;
-            this.f42903b = this.f42902a;
+            this.f39917b = this.f39916a;
             c();
-            if (i8 > this.f42902a) {
+            if (i8 > this.f39916a) {
                 this.f170a.write(bArr, i7, i8);
                 return;
             }
             System.arraycopy(bArr, i7, this.f171a, 0, i8);
-            this.f42903b = i8;
+            this.f39917b = i8;
         }
     }
 
@@ -550,7 +550,7 @@ public final class c {
     public void m213d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            while ((i2 & com.alipay.sdk.encrypt.a.f1888g) != 0) {
+            while ((i2 & com.alipay.sdk.encrypt.a.f1889g) != 0) {
                 m211c((i2 & 127) | 128);
                 i2 >>>= 7;
             }

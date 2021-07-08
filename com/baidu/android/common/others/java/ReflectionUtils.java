@@ -1,5 +1,6 @@
 package com.baidu.android.common.others.java;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -94,7 +95,7 @@ public final class ReflectionUtils {
         Class<?> cls;
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65540, null, obj, str, clsArr, objArr)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str, clsArr, objArr)) == null) {
             try {
                 if (obj instanceof Class) {
                     cls = (Class) obj;

@@ -75,7 +75,7 @@ public abstract class DocumentFile {
     public static boolean isDocumentUri(@NonNull Context context, @Nullable Uri uri) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, uri)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, uri)) == null) {
             if (Build.VERSION.SDK_INT >= 19) {
                 return DocumentsContract.isDocumentUri(context, uri);
             }

@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.imageloader.core.download;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -13,11 +14,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.InputStream;
 import java.util.Locale;
 import org.apache.http.HttpVersion;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface ImageDownloader {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Scheme {
         public static final /* synthetic */ Scheme[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -104,7 +105,7 @@ public interface ImageDownloader {
         public static Scheme valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (Scheme) Enum.valueOf(Scheme.class, str) : (Scheme) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (Scheme) Enum.valueOf(Scheme.class, str) : (Scheme) invokeL.objValue;
         }
 
         public static Scheme[] values() {

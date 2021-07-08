@@ -11,7 +11,7 @@ import com.yy.mobile.framework.revenuesdk.reporter.SDKReporter;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.BaseHiidoContent;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.uievent.PayUiEventContent;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class PayUIReporter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

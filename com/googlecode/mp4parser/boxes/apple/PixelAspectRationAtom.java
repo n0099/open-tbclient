@@ -14,7 +14,7 @@ import java.nio.ByteBuffer;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PixelAspectRationAtom extends AbstractBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "pasp";

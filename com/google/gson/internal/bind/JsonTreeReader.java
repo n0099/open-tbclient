@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class JsonTreeReader extends JsonReader {
     public static /* synthetic */ Interceptable $ic;
     public static final Object SENTINEL_CLOSED;
@@ -131,7 +131,7 @@ public final class JsonTreeReader extends JsonReader {
     private Object peekStack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) ? this.stack[this.stackSize - 1] : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.stack[this.stackSize - 1] : invokeV.objValue;
     }
 
     private Object popStack() {

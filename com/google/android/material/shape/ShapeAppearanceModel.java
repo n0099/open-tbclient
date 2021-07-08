@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ShapeAppearanceModel {
     public static /* synthetic */ Interceptable $ic;
     public static final CornerSize PILL;
@@ -41,13 +41,13 @@ public class ShapeAppearanceModel {
     public CornerSize topRightCornerSize;
 
     /* renamed from: com.google.android.material.shape.ShapeAppearanceModel$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -451,7 +451,7 @@ public class ShapeAppearanceModel {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface CornerSizeUnaryOperator {
         @NonNull
         CornerSize apply(@NonNull CornerSize cornerSize);
@@ -481,7 +481,7 @@ public class ShapeAppearanceModel {
     public static Builder builder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? new Builder() : (Builder) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new Builder() : (Builder) invokeV.objValue;
     }
 
     @NonNull

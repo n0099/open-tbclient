@@ -32,7 +32,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import com.baidu.adp.plugin.pluginBase.PluginBaseActivity;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface a {
     Activity getActivity();
 

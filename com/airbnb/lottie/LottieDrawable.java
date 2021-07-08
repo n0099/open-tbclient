@@ -235,7 +235,7 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
 
     private void buildCompositionLayer() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             this.compositionLayer = new CompositionLayer(this, LayerParser.parse(this.composition), this.composition.getLayers(), this.composition);
         }
     }

@@ -13,6 +13,7 @@ import android.text.TextUtils;
 import android.view.accessibility.AccessibilityManager;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -37,7 +38,6 @@ import com.bytedance.sdk.openadsdk.r.i;
 import com.bytedance.sdk.openadsdk.r.k;
 import com.bytedance.sdk.openadsdk.r.q;
 import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
-import com.kwai.video.player.KsMediaMeta;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.net.Inet4Address;
 import java.net.InetAddress;
@@ -45,26 +45,26 @@ import java.net.NetworkInterface;
 import java.util.Collections;
 import java.util.Locale;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f30227a = null;
+    public static String f30337a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f30228b = false;
+    public static volatile boolean f30338b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f30229c = true;
+    public static volatile boolean f30339c = true;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final IntentFilter f30230a;
+        public static final IntentFilter f30340a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -80,7 +80,7 @@ public class c {
                     return;
                 }
             }
-            f30230a = new IntentFilter("android.intent.action.BATTERY_CHANGED");
+            f30340a = new IntentFilter("android.intent.action.BATTERY_CHANGED");
         }
 
         public static int a(Context context) {
@@ -88,7 +88,7 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
                 try {
-                    Intent registerReceiver = context.registerReceiver(null, f30230a);
+                    Intent registerReceiver = context.registerReceiver(null, f30340a);
                     if (registerReceiver != null) {
                         int intExtra = registerReceiver.getIntExtra("status", -1);
                         return intExtra == -1 ? intExtra : intExtra == 2 ? 1 : 0;
@@ -105,7 +105,7 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
                 try {
-                    Intent registerReceiver = context.registerReceiver(null, f30230a);
+                    Intent registerReceiver = context.registerReceiver(null, f30340a);
                     if (registerReceiver != null) {
                         return (registerReceiver.getIntExtra("level", -1) * 100) / registerReceiver.getIntExtra("scale", -1);
                     }
@@ -118,7 +118,7 @@ public class c {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class b extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -142,10 +142,10 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
                 if ("android.intent.action.SCREEN_ON".equals(intent.getAction())) {
-                    boolean unused = c.f30229c = true;
+                    boolean unused = c.f30339c = true;
                     j.c(DeviceUtils.TAG, "screen_on");
                 } else if ("android.intent.action.SCREEN_OFF".equals(intent.getAction())) {
-                    boolean unused2 = c.f30229c = false;
+                    boolean unused2 = c.f30339c = false;
                     j.c(DeviceUtils.TAG, "screen_off");
                 }
             }
@@ -232,13 +232,13 @@ public class c {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || f30228b) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || f30338b) {
             return;
         }
         try {
             PowerManager powerManager = (PowerManager) context.getSystemService("power");
             if (powerManager != null) {
-                f30229c = powerManager.isScreenOn();
+                f30339c = powerManager.isScreenOn();
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -248,24 +248,24 @@ public class c {
         intentFilter.addAction("android.intent.action.SCREEN_ON");
         intentFilter.addAction("android.intent.action.SCREEN_OFF");
         context.registerReceiver(bVar, intentFilter);
-        f30228b = true;
+        f30338b = true;
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (Build.VERSION.SDK_INT == 29 && com.bytedance.sdk.openadsdk.r.j.r()) {
                 try {
                     PowerManager powerManager = (PowerManager) o.a().getSystemService("power");
                     if (powerManager != null) {
-                        f30229c = powerManager.isScreenOn();
+                        f30339c = powerManager.isScreenOn();
                     }
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
             }
-            return f30229c;
+            return f30339c;
         }
         return invokeV.booleanValue;
     }
@@ -339,11 +339,11 @@ public class c {
         r1 = r0;
      */
     /* JADX WARN: Code restructure failed: missing block: B:37:0x006e, code lost:
-        com.bytedance.sdk.openadsdk.core.k.c.f30227a = r1;
+        com.bytedance.sdk.openadsdk.core.k.c.f30337a = r1;
         com.bytedance.sdk.openadsdk.core.h.a("sdk_local_mac_address", r1);
      */
     /* JADX WARN: Code restructure failed: missing block: B:39:0x0075, code lost:
-        return com.bytedance.sdk.openadsdk.core.k.c.f30227a;
+        return com.bytedance.sdk.openadsdk.core.k.c.f30337a;
      */
     /* JADX WARN: Removed duplicated region for block: B:47:0x002a A[SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:51:0x0076 A[SYNTHETIC] */
@@ -358,7 +358,7 @@ public class c {
             com.baidu.titan.sdk.runtime.Interceptable r0 = com.bytedance.sdk.openadsdk.core.k.c.$ic
             if (r0 != 0) goto L7b
         L4:
-            java.lang.String r0 = com.bytedance.sdk.openadsdk.core.k.c.f30227a
+            java.lang.String r0 = com.bytedance.sdk.openadsdk.core.k.c.f30337a
             boolean r0 = android.text.TextUtils.isEmpty(r0)
         La:
             r1 = 68
@@ -384,7 +384,7 @@ public class c {
         L19:
             goto L27
         L1a:
-            java.lang.String r0 = com.bytedance.sdk.openadsdk.core.k.c.f30227a
+            java.lang.String r0 = com.bytedance.sdk.openadsdk.core.k.c.f30337a
             return r0
         L1d:
             r1 = 22
@@ -402,7 +402,7 @@ public class c {
         L2a:
             r0 = 172800000(0xa4cb800, double:8.53745436E-316)
             java.lang.String r0 = com.bytedance.sdk.openadsdk.core.h.a(r4, r0)
-            com.bytedance.sdk.openadsdk.core.k.c.f30227a = r0
+            com.bytedance.sdk.openadsdk.core.k.c.f30337a = r0
             boolean r0 = android.text.TextUtils.isEmpty(r0)
         L37:
             if (r0 == 0) goto L73
@@ -431,10 +431,10 @@ public class c {
         L6d:
             r1 = r0
         L6e:
-            com.bytedance.sdk.openadsdk.core.k.c.f30227a = r1
+            com.bytedance.sdk.openadsdk.core.k.c.f30337a = r1
             com.bytedance.sdk.openadsdk.core.h.a(r4, r1)
         L73:
-            java.lang.String r0 = com.bytedance.sdk.openadsdk.core.k.c.f30227a
+            java.lang.String r0 = com.bytedance.sdk.openadsdk.core.k.c.f30337a
             return r0
         L76:
             r1 = 70
@@ -596,13 +596,13 @@ public class c {
                 jSONObject.put(HttpConstants.OS_VERSION, Build.VERSION.RELEASE + "");
                 jSONObject.put("vendor", Build.MANUFACTURER);
                 jSONObject.put("model", Build.MODEL);
-                jSONObject.put(KsMediaMeta.KSM_KEY_LANGUAGE, Locale.getDefault().getLanguage());
+                jSONObject.put("language", Locale.getDefault().getLanguage());
                 jSONObject.put("conn_type", m.b(context));
                 jSONObject.put("mac", b());
                 jSONObject.put("screen_width", q.c(context));
                 jSONObject.put("screen_height", q.d(context));
                 jSONObject.put("oaid", i.a());
-                jSONObject.put(PmsConstant.EnvParam.Key.FREE_SPACE, e.f32212a);
+                jSONObject.put(PmsConstant.EnvParam.Key.FREE_SPACE, e.f32322a);
                 jSONObject.put("applog_did", AppLogHelper.getInstance().getAppLogDid());
                 jSONObject.put("sec_did", s.a().b());
                 jSONObject.put("locale_language", c());

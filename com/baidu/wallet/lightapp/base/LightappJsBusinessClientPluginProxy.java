@@ -18,28 +18,28 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LightappJsBusinessClientPluginProxy implements NoProguard, ILightappInvoker {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f25174a = ";";
+    public static String f25284a = ";";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25175b;
+    public String f25285b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f25176c;
+    public Context f25286c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Method f25177d;
+    public Method f25287d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Object f25178e;
+    public Object f25288e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Class<?> f25179f;
+    public Class<?> f25289f;
 
     static {
         InterceptResult invokeClinit;
@@ -71,14 +71,14 @@ public class LightappJsBusinessClientPluginProxy implements NoProguard, ILightap
                 return;
             }
         }
-        this.f25175b = LightappJsBusinessClientPluginProxy.class.getSimpleName();
-        this.f25176c = context;
+        this.f25285b = LightappJsBusinessClientPluginProxy.class.getSimpleName();
+        this.f25286c = context;
         try {
             Class<?> cls = Class.forName("com.baidu.apollon.xplugin.XPluginInvoker");
-            this.f25178e = cls.getMethod("getInstance", new Class[0]).invoke(null, new Object[0]);
+            this.f25288e = cls.getMethod("getInstance", new Class[0]).invoke(null, new Object[0]);
             Class<?> cls2 = Class.forName("com.baidu.apollon.xplugin.XPluginServiceCallback");
-            this.f25179f = cls2;
-            this.f25177d = cls.getMethod("invokePluginService", Context.class, String.class, String.class, String[].class, cls2);
+            this.f25289f = cls2;
+            this.f25287d = cls.getMethod("invokePluginService", Context.class, String.class, String.class, String[].class, cls2);
         } catch (Exception e2) {
             throw new RuntimeException("plugin interface failde", e2);
         }
@@ -91,15 +91,15 @@ public class LightappJsBusinessClientPluginProxy implements NoProguard, ILightap
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             HashSet hashSet = new HashSet();
             try {
-                this.f25177d.invoke(this.f25178e, this.f25176c, "com.baidu.wallet.plugin", "getMethodList", null, Proxy.newProxyInstance(LightappJsBusinessClientPluginProxy.class.getClassLoader(), new Class[]{this.f25179f}, new a(this, new ILightappInvokerCallback(this, hashSet) { // from class: com.baidu.wallet.lightapp.base.LightappJsBusinessClientPluginProxy.1
+                this.f25287d.invoke(this.f25288e, this.f25286c, "com.baidu.wallet.plugin", "getMethodList", null, Proxy.newProxyInstance(LightappJsBusinessClientPluginProxy.class.getClassLoader(), new Class[]{this.f25289f}, new a(this, new ILightappInvokerCallback(this, hashSet) { // from class: com.baidu.wallet.lightapp.base.LightappJsBusinessClientPluginProxy.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Set f25180a;
+                    public final /* synthetic */ Set f25290a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ LightappJsBusinessClientPluginProxy f25181b;
+                    public final /* synthetic */ LightappJsBusinessClientPluginProxy f25291b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -116,20 +116,20 @@ public class LightappJsBusinessClientPluginProxy implements NoProguard, ILightap
                                 return;
                             }
                         }
-                        this.f25181b = this;
-                        this.f25180a = hashSet;
+                        this.f25291b = this;
+                        this.f25290a = hashSet;
                     }
 
                     @Override // com.baidu.wallet.api.ILightappInvokerCallback
                     public void onResult(int i2, String str) {
                         String[] split;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || TextUtils.isEmpty(str) || (split = str.split(LightappJsBusinessClientPluginProxy.f25174a)) == null || split.length <= 0) {
+                        if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || TextUtils.isEmpty(str) || (split = str.split(LightappJsBusinessClientPluginProxy.f25284a)) == null || split.length <= 0) {
                             return;
                         }
                         for (String str2 : split) {
                             if (!TextUtils.isEmpty(str2)) {
-                                this.f25180a.add(str2);
+                                this.f25290a.add(str2);
                             }
                         }
                     }
@@ -147,23 +147,23 @@ public class LightappJsBusinessClientPluginProxy implements NoProguard, ILightap
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, iLightappInvokerCallback) == null) {
             try {
-                this.f25177d.invoke(this.f25178e, context, "com.baidu.wallet.plugin", "lightappInvoke", new String[]{str}, Proxy.newProxyInstance(LightappJsBusinessClientPluginProxy.class.getClassLoader(), new Class[]{this.f25179f}, new a(this, iLightappInvokerCallback)));
+                this.f25287d.invoke(this.f25288e, context, "com.baidu.wallet.plugin", "lightappInvoke", new String[]{str}, Proxy.newProxyInstance(LightappJsBusinessClientPluginProxy.class.getClassLoader(), new Class[]{this.f25289f}, new a(this, iLightappInvokerCallback)));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements NoProguard, InvocationHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LightappJsBusinessClientPluginProxy f25182a;
+        public final /* synthetic */ LightappJsBusinessClientPluginProxy f25292a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ILightappInvokerCallback f25183b;
+        public ILightappInvokerCallback f25293b;
 
         public a(LightappJsBusinessClientPluginProxy lightappJsBusinessClientPluginProxy, ILightappInvokerCallback iLightappInvokerCallback) {
             Interceptable interceptable = $ic;
@@ -180,8 +180,8 @@ public class LightappJsBusinessClientPluginProxy implements NoProguard, ILightap
                     return;
                 }
             }
-            this.f25182a = lightappJsBusinessClientPluginProxy;
-            this.f25183b = iLightappInvokerCallback;
+            this.f25292a = lightappJsBusinessClientPluginProxy;
+            this.f25293b = iLightappInvokerCallback;
         }
 
         public void a(String str, String str2) {
@@ -193,7 +193,7 @@ public class LightappJsBusinessClientPluginProxy implements NoProguard, ILightap
                 } catch (Throwable unused) {
                     i2 = 1;
                 }
-                ILightappInvokerCallback iLightappInvokerCallback = this.f25183b;
+                ILightappInvokerCallback iLightappInvokerCallback = this.f25293b;
                 if (iLightappInvokerCallback != null) {
                     iLightappInvokerCallback.onResult(i2, str2);
                 }
@@ -228,7 +228,7 @@ public class LightappJsBusinessClientPluginProxy implements NoProguard, ILightap
                 } catch (Throwable unused) {
                     i3 = 1;
                 }
-                ILightappInvokerCallback iLightappInvokerCallback = this.f25183b;
+                ILightappInvokerCallback iLightappInvokerCallback = this.f25293b;
                 if (iLightappInvokerCallback != null) {
                     iLightappInvokerCallback.onResult(i3, str2);
                 }

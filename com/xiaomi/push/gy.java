@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.du;
 import com.xiaomi.push.service.bi;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class gy extends bi.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ gx f43227a;
+    public final /* synthetic */ gx f40241a;
 
     public gy(gx gxVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class gy extends bi.a {
                 return;
             }
         }
-        this.f43227a = gxVar;
+        this.f40241a = gxVar;
     }
 
     @Override // com.xiaomi.push.service.bi.a

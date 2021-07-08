@@ -18,14 +18,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.b;
-import d.a.r0.r.q.b2;
+import d.a.o0.r.q.b2;
 import java.io.Serializable;
 import java.util.Map;
 import tbclient.Agree;
 import tbclient.BaijiahaoInfo;
 import tbclient.User;
 import tbclient.VideoInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class VideoSerializeVideoThreadInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7659795764367587672L;
@@ -56,7 +56,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
     public boolean waitConfirm;
     public String weight;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class VideoAggregationAuthorData implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 937744153926100702L;
@@ -70,7 +70,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
         public String userName;
         public String userNickname;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public static class BaijiahaoAuthorData implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 7277512143348542714L;
@@ -112,7 +112,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class VideoAggregationVideoData implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7265311334325180130L;
@@ -147,7 +147,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class VideoCardViewInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 5722373220077065607L;
@@ -412,8 +412,8 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
             this.forumId = originalForumInfo.id;
         }
         if (originalThreadInfo != null) {
-            this.threadId = originalThreadInfo.f12235f;
-            this.title = originalThreadInfo.f12231b;
+            this.threadId = originalThreadInfo.f12252f;
+            this.title = originalThreadInfo.f12248b;
             this.postNum = originalThreadInfo.x.intValue();
         }
         if (originalThreadInfo != null && (agree = originalThreadInfo.w) != null) {

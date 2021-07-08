@@ -11,31 +11,31 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.m.g;
-/* loaded from: classes4.dex */
+import d.a.o0.m.g;
+/* loaded from: classes3.dex */
 public abstract class AdapterLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.r0.b1.f.a.b f13295e;
+    public d.a.o0.b1.f.a.b f13312e;
 
     /* renamed from: f  reason: collision with root package name */
-    public DataSetObserver f13296f;
+    public DataSetObserver f13313f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13297g;
+    public boolean f13314g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f13298e;
+        public final /* synthetic */ Context f13315e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AdapterLayout f13299f;
+        public final /* synthetic */ AdapterLayout f13316f;
 
         public a(AdapterLayout adapterLayout, Context context) {
             Interceptable interceptable = $ic;
@@ -52,35 +52,35 @@ public abstract class AdapterLayout extends ViewGroup {
                     return;
                 }
             }
-            this.f13299f = adapterLayout;
-            this.f13298e = context;
+            this.f13316f = adapterLayout;
+            this.f13315e = context;
         }
 
-        @Override // d.a.r0.m.g, android.app.Application.ActivityLifecycleCallbacks
+        @Override // d.a.o0.m.g, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             DataSetObserver dataSetObserver;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity == this.f13298e) {
-                AdapterLayout adapterLayout = this.f13299f;
-                d.a.r0.b1.f.a.b bVar = adapterLayout.f13295e;
-                if (bVar != null && (dataSetObserver = adapterLayout.f13296f) != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity == this.f13315e) {
+                AdapterLayout adapterLayout = this.f13316f;
+                d.a.o0.b1.f.a.b bVar = adapterLayout.f13312e;
+                if (bVar != null && (dataSetObserver = adapterLayout.f13313f) != null) {
                     bVar.e(dataSetObserver);
-                    AdapterLayout adapterLayout2 = this.f13299f;
-                    adapterLayout2.f13295e = null;
-                    adapterLayout2.f13296f = null;
+                    AdapterLayout adapterLayout2 = this.f13316f;
+                    adapterLayout2.f13312e = null;
+                    adapterLayout2.f13313f = null;
                 }
-                ((Activity) this.f13298e).getApplication().unregisterActivityLifecycleCallbacks(this);
+                ((Activity) this.f13315e).getApplication().unregisterActivityLifecycleCallbacks(this);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends DataSetObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AdapterLayout f13300a;
+        public final /* synthetic */ AdapterLayout f13317a;
 
         public b(AdapterLayout adapterLayout) {
             Interceptable interceptable = $ic;
@@ -97,14 +97,14 @@ public abstract class AdapterLayout extends ViewGroup {
                     return;
                 }
             }
-            this.f13300a = adapterLayout;
+            this.f13317a = adapterLayout;
         }
 
         @Override // android.database.DataSetObserver
         public void onChanged() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f13300a.b();
+                this.f13317a.b();
             }
         }
     }
@@ -131,38 +131,38 @@ public abstract class AdapterLayout extends ViewGroup {
     }
 
     public final void a() {
-        d.a.r0.b1.f.a.b bVar;
+        d.a.o0.b1.f.a.b bVar;
         DataSetObserver dataSetObserver;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f13295e) == null || (dataSetObserver = this.f13296f) == null || this.f13297g) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f13312e) == null || (dataSetObserver = this.f13313f) == null || this.f13314g) {
             return;
         }
         bVar.d(dataSetObserver);
-        this.f13297g = true;
+        this.f13314g = true;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f13295e == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f13312e == null) {
             return;
         }
         removeAllViews();
-        int a2 = this.f13295e.a();
+        int a2 = this.f13312e.a();
         for (int i2 = 0; i2 < a2; i2++) {
-            View b2 = this.f13295e.b(i2, this);
+            View b2 = this.f13312e.b(i2, this);
             b2.setFocusable(true);
             addView(b2);
         }
     }
 
     public final void c() {
-        d.a.r0.b1.f.a.b bVar;
+        d.a.o0.b1.f.a.b bVar;
         DataSetObserver dataSetObserver;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bVar = this.f13295e) == null || (dataSetObserver = this.f13296f) == null || !this.f13297g) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bVar = this.f13312e) == null || (dataSetObserver = this.f13313f) == null || !this.f13314g) {
             return;
         }
-        this.f13297g = false;
+        this.f13314g = false;
         bVar.e(dataSetObserver);
     }
 
@@ -184,13 +184,13 @@ public abstract class AdapterLayout extends ViewGroup {
         }
     }
 
-    public void setAdapter(d.a.r0.b1.f.a.b bVar) {
+    public void setAdapter(d.a.o0.b1.f.a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
             c();
             if (bVar != null) {
-                this.f13295e = bVar;
-                this.f13296f = new b(this);
+                this.f13312e = bVar;
+                this.f13313f = new b(this);
                 a();
                 b();
                 return;
@@ -239,7 +239,7 @@ public abstract class AdapterLayout extends ViewGroup {
                 return;
             }
         }
-        this.f13297g = false;
+        this.f13314g = false;
         if (context instanceof Activity) {
             ((Activity) context).getApplication().registerActivityLifecycleCallbacks(new a(this, context));
         }

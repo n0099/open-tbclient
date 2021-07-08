@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FlutterCyberView extends CyberVideoView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,13 +32,13 @@ public class FlutterCyberView extends CyberVideoView {
     public CyberPlayerManager.OnSeekCompleteListener V;
     public CyberPlayerManager.OnInfoListener W;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements CyberPlayerManager.OnPreparedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FlutterCyberView f5087e;
+        public final /* synthetic */ FlutterCyberView f5104e;
 
         public a(FlutterCyberView flutterCyberView) {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class FlutterCyberView extends CyberVideoView {
                     return;
                 }
             }
-            this.f5087e = flutterCyberView;
+            this.f5104e = flutterCyberView;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
@@ -63,24 +63,24 @@ public class FlutterCyberView extends CyberVideoView {
             int a2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f5087e.N != null) {
-                    this.f5087e.N.onPrepared();
+                if (this.f5104e.N != null) {
+                    this.f5104e.N.onPrepared();
                 }
-                if (!this.f5087e.L || (a2 = d.a.p.a.d.b().a(this.f5087e.M)) <= 0) {
+                if (!this.f5104e.L || (a2 = d.a.p.a.d.b().a(this.f5104e.M)) <= 0) {
                     return;
                 }
-                this.f5087e.seekTo(a2);
+                this.f5104e.seekTo(a2);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements CyberPlayerManager.OnCompletionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FlutterCyberView f5088e;
+        public final /* synthetic */ FlutterCyberView f5105e;
 
         public b(FlutterCyberView flutterCyberView) {
             Interceptable interceptable = $ic;
@@ -97,29 +97,29 @@ public class FlutterCyberView extends CyberVideoView {
                     return;
                 }
             }
-            this.f5088e = flutterCyberView;
+            this.f5105e = flutterCyberView;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                d.a.p.a.d.b().c(this.f5088e.M);
-                if (this.f5088e.getCyberPlayer().isLooping() || this.f5088e.O == null) {
+                d.a.p.a.d.b().c(this.f5105e.M);
+                if (this.f5105e.getCyberPlayer().isLooping() || this.f5105e.O == null) {
                     return;
                 }
-                this.f5088e.O.onCompletion();
+                this.f5105e.O.onCompletion();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class c implements CyberPlayerManager.OnErrorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FlutterCyberView f5089e;
+        public final /* synthetic */ FlutterCyberView f5106e;
 
         public c(FlutterCyberView flutterCyberView) {
             Interceptable interceptable = $ic;
@@ -136,7 +136,7 @@ public class FlutterCyberView extends CyberVideoView {
                     return;
                 }
             }
-            this.f5089e = flutterCyberView;
+            this.f5106e = flutterCyberView;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
@@ -144,11 +144,11 @@ public class FlutterCyberView extends CyberVideoView {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, obj)) == null) {
-                if (this.f5089e.getCurrentPosition() > 0 && this.f5089e.s()) {
-                    d.a.p.a.d.b().d(this.f5089e.M, this.f5089e.getCurrentPosition());
+                if (this.f5106e.getCurrentPosition() > 0 && this.f5106e.s()) {
+                    d.a.p.a.d.b().d(this.f5106e.M, this.f5106e.getCurrentPosition());
                 }
-                if (this.f5089e.Q != null) {
-                    this.f5089e.Q.onError(i2, i3, obj);
+                if (this.f5106e.Q != null) {
+                    this.f5106e.Q.onError(i2, i3, obj);
                     return true;
                 }
                 return true;
@@ -157,13 +157,13 @@ public class FlutterCyberView extends CyberVideoView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class d implements CyberPlayerManager.OnSeekCompleteListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FlutterCyberView f5090e;
+        public final /* synthetic */ FlutterCyberView f5107e;
 
         public d(FlutterCyberView flutterCyberView) {
             Interceptable interceptable = $ic;
@@ -180,26 +180,26 @@ public class FlutterCyberView extends CyberVideoView {
                     return;
                 }
             }
-            this.f5090e = flutterCyberView;
+            this.f5107e = flutterCyberView;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
         public void onSeekComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f5090e.P == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f5107e.P == null) {
                 return;
             }
-            this.f5090e.P.onSeekComplete();
+            this.f5107e.P.onSeekComplete();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class e implements CyberPlayerManager.OnInfoListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FlutterCyberView f5091e;
+        public final /* synthetic */ FlutterCyberView f5108e;
 
         public e(FlutterCyberView flutterCyberView) {
             Interceptable interceptable = $ic;
@@ -216,7 +216,7 @@ public class FlutterCyberView extends CyberVideoView {
                     return;
                 }
             }
-            this.f5091e = flutterCyberView;
+            this.f5108e = flutterCyberView;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
@@ -224,8 +224,8 @@ public class FlutterCyberView extends CyberVideoView {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, obj)) == null) {
-                if (this.f5091e.R != null) {
-                    this.f5091e.R.onInfo(i2, i3, obj);
+                if (this.f5108e.R != null) {
+                    this.f5108e.R.onInfo(i2, i3, obj);
                     return true;
                 }
                 return true;
@@ -234,7 +234,7 @@ public class FlutterCyberView extends CyberVideoView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface f {
     }
 

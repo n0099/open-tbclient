@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class V8EngineConfiguration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class V8EngineConfiguration {
     public List<V8Engine.V8StatusListener> mV8StatusListeners;
     public V8ThreadDelegatePolicy mV8ThreadDelegatePolicy;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class CacheInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public class V8EngineConfiguration {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class CodeCacheSetting {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +85,7 @@ public class V8EngineConfiguration {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface JSCacheCallback {
         void onCacheResult(CacheInfo cacheInfo);
     }

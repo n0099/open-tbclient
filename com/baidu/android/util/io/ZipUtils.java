@@ -1,6 +1,7 @@
 package com.baidu.android.util.io;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.retrieve.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -188,7 +189,7 @@ public final class ZipUtils {
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:40:0x0062 -> B:47:0x0065). Please submit an issue!!! */
     public static void zip(String str, String str2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
             ZipOutputStream zipOutputStream = null;
             try {
                 try {

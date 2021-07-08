@@ -44,7 +44,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class SapiAccountManager implements ISAccountManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SESSION_BDUSS = "bduss";
@@ -64,7 +64,7 @@ public final class SapiAccountManager implements ISAccountManager {
     public transient /* synthetic */ FieldHolder $fh;
     public char isUseOpenBdussTpl;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface CheckUrlIsAvailableListener {
         void handleWebPageUrl(String str);
 
@@ -110,7 +110,7 @@ public final class SapiAccountManager implements ISAccountManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void checkIntegratedEnviroment() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             try {
                 Class.forName("com.baidu.pass.Constant");
             } catch (Exception unused) {

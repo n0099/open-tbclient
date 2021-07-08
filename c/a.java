@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,20 +22,20 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f1475b;
+    public static final a f1476b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f1476c;
+    public static final int f1477c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f1477d;
+    public static final int f1478d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f1478e;
+    public static final int f1479e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Executor f1479a;
+    public final Executor f1480a;
 
     /* renamed from: c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -88,11 +89,11 @@ public final class a {
                 return;
             }
         }
-        f1475b = new a();
+        f1476b = new a();
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f1476c = availableProcessors;
-        f1477d = availableProcessors + 1;
-        f1478e = (availableProcessors * 2) + 1;
+        f1477c = availableProcessors;
+        f1478d = availableProcessors + 1;
+        f1479e = (availableProcessors * 2) + 1;
     }
 
     public a() {
@@ -108,7 +109,7 @@ public final class a {
                 return;
             }
         }
-        this.f1479a = new b(null);
+        this.f1480a = new b(null);
     }
 
     @SuppressLint({"NewApi"})
@@ -124,7 +125,7 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(f1477d, f1478e, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(f1478d, f1479e, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
             a(threadPoolExecutor, true);
             return threadPoolExecutor;
         }
@@ -134,6 +135,6 @@ public final class a {
     public static Executor c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? f1475b.f1479a : (Executor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f1476b.f1480a : (Executor) invokeV.objValue;
     }
 }

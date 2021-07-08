@@ -1,6 +1,7 @@
 package com.bumptech.glide.load.engine.bitmap_recycle;
 
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,14 +13,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class GroupedLinkedMap<K extends Poolable, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final LinkedEntry<K, V> head;
     public final Map<K, LinkedEntry<K, V>> keyToEntry;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class LinkedEntry<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -154,7 +155,7 @@ public class GroupedLinkedMap<K extends Poolable, V> {
 
     public static <K, V> void updateEntry(LinkedEntry<K, V> linkedEntry) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, linkedEntry) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, linkedEntry) == null) {
             linkedEntry.next.prev = linkedEntry;
             linkedEntry.prev.next = linkedEntry;
         }

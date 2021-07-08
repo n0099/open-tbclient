@@ -3,6 +3,7 @@ package com.bytedance.sdk.component.d.c;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,37 +20,37 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f28670a;
+    public static volatile b f28780a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, List<a>> f28671b;
+    public Map<String, List<a>> f28781b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final o f28672c;
+    public final o f28782c;
 
     /* renamed from: d  reason: collision with root package name */
-    public i f28673d;
+    public i f28783d;
 
     /* renamed from: e  reason: collision with root package name */
-    public j f28674e;
+    public j f28784e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.bytedance.sdk.component.d.b f28675f;
+    public com.bytedance.sdk.component.d.b f28785f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.bytedance.sdk.component.d.c f28676g;
+    public com.bytedance.sdk.component.d.c f28786g;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f28677h;
+    public f f28787h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ExecutorService f28678i;
+    public ExecutorService f28788i;
     public com.bytedance.sdk.component.d.a j;
 
     public b(Context context, o oVar) {
@@ -67,8 +68,8 @@ public class b {
                 return;
             }
         }
-        this.f28671b = new ConcurrentHashMap();
-        this.f28672c = (o) d.a(oVar);
+        this.f28781b = new ConcurrentHashMap();
+        this.f28782c = (o) d.a(oVar);
         com.bytedance.sdk.component.d.a h2 = oVar.h();
         this.j = h2;
         if (h2 == null) {
@@ -79,14 +80,14 @@ public class b {
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? (b) d.a(f28670a, "ImageFactory was not initialized!") : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? (b) d.a(f28780a, "ImageFactory was not initialized!") : (b) invokeV.objValue;
     }
 
     private i i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            i d2 = this.f28672c.d();
+            i d2 = this.f28782c.d();
             if (d2 != null) {
                 return com.bytedance.sdk.component.d.c.a.b.a.a(d2);
             }
@@ -98,8 +99,8 @@ public class b {
     private j j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
-            j e2 = this.f28672c.e();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            j e2 = this.f28782c.e();
             return e2 != null ? e2 : e.a(this.j.b());
         }
         return (j) invokeV.objValue;
@@ -109,7 +110,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
-            com.bytedance.sdk.component.d.b f2 = this.f28672c.f();
+            com.bytedance.sdk.component.d.b f2 = this.f28782c.f();
             return f2 != null ? f2 : new com.bytedance.sdk.component.d.c.a.a.b(this.j.c(), this.j.a(), g());
         }
         return (com.bytedance.sdk.component.d.b) invokeV.objValue;
@@ -119,7 +120,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
-            com.bytedance.sdk.component.d.c c2 = this.f28672c.c();
+            com.bytedance.sdk.component.d.c c2 = this.f28782c.c();
             return c2 == null ? com.bytedance.sdk.component.d.b.b.a() : c2;
         }
         return (com.bytedance.sdk.component.d.c) invokeV.objValue;
@@ -129,7 +130,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            f a2 = this.f28672c.a();
+            f a2 = this.f28782c.a();
             return a2 != null ? a2 : com.bytedance.sdk.component.d.a.b.a();
         }
         return (f) invokeV.objValue;
@@ -139,7 +140,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            ExecutorService b2 = this.f28672c.b();
+            ExecutorService b2 = this.f28782c.b();
             return b2 != null ? b2 : com.bytedance.sdk.component.d.a.c.a();
         }
         return (ExecutorService) invokeV.objValue;
@@ -149,10 +150,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f28673d == null) {
-                this.f28673d = i();
+            if (this.f28783d == null) {
+                this.f28783d = i();
             }
-            return this.f28673d;
+            return this.f28783d;
         }
         return (i) invokeV.objValue;
     }
@@ -161,10 +162,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f28674e == null) {
-                this.f28674e = j();
+            if (this.f28784e == null) {
+                this.f28784e = j();
             }
-            return this.f28674e;
+            return this.f28784e;
         }
         return (j) invokeV.objValue;
     }
@@ -173,10 +174,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f28675f == null) {
-                this.f28675f = k();
+            if (this.f28785f == null) {
+                this.f28785f = k();
             }
-            return this.f28675f;
+            return this.f28785f;
         }
         return (com.bytedance.sdk.component.d.b) invokeV.objValue;
     }
@@ -185,10 +186,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f28676g == null) {
-                this.f28676g = l();
+            if (this.f28786g == null) {
+                this.f28786g = l();
             }
-            return this.f28676g;
+            return this.f28786g;
         }
         return (com.bytedance.sdk.component.d.c) invokeV.objValue;
     }
@@ -197,10 +198,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f28677h == null) {
-                this.f28677h = m();
+            if (this.f28787h == null) {
+                this.f28787h = m();
             }
-            return this.f28677h;
+            return this.f28787h;
         }
         return (f) invokeV.objValue;
     }
@@ -209,10 +210,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f28678i == null) {
-                this.f28678i = n();
+            if (this.f28788i == null) {
+                this.f28788i = n();
             }
-            return this.f28678i;
+            return this.f28788i;
         }
         return (ExecutorService) invokeV.objValue;
     }
@@ -220,14 +221,14 @@ public class b {
     public Map<String, List<a>> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f28671b : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f28781b : (Map) invokeV.objValue;
     }
 
     public static synchronized void a(Context context, o oVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, context, oVar) == null) {
             synchronized (b.class) {
-                f28670a = new b(context, oVar);
+                f28780a = new b(context, oVar);
                 c.a(oVar.g());
             }
         }
@@ -239,11 +240,11 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
             ImageView.ScaleType f2 = aVar.f();
             if (f2 == null) {
-                f2 = com.bytedance.sdk.component.d.c.b.a.f28679a;
+                f2 = com.bytedance.sdk.component.d.c.b.a.f28789a;
             }
             Bitmap.Config g2 = aVar.g();
             if (g2 == null) {
-                g2 = com.bytedance.sdk.component.d.c.b.a.f28680b;
+                g2 = com.bytedance.sdk.component.d.c.b.a.f28790b;
             }
             return new com.bytedance.sdk.component.d.c.b.a(aVar.h(), aVar.i(), f2, g2);
         }

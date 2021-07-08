@@ -1,16 +1,14 @@
 package com.kwad.sdk.core.c.a;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.retrieve.RetrieveFileData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.preload.SplashPreloadManager;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class z implements com.kwad.sdk.core.c<SplashPreloadManager.PreLoadItem> {
+/* loaded from: classes6.dex */
+public class z implements com.kwad.sdk.core.d<com.kwad.sdk.core.g.a.c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,29 +27,31 @@ public class z implements com.kwad.sdk.core.c<SplashPreloadManager.PreLoadItem> 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public JSONObject a(SplashPreloadManager.PreLoadItem preLoadItem) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.core.d
+    public void a(com.kwad.sdk.core.g.a.c cVar, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, preLoadItem)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "cacheTime", preLoadItem.cacheTime);
-            com.kwad.sdk.utils.o.a(jSONObject, RetrieveFileData.EXPIRED, preLoadItem.expiredTime);
-            com.kwad.sdk.utils.o.a(jSONObject, "preloadId", preLoadItem.preloadId);
-            return jSONObject;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, cVar, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return (JSONObject) invokeL.objValue;
+        cVar.f34456a = jSONObject.optInt("cellId");
+        cVar.f34457b = jSONObject.optInt("lac");
+        cVar.f34458c = jSONObject.optInt("bsss");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public void a(SplashPreloadManager.PreLoadItem preLoadItem, JSONObject jSONObject) {
+    @Override // com.kwad.sdk.core.d
+    public JSONObject b(com.kwad.sdk.core.g.a.c cVar, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, preLoadItem, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, jSONObject)) == null) {
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
+            }
+            com.kwad.sdk.utils.q.a(jSONObject, "cellId", cVar.f34456a);
+            com.kwad.sdk.utils.q.a(jSONObject, "lac", cVar.f34457b);
+            com.kwad.sdk.utils.q.a(jSONObject, "bsss", cVar.f34458c);
+            return jSONObject;
         }
-        preLoadItem.cacheTime = jSONObject.optLong("cacheTime");
-        preLoadItem.expiredTime = jSONObject.optLong(RetrieveFileData.EXPIRED);
-        preLoadItem.preloadId = jSONObject.optString("preloadId");
+        return (JSONObject) invokeLL.objValue;
     }
 }

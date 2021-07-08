@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.transcoder;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,7 +15,7 @@ import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.common.RotationOptions;
 import com.facebook.imagepipeline.image.EncodedImage;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DownsampleUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SAMPLE_SIZE = 1;
@@ -100,7 +101,7 @@ public class DownsampleUtil {
     public static int ratioToSampleSize(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeF = interceptable.invokeF(65540, null, f2)) != null) {
+        if (interceptable != null && (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TRACKBALL, null, f2)) != null) {
             return invokeF.intValue;
         }
         if (f2 > 0.6666667f) {

@@ -2,6 +2,7 @@ package com.baidu.swan.apps.process;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
@@ -25,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class SwanAppProcessInfo {
     public static final /* synthetic */ SwanAppProcessInfo[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -118,7 +119,7 @@ public final class SwanAppProcessInfo {
     public static SwanAppProcessInfo indexOf(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) ? indices()[i2] : (SwanAppProcessInfo) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? indices()[i2] : (SwanAppProcessInfo) invokeI.objValue;
     }
 
     public static SwanAppProcessInfo[] indices() {

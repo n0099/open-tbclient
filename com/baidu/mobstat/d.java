@@ -6,6 +6,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.bm;
 import com.baidu.mobstat.bt;
@@ -23,30 +24,30 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static d f8931a;
+    public static d f8948a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f8932a;
+        public String f8949a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f8933b;
+        public String f8950b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f8934c;
+        public String f8951c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f8935d;
+        public String f8952d;
 
         public a(String str, String str2, String str3, String str4) {
             Interceptable interceptable = $ic;
@@ -67,10 +68,10 @@ public class d {
             str2 = str2 == null ? "" : str2;
             str3 = str3 == null ? "" : str3;
             str4 = str4 == null ? "" : str4;
-            this.f8932a = str;
-            this.f8933b = str2;
-            this.f8934c = str3;
-            this.f8935d = str4;
+            this.f8949a = str;
+            this.f8950b = str2;
+            this.f8951c = str3;
+            this.f8952d = str4;
         }
 
         public JSONObject a() {
@@ -79,10 +80,10 @@ public class d {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("n", this.f8932a);
-                    jSONObject.put("v", this.f8933b);
-                    jSONObject.put("c", this.f8934c);
-                    jSONObject.put("a", this.f8935d);
+                    jSONObject.put("n", this.f8949a);
+                    jSONObject.put("v", this.f8950b);
+                    jSONObject.put("c", this.f8951c);
+                    jSONObject.put("a", this.f8952d);
                     return jSONObject;
                 } catch (JSONException e2) {
                     bb.c().b(e2);
@@ -106,7 +107,7 @@ public class d {
                 return;
             }
         }
-        f8931a = new d();
+        f8948a = new d();
     }
 
     public d() {
@@ -133,7 +134,7 @@ public class d {
     private ArrayList<a> c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) {
             ArrayList<a> arrayList = new ArrayList<>();
             Iterator<PackageInfo> it = d(context).iterator();
             while (it.hasNext()) {
@@ -215,7 +216,7 @@ public class d {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            k.f8977e.a(System.currentTimeMillis(), str);
+            k.f8994e.a(System.currentTimeMillis(), str);
         }
     }
 }

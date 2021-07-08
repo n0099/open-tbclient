@@ -18,11 +18,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.q;
-import d.a.s0.h3.l0.b;
-import d.a.s0.h3.l0.d.c;
+import d.a.p0.h3.l0.b;
+import d.a.p0.h3.l0.d.c;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class CommonTbJsBridge implements b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GET_SUPPLEMENT_INFO = "getSupplementInfo";
@@ -63,7 +63,7 @@ public class CommonTbJsBridge implements b {
         return (String) invokeV.objValue;
     }
 
-    @Override // d.a.s0.h3.l0.b
+    @Override // d.a.p0.h3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

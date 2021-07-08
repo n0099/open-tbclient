@@ -6,6 +6,7 @@ import android.net.Network;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import cn.com.chinatelecom.gateway.lib.CtAuth;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -33,7 +34,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1589a = "d";
+    public static final String f1590a = "d";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -131,7 +132,7 @@ public class d {
                                         th = th;
                                         bufferedReader = bufferedReader3;
                                         try {
-                                            CtAuth.warn(f1589a, "doGet error", th);
+                                            CtAuth.warn(f1590a, "doGet error", th);
                                             if (bufferedReader != null) {
                                                 bufferedReader.close();
                                             }
@@ -165,7 +166,7 @@ public class d {
                             } catch (Throwable th3) {
                                 th = th3;
                                 bufferedReader = null;
-                                CtAuth.warn(f1589a, "doGet error", th);
+                                CtAuth.warn(f1590a, "doGet error", th);
                                 if (bufferedReader != null) {
                                 }
                                 if (inputStreamReader != null) {
@@ -178,7 +179,7 @@ public class d {
                             th = th4;
                             inputStreamReader = null;
                             bufferedReader = null;
-                            CtAuth.warn(f1589a, "doGet error", th);
+                            CtAuth.warn(f1590a, "doGet error", th);
                             if (bufferedReader != null) {
                             }
                             if (inputStreamReader != null) {
@@ -335,7 +336,7 @@ public class d {
                                         e = e2;
                                         bufferedReader4 = bufferedReader6;
                                         str5 = "{\"result\":80005,\"msg\":\"Socket超时异常\"}";
-                                        String str6 = f1589a;
+                                        String str6 = f1590a;
                                         StringBuilder sb2 = new StringBuilder();
                                         sb2.append("sendRequest SocketTimeoutException-preauth-");
                                         sb2.append(e.getMessage());
@@ -351,7 +352,7 @@ public class d {
                                         e = e3;
                                         bufferedReader3 = bufferedReader6;
                                         str5 = "{\"result\":80006,\"msg\":\"域名解析异常\"}";
-                                        String str7 = f1589a;
+                                        String str7 = f1590a;
                                         StringBuilder sb4 = new StringBuilder();
                                         sb4.append("sendRequest UnknownHostException-preauth-");
                                         sb4.append(e.getMessage());
@@ -367,7 +368,7 @@ public class d {
                                         e = e4;
                                         bufferedReader2 = bufferedReader6;
                                         str5 = "{\"result\":80007,\"msg\":\"IO异常\"}";
-                                        String str8 = f1589a;
+                                        String str8 = f1590a;
                                         StringBuilder sb6 = new StringBuilder();
                                         sb6.append("sendRequest IOException-preauth-");
                                         sb6.append(e.getMessage());
@@ -383,7 +384,7 @@ public class d {
                                         th = th;
                                         bufferedReader = bufferedReader6;
                                         str5 = "{\"result\":80001,\"msg\":\"请求异常\"}";
-                                        String str9 = f1589a;
+                                        String str9 = f1590a;
                                         StringBuilder sb8 = new StringBuilder();
                                         sb8.append("sendRequest Throwable-preauth-");
                                         sb8.append(th.getMessage());
@@ -405,7 +406,7 @@ public class d {
                                 e = e5;
                                 bufferedReader4 = null;
                                 str5 = "{\"result\":80005,\"msg\":\"Socket超时异常\"}";
-                                String str62 = f1589a;
+                                String str62 = f1590a;
                                 StringBuilder sb22 = new StringBuilder();
                                 sb22.append("sendRequest SocketTimeoutException-preauth-");
                                 sb22.append(e.getMessage());
@@ -422,7 +423,7 @@ public class d {
                                 e = e6;
                                 bufferedReader3 = null;
                                 str5 = "{\"result\":80006,\"msg\":\"域名解析异常\"}";
-                                String str72 = f1589a;
+                                String str72 = f1590a;
                                 StringBuilder sb42 = new StringBuilder();
                                 sb42.append("sendRequest UnknownHostException-preauth-");
                                 sb42.append(e.getMessage());
@@ -439,7 +440,7 @@ public class d {
                                 e = e7;
                                 bufferedReader2 = null;
                                 str5 = "{\"result\":80007,\"msg\":\"IO异常\"}";
-                                String str82 = f1589a;
+                                String str82 = f1590a;
                                 StringBuilder sb62 = new StringBuilder();
                                 sb62.append("sendRequest IOException-preauth-");
                                 sb62.append(e.getMessage());
@@ -456,7 +457,7 @@ public class d {
                                 th = th2;
                                 bufferedReader = null;
                                 str5 = "{\"result\":80001,\"msg\":\"请求异常\"}";
-                                String str92 = f1589a;
+                                String str92 = f1590a;
                                 StringBuilder sb82 = new StringBuilder();
                                 sb82.append("sendRequest Throwable-preauth-");
                                 sb82.append(th.getMessage());
@@ -523,7 +524,7 @@ public class d {
     public static String a(Context context, HttpURLConnection httpURLConnection) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, httpURLConnection)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, httpURLConnection)) == null) {
             try {
                 Map<String, List<String>> headerFields = httpURLConnection.getHeaderFields();
                 List<String> list = headerFields.get("Log-Level");

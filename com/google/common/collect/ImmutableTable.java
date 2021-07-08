@@ -1,5 +1,6 @@
 package com.google.common.collect;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,12 +21,12 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class SerializedForm implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -91,19 +92,19 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class a<R, C, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<k1.a<R, C, V>> f33142a;
+        public final List<k1.a<R, C, V>> f33252a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Comparator<? super R> f33143b;
+        public Comparator<? super R> f33253b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Comparator<? super C> f33144c;
+        public Comparator<? super C> f33254c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -118,19 +119,19 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
                     return;
                 }
             }
-            this.f33142a = Lists.i();
+            this.f33252a = Lists.i();
         }
 
         public ImmutableTable<R, C, V> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int size = this.f33142a.size();
+                int size = this.f33252a.size();
                 if (size != 0) {
                     if (size != 1) {
-                        return RegularImmutableTable.forCells(this.f33142a, this.f33143b, this.f33144c);
+                        return RegularImmutableTable.forCells(this.f33252a, this.f33253b, this.f33254c);
                     }
-                    return new SingletonImmutableTable((k1.a) o0.i(this.f33142a));
+                    return new SingletonImmutableTable((k1.a) o0.i(this.f33252a));
                 }
                 return ImmutableTable.of();
             }
@@ -145,7 +146,7 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
                     n.q(aVar.getRowKey(), "row");
                     n.q(aVar.getColumnKey(), "column");
                     n.q(aVar.getValue(), "value");
-                    this.f33142a.add(aVar);
+                    this.f33252a.add(aVar);
                 } else {
                     c(aVar.getRowKey(), aVar.getColumnKey(), aVar.getValue());
                 }
@@ -158,7 +159,7 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, r, c2, v)) == null) {
-                this.f33142a.add(ImmutableTable.cellOf(r, c2, v));
+                this.f33252a.add(ImmutableTable.cellOf(r, c2, v));
                 return this;
             }
             return (a) invokeLLL.objValue;
@@ -429,7 +430,7 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
     public static <R, C, V> ImmutableTable<R, C, V> copyOf(Iterable<? extends k1.a<? extends R, ? extends C, ? extends V>> iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, iterable)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, iterable)) == null) {
             a builder = builder();
             for (k1.a<? extends R, ? extends C, ? extends V> aVar : iterable) {
                 builder.b(aVar);

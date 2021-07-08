@@ -14,18 +14,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a.v2.b0;
+import d.a.n0.a.v2.b0;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BdBaseImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f11261e;
+    public boolean f11278e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f11262f;
+    public int f11279f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdBaseImageView(Context context) {
@@ -45,8 +45,8 @@ public class BdBaseImageView extends ImageView {
                 return;
             }
         }
-        this.f11261e = true;
-        this.f11262f = 0;
+        this.f11278e = true;
+        this.f11279f = 0;
     }
 
     public final boolean a() {
@@ -58,7 +58,7 @@ public class BdBaseImageView extends ImageView {
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11261e || this.f11262f != b0.d(getContext()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11278e || this.f11279f != b0.d(getContext()) : invokeV.booleanValue;
     }
 
     @Override // android.view.View
@@ -67,8 +67,8 @@ public class BdBaseImageView extends ImageView {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             if (b()) {
                 b0.b(getContext(), getDrawable());
-                this.f11262f = b0.d(getContext());
-                this.f11261e = false;
+                this.f11279f = b0.d(getContext());
+                this.f11278e = false;
             }
             super.draw(canvas);
         }
@@ -90,7 +90,7 @@ public class BdBaseImageView extends ImageView {
     public void setImageDrawable(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, drawable) == null) {
-            this.f11261e = true;
+            this.f11278e = true;
             super.setImageDrawable(drawable);
         }
     }
@@ -114,8 +114,8 @@ public class BdBaseImageView extends ImageView {
                 return;
             }
         }
-        this.f11261e = true;
-        this.f11262f = 0;
+        this.f11278e = true;
+        this.f11279f = 0;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -137,7 +137,7 @@ public class BdBaseImageView extends ImageView {
                 return;
             }
         }
-        this.f11261e = true;
-        this.f11262f = 0;
+        this.f11278e = true;
+        this.f11279f = 0;
     }
 }

@@ -1,23 +1,24 @@
 package com.xiaomi.push;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.UnknownHostException;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class gv {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ew f43218a;
+        public ew f40232a;
 
         /* renamed from: a  reason: collision with other field name */
         public String f455a;
@@ -59,12 +60,12 @@ public final class gv {
             String str = exc2.getClass().getSimpleName() + ":" + message;
             int a2 = fn.a(exc2);
             if (a2 != 0) {
-                aVar.f43218a = ew.a(ew.l.a() + a2);
+                aVar.f40232a = ew.a(ew.l.a() + a2);
             }
-            if (aVar.f43218a == null) {
-                aVar.f43218a = ew.t;
+            if (aVar.f40232a == null) {
+                aVar.f40232a = ew.t;
             }
-            if (aVar.f43218a == ew.t) {
+            if (aVar.f40232a == ew.t) {
                 aVar.f455a = str;
             }
             return aVar;
@@ -106,19 +107,19 @@ public final class gv {
             String str = exc2.getClass().getSimpleName() + ":" + message;
             if (a2 != 0) {
                 ew a3 = ew.a(ew.v.a() + a2);
-                aVar.f43218a = a3;
+                aVar.f40232a = a3;
                 if (a3 == ew.G && (cause = exc2.getCause()) != null && (cause instanceof UnknownHostException)) {
                     ewVar = ew.F;
                 }
-                ewVar2 = aVar.f43218a;
+                ewVar2 = aVar.f40232a;
                 if (ewVar2 != ew.D || ewVar2 == ew.E || ewVar2 == ew.G) {
                     aVar.f455a = str;
                 }
                 return aVar;
             }
             ewVar = ew.E;
-            aVar.f43218a = ewVar;
-            ewVar2 = aVar.f43218a;
+            aVar.f40232a = ewVar;
+            ewVar2 = aVar.f40232a;
             if (ewVar2 != ew.D) {
             }
             aVar.f455a = str;
@@ -155,11 +156,11 @@ public final class gv {
             } else if (a2 == 199) {
                 ewVar = ew.O;
             } else if (a2 == 499) {
-                aVar.f43218a = ew.R;
+                aVar.f40232a = ew.R;
                 if (message.startsWith("Terminal binding condition encountered: item-not-found")) {
                     ewVar = ew.Q;
                 }
-                ewVar2 = aVar.f43218a;
+                ewVar2 = aVar.f40232a;
                 if (ewVar2 != ew.O || ewVar2 == ew.P || ewVar2 == ew.R) {
                     aVar.f455a = str;
                 }
@@ -167,8 +168,8 @@ public final class gv {
             } else {
                 ewVar = a2 != 109 ? a2 != 110 ? ew.P : ew.N : ew.M;
             }
-            aVar.f43218a = ewVar;
-            ewVar2 = aVar.f43218a;
+            aVar.f40232a = ewVar;
+            ewVar2 = aVar.f40232a;
             if (ewVar2 != ew.O) {
             }
             aVar.f455a = str;
@@ -182,7 +183,7 @@ public final class gv {
         ew ewVar;
         ew ewVar2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, exc)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, exc)) == null) {
             m361a(exc);
             boolean z = exc instanceof fw;
             Exception exc2 = exc;
@@ -202,11 +203,11 @@ public final class gv {
             } else if (a2 == 199) {
                 ewVar = ew.aa;
             } else if (a2 == 499) {
-                aVar.f43218a = ew.ad;
+                aVar.f40232a = ew.ad;
                 if (message.startsWith("Terminal binding condition encountered: item-not-found")) {
                     ewVar = ew.ac;
                 }
-                ewVar2 = aVar.f43218a;
+                ewVar2 = aVar.f40232a;
                 if (ewVar2 != ew.aa || ewVar2 == ew.ab || ewVar2 == ew.ad) {
                     aVar.f455a = str;
                 }
@@ -214,8 +215,8 @@ public final class gv {
             } else {
                 ewVar = a2 != 109 ? a2 != 110 ? ew.ab : ew.Z : ew.Y;
             }
-            aVar.f43218a = ewVar;
-            ewVar2 = aVar.f43218a;
+            aVar.f40232a = ewVar;
+            ewVar2 = aVar.f40232a;
             if (ewVar2 != ew.aa) {
             }
             aVar.f455a = str;

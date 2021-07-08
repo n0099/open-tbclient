@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.win.opensdk.activitys.H5OpenActivity;
 import com.win.opensdk.core.Info;
 import org.json.JSONException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class o1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public class o1 {
             } else if (a(context, Uri.parse(str), info)) {
             } else {
                 if (info.getOpent() == 1) {
-                    if (A.f42301d.f42304c) {
+                    if (A.f39315d.f39318c) {
                         Toast.makeText(context, context.getString(R.string.win_wdownload_loading), 1).show();
                         x0.a(context).b(new y0(info), 5).a();
                         return;
@@ -63,29 +63,29 @@ public class o1 {
                     y0 y0Var = new y0(info);
                     String open = info.getOpen();
                     try {
-                        a2.f42683b = x0.a("wdtr", y0Var);
+                        a2.f39697b = x0.a("wdtr", y0Var);
                         a2.a("msg", x0.a(open));
                     } catch (JSONException unused2) {
                     }
                     a2.a();
                     if (e1 != null) {
-                        e1.f42343c = info;
-                        WebView webView2 = e1.f42342b;
+                        e1.f39357c = info;
+                        WebView webView2 = e1.f39356b;
                         if (webView2 == null) {
                             return;
                         }
                         webView2.loadUrl(info.getOpen());
-                        webView = e1.f42342b;
+                        webView = e1.f39356b;
                         d1 = new D1(e1);
                     } else {
                         E1 e12 = new E1(context);
-                        e12.f42343c = info;
-                        WebView webView3 = e12.f42342b;
+                        e12.f39357c = info;
+                        WebView webView3 = e12.f39356b;
                         if (webView3 == null) {
                             return;
                         }
                         webView3.loadUrl(info.getOpen());
-                        webView = e12.f42342b;
+                        webView = e12.f39356b;
                         d1 = new D1(e12);
                     }
                     webView.setDownloadListener(d1);

@@ -9,12 +9,12 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.concurrent.Executors;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class f1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap f42563a;
+    public static HashMap f39577a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,14 +31,14 @@ public class f1 {
             }
         }
         Executors.newFixedThreadPool(1);
-        f42563a = new HashMap();
+        f39577a = new HashMap();
     }
 
     public static synchronized void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
             synchronized (f1.class) {
-                f42563a.remove(str);
+                f39577a.remove(str);
             }
         }
     }
@@ -47,10 +47,10 @@ public class f1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, str, e1Var) == null) {
             synchronized (f1.class) {
-                HashSet hashSet = (HashSet) f42563a.get(str);
+                HashSet hashSet = (HashSet) f39577a.get(str);
                 if (hashSet == null) {
                     hashSet = new HashSet();
-                    f42563a.put(str, hashSet);
+                    f39577a.put(str, hashSet);
                 }
                 hashSet.add(e1Var);
             }
@@ -60,7 +60,7 @@ public class f1 {
     public static void a(String str, String str2, Object obj) {
         HashSet hashSet;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65539, null, str, str2, obj) == null) || (hashSet = (HashSet) f42563a.get(str)) == null || hashSet.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeLLL(65539, null, str, str2, obj) == null) || (hashSet = (HashSet) f39577a.get(str)) == null || hashSet.size() <= 0) {
             return;
         }
         Iterator it = hashSet.iterator();

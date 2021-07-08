@@ -17,7 +17,7 @@ import java.util.concurrent.Callable;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 import org.webrtc.VideoFrame;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class SurfaceTextureHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SurfaceTextureHelper";

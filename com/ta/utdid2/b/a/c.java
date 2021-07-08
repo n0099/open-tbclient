@@ -3,6 +3,7 @@ package com.ta.utdid2.b.a;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Environment;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,13 +15,13 @@ import com.ta.utdid2.a.a.f;
 import com.ta.utdid2.b.a.b;
 import java.io.File;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences.Editor f41661a;
+    public SharedPreferences.Editor f38675a;
 
     /* renamed from: a  reason: collision with other field name */
     public SharedPreferences f10a;
@@ -38,19 +39,19 @@ public class c {
     public String f14a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41662b;
+    public String f38676b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f41663c;
+    public boolean f38677c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f41664d;
+    public boolean f38678d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f41665e;
+    public boolean f38679e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f41666f;
+    public boolean f38680f;
     public Context mContext;
 
     /* JADX WARN: Removed duplicated region for block: B:108:? A[RETURN, SYNTHETIC] */
@@ -81,22 +82,22 @@ public class c {
             }
         }
         this.f14a = "";
-        this.f41662b = "";
-        this.f41663c = false;
-        this.f41664d = false;
-        this.f41665e = false;
+        this.f38676b = "";
+        this.f38677c = false;
+        this.f38678d = false;
+        this.f38679e = false;
         String str3 = null;
         this.f10a = null;
         this.f12a = null;
-        this.f41661a = null;
+        this.f38675a = null;
         this.f11a = null;
         this.mContext = null;
         this.f13a = null;
-        this.f41666f = false;
-        this.f41663c = z;
-        this.f41666f = z2;
+        this.f38680f = false;
+        this.f38677c = z;
+        this.f38680f = z2;
         this.f14a = str2;
-        this.f41662b = str;
+        this.f38676b = str;
         this.mContext = context;
         if (context != null) {
             SharedPreferences sharedPreferences2 = context.getSharedPreferences(str2, 0);
@@ -111,20 +112,20 @@ public class c {
             e2.printStackTrace();
         }
         if (f.isEmpty(str3)) {
-            this.f41665e = false;
-            this.f41664d = false;
+            this.f38679e = false;
+            this.f38678d = false;
         } else if (str3.equals("mounted")) {
-            this.f41665e = true;
-            this.f41664d = true;
+            this.f38679e = true;
+            this.f38678d = true;
         } else if (str3.equals("mounted_ro")) {
-            this.f41664d = true;
-            this.f41665e = false;
+            this.f38678d = true;
+            this.f38679e = false;
         } else {
-            this.f41665e = false;
-            this.f41664d = false;
+            this.f38679e = false;
+            this.f38678d = false;
         }
         try {
-            if ((this.f41664d || this.f41665e) && context != null && !f.isEmpty(str)) {
+            if ((this.f38678d || this.f38679e) && context != null && !f.isEmpty(str)) {
                 d a2 = a(str);
                 this.f13a = a2;
                 if (a2 != null) {
@@ -173,7 +174,7 @@ public class c {
                             }
                             if (j == j2 || (j == 0 && j2 == 0)) {
                                 long currentTimeMillis = System.currentTimeMillis();
-                                z3 = this.f41666f;
+                                z3 = this.f38680f;
                                 if (z3 || (z3 && j == 0 && j2 == 0)) {
                                     sharedPreferences = this.f10a;
                                     if (sharedPreferences != null) {
@@ -200,7 +201,7 @@ public class c {
                     if (j == j2) {
                     }
                     long currentTimeMillis2 = System.currentTimeMillis();
-                    z3 = this.f41666f;
+                    z3 = this.f38680f;
                     if (z3) {
                     }
                     sharedPreferences = this.f10a;
@@ -219,7 +220,7 @@ public class c {
         if (j == j2) {
         }
         long currentTimeMillis22 = System.currentTimeMillis();
-        z3 = this.f41666f;
+        z3 = this.f38680f;
         if (z3) {
         }
         sharedPreferences = this.f10a;
@@ -279,12 +280,12 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            SharedPreferences.Editor editor = this.f41661a;
+            SharedPreferences.Editor editor = this.f38675a;
             if (editor != null) {
-                if (!this.f41666f && this.f10a != null) {
+                if (!this.f38680f && this.f10a != null) {
                     editor.putLong("t", currentTimeMillis);
                 }
-                if (!this.f41661a.commit()) {
+                if (!this.f38675a.commit()) {
                     z = false;
                     if (this.f10a != null && (context = this.mContext) != null) {
                         this.f10a = context.getSharedPreferences(this.f14a, 0);
@@ -294,11 +295,11 @@ public class c {
                     if (!f.isEmpty(str)) {
                         if (str.equals("mounted")) {
                             if (this.f12a == null) {
-                                d a2 = a(this.f41662b);
+                                d a2 = a(this.f38676b);
                                 if (a2 != null) {
                                     b a3 = a2.a(this.f14a, 0);
                                     this.f12a = a3;
-                                    if (!this.f41666f) {
+                                    if (!this.f38680f) {
                                         a(this.f10a, a3);
                                     } else {
                                         a(a3, this.f10a);
@@ -361,7 +362,7 @@ public class c {
             return;
         }
         b();
-        SharedPreferences.Editor editor = this.f41661a;
+        SharedPreferences.Editor editor = this.f38675a;
         if (editor != null) {
             editor.putString(str, str2);
         }
@@ -377,7 +378,7 @@ public class c {
             return;
         }
         b();
-        SharedPreferences.Editor editor = this.f41661a;
+        SharedPreferences.Editor editor = this.f38675a;
         if (editor != null) {
             editor.remove(str);
         }
@@ -410,10 +411,10 @@ public class c {
         SharedPreferences sharedPreferences;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            if (this.f41661a == null && (sharedPreferences = this.f10a) != null) {
-                this.f41661a = sharedPreferences.edit();
+            if (this.f38675a == null && (sharedPreferences = this.f10a) != null) {
+                this.f38675a = sharedPreferences.edit();
             }
-            if (this.f41665e && this.f11a == null && (bVar = this.f12a) != null) {
+            if (this.f38679e && this.f11a == null && (bVar = this.f12a) != null) {
                 this.f11a = bVar.a();
             }
             m60b();
@@ -448,7 +449,7 @@ public class c {
     private void a(b bVar, SharedPreferences sharedPreferences) {
         SharedPreferences.Editor edit;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65540, this, bVar, sharedPreferences) == null) || bVar == null || sharedPreferences == null || (edit = sharedPreferences.edit()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, bVar, sharedPreferences) == null) || bVar == null || sharedPreferences == null || (edit = sharedPreferences.edit()) == null) {
             return;
         }
         edit.clear();

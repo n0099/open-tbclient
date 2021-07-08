@@ -3,6 +3,7 @@ package com.xiaomi.mipush.sdk;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -22,7 +23,7 @@ import java.util.Iterator;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class MiTinyDataClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PENDING_REASON_APPID = "com.xiaomi.xmpushsdk.tinydataPending.appId";
@@ -30,19 +31,19 @@ public class MiTinyDataClient {
     public static final String PENDING_REASON_INIT = "com.xiaomi.xmpushsdk.tinydataPending.init";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static volatile a f42741a;
+        public static volatile a f39755a;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
         public Context f48a;
 
         /* renamed from: a  reason: collision with other field name */
-        public C0568a f49a;
+        public C0529a f49a;
 
         /* renamed from: a  reason: collision with other field name */
         public Boolean f50a;
@@ -54,13 +55,13 @@ public class MiTinyDataClient {
         public final ArrayList<hj> f52a;
 
         /* renamed from: com.xiaomi.mipush.sdk.MiTinyDataClient$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class C0568a {
+        /* loaded from: classes6.dex */
+        public class C0529a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f42742a;
+            public final /* synthetic */ a f39756a;
 
             /* renamed from: a  reason: collision with other field name */
             public final Runnable f53a;
@@ -74,7 +75,7 @@ public class MiTinyDataClient {
             /* renamed from: a  reason: collision with other field name */
             public ScheduledThreadPoolExecutor f56a;
 
-            public C0568a(a aVar) {
+            public C0529a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -89,7 +90,7 @@ public class MiTinyDataClient {
                         return;
                     }
                 }
-                this.f42742a = aVar;
+                this.f39756a = aVar;
                 this.f56a = new ScheduledThreadPoolExecutor(1);
                 this.f54a = new ArrayList<>();
                 this.f53a = new aa(this);
@@ -108,9 +109,9 @@ public class MiTinyDataClient {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
                     hj remove = this.f54a.remove(0);
-                    for (ie ieVar : bm.a(Arrays.asList(remove), this.f42742a.f48a.getPackageName(), b.m111a(this.f42742a.f48a).m112a(), TbConfig.VOICE_CHUNK_UPLOAD_SIZE)) {
+                    for (ie ieVar : bm.a(Arrays.asList(remove), this.f39756a.f48a.getPackageName(), b.m111a(this.f39756a.f48a).m112a(), TbConfig.VOICE_CHUNK_UPLOAD_SIZE)) {
                         com.xiaomi.channel.commonutils.logger.b.c("MiTinyDataClient Send item by PushServiceClient.sendMessage(XmActionNotification)." + remove.d());
-                        an.a(this.f42742a.f48a).a((an) ieVar, hf.f43244i, true, (hs) null);
+                        an.a(this.f39756a.f48a).a((an) ieVar, hf.f40258i, true, (hs) null);
                     }
                 }
             }
@@ -136,7 +137,7 @@ public class MiTinyDataClient {
                     return;
                 }
             }
-            this.f49a = new C0568a(this);
+            this.f49a = new C0529a(this);
             this.f52a = new ArrayList<>();
         }
 
@@ -144,14 +145,14 @@ public class MiTinyDataClient {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                if (f42741a == null) {
+                if (f39755a == null) {
                     synchronized (a.class) {
-                        if (f42741a == null) {
-                            f42741a = new a();
+                        if (f39755a == null) {
+                            f39755a = new a();
                         }
                     }
                 }
-                return f42741a;
+                return f39755a;
             }
             return (a) invokeV.objValue;
         }
@@ -173,7 +174,7 @@ public class MiTinyDataClient {
         private boolean a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, context)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) {
                 if (an.a(context).m104a()) {
                     try {
                         PackageInfo packageInfo = context.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4);
@@ -383,7 +384,7 @@ public class MiTinyDataClient {
     public static boolean upload(String str, String str2, long j, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{str, str2, Long.valueOf(j), str3})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, Long.valueOf(j), str3})) == null) {
             hj hjVar = new hj();
             hjVar.d(str);
             hjVar.c(str2);

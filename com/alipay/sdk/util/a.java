@@ -6,6 +6,7 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,20 +21,20 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1951a = "00:00:00:00:00:00";
+    public static final String f1952a = "00:00:00:00:00:00";
 
     /* renamed from: e  reason: collision with root package name */
-    public static a f1952e;
+    public static a f1953e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1953b;
+    public String f1954b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1954c;
+    public String f1955c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1955d;
+    public String f1956d;
 
     static {
         InterceptResult invokeClinit;
@@ -71,20 +72,20 @@ public class a {
                 b(telephonyManager.getDeviceId());
                 a(telephonyManager.getSubscriberId());
                 String macAddress = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
-                this.f1955d = macAddress;
+                this.f1956d = macAddress;
                 if (!TextUtils.isEmpty(macAddress)) {
                     return;
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
-                if (!TextUtils.isEmpty(this.f1955d)) {
+                if (!TextUtils.isEmpty(this.f1956d)) {
                     return;
                 }
             }
-            this.f1955d = f1951a;
+            this.f1956d = f1952a;
         } catch (Throwable th) {
-            if (TextUtils.isEmpty(this.f1955d)) {
-                this.f1955d = f1951a;
+            if (TextUtils.isEmpty(this.f1956d)) {
+                this.f1956d = f1952a;
             }
             throw th;
         }
@@ -94,10 +95,10 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f1952e == null) {
-                f1952e = new a(context);
+            if (f1953e == null) {
+                f1953e = new a(context);
             }
-            return f1952e;
+            return f1953e;
         }
         return (a) invokeL.objValue;
     }
@@ -106,10 +107,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TextUtils.isEmpty(this.f1954c)) {
-                this.f1954c = "000000000000000";
+            if (TextUtils.isEmpty(this.f1955c)) {
+                this.f1955c = "000000000000000";
             }
-            return this.f1954c;
+            return this.f1955c;
         }
         return (String) invokeV.objValue;
     }
@@ -131,7 +132,7 @@ public class a {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f1955d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f1956d : (String) invokeV.objValue;
     }
 
     public static String d(Context context) {
@@ -154,10 +155,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f1953b)) {
-                this.f1953b = "000000000000000";
+            if (TextUtils.isEmpty(this.f1954b)) {
+                this.f1954b = "000000000000000";
             }
-            return this.f1953b;
+            return this.f1954b;
         }
         return (String) invokeV.objValue;
     }
@@ -175,14 +176,14 @@ public class a {
                 String str2 = new String(bytes);
                 str = (str2 + "000000000000000").substring(0, 15);
             }
-            this.f1954c = str;
+            this.f1955c = str;
         }
     }
 
     public static String c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) ? a(context).c().substring(0, 8) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? a(context).c().substring(0, 8) : (String) invokeL.objValue;
     }
 
     public void a(String str) {
@@ -191,7 +192,7 @@ public class a {
             if (str != null) {
                 str = (str + "000000000000000").substring(0, 15);
             }
-            this.f1953b = str;
+            this.f1954b = str;
         }
     }
 
@@ -205,7 +206,7 @@ public class a {
                     return d.a(activeNetworkInfo.getSubtype());
                 }
                 if (activeNetworkInfo != null && activeNetworkInfo.getType() == 1) {
-                    return d.f1957a;
+                    return d.f1958a;
                 }
                 return d.o;
             } catch (Exception unused) {

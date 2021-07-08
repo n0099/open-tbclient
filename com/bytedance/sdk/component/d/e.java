@@ -1,7 +1,7 @@
 package com.bytedance.sdk.component.d;
 
 import android.widget.ImageView;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface e {
     d a(ImageView imageView);
 

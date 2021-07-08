@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class d extends com.vivo.push.y {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f42064a;
+    public boolean f39078a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(boolean z) {
@@ -32,7 +32,7 @@ public final class d extends com.vivo.push.y {
                 return;
             }
         }
-        this.f42064a = z;
+        this.f39078a = z;
     }
 
     @Override // com.vivo.push.y
@@ -52,7 +52,7 @@ public final class d extends com.vivo.push.y {
     public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42064a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f39078a : invokeV.booleanValue;
     }
 
     @Override // com.vivo.push.y

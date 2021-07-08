@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.v.a;
+import d.a.t.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
@@ -182,7 +182,7 @@ public class LoginManager {
     private String getStateString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) ? this.mLoginState.equals(LoginState.LOGINING) ? "logining" : this.mLoginState.equals(LoginState.LOGINED) ? "logged" : "not_login" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.mLoginState.equals(LoginState.LOGINING) ? "logining" : this.mLoginState.equals(LoginState.LOGINED) ? "logged" : "not_login" : (String) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -193,10 +193,10 @@ public class LoginManager {
             String str = this.TAG;
             LogUtils.d(str, "lcp，im login ：" + IMUserLoginByTokenMsg.sRetrytimes + ", loginType :" + loginType);
             if (z) {
-                Handler handler = a.f70710c;
+                Handler handler = a.f67513c;
                 if (handler != null) {
                     handler.removeCallbacks(this.imLoginRunable);
-                    a.f70710c.postDelayed(this.imLoginRunable, 3000L);
+                    a.f67513c.postDelayed(this.imLoginRunable, 3000L);
                 }
             } else if (loginType == 1) {
                 BIMManager.login(Utility.readUid(mContext), AccountManagerImpl.getInstance(mContext).getToken(), loginType, AccountManagerImpl.getInstance(mContext).getFrom(), AccountManagerImpl.getInstance(mContext).getcFrom(), removeLoginListener());
@@ -334,11 +334,11 @@ public class LoginManager {
                     this.mLoginState = LoginState.NOT_LOGIN;
                     return;
                 } else if (110 != i2 && 7 != i2 && 23 != i2 && 1004 != i2 && 1001 != i2 && 8010 != i2) {
-                    LogUtils.d(this.TAG, "error :" + i2 + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + a.f70712e);
+                    LogUtils.d(this.TAG, "error :" + i2 + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + a.f67515e);
                     this.mLoginState = LoginState.NOT_LOGIN;
-                    if (a.f70712e && IMUserLoginByTokenMsg.sRetrytimes < 3) {
+                    if (a.f67515e && IMUserLoginByTokenMsg.sRetrytimes < 3) {
                         imRetryLogin(i2);
-                    } else if (!a.f70712e && IMConnection.getInstance(mContext).shouldRetryLogin()) {
+                    } else if (!a.f67515e && IMConnection.getInstance(mContext).shouldRetryLogin()) {
                         LogUtils.d(this.TAG, "IMConnection，im login ：" + IMUserLoginByTokenMsg.sRetrytimes);
                         IMConnection.getInstance(mContext).disconnectedByPeer();
                     }

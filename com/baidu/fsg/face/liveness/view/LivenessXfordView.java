@@ -27,41 +27,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LivenessXfordView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PROGRESS_PROPERTY = "progress";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f6160a = 12;
+    public static final int f6177a = 12;
     public transient /* synthetic */ FieldHolder $fh;
     public AnimatorSet A;
     public float B;
     public float C;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f6161b;
+    public float f6178b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Xfermode f6162c;
+    public Xfermode f6179c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RectF f6163d;
+    public RectF f6180d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RectF f6164e;
+    public RectF f6181e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f6165f;
+    public int f6182f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f6166g;
+    public int f6183g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f6167h;
+    public float f6184h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f6168i;
+    public float f6185i;
     public Handler j;
     public Runnable k;
     public float l;
@@ -99,7 +99,7 @@ public class LivenessXfordView extends FrameLayout {
                 return;
             }
         }
-        this.f6161b = -90.0f;
+        this.f6178b = -90.0f;
         this.m = true;
         this.z = true;
         a();
@@ -134,19 +134,19 @@ public class LivenessXfordView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             super.onDraw(canvas);
-            RectF rectF = this.f6163d;
+            RectF rectF = this.f6180d;
             if (rectF == null || rectF.width() == 0.0f) {
                 return;
             }
             if (this.z) {
-                RectF rectF2 = this.f6164e;
+                RectF rectF2 = this.f6181e;
                 float f2 = rectF2.left;
                 float f3 = this.l;
                 canvas.drawRect(f2, f3, rectF2.right, f3 + rectF2.height(), this.u);
-                RectF rectF3 = this.f6164e;
+                RectF rectF3 = this.f6181e;
                 float f4 = rectF3.left;
                 float height = this.l + rectF3.height();
-                RectF rectF4 = this.f6164e;
+                RectF rectF4 = this.f6181e;
                 canvas.drawLine(f4, height, rectF4.right, this.l + rectF4.height(), this.v);
             }
             if (this.y) {
@@ -154,10 +154,10 @@ public class LivenessXfordView extends FrameLayout {
             }
             int saveLayer = canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
             canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.q);
-            canvas.drawCircle(this.f6167h, this.f6168i, this.f6165f, this.w);
+            canvas.drawCircle(this.f6184h, this.f6185i, this.f6182f, this.w);
             canvas.restoreToCount(saveLayer);
-            canvas.drawCircle(this.f6167h, this.f6168i, this.f6166g, this.s);
-            canvas.drawArc(this.f6164e, this.f6161b, this.progress, false, this.r);
+            canvas.drawCircle(this.f6184h, this.f6185i, this.f6183g, this.s);
+            canvas.drawArc(this.f6181e, this.f6178b, this.progress, false, this.r);
             if (this.n != null) {
                 this.x.setColor(-16776961);
                 canvas.drawRect(this.n, this.x);
@@ -188,18 +188,18 @@ public class LivenessXfordView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeLL(1048581, this, rect, rect2) == null) || rect == null || rect2 == null) {
             return;
         }
-        this.f6163d = new RectF(rect);
+        this.f6180d = new RectF(rect);
         RectF rectF = new RectF(rect2);
-        this.f6164e = rectF;
+        this.f6181e = rectF;
         this.B = rectF.top - rectF.height();
-        RectF rectF2 = this.f6164e;
+        RectF rectF2 = this.f6181e;
         this.C = rectF2.bottom - rectF2.height();
         this.l = this.B;
-        RectF rectF3 = this.f6163d;
-        this.f6167h = (rectF3.left + rectF3.right) / 2.0f;
-        this.f6168i = (rectF3.top + rectF3.bottom) / 2.0f;
-        this.f6165f = rect.width() / 2;
-        this.f6166g = (rect.width() / 2) + ((rect2.width() - rect.width()) / 2);
+        RectF rectF3 = this.f6180d;
+        this.f6184h = (rectF3.left + rectF3.right) / 2.0f;
+        this.f6185i = (rectF3.top + rectF3.bottom) / 2.0f;
+        this.f6182f = rect.width() / 2;
+        this.f6183g = (rect.width() / 2) + ((rect2.width() - rect.width()) / 2);
         invalidate();
     }
 
@@ -267,7 +267,7 @@ public class LivenessXfordView extends FrameLayout {
 
     private void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             Paint paint = new Paint();
             this.q = paint;
             paint.setColor(-1);
@@ -313,7 +313,7 @@ public class LivenessXfordView extends FrameLayout {
             paint8.setColor(0);
             this.r.setAntiAlias(true);
             PorterDuffXfermode porterDuffXfermode = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
-            this.f6162c = porterDuffXfermode;
+            this.f6179c = porterDuffXfermode;
             this.w.setXfermode(porterDuffXfermode);
             this.j = new Handler(Looper.getMainLooper());
             this.k = new Runnable(this) { // from class: com.baidu.fsg.face.liveness.view.LivenessXfordView.1
@@ -321,7 +321,7 @@ public class LivenessXfordView extends FrameLayout {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LivenessXfordView f6169a;
+                public final /* synthetic */ LivenessXfordView f6186a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -338,31 +338,31 @@ public class LivenessXfordView extends FrameLayout {
                             return;
                         }
                     }
-                    this.f6169a = this;
+                    this.f6186a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.f6169a.f6163d == null) {
-                            this.f6169a.j.postDelayed(this.f6169a.k, 6L);
+                        if (this.f6186a.f6180d == null) {
+                            this.f6186a.j.postDelayed(this.f6186a.k, 6L);
                             return;
                         }
-                        LivenessXfordView livenessXfordView = this.f6169a;
-                        livenessXfordView.l = livenessXfordView.m ? this.f6169a.l + 3.0f : this.f6169a.l - 3.0f;
-                        if (this.f6169a.l <= this.f6169a.B) {
-                            LivenessXfordView livenessXfordView2 = this.f6169a;
+                        LivenessXfordView livenessXfordView = this.f6186a;
+                        livenessXfordView.l = livenessXfordView.m ? this.f6186a.l + 3.0f : this.f6186a.l - 3.0f;
+                        if (this.f6186a.l <= this.f6186a.B) {
+                            LivenessXfordView livenessXfordView2 = this.f6186a;
                             livenessXfordView2.l = livenessXfordView2.B;
-                            this.f6169a.m = true;
+                            this.f6186a.m = true;
                         }
-                        if (this.f6169a.l >= this.f6169a.C) {
-                            LivenessXfordView livenessXfordView3 = this.f6169a;
+                        if (this.f6186a.l >= this.f6186a.C) {
+                            LivenessXfordView livenessXfordView3 = this.f6186a;
                             livenessXfordView3.l = livenessXfordView3.C;
-                            this.f6169a.m = false;
+                            this.f6186a.m = false;
                         }
-                        this.f6169a.j.postDelayed(this.f6169a.k, 6L);
-                        this.f6169a.invalidate();
+                        this.f6186a.j.postDelayed(this.f6186a.k, 6L);
+                        this.f6186a.invalidate();
                     }
                 }
             };
@@ -389,7 +389,7 @@ public class LivenessXfordView extends FrameLayout {
                 return;
             }
         }
-        this.f6161b = -90.0f;
+        this.f6178b = -90.0f;
         this.m = true;
         this.z = true;
         a();

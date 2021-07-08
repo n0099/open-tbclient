@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.chatmessage.messages;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -13,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.video.player.KsMediaMeta;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import org.json.JSONException;
@@ -88,7 +88,7 @@ public class AudioMsg extends RichMediaMsg {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("url", str);
-                jSONObject.put(KsMediaMeta.KSM_KEY_FORMAT, i2);
+                jSONObject.put("format", i2);
                 jSONObject.put("duration", i3);
                 return jSONObject.toString();
             } catch (JSONException e2) {
@@ -146,7 +146,7 @@ public class AudioMsg extends RichMediaMsg {
             try {
                 JSONObject jSONObject = new JSONObject(this.mjsonContent);
                 this.mRemoteUrl = jSONObject.optString("url");
-                this.mFormat = jSONObject.optInt(KsMediaMeta.KSM_KEY_FORMAT);
+                this.mFormat = jSONObject.optInt("format");
                 this.mDuration = jSONObject.optInt("duration");
                 if (this.mRemoteUrl.regionMatches(0, "http%3A", 0, 7)) {
                     transCodeUrl(jSONObject);
@@ -202,12 +202,12 @@ public class AudioMsg extends RichMediaMsg {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
                 int i5 = i4 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }

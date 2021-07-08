@@ -11,7 +11,7 @@ import com.facebook.common.internal.VisibleForTesting;
 import java.io.InputStream;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PooledByteBufferInputStream extends InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

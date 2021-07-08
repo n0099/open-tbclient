@@ -37,7 +37,7 @@ import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class MaterialCardView extends CardView implements Checkable, Shapeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCESSIBILITY_CLASS_NAME = "androidx.cardview.widget.CardView";
@@ -54,7 +54,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     public boolean isParentCardViewDoneInitializing;
     public OnCheckedChangeListener onCheckedChangeListener;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface OnCheckedChangeListener {
         void onCheckedChanged(MaterialCardView materialCardView, boolean z);
     }

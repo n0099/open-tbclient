@@ -9,10 +9,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.utils.j;
+import com.kwad.sdk.utils.m;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class a implements i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public final class a implements i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
-                return new String(c.a().a(b.a(j.a(0).getBytes("UTF-8"), b.a(str.getBytes()))), "UTF-8");
+                return new String(c.a().a(b.a(m.a(0).getBytes("UTF-8"), b.a(str.getBytes()))), "UTF-8");
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
                 return str;
@@ -82,7 +82,7 @@ public final class a implements i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             try {
-                return new String(b.b(b.a(j.a(0), c.b().a(str.getBytes()))), "UTF-8");
+                return new String(b.b(b.a(m.a(0), c.b().a(str.getBytes()))), "UTF-8");
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.b(e2);
                 return str;

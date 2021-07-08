@@ -29,48 +29,48 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CardListCache extends MyDb {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String[] f26980f;
+    public static final String[] f27090f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CardListResponse f26981a;
+    public CardListResponse f27091a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CardListResponse f26982b;
+    public CardListResponse f27092b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b<CardListResponse> f26983c;
+    public b<CardListResponse> f27093c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a<CardListResponse> f26984d;
+    public a<CardListResponse> f27094d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f26985e;
+    public Handler f27095e;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a<Value extends Serializable> {
         void a(Value value);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface b<Value extends Serializable> {
         void a(Value value);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f26987a = 2;
+        public static int f27097a = 2;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final CardListCache f26988b;
+        public static final CardListCache f27098b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -86,7 +86,7 @@ public class CardListCache extends MyDb {
                     return;
                 }
             }
-            f26988b = new CardListCache(BaiduWalletDelegate.getInstance().getAppContext(), "wallet_sdk.db", f26987a);
+            f27098b = new CardListCache(BaiduWalletDelegate.getInstance().getAppContext(), "wallet_sdk.db", f27097a);
         }
     }
 
@@ -103,34 +103,34 @@ public class CardListCache extends MyDb {
                 return;
             }
         }
-        f26980f = new String[]{"user_id TEXT not null", "card_list TEXT NOT null default ''", "primary key (user_id)"};
+        f27090f = new String[]{"user_id TEXT not null", "card_list TEXT NOT null default ''", "primary key (user_id)"};
     }
 
     public static CardListCache getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? c.f26988b : (CardListCache) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? c.f27098b : (CardListCache) invokeV.objValue;
     }
 
     public void getCardList(b<CardListResponse> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f26983c = bVar;
+            this.f27093c = bVar;
             if (bVar == null) {
                 return;
             }
-            this.f26985e.obtainMessage(10001).sendToTarget();
+            this.f27095e.obtainMessage(10001).sendToTarget();
         }
     }
 
     public void getEemCardList(a<CardListResponse> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f26984d = aVar;
+            this.f27094d = aVar;
             if (aVar == null) {
                 return;
             }
-            this.f26985e.obtainMessage(10002).sendToTarget();
+            this.f27095e.obtainMessage(10002).sendToTarget();
         }
     }
 
@@ -179,8 +179,8 @@ public class CardListCache extends MyDb {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, sQLiteDatabase) == null) {
             this.mDb = sQLiteDatabase;
-            MyDb.createTable(sQLiteDatabase, "tb_card_list", f26980f);
-            MyDb.createTable(sQLiteDatabase, "tb_eem_card_list", f26980f);
+            MyDb.createTable(sQLiteDatabase, "tb_card_list", f27090f);
+            MyDb.createTable(sQLiteDatabase, "tb_eem_card_list", f27090f);
         }
     }
 
@@ -198,7 +198,7 @@ public class CardListCache extends MyDb {
         if (interceptable == null || interceptable.invokeLII(1048582, this, sQLiteDatabase, i2, i3) == null) {
             this.mDb = sQLiteDatabase;
             if (i3 > i2) {
-                MyDb.createTable(sQLiteDatabase, "tb_eem_card_list", f26980f);
+                MyDb.createTable(sQLiteDatabase, "tb_eem_card_list", f27090f);
             }
         }
     }
@@ -213,9 +213,9 @@ public class CardListCache extends MyDb {
             return;
         }
         if (i2 == 599) {
-            this.f26985e.obtainMessage(10000, a2).sendToTarget();
+            this.f27095e.obtainMessage(10000, a2).sendToTarget();
         } else if (i2 == 607) {
-            this.f26985e.obtainMessage(10003, a2).sendToTarget();
+            this.f27095e.obtainMessage(10003, a2).sendToTarget();
         }
     }
 
@@ -240,12 +240,12 @@ public class CardListCache extends MyDb {
         }
         HandlerThread handlerThread = new HandlerThread("sdk_db_thread");
         handlerThread.start();
-        this.f26985e = new Handler(this, handlerThread.getLooper()) { // from class: com.baidu.wallet.personal.storage.CardListCache.1
+        this.f27095e = new Handler(this, handlerThread.getLooper()) { // from class: com.baidu.wallet.personal.storage.CardListCache.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CardListCache f26986a;
+            public final /* synthetic */ CardListCache f27096a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -265,7 +265,7 @@ public class CardListCache extends MyDb {
                         return;
                     }
                 }
-                this.f26986a = this;
+                this.f27096a = this;
             }
 
             @Override // android.os.Handler
@@ -276,20 +276,20 @@ public class CardListCache extends MyDb {
                 }
                 int i5 = message.what;
                 if (10000 == i5) {
-                    this.f26986a.a((String) message.obj, "tb_card_list");
+                    this.f27096a.a((String) message.obj, "tb_card_list");
                 } else if (10001 == i5) {
-                    CardListCache cardListCache = this.f26986a;
-                    cardListCache.f26981a = cardListCache.a("tb_card_list");
-                    if (this.f26986a.f26983c != null) {
-                        this.f26986a.f26983c.a(this.f26986a.f26981a);
+                    CardListCache cardListCache = this.f27096a;
+                    cardListCache.f27091a = cardListCache.a("tb_card_list");
+                    if (this.f27096a.f27093c != null) {
+                        this.f27096a.f27093c.a(this.f27096a.f27091a);
                     }
                 } else if (10003 == i5) {
-                    this.f26986a.a((String) message.obj, "tb_eem_card_list");
+                    this.f27096a.a((String) message.obj, "tb_eem_card_list");
                 } else if (10002 == i5) {
-                    CardListCache cardListCache2 = this.f26986a;
-                    cardListCache2.f26982b = cardListCache2.a("tb_eem_card_list");
-                    if (this.f26986a.f26984d != null) {
-                        this.f26986a.f26984d.a(this.f26986a.f26982b);
+                    CardListCache cardListCache2 = this.f27096a;
+                    cardListCache2.f27092b = cardListCache2.a("tb_eem_card_list");
+                    if (this.f27096a.f27094d != null) {
+                        this.f27096a.f27094d.a(this.f27096a.f27092b);
                     }
                 }
             }

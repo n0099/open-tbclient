@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BaseActivity extends Activity implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DIALOG_LOADING = 242;
@@ -39,31 +39,31 @@ public class BaseActivity extends Activity implements NoProguard {
     public static final String WITH_ANIM = "with_anim";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5122a = "BaseActivity";
+    public static final String f5139a = "BaseActivity";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f5123b = false;
+    public static final boolean f5140b = false;
     public static LinkedList<BaseActivity> mActivityStack;
     public static int mLiveActivityNum;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f5124c;
+    public boolean f5141c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f5125d;
+    public boolean f5142d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f5126e;
+    public String f5143e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SafeScrollView f5127f;
+    public SafeScrollView f5144f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f5128g;
+    public boolean f5145g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f5129h;
+    public long f5146h;
     public int mFlag;
     public RimStatisticsUtil mStatUtil;
 
@@ -100,21 +100,21 @@ public class BaseActivity extends Activity implements NoProguard {
             }
         }
         this.mFlag = -1;
-        this.f5124c = false;
-        this.f5125d = true;
-        this.f5126e = MULTI_WINDOW_TIPS;
-        this.f5127f = null;
-        this.f5128g = false;
+        this.f5141c = false;
+        this.f5142d = true;
+        this.f5143e = MULTI_WINDOW_TIPS;
+        this.f5144f = null;
+        this.f5145g = false;
     }
 
     @TargetApi(24)
     private void a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && Build.VERSION.SDK_INT >= 24 && isInMultiWindowMode()) {
-            if (this.f5124c) {
-                RimGlobalUtils.toastWithText(getActivity(), this.f5126e, 1);
+            if (this.f5141c) {
+                RimGlobalUtils.toastWithText(getActivity(), this.f5143e, 1);
             }
-            if (this.f5125d) {
+            if (this.f5142d) {
                 return;
             }
             finish();
@@ -130,7 +130,7 @@ public class BaseActivity extends Activity implements NoProguard {
 
     public static synchronized void addToTask(BaseActivity baseActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, baseActivity) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, baseActivity) == null) {
             synchronized (BaseActivity.class) {
                 mActivityStack.remove(baseActivity);
                 mActivityStack.add(baseActivity);
@@ -277,7 +277,7 @@ public class BaseActivity extends Activity implements NoProguard {
     public boolean isActivityInForeground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f5128g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f5145g : invokeV.booleanValue;
     }
 
     public boolean isRequestedOrientation() {
@@ -312,7 +312,7 @@ public class BaseActivity extends Activity implements NoProguard {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
-            this.f5129h = System.currentTimeMillis();
+            this.f5146h = System.currentTimeMillis();
             this.mStatUtil = RimStatisticsUtil.getInstance();
             RimStatisticsUtil.onPush(getClass().getSimpleName());
             if (isRequestedOrientation()) {
@@ -368,15 +368,15 @@ public class BaseActivity extends Activity implements NoProguard {
             return;
         }
         super.onMultiWindowModeChanged(z);
-        SafeScrollView safeScrollView = this.f5127f;
+        SafeScrollView safeScrollView = this.f5144f;
         if (safeScrollView != null) {
             safeScrollView.dismissKeyBoard();
         }
         if (z && isActivityInForeground()) {
-            if (this.f5124c) {
-                RimGlobalUtils.toastWithText(getActivity(), this.f5126e, 1);
+            if (this.f5141c) {
+                RimGlobalUtils.toastWithText(getActivity(), this.f5143e, 1);
             }
-            if (this.f5125d) {
+            if (this.f5142d) {
                 return;
             }
             finish();
@@ -389,7 +389,7 @@ public class BaseActivity extends Activity implements NoProguard {
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onPause();
             decLiveActivityNum();
-            this.f5128g = false;
+            this.f5145g = false;
             RimStatisticsUtil.onOut(getClass().getSimpleName());
         }
     }
@@ -400,10 +400,10 @@ public class BaseActivity extends Activity implements NoProguard {
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onResume();
             addLiveActivityNum();
-            this.f5128g = true;
-            if (0 != this.f5129h) {
-                RimStatisticsUtil.onIn(getClass().getSimpleName(), System.currentTimeMillis() - this.f5129h);
-                this.f5129h = 0L;
+            this.f5145g = true;
+            if (0 != this.f5146h) {
+                RimStatisticsUtil.onIn(getClass().getSimpleName(), System.currentTimeMillis() - this.f5146h);
+                this.f5146h = 0L;
             } else {
                 RimStatisticsUtil.onIn(getClass().getSimpleName(), 0L);
             }
@@ -420,31 +420,31 @@ public class BaseActivity extends Activity implements NoProguard {
 
     public void setIsMultiWindowAvailable(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048592, this, z) == null) || z == this.f5125d) {
+        if (!(interceptable == null || interceptable.invokeZ(1048592, this, z) == null) || z == this.f5142d) {
             return;
         }
-        this.f5125d = z;
+        this.f5142d = z;
     }
 
     public void setIsShowMultiWindowTips(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048593, this, z) == null) || z == this.f5124c) {
+        if (!(interceptable == null || interceptable.invokeZ(1048593, this, z) == null) || z == this.f5141c) {
             return;
         }
-        this.f5124c = z;
+        this.f5141c = z;
     }
 
     public void setMultiWindowTipsId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.f5126e = str;
+            this.f5143e = str;
         }
     }
 
     public void setSafeScrollView(SafeScrollView safeScrollView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, safeScrollView) == null) {
-            this.f5127f = safeScrollView;
+            this.f5144f = safeScrollView;
         }
     }
 

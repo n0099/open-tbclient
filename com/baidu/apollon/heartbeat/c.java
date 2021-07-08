@@ -2,6 +2,7 @@ package com.baidu.apollon.heartbeat;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,25 +16,25 @@ public final class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3765a;
+    public static final String f3768a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3766b = "last_cfg_request_time";
+    public static final String f3769b = "last_cfg_request_time";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f3767c = "heartbeat_cfg_fingerprint";
+    public static final String f3770c = "heartbeat_cfg_fingerprint";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f3768d = 300;
+    public static final int f3771d = 300;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f3769e = "HeartBeatSP";
+    public static final String f3772e = "HeartBeatSP";
 
     /* renamed from: f  reason: collision with root package name */
-    public static SharedPreferences f3770f;
+    public static SharedPreferences f3773f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static SharedPreferences.Editor f3771g;
+    public static SharedPreferences.Editor f3774g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,7 +50,7 @@ public final class c {
                 return;
             }
         }
-        f3765a = c.class.getClass().getSimpleName();
+        f3768a = c.class.getClass().getSimpleName();
     }
 
     public c() {
@@ -68,10 +69,10 @@ public final class c {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, context) == null) && f3770f == null) {
-            SharedPreferences sharedPreferences = context.getSharedPreferences(f3769e, 0);
-            f3770f = sharedPreferences;
-            f3771g = sharedPreferences.edit();
+        if ((interceptable == null || interceptable.invokeL(65538, null, context) == null) && f3773f == null) {
+            SharedPreferences sharedPreferences = context.getSharedPreferences(f3772e, 0);
+            f3773f = sharedPreferences;
+            f3774g = sharedPreferences.edit();
         }
     }
 
@@ -80,7 +81,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, str, Long.valueOf(j)})) == null) {
             a(context);
-            return f3770f.getLong(str, j);
+            return f3773f.getLong(str, j);
         }
         return invokeCommon.longValue;
     }
@@ -90,17 +91,17 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, context, str, str2)) == null) {
             a(context);
-            return f3770f.getString(str, str2);
+            return f3773f.getString(str, str2);
         }
         return (String) invokeLLL.objValue;
     }
 
     public static void a(Context context, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{context, str, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, Long.valueOf(j)}) == null) {
             a(context);
-            f3771g.putLong(str, j);
-            f3771g.commit();
+            f3774g.putLong(str, j);
+            f3774g.commit();
         }
     }
 
@@ -108,8 +109,8 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, str, str2) == null) {
             a(context);
-            f3771g.putString(str, str2);
-            f3771g.commit();
+            f3774g.putString(str, str2);
+            f3774g.commit();
         }
     }
 
@@ -117,8 +118,8 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
             a(context);
-            f3771g.remove(str);
-            f3771g.commit();
+            f3774g.remove(str);
+            f3774g.commit();
         }
     }
 }

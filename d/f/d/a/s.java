@@ -1,5 +1,6 @@
 package d.f.d.a;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class s {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f73734a;
+    public static final Object f70837a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,11 +31,11 @@ public final class s {
             }
         }
         Object b2 = b();
-        f73734a = b2;
+        f70837a = b2;
         if (b2 != null) {
             a();
         }
-        if (f73734a == null) {
+        if (f70837a == null) {
             return;
         }
         d();
@@ -79,7 +80,7 @@ public final class s {
     public static Method d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             try {
                 Method c2 = c("getStackTraceDepth", Throwable.class);
                 if (c2 == null) {

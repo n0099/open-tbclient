@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,7 +58,7 @@ public class Base64 {
         InterceptResult invokeLII;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65540, null, cArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, cArr, i2, i3)) == null) {
             int i5 = 0;
             if (i3 == 0) {
                 return new byte[0];

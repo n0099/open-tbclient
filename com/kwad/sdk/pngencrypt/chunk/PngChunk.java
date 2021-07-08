@@ -10,37 +10,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class PngChunk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f38694a;
+    public final String f35766a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f38695b;
+    public final boolean f35767b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f38696c;
+    public final boolean f35768c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f38697d;
+    public final boolean f35769d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.kwad.sdk.pngencrypt.k f38698e;
+    public final com.kwad.sdk.pngencrypt.k f35770e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f38699f;
+    public d f35771f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f38700g;
+    public int f35772g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f38701h;
+    public boolean f35773h;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ChunkOrderingConstraint {
         public static final /* synthetic */ ChunkOrderingConstraint[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -175,22 +175,22 @@ public abstract class PngChunk {
                 return;
             }
         }
-        this.f38701h = false;
-        this.f38700g = -1;
-        this.f38694a = str;
-        this.f38698e = kVar;
-        this.f38695b = b.b(str);
-        this.f38696c = b.c(str);
-        this.f38697d = b.d(str);
+        this.f35773h = false;
+        this.f35772g = -1;
+        this.f35766a = str;
+        this.f35770e = kVar;
+        this.f35767b = b.b(str);
+        this.f35768c = b.c(str);
+        this.f35769d = b.d(str);
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            d dVar = this.f38699f;
+            d dVar = this.f35771f;
             if (dVar != null) {
-                return dVar.f38717a;
+                return dVar.f35789a;
             }
             return -1;
         }
@@ -200,7 +200,7 @@ public abstract class PngChunk {
     public final void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f38700g = i2;
+            this.f35772g = i2;
         }
     }
 
@@ -210,7 +210,7 @@ public abstract class PngChunk {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            d dVar = this.f38699f;
+            d dVar = this.f35771f;
             if (dVar != null) {
                 return dVar.c();
             }
@@ -222,7 +222,7 @@ public abstract class PngChunk {
     public void b(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-            this.f38699f = dVar;
+            this.f35771f = dVar;
         }
     }
 
@@ -230,7 +230,7 @@ public abstract class PngChunk {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "chunk id= " + this.f38694a + " (len=" + a() + " offset=" + b() + SmallTailInfo.EMOTION_SUFFIX;
+            return "chunk id= " + this.f35766a + " (len=" + a() + " offset=" + b() + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

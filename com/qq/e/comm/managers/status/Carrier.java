@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Carrier {
     public static /* synthetic */ Interceptable $ic;
     public static final Carrier CMCC;
@@ -19,11 +19,11 @@ public final class Carrier {
     public static final Carrier UNKNOWN;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ Carrier[] f41001b;
+    public static final /* synthetic */ Carrier[] f38015b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f41002a;
+    public int f38016a;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public final class Carrier {
         UNICOM = new Carrier("UNICOM", 2, 2);
         Carrier carrier = new Carrier("TELECOM", 3, 3);
         TELECOM = carrier;
-        f41001b = new Carrier[]{UNKNOWN, CMCC, UNICOM, carrier};
+        f38015b = new Carrier[]{UNKNOWN, CMCC, UNICOM, carrier};
     }
 
     public Carrier(String str, int i2, int i3) {
@@ -64,7 +64,7 @@ public final class Carrier {
                 return;
             }
         }
-        this.f41002a = i3;
+        this.f38016a = i3;
     }
 
     public static Carrier valueOf(String str) {
@@ -76,12 +76,12 @@ public final class Carrier {
     public static Carrier[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Carrier[]) f41001b.clone() : (Carrier[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Carrier[]) f38015b.clone() : (Carrier[]) invokeV.objValue;
     }
 
     public final int getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41002a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38016a : invokeV.intValue;
     }
 }

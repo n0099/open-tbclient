@@ -1,17 +1,18 @@
 package com.xiaomi.push;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class bj {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f42886a;
+    public static final String f39900a;
 
     /* renamed from: a  reason: collision with other field name */
     public static byte[] f156a;
@@ -33,7 +34,7 @@ public class bj {
                 return;
             }
         }
-        f42886a = System.getProperty("line.separator");
+        f39900a = System.getProperty("line.separator");
         f157a = new char[64];
         char c2 = 'A';
         int i2 = 0;
@@ -98,7 +99,7 @@ public class bj {
         int i5;
         char c3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65540, null, cArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, cArr, i2, i3)) == null) {
             if (i3 % 4 == 0) {
                 while (i3 > 0 && cArr[(i2 + i3) - 1] == '=') {
                     i3--;
@@ -203,8 +204,8 @@ public class bj {
                 cArr[i9] = cArr2[i12];
                 int i17 = i16 + 1;
                 cArr[i16] = cArr2[i13];
-                char c2 = com.alipay.sdk.encrypt.a.f1889h;
-                cArr[i17] = i17 < i7 ? cArr2[i14] : com.alipay.sdk.encrypt.a.f1889h;
+                char c2 = com.alipay.sdk.encrypt.a.f1890h;
+                cArr[i17] = i17 < i7 ? cArr2[i14] : com.alipay.sdk.encrypt.a.f1890h;
                 int i18 = i17 + 1;
                 if (i18 < i7) {
                     c2 = f157a[i15];

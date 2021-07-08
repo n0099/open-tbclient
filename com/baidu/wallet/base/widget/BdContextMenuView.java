@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.ResUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,15 +22,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.BdMenu;
 import com.baidu.wallet.base.widget.BdMenuItem;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetChangedListener {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24057a = "BdContextMenuView";
+    public static final String f24167a = "BdContextMenuView";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f24058b = true;
+    public static final boolean f24168b = true;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mMenuLoaded;
 
@@ -59,7 +60,7 @@ public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetC
 
     private void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
             setOrientation(1);
             setGravity(17);
@@ -110,7 +111,7 @@ public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetC
     public void layoutMenu(List<BdMenuItem> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            Log.d(f24057a, "layout menu view");
+            Log.d(f24167a, "layout menu view");
             if (this.mMenuLoaded) {
                 return;
             }
@@ -209,10 +210,10 @@ public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetC
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BdMenuItem f24059a;
+                public final /* synthetic */ BdMenuItem f24169a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BdContextMenuView f24060b;
+                public final /* synthetic */ BdContextMenuView f24170b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -229,18 +230,18 @@ public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetC
                             return;
                         }
                     }
-                    this.f24060b = this;
-                    this.f24059a = bdMenuItem;
+                    this.f24170b = this;
+                    this.f24169a = bdMenuItem;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     BdMenuItem.OnItemClickListener onClickListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (onClickListener = this.f24059a.getOnClickListener()) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (onClickListener = this.f24169a.getOnClickListener()) == null) {
                         return;
                     }
-                    onClickListener.onClick(this.f24059a);
+                    onClickListener.onClick(this.f24169a);
                 }
             });
             if (!TextUtils.isEmpty(str)) {

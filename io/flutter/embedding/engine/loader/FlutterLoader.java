@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -27,7 +28,7 @@ import io.flutter.view.VsyncWaiter;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class FlutterLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AOT_SHARED_LIBRARY_NAME = "aot-shared-library-name";
@@ -58,7 +59,7 @@ public class FlutterLoader {
     public Settings settings;
     public String vmSnapshotData;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class Settings {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -146,7 +147,7 @@ public class FlutterLoader {
     private ApplicationInfo getApplicationInfo(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) {
             try {
                 return context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
             } catch (PackageManager.NameNotFoundException e2) {

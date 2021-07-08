@@ -29,7 +29,7 @@ import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.HttpProcessor;
 import org.apache.http.protocol.HttpRequestExecutor;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class DefaultRequestDirector implements RequestDirector {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

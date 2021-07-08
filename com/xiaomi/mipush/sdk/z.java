@@ -6,23 +6,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.mipush.sdk.MiTinyDataClient;
 import com.xiaomi.push.hj;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class z implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ MiTinyDataClient.a.C0568a f42811a;
+    public final /* synthetic */ MiTinyDataClient.a.C0529a f39825a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ hj f100a;
 
-    public z(MiTinyDataClient.a.C0568a c0568a, hj hjVar) {
+    public z(MiTinyDataClient.a.C0529a c0529a, hj hjVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c0568a, hjVar};
+            Object[] objArr = {c0529a, hjVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -32,7 +32,7 @@ public class z implements Runnable {
                 return;
             }
         }
-        this.f42811a = c0568a;
+        this.f39825a = c0529a;
         this.f100a = hjVar;
     }
 
@@ -40,8 +40,8 @@ public class z implements Runnable {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f42811a.f54a.add(this.f100a);
-            this.f42811a.a();
+            this.f39825a.f54a.add(this.f100a);
+            this.f39825a.a();
         }
     }
 }

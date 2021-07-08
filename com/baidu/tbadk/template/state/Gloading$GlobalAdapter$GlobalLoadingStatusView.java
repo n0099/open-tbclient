@@ -5,7 +5,7 @@ import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class Gloading$GlobalAdapter$GlobalLoadingStatusView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -13,7 +13,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ThreadPool {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ThreadPool instance;
@@ -23,13 +23,13 @@ public class ThreadPool {
     public ScheduledExecutorService netIO;
 
     /* renamed from: com.yy.mobile.framework.revenuesdk.baseapi.utils.ThreadPool$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public interface ScheduleExecutor extends Executor {
         void postDelay(Runnable runnable, long j);
 
@@ -89,7 +89,7 @@ public class ThreadPool {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.netIO : (ScheduledExecutorService) invokeV.objValue;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class MainThreadExecutor implements ScheduleExecutor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

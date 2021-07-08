@@ -4,10 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
-import android.os.RemoteException;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,79 +13,50 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class a {
-    public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static String f75118f = "com.mdid.msa";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.j.a f75119a;
+    public com.yxcorp.kuaishou.addfp.a.b.j.a f72156a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.b f75120b;
+    public com.yxcorp.kuaishou.addfp.a.b.b f72157b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f75121c;
+    public Context f72158c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f75122d;
+    public CountDownLatch f72159d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f75123e;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(727064781, "Ld/n/a/a/a/b/k/a;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(727064781, "Ld/n/a/a/a/b/k/a;");
-        }
-    }
+    public ServiceConnection f72160e;
 
     public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f75119a = null;
-        this.f75122d = new CountDownLatch(1);
-        this.f75123e = new b(this);
+        this.f72156a = null;
+        this.f72159d = new CountDownLatch(1);
+        this.f72160e = new b(this);
     }
 
-    public static a f() {
-        InterceptResult invokeV;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            aVar = c.f75125a;
-            return aVar;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public static boolean g(Context context) {
+    public static boolean f(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                context.getPackageManager().getPackageInfo(f75118f, 0);
+                context.getPackageManager().getPackageInfo("com.mdid.msa", 0);
                 return true;
             } catch (PackageManager.NameNotFoundException unused) {
                 return false;
@@ -96,105 +65,82 @@ public final class a {
         return invokeL.booleanValue;
     }
 
-    public final String a() {
-        InterceptResult invokeV;
+    public final void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             try {
-                if (this.f75119a != null) {
-                    return this.f75119a.a();
+                if (this.f72160e == null || context == null) {
+                    return;
                 }
-                return null;
-            } catch (RemoteException unused) {
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            try {
-                if (this.f75123e != null && context != null) {
-                    context.unbindService(this.f75123e);
-                }
-                if (this.f75119a != null) {
-                    this.f75119a.c();
-                }
+                context.unbindService(this.f72160e);
             } catch (Throwable th) {
-                d.n.a.a.c.b.b.c(th);
+                d.n.a.a.c.b.c.c(th);
             }
         }
     }
 
-    public final void d(Context context, com.yxcorp.kuaishou.addfp.a.b.b bVar) {
+    public final void c(Context context, com.yxcorp.kuaishou.addfp.a.b.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, bVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bVar) == null) {
             try {
-                this.f75120b = bVar;
-                this.f75121c = context;
-                if (g(context)) {
+                this.f72157b = bVar;
+                this.f72158c = context;
+                if (f(context)) {
                     String packageName = context.getPackageName();
                     Intent intent = new Intent();
-                    intent.setClassName(f75118f, "com.mdid.msa.service.MsaKlService");
+                    intent.setClassName("com.mdid.msa", "com.mdid.msa.service.MsaKlService");
                     intent.setAction("com.bun.msa.action.start.service");
                     intent.putExtra("com.bun.msa.param.pkgname", packageName);
-                    try {
-                        intent.putExtra("com.bun.msa.param.runinset", true);
-                        context.startService(intent);
-                    } catch (Exception e2) {
-                        d.n.a.a.c.b.b.c(e2);
-                    }
+                    intent.putExtra("com.bun.msa.param.runinset", true);
+                    context.startService(intent);
                 }
                 Intent intent2 = new Intent();
                 intent2.setClassName("com.mdid.msa", "com.mdid.msa.service.MsaIdService");
                 intent2.setAction("com.bun.msa.action.bindto.service");
                 intent2.putExtra("com.bun.msa.param.pkgname", context.getPackageName());
-                if (!context.bindService(intent2, this.f75123e, 1)) {
-                    d.n.a.a.c.b.b.e("zte off");
-                    e(false);
+                if (!context.bindService(intent2, this.f72160e, 1)) {
+                    d(false);
                     return;
                 }
-                this.f75122d.await(2000L, TimeUnit.MILLISECONDS);
-                if (this.f75119a != null) {
-                    e(true);
+                this.f72159d.await(10L, TimeUnit.SECONDS);
+                if (this.f72156a != null) {
+                    d(true);
                 } else {
-                    e(false);
+                    d(false);
                 }
             } catch (Throwable th) {
-                d.n.a.a.c.b.b.c(th);
-                e(false);
+                d.n.a.a.c.b.c.c(th);
+                d(false);
             }
         }
     }
 
-    public final void e(boolean z) {
+    public final void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            try {
-                if (z) {
-                    this.f75120b.a(this.f75119a);
-                } else {
-                    this.f75120b.e();
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            if (z) {
+                try {
+                    String a2 = this.f72156a.a();
+                    if (!TextUtils.isEmpty(a2)) {
+                        this.f72157b.a(a2);
+                        return;
+                    }
+                } catch (Throwable th) {
+                    d.n.a.a.c.b.c.c(th);
+                    return;
                 }
-            } catch (Throwable th) {
-                d.n.a.a.c.b.b.c(th);
             }
+            this.f72157b.e();
         }
     }
 
-    public final boolean h() {
+    public final boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                if (this.f75119a == null) {
-                    return false;
-                }
-                return this.f75119a.b();
-            } catch (Throwable th) {
-                d.n.a.a.c.b.b.c(th);
+                return this.f72158c.getPackageManager().getPackageInfo("com.mdid.msa", 0) != null;
+            } catch (Throwable unused) {
                 return false;
             }
         }

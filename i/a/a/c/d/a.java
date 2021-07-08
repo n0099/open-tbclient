@@ -10,16 +10,16 @@ import java.io.IOException;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class a implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f75737a;
+    public int f72771a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f75738b;
+    public int f72772b;
 
     public a(int i2) {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class a implements Interceptor {
                 return;
             }
         }
-        this.f75738b = 0;
-        this.f75737a = i2;
+        this.f72772b = 0;
+        this.f72771a = i2;
     }
 
     @Override // okhttp3.Interceptor
@@ -48,10 +48,10 @@ public class a implements Interceptor {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
             Request request = chain.request();
             Response proceed = chain.proceed(request);
-            while (!proceed.isSuccessful() && (i2 = this.f75738b) < this.f75737a) {
-                this.f75738b = i2 + 1;
+            while (!proceed.isSuccessful() && (i2 = this.f72772b) < this.f72771a) {
+                this.f72772b = i2 + 1;
                 proceed = chain.proceed(request);
-                RLog.info("RetryInterceptor", "RetryInterceptor maxRetry=%s, retryCount=%s", Integer.valueOf(this.f75737a), Integer.valueOf(this.f75738b));
+                RLog.info("RetryInterceptor", "RetryInterceptor maxRetry=%s, retryCount=%s", Integer.valueOf(this.f72771a), Integer.valueOf(this.f72772b));
             }
             return proceed;
         }

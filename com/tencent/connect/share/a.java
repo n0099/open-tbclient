@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +26,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +63,7 @@ public class a {
 
     public static final void a(Context context, String str, c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, null, context, str, cVar) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, cVar) == null) {
             f.b("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage");
             if (TextUtils.isEmpty(str)) {
                 cVar.a(1, (String) null);
@@ -74,7 +75,7 @@ public class a {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ c f41812a;
+                    public final /* synthetic */ c f38826a;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -94,7 +95,7 @@ public class a {
                                 return;
                             }
                         }
-                        this.f41812a = cVar;
+                        this.f38826a = cVar;
                     }
 
                     @Override // android.os.Handler
@@ -103,11 +104,11 @@ public class a {
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
                             int i2 = message.what;
                             if (i2 == 101) {
-                                this.f41812a.a(0, (String) message.obj);
+                                this.f38826a.a(0, (String) message.obj);
                             } else if (i2 != 102) {
                                 super.handleMessage(message);
                             } else {
-                                this.f41812a.a(message.arg1, (String) null);
+                                this.f38826a.a(message.arg1, (String) null);
                             }
                         }
                     }
@@ -116,10 +117,10 @@ public class a {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f41813a;
+                    public final /* synthetic */ String f38827a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Handler f41814b;
+                    public final /* synthetic */ Handler f38828b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -136,8 +137,8 @@ public class a {
                                 return;
                             }
                         }
-                        this.f41813a = str;
-                        this.f41814b = r7;
+                        this.f38827a = str;
+                        this.f38828b = r7;
                     }
 
                     @Override // java.lang.Runnable
@@ -145,28 +146,28 @@ public class a {
                         String a2;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            Bitmap a3 = a.a(this.f41813a, (int) PbFullScreenEditorActivity.REPLY_MAX_SIZE);
+                            Bitmap a3 = a.a(this.f38827a, (int) PbFullScreenEditorActivity.REPLY_MAX_SIZE);
                             if (a3 != null) {
                                 String str2 = Environment.getExternalStorageDirectory() + "/tmp/";
-                                String str3 = "share2qq_temp" + j.f(this.f41813a) + ".jpg";
-                                if (!a.b(this.f41813a, (int) PbFullScreenEditorActivity.REPLY_MAX_SIZE, (int) PbFullScreenEditorActivity.REPLY_MAX_SIZE)) {
+                                String str3 = "share2qq_temp" + j.f(this.f38827a) + ".jpg";
+                                if (!a.b(this.f38827a, (int) PbFullScreenEditorActivity.REPLY_MAX_SIZE, (int) PbFullScreenEditorActivity.REPLY_MAX_SIZE)) {
                                     f.b("openSDK_LOG.AsynScaleCompressImage", "not out of bound,not compress!");
-                                    a2 = this.f41813a;
+                                    a2 = this.f38827a;
                                 } else {
                                     f.b("openSDK_LOG.AsynScaleCompressImage", "out of bound,compress!");
                                     a2 = a.a(a3, str2, str3);
                                 }
                                 f.b("openSDK_LOG.AsynScaleCompressImage", "-->destFilePath: " + a2);
                                 if (a2 != null) {
-                                    Message obtainMessage = this.f41814b.obtainMessage(101);
+                                    Message obtainMessage = this.f38828b.obtainMessage(101);
                                     obtainMessage.obj = a2;
-                                    this.f41814b.sendMessage(obtainMessage);
+                                    this.f38828b.sendMessage(obtainMessage);
                                     return;
                                 }
                             }
-                            Message obtainMessage2 = this.f41814b.obtainMessage(102);
+                            Message obtainMessage2 = this.f38828b.obtainMessage(102);
                             obtainMessage2.arg1 = 3;
-                            this.f41814b.sendMessage(obtainMessage2);
+                            this.f38828b.sendMessage(obtainMessage2);
                         }
                     }
                 }).start();
@@ -186,7 +187,7 @@ public class a {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ c f41815a;
+                    public final /* synthetic */ c f38829a;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -206,7 +207,7 @@ public class a {
                                 return;
                             }
                         }
-                        this.f41815a = cVar;
+                        this.f38829a = cVar;
                     }
 
                     @Override // android.os.Handler
@@ -217,7 +218,7 @@ public class a {
                                 super.handleMessage(message);
                                 return;
                             }
-                            this.f41815a.a(0, message.getData().getStringArrayList("images"));
+                            this.f38829a.a(0, message.getData().getStringArrayList("images"));
                         }
                     }
                 }) { // from class: com.tencent.connect.share.a.4
@@ -225,10 +226,10 @@ public class a {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ ArrayList f41816a;
+                    public final /* synthetic */ ArrayList f38830a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Handler f41817b;
+                    public final /* synthetic */ Handler f38831b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -245,8 +246,8 @@ public class a {
                                 return;
                             }
                         }
-                        this.f41816a = arrayList;
-                        this.f41817b = r7;
+                        this.f38830a = arrayList;
+                        this.f38831b = r7;
                     }
 
                     @Override // java.lang.Runnable
@@ -254,8 +255,8 @@ public class a {
                         Bitmap a2;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            for (int i2 = 0; i2 < this.f41816a.size(); i2++) {
-                                String str = (String) this.f41816a.get(i2);
+                            for (int i2 = 0; i2 < this.f38830a.size(); i2++) {
+                                String str = (String) this.f38830a.get(i2);
                                 if (!j.g(str) && j.h(str) && (a2 = a.a(str, 10000)) != null) {
                                     String str2 = Environment.getExternalStorageDirectory() + "/tmp/";
                                     String str3 = "share2qzone_temp" + j.f(str) + ".jpg";
@@ -266,15 +267,15 @@ public class a {
                                         str = a.a(a2, str2, str3);
                                     }
                                     if (str != null) {
-                                        this.f41816a.set(i2, str);
+                                        this.f38830a.set(i2, str);
                                     }
                                 }
                             }
-                            Message obtainMessage = this.f41817b.obtainMessage(101);
+                            Message obtainMessage = this.f38831b.obtainMessage(101);
                             Bundle bundle = new Bundle();
-                            bundle.putStringArrayList("images", this.f41816a);
+                            bundle.putStringArrayList("images", this.f38830a);
                             obtainMessage.setData(bundle);
-                            this.f41817b.sendMessage(obtainMessage);
+                            this.f38831b.sendMessage(obtainMessage);
                         }
                     }
                 }).start();

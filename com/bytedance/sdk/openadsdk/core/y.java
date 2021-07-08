@@ -3,6 +3,7 @@ package com.bytedance.sdk.openadsdk.core;
 import android.graphics.Rect;
 import android.view.View;
 import androidx.annotation.Keep;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bytedance.JProtect;
 @Keep
 @JProtect
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class y {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +121,7 @@ public class y {
     public static boolean b(View view, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, view, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, view, i2)) == null) {
             return view.getWidth() >= c(view, i2) && view.getHeight() >= d(view, i2);
         }
         return invokeLI.booleanValue;

@@ -13,19 +13,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TabItemView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f17213e;
+    public View f17252e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f17214f;
+    public TextView f17253f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f17215g;
+    public TextView f17254g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabItemView(Context context) {
@@ -46,27 +46,27 @@ public class TabItemView extends RelativeLayout {
             }
         }
         View inflate = LayoutInflater.from(context).inflate(R.layout.topic_tab_item_view, this);
-        this.f17213e = inflate;
-        this.f17214f = (TextView) inflate.findViewById(R.id.topic_tab_item_textview);
-        this.f17215g = (TextView) this.f17213e.findViewById(R.id.topic_tab_item_red_tip);
+        this.f17252e = inflate;
+        this.f17253f = (TextView) inflate.findViewById(R.id.topic_tab_item_textview);
+        this.f17254g = (TextView) this.f17252e.findViewById(R.id.topic_tab_item_red_tip);
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setBackgroundResource(this.f17215g, R.drawable.icon_news_down_bar_one);
+            SkinManager.setBackgroundResource(this.f17254g, R.drawable.icon_news_down_bar_one);
         }
     }
 
     public TextView getRedTipView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17215g : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17254g : (TextView) invokeV.objValue;
     }
 
     public TextView getTextView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17214f : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17253f : (TextView) invokeV.objValue;
     }
 }

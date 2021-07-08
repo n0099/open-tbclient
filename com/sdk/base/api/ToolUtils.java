@@ -1,6 +1,7 @@
 package com.sdk.base.api;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.framework.f.h.b;
 import com.sdk.base.framework.f.i.a;
 import com.sdk.base.framework.f.i.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ToolUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +50,7 @@ public class ToolUtils {
 
     public static void clearCache(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             com.sdk.base.framework.a.a.a.a(context);
         }
     }

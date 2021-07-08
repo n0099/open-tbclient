@@ -1,5 +1,6 @@
 package okhttp3;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity;
@@ -17,7 +18,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class CipherSuite {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<String, CipherSuite> INSTANCES;
@@ -364,7 +365,7 @@ public final class CipherSuite {
     public static CipherSuite of(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, str, i2)) == null) ? forJavaName(str) : (CipherSuite) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2)) == null) ? forJavaName(str) : (CipherSuite) invokeLI.objValue;
     }
 
     public String javaName() {

@@ -10,7 +10,7 @@ import com.facebook.common.util.UriUtil;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,9 +70,9 @@ public class f {
                                                     JSONObject optJSONObject4 = jSONArray.optJSONObject(0);
                                                     if (optJSONObject4 != null) {
                                                         e eVar = new e();
-                                                        eVar.f45180a = z;
-                                                        eVar.f45182c = d.a.s0.n1.o.b.i(optJSONObject4.optJSONObject("lego_card").toString());
-                                                        eVar.f45181b = str2;
+                                                        eVar.f41982a = z;
+                                                        eVar.f41984c = d.a.p0.n1.o.b.i(optJSONObject4.optJSONObject("lego_card").toString());
+                                                        eVar.f41983b = str2;
                                                         return eVar;
                                                     }
                                                     throw new ParseError(1, "info array has no first element");

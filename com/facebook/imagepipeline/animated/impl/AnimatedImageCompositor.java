@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableFrameInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AnimatedImageCompositor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +26,7 @@ public class AnimatedImageCompositor {
     public final Paint mTransparentFillPaint;
 
     /* renamed from: com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$imagepipeline$animated$impl$AnimatedImageCompositor$FrameNeededResult;
         public static /* synthetic */ Interceptable $ic;
@@ -65,7 +66,7 @@ public class AnimatedImageCompositor {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface Callback {
         CloseableReference<Bitmap> getCachedBitmap(int i2);
 
@@ -73,7 +74,7 @@ public class AnimatedImageCompositor {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class FrameNeededResult {
         public static final /* synthetic */ FrameNeededResult[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -201,7 +202,7 @@ public class AnimatedImageCompositor {
     private boolean isKeyFrame(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65540, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2)) == null) {
             if (i2 == 0) {
                 return true;
             }

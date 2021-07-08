@@ -12,7 +12,7 @@ import com.google.common.hash.HashCode;
 import d.f.d.a.n;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class b implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

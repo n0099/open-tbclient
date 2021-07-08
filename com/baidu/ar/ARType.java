@@ -1,5 +1,6 @@
 package com.baidu.ar;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -103,7 +104,7 @@ public final class ARType {
     public static ARType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (ARType[]) $VALUES.clone() : (ARType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ARType[]) $VALUES.clone() : (ARType[]) invokeV.objValue;
     }
 
     public int getTypeValue() {

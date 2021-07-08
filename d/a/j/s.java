@@ -19,14 +19,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class s extends h {
     public static /* synthetic */ Interceptable $ic;
     public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
     public ItemCardView l;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,7 +122,7 @@ public class s extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.j.p
     /* renamed from: t */
-    public void a(d.a.r0.r.q.a aVar) {
+    public void a(d.a.o0.r.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             if (aVar != null && aVar.getThreadData() != null && aVar.getThreadData().n0() != null) {

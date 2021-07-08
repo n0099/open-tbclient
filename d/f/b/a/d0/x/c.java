@@ -21,25 +21,25 @@ import d.f.b.a.d0.x.e.a;
 import d.f.b.a.h0.n;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class c implements k, p.a<f<b>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final b.a f72988e;
+    public final b.a f70091e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final n f72989f;
+    public final n f70092f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f72990g;
+    public final int f70093g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final b.a f72991h;
+    public final b.a f70094h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final d.f.b.a.h0.b f72992i;
+    public final d.f.b.a.h0.b f70095i;
     public final t j;
     public final d.f.b.a.a0.q.k[] k;
     public k.a l;
@@ -62,15 +62,15 @@ public final class c implements k, p.a<f<b>> {
                 return;
             }
         }
-        this.f72988e = aVar2;
-        this.f72989f = nVar;
-        this.f72990g = i2;
-        this.f72991h = aVar3;
-        this.f72992i = bVar;
+        this.f70091e = aVar2;
+        this.f70092f = nVar;
+        this.f70093g = i2;
+        this.f70094h = aVar3;
+        this.f70095i = bVar;
         this.j = f(aVar);
-        a.C2013a c2013a = aVar.f73000b;
-        if (c2013a != null) {
-            this.k = new d.f.b.a.a0.q.k[]{new d.f.b.a.a0.q.k(true, null, 8, m(c2013a.f73005b), 0, 0, null)};
+        a.C1982a c1982a = aVar.f70103b;
+        if (c1982a != null) {
+            this.k = new d.f.b.a.a0.q.k[]{new d.f.b.a.a0.q.k(true, null, 8, m(c1982a.f70108b), 0, 0, null)};
         } else {
             this.k = null;
         }
@@ -86,12 +86,12 @@ public final class c implements k, p.a<f<b>> {
         if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, aVar)) != null) {
             return (t) invokeL.objValue;
         }
-        s[] sVarArr = new s[aVar.f73001c.length];
+        s[] sVarArr = new s[aVar.f70104c.length];
         int i2 = 0;
         while (true) {
-            a.b[] bVarArr = aVar.f73001c;
+            a.b[] bVarArr = aVar.f70104c;
             if (i2 < bVarArr.length) {
-                sVarArr[i2] = new s(bVarArr[i2].f73008c);
+                sVarArr[i2] = new s(bVarArr[i2].f70111c);
                 i2++;
             } else {
                 return new t(sVarArr);
@@ -126,7 +126,7 @@ public final class c implements k, p.a<f<b>> {
 
     public static void t(byte[] bArr, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65540, null, bArr, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i2, i3) == null) {
             byte b2 = bArr[i2];
             bArr[i2] = bArr[i3];
             bArr[i3] = b2;
@@ -138,7 +138,7 @@ public final class c implements k, p.a<f<b>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, fVar, j)) == null) {
             int b2 = this.j.b(fVar.d());
-            return new f<>(this.m.f73001c[b2].f73006a, null, this.f72988e.a(this.f72989f, this.m, b2, fVar, this.k), this, this.f72992i, j, this.f72990g, this.f72991h);
+            return new f<>(this.m.f70104c[b2].f70109a, null, this.f70091e.a(this.f70092f, this.m, b2, fVar, this.k), this, this.f70095i, j, this.f70093g, this.f70094h);
         }
         return (f) invokeLJ.objValue;
     }
@@ -249,7 +249,7 @@ public final class c implements k, p.a<f<b>> {
     public void q() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f72989f.a();
+            this.f70092f.a();
         }
     }
 

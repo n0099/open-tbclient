@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.i1.f.d;
-/* loaded from: classes5.dex */
+import d.a.p0.i1.f.d;
+/* loaded from: classes4.dex */
 public class MsgMidViewItemAdapter extends MsgCommonItemAdapter<d> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends MsgCommonItemAdapter.MsgViewHolder<d> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +80,7 @@ public class MsgMidViewItemAdapter extends MsgCommonItemAdapter<d> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), view, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.X(i2, view, viewGroup, chatMessage, msgViewHolder);
-            msgViewHolder.b().k(chatMessage);
+            msgViewHolder.b().j(chatMessage);
             this.m.getLayoutMode().k(false);
             this.m.getLayoutMode().j(view);
             return view;

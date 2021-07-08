@@ -1,11 +1,12 @@
 package d.f.b.a.i0;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class w {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,6 +47,6 @@ public final class w {
     public static boolean e(XmlPullParser xmlPullParser, String str) throws XmlPullParserException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, xmlPullParser, str)) == null) ? d(xmlPullParser) && xmlPullParser.getName().equals(str) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, xmlPullParser, str)) == null) ? d(xmlPullParser) && xmlPullParser.getName().equals(str) : invokeLL.booleanValue;
     }
 }

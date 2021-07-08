@@ -95,7 +95,7 @@ public final class ViewConfigurationCompat {
     public static int getScaledHoverSlop(ViewConfiguration viewConfiguration) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, viewConfiguration)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewConfiguration)) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
                 return viewConfiguration.getScaledHoverSlop();
             }

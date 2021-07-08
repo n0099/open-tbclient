@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Rect;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -93,9 +94,9 @@ import com.google.gson.Gson;
 import com.heytap.mcssdk.mode.CommandMessage;
 import d.a.c.e.p.k;
 import d.a.c.e.p.l;
-import d.a.r0.f0.h;
-import d.a.r0.l.a;
-import d.a.s0.n1.o.k.b;
+import d.a.o0.f0.h;
+import d.a.o0.l.a;
+import d.a.p0.n1.o.k.b;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -105,7 +106,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.ThemeColorInfo;
 import tbclient.ThemeElement;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class OpenNative {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String kNativeBarBroadcastHistoryPage = "kNativeBarBroadcastHistoryPage";
@@ -254,7 +255,7 @@ public class OpenNative {
 
     public static void openNativeAlaPersonalVC(Context context, Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, context, map) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, map) == null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(context, (String) map.get("kUid"), (String) map.get(TbEnum.SystemMessage.KEY_USER_NAME), (String) map.get("portrait"), d.a.c.e.m.b.d((String) map.get("sex"), 0), true)));
         }
     }
@@ -583,7 +584,7 @@ public class OpenNative {
 
     public static void openNativeHotTopicList(Context context, Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65562, null, context, map) == null) || TbadkApplication.getInst().getCurrentActivity() == null || d.a.r0.p0.b.b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext())) {
+        if (!(interceptable == null || interceptable.invokeLL(65562, null, context, map) == null) || TbadkApplication.getInst().getCurrentActivity() == null || d.a.o0.p0.b.b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext())) {
             return;
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotRanklistActivityConfig(context).createNormalConfig("hottopic", "all")));

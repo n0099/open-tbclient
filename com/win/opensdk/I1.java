@@ -10,37 +10,37 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class I1 implements e1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42360a;
+    public String f39374a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f42361b;
+    public Context f39375b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f42362c;
+    public boolean f39376c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f42363d;
+    public boolean f39377d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f42364e;
+    public boolean f39378e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Info f42365f;
+    public Info f39379f;
 
     /* renamed from: g  reason: collision with root package name */
-    public K f42366g;
+    public K f39380g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PBVideoListener f42367h;
+    public PBVideoListener f39381h;
 
     /* renamed from: i  reason: collision with root package name */
-    public K0 f42368i;
+    public K0 f39382i;
     public long j;
     public Handler k;
 
@@ -60,33 +60,33 @@ public class I1 implements e1 {
             }
         }
         this.k = new F1(this);
-        this.f42361b = context;
-        this.f42360a = str;
+        this.f39375b = context;
+        this.f39374a = str;
     }
 
     public final void a(Info info) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, info) == null) {
             boolean z = false;
-            this.f42364e = false;
-            this.f42365f = info;
+            this.f39378e = false;
+            this.f39379f = info;
             this.j = System.currentTimeMillis();
-            if (b() && this.f42365f.getType() == 41) {
+            if (b() && this.f39379f.getType() == 41) {
                 z = true;
             }
             if (z) {
                 if (a()) {
-                    this.f42367h.onLoaded();
+                    this.f39381h.onLoaded();
                     return;
                 }
-                K k = new K(this.f42361b);
-                this.f42366g = k;
-                k.f42374a = new H1(this);
-                this.f42366g.a(this.f42365f.getLoad(), this.f42365f);
-                this.k.sendEmptyMessageDelayed(11, this.f42365f.getWt() * 1000);
+                K k = new K(this.f39375b);
+                this.f39380g = k;
+                k.f39388a = new H1(this);
+                this.f39380g.a(this.f39379f.getLoad(), this.f39379f);
+                this.k.sendEmptyMessageDelayed(11, this.f39379f.getWt() * 1000);
                 return;
             }
-            this.f42367h.onFail(PBError.PID_TYPE_ERROR);
+            this.f39381h.onFail(PBError.PID_TYPE_ERROR);
         }
     }
 
@@ -97,7 +97,7 @@ public class I1 implements e1 {
         PBError pBError;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, obj) == null) {
-            if (TextUtils.equals(str, this.f42365f.getId() + this.f42360a)) {
+            if (TextUtils.equals(str, this.f39379f.getId() + this.f39374a)) {
                 char c2 = 65535;
                 switch (str2.hashCode()) {
                     case -1398725913:
@@ -132,28 +132,28 @@ public class I1 implements e1 {
                         break;
                 }
                 if (c2 == 0) {
-                    this.f42367h.onClicked();
+                    this.f39381h.onClicked();
                 } else if (c2 == 1) {
-                    this.f42367h.onRewardedAdClosed();
+                    this.f39381h.onRewardedAdClosed();
                 } else if (c2 == 2) {
-                    this.f42367h.onRewardedAdOpened();
+                    this.f39381h.onRewardedAdOpened();
                 } else if (c2 != 3) {
                     if (c2 != 4) {
                         return;
                     }
-                    if (!z.e(this.f42361b)) {
-                        pBVideoListener = this.f42367h;
+                    if (!z.e(this.f39375b)) {
+                        pBVideoListener = this.f39381h;
                         pBError = PBError.NO_NETWORK;
                     } else if (obj != null) {
-                        this.f42367h.onRewardedShowFail((String) obj);
+                        this.f39381h.onRewardedShowFail((String) obj);
                         return;
                     } else {
-                        pBVideoListener = this.f42367h;
+                        pBVideoListener = this.f39381h;
                         pBError = PBError.UNKNOWN;
                     }
                     pBVideoListener.onRewardedShowFail(pBError.getMsg());
-                } else if (!z.e(this.f42361b) || obj == null) {
-                    this.f42367h.onUserEarnedReward(false, 0L);
+                } else if (!z.e(this.f39375b) || obj == null) {
+                    this.f39381h.onUserEarnedReward(false, 0L);
                 } else {
                     try {
                         j = ((Long) obj).longValue();
@@ -162,9 +162,9 @@ public class I1 implements e1 {
                         j = 0;
                     }
                     if (j <= 0) {
-                        this.f42367h.onUserEarnedReward(false, j);
+                        this.f39381h.onUserEarnedReward(false, j);
                     } else {
-                        this.f42367h.onUserEarnedReward(true, j);
+                        this.f39381h.onUserEarnedReward(true, j);
                     }
                 }
             }
@@ -174,18 +174,18 @@ public class I1 implements e1 {
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42362c && !this.f42364e && b() && !this.f42365f.isShown() && this.f42365f.isEffective() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f39376c && !this.f39378e && b() && !this.f39379f.isShown() && this.f39379f.isEffective() : invokeV.booleanValue;
     }
 
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42365f != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f39379f != null : invokeV.booleanValue;
     }
 
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? b() && this.f42365f.getType() == 41 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? b() && this.f39379f.getType() == 41 : invokeV.booleanValue;
     }
 }

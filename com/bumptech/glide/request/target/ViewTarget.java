@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ViewTarget";
@@ -44,7 +44,7 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
     public final T view;
 
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class SizeDeterminer {
         public static /* synthetic */ Interceptable $ic;
         public static final int PENDING_SIZE = 0;
@@ -58,7 +58,7 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
         public final View view;
         public boolean waitForLayout;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public static final class SizeDeterminerLayoutListener implements ViewTreeObserver.OnPreDrawListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -175,7 +175,7 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
         private int getTargetWidth() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
                 int paddingLeft = this.view.getPaddingLeft() + this.view.getPaddingRight();
                 ViewGroup.LayoutParams layoutParams = this.view.getLayoutParams();
                 return getTargetDimen(this.view.getWidth(), layoutParams != null ? layoutParams.width : 0, paddingLeft);
@@ -305,7 +305,7 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
     private void maybeRemoveAttachStateListener() {
         View.OnAttachStateChangeListener onAttachStateChangeListener;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65540, this) == null) && (onAttachStateChangeListener = this.attachStateListener) != null && this.isAttachStateListenerAdded) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && (onAttachStateChangeListener = this.attachStateListener) != null && this.isAttachStateListenerAdded) {
             this.view.removeOnAttachStateChangeListener(onAttachStateChangeListener);
             this.isAttachStateListenerAdded = false;
         }

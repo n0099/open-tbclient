@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.SystemClock;
 import android.util.AttributeSet;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,12 +14,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SmoothProgressBar extends RotateProgressBar {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f11346i;
+    public static final int f11363i;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,9 +36,9 @@ public class SmoothProgressBar extends RotateProgressBar {
             }
         }
         if (Build.VERSION.SDK_INT > 15) {
-            f11346i = 36;
+            f11363i = 36;
         } else {
-            f11346i = 25;
+            f11363i = 25;
         }
     }
 
@@ -65,8 +66,8 @@ public class SmoothProgressBar extends RotateProgressBar {
 
     private void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
-            this.f11321h = (int) ((((this.f11321h * 12.0f) / f11346i) / 2.0f) + 0.5f);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            this.f11338h = (int) ((((this.f11338h * 12.0f) / f11363i) / 2.0f) + 0.5f);
         }
     }
 
@@ -75,18 +76,18 @@ public class SmoothProgressBar extends RotateProgressBar {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             synchronized (this) {
-                Drawable drawable = this.f11319f;
+                Drawable drawable = this.f11336f;
                 if (drawable != null) {
                     drawable.draw(canvas);
-                    if (SystemClock.uptimeMillis() - this.f11320g >= this.f11321h) {
-                        this.f11320g = SystemClock.uptimeMillis();
-                        int i2 = this.f11318e + (10000 / f11346i);
-                        this.f11318e = i2;
+                    if (SystemClock.uptimeMillis() - this.f11337g >= this.f11338h) {
+                        this.f11337g = SystemClock.uptimeMillis();
+                        int i2 = this.f11335e + (10000 / f11363i);
+                        this.f11335e = i2;
                         if (i2 >= 10000) {
-                            this.f11318e = i2 - 10000;
+                            this.f11335e = i2 - 10000;
                         }
-                        drawable.setLevel(this.f11318e);
-                        postInvalidateDelayed(this.f11321h);
+                        drawable.setLevel(this.f11335e);
+                        postInvalidateDelayed(this.f11338h);
                     }
                 }
             }

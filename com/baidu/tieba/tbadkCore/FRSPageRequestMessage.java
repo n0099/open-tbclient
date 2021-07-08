@@ -10,11 +10,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Message;
-import d.a.r0.z0.w;
-import d.a.s0.w2.g0.a;
+import d.a.o0.z0.w;
+import d.a.p0.w2.g0.a;
 import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FRSPageRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

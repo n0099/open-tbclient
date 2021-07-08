@@ -1,6 +1,7 @@
 package com.baidubce.auth;
 
 import android.annotation.SuppressLint;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -29,7 +30,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 import okhttp3.internal.http.HttpMethod;
 @SuppressLint({"NewApi", "DefaultLocale"})
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BceV1Signer implements Signer {
     public static /* synthetic */ Interceptable $ic;
     public static final Set<String> defaultHeadersToSign;
@@ -112,7 +113,7 @@ public class BceV1Signer implements Signer {
     private SortedMap<String, String> getHeadersToSign(Map<String, String> map, Set<String> set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, map, set)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, map, set)) == null) {
             TreeMap treeMap = new TreeMap();
             if (set != null) {
                 HashSet hashSet = new HashSet();

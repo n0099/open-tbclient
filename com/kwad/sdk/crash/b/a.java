@@ -2,13 +2,14 @@ package com.kwad.sdk.crash.b;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.crash.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -93,7 +94,7 @@ public class a {
     public static boolean b(StackTraceElement[] stackTraceElementArr, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, stackTraceElementArr, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, stackTraceElementArr, str)) == null) {
             for (StackTraceElement stackTraceElement : stackTraceElementArr) {
                 String className = stackTraceElement.getClassName();
                 if (!TextUtils.isEmpty(className) && className.contains(str)) {

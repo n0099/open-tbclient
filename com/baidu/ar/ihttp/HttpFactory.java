@@ -1,5 +1,6 @@
 package com.baidu.ar.ihttp;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.h.n;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -93,7 +94,7 @@ public final class HttpFactory {
     public static IHttpRequest newRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             b eP = eP();
             if (eP != null) {
                 return eP.newRequest();

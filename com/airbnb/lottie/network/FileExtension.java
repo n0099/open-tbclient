@@ -1,5 +1,6 @@
 package com.airbnb.lottie.network;
 
+import androidx.core.view.InputDeviceCompat;
 import com.airbnb.lottie.utils.Logger;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.XAdSimpleImageLoader;
@@ -85,7 +86,7 @@ public final class FileExtension {
     public static FileExtension[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (FileExtension[]) $VALUES.clone() : (FileExtension[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (FileExtension[]) $VALUES.clone() : (FileExtension[]) invokeV.objValue;
     }
 
     public String tempExtension() {

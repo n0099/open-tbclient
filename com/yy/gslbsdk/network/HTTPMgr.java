@@ -1,6 +1,7 @@
 package com.yy.gslbsdk.network;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +24,7 @@ import java.util.Locale;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class HTTPMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HTTPMgr";
@@ -298,7 +299,7 @@ public class HTTPMgr {
     public static String[] getHttps(String str, String str2, HashMap<String, String> hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, str, str2, hashMap)) == null) ? doHttpsURLConnection(str, str2, null, hashMap, "GET") : (String[]) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, hashMap)) == null) ? doHttpsURLConnection(str, str2, null, hashMap, "GET") : (String[]) invokeLLL.objValue;
     }
 
     public static String[] headHttp(String str, HashMap<String, String> hashMap) {

@@ -1,5 +1,6 @@
 package com.baidu.android.common.security;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -55,7 +56,7 @@ public final class Base64 {
     public static String encode(byte[] bArr, String str) throws UnsupportedEncodingException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, bArr, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, str)) == null) {
             int length = (bArr.length * 4) / 3;
             byte[] bArr2 = new byte[length + (length / 76) + 3];
             int length2 = bArr.length - (bArr.length % 3);

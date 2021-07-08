@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PushDialogUserLikeButton extends CommonUserLikeButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public class PushDialogUserLikeButton extends CommonUserLikeButton {
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            if (this.f12741g) {
+            if (this.f12758g) {
                 setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
                 SkinManager.setViewTextColor(this, R.color.CAM_X0109, 1, i2);
                 setBackgroundDrawable(null);

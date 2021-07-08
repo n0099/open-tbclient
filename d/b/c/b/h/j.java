@@ -3,26 +3,27 @@ package d.b.c.b.h;
 import android.os.Build;
 import android.system.Os;
 import android.system.OsConstants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f71902a = -1;
+    public static long f69005a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static long f71903a = -1;
+        public static long f69006a = -1;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -44,10 +45,10 @@ public class j {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                if (j.f71902a == -1) {
-                    long unused = j.f71902a = 1000 / d();
+                if (j.f69005a == -1) {
+                    long unused = j.f69005a = 1000 / d();
                 }
-                return j.f71902a;
+                return j.f69005a;
             }
             return invokeV.longValue;
         }
@@ -57,7 +58,7 @@ public class j {
             long c2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-                long j2 = f71903a;
+                long j2 = f69006a;
                 if (j2 > 0) {
                     return j2;
                 }
@@ -70,7 +71,7 @@ public class j {
                 if (c2 > 0) {
                     j = c2;
                 }
-                f71903a = j;
+                f69006a = j;
                 return j;
             }
             return invokeJ.longValue;
@@ -95,7 +96,7 @@ public class j {
         public static long d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? b(100L) : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? b(100L) : invokeV.longValue;
         }
     }
 

@@ -4,7 +4,7 @@ import android.net.Uri;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.imagepipeline.request.ImageRequest;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface CacheKeyFactory {
     CacheKey getBitmapCacheKey(ImageRequest imageRequest, Object obj);
 

@@ -3,6 +3,7 @@ package com.baidu.pass.face.platform.strategy;
 import android.content.Context;
 import android.graphics.Rect;
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.face.platform.FaceConfig;
@@ -32,7 +33,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FaceDetectStrategyExtModule implements a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "com.baidu.pass.face.platform.strategy.FaceDetectStrategyExtModule";
@@ -58,7 +59,7 @@ public class FaceDetectStrategyExtModule implements a {
     public final SoundPoolHelper mSoundPlayHelper;
     public Map<FaceStatusNewEnum, String> mTipsMap;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class FaceProcessRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,7 +154,7 @@ public class FaceDetectStrategyExtModule implements a {
     private boolean cropStrategy(BDFaceImageInstance bDFaceImageInstance, FaceExtInfo faceExtInfo, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65540, this, bDFaceImageInstance, faceExtInfo, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, this, bDFaceImageInstance, faceExtInfo, i2)) == null) {
             float totalCropScore = this.mDetectStrategy.getTotalCropScore();
             this.mFaceModule.setFaceConfig(this.mFaceConfig);
             BDFaceImageInstance cropFace = FaceSDKManager.getInstance().cropFace(bDFaceImageInstance, faceExtInfo.getmLandmarks(), this.mFaceConfig.getCropHeight(), this.mFaceConfig.getCropWidth());

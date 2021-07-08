@@ -23,7 +23,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Stack;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RopeByteString extends ByteString {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] minLengthByDepth;
@@ -36,13 +36,13 @@ public class RopeByteString extends ByteString {
     public final int treeDepth;
 
     /* renamed from: com.google.protobuf.RopeByteString$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class PieceIterator implements Iterator<LiteralByteString> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +134,7 @@ public class RopeByteString extends ByteString {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class RopeByteIterator implements ByteString.ByteIterator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -597,7 +597,7 @@ public class RopeByteString extends ByteString {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Balancer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -637,7 +637,7 @@ public class RopeByteString extends ByteString {
 
         private void doBalance(ByteString byteString) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65540, this, byteString) == null) {
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, byteString) == null) {
                 if (byteString.isBalanced()) {
                     insert(byteString);
                 } else if (byteString instanceof RopeByteString) {
@@ -724,7 +724,7 @@ public class RopeByteString extends ByteString {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? new RopeByteIterator(this, null) : (ByteString.ByteIterator) invokeV.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class RopeInputStream extends InputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

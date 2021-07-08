@@ -12,22 +12,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a.e;
-import d.a.q0.a.z1.b.d.b;
-/* loaded from: classes4.dex */
+import d.a.n0.a.e;
+import d.a.n0.a.z1.b.d.b;
+/* loaded from: classes3.dex */
 public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView w;
     public int x;
 
-    /* loaded from: classes4.dex */
-    public class a implements d.a.q0.a.g2.a {
+    /* loaded from: classes3.dex */
+    public class a implements d.a.n0.a.g2.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdShimmerView f11277a;
+        public final /* synthetic */ BdShimmerView f11294a;
 
         public a(BdShimmerView bdShimmerView) {
             Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView
                     return;
                 }
             }
-            this.f11277a = bdShimmerView;
+            this.f11294a = bdShimmerView;
         }
     }
 
@@ -70,7 +70,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.q0.a.z1.b.d.b
+    @Override // d.a.n0.a.z1.b.d.b
     public BdShimmerView getLoadingView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -82,7 +82,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onAttachedToWindow();
-            d.a.q0.a.c1.a.H().f(this, new a(this));
+            d.a.n0.a.c1.a.H().f(this, new a(this));
         }
     }
 
@@ -91,7 +91,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDetachedFromWindow();
-            d.a.q0.a.c1.a.H().g(this);
+            d.a.n0.a.c1.a.H().g(this);
         }
     }
 
@@ -140,7 +140,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView
             }
             this.w.setImageDrawable(getResources().getDrawable(e.aiapps_black_shimmer_loading));
             ShimmerFrameLayout.MaskShape maskShape = ShimmerFrameLayout.MaskShape.LINEAR;
-            if (d.a.q0.a.c1.a.H().a()) {
+            if (d.a.n0.a.c1.a.H().a()) {
                 maskShape = ShimmerFrameLayout.MaskShape.WHITE_LINEAR;
             }
             setMaskShape(maskShape);

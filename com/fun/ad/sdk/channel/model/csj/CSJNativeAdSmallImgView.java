@@ -19,16 +19,16 @@ import com.bytedance.sdk.openadsdk.TTImage;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.ad.sdk.R;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class CSJNativeAdSmallImgView extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f32583f;
+    public ImageView f32693f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f32584g;
+    public float f32694g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CSJNativeAdSmallImgView(Context context) {
@@ -48,7 +48,7 @@ public final class CSJNativeAdSmallImgView extends b {
                 return;
             }
         }
-        this.f32584g = 1.78f;
+        this.f32694g = 1.78f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -70,7 +70,7 @@ public final class CSJNativeAdSmallImgView extends b {
                 return;
             }
         }
-        this.f32584g = 1.78f;
+        this.f32694g = 1.78f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -92,7 +92,7 @@ public final class CSJNativeAdSmallImgView extends b {
                 return;
             }
         }
-        this.f32584g = 1.78f;
+        this.f32694g = 1.78f;
     }
 
     @Override // a.a.a.a.u.b.a.b
@@ -106,10 +106,10 @@ public final class CSJNativeAdSmallImgView extends b {
                 return;
             }
             d.b("CSJNativeAdView ttImage width: " + tTImage.getWidth() + ", height: " + tTImage.getHeight(), new Object[0]);
-            this.f32584g = (((float) tTImage.getWidth()) * 1.0f) / (((float) tTImage.getHeight()) * 1.0f);
+            this.f32694g = (((float) tTImage.getWidth()) * 1.0f) / (((float) tTImage.getHeight()) * 1.0f);
             Context context = getContext();
             String imageUrl = tTImage.getImageUrl();
-            ImageView imageView = this.f32583f;
+            ImageView imageView = this.f32693f;
             if (context == null) {
                 d.b("GlideHelper: context is null when load: " + imageUrl, new Object[0]);
             } else if (context instanceof Activity) {
@@ -131,7 +131,7 @@ public final class CSJNativeAdSmallImgView extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f32583f = (ImageView) findViewById(R.id.ad_img);
+            this.f32693f = (ImageView) findViewById(R.id.ad_img);
         }
     }
 
@@ -140,11 +140,11 @@ public final class CSJNativeAdSmallImgView extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f32583f.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f32693f.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i6;
-            layoutParams.height = (int) (i6 / this.f32584g);
-            this.f32583f.setLayoutParams(layoutParams);
+            layoutParams.height = (int) (i6 / this.f32694g);
+            this.f32693f.setLayoutParams(layoutParams);
         }
     }
 }

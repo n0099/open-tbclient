@@ -8,36 +8,36 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f31910a;
+    public static final b f32020a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final b f31911b;
+    public static final b f32021b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final b f31912c;
+    public static final b f32022c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final b f31913d;
+    public static final b f32023d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final b f31914e;
+    public static final b f32024e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final b f31915f;
+    public static final b f32025f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final b f31916g;
+    public static final b f32026g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final b f31917h;
+    public static final b f32027h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final b f31918i;
+    public static final b f32028i;
     public static final b j;
     public static final /* synthetic */ b[] k;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,18 +55,18 @@ public final class b {
                 return;
             }
         }
-        f31910a = new b("BEGIN_ARRAY", 0);
-        f31911b = new b("END_ARRAY", 1);
-        f31912c = new b("BEGIN_OBJECT", 2);
-        f31913d = new b("END_OBJECT", 3);
-        f31914e = new b("NAME", 4);
-        f31915f = new b("STRING", 5);
-        f31916g = new b("NUMBER", 6);
-        f31917h = new b("BOOLEAN", 7);
-        f31918i = new b("NULL", 8);
+        f32020a = new b("BEGIN_ARRAY", 0);
+        f32021b = new b("END_ARRAY", 1);
+        f32022c = new b("BEGIN_OBJECT", 2);
+        f32023d = new b("END_OBJECT", 3);
+        f32024e = new b("NAME", 4);
+        f32025f = new b("STRING", 5);
+        f32026g = new b("NUMBER", 6);
+        f32027h = new b("BOOLEAN", 7);
+        f32028i = new b("NULL", 8);
         b bVar = new b("END_DOCUMENT", 9);
         j = bVar;
-        k = new b[]{f31910a, f31911b, f31912c, f31913d, f31914e, f31915f, f31916g, f31917h, f31918i, bVar};
+        k = new b[]{f32020a, f32021b, f32022c, f32023d, f32024e, f32025f, f32026g, f32027h, f32028i, bVar};
     }
 
     public b(String str, int i2) {

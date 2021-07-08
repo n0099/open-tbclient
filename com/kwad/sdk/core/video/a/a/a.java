@@ -9,14 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.report.h;
+import com.kwad.sdk.core.report.g;
 import java.util.List;
-/* loaded from: classes7.dex */
-public class a extends com.kwad.sdk.core.report.c<c, b> {
+/* loaded from: classes6.dex */
+public class a extends com.kwad.sdk.core.report.b<c, b> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f36596a;
+    public static a f34941a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static volatile boolean f34942b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +35,8 @@ public class a extends com.kwad.sdk.core.report.c<c, b> {
                 return;
             }
         }
-        f36596a = new a();
+        f34941a = new a();
+        f34942b = false;
     }
 
     public a() {
@@ -52,15 +56,15 @@ public class a extends com.kwad.sdk.core.report.c<c, b> {
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            f36596a.a(new h<c>(str, str2) { // from class: com.kwad.sdk.core.video.a.a.a.1
+            f34941a.a(new g<c>(str, str2) { // from class: com.kwad.sdk.core.video.a.a.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f36597a;
+                public final /* synthetic */ String f34943a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f36598b;
+                public final /* synthetic */ String f34944b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -77,17 +81,17 @@ public class a extends com.kwad.sdk.core.report.c<c, b> {
                             return;
                         }
                     }
-                    this.f36597a = str;
-                    this.f36598b = str2;
+                    this.f34943a = str;
+                    this.f34944b = str2;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.kwad.sdk.core.report.h
+                @Override // com.kwad.sdk.core.report.g
                 /* renamed from: b */
                 public c a() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new c(this.f36597a, this.f36598b) : (c) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new c(this.f34943a, this.f34944b) : (c) invokeV.objValue;
                 }
             });
         }
@@ -96,30 +100,25 @@ public class a extends com.kwad.sdk.core.report.c<c, b> {
     public static a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f36596a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f34941a : (a) invokeV.objValue;
     }
 
-    @Override // com.kwad.sdk.core.report.c
+    @Override // com.kwad.sdk.core.report.b
     public void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            super.a(context);
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) || f34942b) {
+            return;
         }
+        super.a(context);
+        f34942b = true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.report.c
+    @Override // com.kwad.sdk.core.report.b
     /* renamed from: b */
     public b a(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) ? new b(list) : (b) invokeL.objValue;
-    }
-
-    @Override // com.kwad.sdk.core.report.c
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "mplrep" : (String) invokeV.objValue;
     }
 }

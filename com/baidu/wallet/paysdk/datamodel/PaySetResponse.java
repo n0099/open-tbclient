@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PaySetResponse implements NoProguard, IBeanResponse, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
@@ -20,7 +20,7 @@ public class PaySetResponse implements NoProguard, IBeanResponse, Serializable {
     public PayFreeInfo passfree_info;
     public Paymethod_info paymethod_info;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Fingerprint implements com.baidu.wallet.core.NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -78869695964888877L;
@@ -45,7 +45,7 @@ public class PaySetResponse implements NoProguard, IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class FingerprintProtocol implements com.baidu.wallet.core.NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class PaySetResponse implements NoProguard, IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class PassFreeCreditMap implements com.baidu.wallet.core.NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +91,7 @@ public class PaySetResponse implements NoProguard, IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class PassFreeProtocol implements com.baidu.wallet.core.NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,7 +114,7 @@ public class PaySetResponse implements NoProguard, IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class PayFreeInfo implements com.baidu.wallet.core.NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -139,7 +139,7 @@ public class PaySetResponse implements NoProguard, IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class PayInfoBean implements com.baidu.wallet.core.NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,7 +166,7 @@ public class PaySetResponse implements NoProguard, IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Paymethod_info implements com.baidu.wallet.core.NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;

@@ -27,7 +27,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class GlideExecutor implements ExecutorService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ANIMATION_EXECUTOR_NAME = "animation";
@@ -42,7 +42,7 @@ public final class GlideExecutor implements ExecutorService {
     public transient /* synthetic */ FieldHolder $fh;
     public final ExecutorService delegate;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class DefaultThreadFactory implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DEFAULT_PRIORITY = 9;
@@ -130,7 +130,7 @@ public final class GlideExecutor implements ExecutorService {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface UncaughtThrowableStrategy {
         public static final UncaughtThrowableStrategy IGNORE = new UncaughtThrowableStrategy() { // from class: com.bumptech.glide.load.engine.executor.GlideExecutor.UncaughtThrowableStrategy.1
             public static /* synthetic */ Interceptable $ic;
@@ -395,7 +395,7 @@ public final class GlideExecutor implements ExecutorService {
     public static GlideExecutor newAnimationExecutor(int i2, UncaughtThrowableStrategy uncaughtThrowableStrategy) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65540, null, i2, uncaughtThrowableStrategy)) == null) ? new GlideExecutor(new ThreadPoolExecutor(0, i2, KEEP_ALIVE_TIME_MS, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new DefaultThreadFactory("animation", uncaughtThrowableStrategy, true))) : (GlideExecutor) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, uncaughtThrowableStrategy)) == null) ? new GlideExecutor(new ThreadPoolExecutor(0, i2, KEEP_ALIVE_TIME_MS, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new DefaultThreadFactory("animation", uncaughtThrowableStrategy, true))) : (GlideExecutor) invokeIL.objValue;
     }
 
     public static GlideExecutor newDiskCacheExecutor(int i2, String str, UncaughtThrowableStrategy uncaughtThrowableStrategy) {

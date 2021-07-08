@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AlbumActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_SELECT_IMAGE_RESULT = "com.baidu.tieba.AlbumActivity.SelectImageResult";
@@ -45,6 +45,7 @@ public class AlbumActivityConfig extends IntentConfig {
     public static final String IS_SELECT_DIRECTLY = "select_directly";
     public static final String KEY_ALBUM_DIRECT_DONE_ONLY_ONE = "key_album_direct_done_only_one";
     public static final String KEY_ALBUM_SHOW_CAPTURE = "key_album_show_capture";
+    public static final String KEY_DIRECT_TO_WORK_PUBLISH_PAGE = "key_direct_to_work_publish_page";
     public static final String KEY_FORUM_WRITE_DATA = "KEY_FORUM_WRITE_DATA";
     public static final String LAST_ALBUM_ID = "last_album_id";
     public static final String USE_ORIGINAL_IMG = "use_original_img";
@@ -173,9 +174,17 @@ public class AlbumActivityConfig extends IntentConfig {
         }
     }
 
+    public void setRedirectToWorkPublishPage(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+            getIntent().putExtra(KEY_DIRECT_TO_WORK_PUBLISH_PAGE, true);
+            getIntent().putExtra(WorkPublishActivityConfig.PARAM_SHOW_DRAFT, i2);
+        }
+    }
+
     public void setRequestFrom(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048589, this, i2) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048590, this, i2) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra(CAMERA_REQUEST_FROM, i2);
@@ -183,7 +192,7 @@ public class AlbumActivityConfig extends IntentConfig {
 
     public void setResourceType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048590, this, i2) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048591, this, i2) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra("from_type", i2);
@@ -191,7 +200,7 @@ public class AlbumActivityConfig extends IntentConfig {
 
     public void setStatisticFrom(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
             getIntent().putExtra(WriteActivityConfig.KEY_STATISTIS_FROM, i2);
         }
     }
@@ -250,14 +259,14 @@ public class AlbumActivityConfig extends IntentConfig {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, str2, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }

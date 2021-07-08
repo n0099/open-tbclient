@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.f;
 import d.a.c.e.p.j;
-import d.a.s0.x1.g;
+import d.a.p0.x1.g;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -37,28 +37,28 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SelectCoverModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.s0.v3.h.a f21519e;
+    public d.a.p0.v3.g.a f21565e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f21520f;
+    public d f21566f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbPageContext f21521g;
+    public TbPageContext f21567g;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f21522h;
+    public g f21568h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final HttpMessageListener f21523i;
+    public final HttpMessageListener f21569i;
     public final HttpMessageListener j;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class VideoCheckUegResponseMessage extends JsonHttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic = null;
         public static String STATUS_FAIL = "2";
@@ -133,7 +133,7 @@ public class SelectCoverModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class VideoPendantResponseMessage extends JsonHttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -188,13 +188,13 @@ public class SelectCoverModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SelectCoverModel f21524a;
+        public final /* synthetic */ SelectCoverModel f21570a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SelectCoverModel selectCoverModel, int i2) {
@@ -214,7 +214,7 @@ public class SelectCoverModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f21524a = selectCoverModel;
+            this.f21570a = selectCoverModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -225,34 +225,34 @@ public class SelectCoverModel extends BdBaseModel {
                 VideoCheckUegResponseMessage videoCheckUegResponseMessage = (VideoCheckUegResponseMessage) httpResponsedMessage;
                 String status = videoCheckUegResponseMessage.getStatus();
                 if (VideoCheckUegResponseMessage.STATUS_OK.equals(status)) {
-                    this.f21524a.f21519e.onCheckUegSuccess();
+                    this.f21570a.f21565e.onCheckUegSuccess();
                 } else if (VideoCheckUegResponseMessage.STATUS_FAIL.equals(status)) {
                     String msg = videoCheckUegResponseMessage.getMsg();
                     if (TextUtils.isEmpty(msg)) {
                         msg = TbadkCoreApplication.getInst().getResources().getString(R.string.video_ueg_fail);
                     }
-                    this.f21524a.f21519e.onCheckUegFail(msg);
+                    this.f21570a.f21565e.onCheckUegFail(msg);
                 } else {
                     String errorString = httpResponsedMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
                         errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.video_fail);
                     }
-                    this.f21524a.f21519e.onCheckUegFail(errorString);
-                    if (this.f21524a.f21522h != null) {
-                        this.f21524a.f21522h.a(201, errorString);
+                    this.f21570a.f21565e.onCheckUegFail(errorString);
+                    if (this.f21570a.f21568h != null) {
+                        this.f21570a.f21568h.a(201, errorString);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SelectCoverModel f21525a;
+        public final /* synthetic */ SelectCoverModel f21571a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(SelectCoverModel selectCoverModel, int i2) {
@@ -272,7 +272,7 @@ public class SelectCoverModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f21525a = selectCoverModel;
+            this.f21571a = selectCoverModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -284,24 +284,24 @@ public class SelectCoverModel extends BdBaseModel {
                 if (videoPendantResponseMessage.pendantDatas == null) {
                     return;
                 }
-                this.f21525a.f21519e.setPendantData(videoPendantResponseMessage.pendantDatas);
+                this.f21571a.f21565e.setPendantData(videoPendantResponseMessage.pendantDatas);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c extends BdAsyncTask<Void, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f21526a;
+        public final /* synthetic */ Bitmap f21572a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f21527b;
+        public final /* synthetic */ String f21573b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SelectCoverModel f21528c;
+        public final /* synthetic */ SelectCoverModel f21574c;
 
         public c(SelectCoverModel selectCoverModel, Bitmap bitmap, String str) {
             Interceptable interceptable = $ic;
@@ -318,9 +318,9 @@ public class SelectCoverModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f21528c = selectCoverModel;
-            this.f21526a = bitmap;
-            this.f21527b = str;
+            this.f21574c = selectCoverModel;
+            this.f21572a = bitmap;
+            this.f21573b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -330,8 +330,8 @@ public class SelectCoverModel extends BdBaseModel {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                File B = this.f21528c.B(this.f21526a, this.f21527b);
-                this.f21526a.recycle();
+                File B = this.f21574c.B(this.f21572a, this.f21573b);
+                this.f21572a.recycle();
                 return B.getAbsolutePath();
             }
             return (String) invokeL.objValue;
@@ -343,24 +343,24 @@ public class SelectCoverModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
                 super.onPostExecute((c) str);
-                this.f21528c.f21519e.onSaveCover(str);
+                this.f21574c.f21565e.onSaveCover(str);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d extends BdAsyncTask<Void, Integer, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f21529a;
+        public String f21575a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f21530b;
+        public int f21576b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SelectCoverModel f21531c;
+        public final /* synthetic */ SelectCoverModel f21577c;
 
         public d(SelectCoverModel selectCoverModel, String str, int i2) {
             Interceptable interceptable = $ic;
@@ -377,9 +377,9 @@ public class SelectCoverModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f21531c = selectCoverModel;
-            this.f21529a = str;
-            this.f21530b = i2;
+            this.f21577c = selectCoverModel;
+            this.f21575a = str;
+            this.f21576b = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -389,19 +389,19 @@ public class SelectCoverModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 Bitmap bitmap = null;
-                if (TextUtils.isEmpty(this.f21529a)) {
+                if (TextUtils.isEmpty(this.f21575a)) {
                     return null;
                 }
                 try {
                     MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-                    mediaMetadataRetriever.setDataSource(this.f21529a);
-                    bitmap = mediaMetadataRetriever.getFrameAtTime(this.f21530b * 1000);
+                    mediaMetadataRetriever.setDataSource(this.f21575a);
+                    bitmap = mediaMetadataRetriever.getFrameAtTime(this.f21576b * 1000);
                     mediaMetadataRetriever.release();
                     return bitmap;
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    if (this.f21531c.f21522h != null) {
-                        this.f21531c.f21522h.a(203, d.a.s0.x1.a.a(e2));
+                    if (this.f21577c.f21568h != null) {
+                        this.f21577c.f21568h.a(203, d.a.p0.x1.a.a(e2));
                         return bitmap;
                     }
                     return bitmap;
@@ -416,13 +416,13 @@ public class SelectCoverModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
                 super.onPostExecute((d) bitmap);
-                this.f21531c.f21519e.onGetCoverBitmap(bitmap);
+                this.f21577c.f21565e.onGetCoverBitmap(bitmap);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectCoverModel(TbPageContext tbPageContext, d.a.s0.v3.h.a aVar, g gVar) {
+    public SelectCoverModel(TbPageContext tbPageContext, d.a.p0.v3.g.a aVar, g gVar) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -439,15 +439,15 @@ public class SelectCoverModel extends BdBaseModel {
                 return;
             }
         }
-        this.f21523i = new a(this, CmdConfigHttp.CMD_VIDEO_TEXT_UEG);
+        this.f21569i = new a(this, CmdConfigHttp.CMD_VIDEO_TEXT_UEG);
         this.j = new b(this, CmdConfigHttp.CMD_VIDEO_COVER_PENDANT);
-        this.f21521g = tbPageContext;
-        this.f21519e = aVar;
-        this.f21522h = gVar;
+        this.f21567g = tbPageContext;
+        this.f21565e = aVar;
+        this.f21568h = gVar;
         registerTask();
-        this.f21523i.setTag(getUniqueId());
-        this.f21523i.setSelfListener(true);
-        registerListener(this.f21523i);
+        this.f21569i.setTag(getUniqueId());
+        this.f21569i.setSelfListener(true);
+        registerListener(this.f21569i);
         this.j.setTag(getUniqueId());
         this.j.setSelfListener(true);
         registerListener(this.j);
@@ -508,8 +508,8 @@ public class SelectCoverModel extends BdBaseModel {
                     r2 = r2;
                     try {
                         e.printStackTrace();
-                        if (this.f21522h != null) {
-                            this.f21522h.a(202, d.a.s0.x1.a.a(e));
+                        if (this.f21568h != null) {
+                            this.f21568h.a(202, d.a.p0.x1.a.a(e));
                         }
                         d.a.c.e.m.a.d(r2);
                         d.a.c.e.m.a.d(bufferedOutputStream2);
@@ -547,7 +547,7 @@ public class SelectCoverModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2) == null) {
             d dVar = new d(this, str, i2);
-            this.f21520f = dVar;
+            this.f21566f = dVar;
             dVar.execute(new Void[0]);
         }
     }
@@ -567,9 +567,9 @@ public class SelectCoverModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f21523i);
+            MessageManager.getInstance().unRegisterListener(this.f21569i);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_VIDEO_TEXT_UEG);
-            d dVar = this.f21520f;
+            d dVar = this.f21566f;
             if (dVar != null) {
                 dVar.cancel();
                 return false;
@@ -604,7 +604,7 @@ public class SelectCoverModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (!j.z()) {
-                this.f21521g.showToast(R.string.no_network);
+                this.f21567g.showToast(R.string.no_network);
             } else {
                 sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_COVER_PENDANT));
             }

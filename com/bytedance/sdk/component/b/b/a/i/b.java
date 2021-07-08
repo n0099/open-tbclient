@@ -12,13 +12,13 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class b implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<X500Principal, Set<X509Certificate>> f28368a;
+    public final Map<X500Principal, Set<X509Certificate>> f28478a;
 
     public b(X509Certificate... x509CertificateArr) {
         Interceptable interceptable = $ic;
@@ -35,13 +35,13 @@ public final class b implements f {
                 return;
             }
         }
-        this.f28368a = new LinkedHashMap();
+        this.f28478a = new LinkedHashMap();
         for (X509Certificate x509Certificate : x509CertificateArr) {
             X500Principal subjectX500Principal = x509Certificate.getSubjectX500Principal();
-            Set<X509Certificate> set = this.f28368a.get(subjectX500Principal);
+            Set<X509Certificate> set = this.f28478a.get(subjectX500Principal);
             if (set == null) {
                 set = new LinkedHashSet<>(1);
-                this.f28368a.put(subjectX500Principal, set);
+                this.f28478a.put(subjectX500Principal, set);
             }
             set.add(x509Certificate);
         }
@@ -52,7 +52,7 @@ public final class b implements f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, x509Certificate)) == null) {
-            Set<X509Certificate> set = this.f28368a.get(x509Certificate.getIssuerX500Principal());
+            Set<X509Certificate> set = this.f28478a.get(x509Certificate.getIssuerX500Principal());
             if (set == null) {
                 return null;
             }
@@ -75,7 +75,7 @@ public final class b implements f {
             if (obj == this) {
                 return true;
             }
-            return (obj instanceof b) && ((b) obj).f28368a.equals(this.f28368a);
+            return (obj instanceof b) && ((b) obj).f28478a.equals(this.f28478a);
         }
         return invokeL.booleanValue;
     }
@@ -83,6 +83,6 @@ public final class b implements f {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28368a.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28478a.hashCode() : invokeV.intValue;
     }
 }

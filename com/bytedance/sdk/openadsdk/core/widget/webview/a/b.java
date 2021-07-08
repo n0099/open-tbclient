@@ -1,6 +1,7 @@
 package com.bytedance.sdk.openadsdk.core.widget.webview.a;
 
 import android.os.Environment;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -22,31 +23,31 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static File f30818a;
+    public static File f30928a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f30819b;
+    public static volatile b f30929b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public AtomicBoolean f30820c;
+    public AtomicBoolean f30930c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicBoolean f30821d;
+    public AtomicBoolean f30931d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f30822e;
+    public boolean f30932e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicInteger f30823f;
+    public AtomicInteger f30933f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AtomicLong f30824g;
+    public AtomicLong f30934g;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -61,11 +62,11 @@ public class b {
                 return;
             }
         }
-        this.f30820c = new AtomicBoolean(true);
-        this.f30821d = new AtomicBoolean(false);
-        this.f30822e = false;
-        this.f30823f = new AtomicInteger(0);
-        this.f30824g = new AtomicLong();
+        this.f30930c = new AtomicBoolean(true);
+        this.f30931d = new AtomicBoolean(false);
+        this.f30932e = false;
+        this.f30933f = new AtomicInteger(0);
+        this.f30934g = new AtomicLong();
         f();
     }
 
@@ -74,7 +75,7 @@ public class b {
         File externalCacheDir;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            if (f30818a == null) {
+            if (f30928a == null) {
                 try {
                     if (("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) && o.a().getExternalCacheDir() != null) {
                         externalCacheDir = o.a().getExternalCacheDir();
@@ -83,12 +84,12 @@ public class b {
                     }
                     File file = new File(new File(externalCacheDir, "tt_tmpl_pkg"), MediaTrackConfig.AE_IMPORT_TEMPLATE);
                     file.mkdirs();
-                    f30818a = file;
+                    f30928a = file;
                 } catch (Throwable th) {
                     j.c("TemplateManager", "getTemplateDir error", th);
                 }
             }
-            return f30818a;
+            return f30928a;
         }
         return (File) invokeV.objValue;
     }
@@ -101,7 +102,7 @@ public class b {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f30825a;
+                public final /* synthetic */ b f30935a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -121,7 +122,7 @@ public class b {
                             return;
                         }
                     }
-                    this.f30825a = this;
+                    this.f30935a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -129,9 +130,9 @@ public class b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         f.a();
-                        this.f30825a.f30820c.set(false);
-                        this.f30825a.g();
-                        this.f30825a.d();
+                        this.f30935a.f30930c.set(false);
+                        this.f30935a.g();
+                        this.f30935a.d();
                     }
                 }
             }, 10);
@@ -166,7 +167,7 @@ public class b {
                     f.d();
                 }
                 j.b("TemplateManager", "check template usable4: " + z);
-                this.f30822e = z;
+                this.f30932e = z;
                 return;
             }
             j.b("TemplateManager", "check template usable2");
@@ -175,7 +176,7 @@ public class b {
 
     private void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || this.f30823f.getAndSet(0) <= 0 || System.currentTimeMillis() - this.f30824g.get() <= TTAdConstant.AD_MAX_EVENT_TIME) {
+        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || this.f30933f.getAndSet(0) <= 0 || System.currentTimeMillis() - this.f30934g.get() <= TTAdConstant.AD_MAX_EVENT_TIME) {
             return;
         }
         d();
@@ -198,14 +199,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f30819b == null) {
+            if (f30929b == null) {
                 synchronized (b.class) {
-                    if (f30819b == null) {
-                        f30819b = new b();
+                    if (f30929b == null) {
+                        f30929b = new b();
                     }
                 }
             }
-            return f30819b;
+            return f30929b;
         }
         return (b) invokeV.objValue;
     }
@@ -213,7 +214,7 @@ public class b {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30822e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30932e : invokeV.booleanValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:56:0x0127 A[Catch: all -> 0x0242, TRY_ENTER, TRY_LEAVE, TryCatch #0 {all -> 0x0242, blocks: (B:8:0x0014, B:11:0x001e, B:12:0x0023, B:14:0x0038, B:16:0x004d, B:19:0x0055, B:21:0x005f, B:23:0x0073, B:25:0x007f, B:28:0x008b, B:30:0x0095, B:52:0x011b, B:53:0x011f, B:56:0x0127, B:59:0x015b, B:62:0x0164, B:64:0x0184, B:66:0x018a, B:68:0x0190, B:71:0x019b, B:72:0x01a9, B:74:0x01b7, B:75:0x01bb, B:77:0x01c1, B:80:0x01f5, B:84:0x01ff, B:31:0x00a3, B:32:0x00ab, B:34:0x00b1, B:36:0x00c1, B:37:0x00c5, B:39:0x00cf, B:41:0x00d5, B:43:0x00e3, B:44:0x00e7, B:45:0x00ef, B:47:0x00f5, B:49:0x0105, B:50:0x0109, B:51:0x010f, B:85:0x0232), top: B:97:0x0014 }] */
@@ -224,25 +225,25 @@ public class b {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if (this.f30820c.get()) {
+            if (this.f30930c.get()) {
                 j.b("TemplateManager", "loadTemplate error1");
                 return;
             }
             try {
-                if (this.f30821d.get()) {
+                if (this.f30931d.get()) {
                     if (z) {
-                        this.f30823f.getAndIncrement();
+                        this.f30933f.getAndIncrement();
                     }
                     j.b("TemplateManager", "loadTemplate error2: " + z);
                     return;
                 }
-                this.f30821d.set(true);
+                this.f30931d.set(true);
                 u a2 = o.f().a();
                 u b2 = f.b();
                 if (a2 != null && a2.f()) {
                     if (!f.b(a2.b())) {
-                        this.f30821d.set(false);
-                        this.f30824g.set(System.currentTimeMillis());
+                        this.f30931d.set(false);
+                        this.f30934g.set(System.currentTimeMillis());
                         j.b("TemplateManager", "loadTemplate error4");
                         return;
                     }
@@ -294,7 +295,7 @@ public class b {
                             if (execute != null && execute.isSuccess() && execute.getFile() != null && execute.getFile().exists()) {
                                 j.a("TemplateManager", "loadTemplate success ulr=", a4);
                             }
-                            this.f30821d.set(false);
+                            this.f30931d.set(false);
                             a(arrayList2);
                             j.b("TemplateManager", "loadTemplate error5");
                             return;
@@ -319,8 +320,8 @@ public class b {
                         f.c();
                         j.b("TemplateManager", "loadTemplate update success: " + a2.b());
                         g();
-                        this.f30821d.set(false);
-                        this.f30824g.set(System.currentTimeMillis());
+                        this.f30931d.set(false);
+                        this.f30934g.set(System.currentTimeMillis());
                         h();
                         return;
                     }
@@ -334,12 +335,12 @@ public class b {
                     f.c();
                     j.b("TemplateManager", "loadTemplate update success: " + a2.b());
                     g();
-                    this.f30821d.set(false);
-                    this.f30824g.set(System.currentTimeMillis());
+                    this.f30931d.set(false);
+                    this.f30934g.set(System.currentTimeMillis());
                     h();
                     return;
                 }
-                this.f30821d.set(false);
+                this.f30931d.set(false);
                 a(109);
                 j.b("TemplateManager", "loadTemplate error3");
             } catch (Throwable th) {
@@ -357,7 +358,7 @@ public class b {
 
     private void a(List<u.a> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, this, list) == null) || list == null || list.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, list) == null) || list == null || list.isEmpty()) {
             return;
         }
         for (u.a aVar : list) {

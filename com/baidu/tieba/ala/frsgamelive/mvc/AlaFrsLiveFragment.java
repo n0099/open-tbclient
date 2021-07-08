@@ -35,33 +35,33 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.k.e.n;
-import d.a.r0.r.f0.f;
-import d.a.r0.r.q.b2;
-import d.a.s0.u0.q0;
+import d.a.o0.r.f0.f;
+import d.a.o0.r.q.b2;
+import d.a.p0.u0.q0;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquareRefreshHandler, q0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f14157e;
+    public String f14196e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14158f;
+    public String f14197f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14159g;
+    public String f14198g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f14160h;
+    public boolean f14199h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AlaFrsLiveModel f14161i;
-    public d.a.s0.v.e.c.c j;
+    public AlaFrsLiveModel f14200i;
+    public d.a.p0.v.e.c.c j;
     public int k;
     public boolean l;
     public boolean m;
@@ -69,18 +69,18 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     public CustomMessageListener o;
     public int p;
     public AlaFrsLiveModel.b q;
-    public d.a.s0.v.c r;
+    public d.a.p0.v.c r;
     public f.g s;
     public BdMultiColumnListView.OnScrollToBottomListener t;
-    public d.a.s0.v.e.c.d u;
+    public d.a.p0.v.e.c.d u;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaFrsLiveFragment f14162a;
+        public final /* synthetic */ AlaFrsLiveFragment f14201a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AlaFrsLiveFragment alaFrsLiveFragment, int i2) {
@@ -100,7 +100,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
                     return;
                 }
             }
-            this.f14162a = alaFrsLiveFragment;
+            this.f14201a = alaFrsLiveFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -115,20 +115,20 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
                 return;
             }
             if ("FrsGameLive".equals(split[0]) && 9 == d.a.c.e.m.b.d(split[1], 0)) {
-                this.f14162a.s();
+                this.f14201a.s();
             } else if ("FrsGameLiveLive".equals(split[0]) && 2 == d.a.c.e.m.b.d(split[1], 0)) {
-                this.f14162a.s();
+                this.f14201a.s();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements AlaFrsLiveModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaFrsLiveFragment f14163a;
+        public final /* synthetic */ AlaFrsLiveFragment f14202a;
 
         public b(AlaFrsLiveFragment alaFrsLiveFragment) {
             Interceptable interceptable = $ic;
@@ -145,30 +145,30 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
                     return;
                 }
             }
-            this.f14163a = alaFrsLiveFragment;
+            this.f14202a = alaFrsLiveFragment;
         }
 
         @Override // com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveModel.b
         public void a(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f14163a.getPageContext() == null || this.f14163a.j == null) {
+            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f14202a.getPageContext() == null || this.f14202a.j == null) {
                 return;
             }
-            AlaFrsLiveFragment alaFrsLiveFragment = this.f14163a;
+            AlaFrsLiveFragment alaFrsLiveFragment = this.f14202a;
             alaFrsLiveFragment.hideLoadingView(alaFrsLiveFragment.j.k());
-            this.f14163a.j.g();
-            this.f14163a.j.w(this.f14163a.f14161i.getData(), z, this.f14163a.f14161i.K());
-            this.f14163a.j.t(this.f14163a.f14161i.H());
-            if (ListUtils.getCount(this.f14163a.f14161i.getData()) == 0) {
-                if (this.f14163a.k == 1) {
+            this.f14202a.j.g();
+            this.f14202a.j.w(this.f14202a.f14200i.getData(), z, this.f14202a.f14200i.K());
+            this.f14202a.j.t(this.f14202a.f14200i.H());
+            if (ListUtils.getCount(this.f14202a.f14200i.getData()) == 0) {
+                if (this.f14202a.k == 1) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001621));
                 }
-                this.f14163a.l = false;
-                AlaFrsLiveFragment alaFrsLiveFragment2 = this.f14163a;
-                alaFrsLiveFragment2.showNetRefreshView(alaFrsLiveFragment2.j.k(), this.f14163a.getPageContext().getString(R.string.frs_game_live_no_data), null, this.f14163a.getPageContext().getString(R.string.frs_game_live_more_data), false, this.f14163a.getNetRefreshListener());
+                this.f14202a.l = false;
+                AlaFrsLiveFragment alaFrsLiveFragment2 = this.f14202a;
+                alaFrsLiveFragment2.showNetRefreshView(alaFrsLiveFragment2.j.k(), this.f14202a.getPageContext().getString(R.string.frs_game_live_no_data), null, this.f14202a.getPageContext().getString(R.string.frs_game_live_more_data), false, this.f14202a.getNetRefreshListener());
                 return;
             }
-            AlaFrsLiveFragment alaFrsLiveFragment3 = this.f14163a;
+            AlaFrsLiveFragment alaFrsLiveFragment3 = this.f14202a;
             alaFrsLiveFragment3.hideNetRefreshView(alaFrsLiveFragment3.j.k());
         }
 
@@ -176,32 +176,32 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         public void onLoadError(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                if (this.f14163a.j != null) {
-                    AlaFrsLiveFragment alaFrsLiveFragment = this.f14163a;
+                if (this.f14202a.j != null) {
+                    AlaFrsLiveFragment alaFrsLiveFragment = this.f14202a;
                     alaFrsLiveFragment.hideLoadingView(alaFrsLiveFragment.j.k());
-                    this.f14163a.j.g();
+                    this.f14202a.j.g();
                 }
-                if (ListUtils.getCount(this.f14163a.f14161i.getData()) <= 0 || this.f14163a.j == null) {
-                    this.f14163a.l = true;
-                    if (this.f14163a.j != null) {
-                        AlaFrsLiveFragment alaFrsLiveFragment2 = this.f14163a;
+                if (ListUtils.getCount(this.f14202a.f14200i.getData()) <= 0 || this.f14202a.j == null) {
+                    this.f14202a.l = true;
+                    if (this.f14202a.j != null) {
+                        AlaFrsLiveFragment alaFrsLiveFragment2 = this.f14202a;
                         alaFrsLiveFragment2.showNetRefreshView(alaFrsLiveFragment2.j.k(), str, false);
                         return;
                     }
                     return;
                 }
-                this.f14163a.showToast(str);
+                this.f14202a.showToast(str);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements d.a.s0.v.c {
+    /* loaded from: classes4.dex */
+    public class c implements d.a.p0.v.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaFrsLiveFragment f14164a;
+        public final /* synthetic */ AlaFrsLiveFragment f14203a;
 
         public c(AlaFrsLiveFragment alaFrsLiveFragment) {
             Interceptable interceptable = $ic;
@@ -218,26 +218,26 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
                     return;
                 }
             }
-            this.f14164a = alaFrsLiveFragment;
+            this.f14203a = alaFrsLiveFragment;
         }
 
-        @Override // d.a.s0.v.c
+        @Override // d.a.p0.v.c
         public void a(b2 b2Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, b2Var) == null) {
-                AlaFrsLiveFragment alaFrsLiveFragment = this.f14164a;
-                alaFrsLiveFragment.O0(alaFrsLiveFragment.getPageContext(), b2Var);
+                AlaFrsLiveFragment alaFrsLiveFragment = this.f14203a;
+                alaFrsLiveFragment.P0(alaFrsLiveFragment.getPageContext(), b2Var);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d implements f.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaFrsLiveFragment f14165e;
+        public final /* synthetic */ AlaFrsLiveFragment f14204e;
 
         public d(AlaFrsLiveFragment alaFrsLiveFragment) {
             Interceptable interceptable = $ic;
@@ -254,26 +254,26 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
                     return;
                 }
             }
-            this.f14165e = alaFrsLiveFragment;
+            this.f14204e = alaFrsLiveFragment;
         }
 
-        @Override // d.a.r0.r.f0.f.g
+        @Override // d.a.o0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f14165e.f14161i == null) {
+            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f14204e.f14200i == null) {
                 return;
             }
-            this.f14165e.f14161i.N();
+            this.f14204e.f14200i.N();
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class e implements BdMultiColumnListView.OnScrollToBottomListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaFrsLiveFragment f14166a;
+        public final /* synthetic */ AlaFrsLiveFragment f14205a;
 
         public e(AlaFrsLiveFragment alaFrsLiveFragment) {
             Interceptable interceptable = $ic;
@@ -290,32 +290,32 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
                     return;
                 }
             }
-            this.f14166a = alaFrsLiveFragment;
+            this.f14205a = alaFrsLiveFragment;
         }
 
         @Override // com.baidu.ala.widget.multicolumn.BdMultiColumnListView.OnScrollToBottomListener
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean M = this.f14166a.f14161i != null ? this.f14166a.f14161i.M() : false;
-                if (this.f14166a.j != null) {
+                boolean M = this.f14205a.f14200i != null ? this.f14205a.f14200i.M() : false;
+                if (this.f14205a.j != null) {
                     if (M) {
-                        this.f14166a.j.B();
+                        this.f14205a.j.B();
                     } else {
-                        this.f14166a.j.C();
+                        this.f14205a.j.C();
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class f implements d.a.s0.v.e.c.d {
+    /* loaded from: classes4.dex */
+    public class f implements d.a.p0.v.e.c.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaFrsLiveFragment f14167a;
+        public final /* synthetic */ AlaFrsLiveFragment f14206a;
 
         public f(AlaFrsLiveFragment alaFrsLiveFragment) {
             Interceptable interceptable = $ic;
@@ -332,23 +332,23 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
                     return;
                 }
             }
-            this.f14167a = alaFrsLiveFragment;
+            this.f14206a = alaFrsLiveFragment;
         }
 
-        @Override // d.a.s0.v.e.c.d
+        @Override // d.a.p0.v.e.c.d
         public void a(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f14167a.f14161i == null || this.f14167a.f14161i.I() == i2) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f14206a.f14200i == null || this.f14206a.f14200i.I() == i2) {
                 return;
             }
             StatisticItem statisticItem = new StatisticItem("c12572");
-            statisticItem.param("fid", this.f14167a.f14157e);
+            statisticItem.param("fid", this.f14206a.f14196e);
             statisticItem.param("obj_type", i2);
             TiebaStatic.log(statisticItem);
-            this.f14167a.f14161i.setSortType(i2);
-            this.f14167a.f14161i.clearData();
-            if (this.f14167a.j != null) {
-                this.f14167a.j.i().startPullRefresh();
+            this.f14206a.f14200i.setSortType(i2);
+            this.f14206a.f14200i.clearData();
+            if (this.f14206a.j != null) {
+                this.f14206a.j.i().startPullRefresh();
             }
         }
     }
@@ -377,7 +377,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         this.u = new f(this);
     }
 
-    public void O0(TbPageContext<?> tbPageContext, b2 b2Var) {
+    public void P0(TbPageContext<?> tbPageContext, b2 b2Var) {
         String str;
         boolean z;
         b2 b2Var2;
@@ -386,7 +386,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
             return;
         }
         StatisticItem statisticItem = new StatisticItem("c12571");
-        statisticItem.param("fid", this.f14157e);
+        statisticItem.param("fid", this.f14196e);
         statisticItem.param("obj_type", b2Var.g1().live_type);
         TiebaStatic.log(statisticItem);
         if (TbadkCoreApplication.getCurrentAccount() != null) {
@@ -402,15 +402,15 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         alaLiveInfoCoreData.fillWithInfoData(b2Var.g1());
         AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
         alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-        for (n nVar : this.f14161i.getData()) {
-            if (nVar != null && (nVar instanceof d.a.s0.v.e.b.c) && (b2Var2 = ((d.a.s0.v.e.b.c) nVar).f67889e) != null) {
-                alaLiveInfoListCoreData.mLiveInfoList.add(P0(b2Var2));
+        for (n nVar : this.f14200i.getData()) {
+            if (nVar != null && (nVar instanceof d.a.p0.v.e.b.c) && (b2Var2 = ((d.a.p0.v.e.b.c) nVar).f64671e) != null) {
+                alaLiveInfoListCoreData.mLiveInfoList.add(Q0(b2Var2));
             }
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, alaLiveInfoListCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_SQUARE_SUB_LIVE, str, z, null, null)));
     }
 
-    public final AlaLiveInfoCoreData P0(b2 b2Var) {
+    public final AlaLiveInfoCoreData Q0(b2 b2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b2Var)) == null) {
@@ -422,60 +422,60 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         return (AlaLiveInfoCoreData) invokeL.objValue;
     }
 
-    public void Q0(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f14159g = str;
-        }
-    }
-
     public void R0(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f14157e = str;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.f14198g = str;
         }
     }
 
     public void S0(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f14158f = str;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f14196e = str;
         }
     }
 
-    public void T0(int i2) {
+    public void T0(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.f14197f = str;
+        }
+    }
+
+    public void U0(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             this.k = i2;
         }
     }
 
-    public void U0(boolean z) {
+    public void V0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f14160h = z;
+            this.f14199h = z;
         }
     }
 
-    public void V0(boolean z) {
+    public void W0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             this.m = z;
         }
     }
 
-    public final void W0() {
-        d.a.s0.v.e.c.c cVar;
+    public final void X0() {
+        d.a.p0.v.e.c.c cVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (cVar = this.j) == null || cVar.j() == null) {
             return;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(UtilHelper.getFixedBarText(this.f14158f, 5, true, true) + getResources().getString(R.string.forum));
+        sb.append(UtilHelper.getFixedBarText(this.f14197f, 5, true, true) + getResources().getString(R.string.forum));
         this.j.j().setCenterTextTitle(sb.toString());
     }
 
-    @Override // d.a.s0.u0.q0
+    @Override // d.a.p0.u0.q0
     public NavigationBar g0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -488,12 +488,12 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         b2 b2Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            AlaFrsLiveModel alaFrsLiveModel = this.f14161i;
+            AlaFrsLiveModel alaFrsLiveModel = this.f14200i;
             if (alaFrsLiveModel == null || ListUtils.isEmpty(alaFrsLiveModel.getData())) {
                 return null;
             }
             LinkedList linkedList = new LinkedList();
-            for (n nVar : this.f14161i.getData()) {
+            for (n nVar : this.f14200i.getData()) {
                 if ((nVar instanceof b2) && (b2Var = (b2) nVar) != null && b2Var.g1() != null) {
                     linkedList.add(Long.valueOf(b2Var.g1().live_id));
                 }
@@ -541,7 +541,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
             super.onChangeSkinType(i2);
             this.p = i2;
-            d.a.s0.v.e.c.c cVar = this.j;
+            d.a.p0.v.e.c.c cVar = this.j;
             if (cVar != null) {
                 cVar.q(i2);
             }
@@ -562,7 +562,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048593, this, layoutInflater, viewGroup, bundle)) == null) {
-            d.a.s0.v.e.c.c cVar = new d.a.s0.v.e.c.c(getPageContext(), this.f14160h, getPageContext().getOrignalPage().getUniqueId(), this.f14157e, this.m);
+            d.a.p0.v.e.c.c cVar = new d.a.p0.v.e.c.c(getPageContext(), this.f14199h, getPageContext().getOrignalPage().getUniqueId(), this.f14196e, this.m);
             this.j = cVar;
             cVar.o();
             this.j.u(1);
@@ -571,7 +571,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
             this.j.z(this.t);
             this.j.x(this.u);
             this.j.q(this.p);
-            W0();
+            X0();
             return this.j.k();
         }
         return (View) invokeLLL.objValue;
@@ -598,7 +598,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) AlaCmdConfigCustom.CMD_ALA_ALL_LIVE_SIMPLE, new IntentConfig(getPageContext().getPageActivity())));
                 return;
             }
-            AlaFrsLiveModel alaFrsLiveModel = this.f14161i;
+            AlaFrsLiveModel alaFrsLiveModel = this.f14200i;
             if (alaFrsLiveModel != null) {
                 alaFrsLiveModel.N();
             }
@@ -623,15 +623,15 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onPrimary();
             if (isPrimary()) {
-                if (this.f14161i == null) {
+                if (this.f14200i == null) {
                     AlaFrsLiveModel alaFrsLiveModel = new AlaFrsLiveModel(getPageContext());
-                    this.f14161i = alaFrsLiveModel;
+                    this.f14200i = alaFrsLiveModel;
                     alaFrsLiveModel.P(this.q);
-                    this.f14161i.setForumId(this.f14157e);
-                    this.f14161i.setForumGameLabel(this.f14159g);
-                    this.f14161i.O(this.k);
-                    this.f14161i.N();
-                    d.a.s0.v.e.c.c cVar = this.j;
+                    this.f14200i.setForumId(this.f14196e);
+                    this.f14200i.setForumGameLabel(this.f14198g);
+                    this.f14200i.O(this.k);
+                    this.f14200i.N();
+                    d.a.p0.v.e.c.c cVar = this.j;
                     if (cVar != null) {
                         showLoadingView(cVar.k(), false, getResources().getDimensionPixelSize(R.dimen.ds270));
                     }
@@ -677,11 +677,11 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         AlaFrsLiveModel alaFrsLiveModel;
         b2 b2Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048601, this, list) == null) || ListUtils.isEmpty(list) || (alaFrsLiveModel = this.f14161i) == null || ListUtils.isEmpty(alaFrsLiveModel.getData())) {
+        if (!(interceptable == null || interceptable.invokeL(1048601, this, list) == null) || ListUtils.isEmpty(list) || (alaFrsLiveModel = this.f14200i) == null || ListUtils.isEmpty(alaFrsLiveModel.getData())) {
             return;
         }
         LinkedList linkedList = new LinkedList();
-        for (n nVar : this.f14161i.getData()) {
+        for (n nVar : this.f14200i.getData()) {
             if ((nVar instanceof b2) && (b2Var = (b2) nVar) != null && b2Var.g1() != null) {
                 Long l = null;
                 Iterator<Long> it = list.iterator();
@@ -704,15 +704,15 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         if (linkedList.isEmpty()) {
             return;
         }
-        this.f14161i.getData().removeAll(linkedList);
+        this.f14200i.getData().removeAll(linkedList);
         AlaFrsLiveModel.b bVar = this.q;
         if (bVar != null) {
-            bVar.a(this.f14161i.J());
+            bVar.a(this.f14200i.J());
         }
     }
 
     public final void s() {
-        d.a.s0.v.e.c.c cVar;
+        d.a.p0.v.e.c.c cVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048602, this) == null) || (cVar = this.j) == null) {
             return;

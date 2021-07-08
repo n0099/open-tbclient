@@ -1,5 +1,6 @@
 package com.baidu.ar.bean;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -50,7 +51,7 @@ public class DuMixARConfig {
     public static String getSecretKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? mSecretKey : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? mSecretKey : (String) invokeV.objValue;
     }
 
     public static void setAPIKey(String str) {

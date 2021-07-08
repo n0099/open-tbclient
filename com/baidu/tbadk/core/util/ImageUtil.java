@@ -2,12 +2,13 @@ package com.baidu.tbadk.core.util;
 
 import android.graphics.BitmapFactory;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ImageUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CameraExif";
@@ -212,7 +213,7 @@ public class ImageUtil {
         InterceptResult invokeCommon;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) != null) {
             return invokeCommon.intValue;
         }
         if (z) {

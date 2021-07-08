@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.b.a.w;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class a extends w {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f72621b;
+    public final int f69724b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final q f72622c;
+    public final q f69725c;
 
     public a(q qVar) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public abstract class a extends w {
                 return;
             }
         }
-        this.f72622c = qVar;
-        this.f72621b = qVar.getLength();
+        this.f69725c = qVar;
+        this.f69724b = qVar.getLength();
     }
 
     @Override // d.f.b.a.w
@@ -43,10 +43,10 @@ public abstract class a extends w {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            if (this.f72621b == 0) {
+            if (this.f69724b == 0) {
                 return -1;
             }
-            int d2 = z ? this.f72622c.d() : 0;
+            int d2 = z ? this.f69725c.d() : 0;
             while (z(d2).p()) {
                 d2 = x(d2, z);
                 if (d2 == -1) {
@@ -84,11 +84,11 @@ public abstract class a extends w {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            int i2 = this.f72621b;
+            int i2 = this.f69724b;
             if (i2 == 0) {
                 return -1;
             }
-            int c2 = z ? this.f72622c.c() : i2 - 1;
+            int c2 = z ? this.f69725c.c() : i2 - 1;
             while (z(c2).p()) {
                 c2 = y(c2, z);
                 if (c2 == -1) {
@@ -134,9 +134,9 @@ public abstract class a extends w {
             int s = s(i2);
             int w = w(s);
             z(s).g(i2 - v(s), bVar, z);
-            bVar.f73531c += w;
+            bVar.f70634c += w;
             if (z) {
-                bVar.f73530b = Pair.create(u(s), bVar.f73530b);
+                bVar.f70633b = Pair.create(u(s), bVar.f70633b);
             }
             return bVar;
         }
@@ -178,8 +178,8 @@ public abstract class a extends w {
             int w = w(t);
             int v = v(t);
             z(t).n(i2 - w, cVar, z, j);
-            cVar.f73543f += v;
-            cVar.f73544g += v;
+            cVar.f70646f += v;
+            cVar.f70647g += v;
             return cVar;
         }
         return (w.c) invokeCommon.objValue;
@@ -202,9 +202,9 @@ public abstract class a extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             if (z) {
-                return this.f72622c.b(i2);
+                return this.f69725c.b(i2);
             }
-            if (i2 < this.f72621b - 1) {
+            if (i2 < this.f69724b - 1) {
                 return i2 + 1;
             }
             return -1;
@@ -217,7 +217,7 @@ public abstract class a extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             if (z) {
-                return this.f72622c.a(i2);
+                return this.f69725c.a(i2);
             }
             if (i2 > 0) {
                 return i2 - 1;

@@ -2,6 +2,7 @@ package com.baidu.down.utils;
 
 import android.content.Context;
 import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CryptUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +65,7 @@ public class CryptUtil {
     public static byte[] decryptData(Context context, byte[] bArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, bArr)) == null) ? decrypt(context, bArr) : (byte[]) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, bArr)) == null) ? decrypt(context, bArr) : (byte[]) invokeLL.objValue;
     }
 
     public static native byte[] encrypt(Context context, byte[] bArr);

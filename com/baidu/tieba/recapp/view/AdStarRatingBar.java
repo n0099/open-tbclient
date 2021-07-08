@@ -17,19 +17,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AdStarRatingBar extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AppCompatRatingBar f20563e;
+    public AppCompatRatingBar f20609e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f20564f;
+    public TextView f20610f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20565g;
+    public int f20611g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AdStarRatingBar(@NonNull Context context) {
@@ -56,21 +56,21 @@ public class AdStarRatingBar extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.ad_star_rating_bar, this);
-            this.f20563e = (AppCompatRatingBar) findViewById(R.id.ad_rating_bar);
-            this.f20564f = (TextView) findViewById(R.id.ad_rating_text);
+            this.f20609e = (AppCompatRatingBar) findViewById(R.id.ad_rating_bar);
+            this.f20610f = (TextView) findViewById(R.id.ad_rating_text);
             int intrinsicHeight = ContextCompat.getDrawable(getContext(), R.drawable.icon_rating_bar_star_selected).getIntrinsicHeight();
-            ViewGroup.LayoutParams layoutParams = this.f20563e.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f20609e.getLayoutParams();
             layoutParams.width = -2;
             layoutParams.height = intrinsicHeight;
-            this.f20563e.setLayoutParams(layoutParams);
-            SkinManager.setViewTextColor(this.f20564f, this.f20565g);
+            this.f20609e.setLayoutParams(layoutParams);
+            SkinManager.setViewTextColor(this.f20610f, this.f20611g);
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setViewTextColor(this.f20564f, this.f20565g);
+            SkinManager.setViewTextColor(this.f20610f, this.f20611g);
         }
     }
 
@@ -79,15 +79,15 @@ public class AdStarRatingBar extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) || f2 < 0.0f) {
             return;
         }
-        this.f20564f.setText(String.valueOf(f2));
-        this.f20563e.setRating(f2);
+        this.f20610f.setText(String.valueOf(f2));
+        this.f20609e.setRating(f2);
     }
 
     public void setTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f20565g = i2;
-            SkinManager.setViewTextColor(this.f20564f, i2);
+            this.f20611g = i2;
+            SkinManager.setViewTextColor(this.f20610f, i2);
             postInvalidate();
         }
     }
@@ -132,7 +132,7 @@ public class AdStarRatingBar extends FrameLayout {
                 return;
             }
         }
-        this.f20565g = R.color.CAM_X0109;
+        this.f20611g = R.color.CAM_X0109;
         a();
     }
 }

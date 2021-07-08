@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.downloader.DownloadService;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class h extends d.l.a.e.b.g.c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String m = "h";
@@ -55,7 +55,7 @@ public class h extends d.l.a.e.b.g.c {
                 d.l.a.e.b.c.a.g(m, "onStartCommand");
             }
             if (!d.l.a.e.b.l.a.a(262144)) {
-                this.f74705g = true;
+                this.f71757g = true;
             }
             g();
         }
@@ -65,8 +65,8 @@ public class h extends d.l.a.e.b.g.c {
     public void c() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && d.l.a.e.b.l.a.a(262144)) {
-            this.f74705g = true;
-            this.f74707i = false;
+            this.f71757g = true;
+            this.f71759i = false;
             if (d.l.a.e.b.c.a.e()) {
                 d.l.a.e.b.c.a.g(m, "onStartCommandOnMainThread");
             }

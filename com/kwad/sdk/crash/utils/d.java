@@ -6,12 +6,12 @@ import androidx.annotation.WorkerThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f37000a;
+    public static Context f35370a;
     public transient /* synthetic */ FieldHolder $fh;
 
     @WorkerThread
@@ -19,8 +19,8 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            long b2 = b(f37000a);
-            a(f37000a, 1 + b2);
+            long b2 = b(f35370a);
+            a(f35370a, 1 + b2);
             return b2;
         }
         return invokeV.longValue;
@@ -29,7 +29,7 @@ public class d {
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            f37000a = context;
+            f35370a = context;
         }
     }
 

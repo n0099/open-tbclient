@@ -1,6 +1,7 @@
 package com.facebook.drawee.drawable;
 
 import android.graphics.drawable.Drawable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DrawableUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +73,7 @@ public class DrawableUtils {
     public static int multiplyColorAlpha(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65540, null, i2, i3)) == null) ? i3 == 255 ? i2 : i3 == 0 ? i2 & 16777215 : (i2 & 16777215) | ((((i2 >>> 24) * (i3 + (i3 >> 7))) >> 8) << 24) : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3)) == null) ? i3 == 255 ? i2 : i3 == 0 ? i2 & 16777215 : (i2 & 16777215) | ((((i2 >>> 24) * (i3 + (i3 >> 7))) >> 8) << 24) : invokeII.intValue;
     }
 
     public static void setCallbacks(@Nullable Drawable drawable, @Nullable Drawable.Callback callback, @Nullable TransformCallback transformCallback) {

@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.core.content.res.TypedArrayUtils;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -401,7 +402,7 @@ public class ChangeTransform extends Transition {
 
     private void createGhostView(ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, this, viewGroup, transitionValues, transitionValues2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, viewGroup, transitionValues, transitionValues2) == null) {
             View view = transitionValues2.view;
             Matrix matrix = new Matrix((Matrix) transitionValues2.values.get(PROPNAME_PARENT_MATRIX));
             ViewUtils.transformMatrixToLocal(viewGroup, matrix);

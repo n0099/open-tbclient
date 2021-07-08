@@ -1,5 +1,6 @@
 package com.bytedance.embedapplog;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +10,7 @@ import d.b.a.h0;
 import d.b.a.i0;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class GameReportHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCESS_ACCOUNT = "access_account";
@@ -87,7 +88,7 @@ public final class GameReportHelper {
 
     public static void onEventAddToFavorite(String str, String str2, String str3, int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{str, str2, str3, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("content_type", str);

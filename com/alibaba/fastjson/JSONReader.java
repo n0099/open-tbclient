@@ -50,7 +50,7 @@ public class JSONReader implements Closeable {
     private void endStructure() {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             JSONStreamContext jSONStreamContext = this.context.parent;
             this.context = jSONStreamContext;
             if (jSONStreamContext == null) {

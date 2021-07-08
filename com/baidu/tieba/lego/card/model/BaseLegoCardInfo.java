@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.a;
+import d.a.p0.a;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseLegoCardInfo implements ICardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
     public final String statistics;
     public final String title;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ClientParams implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
             if (jSONObject == null) {
                 return;
             }
-            a.h().x(jSONObject);
+            a.h().y(jSONObject);
         }
     }
 

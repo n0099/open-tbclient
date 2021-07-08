@@ -11,26 +11,26 @@ public class c extends a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f2098c = 1;
+    public static final int f2099c = 1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f2099d = 2;
+    public static final int f2100d = 2;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f2100e = 3;
+    public static final int f2101e = 3;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f2101f = "APPKEY_ERROR";
+    public static final String f2102f = "APPKEY_ERROR";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f2102g = "SUCCESS";
+    public static final String f2103g = "SUCCESS";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f2103h;
+    public String f2104h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f2104i;
+    public String f2105i;
     public String j;
     public String k;
     public String l;
@@ -58,7 +58,7 @@ public class c extends a {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2096a ? com.alipay.security.mobile.module.a.a.a(this.f2103h) ? 2 : 1 : f2101f.equals(this.f2097b) ? 3 : 2 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2097a ? com.alipay.security.mobile.module.a.a.a(this.f2104h) ? 2 : 1 : f2102f.equals(this.f2098b) ? 3 : 2 : invokeV.intValue;
     }
 
     public boolean b() {

@@ -6,6 +6,7 @@ import android.webkit.WebMessage;
 import android.webkit.WebMessagePort;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.WebMessageCompat;
 import androidx.webkit.WebMessagePortCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -73,7 +74,7 @@ public class WebMessagePortImpl extends WebMessagePortCompat {
     public static WebMessageCompat frameworkMessageToCompat(WebMessage webMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, webMessage)) == null) ? new WebMessageCompat(webMessage.getData(), portsToCompat(webMessage.getPorts())) : (WebMessageCompat) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, webMessage)) == null) ? new WebMessageCompat(webMessage.getData(), portsToCompat(webMessage.getPorts())) : (WebMessageCompat) invokeL.objValue;
     }
 
     private WebMessagePortBoundaryInterface getBoundaryInterface() {

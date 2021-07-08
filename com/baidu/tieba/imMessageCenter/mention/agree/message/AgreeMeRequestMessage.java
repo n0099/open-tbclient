@@ -9,11 +9,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.r0.r.k;
-import d.a.r0.z0.w;
+import d.a.o0.r.k;
+import d.a.o0.z0.w;
 import tbclient.AgreeMe.AgreeMeReqIdl;
 import tbclient.AgreeMe.DataReq;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AgreeMeRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

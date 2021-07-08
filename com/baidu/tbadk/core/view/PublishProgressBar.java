@@ -14,19 +14,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PublishProgressBar extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12511e;
+    public int f12528e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f12512f;
+    public Paint f12529f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Rect f12513g;
+    public Rect f12530g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PublishProgressBar(Context context, AttributeSet attributeSet) {
@@ -47,15 +47,15 @@ public class PublishProgressBar extends View {
                 return;
             }
         }
-        this.f12511e = 0;
+        this.f12528e = 0;
         a(context, attributeSet);
     }
 
     public final void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            this.f12512f = new Paint(1);
-            this.f12513g = new Rect();
+            this.f12529f = new Paint(1);
+            this.f12530g = new Rect();
             b();
         }
     }
@@ -66,8 +66,8 @@ public class PublishProgressBar extends View {
             int color = SkinManager.getColor(R.color.CAM_X0302);
             setBackgroundColor(color);
             getBackground().setAlpha(168);
-            this.f12512f.setColor(color);
-            this.f12512f.setAlpha(168);
+            this.f12529f.setColor(color);
+            this.f12529f.setAlpha(168);
             postInvalidate();
         }
     }
@@ -82,13 +82,13 @@ public class PublishProgressBar extends View {
             if (i2 > 100) {
                 return 100;
             }
-            int i3 = this.f12511e;
+            int i3 = this.f12528e;
             if (i2 == i3) {
                 return i3;
             }
-            this.f12511e = i2;
+            this.f12528e = i2;
             postInvalidate();
-            return this.f12511e;
+            return this.f12528e;
         }
         return invokeI.intValue;
     }
@@ -98,8 +98,8 @@ public class PublishProgressBar extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             super.onDraw(canvas);
-            this.f12513g.set(0, 0, (int) (getWidth() * (this.f12511e / 100.0f)), getHeight());
-            canvas.drawRect(this.f12513g, this.f12512f);
+            this.f12530g.set(0, 0, (int) (getWidth() * (this.f12528e / 100.0f)), getHeight());
+            canvas.drawRect(this.f12530g, this.f12529f);
         }
     }
 
@@ -122,7 +122,7 @@ public class PublishProgressBar extends View {
                 return;
             }
         }
-        this.f12511e = 0;
+        this.f12528e = 0;
         a(context, attributeSet);
     }
 }

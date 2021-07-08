@@ -24,38 +24,38 @@ import com.bytedance.sdk.component.utils.j;
 import com.bytedance.sdk.openadsdk.core.e.t;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c extends Request<d> {
     public static /* synthetic */ Interceptable $ic;
     public static final Object l;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Object f31329c;
+    public final Object f31439c;
     @Nullable
     @GuardedBy("mLock")
 
     /* renamed from: d  reason: collision with root package name */
-    public a f31330d;
+    public a f31440d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Bitmap.Config f31331e;
+    public final Bitmap.Config f31441e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f31332f;
+    public final int f31442f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f31333g;
+    public final int f31443g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final ImageView.ScaleType f31334h;
+    public final ImageView.ScaleType f31444h;
 
     /* renamed from: i  reason: collision with root package name */
-    public t f31335i;
+    public t f31445i;
     public long j;
     public String k;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a extends m.a<d> {
         void a();
 
@@ -97,13 +97,13 @@ public class c extends Request<d> {
                 return;
             }
         }
-        this.f31329c = new Object();
+        this.f31439c = new Object();
         setRetryPolicy(new e(1000, 2, 2.0f));
-        this.f31330d = aVar;
-        this.f31331e = config;
-        this.f31332f = i2;
-        this.f31333g = i3;
-        this.f31334h = scaleType;
+        this.f31440d = aVar;
+        this.f31441e = config;
+        this.f31442f = i2;
+        this.f31443g = i3;
+        this.f31444h = scaleType;
         this.k = str2;
         setShouldCache(false);
     }
@@ -122,29 +122,29 @@ public class c extends Request<d> {
         if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, iVar)) != null) {
             return (m) invokeL.objValue;
         }
-        byte[] bArr = iVar.f27905b;
+        byte[] bArr = iVar.f28015b;
         f();
         if (TextUtils.isEmpty(this.k)) {
-            str = com.bytedance.sdk.openadsdk.l.a.a.a().a(getUrl(), this.f31332f, this.f31333g, this.f31334h);
+            str = com.bytedance.sdk.openadsdk.l.a.a.a().a(getUrl(), this.f31442f, this.f31443g, this.f31444h);
         } else {
             str = this.k;
         }
         if (bArr.length >= 3 && bArr[0] == 71 && bArr[1] == 73 && bArr[2] == 70) {
             try {
                 com.bytedance.sdk.openadsdk.l.a.a.a().a(str, bArr);
-                if (this.f31330d != null) {
-                    this.f27837b.postAtFrontOfQueue(new Runnable(this, bArr, iVar) { // from class: com.bytedance.sdk.openadsdk.l.a.c.1
+                if (this.f31440d != null) {
+                    this.f27947b.postAtFrontOfQueue(new Runnable(this, bArr, iVar) { // from class: com.bytedance.sdk.openadsdk.l.a.c.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ byte[] f31336a;
+                        public final /* synthetic */ byte[] f31446a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ i f31337b;
+                        public final /* synthetic */ i f31447b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ c f31338c;
+                        public final /* synthetic */ c f31448c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -161,42 +161,42 @@ public class c extends Request<d> {
                                     return;
                                 }
                             }
-                            this.f31338c = this;
-                            this.f31336a = bArr;
-                            this.f31337b = iVar;
+                            this.f31448c = this;
+                            this.f31446a = bArr;
+                            this.f31447b = iVar;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f31338c.f31330d == null) {
+                            if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f31448c.f31440d == null) {
                                 return;
                             }
-                            d dVar = new d(this.f31336a);
-                            dVar.a(this.f31337b.f27907d);
-                            dVar.a(this.f31337b.f27906c);
-                            this.f31338c.f31330d.a(this.f31338c.getUrl(), dVar);
+                            d dVar = new d(this.f31446a);
+                            dVar.a(this.f31447b.f28017d);
+                            dVar.a(this.f31447b.f28016c);
+                            this.f31448c.f31440d.a(this.f31448c.getUrl(), dVar);
                         }
                     });
                 }
                 d dVar = new d(bArr);
-                dVar.a(iVar.f27907d);
-                dVar.a(iVar.f27906c);
+                dVar.a(iVar.f28017d);
+                dVar.a(iVar.f28016c);
                 return m.a(dVar, com.bytedance.sdk.component.adnet.d.c.a(iVar));
             } catch (Exception unused) {
             }
         }
         BitmapFactory.Options options = new BitmapFactory.Options();
-        if (this.f31332f == 0 && this.f31333g == 0) {
-            options.inPreferredConfig = this.f31331e;
+        if (this.f31442f == 0 && this.f31443g == 0) {
+            options.inPreferredConfig = this.f31441e;
             decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
         } else {
             options.inJustDecodeBounds = true;
             BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
             int i2 = options.outWidth;
             int i3 = options.outHeight;
-            int a2 = a(this.f31332f, this.f31333g, i2, i3, this.f31334h);
-            int a3 = a(this.f31333g, this.f31332f, i3, i2, this.f31334h);
+            int a2 = a(this.f31442f, this.f31443g, i2, i3, this.f31444h);
+            int a3 = a(this.f31443g, this.f31442f, i3, i2, this.f31444h);
             options.inJustDecodeBounds = false;
             options.inSampleSize = a(i2, i3, a2, a3);
             decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
@@ -207,19 +207,19 @@ public class c extends Request<d> {
                 if (bitmap != null) {
                     return m.a(new com.bytedance.sdk.component.adnet.err.e(iVar));
                 }
-                if (this.f31330d != null) {
-                    this.f27837b.postAtFrontOfQueue(new Runnable(this, bitmap, iVar) { // from class: com.bytedance.sdk.openadsdk.l.a.c.2
+                if (this.f31440d != null) {
+                    this.f27947b.postAtFrontOfQueue(new Runnable(this, bitmap, iVar) { // from class: com.bytedance.sdk.openadsdk.l.a.c.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Bitmap f31339a;
+                        public final /* synthetic */ Bitmap f31449a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ i f31340b;
+                        public final /* synthetic */ i f31450b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ c f31341c;
+                        public final /* synthetic */ c f31451c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -236,33 +236,33 @@ public class c extends Request<d> {
                                     return;
                                 }
                             }
-                            this.f31341c = this;
-                            this.f31339a = bitmap;
-                            this.f31340b = iVar;
+                            this.f31451c = this;
+                            this.f31449a = bitmap;
+                            this.f31450b = iVar;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f31341c.f31330d == null) {
+                            if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f31451c.f31440d == null) {
                                 return;
                             }
-                            d dVar2 = new d(this.f31339a);
-                            dVar2.a(this.f31340b.f27907d);
-                            dVar2.a(this.f31340b.f27906c);
-                            this.f31341c.f31330d.a(this.f31341c.getUrl(), dVar2);
+                            d dVar2 = new d(this.f31449a);
+                            dVar2.a(this.f31450b.f28017d);
+                            dVar2.a(this.f31450b.f28016c);
+                            this.f31451c.f31440d.a(this.f31451c.getUrl(), dVar2);
                         }
                     });
                 }
                 byte[] b2 = com.bytedance.sdk.component.utils.d.b(bitmap);
                 com.bytedance.sdk.openadsdk.l.a.a.a().a(str, b2);
-                if (this.f31330d != null) {
-                    a(this.j, b2, bitmap, iVar.f27906c);
-                    this.f31330d.a();
+                if (this.f31440d != null) {
+                    a(this.j, b2, bitmap, iVar.f28016c);
+                    this.f31440d.a();
                 }
                 d dVar2 = new d(b2);
-                dVar2.a(iVar.f27907d);
-                dVar2.a(iVar.f27906c);
+                dVar2.a(iVar.f28017d);
+                dVar2.a(iVar.f28016c);
                 return m.a(dVar2, com.bytedance.sdk.component.adnet.d.c.a(iVar));
             }
         }
@@ -274,11 +274,11 @@ public class c extends Request<d> {
     private void f() {
         t tVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65543, this) == null) && (tVar = this.f31335i) != null && tVar.z()) {
+        if ((interceptable == null || interceptable.invokeV(65543, this) == null) && (tVar = this.f31445i) != null && tVar.z()) {
             long currentTimeMillis = System.currentTimeMillis();
             this.j = currentTimeMillis;
-            this.f31335i.p(currentTimeMillis);
-            t tVar2 = this.f31335i;
+            this.f31445i.p(currentTimeMillis);
+            t tVar2 = this.f31445i;
             tVar2.i(this.j - tVar2.v());
         }
     }
@@ -288,8 +288,8 @@ public class c extends Request<d> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.cancel();
-            synchronized (this.f31329c) {
-                this.f31330d = null;
+            synchronized (this.f31439c) {
+                this.f31440d = null;
             }
         }
     }
@@ -298,7 +298,7 @@ public class c extends Request<d> {
     public Request.b getPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Request.b.f27848a : (Request.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Request.b.f27958a : (Request.b) invokeV.objValue;
     }
 
     public static int a(int i2, int i3, int i4, int i5, ImageView.ScaleType scaleType) {
@@ -356,8 +356,8 @@ public class c extends Request<d> {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mVar) == null) {
-            synchronized (this.f31329c) {
-                aVar = this.f31330d;
+            synchronized (this.f31439c) {
+                aVar = this.f31440d;
             }
             if (aVar != null) {
                 aVar.a(mVar);
@@ -368,21 +368,21 @@ public class c extends Request<d> {
     public void a(t tVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tVar) == null) {
-            this.f31335i = tVar;
+            this.f31445i = tVar;
         }
     }
 
     private void a(long j, byte[] bArr, Bitmap bitmap, Map<String, String> map) {
         t tVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Long.valueOf(j), bArr, bitmap, map}) == null) && (tVar = this.f31335i) != null && tVar.z()) {
-            if (bArr != null && this.f31335i.i() == 0.0d) {
-                this.f31335i.a(bArr.length / 1024.0f);
+        if ((interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Long.valueOf(j), bArr, bitmap, map}) == null) && (tVar = this.f31445i) != null && tVar.z()) {
+            if (bArr != null && this.f31445i.i() == 0.0d) {
+                this.f31445i.a(bArr.length / 1024.0f);
             }
-            if (bitmap != null && TextUtils.isEmpty(this.f31335i.j())) {
-                this.f31335i.b(bitmap.getWidth() + "X" + bitmap.getHeight());
+            if (bitmap != null && TextUtils.isEmpty(this.f31445i.j())) {
+                this.f31445i.b(bitmap.getWidth() + "X" + bitmap.getHeight());
             }
-            if (map != null && map.size() > 0 && this.f31335i.k() == null) {
+            if (map != null && map.size() > 0 && this.f31445i.k() == null) {
                 JSONObject jSONObject = new JSONObject();
                 for (String str : map.keySet()) {
                     if (!TextUtils.isEmpty(str)) {
@@ -393,10 +393,10 @@ public class c extends Request<d> {
                         }
                     }
                 }
-                this.f31335i.a(jSONObject);
+                this.f31445i.a(jSONObject);
             }
-            this.f31335i.j(System.currentTimeMillis() - j);
-            this.f31335i.b(System.currentTimeMillis() - this.f31335i.t());
+            this.f31445i.j(System.currentTimeMillis() - j);
+            this.f31445i.b(System.currentTimeMillis() - this.f31445i.t());
         }
     }
 

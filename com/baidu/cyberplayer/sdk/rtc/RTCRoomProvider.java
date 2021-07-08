@@ -14,21 +14,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class RTCRoomProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class CyberRtcLiveTransferMode {
         public static /* synthetic */ Interceptable $ic;
         public static final CyberRtcLiveTransferMode RTC_LIVE_TRANSFER_MODE_ANCHOR_TRANSMISSION;
         public static final CyberRtcLiveTransferMode RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ CyberRtcLiveTransferMode[] f5012a;
+        public static final /* synthetic */ CyberRtcLiveTransferMode[] f5029a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -47,7 +47,7 @@ public abstract class RTCRoomProvider {
             RTC_LIVE_TRANSFER_MODE_ANCHOR_TRANSMISSION = new CyberRtcLiveTransferMode("RTC_LIVE_TRANSFER_MODE_ANCHOR_TRANSMISSION", 0);
             CyberRtcLiveTransferMode cyberRtcLiveTransferMode = new CyberRtcLiveTransferMode("RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION", 1);
             RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION = cyberRtcLiveTransferMode;
-            f5012a = new CyberRtcLiveTransferMode[]{RTC_LIVE_TRANSFER_MODE_ANCHOR_TRANSMISSION, cyberRtcLiveTransferMode};
+            f5029a = new CyberRtcLiveTransferMode[]{RTC_LIVE_TRANSFER_MODE_ANCHOR_TRANSMISSION, cyberRtcLiveTransferMode};
         }
 
         public CyberRtcLiveTransferMode(String str, int i2) {
@@ -78,12 +78,12 @@ public abstract class RTCRoomProvider {
         public static CyberRtcLiveTransferMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CyberRtcLiveTransferMode[]) f5012a.clone() : (CyberRtcLiveTransferMode[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CyberRtcLiveTransferMode[]) f5029a.clone() : (CyberRtcLiveTransferMode[]) invokeV.objValue;
         }
     }
 
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class CyberRtcRoomAudioLevel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +113,7 @@ public abstract class RTCRoomProvider {
     }
 
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface CyberRtcRoomDelegate {
         void onEngineStatisticsInfo(int i2);
 
@@ -129,7 +129,7 @@ public abstract class RTCRoomProvider {
     }
 
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class CyberRtcRoomUserInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -161,7 +161,7 @@ public abstract class RTCRoomProvider {
     }
 
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class CyberRtcRoomVideoDimension {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -186,14 +186,14 @@ public abstract class RTCRoomProvider {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class CyberRtcSoundMode {
         public static /* synthetic */ Interceptable $ic;
         public static final CyberRtcSoundMode RTC_SOUND_MODE_EAR;
         public static final CyberRtcSoundMode RTC_SOUND_MODE_SPEAKER;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ CyberRtcSoundMode[] f5013a;
+        public static final /* synthetic */ CyberRtcSoundMode[] f5030a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -212,7 +212,7 @@ public abstract class RTCRoomProvider {
             RTC_SOUND_MODE_SPEAKER = new CyberRtcSoundMode("RTC_SOUND_MODE_SPEAKER", 0);
             CyberRtcSoundMode cyberRtcSoundMode = new CyberRtcSoundMode("RTC_SOUND_MODE_EAR", 1);
             RTC_SOUND_MODE_EAR = cyberRtcSoundMode;
-            f5013a = new CyberRtcSoundMode[]{RTC_SOUND_MODE_SPEAKER, cyberRtcSoundMode};
+            f5030a = new CyberRtcSoundMode[]{RTC_SOUND_MODE_SPEAKER, cyberRtcSoundMode};
         }
 
         public CyberRtcSoundMode(String str, int i2) {
@@ -243,7 +243,7 @@ public abstract class RTCRoomProvider {
         public static CyberRtcSoundMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CyberRtcSoundMode[]) f5013a.clone() : (CyberRtcSoundMode[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CyberRtcSoundMode[]) f5030a.clone() : (CyberRtcSoundMode[]) invokeV.objValue;
         }
     }
 

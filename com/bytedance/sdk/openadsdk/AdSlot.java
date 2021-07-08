@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.utils.j;
 import com.bytedance.sdk.openadsdk.o.g.b;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AdSlot {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_BANNER = 1;
@@ -27,31 +27,31 @@ public class AdSlot {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28867a;
+    public String f28977a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28868b;
+    public int f28978b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28869c;
+    public int f28979c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f28870d;
+    public float f28980d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f28871e;
+    public float f28981e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28872f;
+    public int f28982f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f28873g;
+    public boolean f28983g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f28874h;
+    public boolean f28984h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f28875i;
+    public String f28985i;
     public int j;
     public String k;
     public String l;
@@ -71,43 +71,43 @@ public class AdSlot {
     public String z;
 
     /* renamed from: com.bytedance.sdk.openadsdk.AdSlot$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f28876a;
+        public String f28986a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f28877b;
+        public int f28987b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f28878c;
+        public int f28988c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f28879d;
+        public boolean f28989d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f28880e;
+        public boolean f28990e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f28881f;
+        public int f28991f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f28882g;
+        public String f28992g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f28883h;
+        public int f28993h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f28884i;
+        public String f28994i;
         public String j;
         public int k;
         public int l;
@@ -138,13 +138,13 @@ public class AdSlot {
                     return;
                 }
             }
-            this.f28877b = 640;
-            this.f28878c = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
-            this.f28879d = true;
-            this.f28880e = false;
-            this.f28881f = 1;
-            this.f28882g = "";
-            this.f28883h = 0;
+            this.f28987b = 640;
+            this.f28988c = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
+            this.f28989d = true;
+            this.f28990e = false;
+            this.f28991f = 1;
+            this.f28992g = "";
+            this.f28993h = 0;
             this.j = "defaultUser";
             this.k = 2;
             this.q = true;
@@ -155,23 +155,23 @@ public class AdSlot {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 AdSlot adSlot = new AdSlot(null);
-                adSlot.f28867a = this.f28876a;
-                adSlot.f28872f = this.f28881f;
-                adSlot.f28873g = this.f28879d;
-                adSlot.f28874h = this.f28880e;
-                adSlot.f28868b = this.f28877b;
-                adSlot.f28869c = this.f28878c;
+                adSlot.f28977a = this.f28986a;
+                adSlot.f28982f = this.f28991f;
+                adSlot.f28983g = this.f28989d;
+                adSlot.f28984h = this.f28990e;
+                adSlot.f28978b = this.f28987b;
+                adSlot.f28979c = this.f28988c;
                 float f2 = this.o;
                 if (f2 <= 0.0f) {
-                    adSlot.f28870d = this.f28877b;
-                    adSlot.f28871e = this.f28878c;
+                    adSlot.f28980d = this.f28987b;
+                    adSlot.f28981e = this.f28988c;
                 } else {
-                    adSlot.f28870d = f2;
-                    adSlot.f28871e = this.p;
+                    adSlot.f28980d = f2;
+                    adSlot.f28981e = this.p;
                 }
-                adSlot.f28875i = this.f28882g;
-                adSlot.j = this.f28883h;
-                adSlot.k = this.f28884i;
+                adSlot.f28985i = this.f28992g;
+                adSlot.j = this.f28993h;
+                adSlot.k = this.f28994i;
                 adSlot.l = this.j;
                 adSlot.m = this.k;
                 adSlot.o = this.l;
@@ -203,7 +203,7 @@ public class AdSlot {
                     j.c(TTAdConstant.TAG, "setAdCount: adCount must less than or equal to 20 ");
                     i2 = 20;
                 }
-                this.f28881f = i2;
+                this.f28991f = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -243,7 +243,7 @@ public class AdSlot {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.f28876a = str;
+                this.f28986a = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -304,8 +304,8 @@ public class AdSlot {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeII = interceptable.invokeII(1048587, this, i2, i3)) == null) {
-                this.f28877b = i2;
-                this.f28878c = i3;
+                this.f28987b = i2;
+                this.f28988c = i3;
                 return this;
             }
             return (Builder) invokeII.objValue;
@@ -325,7 +325,7 @@ public class AdSlot {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-                this.f28884i = str;
+                this.f28994i = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -365,7 +365,7 @@ public class AdSlot {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
-                this.f28883h = i2;
+                this.f28993h = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -375,7 +375,7 @@ public class AdSlot {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-                this.f28882g = str;
+                this.f28992g = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -385,7 +385,7 @@ public class AdSlot {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048595, this, z)) == null) {
-                this.f28879d = z;
+                this.f28989d = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -415,7 +415,7 @@ public class AdSlot {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-                this.f28880e = true;
+                this.f28990e = true;
                 return this;
             }
             return (Builder) invokeV.objValue;
@@ -475,7 +475,7 @@ public class AdSlot {
     public int getAdCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28872f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28982f : invokeV.intValue;
     }
 
     public String getAdId() {
@@ -505,7 +505,7 @@ public class AdSlot {
     public String getCodeId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28867a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28977a : (String) invokeV.objValue;
     }
 
     public String getCreativeId() {
@@ -523,13 +523,13 @@ public class AdSlot {
     public float getExpressViewAcceptedHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f28871e : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f28981e : invokeV.floatValue;
     }
 
     public float getExpressViewAcceptedWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f28870d : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f28980d : invokeV.floatValue;
     }
 
     public String getExt() {
@@ -553,13 +553,13 @@ public class AdSlot {
     public int getImgAcceptedHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f28869c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f28979c : invokeV.intValue;
     }
 
     public int getImgAcceptedWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f28868b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f28978b : invokeV.intValue;
     }
 
     public String getMediaExtra() {
@@ -599,7 +599,7 @@ public class AdSlot {
     public String getRewardName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f28875i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f28985i : (String) invokeV.objValue;
     }
 
     public String getUserData() {
@@ -623,19 +623,19 @@ public class AdSlot {
     public boolean isSupportDeepLink() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f28873g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f28983g : invokeV.booleanValue;
     }
 
     public boolean isSupportRenderConrol() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f28874h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f28984h : invokeV.booleanValue;
     }
 
     public void setAdCount(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            this.f28872f = i2;
+            this.f28982f = i2;
         }
     }
 
@@ -673,16 +673,16 @@ public class AdSlot {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("mCodeId", this.f28867a);
+                jSONObject.put("mCodeId", this.f28977a);
                 jSONObject.put("mIsAutoPlay", this.q);
-                jSONObject.put("mImgAcceptedWidth", this.f28868b);
-                jSONObject.put("mImgAcceptedHeight", this.f28869c);
-                jSONObject.put("mExpressViewAcceptedWidth", this.f28870d);
-                jSONObject.put("mExpressViewAcceptedHeight", this.f28871e);
-                jSONObject.put("mAdCount", this.f28872f);
-                jSONObject.put("mSupportDeepLink", this.f28873g);
-                jSONObject.put("mSupportRenderControl", this.f28874h);
-                jSONObject.put("mRewardName", this.f28875i);
+                jSONObject.put("mImgAcceptedWidth", this.f28978b);
+                jSONObject.put("mImgAcceptedHeight", this.f28979c);
+                jSONObject.put("mExpressViewAcceptedWidth", this.f28980d);
+                jSONObject.put("mExpressViewAcceptedHeight", this.f28981e);
+                jSONObject.put("mAdCount", this.f28982f);
+                jSONObject.put("mSupportDeepLink", this.f28983g);
+                jSONObject.put("mSupportRenderControl", this.f28984h);
+                jSONObject.put("mRewardName", this.f28985i);
                 jSONObject.put("mRewardAmount", this.j);
                 jSONObject.put("mMediaExtra", this.k);
                 jSONObject.put("mUserID", this.l);
@@ -707,7 +707,7 @@ public class AdSlot {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
-            return "AdSlot{mCodeId='" + this.f28867a + "', mImgAcceptedWidth=" + this.f28868b + ", mImgAcceptedHeight=" + this.f28869c + ", mExpressViewAcceptedWidth=" + this.f28870d + ", mExpressViewAcceptedHeight=" + this.f28871e + ", mAdCount=" + this.f28872f + ", mSupportDeepLink=" + this.f28873g + ", mSupportRenderControl=" + this.f28874h + ", mRewardName='" + this.f28875i + "', mRewardAmount=" + this.j + ", mMediaExtra='" + this.k + "', mUserID='" + this.l + "', mOrientation=" + this.m + ", mNativeAdType=" + this.o + ", mIsAutoPlay=" + this.q + ", mPrimeRit" + this.u + ", mAdloadSeq" + this.t + ", mAdId" + this.w + ", mCreativeId" + this.x + ", mExt" + this.y + ", mUserData" + this.z + '}';
+            return "AdSlot{mCodeId='" + this.f28977a + "', mImgAcceptedWidth=" + this.f28978b + ", mImgAcceptedHeight=" + this.f28979c + ", mExpressViewAcceptedWidth=" + this.f28980d + ", mExpressViewAcceptedHeight=" + this.f28981e + ", mAdCount=" + this.f28982f + ", mSupportDeepLink=" + this.f28983g + ", mSupportRenderControl=" + this.f28984h + ", mRewardName='" + this.f28985i + "', mRewardAmount=" + this.j + ", mMediaExtra='" + this.k + "', mUserID='" + this.l + "', mOrientation=" + this.m + ", mNativeAdType=" + this.o + ", mIsAutoPlay=" + this.q + ", mPrimeRit" + this.u + ", mAdloadSeq" + this.t + ", mAdId" + this.w + ", mCreativeId" + this.x + ", mExt" + this.y + ", mUserData" + this.z + '}';
         }
         return (String) invokeV.objValue;
     }

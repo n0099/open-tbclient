@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.r0.a.i;
+import d.a.o0.a.i;
 import tbclient.DecryptCode.DecryptCodeResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class DecryptCodeSocketRespMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

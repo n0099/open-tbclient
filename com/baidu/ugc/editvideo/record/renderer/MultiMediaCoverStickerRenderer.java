@@ -19,13 +19,13 @@ import com.baidu.ugc.editvideo.sticker.OnChangeStickerListener;
 import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import com.baidu.ugc.editvideo.sticker.a;
 import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
-import d.a.c0.b.a.e;
-import d.a.y0.t.c;
-import d.a.y0.t.d;
-import d.a.y0.t.h;
+import d.a.v0.t.c;
+import d.a.v0.t.d;
+import d.a.v0.t.h;
+import d.a.z.b.a.e;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

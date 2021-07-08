@@ -11,14 +11,14 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.util.BlockingHelper;
 import io.reactivex.internal.util.ExceptionHelper;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class BlockingBaseObserver<T> extends CountDownLatch implements Observer<T>, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean cancelled;
 
     /* renamed from: d  reason: collision with root package name */
-    public Disposable f75960d;
+    public Disposable f72994d;
     public Throwable error;
     public T value;
 
@@ -67,7 +67,7 @@ public abstract class BlockingBaseObserver<T> extends CountDownLatch implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.cancelled = true;
-            Disposable disposable = this.f75960d;
+            Disposable disposable = this.f72994d;
             if (disposable != null) {
                 disposable.dispose();
             }
@@ -93,7 +93,7 @@ public abstract class BlockingBaseObserver<T> extends CountDownLatch implements 
     public final void onSubscribe(Disposable disposable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) {
-            this.f75960d = disposable;
+            this.f72994d = disposable;
             if (this.cancelled) {
                 disposable.dispose();
             }

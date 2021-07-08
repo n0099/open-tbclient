@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class l extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,41 +44,41 @@ public class l extends a {
         if (interceptable == null || interceptable.invokeLL(1048576, this, dVar, imageView) == null) {
             int b2 = dVar.b();
             int a2 = dVar.a();
-            RectF rectF = this.f44576f;
-            PointF b3 = b(rectF.left, rectF.top, this.f44575e);
+            RectF rectF = this.f41592f;
+            PointF b3 = b(rectF.left, rectF.top, this.f41591e);
             int i2 = (int) b3.x;
             int i3 = (int) b3.y;
-            RectF rectF2 = this.f44576f;
-            PointF b4 = b(rectF2.right, rectF2.bottom, this.f44575e);
+            RectF rectF2 = this.f41592f;
+            PointF b4 = b(rectF2.right, rectF2.bottom, this.f41591e);
             int i4 = (int) b4.x;
             int i5 = (int) b4.y;
             this.q.reset();
             this.q.postScale((i4 - i2) / b2, (i5 - i3) / a2);
             this.q.postTranslate(i2, i3);
             if (dVar.e()) {
-                Bitmap bitmap = dVar.f44583a.getBitmap();
+                Bitmap bitmap = dVar.f41599a.getBitmap();
                 Shader.TileMode tileMode = Shader.TileMode.CLAMP;
                 this.r = new BitmapShader(bitmap, tileMode, tileMode);
             } else {
-                this.r = dVar.f44584b.d();
+                this.r = dVar.f41600b.d();
             }
             BitmapShader bitmapShader = this.r;
             if (bitmapShader == null) {
                 return;
             }
             bitmapShader.setLocalMatrix(this.q);
-            this.f44572b.setShader(this.r);
+            this.f41588b.setShader(this.r);
             int width = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
             int height = (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom();
             this.s.set(Math.max(i2, 0), Math.max(i3, 0), Math.min(i4, width), Math.min(i5, height));
             e eVar = this.k;
-            if (eVar.f44588c) {
-                float f2 = eVar.f44589d / 2.0f;
-                if (!eVar.f44592g) {
-                    this.f44577g.set(f2, f2, imageView.getWidth() - f2, imageView.getHeight() - f2);
+            if (eVar.f41604c) {
+                float f2 = eVar.f41605d / 2.0f;
+                if (!eVar.f41608g) {
+                    this.f41593g.set(f2, f2, imageView.getWidth() - f2, imageView.getHeight() - f2);
                     return;
                 }
-                RectF rectF3 = this.f44577g;
+                RectF rectF3 = this.f41593g;
                 RectF rectF4 = this.s;
                 rectF3.set(rectF4.left + f2, rectF4.top + f2, rectF4.right - f2, rectF4.bottom - f2);
             }
@@ -90,9 +90,9 @@ public class l extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, imageView) == null) {
             e eVar = this.k;
-            if (eVar.f44588c) {
-                if (!eVar.f44587b) {
-                    canvas.drawPath(l(this.f44577g, eVar.f44586a), this.f44573c);
+            if (eVar.f41604c) {
+                if (!eVar.f41603b) {
+                    canvas.drawPath(l(this.f41593g, eVar.f41602a), this.f41589c);
                     return;
                 }
                 RectF rectF = this.s;
@@ -104,7 +104,7 @@ public class l extends a {
                     f3 = (imageView.getTop() + imageView.getBottom()) / 2.0f;
                     min = Math.min(imageView.getWidth(), imageView.getHeight()) / 2.0f;
                 }
-                canvas.drawCircle(f2, f3, min - (this.k.f44589d / 2.0f), this.f44573c);
+                canvas.drawCircle(f2, f3, min - (this.k.f41605d / 2.0f), this.f41589c);
             }
         }
     }
@@ -115,17 +115,17 @@ public class l extends a {
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, canvas, dVar, imageView) == null) {
             boolean d2 = dVar.d();
             if (d2 && dVar.d()) {
-                dVar.f44584b.b(true);
+                dVar.f41600b.b(true);
             }
             e eVar = this.k;
-            if (!eVar.f44587b) {
-                canvas.drawPath(l(this.s, eVar.f44586a), this.f44572b);
+            if (!eVar.f41603b) {
+                canvas.drawPath(l(this.s, eVar.f41602a), this.f41588b);
             } else {
                 RectF rectF = this.s;
-                canvas.drawCircle((rectF.right + rectF.left) / 2.0f, (rectF.top + rectF.bottom) / 2.0f, Math.min(rectF.width(), this.s.height()) / 2.0f, this.f44572b);
+                canvas.drawCircle((rectF.right + rectF.left) / 2.0f, (rectF.top + rectF.bottom) / 2.0f, Math.min(rectF.width(), this.s.height()) / 2.0f, this.f41588b);
             }
             if (d2 && dVar.d()) {
-                dVar.f44584b.b(false);
+                dVar.f41600b.b(false);
             }
         }
     }
@@ -139,14 +139,14 @@ public class l extends a {
         int scrollX = imageView.getScrollX();
         int scrollY = imageView.getScrollY();
         canvas.translate(scrollX, scrollY);
-        this.f44574d.setColor(this.k.m);
-        if (!this.k.f44587b) {
+        this.f41590d.setColor(this.k.m);
+        if (!this.k.f41603b) {
             this.n.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-            canvas.drawPath(l(this.n, this.k.f44586a), this.f44574d);
+            canvas.drawPath(l(this.n, this.k.f41602a), this.f41590d);
         } else {
             float width = imageView.getWidth() / 2.0f;
             float height = imageView.getHeight() / 2.0f;
-            canvas.drawCircle(width, height, Math.min(width, height) - (this.k.f44589d / 2.0f), this.f44574d);
+            canvas.drawCircle(width, height, Math.min(width, height) - (this.k.f41605d / 2.0f), this.f41590d);
         }
         canvas.translate(-scrollX, -scrollY);
     }

@@ -1,16 +1,32 @@
 package com.kwad.sdk.contentalliance;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes7.dex */
-public class a extends com.kwad.sdk.lib.widget.recycler.a.e<AdTemplate> {
+import com.kwad.sdk.c.d;
+import com.kwad.sdk.core.e.b;
+import com.kwad.sdk.mvp.Presenter;
+/* loaded from: classes6.dex */
+public abstract class a<T extends com.kwad.sdk.core.e.b> extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public Presenter f34077a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public T f34078b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ViewGroup f34079c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -26,27 +42,63 @@ public class a extends com.kwad.sdk.lib.widget.recycler.a.e<AdTemplate> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.lib.widget.recycler.a.e
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    public boolean b(AdTemplate adTemplate, AdTemplate adTemplate2) {
-        InterceptResult invokeLL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, adTemplate, adTemplate2)) == null) {
-            if (adTemplate == null || adTemplate2 == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Presenter presenter = this.f34077a;
+            if (presenter != null) {
+                presenter.h();
             }
-            return com.kwad.sdk.core.response.b.c.a(adTemplate) ? com.kwad.sdk.core.response.b.c.a(adTemplate2) && com.kwad.sdk.live.mode.a.b(com.kwad.sdk.core.response.b.c.A(adTemplate)) == com.kwad.sdk.live.mode.a.b(com.kwad.sdk.core.response.b.c.A(adTemplate2)) : com.kwad.sdk.core.response.b.c.z(adTemplate) == com.kwad.sdk.core.response.b.c.z(adTemplate2);
+            this.f34079c = null;
         }
-        return invokeLL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.lib.widget.recycler.a.e
-    /* renamed from: b  reason: avoid collision after fix types in other method */
-    public boolean a(AdTemplate adTemplate, AdTemplate adTemplate2) {
-        InterceptResult invokeLL;
+    public abstract int b();
+
+    public abstract T c();
+
+    @NonNull
+    public abstract Presenter d();
+
+    @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    public void onActivityCreated(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, adTemplate, adTemplate2)) == null) ? (adTemplate == null && adTemplate2 == null) || (adTemplate != null && adTemplate.equals(adTemplate2)) : invokeLL.booleanValue;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+            super.onActivityCreated(bundle);
+            this.f34078b = c();
+            if (this.f34077a == null) {
+                Presenter d2 = d();
+                this.f34077a = d2;
+                d2.a((View) this.f34079c);
+            }
+            this.f34077a.a(this.f34078b);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    @Nullable
+    public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
+            if (this.f34079c == null) {
+                this.f34079c = (ViewGroup) layoutInflater.inflate(b(), viewGroup, false);
+            }
+            return this.f34079c;
+        }
+        return (View) invokeLLL.objValue;
+    }
+
+    @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    public void onDestroyView() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.onDestroyView();
+            T t = this.f34078b;
+            if (t != null) {
+                t.a();
+            }
+            a();
+        }
     }
 }

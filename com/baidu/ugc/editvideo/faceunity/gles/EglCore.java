@@ -18,10 +18,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.ZeusMonitorType;
-import d.a.y0.t.c;
+import d.a.v0.t.c;
 import org.webrtc.EglBase10;
 @TargetApi(18)
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class EglCore {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EGL_RECORDABLE_ANDROID = 12610;
@@ -83,7 +83,7 @@ public final class EglCore {
 
     public static void logCurrent(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
             EGLDisplay eglGetCurrentDisplay = EGL14.eglGetCurrentDisplay();
             EGLContext eglGetCurrentContext = EGL14.eglGetCurrentContext();
             EGLSurface eglGetCurrentSurface = EGL14.eglGetCurrentSurface(12377);

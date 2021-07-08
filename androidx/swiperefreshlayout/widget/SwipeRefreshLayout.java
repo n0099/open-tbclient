@@ -169,7 +169,7 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
 
     private void animateOffsetToStartPosition(int i2, Animation.AnimationListener animationListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65540, this, i2, animationListener) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, animationListener) == null) {
             if (this.mScale) {
                 startScaleDownReturnToStartAnimation(i2, animationListener);
                 return;

@@ -241,7 +241,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         InterceptResult invokeV;
         Context context;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             Delegate delegate = this.mActivityImpl;
             if (delegate != null) {
                 return delegate.getThemeUpIndicator();

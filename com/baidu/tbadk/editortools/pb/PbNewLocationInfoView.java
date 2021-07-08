@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PbNewLocationInfoView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13035e;
+    public int f13052e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PbNewLocationInfoView(Context context) {
@@ -44,13 +44,13 @@ public class PbNewLocationInfoView extends TextView {
     public int getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13035e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13052e : invokeV.intValue;
     }
 
     public void setState(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-            this.f13035e = i2;
+            this.f13052e = i2;
             if (i2 == 1) {
                 if (str == null) {
                     str = getResources().getString(R.string.location_loading);

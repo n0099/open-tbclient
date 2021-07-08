@@ -14,6 +14,7 @@ import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 import androidx.core.content.res.FontResourcesParserCompat;
 import androidx.core.provider.FontsContractCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -109,7 +110,7 @@ public class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
     private File getFile(@NonNull ParcelFileDescriptor parcelFileDescriptor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, parcelFileDescriptor)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, parcelFileDescriptor)) == null) {
             try {
                 String readlink = Os.readlink("/proc/self/fd/" + parcelFileDescriptor.getFd());
                 if (OsConstants.S_ISREG(Os.stat(readlink).st_mode)) {
@@ -204,7 +205,7 @@ public class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
                 return null;
             }
             try {
-                ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(findBestInfo(fontInfoArr, i2).getUri(), r.f7745a, cancellationSignal);
+                ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(findBestInfo(fontInfoArr, i2).getUri(), r.f7762a, cancellationSignal);
                 if (openFileDescriptor == null) {
                     if (openFileDescriptor != null) {
                         openFileDescriptor.close();

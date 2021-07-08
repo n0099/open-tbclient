@@ -1,5 +1,6 @@
 package com.yy.gslbsdk.network;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +18,7 @@ import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class UDPMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UDPMgr";
@@ -154,7 +155,7 @@ public class UDPMgr {
 
     public static synchronized void returnPort(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, num) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, num) == null) {
             synchronized (UDPMgr.class) {
                 synchronized (lock) {
                     if (portQueue.contains(num)) {

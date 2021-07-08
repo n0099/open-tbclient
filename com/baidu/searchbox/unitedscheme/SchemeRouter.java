@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SchemeRouter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +66,7 @@ public class SchemeRouter {
     public static boolean invokeScheme(Context context, Uri uri, String str, CallbackHandler callbackHandler) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65540, null, context, uri, str, callbackHandler)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, uri, str, callbackHandler)) == null) {
             if (context == null) {
                 context = SchemeConfig.getAppContext();
             }

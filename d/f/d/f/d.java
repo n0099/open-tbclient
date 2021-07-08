@@ -1,5 +1,6 @@
 package d.f.d.f;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.tieba.wallet.pay.WalletPayViewController;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,27 +10,27 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.d.a.n;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final double f73827a;
+        public final double f70930a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final double f73828b;
+        public final double f70931b;
 
         public /* synthetic */ b(double d2, double d3, a aVar) {
             this(d2, d3);
@@ -41,9 +42,9 @@ public abstract class d {
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d2)})) == null) {
                 n.d(!Double.isNaN(d2));
                 if (d.f.d.f.b.c(d2)) {
-                    return new C2035d(d2, this.f73828b - (this.f73827a * d2));
+                    return new C2004d(d2, this.f70931b - (this.f70930a * d2));
                 }
-                return new e(this.f73827a);
+                return new e(this.f70930a);
             }
             return (d) invokeCommon.objValue;
         }
@@ -63,17 +64,17 @@ public abstract class d {
                     return;
                 }
             }
-            this.f73827a = d2;
-            this.f73828b = d3;
+            this.f70930a = d2;
+            this.f70931b = d3;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class c extends d {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f73829a;
+        public static final c f70932a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -89,7 +90,7 @@ public abstract class d {
                     return;
                 }
             }
-            f73829a = new c();
+            f70932a = new c();
         }
 
         public c() {
@@ -114,18 +115,18 @@ public abstract class d {
     }
 
     /* renamed from: d.f.d.f.d$d  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static final class C2035d extends d {
+    /* loaded from: classes8.dex */
+    public static final class C2004d extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final double f73830a;
+        public final double f70933a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final double f73831b;
+        public final double f70934b;
 
-        public C2035d(double d2, double d3) {
+        public C2004d(double d2, double d3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -140,24 +141,24 @@ public abstract class d {
                     return;
                 }
             }
-            this.f73830a = d2;
-            this.f73831b = d3;
+            this.f70933a = d2;
+            this.f70934b = d3;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("y = %g * x + %g", Double.valueOf(this.f73830a), Double.valueOf(this.f73831b)) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("y = %g * x + %g", Double.valueOf(this.f70933a), Double.valueOf(this.f70934b)) : (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class e extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final double f73832a;
+        public final double f70935a;
 
         public e(double d2) {
             Interceptable interceptable = $ic;
@@ -174,13 +175,13 @@ public abstract class d {
                     return;
                 }
             }
-            this.f73832a = d2;
+            this.f70935a = d2;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("x = %g", Double.valueOf(this.f73832a)) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("x = %g", Double.valueOf(this.f70935a)) : (String) invokeV.objValue;
         }
     }
 
@@ -201,7 +202,7 @@ public abstract class d {
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? c.f73829a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? c.f70932a : (d) invokeV.objValue;
     }
 
     public static d b(double d2) {
@@ -209,7 +210,7 @@ public abstract class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Double.valueOf(d2)})) == null) {
             n.d(d.f.d.f.b.c(d2));
-            return new C2035d(0.0d, d2);
+            return new C2004d(0.0d, d2);
         }
         return (d) invokeCommon.objValue;
     }
@@ -227,7 +228,7 @@ public abstract class d {
     public static d d(double d2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{Double.valueOf(d2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Double.valueOf(d2)})) == null) {
             n.d(d.f.d.f.b.c(d2));
             return new e(d2);
         }

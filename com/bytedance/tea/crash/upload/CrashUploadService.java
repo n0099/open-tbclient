@@ -17,7 +17,7 @@ import d.b.c.b.n.e;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CrashUploadService extends IntentService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,10 +54,10 @@ public class CrashUploadService extends IntentService {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            if (cVar == c.f32270c) {
+            if (cVar == c.f32380c) {
                 return b.c(str, str2, str3);
             }
-            if (cVar == c.f32268a) {
+            if (cVar == c.f32378a) {
                 return b.b(str, str2);
             }
             return b.d(str, str2, b.g());
@@ -89,7 +89,7 @@ public class CrashUploadService extends IntentService {
         if (TextUtils.isEmpty(stringExtra2) || TextUtils.isEmpty(stringExtra) || d.b.c.b.c.b.a().d(stringExtra3) || !a(stringExtra, stringExtra2, stringExtra4, cVar).a()) {
             return;
         }
-        if (cVar == c.f32270c) {
+        if (cVar == c.f32380c) {
             if (l.e.g(new File(stringExtra3).getParentFile(), true)) {
                 return;
             }

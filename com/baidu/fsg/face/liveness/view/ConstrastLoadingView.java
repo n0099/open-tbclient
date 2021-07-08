@@ -7,6 +7,7 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
 import com.baidu.sapi2.biometrics.liveness.R;
@@ -15,16 +16,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ConstrastLoadingView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f6082a;
+    public ImageView f6099a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f6083b;
+    public ImageView f6100b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConstrastLoadingView(Context context) {
@@ -49,10 +50,10 @@ public class ConstrastLoadingView extends LinearLayout {
 
     private void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.layout_sapi_liveness_constrast_loading, this);
-            this.f6082a = (ImageView) findViewById(R.id.iv_recog_circle);
-            this.f6083b = (ImageView) findViewById(R.id.iv_recog_logo);
+            this.f6099a = (ImageView) findViewById(R.id.iv_recog_circle);
+            this.f6100b = (ImageView) findViewById(R.id.iv_recog_logo);
             a();
         }
     }
@@ -60,7 +61,7 @@ public class ConstrastLoadingView extends LinearLayout {
     public void clearAnim() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f6082a.clearAnimation();
+            this.f6099a.clearAnimation();
             clearAnimation();
             setVisibility(4);
         }
@@ -119,7 +120,7 @@ public class ConstrastLoadingView extends LinearLayout {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f6082a.startAnimation(a(true, IMLikeRequest.TIME_INTERVAL));
+            this.f6099a.startAnimation(a(true, IMLikeRequest.TIME_INTERVAL));
         }
     }
 }

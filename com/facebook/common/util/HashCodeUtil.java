@@ -1,5 +1,6 @@
 package com.facebook.common.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -7,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class HashCodeUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int X = 31;
@@ -48,7 +49,7 @@ public class HashCodeUtil {
     public static int hashCode(int i2, int i3, int i4, int i5) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(65540, null, i2, i3, i4, i5)) == null) ? ((((((i2 + 31) * 31) + i3) * 31) + i4) * 31) + i5 : invokeIIII.intValue;
+        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3, i4, i5)) == null) ? ((((((i2 + 31) * 31) + i3) * 31) + i4) * 31) + i5 : invokeIIII.intValue;
     }
 
     public static int hashCode(int i2, int i3, int i4, int i5, int i6) {

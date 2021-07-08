@@ -291,7 +291,7 @@ public class MediaSessionCompatApi21 {
     public static boolean hasCallback(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) {
             try {
                 Field declaredField = obj.getClass().getDeclaredField("mCallback");
                 if (declaredField != null) {

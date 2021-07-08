@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.collection.ArraySet;
 import androidx.collection.LongSparseArray;
 import androidx.core.util.Preconditions;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -347,7 +348,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
 
     private void ensureFragment(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65540, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
             long itemId = getItemId(i2);
             if (this.mFragments.containsKey(itemId)) {
                 return;

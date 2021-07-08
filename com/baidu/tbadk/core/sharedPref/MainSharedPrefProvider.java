@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbConfig;
@@ -16,11 +17,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.d0.a;
+import d.a.o0.r.d0.a;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MainSharedPrefProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +82,7 @@ public class MainSharedPrefProvider extends ContentProvider {
     private SharedPreferences getSharedPreferences() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             try {
                 return getContext().getSharedPreferences("common_settings", 0);
             } catch (Exception unused) {

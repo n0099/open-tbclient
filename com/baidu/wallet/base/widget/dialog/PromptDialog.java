@@ -13,16 +13,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.dialog.model.ContentDialogModel;
 import com.baidu.wallet.base.widget.dialog.view.ContentDialogAdapter;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PromptDialog extends WalletDialog implements BaseDialogInterface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View.OnClickListener f24353a;
+    public View.OnClickListener f24463a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ContentDialogModel f24354b;
+    public final ContentDialogModel f24464b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PromptDialog(Context context) {
@@ -43,12 +43,12 @@ public class PromptDialog extends WalletDialog implements BaseDialogInterface {
                 return;
             }
         }
-        this.f24353a = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptDialog.1
+        this.f24463a = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptDialog.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PromptDialog f24355a;
+            public final /* synthetic */ PromptDialog f24465a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -65,26 +65,26 @@ public class PromptDialog extends WalletDialog implements BaseDialogInterface {
                         return;
                     }
                 }
-                this.f24355a = this;
+                this.f24465a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    this.f24355a.dismiss();
+                    this.f24465a.dismiss();
                 }
             }
         };
-        this.f24354b = new ContentDialogModel();
+        this.f24464b = new ContentDialogModel();
         a();
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            ContentDialogModel contentDialogModel = this.f24354b;
-            contentDialogModel.defaultListener = this.f24353a;
+            ContentDialogModel contentDialogModel = this.f24464b;
+            contentDialogModel.defaultListener = this.f24463a;
             setAdapter(new ContentDialogAdapter(contentDialogModel));
         }
     }
@@ -92,14 +92,14 @@ public class PromptDialog extends WalletDialog implements BaseDialogInterface {
     public void cancelNegativeBtnTextBold() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f24354b.negativeBtnTextBold = false;
+            this.f24464b.negativeBtnTextBold = false;
         }
     }
 
     public void cancelPositiveBtnTextBold() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f24354b.positiveBtnTextBold = false;
+            this.f24464b.positiveBtnTextBold = false;
         }
     }
 
@@ -107,14 +107,14 @@ public class PromptDialog extends WalletDialog implements BaseDialogInterface {
     public void hideButtons() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f24354b.hideButtons = true;
+            this.f24464b.hideButtons = true;
         }
     }
 
     public void hideMessage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f24354b.hideMessage = true;
+            this.f24464b.hideMessage = true;
         }
     }
 
@@ -122,7 +122,7 @@ public class PromptDialog extends WalletDialog implements BaseDialogInterface {
     public void hideNegativeButton() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f24354b.hideNegativeBtn = true;
+            this.f24464b.hideNegativeBtn = true;
         }
     }
 
@@ -130,7 +130,7 @@ public class PromptDialog extends WalletDialog implements BaseDialogInterface {
     public void hidePositiveButton() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f24354b.hidePositiveBtn = true;
+            this.f24464b.hidePositiveBtn = true;
         }
     }
 
@@ -138,7 +138,7 @@ public class PromptDialog extends WalletDialog implements BaseDialogInterface {
     public void hideTitle() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f24354b.hideTitle = true;
+            this.f24464b.hideTitle = true;
         }
     }
 
@@ -152,35 +152,35 @@ public class PromptDialog extends WalletDialog implements BaseDialogInterface {
     public void setDialogBackgroundColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f24354b.dialogBackgound = i2;
+            this.f24464b.dialogBackgound = i2;
         }
     }
 
     public void setMessage(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f24354b.messageId = i2;
+            this.f24464b.messageId = i2;
         }
     }
 
     public void setMessageBackgroundColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f24354b.backgroundColor = i2;
+            this.f24464b.backgroundColor = i2;
         }
     }
 
     public void setMessageColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f24354b.messageColor = i2;
+            this.f24464b.messageColor = i2;
         }
     }
 
     public void setMessageTextSize(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f24354b.messageSize = i2;
+            this.f24464b.messageSize = i2;
         }
     }
 
@@ -188,21 +188,21 @@ public class PromptDialog extends WalletDialog implements BaseDialogInterface {
     public void setNegativeBtn(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, onClickListener) == null) {
-            this.f24354b.negativeBtnClickListener = onClickListener;
+            this.f24464b.negativeBtnClickListener = onClickListener;
         }
     }
 
     public void setNegativeBtnTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f24354b.negativeBtnTextColor = i2;
+            this.f24464b.negativeBtnTextColor = i2;
         }
     }
 
     public void setNegativeBtnTextSize(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.f24354b.negativeBtnTextSize = i2;
+            this.f24464b.negativeBtnTextSize = i2;
         }
     }
 
@@ -210,21 +210,21 @@ public class PromptDialog extends WalletDialog implements BaseDialogInterface {
     public void setPositiveBtn(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, onClickListener) == null) {
-            this.f24354b.positiveBtnClickListener = onClickListener;
+            this.f24464b.positiveBtnClickListener = onClickListener;
         }
     }
 
     public void setPositiveBtnTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.f24354b.positiveBtnTextColor = i2;
+            this.f24464b.positiveBtnTextColor = i2;
         }
     }
 
     public void setPositiveBtnTextSize(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            this.f24354b.positiveBtnTextSize = i2;
+            this.f24464b.positiveBtnTextSize = i2;
         }
     }
 
@@ -232,7 +232,7 @@ public class PromptDialog extends WalletDialog implements BaseDialogInterface {
     public void setTitleText(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            this.f24354b.titleId = i2;
+            this.f24464b.titleId = i2;
         }
     }
 
@@ -254,7 +254,7 @@ public class PromptDialog extends WalletDialog implements BaseDialogInterface {
     public void setMessage(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, charSequence) == null) {
-            this.f24354b.message = charSequence;
+            this.f24464b.message = charSequence;
         }
     }
 
@@ -262,7 +262,7 @@ public class PromptDialog extends WalletDialog implements BaseDialogInterface {
     public void setNegativeBtn(int i2, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048590, this, i2, onClickListener) == null) {
-            ContentDialogModel contentDialogModel = this.f24354b;
+            ContentDialogModel contentDialogModel = this.f24464b;
             contentDialogModel.negativeBtnClickListener = onClickListener;
             contentDialogModel.negativeBtnTextId = i2;
         }
@@ -272,7 +272,7 @@ public class PromptDialog extends WalletDialog implements BaseDialogInterface {
     public void setPositiveBtn(int i2, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048596, this, i2, onClickListener) == null) {
-            ContentDialogModel contentDialogModel = this.f24354b;
+            ContentDialogModel contentDialogModel = this.f24464b;
             contentDialogModel.positiveBtnClickListener = onClickListener;
             contentDialogModel.positiveBtnTextId = i2;
         }
@@ -285,7 +285,7 @@ public class PromptDialog extends WalletDialog implements BaseDialogInterface {
             if (TextUtils.isEmpty(str)) {
                 str = getContext().getString(ResUtils.string(getContext(), "ebpay_tip"));
             }
-            this.f24354b.title = str;
+            this.f24464b.title = str;
         }
     }
 
@@ -293,7 +293,7 @@ public class PromptDialog extends WalletDialog implements BaseDialogInterface {
     public void setNegativeBtn(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048593, this, str, onClickListener) == null) {
-            ContentDialogModel contentDialogModel = this.f24354b;
+            ContentDialogModel contentDialogModel = this.f24464b;
             contentDialogModel.negativeBtnClickListener = onClickListener;
             contentDialogModel.negativeBtnText = str;
         }
@@ -303,7 +303,7 @@ public class PromptDialog extends WalletDialog implements BaseDialogInterface {
     public void setPositiveBtn(SpannableString spannableString, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048597, this, spannableString, onClickListener) == null) {
-            ContentDialogModel contentDialogModel = this.f24354b;
+            ContentDialogModel contentDialogModel = this.f24464b;
             contentDialogModel.positiveBtnClickListener = onClickListener;
             contentDialogModel.positiveBtnText = spannableString;
         }
@@ -328,12 +328,12 @@ public class PromptDialog extends WalletDialog implements BaseDialogInterface {
                 return;
             }
         }
-        this.f24353a = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptDialog.1
+        this.f24463a = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptDialog.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PromptDialog f24355a;
+            public final /* synthetic */ PromptDialog f24465a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -350,18 +350,18 @@ public class PromptDialog extends WalletDialog implements BaseDialogInterface {
                         return;
                     }
                 }
-                this.f24355a = this;
+                this.f24465a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    this.f24355a.dismiss();
+                    this.f24465a.dismiss();
                 }
             }
         };
-        this.f24354b = new ContentDialogModel();
+        this.f24464b = new ContentDialogModel();
         a();
     }
 
@@ -369,7 +369,7 @@ public class PromptDialog extends WalletDialog implements BaseDialogInterface {
     public void setNegativeBtn(SpannableString spannableString, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048591, this, spannableString, onClickListener) == null) {
-            ContentDialogModel contentDialogModel = this.f24354b;
+            ContentDialogModel contentDialogModel = this.f24464b;
             contentDialogModel.negativeBtnClickListener = onClickListener;
             contentDialogModel.negativeBtnText = spannableString;
         }
@@ -379,7 +379,7 @@ public class PromptDialog extends WalletDialog implements BaseDialogInterface {
     public void setPositiveBtn(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048599, this, str, onClickListener) == null) {
-            ContentDialogModel contentDialogModel = this.f24354b;
+            ContentDialogModel contentDialogModel = this.f24464b;
             contentDialogModel.positiveBtnText = str;
             contentDialogModel.positiveBtnClickListener = onClickListener;
         }

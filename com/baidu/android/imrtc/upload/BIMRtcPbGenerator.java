@@ -6,6 +6,7 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imrtc.utils.RtcUtility;
 import com.baidu.android.imsdk.internal.Constants;
@@ -84,7 +85,7 @@ public final class BIMRtcPbGenerator {
         String str;
         NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             String str2 = "";
             if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) {

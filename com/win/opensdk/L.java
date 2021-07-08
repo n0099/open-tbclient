@@ -10,37 +10,37 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class L implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final I f42391a;
+    public final I f39405a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f42392b;
+    public boolean f39406b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f42393c;
+    public long f39407c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f42394d;
+    public float f39408d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f42395e;
+    public float f39409e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42396f;
+    public int f39410f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f42397g;
+    public int f39411g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f42398h;
+    public int f39412h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f42399i;
+    public int f39413i;
     public int j;
     public int k;
     public int l;
@@ -65,9 +65,9 @@ public class L implements View.OnTouchListener {
                 return;
             }
         }
-        this.f42392b = false;
-        this.f42393c = 0L;
-        this.f42391a = i2;
+        this.f39406b = false;
+        this.f39407c = 0L;
+        this.f39405a = i2;
     }
 
     public HashMap a() {
@@ -75,13 +75,13 @@ public class L implements View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put("dx", Integer.valueOf(this.f42396f));
-            hashMap.put("dy", Integer.valueOf(this.f42397g));
+            hashMap.put("dx", Integer.valueOf(this.f39410f));
+            hashMap.put("dy", Integer.valueOf(this.f39411g));
             hashMap.put("dts", Long.valueOf(this.n));
             hashMap.put("ux", Integer.valueOf(this.o));
             hashMap.put("uy", Integer.valueOf(this.p));
             hashMap.put("uts", Long.valueOf(this.q));
-            z.a(hashMap, this.f42398h, this.f42399i, this.j, this.k, this.l, this.m);
+            z.a(hashMap, this.f39412h, this.f39413i, this.j, this.k, this.l, this.m);
             return hashMap;
         }
         return (HashMap) invokeV.objValue;
@@ -94,14 +94,14 @@ public class L implements View.OnTouchListener {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f42392b = true;
-                this.f42393c = System.currentTimeMillis();
-                this.f42394d = motionEvent.getX();
-                this.f42395e = motionEvent.getY();
-                this.f42398h = (int) motionEvent.getX();
-                this.f42399i = (int) motionEvent.getY();
-                this.f42396f = (int) motionEvent.getRawX();
-                this.f42397g = (int) motionEvent.getRawY();
+                this.f39406b = true;
+                this.f39407c = System.currentTimeMillis();
+                this.f39408d = motionEvent.getX();
+                this.f39409e = motionEvent.getY();
+                this.f39412h = (int) motionEvent.getX();
+                this.f39413i = (int) motionEvent.getY();
+                this.f39410f = (int) motionEvent.getRawX();
+                this.f39411g = (int) motionEvent.getRawY();
                 if (this.l <= 0 || this.m <= 0) {
                     this.m = view.getHeight();
                     this.l = view.getWidth();
@@ -113,28 +113,28 @@ public class L implements View.OnTouchListener {
                 this.j = (int) motionEvent.getX();
                 this.k = (int) motionEvent.getY();
                 this.q = System.currentTimeMillis();
-                boolean z = Math.abs(motionEvent.getX() - this.f42394d) < 51.0f;
-                boolean z2 = Math.abs(motionEvent.getY() - this.f42395e) < 51.0f;
-                boolean z3 = System.currentTimeMillis() - this.f42393c < 2000;
-                if (z && z2 && z3 && this.f42392b) {
+                boolean z = Math.abs(motionEvent.getX() - this.f39408d) < 51.0f;
+                boolean z2 = Math.abs(motionEvent.getY() - this.f39409e) < 51.0f;
+                boolean z3 = System.currentTimeMillis() - this.f39407c < 2000;
+                if (z && z2 && z3 && this.f39406b) {
                     String str = null;
                     try {
                         str = a().toString();
-                        V1 v1 = this.f42391a.f42357a.f42375b;
+                        V1 v1 = this.f39405a.f39371a.f39389b;
                         if (v1 != null) {
                             v1.a(str);
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
-                    I i2 = this.f42391a;
-                    i2.f42357a.f42377d = true;
-                    i2.f42357a.f42378e = str;
+                    I i2 = this.f39405a;
+                    i2.f39371a.f39391d = true;
+                    i2.f39371a.f39392e = str;
                     return false;
-                } else if (this.f42391a != null) {
+                } else if (this.f39405a != null) {
                     try {
                         String hashMap = a().toString();
-                        V1 v12 = this.f42391a.f42357a.f42375b;
+                        V1 v12 = this.f39405a.f39371a.f39389b;
                         if (v12 != null) {
                             v12.a(hashMap);
                         }

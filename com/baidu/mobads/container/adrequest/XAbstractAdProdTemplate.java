@@ -42,7 +42,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class XAbstractAdProdTemplate extends XAdRemoteEventDispatcher implements XAdContainerContext {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "XAbstractAdProdTemplate";
@@ -71,7 +71,7 @@ public class XAbstractAdProdTemplate extends XAdRemoteEventDispatcher implements
     public int mTimeout;
     public OAdURLConnection oAdURLConnection;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class CustomMaterialLoadingListener implements MaterialLoadingListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

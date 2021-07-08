@@ -15,8 +15,8 @@ import com.google.zxing.MultiFormatReader;
 import com.google.zxing.PlanarYUVLuminanceSource;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
-import d.a.s0.t2.b.b.a;
-/* loaded from: classes5.dex */
+import d.a.p0.t2.b.b.a;
+/* loaded from: classes4.dex */
 public class ZXingView extends QRCodeView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class ZXingView extends QRCodeView {
         }
     }
 
-    @Override // d.a.s0.t2.b.a.c.a
+    @Override // d.a.p0.t2.b.a.c.a
     public String a(byte[] bArr, int i2, int i3, boolean z) {
         InterceptResult invokeCommon;
         Result result;
@@ -52,7 +52,7 @@ public class ZXingView extends QRCodeView {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
             try {
                 try {
-                    Rect h2 = this.f20418g.h(i3);
+                    Rect h2 = this.f20464g.h(i3);
                     if (h2 != null) {
                         planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i2, i3, h2.left, h2.top, h2.width(), h2.height(), false);
                     } else {
@@ -80,7 +80,7 @@ public class ZXingView extends QRCodeView {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MultiFormatReader multiFormatReader = new MultiFormatReader();
             this.n = multiFormatReader;
-            multiFormatReader.setHints(a.f65608a);
+            multiFormatReader.setHints(a.f62389a);
         }
     }
 

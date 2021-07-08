@@ -19,20 +19,20 @@ public final class z {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ThreadLocal<Object> f1691a;
+    public static final ThreadLocal<Object> f1692a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ThreadLocal<Map<String, Object>> f1692b;
+    public static final ThreadLocal<Map<String, Object>> f1693b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte f1693c;
+    public byte f1694c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicInteger f1694d;
+    public AtomicInteger f1695d;
 
     /* renamed from: e  reason: collision with root package name */
-    public x f1695e;
+    public x f1696e;
 
     static {
         InterceptResult invokeClinit;
@@ -47,8 +47,8 @@ public final class z {
                 return;
             }
         }
-        f1691a = new ThreadLocal<>();
-        f1692b = new ThreadLocal<>();
+        f1692a = new ThreadLocal<>();
+        f1693b = new ThreadLocal<>();
     }
 
     public z(x xVar) {
@@ -66,9 +66,9 @@ public final class z {
                 return;
             }
         }
-        this.f1693c = (byte) 0;
-        this.f1695e = xVar;
-        this.f1694d = new AtomicInteger();
+        this.f1694c = (byte) 0;
+        this.f1696e = xVar;
+        this.f1695d = new AtomicInteger();
     }
 
     public final Object a(Method method, Object[] objArr) {
@@ -82,25 +82,25 @@ public final class z {
             boolean z = method.getAnnotation(ResetCookie.class) != null;
             Type genericReturnType = method.getGenericReturnType();
             method.getAnnotations();
-            f1691a.set(null);
-            f1692b.set(null);
+            f1692a.set(null);
+            f1693b.set(null);
             if (operationType != null) {
                 String value = operationType.value();
-                int incrementAndGet = this.f1694d.incrementAndGet();
+                int incrementAndGet = this.f1695d.incrementAndGet();
                 try {
-                    if (this.f1693c == 0) {
+                    if (this.f1694c == 0) {
                         com.alipay.android.phone.mrpc.core.a.e eVar = new com.alipay.android.phone.mrpc.core.a.e(incrementAndGet, value, objArr);
-                        if (f1692b.get() != null) {
-                            eVar.a(f1692b.get());
+                        if (f1693b.get() != null) {
+                            eVar.a(f1693b.get());
                         }
                         byte[] a2 = eVar.a();
-                        f1692b.set(null);
-                        Object a3 = new com.alipay.android.phone.mrpc.core.a.d(genericReturnType, (byte[]) new j(this.f1695e.a(), method, incrementAndGet, value, a2, z).a()).a();
+                        f1693b.set(null);
+                        Object a3 = new com.alipay.android.phone.mrpc.core.a.d(genericReturnType, (byte[]) new j(this.f1696e.a(), method, incrementAndGet, value, a2, z).a()).a();
                         if (genericReturnType != Void.TYPE) {
-                            f1691a.set(a3);
+                            f1692a.set(a3);
                         }
                     }
-                    return f1691a.get();
+                    return f1692a.get();
                 } catch (RpcException e2) {
                     e2.setOperationType(value);
                     throw e2;

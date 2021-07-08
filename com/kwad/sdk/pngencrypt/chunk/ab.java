@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ab extends ae {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,16 +36,16 @@ public class ab extends ae {
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
             int i2 = 0;
             while (true) {
-                byte[] bArr = dVar.f38720d;
+                byte[] bArr = dVar.f35792d;
                 if (i2 >= bArr.length || bArr[i2] == 0) {
                     break;
                 }
                 i2++;
             }
-            ((ae) this).f38707h = b.a(dVar.f38720d, 0, i2);
+            ((ae) this).f35779h = b.a(dVar.f35792d, 0, i2);
             int i3 = i2 + 1;
-            byte[] bArr2 = dVar.f38720d;
-            this.f38708i = i3 < bArr2.length ? b.a(bArr2, i3, bArr2.length - i3) : "";
+            byte[] bArr2 = dVar.f35792d;
+            this.f35780i = i3 < bArr2.length ? b.a(bArr2, i3, bArr2.length - i3) : "";
         }
     }
 }

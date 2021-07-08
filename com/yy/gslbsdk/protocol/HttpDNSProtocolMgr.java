@@ -1,5 +1,6 @@
 package com.yy.gslbsdk.protocol;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class HttpDNSProtocolMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HttpDNSProtocolMgr";
@@ -68,7 +69,7 @@ public class HttpDNSProtocolMgr {
         InterceptResult invokeLLI;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65540, null, str, resInfo, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, resInfo, i2)) == null) {
             String str3 = "ips";
             try {
                 if (str != null && resInfo != null) {

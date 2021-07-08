@@ -1,5 +1,6 @@
 package d.a.b.a.a.d.a.a;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,16 +15,16 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.IntBuffer;
 import java.security.GeneralSecurityException;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f43793b;
+    public static final int[] f40871b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f43794a;
+    public final int f40872a;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +39,7 @@ public class b {
                 return;
             }
         }
-        f43793b = k(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, UtilsBlink.VER_TYPE_SEPARATOR, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
+        f40871b = k(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, UtilsBlink.VER_TYPE_SEPARATOR, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
     }
 
     public b(int i2) {
@@ -56,7 +57,7 @@ public class b {
                 return;
             }
         }
-        this.f43794a = i2;
+        this.f40872a = i2;
     }
 
     public static int b(int i2, int i3) {
@@ -83,7 +84,7 @@ public class b {
 
     public static void f(int[] iArr, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{iArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{iArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             iArr[i2] = iArr[i2] + iArr[i3];
             iArr[i5] = b(iArr[i5] ^ iArr[i2], 16);
             iArr[i4] = iArr[i4] + iArr[i5];
@@ -98,9 +99,9 @@ public class b {
     public static void g(int[] iArr, int[] iArr2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, iArr, iArr2) == null) {
-            int[] iArr3 = f43793b;
+            int[] iArr3 = f40871b;
             System.arraycopy(iArr3, 0, iArr, 0, iArr3.length);
-            System.arraycopy(iArr2, 0, iArr, f43793b.length, 8);
+            System.arraycopy(iArr2, 0, iArr, f40871b.length, 8);
         }
     }
 
@@ -148,7 +149,7 @@ public class b {
             int remaining = byteBuffer2.remaining();
             int i2 = (remaining / 64) + 1;
             for (int i3 = 0; i3 < i2; i3++) {
-                ByteBuffer c2 = c(bArr, bArr2, this.f43794a + i3);
+                ByteBuffer c2 = c(bArr, bArr2, this.f40872a + i3);
                 if (i3 == i2 - 1) {
                     a.a(byteBuffer, byteBuffer2, c2, remaining % 64);
                 } else {

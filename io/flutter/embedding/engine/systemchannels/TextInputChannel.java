@@ -22,7 +22,7 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class TextInputChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "TextInputChannel";
@@ -33,7 +33,7 @@ public class TextInputChannel {
     @Nullable
     public TextInputMethodHandler textInputMethodHandler;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class Configuration {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -188,7 +188,7 @@ public class TextInputChannel {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class InputType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -226,7 +226,7 @@ public class TextInputChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class TextCapitalization {
         public static final /* synthetic */ TextCapitalization[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -304,11 +304,11 @@ public class TextInputChannel {
         public static TextCapitalization[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (TextCapitalization[]) $VALUES.clone() : (TextCapitalization[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (TextCapitalization[]) $VALUES.clone() : (TextCapitalization[]) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class TextEditState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -344,7 +344,7 @@ public class TextInputChannel {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface TextInputMethodHandler {
         void clearClient();
 
@@ -360,7 +360,7 @@ public class TextInputChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class TextInputType {
         public static final /* synthetic */ TextInputType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -446,7 +446,7 @@ public class TextInputChannel {
         public static TextInputType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (TextInputType[]) $VALUES.clone() : (TextInputType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (TextInputType[]) $VALUES.clone() : (TextInputType[]) invokeV.objValue;
         }
     }
 

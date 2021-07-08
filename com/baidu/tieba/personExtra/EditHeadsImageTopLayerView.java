@@ -10,25 +10,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class EditHeadsImageTopLayerView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f20020e;
+    public Paint f20060e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f20021f;
+    public Paint f20061f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20022g;
+    public int f20062g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20023h;
+    public int f20063h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f20024i;
+    public float f20064i;
     public float j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -49,11 +49,11 @@ public class EditHeadsImageTopLayerView extends View {
                 return;
             }
         }
-        this.f20020e = null;
-        this.f20021f = null;
-        this.f20022g = 0;
-        this.f20023h = 0;
-        this.f20024i = 0.42857143f;
+        this.f20060e = null;
+        this.f20061f = null;
+        this.f20062g = 0;
+        this.f20063h = 0;
+        this.f20064i = 0.42857143f;
         this.j = 1.0f;
         a();
     }
@@ -62,13 +62,13 @@ public class EditHeadsImageTopLayerView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Paint paint = new Paint();
-            this.f20020e = paint;
+            this.f20060e = paint;
             paint.setColor(-16777216);
-            this.f20020e.setAlpha(153);
+            this.f20060e.setAlpha(153);
             Paint paint2 = new Paint();
-            this.f20021f = paint2;
+            this.f20061f = paint2;
             paint2.setStyle(Paint.Style.STROKE);
-            this.f20021f.setColor(-1);
+            this.f20061f.setColor(-1);
         }
     }
 
@@ -79,9 +79,9 @@ public class EditHeadsImageTopLayerView extends View {
             canvas.save();
             super.onDraw(canvas);
             canvas.restore();
-            canvas.drawRect(0.0f, 0.0f, getWidth(), this.f20022g, this.f20020e);
-            canvas.drawRect(0.0f, getHeight() - this.f20023h, getWidth(), getHeight(), this.f20020e);
-            canvas.drawRect(1.0f, this.f20022g, getWidth() - 1, getHeight() - this.f20023h, this.f20021f);
+            canvas.drawRect(0.0f, 0.0f, getWidth(), this.f20062g, this.f20060e);
+            canvas.drawRect(0.0f, getHeight() - this.f20063h, getWidth(), getHeight(), this.f20060e);
+            canvas.drawRect(1.0f, this.f20062g, getWidth() - 1, getHeight() - this.f20063h, this.f20061f);
         }
     }
 
@@ -95,16 +95,16 @@ public class EditHeadsImageTopLayerView extends View {
                 width = getHeight();
             }
             float f2 = (i5 - i3) - width;
-            float f3 = this.f20024i;
-            this.f20022g = (int) (f2 * f3);
-            this.f20023h = (int) (f2 * (1.0f - f3));
+            float f3 = this.f20064i;
+            this.f20062g = (int) (f2 * f3);
+            this.f20063h = (int) (f2 * (1.0f - f3));
         }
     }
 
     public void setLinePaintColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            Paint paint = this.f20021f;
+            Paint paint = this.f20061f;
             if (paint != null) {
                 paint.setColor(i2);
             }
@@ -115,7 +115,7 @@ public class EditHeadsImageTopLayerView extends View {
     public void setLineWidth(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            Paint paint = this.f20021f;
+            Paint paint = this.f20061f;
             if (paint != null) {
                 paint.setStrokeWidth(i2);
             }
@@ -149,11 +149,11 @@ public class EditHeadsImageTopLayerView extends View {
                 return;
             }
         }
-        this.f20020e = null;
-        this.f20021f = null;
-        this.f20022g = 0;
-        this.f20023h = 0;
-        this.f20024i = 0.42857143f;
+        this.f20060e = null;
+        this.f20061f = null;
+        this.f20062g = 0;
+        this.f20063h = 0;
+        this.f20064i = 0.42857143f;
         this.j = 1.0f;
         a();
     }
@@ -177,11 +177,11 @@ public class EditHeadsImageTopLayerView extends View {
                 return;
             }
         }
-        this.f20020e = null;
-        this.f20021f = null;
-        this.f20022g = 0;
-        this.f20023h = 0;
-        this.f20024i = 0.42857143f;
+        this.f20060e = null;
+        this.f20061f = null;
+        this.f20062g = 0;
+        this.f20063h = 0;
+        this.f20064i = 0.42857143f;
         this.j = 1.0f;
         a();
     }

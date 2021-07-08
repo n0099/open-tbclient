@@ -1,6 +1,7 @@
 package b.a;
 
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.DefaultLifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -38,7 +39,7 @@ public final /* synthetic */ class a {
 
     public static void $default$onStart(@NonNull DefaultLifecycleObserver defaultLifecycleObserver, LifecycleOwner lifecycleOwner) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, defaultLifecycleObserver, lifecycleOwner) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, defaultLifecycleObserver, lifecycleOwner) == null) {
         }
     }
 

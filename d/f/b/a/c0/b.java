@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public interface b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f72612a = new a();
+    public static final b f69715a = new a();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

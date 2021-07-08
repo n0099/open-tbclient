@@ -6,28 +6,28 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class l extends r {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f44552a;
+    public String f41568a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f44553b;
+    public String f41569b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f44554c;
+    public String f41570c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f44555d;
+    public String f41571d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String[] f44556e;
+    public String[] f41572e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<BasicNameValuePair> f44557f;
+    public List<BasicNameValuePair> f41573f;
 
     public l(String str) {
         Interceptable interceptable = $ic;
@@ -44,10 +44,10 @@ public class l extends r {
                 return;
             }
         }
-        this.f44552a = str;
-        this.f44553b = "/";
-        this.f44555d = null;
-        this.f44556e = null;
-        this.f44557f = null;
+        this.f41568a = str;
+        this.f41569b = "/";
+        this.f41571d = null;
+        this.f41572e = null;
+        this.f41573f = null;
     }
 }

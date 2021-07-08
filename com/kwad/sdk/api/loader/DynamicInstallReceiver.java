@@ -17,7 +17,7 @@ import com.heytap.mcssdk.mode.CommandMessage;
 import java.io.File;
 import java.util.concurrent.atomic.AtomicBoolean;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DynamicInstallReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public static final AtomicBoolean HAS_REGISTER;
@@ -78,16 +78,16 @@ public class DynamicInstallReceiver extends BroadcastReceiver {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f34154a;
+                public final /* synthetic */ Context f33768a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ File f34155b;
+                public final /* synthetic */ File f33769b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f34156c;
+                public final /* synthetic */ String f33770c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ DynamicInstallReceiver f34157d;
+                public final /* synthetic */ DynamicInstallReceiver f33771d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -104,10 +104,10 @@ public class DynamicInstallReceiver extends BroadcastReceiver {
                             return;
                         }
                     }
-                    this.f34157d = this;
-                    this.f34154a = context;
-                    this.f34155b = file;
-                    this.f34156c = stringExtra2;
+                    this.f33771d = this;
+                    this.f33768a = context;
+                    this.f33769b = file;
+                    this.f33770c = stringExtra2;
                 }
 
                 @Override // java.lang.Runnable
@@ -115,9 +115,9 @@ public class DynamicInstallReceiver extends BroadcastReceiver {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            if (b.a(this.f34154a, this.f34155b.getPath(), this.f34156c)) {
-                                f.a(this.f34154a, f.f34195a, this.f34156c);
-                                g.a(this.f34155b);
+                            if (b.a(this.f33768a, this.f33769b.getPath(), this.f33770c)) {
+                                f.a(this.f33768a, f.f33809a, this.f33770c);
+                                g.a(this.f33769b);
                             }
                         } catch (Exception e2) {
                             e2.printStackTrace();

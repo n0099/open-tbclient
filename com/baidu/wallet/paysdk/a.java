@@ -11,33 +11,33 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<InterfaceC0276a> f25737a;
+    public final List<InterfaceC0276a> f25847a;
 
     /* renamed from: com.baidu.wallet.paysdk.a$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.wallet.paysdk.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface InterfaceC0276a {
         boolean a(CharSequence charSequence);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class b implements InterfaceC0276a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Pattern f25739a;
+        public static final Pattern f25849a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -53,7 +53,7 @@ public class a {
                     return;
                 }
             }
-            f25739a = Pattern.compile("^[A-z0-9*]{1,50}$");
+            f25849a = Pattern.compile("^[A-z0-9*]{1,50}$");
         }
 
         public b() {
@@ -74,7 +74,7 @@ public class a {
         public boolean a(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) ? f25739a.matcher(charSequence).matches() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) ? f25849a.matcher(charSequence).matches() : invokeL.booleanValue;
         }
 
         public /* synthetic */ b(AnonymousClass1 anonymousClass1) {
@@ -82,12 +82,12 @@ public class a {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class c implements InterfaceC0276a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Pattern f25740a;
+        public static final Pattern f25850a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -103,7 +103,7 @@ public class a {
                     return;
                 }
             }
-            f25740a = Pattern.compile("^[HM]\\d{8,10}$");
+            f25850a = Pattern.compile("^[HM]\\d{8,10}$");
         }
 
         public c() {
@@ -124,7 +124,7 @@ public class a {
         public boolean a(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) ? f25740a.matcher(charSequence).matches() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) ? f25850a.matcher(charSequence).matches() : invokeL.booleanValue;
         }
 
         public /* synthetic */ c(AnonymousClass1 anonymousClass1) {
@@ -132,12 +132,12 @@ public class a {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class d implements InterfaceC0276a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Pattern f25741a;
+        public static final Pattern f25851a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -153,7 +153,7 @@ public class a {
                     return;
                 }
             }
-            f25741a = Pattern.compile("^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}[\\dxX]$|^[1-9]\\d{5}\\d{2}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$");
+            f25851a = Pattern.compile("^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}[\\dxX]$|^[1-9]\\d{5}\\d{2}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$");
         }
 
         public d() {
@@ -174,7 +174,7 @@ public class a {
         public boolean a(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) ? f25741a.matcher(charSequence).matches() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) ? f25851a.matcher(charSequence).matches() : invokeL.booleanValue;
         }
 
         public /* synthetic */ d(AnonymousClass1 anonymousClass1) {
@@ -182,7 +182,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class e implements InterfaceC0276a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -216,12 +216,12 @@ public class a {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class f implements InterfaceC0276a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Pattern f25742a;
+        public static final Pattern f25852a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -237,7 +237,7 @@ public class a {
                     return;
                 }
             }
-            f25742a = Pattern.compile("^[A-Za-z0-9]{1,18}$");
+            f25852a = Pattern.compile("^[A-Za-z0-9]{1,18}$");
         }
 
         public f() {
@@ -258,7 +258,7 @@ public class a {
         public boolean a(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) ? f25742a.matcher(charSequence).matches() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) ? f25852a.matcher(charSequence).matches() : invokeL.booleanValue;
         }
 
         public /* synthetic */ f(AnonymousClass1 anonymousClass1) {
@@ -297,7 +297,7 @@ public class a {
             if (TextUtils.isEmpty(charSequence)) {
                 return false;
             }
-            for (InterfaceC0276a interfaceC0276a : this.f25737a) {
+            for (InterfaceC0276a interfaceC0276a : this.f25847a) {
                 if (interfaceC0276a.a(charSequence)) {
                     return true;
                 }
@@ -322,21 +322,21 @@ public class a {
                 return;
             }
         }
-        this.f25737a = new ArrayList();
+        this.f25847a = new ArrayList();
         if (a(j, 2L)) {
-            this.f25737a.add(new d(null));
+            this.f25847a.add(new d(null));
         }
         if (a(j, 4L)) {
-            this.f25737a.add(new f(null));
+            this.f25847a.add(new f(null));
         }
         if (a(j, 8L)) {
-            this.f25737a.add(new c(null));
+            this.f25847a.add(new c(null));
         }
         if (a(j, 16L)) {
-            this.f25737a.add(new e(null));
+            this.f25847a.add(new e(null));
         }
         if (a(j, 1L)) {
-            this.f25737a.add(new b(null));
+            this.f25847a.add(new b(null));
         }
     }
 }

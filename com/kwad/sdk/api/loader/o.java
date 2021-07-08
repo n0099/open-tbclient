@@ -8,6 +8,7 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.util.DisplayMetrics;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,18 +19,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.api.loader.Reflect;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class o {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Resources> f34251a;
+    public static Map<String, Resources> f33865a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f34252b;
+    public static final Object f33866b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +53,7 @@ public class o {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +91,7 @@ public class o {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,7 +129,7 @@ public class o {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,7 +167,7 @@ public class o {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -204,7 +205,7 @@ public class o {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -265,8 +266,8 @@ public class o {
                 return;
             }
         }
-        f34251a = new HashMap();
-        f34252b = new Object();
+        f33865a = new HashMap();
+        f33866b = new Object();
     }
 
     public static Resources a(Context context, AssetManager assetManager, DisplayMetrics displayMetrics, Configuration configuration) {
@@ -285,14 +286,14 @@ public class o {
         Resources resources2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, resources, str)) == null) {
-            synchronized (f34252b) {
-                resources2 = f34251a.get(str);
+            synchronized (f33866b) {
+                resources2 = f33865a.get(str);
                 if (resources2 == null) {
                     resources2 = b(context, resources, str);
                     if (resources2 == null) {
                         throw new RuntimeException("Can not createResources for " + str);
                     }
-                    f34251a.put(str, resources);
+                    f33865a.put(str, resources);
                 }
             }
             return resources2;
@@ -314,7 +315,7 @@ public class o {
     public static boolean a(Resources resources) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, resources)) == null) ? "android.content.res.MiuiResources".equals(resources.getClass().getName()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, resources)) == null) ? "android.content.res.MiuiResources".equals(resources.getClass().getName()) : invokeL.booleanValue;
     }
 
     public static int b(AssetManager assetManager, String str) {

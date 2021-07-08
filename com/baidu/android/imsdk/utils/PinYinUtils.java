@@ -1,5 +1,6 @@
 package com.baidu.android.imsdk.utils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -115,7 +116,7 @@ public class PinYinUtils {
 
     public static void sortByPinYin(List<? extends PinYinObject> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, null, list) == null) || list == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list) == null) || list == null) {
             return;
         }
         Collections.sort(list, pyComparator);

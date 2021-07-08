@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import e.a.h;
 import java.util.concurrent.Future;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class i extends h<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class a implements h.a<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

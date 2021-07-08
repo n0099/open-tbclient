@@ -15,38 +15,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.w.n;
-import d.a.s0.v1.h.b.c.b;
-import d.a.s0.v1.h.b.c.c;
-import d.a.s0.v1.h.b.c.e;
-/* loaded from: classes5.dex */
+import d.a.o0.w.n;
+import d.a.p0.v1.h.b.c.b;
+import d.a.p0.v1.h.b.c.c;
+import d.a.p0.v1.h.b.c.e;
+/* loaded from: classes4.dex */
 public class TailEditColorToolHost extends NoPressedLinearLayout implements n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18608e;
+    public int f18648e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.s0.v1.h.b.c.a f18609f;
+    public d.a.p0.v1.h.b.c.a f18649f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f18610g;
+    public c f18650g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f18611h;
+    public e f18651h;
 
     /* renamed from: i  reason: collision with root package name */
-    public EditorTools f18612i;
+    public EditorTools f18652i;
     public View.OnClickListener j;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TailEditColorToolHost f18613e;
+        public final /* synthetic */ TailEditColorToolHost f18653e;
 
         public a(TailEditColorToolHost tailEditColorToolHost) {
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements n {
                     return;
                 }
             }
-            this.f18613e = tailEditColorToolHost;
+            this.f18653e = tailEditColorToolHost;
         }
 
         @Override // android.view.View.OnClickListener
@@ -73,9 +73,9 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements n {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (bVar = (b) view.getTag()) == null) {
                 return;
             }
-            this.f18613e.f18610g.c(bVar.b());
-            this.f18613e.f18609f.notifyDataSetChanged();
-            this.f18613e.f18612i.A(new d.a.r0.w.a(26, -1, bVar.b()));
+            this.f18653e.f18650g.c(bVar.b());
+            this.f18653e.f18649f.notifyDataSetChanged();
+            this.f18653e.f18652i.A(new d.a.o0.w.a(26, -1, bVar.b()));
         }
     }
 
@@ -97,12 +97,12 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements n {
                 return;
             }
         }
-        this.f18608e = 0;
+        this.f18648e = 0;
         this.j = new a(this);
         i(tbPageContext, str);
     }
 
-    @Override // d.a.r0.w.n
+    @Override // d.a.o0.w.n
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -110,24 +110,24 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements n {
         }
     }
 
-    @Override // d.a.r0.w.n
-    public void d(d.a.r0.w.a aVar) {
+    @Override // d.a.o0.w.n
+    public void d(d.a.o0.w.a aVar) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || (editorTools = this.f18612i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || (editorTools = this.f18652i) == null) {
             return;
         }
         editorTools.A(aVar);
     }
 
-    @Override // d.a.r0.w.n
+    @Override // d.a.o0.w.n
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18608e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18648e : invokeV.intValue;
     }
 
-    @Override // d.a.r0.w.n
+    @Override // d.a.o0.w.n
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -139,50 +139,50 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, tbPageContext, str) == null) {
             LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.tail_edit_color, (ViewGroup) this, true);
-            this.f18611h = new e(this);
+            this.f18651h = new e(this);
             c cVar = new c(tbPageContext);
-            this.f18610g = cVar;
+            this.f18650g = cVar;
             cVar.c(str);
-            d.a.s0.v1.h.b.c.a aVar = new d.a.s0.v1.h.b.c.a(tbPageContext, this.f18610g, this.j);
-            this.f18609f = aVar;
-            this.f18611h.a(aVar);
+            d.a.p0.v1.h.b.c.a aVar = new d.a.p0.v1.h.b.c.a(tbPageContext, this.f18650g, this.j);
+            this.f18649f = aVar;
+            this.f18651h.a(aVar);
         }
     }
 
-    @Override // d.a.r0.w.n
+    @Override // d.a.o0.w.n
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
-    @Override // d.a.r0.w.b
-    public void onAction(d.a.r0.w.a aVar) {
+    @Override // d.a.o0.w.b
+    public void onAction(d.a.o0.w.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
         }
     }
 
-    @Override // d.a.r0.w.n
+    @Override // d.a.o0.w.n
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
         }
     }
 
-    @Override // d.a.r0.w.n
+    @Override // d.a.o0.w.n
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editorTools) == null) {
-            this.f18612i = editorTools;
+            this.f18652i = editorTools;
         }
     }
 
-    @Override // d.a.r0.w.n
+    @Override // d.a.o0.w.n
     public void setToolId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f18608e = i2;
+            this.f18648e = i2;
         }
     }
 }

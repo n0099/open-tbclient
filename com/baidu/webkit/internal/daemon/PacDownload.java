@@ -24,7 +24,7 @@ import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebViewFactory;
 import java.io.ByteArrayOutputStream;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PacDownload implements IResourceTask, INetListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "PacDownload";
@@ -92,7 +92,7 @@ public class PacDownload implements IResourceTask, INetListener {
 
     public static void restoreLastData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             try {
                 String str = CfgFileUtils.get(CfgFileUtils.KEY_PAC_DATA, (String) null);
                 if (str == null) {

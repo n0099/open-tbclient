@@ -21,7 +21,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
 import java.math.RoundingMode;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class BloomFilter<T> implements o<T>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public final class BloomFilter<T> implements o<T>, Serializable {
     public final int numHashFunctions;
     public final Strategy strategy;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class SerialForm<T> implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -55,7 +55,7 @@ public final class BloomFilter<T> implements o<T>, Serializable {
                     return;
                 }
             }
-            this.data = BloomFilterStrategies.a.g(bloomFilter.bits.f33390a);
+            this.data = BloomFilterStrategies.a.g(bloomFilter.bits.f33500a);
             this.numHashFunctions = bloomFilter.numHashFunctions;
             this.funnel = bloomFilter.funnel;
             this.strategy = bloomFilter.strategy;
@@ -68,7 +68,7 @@ public final class BloomFilter<T> implements o<T>, Serializable {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Strategy extends Serializable {
         <T> boolean mightContain(T t, Funnel<? super T> funnel, int i2, BloomFilterStrategies.a aVar);
 
@@ -77,7 +77,7 @@ public final class BloomFilter<T> implements o<T>, Serializable {
         <T> boolean put(T t, Funnel<? super T> funnel, int i2, BloomFilterStrategies.a aVar);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -266,9 +266,9 @@ public final class BloomFilter<T> implements o<T>, Serializable {
             DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
             dataOutputStream.writeByte(SignedBytes.a(this.strategy.ordinal()));
             dataOutputStream.writeByte(b.a(this.numHashFunctions));
-            dataOutputStream.writeInt(this.bits.f33390a.length());
-            for (int i2 = 0; i2 < this.bits.f33390a.length(); i2++) {
-                dataOutputStream.writeLong(this.bits.f33390a.get(i2));
+            dataOutputStream.writeInt(this.bits.f33500a.length());
+            for (int i2 = 0; i2 < this.bits.f33500a.length(); i2++) {
+                dataOutputStream.writeLong(this.bits.f33500a.get(i2));
             }
         }
     }

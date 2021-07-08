@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.appcompat.content.res.AppCompatResources;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 import com.google.android.material.textfield.TextInputLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PasswordToggleEndIconDelegate extends EndIconDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -173,7 +174,7 @@ public class PasswordToggleEndIconDelegate extends EndIconDelegate {
     public static boolean isInputTypePassword(EditText editText) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, editText)) == null) ? editText != null && (editText.getInputType() == 16 || editText.getInputType() == 128 || editText.getInputType() == 144 || editText.getInputType() == 224) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, editText)) == null) ? editText != null && (editText.getInputType() == 16 || editText.getInputType() == 128 || editText.getInputType() == 144 || editText.getInputType() == 224) : invokeL.booleanValue;
     }
 
     @Override // com.google.android.material.textfield.EndIconDelegate

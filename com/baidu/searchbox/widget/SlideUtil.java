@@ -12,6 +12,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SlideUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -111,7 +112,7 @@ public class SlideUtil {
 
     public static void convertToTranslucent(Activity activity, OnTranslucentListener onTranslucentListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, activity, onTranslucentListener) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, onTranslucentListener) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 21) {
                     convertActivityToTranslucentAfterL(activity, onTranslucentListener);

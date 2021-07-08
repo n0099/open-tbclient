@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.net.NetResponse;
 import com.bytedance.sdk.component.net.executor.NetExecutor;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class NetCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

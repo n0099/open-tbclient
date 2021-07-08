@@ -2,6 +2,7 @@ package com.baidu.platform.comapi.pano;
 
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mapapi.http.AsyncHttpClient;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
@@ -13,16 +14,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AsyncHttpClient f9400a;
+    public AsyncHttpClient f9417a;
 
     /* renamed from: com.baidu.platform.comapi.pano.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface InterfaceC0136a<T> {
         void a(HttpClient.HttpStateError httpStateError);
 
@@ -42,7 +43,7 @@ public class a {
                 return;
             }
         }
-        this.f9400a = new AsyncHttpClient();
+        this.f9417a = new AsyncHttpClient();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -51,34 +52,34 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
             if (str == null || str.equals("")) {
-                return new c(PanoStateError.f9397c);
+                return new c(PanoStateError.f9414c);
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 JSONObject optJSONObject = jSONObject.optJSONObject("result");
                 if (optJSONObject == null) {
-                    return new c(PanoStateError.f9397c);
+                    return new c(PanoStateError.f9414c);
                 }
                 if (optJSONObject.optInt("error") == 0) {
                     JSONArray optJSONArray = jSONObject.optJSONArray("content");
                     if (optJSONArray == null) {
-                        return new c(PanoStateError.f9397c);
+                        return new c(PanoStateError.f9414c);
                     }
                     c cVar = null;
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                         JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2).optJSONObject("poiinfo");
                         if (optJSONObject2 != null) {
-                            cVar = new c(PanoStateError.f9395a);
+                            cVar = new c(PanoStateError.f9412a);
                             cVar.a(optJSONObject2.optString("PID"));
                             cVar.a(optJSONObject2.optInt("hasstreet"));
                         }
                     }
                     return cVar;
                 }
-                return new c(PanoStateError.f9396b);
+                return new c(PanoStateError.f9413b);
             } catch (JSONException e2) {
                 e2.printStackTrace();
-                return new c(PanoStateError.f9397c);
+                return new c(PanoStateError.f9414c);
             }
         }
         return (c) invokeL.objValue;
@@ -98,7 +99,7 @@ public class a {
 
     private void a(Uri.Builder builder, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65540, this, builder, str, str2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, builder, str, str2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
         builder.appendQueryParameter(str, str2);
@@ -116,11 +117,11 @@ public class a {
             a(builder, "action", "0");
             String authToken = HttpClient.getAuthToken();
             if (authToken == null) {
-                interfaceC0136a.a((InterfaceC0136a<c>) new c(PanoStateError.f9398d));
+                interfaceC0136a.a((InterfaceC0136a<c>) new c(PanoStateError.f9415d));
                 return;
             }
             a(builder, "token", authToken);
-            this.f9400a.get(a(builder), new b(this, interfaceC0136a));
+            this.f9417a.get(a(builder), new b(this, interfaceC0136a));
         }
     }
 }

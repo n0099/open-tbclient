@@ -18,14 +18,14 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class SingleTakeUntil<T, U> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Publisher<U> other;
     public final SingleSource<T> source;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class TakeUntilMainObserver<T> extends AtomicReference<Disposable> implements SingleObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -622603812305745221L;
@@ -119,7 +119,7 @@ public final class SingleTakeUntil<T, U> extends Single<T> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class TakeUntilOtherSubscriber extends AtomicReference<Subscription> implements FlowableSubscriber<Object> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 5170026210238877381L;

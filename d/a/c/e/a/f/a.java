@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class a extends DiskFileOperate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NSGif f44000a;
+    public NSGif f41016a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(String str, String str2, DiskFileOperate.Action action) {
@@ -35,13 +35,13 @@ public class a extends DiskFileOperate {
                 return;
             }
         }
-        this.f44000a = null;
+        this.f41016a = null;
     }
 
     public NSGif a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44000a : (NSGif) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41016a : (NSGif) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -49,9 +49,9 @@ public class a extends DiskFileOperate {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-            if (bArr != null && NSGif.f2155f) {
+            if (bArr != null && NSGif.f2156f) {
                 NSGif f2 = NSGif.f(bArr, 0, bArr.length);
-                this.f44000a = f2;
+                this.f41016a = f2;
                 if (f2 != null) {
                     return true;
                 }

@@ -20,7 +20,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DownloadOkHttp3Connection implements DownloadConnection, DownloadConnection.Connected {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DownloadOkHttp3Connection";
@@ -32,7 +32,7 @@ public class DownloadOkHttp3Connection implements DownloadConnection, DownloadCo
     public final Request.Builder requestBuilder;
     public Response response;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Factory implements DownloadConnection.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

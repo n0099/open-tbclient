@@ -26,11 +26,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.b.d;
-import d.a.r0.r.q.b2;
+import d.a.o0.b.d;
+import d.a.o0.r.q.b2;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HeadPendantClickableView extends HeadPendantView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,13 +39,13 @@ public class HeadPendantClickableView extends HeadPendantView {
     public View.OnClickListener s;
     public View.OnClickListener t;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HeadPendantClickableView f12406e;
+        public final /* synthetic */ HeadPendantClickableView f12423e;
 
         public a(HeadPendantClickableView headPendantClickableView) {
             Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class HeadPendantClickableView extends HeadPendantView {
                     return;
                 }
             }
-            this.f12406e = headPendantClickableView;
+            this.f12423e = headPendantClickableView;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:33:0x0157  */
@@ -77,31 +77,31 @@ public class HeadPendantClickableView extends HeadPendantView {
             String str3;
             AlaInfoData alaInfo;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f12406e.q == null || this.f12406e.q.H() == null || StringUtils.isNull(this.f12406e.q.H().getName_show()) || StringUtils.isNull(this.f12406e.q.H().getUserId())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f12423e.q == null || this.f12423e.q.H() == null || StringUtils.isNull(this.f12423e.q.H().getName_show()) || StringUtils.isNull(this.f12423e.q.H().getUserId())) {
                 return;
             }
-            if (this.f12406e.q.W1) {
+            if (this.f12423e.q.W1) {
                 str3 = AddFriendActivityConfig.TYPE_HOME_HEAD;
                 str = YYLiveUtil.SOURCE_HOME_RECOMMEND_HEAD;
-            } else if (this.f12406e.q.O1()) {
+            } else if (this.f12423e.q.O1()) {
                 str3 = AddFriendActivityConfig.TYPE_CONCERN_HEAD;
                 str = YYLiveUtil.SOURCE_HOME_FOLLOW_TAB_HEAD;
-            } else if (!this.f12406e.q.isFromFrs()) {
+            } else if (!this.f12423e.q.isFromFrs()) {
                 str = YYLiveUtil.SOURCE_NOT_DEFINE;
                 str2 = "";
                 String str4 = str;
-                alaInfo = this.f12406e.q.H().getAlaInfo();
+                alaInfo = this.f12423e.q.H().getAlaInfo();
                 if (alaInfo == null && alaInfo.isLegalYYLiveData()) {
-                    TbPageContext tbPageContext = this.f12406e.getTbPageContext();
+                    TbPageContext tbPageContext = this.f12423e.getTbPageContext();
                     YyExtData yyExtData = alaInfo.mYyExtData;
                     YYLiveUtil.jumpToYYLiveRoom(tbPageContext, yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "" + alaInfo.roomId, str4);
-                    HeadPendantClickableView headPendantClickableView = this.f12406e;
-                    headPendantClickableView.r(headPendantClickableView.q.n1(), String.valueOf(this.f12406e.q.Q()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
+                    HeadPendantClickableView headPendantClickableView = this.f12423e;
+                    headPendantClickableView.r(headPendantClickableView.q.n1(), String.valueOf(this.f12423e.q.Q()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f12406e.r, this.f12406e.q.H().getUserId(), this.f12406e.q.H().getName_show(), this.f12406e.q.W(), str2, this.f12406e.q.n1(), this.f12406e.q.A0())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f12423e.r, this.f12423e.q.H().getUserId(), this.f12423e.q.H().getName_show(), this.f12423e.q.W(), str2, this.f12423e.q.n1(), this.f12423e.q.A0())));
                 }
-                if (this.f12406e.s == null) {
-                    this.f12406e.s.onClick(view);
+                if (this.f12423e.s == null) {
+                    this.f12423e.s.onClick(view);
                     return;
                 }
                 return;
@@ -111,11 +111,11 @@ public class HeadPendantClickableView extends HeadPendantView {
             }
             str2 = str3;
             String str42 = str;
-            alaInfo = this.f12406e.q.H().getAlaInfo();
+            alaInfo = this.f12423e.q.H().getAlaInfo();
             if (alaInfo == null) {
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f12406e.r, this.f12406e.q.H().getUserId(), this.f12406e.q.H().getName_show(), this.f12406e.q.W(), str2, this.f12406e.q.n1(), this.f12406e.q.A0())));
-            if (this.f12406e.s == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f12423e.r, this.f12423e.q.H().getUserId(), this.f12423e.q.H().getName_show(), this.f12423e.q.W(), str2, this.f12423e.q.n1(), this.f12423e.q.A0())));
+            if (this.f12423e.s == null) {
             }
         }
     }
@@ -209,7 +209,7 @@ public class HeadPendantClickableView extends HeadPendantView {
         getHeadView().setUserId(H.getUserId());
         getHeadView().setUserName(H.getUserName());
         getHeadView().setUrl(H.getAvater());
-        if (H.isDefaultAvatar && d.V()) {
+        if (H.isDefaultAvatar && d.f0()) {
             getHeadView().M(String.valueOf(R.drawable.pic_mask_pass_head), 24, false);
         } else if (!StringUtils.isNull(H.getAvater()) && H.getAvater().startsWith("http")) {
             getHeadView().M(H.getAvater(), 10, false);

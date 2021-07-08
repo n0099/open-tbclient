@@ -1,5 +1,6 @@
 package d.a.c.g.h;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.live.nps.LiveNPSPluginManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, e> f44611a;
+    public static Map<String, e> f41627a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,14 +31,14 @@ public class b {
             }
         }
         HashMap hashMap = new HashMap();
-        f44611a = hashMap;
+        f41627a = hashMap;
         hashMap.put(LiveNPSPluginManager.NPS_PLUGIN_PKG_NAME, new a());
     }
 
     public static void a(String str, int i2) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65537, null, str, i2) == null) || (eVar = f44611a.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65537, null, str, i2) == null) || (eVar = f41627a.get(str)) == null) {
             return;
         }
         eVar.b(i2);
@@ -46,7 +47,7 @@ public class b {
     public static void b(String str, int i2, long j) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i2), Long.valueOf(j)}) == null) || (eVar = f44611a.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i2), Long.valueOf(j)}) == null) || (eVar = f41627a.get(str)) == null) {
             return;
         }
         eVar.c(i2, j);
@@ -55,7 +56,7 @@ public class b {
     public static void c(String str, int i2, int i3) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65539, null, str, i2, i3) == null) || (eVar = f44611a.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeLII(65539, null, str, i2, i3) == null) || (eVar = f41627a.get(str)) == null) {
             return;
         }
         eVar.d(i2, i3);
@@ -64,7 +65,7 @@ public class b {
     public static void d(String str, int i2, int i3) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65540, null, str, i2, i3) == null) || (eVar = f44611a.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2, i3) == null) || (eVar = f41627a.get(str)) == null) {
             return;
         }
         eVar.e(i2, i3);

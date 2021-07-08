@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.util.p;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ClientConfigManagerImpl implements e {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object SLOCK;
@@ -92,7 +92,7 @@ public class ClientConfigManagerImpl implements e {
     private f preparePushConfigSettings() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             f fVar = this.mPushConfigSettings;
             if (fVar == null) {
                 this.mPushConfigSettings = new f(this.mContext);

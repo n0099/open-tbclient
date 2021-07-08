@@ -23,6 +23,7 @@ import android.os.StatFs;
 import android.text.TextUtils;
 import android.text.format.Formatter;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.util.devices.IDevices;
 import com.baidu.fsg.base.ApollonConstants;
@@ -57,36 +58,36 @@ import java.util.Random;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class PhoneUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5380a = "PhoneUtils";
+    public static final String f5397a = "PhoneUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5381b = "_rim_pay.preferences";
+    public static final String f5398b = "_rim_pay.preferences";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5382c = "cuid_1";
+    public static final String f5399c = "cuid_1";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5383d = "cuid_2";
+    public static final String f5400d = "cuid_2";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5384e = "wime";
+    public static final String f5401e = "wime";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f5385f = "identity_code";
+    public static final String f5402f = "identity_code";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5386g = "phone_number";
+    public static final String f5403g = "phone_number";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5387h = "card_no";
+    public static final String f5404h = "card_no";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f5388i = "valid_date";
+    public static final String f5405i = "valid_date";
     public static final String j = "cvv2";
     public static final String k = "imei";
     public static final String l = "nettype";
@@ -95,7 +96,7 @@ public final class PhoneUtils {
     public static ArrayList<String> o;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class CPUInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FEATURE_COMMON = "common";
@@ -107,10 +108,10 @@ public final class PhoneUtils {
         public static final String PROCESSOR_ARM_PREFIX = "armv";
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f5389a = "processor";
+        public static final String f5406a = "processor";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f5390b = "features";
+        public static final String f5407b = "features";
         public transient /* synthetic */ FieldHolder $fh;
         public String features;
         public String processor;
@@ -179,7 +180,7 @@ public final class PhoneUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            String str = (String) SharedPreferencesUtils.getParam(context, f5381b, "imei", "");
+            String str = (String) SharedPreferencesUtils.getParam(context, f5398b, "imei", "");
             if (TextUtils.isEmpty(str)) {
                 StringBuffer stringBuffer = new StringBuffer();
                 stringBuffer.append("BAIDU");
@@ -204,7 +205,7 @@ public final class PhoneUtils {
                 for (int length3 = stringBuffer.length(); length3 < 15; length3++) {
                     stringBuffer.append((char) (random.nextInt(10) | 48));
                 }
-                SharedPreferencesUtils.setParam(context, f5381b, "imei", stringBuffer.toString());
+                SharedPreferencesUtils.setParam(context, f5398b, "imei", stringBuffer.toString());
                 return stringBuffer.toString();
             }
             if (ApollonConstants.DEBUG) {
@@ -218,7 +219,7 @@ public final class PhoneUtils {
     public static String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) ? DeviceId.getDeviceID(context) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? DeviceId.getDeviceID(context) : (String) invokeL.objValue;
     }
 
     public static void checkPermission(Context context, String str) {

@@ -12,25 +12,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class DressupItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18515e;
+    public Context f18555e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f18516f;
+    public View f18556f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f18517g;
+    public TbImageView f18557g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f18518h;
+    public TbImageView f18558h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f18519i;
+    public TextView f18559i;
     public TextView j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -51,22 +51,22 @@ public class DressupItemView extends LinearLayout {
                 return;
             }
         }
-        this.f18515e = context;
+        this.f18555e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f18515e).inflate(R.layout.index_dressup_item, this);
-            this.f18516f = inflate;
-            this.f18517g = (TbImageView) inflate.findViewById(R.id.bg_image);
-            TbImageView tbImageView = (TbImageView) this.f18516f.findViewById(R.id.permission_icon);
-            this.f18518h = tbImageView;
+            View inflate = LayoutInflater.from(this.f18555e).inflate(R.layout.index_dressup_item, this);
+            this.f18556f = inflate;
+            this.f18557g = (TbImageView) inflate.findViewById(R.id.bg_image);
+            TbImageView tbImageView = (TbImageView) this.f18556f.findViewById(R.id.permission_icon);
+            this.f18558h = tbImageView;
             tbImageView.setDefaultResource(R.drawable.transparent_bg);
-            this.f18518h.setDefaultBgResource(R.drawable.transparent_bg);
-            this.f18519i = (TextView) this.f18516f.findViewById(R.id.txt_type);
-            this.j = (TextView) this.f18516f.findViewById(R.id.txt_name);
+            this.f18558h.setDefaultBgResource(R.drawable.transparent_bg);
+            this.f18559i = (TextView) this.f18556f.findViewById(R.id.txt_type);
+            this.j = (TextView) this.f18556f.findViewById(R.id.txt_name);
         }
     }
 
@@ -89,7 +89,7 @@ public class DressupItemView extends LinearLayout {
                 return;
             }
         }
-        this.f18515e = context;
+        this.f18555e = context;
         a();
     }
 
@@ -112,7 +112,7 @@ public class DressupItemView extends LinearLayout {
                 return;
             }
         }
-        this.f18515e = context;
+        this.f18555e = context;
         a();
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.apollon.utils;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,10 +14,10 @@ public final class DisplayUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final float f4057a = 0.5f;
+    public static final float f4060a = 0.5f;
 
     /* renamed from: b  reason: collision with root package name */
-    public static DisplayMetrics f4058b;
+    public static DisplayMetrics f4061b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public DisplayUtils() {
@@ -35,8 +36,8 @@ public final class DisplayUtils {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && f4058b == null) {
-            f4058b = context.getResources().getDisplayMetrics();
+        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && f4061b == null) {
+            f4061b = context.getResources().getDisplayMetrics();
         }
     }
 
@@ -51,7 +52,7 @@ public final class DisplayUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             a(context);
-            return f4058b.heightPixels;
+            return f4061b.heightPixels;
         }
         return invokeL.intValue;
     }
@@ -59,9 +60,9 @@ public final class DisplayUtils {
     public static int getDisplayWidth(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             a(context);
-            return f4058b.widthPixels;
+            return f4061b.widthPixels;
         }
         return invokeL.intValue;
     }

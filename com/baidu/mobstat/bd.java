@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class bd extends ba {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static bd f8795b;
+    public static bd f8812b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +29,7 @@ public class bd extends ba {
                 return;
             }
         }
-        f8795b = new bd();
+        f8812b = new bd();
     }
 
     public bd() {
@@ -49,7 +49,7 @@ public class bd extends ba {
     public static bd c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f8795b : (bd) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f8812b : (bd) invokeV.objValue;
     }
 
     @Override // com.baidu.mobstat.ba

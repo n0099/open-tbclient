@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class SapiConfiguration implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BROWSE_MODE_STATE_ONLY = 2;
@@ -106,7 +106,7 @@ public final class SapiConfiguration implements NoProguard {
     public String yyAppId;
 
     /* renamed from: com.baidu.sapi2.SapiConfiguration$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -310,7 +310,7 @@ public final class SapiConfiguration implements NoProguard {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Builder implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1136,7 +1136,7 @@ public final class SapiConfiguration implements NoProguard {
         this.supportBrowseMode = builder.supportBrowseMode;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class SmsLoginConfig implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

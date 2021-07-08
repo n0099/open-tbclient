@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.arplay.c.e;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -78,7 +79,7 @@ public class d extends BroadcastReceiver {
     public static BroadcastReceiver bj() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (fT == null) {
                 synchronized (d.class) {
                     if (fT == null) {

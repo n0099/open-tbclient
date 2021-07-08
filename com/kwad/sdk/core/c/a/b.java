@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.webview.jshandler.a;
+import com.kwad.sdk.core.response.model.AdStyleInfo;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class b implements com.kwad.sdk.core.c<a.C0442a> {
+/* loaded from: classes6.dex */
+public class b implements com.kwad.sdk.core.d<AdStyleInfo.PlayDetailInfo.ActionBarInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,25 +28,31 @@ public class b implements com.kwad.sdk.core.c<a.C0442a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public JSONObject a(a.C0442a c0442a) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.core.d
+    public void a(AdStyleInfo.PlayDetailInfo.ActionBarInfo actionBarInfo, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0442a)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "clickActionButton", c0442a.f36822a);
-            return jSONObject;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, actionBarInfo, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return (JSONObject) invokeL.objValue;
+        actionBarInfo.translateBtnShowTime = jSONObject.optLong("translateBtnShowTime");
+        actionBarInfo.lightBtnShowTime = jSONObject.optLong("lightBtnShowTime");
+        actionBarInfo.cardShowTime = jSONObject.optLong("cardShowTime");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public void a(a.C0442a c0442a, JSONObject jSONObject) {
+    @Override // com.kwad.sdk.core.d
+    public JSONObject b(AdStyleInfo.PlayDetailInfo.ActionBarInfo actionBarInfo, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, c0442a, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, actionBarInfo, jSONObject)) == null) {
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
+            }
+            com.kwad.sdk.utils.q.a(jSONObject, "translateBtnShowTime", actionBarInfo.translateBtnShowTime);
+            com.kwad.sdk.utils.q.a(jSONObject, "lightBtnShowTime", actionBarInfo.lightBtnShowTime);
+            com.kwad.sdk.utils.q.a(jSONObject, "cardShowTime", actionBarInfo.cardShowTime);
+            return jSONObject;
         }
-        c0442a.f36822a = jSONObject.optBoolean("clickActionButton");
+        return (JSONObject) invokeLL.objValue;
     }
 }

@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.spswitch.R;
 import com.baidu.spswitch.utils.UIUtils;
@@ -18,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PopupEmotionView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HEIGHT_DP = 85;
@@ -66,7 +67,7 @@ public class PopupEmotionView extends FrameLayout {
 
     private void init(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             this.mCtx = context;
             setLayoutParams(new ViewGroup.LayoutParams((int) UIUtils.dp2px(this.mCtx, 75.0f), (int) UIUtils.dp2px(this.mCtx, 85.0f)));
             setBackground(this.mCtx.getResources().getDrawable(R.drawable.emotion_vertical_long_pressed_bg));

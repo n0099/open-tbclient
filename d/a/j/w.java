@@ -16,22 +16,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.j.v0.a;
-/* loaded from: classes8.dex */
-public class w extends d.a.j.a<d.a.r0.r.q.a> {
+/* loaded from: classes7.dex */
+public class w extends d.a.j.a<d.a.o0.r.q.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MultiImgLayout j;
-    public d.a.r0.r.q.a k;
+    public d.a.o0.r.q.a k;
     public int l;
     public String m;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a implements a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ w f45813a;
+        public final /* synthetic */ w f42708a;
 
         public a(w wVar) {
             Interceptable interceptable = $ic;
@@ -48,18 +48,18 @@ public class w extends d.a.j.a<d.a.r0.r.q.a> {
                     return;
                 }
             }
-            this.f45813a = wVar;
+            this.f42708a = wVar;
         }
 
         @Override // d.a.j.v0.a.b
-        public boolean a(a.C0645a c0645a) {
+        public boolean a(a.C0611a c0611a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0645a)) == null) {
-                if (this.f45813a.k != null && this.f45813a.k.getThreadData() != null) {
-                    d.a.s0.a0.m.a(this.f45813a.k.getThreadData().c0());
-                    d.a.s0.a0.m.l(this.f45813a.j.f4451e, this.f45813a.k.getThreadData().c0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    d.a.s0.a0.m.l(this.f45813a.j.f4452f, this.f45813a.k.getThreadData().c0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0611a)) == null) {
+                if (this.f42708a.k != null && this.f42708a.k.getThreadData() != null) {
+                    d.a.p0.a0.m.a(this.f42708a.k.getThreadData().c0());
+                    d.a.p0.a0.m.l(this.f42708a.j.f4456e, this.f42708a.k.getThreadData().c0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    d.a.p0.a0.m.l(this.f42708a.j.f4457f, this.f42708a.k.getThreadData().c0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -105,7 +105,7 @@ public class w extends d.a.j.a<d.a.r0.r.q.a> {
     }
 
     @Override // d.a.j.a
-    public void l(d.a.s0.a0.b0<d.a.r0.r.q.a> b0Var) {
+    public void l(d.a.p0.a0.b0<d.a.o0.r.q.a> b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, b0Var) == null) {
             this.j.setSubClickListener(b0Var);
@@ -118,7 +118,7 @@ public class w extends d.a.j.a<d.a.r0.r.q.a> {
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i2) == null) {
             if (this.l != i2) {
                 SkinManager.setBackgroundResource(g(), R.drawable.addresslist_item_bg);
-                this.j.f4454h.b();
+                this.j.f4459h.b();
             }
             this.l = i2;
         }
@@ -127,7 +127,7 @@ public class w extends d.a.j.a<d.a.r0.r.q.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.j.p
     /* renamed from: q */
-    public void a(d.a.r0.r.q.a aVar) {
+    public void a(d.a.o0.r.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             this.k = aVar;

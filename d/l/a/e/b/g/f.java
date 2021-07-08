@@ -18,33 +18,33 @@ import com.ss.android.socialbase.downloader.impls.DownloadHandleService;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile f f74720d;
+    public static volatile f f71772d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile SparseArray<Boolean> f74721a;
+    public volatile SparseArray<Boolean> f71773a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f74722b;
+    public Handler f71774b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile List<d.l.a.e.b.f.g> f74723c;
+    public volatile List<d.l.a.e.b.f.g> f71775c;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ n f74724e;
+        public final /* synthetic */ n f71776e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.l.a.e.b.n.a f74725f;
+        public final /* synthetic */ d.l.a.e.b.n.a f71777f;
 
         public a(f fVar, n nVar, d.l.a.e.b.n.a aVar) {
             Interceptable interceptable = $ic;
@@ -61,15 +61,15 @@ public class f {
                     return;
                 }
             }
-            this.f74724e = nVar;
-            this.f74725f = aVar;
+            this.f71776e = nVar;
+            this.f71777f = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f74724e.b(this.f74725f);
+                this.f71776e.b(this.f71777f);
             }
         }
     }
@@ -102,21 +102,21 @@ public class f {
                 return;
             }
         }
-        this.f74721a = new SparseArray<>();
-        this.f74722b = new Handler(Looper.getMainLooper());
-        this.f74723c = new ArrayList();
+        this.f71773a = new SparseArray<>();
+        this.f71774b = new Handler(Looper.getMainLooper());
+        this.f71775c = new ArrayList();
     }
 
     public static f c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f74720d == null) {
+            if (f71772d == null) {
                 synchronized (f.class) {
-                    f74720d = new f();
+                    f71772d = new f();
                 }
             }
-            return f74720d;
+            return f71772d;
         }
         return (f) invokeV.objValue;
     }
@@ -342,7 +342,7 @@ public class f {
         if (!(interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i2), bVar, gVar, Boolean.valueOf(z)}) == null) || (t = t(i2)) == null) {
             return;
         }
-        t.g(i2, bVar == null ? 0 : bVar.hashCode(), bVar, gVar, z);
+        t.h(i2, bVar == null ? 0 : bVar.hashCode(), bVar, gVar, z);
     }
 
     public void g(int i2, d.l.a.e.b.f.b bVar, com.ss.android.socialbase.downloader.constants.g gVar, boolean z, boolean z2) {
@@ -351,7 +351,7 @@ public class f {
         if (!(interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), bVar, gVar, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (t = t(i2)) == null) {
             return;
         }
-        t.d(i2, bVar.hashCode(), bVar, gVar, z, z2);
+        t.e(i2, bVar.hashCode(), bVar, gVar, z, z2);
     }
 
     public void h(int i2, boolean z) {
@@ -391,7 +391,7 @@ public class f {
                     d.l.a.e.b.e.a.e(aVar.R(), aVar.J(), new BaseException(1003, "tryDownload but getDownloadHandler failed"), aVar.J() != null ? aVar.J().getStatus() : 0);
                 }
             } else if (aVar.a0()) {
-                this.f74722b.postDelayed(new a(this, n, aVar), 500L);
+                this.f71774b.postDelayed(new a(this, n, aVar), 500L);
             } else {
                 n.b(aVar);
             }
@@ -430,10 +430,10 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i2)) == null) {
             synchronized (this) {
-                if (this.f74721a.get(i2) == null) {
+                if (this.f71773a.get(i2) == null) {
                     return -1;
                 }
-                return this.f74721a.get(i2).booleanValue() ? 1 : 0;
+                return this.f71773a.get(i2).booleanValue() ? 1 : 0;
             }
         }
         return invokeI.intValue;
@@ -500,8 +500,8 @@ public class f {
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            synchronized (this.f74723c) {
-                for (d.l.a.e.b.f.g gVar : this.f74723c) {
+            synchronized (this.f71775c) {
+                for (d.l.a.e.b.f.g gVar : this.f71775c) {
                     if (gVar != null) {
                         gVar.a();
                     }
@@ -516,14 +516,14 @@ public class f {
         if (!(interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{Integer.valueOf(i2), bVar, gVar, Boolean.valueOf(z)}) == null) || (t = t(i2)) == null) {
             return;
         }
-        t.f(i2, bVar.hashCode(), bVar, gVar, z);
+        t.g(i2, bVar.hashCode(), bVar, gVar, z);
     }
 
     public synchronized void r(int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             synchronized (this) {
-                this.f74721a.put(i2, z ? Boolean.TRUE : Boolean.FALSE);
+                this.f71773a.put(i2, z ? Boolean.TRUE : Boolean.FALSE);
             }
         }
     }

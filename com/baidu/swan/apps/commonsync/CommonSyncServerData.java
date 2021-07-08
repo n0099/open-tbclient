@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CommonSyncServerData implements Serializable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,7 +17,7 @@ public class CommonSyncServerData implements Serializable, NoProGuard {
     @SerializedName("rows")
     public List<MetaItemInfo> metaItems;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class MetaItemInfo implements NoProGuard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

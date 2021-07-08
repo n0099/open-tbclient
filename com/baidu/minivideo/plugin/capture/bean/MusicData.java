@@ -1,6 +1,7 @@
 package com.baidu.minivideo.plugin.capture.bean;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class MusicData extends MusicBaseBean implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CATEGORY_RECOMMEND = 1;
@@ -186,7 +187,7 @@ public class MusicData extends MusicBaseBean implements Serializable {
     public static MusicCategoryBean parseNetCollectArray(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, jSONObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
             MusicCategoryBean musicCategoryBean = new MusicCategoryBean();
             ArrayList<MusicBaseBean> arrayList = new ArrayList<>();
             try {

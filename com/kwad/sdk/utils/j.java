@@ -1,30 +1,18 @@
 package com.kwad.sdk.utils;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.mobads.container.util.EncryptUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.api.loader.Loader;
-import java.io.InputStream;
-/* loaded from: classes7.dex */
+import com.kwad.sdk.core.response.model.AdTemplate;
+/* loaded from: classes6.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f39397a = "";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f39398b = "";
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f39399c = "";
+    public static long f36581a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,85 +30,41 @@ public class j {
         }
     }
 
-    public j() {
+    public static void a(AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (!(interceptable == null || interceptable.invokeL(65537, null, adTemplate) == null) || adTemplate == null) {
+            return;
         }
+        adTemplate.mVisibleTimeParam = f36581a;
+        adTemplate.mOutClickTimeParam = f36581a;
     }
 
-    public static String a(int i2) {
-        InterceptResult invokeI;
-        String str;
-        String str2;
+    public static void b(AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            Context context = KsAdSDKImpl.get().getContext();
-            if (context == null) {
-                com.kwad.sdk.core.d.a.d(EncryptUtils.TAG, "EncryptUtils getKey context is null");
-                return "";
-            }
-            if (i2 == 0) {
-                str = f39397a;
-                str2 = "aes_key";
-            } else if (i2 == 1) {
-                str = f39398b;
-                str2 = "rsa_public_key";
-            } else if (i2 != 2) {
-                str = "";
-                str2 = str;
-            } else {
-                str = f39399c;
-                str2 = "rsa_private_key";
-            }
-            if (TextUtils.isEmpty(str)) {
-                if (TextUtils.isEmpty(str2)) {
-                    com.kwad.sdk.core.d.a.d(EncryptUtils.TAG, "EncryptUtils getKey get id is error ");
-                }
-                try {
-                    InputStream open = Loader.get().getExternalResource().getAssets().open("ksad_common_encrypt_image.png");
-                    if (open == null) {
-                        open = context.getAssets().open("ksad_common_encrypt_image.png");
-                    }
-                    String a2 = a(str2, open);
-                    if (TextUtils.isEmpty(a2)) {
-                        com.kwad.sdk.core.d.a.d(EncryptUtils.TAG, "EncryptUtils getKey get encryptedKey is invalid ");
-                    }
-                    if (i2 == 0) {
-                        f39397a = a2;
-                    } else if (i2 == 1) {
-                        f39398b = a2;
-                    } else if (i2 == 2) {
-                        f39399c = a2;
-                    }
-                    return a2;
-                }
-            }
-            return str;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, adTemplate) == null) || adTemplate == null) {
+            return;
         }
-        return (String) invokeI.objValue;
+        adTemplate.mOutClickTimeParam = System.currentTimeMillis();
     }
 
-    public static String a(String str, InputStream inputStream) {
-        InterceptResult invokeLL;
-        String b2;
+    public static void c(AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, inputStream)) == null) {
-            synchronized (j.class) {
-                com.kwad.sdk.pngencrypt.o oVar = new com.kwad.sdk.pngencrypt.o(inputStream, true);
-                oVar.c();
-                b2 = oVar.b().b(str);
-                oVar.d();
-            }
-            return b2;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, adTemplate) == null) || adTemplate == null) {
+            return;
         }
-        return (String) invokeLL.objValue;
+        adTemplate.mVisibleTimeParam = System.currentTimeMillis();
+    }
+
+    public static long d(AdTemplate adTemplate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, adTemplate)) == null) {
+            if (adTemplate == null) {
+                return System.currentTimeMillis();
+            }
+            long j = adTemplate.mOutClickTimeParam;
+            return j > 0 ? j : adTemplate.mVisibleTimeParam;
+        }
+        return invokeL.longValue;
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.common.CacheErrorLogger;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class NoOpCacheErrorLogger implements CacheErrorLogger {
     public static /* synthetic */ Interceptable $ic;
     @Nullable

@@ -7,37 +7,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f38777a;
+    public final int f35849a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f38778b;
+    public final int f35850b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f38779c;
+    public final int f35851c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f38780d;
+    public final int f35852d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f38781e;
+    public final boolean f35853e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f38782f;
+    public final boolean f35854f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f38783g;
+    public final boolean f35855g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final boolean f38784h;
+    public final boolean f35856h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f38785i;
+    public final int f35857i;
     public final int j;
     public final int k;
     public final int l;
@@ -62,37 +62,37 @@ public class k {
         }
         this.n = -1L;
         this.o = -1L;
-        this.f38777a = i2;
-        this.f38778b = i3;
-        this.f38781e = z;
-        this.f38783g = z3;
-        this.f38782f = z2;
+        this.f35849a = i2;
+        this.f35850b = i3;
+        this.f35853e = z;
+        this.f35855g = z3;
+        this.f35854f = z2;
         if (z2 && z3) {
             throw new PngjException("palette and greyscale are mutually exclusive");
         }
-        this.f38780d = (z2 || z3) ? z ? 2 : 1 : z ? 4 : 3;
-        this.f38779c = i4;
+        this.f35852d = (z2 || z3) ? z ? 2 : 1 : z ? 4 : 3;
+        this.f35851c = i4;
         boolean z4 = i4 < 8;
-        this.f38784h = z4;
-        int i7 = this.f38780d;
-        int i8 = this.f38779c * i7;
-        this.f38785i = i8;
+        this.f35856h = z4;
+        int i7 = this.f35852d;
+        int i8 = this.f35851c * i7;
+        this.f35857i = i8;
         this.j = (i8 + 7) / 8;
         int i9 = ((i8 * i2) + 7) / 8;
         this.k = i9;
-        int i10 = i7 * this.f38777a;
+        int i10 = i7 * this.f35849a;
         this.l = i10;
         this.m = z4 ? i9 : i10;
-        int i11 = this.f38779c;
+        int i11 = this.f35851c;
         if (i11 == 1 || i11 == 2 || i11 == 4) {
-            if (!this.f38783g && !this.f38782f) {
-                throw new PngjException("only indexed or grayscale can have bitdepth=" + this.f38779c);
+            if (!this.f35855g && !this.f35854f) {
+                throw new PngjException("only indexed or grayscale can have bitdepth=" + this.f35851c);
             }
         } else if (i11 != 8) {
             if (i11 != 16) {
-                throw new PngjException("invalid bitdepth=" + this.f38779c);
-            } else if (this.f38783g) {
-                throw new PngjException("indexed can't have bitdepth=" + this.f38779c);
+                throw new PngjException("invalid bitdepth=" + this.f35851c);
+            } else if (this.f35855g) {
+                throw new PngjException("indexed can't have bitdepth=" + this.f35851c);
             }
         }
         if (i2 < 1 || i2 > 16777216) {
@@ -115,7 +115,7 @@ public class k {
             }
             if (obj != null && k.class == obj.getClass()) {
                 k kVar = (k) obj;
-                return this.f38781e == kVar.f38781e && this.f38779c == kVar.f38779c && this.f38777a == kVar.f38777a && this.f38782f == kVar.f38782f && this.f38783g == kVar.f38783g && this.f38778b == kVar.f38778b;
+                return this.f35853e == kVar.f35853e && this.f35851c == kVar.f35851c && this.f35849a == kVar.f35849a && this.f35854f == kVar.f35854f && this.f35855g == kVar.f35855g && this.f35850b == kVar.f35850b;
             }
             return false;
         }
@@ -126,7 +126,7 @@ public class k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return (((((((((((this.f38781e ? 1231 : 1237) + 31) * 31) + this.f38779c) * 31) + this.f38777a) * 31) + (this.f38782f ? 1231 : 1237)) * 31) + (this.f38783g ? 1231 : 1237)) * 31) + this.f38778b;
+            return (((((((((((this.f35853e ? 1231 : 1237) + 31) * 31) + this.f35851c) * 31) + this.f35849a) * 31) + (this.f35854f ? 1231 : 1237)) * 31) + (this.f35855g ? 1231 : 1237)) * 31) + this.f35850b;
         }
         return invokeV.intValue;
     }
@@ -135,7 +135,7 @@ public class k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "ImageInfo [cols=" + this.f38777a + ", rows=" + this.f38778b + ", bitDepth=" + this.f38779c + ", channels=" + this.f38780d + ", alpha=" + this.f38781e + ", greyscale=" + this.f38782f + ", indexed=" + this.f38783g + PreferencesUtil.RIGHT_MOUNT;
+            return "ImageInfo [cols=" + this.f35849a + ", rows=" + this.f35850b + ", bitDepth=" + this.f35851c + ", channels=" + this.f35852d + ", alpha=" + this.f35853e + ", greyscale=" + this.f35854f + ", indexed=" + this.f35855g + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }

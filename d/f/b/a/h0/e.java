@@ -2,10 +2,10 @@ package d.f.b.a.h0;
 
 import android.net.Uri;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public interface e {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         e a();
     }

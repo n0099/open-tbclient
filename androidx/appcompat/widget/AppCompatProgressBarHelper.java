@@ -14,6 +14,7 @@ import android.graphics.drawable.shapes.Shape;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
 import androidx.core.graphics.drawable.WrappedDrawable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -112,7 +113,7 @@ public class AppCompatProgressBarHelper {
     private Drawable tileifyIndeterminate(Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, drawable)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, drawable)) == null) {
             if (drawable instanceof AnimationDrawable) {
                 AnimationDrawable animationDrawable = (AnimationDrawable) drawable;
                 int numberOfFrames = animationDrawable.getNumberOfFrames();

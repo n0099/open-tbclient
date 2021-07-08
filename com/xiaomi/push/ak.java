@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ak extends ai.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ai f42825a;
+    public final /* synthetic */ ai f39839a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ak(ai aiVar, ai.a aVar) {
@@ -32,7 +32,7 @@ public class ak extends ai.b {
                 return;
             }
         }
-        this.f42825a = aiVar;
+        this.f39839a = aiVar;
     }
 
     @Override // com.xiaomi.push.ai.b
@@ -41,10 +41,10 @@ public class ak extends ai.b {
         Map map;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            obj = this.f42825a.f107a;
+            obj = this.f39839a.f107a;
             synchronized (obj) {
-                map = this.f42825a.f108a;
-                map.remove(super.f42823a.mo184a());
+                map = this.f39839a.f108a;
+                map.remove(super.f39837a.mo184a());
             }
         }
     }

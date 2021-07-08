@@ -1,6 +1,7 @@
 package com.sina.weibo.sdk.network.base;
 
 import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +21,7 @@ import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 import java.util.Map;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RequestBodyHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_CHARSET = "UTF-8";
@@ -185,7 +186,7 @@ public class RequestBodyHelper {
     public static boolean isMultipartRequest(IRequestParam iRequestParam) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, iRequestParam)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, iRequestParam)) == null) {
             return (iRequestParam.files().isEmpty() && iRequestParam.byteArrays().isEmpty()) ? false : true;
         }
         return invokeL.booleanValue;

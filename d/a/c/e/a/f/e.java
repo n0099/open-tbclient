@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class e extends DiskFileOperate implements d.a.c.e.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f44014a;
+    public ArrayList<String> f41030a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(String str, String str2, DiskFileOperate.Action action, ArrayList<String> arrayList) {
@@ -37,7 +37,7 @@ public class e extends DiskFileOperate implements d.a.c.e.a.a {
                 return;
             }
         }
-        this.f44014a = arrayList;
+        this.f41030a = arrayList;
     }
 
     @Override // d.a.c.e.a.a
@@ -45,10 +45,10 @@ public class e extends DiskFileOperate implements d.a.c.e.a.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
-            if (this.f44014a != null && file != null) {
+            if (this.f41030a != null && file != null) {
                 String name = file.getName();
                 if (!TextUtils.isEmpty(name)) {
-                    Iterator<String> it = this.f44014a.iterator();
+                    Iterator<String> it = this.f41030a.iterator();
                     while (it.hasNext()) {
                         if (name.equals(it.next())) {
                             return true;

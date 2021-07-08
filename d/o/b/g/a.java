@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f75197b;
+    public static a f72231b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.o.b.a f75198a;
+    public d.o.b.a f72232a;
 
     static {
         InterceptResult invokeClinit;
@@ -47,17 +47,17 @@ public class a {
                 return;
             }
         }
-        this.f75198a = null;
+        this.f72232a = null;
     }
 
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f75197b == null) {
-                f75197b = new a();
+            if (f72231b == null) {
+                f72231b = new a();
             }
-            return f75197b;
+            return f72231b;
         }
         return (a) invokeV.objValue;
     }
@@ -65,7 +65,7 @@ public class a {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            d.o.b.a aVar = this.f75198a;
+            d.o.b.a aVar = this.f72232a;
             if (aVar != null) {
                 aVar.info("authsdk", str);
             } else {

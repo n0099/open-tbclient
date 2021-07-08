@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import org.json.JSONException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class z0 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f42711a;
+    public final /* synthetic */ String f39725a;
 
     public z0(String str) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class z0 implements Runnable {
                 return;
             }
         }
-        this.f42711a = str;
+        this.f39725a = str;
     }
 
     @Override // java.lang.Runnable
@@ -37,7 +37,7 @@ public final class z0 implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                z.a(new s0(this.f42711a, "GET", z.a((Map) null)).a(), new R0());
+                z.a(new s0(this.f39725a, "GET", z.a((Map) null)).a(), new R0());
             } catch (JSONException e2) {
                 e2.getMessage();
             } catch (Exception e3) {

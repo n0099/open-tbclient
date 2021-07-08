@@ -1,6 +1,7 @@
 package com.yy.hiidostatis.inner.util.hdid;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.log.L;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class DeviceProxy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +49,7 @@ public class DeviceProxy {
     public static int getHFrom(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) ? getDevice(context).hFrom : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? getDevice(context).hFrom : invokeL.intValue;
     }
 
     public static String getHdid(Context context) {

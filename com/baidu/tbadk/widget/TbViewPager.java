@@ -15,30 +15,30 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TbViewPager extends ViewPager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13288e;
+    public boolean f13305e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f13289f;
+    public float f13306f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13290g;
+    public int f13307g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13291h;
+    public int f13308h;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends Scroller {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbViewPager f13292a;
+        public final /* synthetic */ TbViewPager f13309a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(TbViewPager tbViewPager, Context context) {
@@ -58,7 +58,7 @@ public class TbViewPager extends ViewPager {
                     return;
                 }
             }
-            this.f13292a = tbViewPager;
+            this.f13309a = tbViewPager;
         }
 
         public void a(ViewPager viewPager) {
@@ -78,7 +78,7 @@ public class TbViewPager extends ViewPager {
         public void startScroll(int i2, int i3, int i4, int i5, int i6) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-                super.startScroll(i2, i3, i4, i5, this.f13292a.f13291h);
+                super.startScroll(i2, i3, i4, i5, this.f13309a.f13308h);
             }
         }
 
@@ -86,7 +86,7 @@ public class TbViewPager extends ViewPager {
         public void startScroll(int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
-                super.startScroll(i2, i3, i4, i5, this.f13292a.f13291h);
+                super.startScroll(i2, i3, i4, i5, this.f13309a.f13308h);
             }
         }
     }
@@ -109,19 +109,19 @@ public class TbViewPager extends ViewPager {
                 return;
             }
         }
-        this.f13288e = false;
-        this.f13291h = 600;
-        c();
+        this.f13305e = false;
+        this.f13308h = 600;
+        b();
     }
 
-    public final void c() {
+    public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f13290g = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
+            this.f13307g = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
         }
     }
 
-    public final boolean d(MotionEvent motionEvent) {
+    public final boolean c(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
@@ -131,15 +131,23 @@ public class TbViewPager extends ViewPager {
         return invokeL.booleanValue;
     }
 
+    public final void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || getParent() == null) {
+            return;
+        }
+        getParent().requestDisallowInterceptTouchEvent(z);
+    }
+
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            if (d(motionEvent)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
+            if (c(motionEvent)) {
                 return true;
             }
-            if (motionEvent.getPointerCount() > 1 && this.f13288e) {
+            if (motionEvent.getPointerCount() > 1 && this.f13305e) {
                 requestDisallowInterceptTouchEvent(false);
                 boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
                 requestDisallowInterceptTouchEvent(true);
@@ -154,18 +162,10 @@ public class TbViewPager extends ViewPager {
         return invokeL.booleanValue;
     }
 
-    public final void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || getParent() == null) {
-            return;
-        }
-        getParent().requestDisallowInterceptTouchEvent(z);
-    }
-
     public int getScrollingDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13291h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13308h : invokeV.intValue;
     }
 
     @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
@@ -173,7 +173,7 @@ public class TbViewPager extends ViewPager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
-            if (d(motionEvent)) {
+            if (c(motionEvent)) {
                 return true;
             }
             return super.onInterceptTouchEvent(motionEvent);
@@ -200,25 +200,25 @@ public class TbViewPager extends ViewPager {
         if (action != 0) {
             if (action != 1) {
                 if (action == 2) {
-                    float x = motionEvent.getX() - this.f13289f;
+                    float x = motionEvent.getX() - this.f13306f;
                     if (getCurrentItem() == 0) {
-                        if (x >= this.f13290g) {
-                            e(false);
+                        if (x >= this.f13307g) {
+                            d(false);
                         } else {
-                            e(true);
+                            d(true);
                         }
                     } else if (getCurrentItem() == getAdapter().getCount() - 1) {
-                        if (x <= (-this.f13290g)) {
-                            e(false);
+                        if (x <= (-this.f13307g)) {
+                            d(false);
                         } else {
-                            e(true);
+                            d(true);
                         }
                     }
                 } else if (action != 3) {
                     if (action != 5) {
                     }
                 }
-                if (d(motionEvent)) {
+                if (c(motionEvent)) {
                     return true;
                 }
                 try {
@@ -227,14 +227,14 @@ public class TbViewPager extends ViewPager {
                     return true;
                 }
             }
-            e(false);
-            this.f13289f = 0.0f;
-            if (d(motionEvent)) {
+            d(false);
+            this.f13306f = 0.0f;
+            if (c(motionEvent)) {
             }
         }
-        e(true);
-        this.f13289f = motionEvent.getX();
-        if (d(motionEvent)) {
+        d(true);
+        this.f13306f = motionEvent.getX();
+        if (c(motionEvent)) {
         }
     }
 
@@ -242,7 +242,7 @@ public class TbViewPager extends ViewPager {
     public void requestDisallowInterceptTouchEvent(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f13288e = z;
+            this.f13305e = z;
             super.requestDisallowInterceptTouchEvent(z);
         }
     }
@@ -250,7 +250,7 @@ public class TbViewPager extends ViewPager {
     public void setViewPagerScroll(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f13291h = i2;
+            this.f13308h = i2;
             new a(this, getContext()).a(this);
         }
     }
@@ -281,8 +281,8 @@ public class TbViewPager extends ViewPager {
                 return;
             }
         }
-        this.f13288e = false;
-        this.f13291h = 600;
-        c();
+        this.f13305e = false;
+        this.f13308h = 600;
+        b();
     }
 }

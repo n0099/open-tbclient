@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class f extends s1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f71669e;
+    public final Context f68772e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final y1 f71670f;
+    public final y1 f68773f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(Context context, y1 y1Var) {
@@ -38,8 +38,8 @@ public final class f extends s1 {
                 return;
             }
         }
-        this.f71669e = context;
-        this.f71670f = y1Var;
+        this.f68772e = context;
+        this.f68773f = y1Var;
     }
 
     @Override // d.b.a.s1
@@ -47,7 +47,7 @@ public final class f extends s1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            Map<String, String> c2 = n0.c(this.f71669e, this.f71670f.D());
+            Map<String, String> c2 = n0.c(this.f68772e, this.f68773f.D());
             if (c2 != null) {
                 jSONObject.put("oaid", new JSONObject(c2));
                 return true;

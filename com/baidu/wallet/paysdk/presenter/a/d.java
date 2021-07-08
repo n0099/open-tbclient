@@ -11,16 +11,16 @@ import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.contract.a;
 import com.baidu.wallet.paysdk.datamodel.PayRequest;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d implements a.InterfaceC0283a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a.b f26118a;
+    public a.b f26228a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.baidu.wallet.paysdk.a f26119b;
+    public final com.baidu.wallet.paysdk.a f26229b;
 
     public d(a.b bVar) {
         Interceptable interceptable = $ic;
@@ -37,15 +37,15 @@ public class d implements a.InterfaceC0283a {
                 return;
             }
         }
-        this.f26118a = bVar;
-        this.f26119b = new com.baidu.wallet.paysdk.a(2L);
+        this.f26228a = bVar;
+        this.f26229b = new com.baidu.wallet.paysdk.a(2L);
     }
 
     @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC0283a
     public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f26119b.a(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f26229b.a(str) : invokeL.booleanValue;
     }
 
     @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC0283a

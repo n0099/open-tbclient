@@ -22,7 +22,7 @@ import com.yy.hiidostatis.provider.MessageConfig;
 import com.yy.hiidostatis.provider.MessageConfigFactory;
 import java.util.Date;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class StatisAPI implements IStatisAPI {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -1,5 +1,6 @@
 package cn.com.chinatelecom.gateway.lib.a;
 
+import androidx.core.view.InputDeviceCompat;
 import cn.com.chinatelecom.gateway.lib.CtAuth;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,10 +14,10 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1532a = "e";
+    public static final String f1533a = "e";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f1533b;
+    public static final char[] f1534b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +33,7 @@ public class e {
                 return;
             }
         }
-        f1533b = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        f1534b = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
     public e() {
@@ -58,8 +59,8 @@ public class e {
             }
             StringBuilder sb = new StringBuilder();
             for (int i2 = 0; i2 < bArr.length; i2++) {
-                sb.append(f1533b[(bArr[i2] >> 4) & 15]);
-                sb.append(f1533b[bArr[i2] & 15]);
+                sb.append(f1534b[(bArr[i2] >> 4) & 15]);
+                sb.append(f1534b[bArr[i2] & 15]);
             }
             return sb.toString();
         }
@@ -92,12 +93,12 @@ public class e {
     public static byte[] b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             byte[] bArr = new byte[0];
             try {
                 return str.getBytes("UTF-8");
             } catch (Throwable th) {
-                CtAuth.warn(f1532a, "getBytes error", th);
+                CtAuth.warn(f1533a, "getBytes error", th);
                 return bArr;
             }
         }

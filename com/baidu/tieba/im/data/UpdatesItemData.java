@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class UpdatesItemData extends AbstractImageProvider implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -6859992224160576142L;

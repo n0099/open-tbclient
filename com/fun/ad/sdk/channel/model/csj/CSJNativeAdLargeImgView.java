@@ -23,27 +23,27 @@ import com.bytedance.sdk.openadsdk.TTImage;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.ad.sdk.R;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class CSJNativeAdLargeImgView extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f32578f;
+    public ImageView f32688f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f32579g;
+    public boolean f32689g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f32580h;
+    public float f32690h;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends DrawableImageViewTarget {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CSJNativeAdLargeImgView f32581a;
+        public final /* synthetic */ CSJNativeAdLargeImgView f32691a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(CSJNativeAdLargeImgView cSJNativeAdLargeImgView, ImageView imageView) {
@@ -63,7 +63,7 @@ public final class CSJNativeAdLargeImgView extends b {
                     return;
                 }
             }
-            this.f32581a = cSJNativeAdLargeImgView;
+            this.f32691a = cSJNativeAdLargeImgView;
         }
 
         @Override // com.bumptech.glide.request.target.ImageViewTarget, com.bumptech.glide.request.target.ViewTarget, com.bumptech.glide.request.target.BaseTarget, com.bumptech.glide.request.target.Target
@@ -80,7 +80,7 @@ public final class CSJNativeAdLargeImgView extends b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable) == null) {
                 super.onLoadStarted(drawable);
-                this.f32581a.f32579g = true;
+                this.f32691a.f32689g = true;
                 ((ImageView) this.view).setBackgroundResource(R.drawable.fun_ad_def_img_tieba);
             }
         }
@@ -91,7 +91,7 @@ public final class CSJNativeAdLargeImgView extends b {
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, obj, transition) == null) {
                 Drawable drawable = (Drawable) obj;
                 super.onResourceReady(drawable, transition);
-                this.f32581a.f32579g = true;
+                this.f32691a.f32689g = true;
                 ((ImageView) this.view).setBackground(drawable);
             }
         }
@@ -131,8 +131,8 @@ public final class CSJNativeAdLargeImgView extends b {
                 return;
             }
         }
-        this.f32579g = false;
-        this.f32580h = 1.78f;
+        this.f32689g = false;
+        this.f32690h = 1.78f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -154,8 +154,8 @@ public final class CSJNativeAdLargeImgView extends b {
                 return;
             }
         }
-        this.f32579g = false;
-        this.f32580h = 1.78f;
+        this.f32689g = false;
+        this.f32690h = 1.78f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -177,8 +177,8 @@ public final class CSJNativeAdLargeImgView extends b {
                 return;
             }
         }
-        this.f32579g = false;
-        this.f32580h = 1.78f;
+        this.f32689g = false;
+        this.f32690h = 1.78f;
     }
 
     @Override // a.a.a.a.u.b.a.b
@@ -191,8 +191,8 @@ public final class CSJNativeAdLargeImgView extends b {
             if (imageList == null || imageList.isEmpty() || (tTImage = imageList.get(0)) == null || !tTImage.isValid()) {
                 return;
             }
-            this.f32580h = (tTImage.getWidth() * 1.0f) / (tTImage.getHeight() * 1.0f);
-            Glide.with(activity).load(tTImage.getImageUrl()).into((RequestBuilder<Drawable>) new a(this, this.f32578f));
+            this.f32690h = (tTImage.getWidth() * 1.0f) / (tTImage.getHeight() * 1.0f);
+            Glide.with(activity).load(tTImage.getImageUrl()).into((RequestBuilder<Drawable>) new a(this, this.f32688f));
         }
     }
 
@@ -201,7 +201,7 @@ public final class CSJNativeAdLargeImgView extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f32578f = (ImageView) findViewById(R.id.ad_img);
+            this.f32688f = (ImageView) findViewById(R.id.ad_img);
         }
     }
 
@@ -210,14 +210,14 @@ public final class CSJNativeAdLargeImgView extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            d.a("CSJNativeAdView onLayout width: " + this.f32578f.getWidth() + ", height: " + this.f32578f.getHeight(), new Object[0]);
-            if (this.f32579g) {
-                this.f32579g = false;
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f32578f.getLayoutParams();
+            d.a("CSJNativeAdView onLayout width: " + this.f32688f.getWidth() + ", height: " + this.f32688f.getHeight(), new Object[0]);
+            if (this.f32689g) {
+                this.f32689g = false;
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f32688f.getLayoutParams();
                 int width = (getWidth() - layoutParams.leftMargin) - layoutParams.rightMargin;
                 layoutParams.width = width;
-                layoutParams.height = (int) (width / this.f32580h);
-                this.f32578f.setLayoutParams(layoutParams);
+                layoutParams.height = (int) (width / this.f32690h);
+                this.f32688f.setLayoutParams(layoutParams);
             }
         }
     }

@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
-import d.a.y0.t.c;
-import d.a.y0.t.h;
+import d.a.v0.t.c;
+import d.a.v0.t.h;
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BaseGlRenderer implements IGlRenderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

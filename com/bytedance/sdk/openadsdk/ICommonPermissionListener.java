@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface ICommonPermissionListener extends IInterface {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Default implements ICommonPermissionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,21 +58,21 @@ public interface ICommonPermissionListener extends IInterface {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static abstract class Stub extends Binder implements ICommonPermissionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public static class a implements ICommonPermissionListener {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static ICommonPermissionListener f28898a;
+            public static ICommonPermissionListener f29008a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f28899b;
+            public IBinder f29009b;
 
             public a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -89,14 +89,14 @@ public interface ICommonPermissionListener extends IInterface {
                         return;
                     }
                 }
-                this.f28899b = iBinder;
+                this.f29009b = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28899b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29009b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.bytedance.sdk.openadsdk.ICommonPermissionListener
@@ -108,7 +108,7 @@ public interface ICommonPermissionListener extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonPermissionListener");
                         obtain.writeString(str);
-                        if (!this.f28899b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f29009b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onDenied(str);
                         } else {
                             obtain2.readException();
@@ -128,7 +128,7 @@ public interface ICommonPermissionListener extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonPermissionListener");
-                        if (!this.f28899b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f29009b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onGranted();
                         } else {
                             obtain2.readException();
@@ -176,17 +176,17 @@ public interface ICommonPermissionListener extends IInterface {
         public static ICommonPermissionListener getDefaultImpl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f28898a : (ICommonPermissionListener) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f29008a : (ICommonPermissionListener) invokeV.objValue;
         }
 
         public static boolean setDefaultImpl(ICommonPermissionListener iCommonPermissionListener) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iCommonPermissionListener)) == null) {
-                if (a.f28898a != null || iCommonPermissionListener == null) {
+                if (a.f29008a != null || iCommonPermissionListener == null) {
                     return false;
                 }
-                a.f28898a = iCommonPermissionListener;
+                a.f29008a = iCommonPermissionListener;
                 return true;
             }
             return invokeL.booleanValue;

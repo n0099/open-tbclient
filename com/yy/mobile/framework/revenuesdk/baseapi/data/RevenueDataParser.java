@@ -2,6 +2,7 @@ package com.yy.mobile.framework.revenuesdk.baseapi.data;
 
 import android.os.Handler;
 import android.os.HandlerThread;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,7 +18,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.PSCIMessageUnicas
 import java.util.ArrayList;
 import java.util.List;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class RevenueDataParser implements IRevenueDataParser {
     public static final /* synthetic */ RevenueDataParser[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -78,7 +79,7 @@ public final class RevenueDataParser implements IRevenueDataParser {
     public static RevenueDataParser[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (RevenueDataParser[]) $VALUES.clone() : (RevenueDataParser[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (RevenueDataParser[]) $VALUES.clone() : (RevenueDataParser[]) invokeV.objValue;
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataParser

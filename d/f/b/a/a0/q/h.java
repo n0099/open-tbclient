@@ -8,18 +8,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.UUID;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final UUID f72293a;
+        public final UUID f69396a;
 
         public a(UUID uuid, int i2, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public final class h {
                     return;
                 }
             }
-            this.f72293a = uuid;
+            this.f69396a = uuid;
         }
     }
 
@@ -118,7 +118,7 @@ public final class h {
             if (c2 == null) {
                 return null;
             }
-            return c2.f72293a;
+            return c2.f69396a;
         }
         return (UUID) invokeL.objValue;
     }

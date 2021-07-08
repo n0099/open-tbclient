@@ -20,7 +20,7 @@ import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class g extends h {
     public static /* synthetic */ Interceptable $ic;
     public static final int o;
@@ -79,7 +79,7 @@ public final class g extends h {
     public long e(l lVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lVar)) == null) ? b(l(lVar.f73386a)) : invokeL.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lVar)) == null) ? b(l(lVar.f70489a)) : invokeL.longValue;
     }
 
     @Override // d.f.b.a.a0.r.h
@@ -88,13 +88,13 @@ public final class g extends h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{lVar, Long.valueOf(j), bVar})) == null) {
             if (!this.n) {
-                byte[] copyOf = Arrays.copyOf(lVar.f73386a, lVar.d());
+                byte[] copyOf = Arrays.copyOf(lVar.f70489a, lVar.d());
                 int i2 = copyOf[9] & 255;
                 ArrayList arrayList = new ArrayList(3);
                 arrayList.add(copyOf);
                 m(arrayList, ((copyOf[11] & 255) << 8) | (copyOf[10] & 255));
                 m(arrayList, 3840);
-                bVar.f72364a = Format.createAudioSampleFormat(null, "audio/opus", null, -1, -1, i2, MediaEncodeParams.AUDIO_SAMPLE_RATE, arrayList, null, 0, null);
+                bVar.f69467a = Format.createAudioSampleFormat(null, "audio/opus", null, -1, -1, i2, MediaEncodeParams.AUDIO_SAMPLE_RATE, arrayList, null, 0, null);
                 this.n = true;
                 return true;
             }

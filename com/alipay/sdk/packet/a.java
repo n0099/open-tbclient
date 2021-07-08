@@ -1,6 +1,7 @@
 package com.alipay.sdk.packet;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -101,7 +102,7 @@ public class a {
     public static String d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (!str.contains(com.alipay.sdk.app.statistic.c.ad) || str.startsWith(com.alipay.sdk.app.statistic.c.ac)) {
                 return null;
             }

@@ -11,6 +11,7 @@ import android.system.Os;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.face.platform.common.ConstantHelper;
 import com.baidu.searchbox.track.ui.TrackUI;
@@ -28,7 +29,8 @@ import com.kwad.sdk.crash.model.message.JavaExceptionMessage;
 import com.kwad.sdk.crash.model.message.MemoryInfo;
 import com.kwad.sdk.crash.model.message.ThreadInfo;
 import com.kwad.sdk.crash.utils.SystemUtil;
-import com.kwad.sdk.utils.n;
+import com.kwad.sdk.utils.AbiUtil;
+import com.kwad.sdk.utils.p;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -57,15 +59,15 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final File f37002a;
+    public static final File f35372a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final File f37003b;
+    public static final File f35373b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -81,8 +83,8 @@ public final class f {
                 return;
             }
         }
-        f37002a = new File("/proc/self/fd");
-        f37003b = new File("/proc/self/task");
+        f35372a = new File("/proc/self/fd");
+        f35373b = new File("/proc/self/task");
     }
 
     public static int a() {
@@ -90,8 +92,8 @@ public final class f {
         File[] listFiles;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            Objects.requireNonNull(f37002a);
-            if (f37002a.exists() && f37002a.isDirectory() && (listFiles = f37002a.listFiles()) != null) {
+            Objects.requireNonNull(f35372a);
+            if (f35372a.exists() && f35372a.isDirectory() && (listFiles = f35372a.listFiles()) != null) {
                 return listFiles.length;
             }
             return 0;
@@ -135,7 +137,7 @@ public final class f {
     public static String a(@NonNull String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             Objects.requireNonNull(str);
             return !str.endsWith(str2) ? str : str.substring(0, str.lastIndexOf(str2));
         }
@@ -251,7 +253,7 @@ public final class f {
             exceptionMessage.mCurrentTimeStamp = System.currentTimeMillis();
             exceptionMessage.mUsageTimeMills = com.kwad.sdk.crash.d.a().h();
             exceptionMessage.mAbi = AbiUtil.b() ? "arm64" : "arm";
-            exceptionMessage.mVersionConflict = TextUtils.equals(exceptionMessage.mVersionCode, "3.3.9");
+            exceptionMessage.mVersionConflict = TextUtils.equals(exceptionMessage.mVersionCode, "3.3.11");
             exceptionMessage.mBuildConfigInfo = b(context);
             a(exceptionMessage);
             b(exceptionMessage, context);
@@ -266,11 +268,15 @@ public final class f {
             try {
                 StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
                 diskInfo.mDataTotalGB = BigDecimal.valueOf(((float) (statFs.getTotalBytes() >> 20)) / 1024.0f).setScale(2, 4).floatValue();
-                diskInfo.mDataAvailableGB = BigDecimal.valueOf(((float) (statFs.getAvailableBytes() >> 20)) / 1024.0f).setScale(2, 4).floatValue();
+                if (!com.kwad.sdk.core.config.c.a(1024L)) {
+                    diskInfo.mDataAvailableGB = BigDecimal.valueOf(((float) (statFs.getAvailableBytes() >> 20)) / 1024.0f).setScale(2, 4).floatValue();
+                }
                 if ("mounted".equals(Environment.getExternalStorageState()) && (externalStorageDirectory = Environment.getExternalStorageDirectory()) != null) {
                     StatFs statFs2 = new StatFs(externalStorageDirectory.getPath());
                     diskInfo.mExternalStorageTotalGB = BigDecimal.valueOf(((float) (statFs2.getTotalBytes() >> 20)) / 1024.0f).setScale(2, 4).floatValue();
-                    diskInfo.mExternalStorageAvailableGB = BigDecimal.valueOf(((float) (statFs2.getAvailableBytes() >> 20)) / 1024.0f).setScale(2, 4).floatValue();
+                    if (!com.kwad.sdk.core.config.c.a(1024L)) {
+                        diskInfo.mExternalStorageAvailableGB = BigDecimal.valueOf(((float) (statFs2.getAvailableBytes() >> 20)) / 1024.0f).setScale(2, 4).floatValue();
+                    }
                 }
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.b(e2);
@@ -285,26 +291,26 @@ public final class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65548, null, exceptionMessage, memoryInfo, context) == null) {
             SystemUtil.a c2 = SystemUtil.c();
-            c2.f36998e = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-            c2.f36994a = SystemUtil.a();
+            c2.f35368e = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+            c2.f35364a = SystemUtil.a();
             long pss = Debug.getPss();
-            c2.f36997d = pss;
-            memoryInfo.mTotalMB = (int) (c2.f36994a / 1048576);
-            memoryInfo.mJavaHeapLimitMB = (int) (com.kwad.sdk.crash.c.f36942a / 1048576.0d);
-            memoryInfo.mJavaHeapMB = (int) (c2.f36998e / 1048576);
-            memoryInfo.mVssMB = (int) (c2.f36995b / 1024);
-            memoryInfo.mRssMB = (int) (c2.f36996c / 1024);
+            c2.f35367d = pss;
+            memoryInfo.mTotalMB = (int) (c2.f35364a / 1048576);
+            memoryInfo.mJavaHeapLimitMB = (int) (com.kwad.sdk.crash.c.f35312a / 1048576.0d);
+            memoryInfo.mJavaHeapMB = (int) (c2.f35368e / 1048576);
+            memoryInfo.mVssMB = (int) (c2.f35365b / 1024);
+            memoryInfo.mRssMB = (int) (c2.f35366c / 1024);
             memoryInfo.mPssMB = (int) (pss / 1024);
-            memoryInfo.mThreadsCount = c2.f36999f;
+            memoryInfo.mThreadsCount = c2.f35369f;
             memoryInfo.mFdCount = a();
             if (context != null) {
-                memoryInfo.mAvailableMB = (int) (SystemUtil.b(context) / 1048576);
+                memoryInfo.mAvailableMB = (int) (SystemUtil.c(context) / 1048576);
             }
             exceptionMessage.mFdOverflow = "False";
             if (memoryInfo.mFdCount > 800) {
                 exceptionMessage.mCrashType = exceptionMessage.getTypeFdOOM();
                 exceptionMessage.mFdOverflow = "True";
-                File[] listFiles = f37002a.listFiles();
+                File[] listFiles = f35372a.listFiles();
                 if (listFiles != null && listFiles.length > 0) {
                     for (File file : listFiles) {
                         try {
@@ -324,7 +330,7 @@ public final class f {
                 }
             }
             exceptionMessage.mThreadOverflow = "False";
-            if (c2.f36999f > 400) {
+            if (c2.f35369f > 400) {
                 exceptionMessage.mCrashType = exceptionMessage.getTypeThreadOOM();
                 exceptionMessage.mThreadOverflow = "True";
                 a(memoryInfo);
@@ -363,7 +369,7 @@ public final class f {
     public static void a(MemoryInfo memoryInfo) {
         File[] listFiles;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65549, null, memoryInfo) == null) || (listFiles = f37003b.listFiles()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65549, null, memoryInfo) == null) || (listFiles = f35373b.listFiles()) == null) {
             return;
         }
         for (File file : listFiles) {
@@ -579,7 +585,7 @@ public final class f {
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
             StringBuilder sb = new StringBuilder();
             try {
-                sb.append("BuildConfig Version Name: 3.3.9\n");
+                sb.append("BuildConfig Version Name: 3.3.11\n");
                 sb.append("PackageInfo CodePath: " + context.getPackageCodePath() + "\n");
                 sb.append("PackageInfo ResPath: " + context.getPackageResourcePath() + "\n");
                 sb.append("DexPath: " + c(context) + "\n");
@@ -605,12 +611,12 @@ public final class f {
             com.kwad.sdk.core.d.a.b(e2);
             absolutePath = parentFile.getAbsolutePath();
         }
-        if (com.kwad.sdk.crash.c.f36943b.matcher(absolutePath).matches() || com.kwad.sdk.crash.c.f36944c.matcher(absolutePath).matches()) {
+        if (com.kwad.sdk.crash.c.f35313b.matcher(absolutePath).matches() || com.kwad.sdk.crash.c.f35314c.matcher(absolutePath).matches()) {
             exceptionMessage.mVirtualApp = context.getPackageName();
             return;
         }
-        Matcher matcher = com.kwad.sdk.crash.c.f36945d.matcher(absolutePath);
-        Matcher matcher2 = com.kwad.sdk.crash.c.f36946e.matcher(absolutePath);
+        Matcher matcher = com.kwad.sdk.crash.c.f35315d.matcher(absolutePath);
+        Matcher matcher2 = com.kwad.sdk.crash.c.f35316e.matcher(absolutePath);
         if (matcher.matches()) {
             group = matcher.group(1);
         } else if (!matcher2.matches()) {
@@ -772,25 +778,25 @@ public final class f {
             try {
                 Debug.MemoryInfo memoryInfo = new Debug.MemoryInfo();
                 Debug.getMemoryInfo(memoryInfo);
-                Object a2 = n.a(n.a("android.app.ActivityThread", "currentActivityThread", new Object[0]), "mAppThread");
+                Object a2 = p.a(p.a("android.app.ActivityThread", "currentActivityThread", new Object[0]), "mAppThread");
                 ParcelFileDescriptor open = ParcelFileDescriptor.open(file, 1006632960);
                 FileDescriptor fileDescriptor = open;
                 if (!SystemUtil.a(26)) {
                     fileDescriptor = open.getFileDescriptor();
                 }
                 if (SystemUtil.a(24)) {
-                    n.a(a2, "dumpMemInfo", fileDescriptor, memoryInfo, Boolean.FALSE, Boolean.TRUE, Boolean.TRUE, Boolean.FALSE, Boolean.FALSE, new String[0]);
+                    p.a(a2, "dumpMemInfo", fileDescriptor, memoryInfo, Boolean.FALSE, Boolean.TRUE, Boolean.TRUE, Boolean.FALSE, Boolean.FALSE, new String[0]);
                 } else if (SystemUtil.a(23)) {
-                    n.a(a2, "dumpMemInfo", fileDescriptor, memoryInfo, Boolean.FALSE, Boolean.TRUE, Boolean.TRUE, Boolean.FALSE, new String[0]);
+                    p.a(a2, "dumpMemInfo", fileDescriptor, memoryInfo, Boolean.FALSE, Boolean.TRUE, Boolean.TRUE, Boolean.FALSE, new String[0]);
                 } else if (SystemUtil.a(19)) {
-                    n.a(a2, "dumpMemInfo", fileDescriptor, memoryInfo, Boolean.FALSE, Boolean.TRUE, Boolean.TRUE, new String[0]);
+                    p.a(a2, "dumpMemInfo", fileDescriptor, memoryInfo, Boolean.FALSE, Boolean.TRUE, Boolean.TRUE, new String[0]);
                 }
                 ParcelFileDescriptor open2 = ParcelFileDescriptor.open(file, 973078528);
                 FileDescriptor fileDescriptor2 = open2;
                 if (!SystemUtil.a(26)) {
                     fileDescriptor2 = open2.getFileDescriptor();
                 }
-                n.a(a2, "dumpGfxInfo", fileDescriptor2, new String[]{SystemUtil.a(com.kwad.sdk.crash.d.a().f())});
+                p.a(a2, "dumpGfxInfo", fileDescriptor2, new String[]{SystemUtil.a(com.kwad.sdk.crash.d.a().f())});
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.b(e2);
             }

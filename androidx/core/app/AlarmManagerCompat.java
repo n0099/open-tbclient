@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.os.Build;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -62,7 +63,7 @@ public final class AlarmManagerCompat {
 
     public static void setExactAndAllowWhileIdle(@NonNull AlarmManager alarmManager, int i2, long j, @NonNull PendingIntent pendingIntent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{alarmManager, Integer.valueOf(i2), Long.valueOf(j), pendingIntent}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{alarmManager, Integer.valueOf(i2), Long.valueOf(j), pendingIntent}) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
                 alarmManager.setExactAndAllowWhileIdle(i2, j, pendingIntent);
             } else {

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.diffdev.a.a;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DiffDevOAuthFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SUPPORTED_VERSION = 1;

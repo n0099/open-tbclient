@@ -158,7 +158,7 @@ public class ARPRenderer implements d, IARPRenderer {
     private int getInputHeight(PixelReadParams pixelReadParams) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, pixelReadParams)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, pixelReadParams)) == null) {
             int i2 = this.mInputTexHeight;
             if (pixelReadParams.getPreFilterID().equals("") || pixelReadParams.getPreFilterID().equals("camera")) {
                 if (!needRotate(pixelReadParams.getPixelRotate().getValue())) {

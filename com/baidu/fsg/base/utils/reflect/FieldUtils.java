@@ -1,6 +1,7 @@
 package com.baidu.fsg.base.utils.reflect;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,12 +16,12 @@ import java.lang.reflect.Member;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FieldUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Field> f5413a;
+    public static Map<String, Field> f5430a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +37,7 @@ public class FieldUtils {
                 return;
             }
         }
-        f5413a = new HashMap();
+        f5430a = new HashMap();
     }
 
     public FieldUtils() {
@@ -65,7 +66,7 @@ public class FieldUtils {
     public static Field getDeclaredField(Class<?> cls, String str, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65540, null, cls, str, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, str, z)) == null) {
             Validate.a(cls != null, "The class must not be null", new Object[0]);
             Validate.a(!TextUtils.isEmpty(str), "The field name must not be blank/empty", new Object[0]);
             try {
@@ -158,8 +159,8 @@ public class FieldUtils {
             Validate.a(cls != null, "The class must not be null", new Object[0]);
             Validate.a(!TextUtils.isEmpty(str), "The field name must not be blank/empty", new Object[0]);
             String a2 = a(cls, str);
-            synchronized (f5413a) {
-                field = f5413a.get(a2);
+            synchronized (f5430a) {
+                field = f5430a.get(a2);
             }
             if (field != null) {
                 if (z && !field.isAccessible()) {
@@ -179,8 +180,8 @@ public class FieldUtils {
                         continue;
                     }
                 }
-                synchronized (f5413a) {
-                    f5413a.put(a2, declaredField);
+                synchronized (f5430a) {
+                    f5430a.put(a2, declaredField);
                 }
                 return declaredField;
             }
@@ -193,8 +194,8 @@ public class FieldUtils {
                 } catch (NoSuchFieldException unused2) {
                 }
             }
-            synchronized (f5413a) {
-                f5413a.put(a2, field2);
+            synchronized (f5430a) {
+                f5430a.put(a2, field2);
             }
             return field2;
         }

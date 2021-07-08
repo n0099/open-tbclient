@@ -19,13 +19,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.UfoSDK;
 import java.util.Timer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class bc extends WebViewClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackHotActivity f23357a;
+    public final /* synthetic */ FeedbackHotActivity f23467a;
 
     public bc(FeedbackHotActivity feedbackHotActivity) {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public final class bc extends WebViewClient {
                 return;
             }
         }
-        this.f23357a = feedbackHotActivity;
+        this.f23467a = feedbackHotActivity;
     }
 
     public /* synthetic */ bc(FeedbackHotActivity feedbackHotActivity, byte b2) {
@@ -66,14 +66,14 @@ public final class bc extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
             super.onPageFinished(webView, str);
-            view = this.f23357a.l;
+            view = this.f23467a.l;
             view.setVisibility(8);
             webView.requestFocus();
-            timer = this.f23357a.q;
+            timer = this.f23467a.q;
             if (timer != null) {
-                timer2 = this.f23357a.q;
+                timer2 = this.f23467a.q;
                 timer2.cancel();
-                timer3 = this.f23357a.q;
+                timer3 = this.f23467a.q;
                 timer3.purge();
             }
         }
@@ -87,11 +87,11 @@ public final class bc extends WebViewClient {
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
             super.onPageStarted(webView, str, bitmap);
             webView.clearView();
-            view = this.f23357a.l;
+            view = this.f23467a.l;
             view.setVisibility(0);
-            this.f23357a.q = new Timer();
+            this.f23467a.q = new Timer();
             bd bdVar = new bd(this);
-            timer = this.f23357a.q;
+            timer = this.f23467a.q;
             timer.schedule(bdVar, 20000L);
         }
     }
@@ -104,12 +104,12 @@ public final class bc extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(1048579, this, webView, i2, str, str2) == null) {
             super.onReceivedError(webView, i2, str, str2);
-            Context applicationContext = this.f23357a.getApplicationContext();
-            textView = this.f23357a.m;
+            Context applicationContext = this.f23467a.getApplicationContext();
+            textView = this.f23467a.m;
             com.baidu.ufosdk.f.i.a(applicationContext, textView);
-            linearLayout = this.f23357a.f23286h;
+            linearLayout = this.f23467a.f23396h;
             linearLayout.setVisibility(0);
-            webView2 = this.f23357a.j;
+            webView2 = this.f23467a.j;
             webView2.setVisibility(8);
         }
     }
@@ -123,23 +123,23 @@ public final class bc extends WebViewClient {
             com.baidu.ufosdk.f.c.a("webClick ==> click:url-->" + str);
             com.baidu.ufosdk.f.c.a("PluginInvoker.appid=" + UfoSDK.appid);
             if (str.startsWith("feedback://")) {
-                FeedbackHotActivity.a(this.f23357a, str);
+                FeedbackHotActivity.a(this.f23467a, str);
                 return true;
             }
             if (str.startsWith("solve://")) {
-                z = this.f23357a.s;
+                z = this.f23467a.s;
                 if (z) {
                     return true;
                 }
-                Toast.makeText(this.f23357a, com.baidu.ufosdk.f.s.a(SoUtils.SO_EVENT_ID_V8_SO), 0).show();
+                Toast.makeText(this.f23467a, com.baidu.ufosdk.f.s.a(SoUtils.SO_EVENT_ID_V8_SO), 0).show();
             } else if (str.startsWith("backtoufo://")) {
-                this.f23357a.finish();
+                this.f23467a.finish();
                 return true;
             } else if (!str.startsWith("unsolved://")) {
                 if (str.startsWith("https://") || str.startsWith("http://")) {
                     try {
                         com.baidu.ufosdk.f.c.a(">>跳转链接：" + str);
-                        this.f23357a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                        this.f23467a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                         return true;
                     } catch (Exception e2) {
                         e2.printStackTrace();
@@ -151,18 +151,18 @@ public final class bc extends WebViewClient {
                         Intent intent = new Intent();
                         intent.setAction("android.intent.action.VIEW");
                         intent.setData(Uri.parse(str));
-                        this.f23357a.startActivity(intent);
+                        this.f23467a.startActivity(intent);
                         return true;
                     } catch (Exception e3) {
                         e3.printStackTrace();
-                        Toast.makeText(this.f23357a.getApplicationContext(), "打开失败，未安装百度地图！", 0).show();
+                        Toast.makeText(this.f23467a.getApplicationContext(), "打开失败，未安装百度地图！", 0).show();
                         return true;
                     }
                 } else {
                     return true;
                 }
             }
-            this.f23357a.s = true;
+            this.f23467a.s = true;
             return true;
         }
         return invokeLL.booleanValue;

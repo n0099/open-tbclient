@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
@@ -14,12 +15,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.webkit.internal.ConectivityUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Uri f41909a;
+    public static final Uri f38923a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +36,7 @@ public class a {
                 return;
             }
         }
-        f41909a = Uri.parse("content://telephony/carriers/preferapn");
+        f38923a = Uri.parse("content://telephony/carriers/preferapn");
     }
 
     public static String a(Context context) {
@@ -87,7 +88,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                Cursor query = context.getContentResolver().query(f41909a, null, null, null, null);
+                Cursor query = context.getContentResolver().query(f38923a, null, null, null, null);
                 if (query == null) {
                     return null;
                 }
@@ -119,7 +120,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
-                Cursor query = context.getContentResolver().query(f41909a, null, null, null, null);
+                Cursor query = context.getContentResolver().query(f38923a, null, null, null, null);
                 if (query == null) {
                     return null;
                 }
@@ -148,7 +149,7 @@ public class a {
         ConnectivityManager connectivityManager;
         NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             try {
                 connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             } catch (Exception e2) {

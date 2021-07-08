@@ -5,6 +5,7 @@ import android.content.ContextWrapper;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,12 +17,12 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HashMap<String, j.a> f74612a;
+    public static final HashMap<String, j.a> f71664a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +38,7 @@ public class b {
                 return;
             }
         }
-        f74612a = new HashMap<>();
+        f71664a = new HashMap<>();
     }
 
     public static j.a a(String str) {
@@ -119,7 +120,7 @@ public class b {
     public static boolean d(JSONArray jSONArray, JSONArray jSONArray2, String str, @NonNull j.a aVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65540, null, jSONArray, jSONArray2, str, aVar)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray, jSONArray2, str, aVar)) == null) {
             String n = aVar.n();
             int m = aVar.m();
             String str2 = m + "_" + n;
@@ -188,15 +189,15 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (f74612a.containsKey(str)) {
-                j.a aVar = f74612a.get(str);
+            if (f71664a.containsKey(str)) {
+                j.a aVar = f71664a.get(str);
                 if (aVar != null) {
                     return aVar;
                 }
                 return null;
             }
             j.a c2 = j.c(str);
-            f74612a.put(str, c2);
+            f71664a.put(str, c2);
             if (c2 != null) {
                 return c2;
             }

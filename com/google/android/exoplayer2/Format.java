@@ -20,15 +20,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.drm.DrmInitData;
 import com.google.android.exoplayer2.metadata.Metadata;
 import com.google.android.exoplayer2.video.ColorInfo;
-import com.kwai.video.player.KsMediaMeta;
-import com.kwai.video.player.misc.IMediaFormat;
 import d.f.b.a.i0.v;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class Format implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<Format> CREATOR;
@@ -63,7 +61,7 @@ public final class Format implements Parcelable {
     public final long subsampleOffsetUs;
     public final int width;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Parcelable.Creator<Format> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -471,8 +469,8 @@ public final class Format implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             MediaFormat mediaFormat = new MediaFormat();
-            mediaFormat.setString(IMediaFormat.KEY_MIME, this.sampleMimeType);
-            maybeSetStringV16(mediaFormat, KsMediaMeta.KSM_KEY_LANGUAGE, this.language);
+            mediaFormat.setString("mime", this.sampleMimeType);
+            maybeSetStringV16(mediaFormat, "language", this.language);
             maybeSetIntegerV16(mediaFormat, "max-input-size", this.maxInputSize);
             maybeSetIntegerV16(mediaFormat, "width", this.width);
             maybeSetIntegerV16(mediaFormat, "height", this.height);
@@ -611,7 +609,7 @@ public final class Format implements Parcelable {
     public static Format createAudioSampleFormat(String str, String str2, String str3, int i2, int i3, int i4, int i5, int i6, int i7, int i8, List<byte[]> list, DrmInitData drmInitData, int i9, String str4, Metadata metadata) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), list, drmInitData, Integer.valueOf(i9), str4, metadata})) == null) ? new Format(str, null, str2, str3, i2, i3, -1, -1, -1.0f, -1, -1.0f, null, -1, null, i4, i5, i6, i7, i8, i9, str4, -1, Long.MAX_VALUE, list, drmInitData, metadata) : (Format) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), list, drmInitData, Integer.valueOf(i9), str4, metadata})) == null) ? new Format(str, null, str2, str3, i2, i3, -1, -1, -1.0f, -1, -1.0f, null, -1, null, i4, i5, i6, i7, i8, i9, str4, -1, Long.MAX_VALUE, list, drmInitData, metadata) : (Format) invokeCommon.objValue;
     }
 
     public static Format createVideoSampleFormat(String str, String str2, String str3, int i2, int i3, int i4, int i5, float f2, List<byte[]> list, int i6, float f3, byte[] bArr, int i7, ColorInfo colorInfo, DrmInitData drmInitData) {

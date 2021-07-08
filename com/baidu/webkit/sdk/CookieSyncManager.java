@@ -2,6 +2,7 @@ package com.baidu.webkit.sdk;
 
 import android.content.Context;
 import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CookieSyncManager implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "CookieSyncManager";
@@ -80,7 +81,7 @@ public class CookieSyncManager implements Runnable {
     public static CookieSyncManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (sLockObject) {
                 checkInstanceIsAllowed();
             }

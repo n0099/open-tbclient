@@ -1,5 +1,6 @@
 package com.google.zxing.client.result;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class VINResultParser extends ResultParser {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern AZ09;
@@ -84,7 +85,7 @@ public final class VINResultParser extends ResultParser {
     public static String countryCode(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, charSequence)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, charSequence)) == null) {
             char charAt = charSequence.charAt(0);
             char charAt2 = charSequence.charAt(1);
             if (charAt == '9') {

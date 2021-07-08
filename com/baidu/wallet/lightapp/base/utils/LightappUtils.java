@@ -3,6 +3,7 @@ package com.baidu.wallet.lightapp.base.utils;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.apollon.statistics.PayStatisticsUtil;
@@ -23,7 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class LightappUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +71,7 @@ public final class LightappUtils {
     public static String assembleResult(Map<String, Object> map, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65540, null, map, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, map, z)) == null) {
             if (map == null) {
                 return null;
             }

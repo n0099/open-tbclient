@@ -22,9 +22,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.d0.b;
+import d.a.o0.r.d0.b;
 import java.util.Calendar;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BigdayActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -9,19 +9,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f28687a;
+    public byte[] f28797a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f28688b;
+    public boolean f28798b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.bytedance.sdk.component.d.b.d f28689c;
+    public com.bytedance.sdk.component.d.b.d f28799c;
 
     public d(byte[] bArr, boolean z) {
         Interceptable interceptable = $ic;
@@ -38,9 +38,9 @@ public class d extends a {
                 return;
             }
         }
-        this.f28688b = false;
-        this.f28687a = bArr;
-        this.f28688b = z;
+        this.f28798b = false;
+        this.f28797a = bArr;
+        this.f28798b = z;
     }
 
     @Override // com.bytedance.sdk.component.d.d.h
@@ -57,11 +57,11 @@ public class d extends a {
             com.bytedance.sdk.component.d.c.b a2 = com.bytedance.sdk.component.d.c.b.a();
             com.bytedance.sdk.component.d.c.b.a a3 = a2.a(aVar);
             try {
-                String a4 = a(this.f28687a);
+                String a4 = a(this.f28797a);
                 if (!TextUtils.isEmpty(a4) && a4.startsWith("image")) {
-                    Bitmap a5 = a3.a(this.f28687a);
+                    Bitmap a5 = a3.a(this.f28797a);
                     if (a5 != null) {
-                        aVar.a(new l(a5, this.f28689c));
+                        aVar.a(new l(a5, this.f28799c));
                         a2.b().a(aVar.e(), a5);
                         return;
                     }
@@ -90,15 +90,15 @@ public class d extends a {
                 return;
             }
         }
-        this.f28688b = false;
-        this.f28687a = bArr;
-        this.f28689c = dVar;
+        this.f28798b = false;
+        this.f28797a = bArr;
+        this.f28799c = dVar;
     }
 
     private void a(int i2, String str, Throwable th, com.bytedance.sdk.component.d.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i2), str, th, aVar}) == null) {
-            if (this.f28688b) {
+            if (this.f28798b) {
                 aVar.a(new j());
             } else {
                 aVar.a(new g(i2, str, th));

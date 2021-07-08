@@ -10,7 +10,7 @@ import d.f.d.a.n;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class FakeTimeLimiter implements TimeLimiter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

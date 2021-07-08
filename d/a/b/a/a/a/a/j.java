@@ -1,5 +1,6 @@
 package d.a.b.a.a.a.a;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.webkit.internal.utils.UtilsBlink;
 import kotlin.jvm.internal.ByteCompanionObject;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +41,7 @@ public final class j {
     public static byte[] e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? new byte[]{-57, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 76, 90, 52, -92, 15, 42, 26, 37, 0, -124, 69, 39, 119, -83, -66, -32, 59, 25, -60, -89, -9, ByteCompanionObject.MAX_VALUE, -32, 97, -24, 93, 36, -37, 87, -49, 14, 52, -7, 84, -54, 68, 44, 124, 97, 15, 58, -114, 94, 68, 111, 125, -40, -68, 99, 82, -100, -81, 115, -11} : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new byte[]{-57, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 76, 90, 52, -92, 15, 42, 26, 37, 0, -124, 69, 39, 119, -83, -66, -32, 59, 25, -60, -89, -9, ByteCompanionObject.MAX_VALUE, -32, 97, -24, 93, 36, -37, 87, -49, 14, 52, -7, 84, -54, 68, 44, 124, 97, 15, 58, -114, 94, 68, 111, 125, -40, -68, 99, 82, -100, -81, 115, -11} : (byte[]) invokeV.objValue;
     }
 
     public static byte[] f() {

@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AC3TrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public static int[][][][] bitRateAndFrameSizeTable;
@@ -385,7 +385,7 @@ public class AC3TrackImpl extends AbstractTrack {
     private int getFrameSize(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65540, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, i3)) == null) {
             int i4 = i2 >>> 1;
             int i5 = i2 & 1;
             if (i4 <= 18 && i5 <= 1 && i3 <= 2) {

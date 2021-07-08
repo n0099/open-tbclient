@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class l implements h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<Object> f44053a;
+    public List<Object> f41069a;
 
     public l(List<Object> list) {
         Interceptable interceptable = $ic;
@@ -29,13 +29,13 @@ public class l implements h {
                 return;
             }
         }
-        this.f44053a = list;
+        this.f41069a = list;
     }
 
     @Override // d.a.c.e.b.b.a.d.h
     public Object a(d.a.c.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? d.a.c.e.b.b.a.e.b.c(this.f44053a, cVar) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? d.a.c.e.b.b.a.e.b.c(this.f41069a, cVar) : invokeL.objValue;
     }
 }

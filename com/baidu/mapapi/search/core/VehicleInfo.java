@@ -11,26 +11,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class VehicleInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<VehicleInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7264a;
+    public String f7281a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f7265b;
+    public int f7282b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7266c;
+    public String f7283c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f7267d;
+    public int f7284d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7268e;
+    public int f7285e;
 
     static {
         InterceptResult invokeClinit;
@@ -77,11 +77,11 @@ public class VehicleInfo implements Parcelable {
                 return;
             }
         }
-        this.f7264a = parcel.readString();
-        this.f7265b = parcel.readInt();
-        this.f7266c = parcel.readString();
-        this.f7267d = parcel.readInt();
-        this.f7268e = parcel.readInt();
+        this.f7281a = parcel.readString();
+        this.f7282b = parcel.readInt();
+        this.f7283c = parcel.readString();
+        this.f7284d = parcel.readInt();
+        this.f7285e = parcel.readInt();
     }
 
     @Override // android.os.Parcelable
@@ -97,65 +97,65 @@ public class VehicleInfo implements Parcelable {
     public int getPassStationNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7265b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7282b : invokeV.intValue;
     }
 
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7266c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7283c : (String) invokeV.objValue;
     }
 
     public int getTotalPrice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7268e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7285e : invokeV.intValue;
     }
 
     public String getUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7264a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7281a : (String) invokeV.objValue;
     }
 
     public int getZonePrice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f7267d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f7284d : invokeV.intValue;
     }
 
     public void setPassStationNum(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f7265b = i2;
+            this.f7282b = i2;
         }
     }
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f7266c = str;
+            this.f7283c = str;
         }
     }
 
     public void setTotalPrice(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f7268e = i2;
+            this.f7285e = i2;
         }
     }
 
     public void setUid(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f7264a = str;
+            this.f7281a = str;
         }
     }
 
     public void setZonePrice(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f7267d = i2;
+            this.f7284d = i2;
         }
     }
 
@@ -163,11 +163,11 @@ public class VehicleInfo implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i2) == null) {
-            parcel.writeString(this.f7264a);
-            parcel.writeInt(this.f7265b);
-            parcel.writeString(this.f7266c);
-            parcel.writeInt(this.f7267d);
-            parcel.writeInt(this.f7268e);
+            parcel.writeString(this.f7281a);
+            parcel.writeInt(this.f7282b);
+            parcel.writeString(this.f7283c);
+            parcel.writeInt(this.f7284d);
+            parcel.writeInt(this.f7285e);
         }
     }
 }

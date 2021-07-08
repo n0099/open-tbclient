@@ -9,15 +9,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.s0.n3.f.b.b;
-import d.a.s0.n3.h.e;
+import d.a.p0.n3.f.b.b;
+import d.a.p0.n3.h.e;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Error;
 import tbclient.GetBubbleByCategory.DataRes;
 import tbclient.GetBubbleByCategory.GetBubbleByCategoryResIdl;
 import tbclient.GetBubbleByCategory.ThemeBubbleInMain;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BubbleGroupHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

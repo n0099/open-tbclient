@@ -14,13 +14,13 @@ import d.l.a.a.a.c.r;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c implements g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f30990a;
+    public final WeakReference<Context> f31100a;
 
     public c(Context context) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class c implements g {
                 return;
             }
         }
-        this.f30990a = new WeakReference<>(context);
+        this.f31100a = new WeakReference<>(context);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x009c */

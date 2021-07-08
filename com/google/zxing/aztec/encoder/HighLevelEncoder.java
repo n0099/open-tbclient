@@ -1,5 +1,6 @@
 package com.google.zxing.aztec.encoder;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,7 +17,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class HighLevelEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[][] CHAR_MAP;
@@ -162,7 +163,7 @@ public final class HighLevelEncoder {
 
     public static void updateStateForPair(State state, int i2, int i3, Collection<State> collection) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{state, Integer.valueOf(i2), Integer.valueOf(i3), collection}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{state, Integer.valueOf(i2), Integer.valueOf(i3), collection}) == null) {
             State endBinaryShift = state.endBinaryShift(i2);
             collection.add(endBinaryShift.latchAndAppend(4, i3));
             if (state.getMode() != 4) {

@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.b.c.b.h.i;
 import d.b.c.b.l;
 import d.b.c.b.m;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class c implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f71937e;
+    public Context f69040e;
 
     public c(Context context) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class c implements Runnable {
                 return;
             }
         }
-        this.f71937e = context;
+        this.f69040e = context;
     }
 
     public static void a(Context context) {
@@ -60,7 +60,7 @@ public final class c implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                new d.b.c.b.h.e(this.f71937e).c(l.j.c(this.f71937e));
+                new d.b.c.b.h.e(this.f69040e).c(l.j.c(this.f69040e));
             } finally {
                 try {
                 } finally {

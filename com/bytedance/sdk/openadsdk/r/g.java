@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,24 +23,24 @@ import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f32214a;
+        public String f32324a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f32215b;
+        public String f32325b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f32216c;
+        public String f32326c;
 
         public a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -56,9 +57,9 @@ public class g {
                     return;
                 }
             }
-            this.f32214a = str;
-            this.f32215b = str2;
-            this.f32216c = str3;
+            this.f32324a = str;
+            this.f32325b = str2;
+            this.f32326c = str3;
         }
 
         public boolean equals(Object obj) {
@@ -68,8 +69,8 @@ public class g {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
                 if (obj instanceof a) {
                     a aVar = (a) obj;
-                    String str2 = this.f32214a;
-                    return str2 != null && str2.equals(aVar.f32214a) && (str = this.f32216c) != null && str.equals(aVar.f32216c);
+                    String str2 = this.f32324a;
+                    return str2 != null && str2.equals(aVar.f32324a) && (str = this.f32326c) != null && str.equals(aVar.f32326c);
                 }
                 return super.equals(obj);
             }
@@ -81,7 +82,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 try {
-                    return "<" + this.f32214a + " name=\"" + this.f32215b + "\" path=\"" + this.f32216c + "\" />";
+                    return "<" + this.f32324a + " name=\"" + this.f32325b + "\" path=\"" + this.f32326c + "\" />";
                 } catch (Throwable unused) {
                     return super.toString();
                 }
@@ -265,7 +266,7 @@ public class g {
     public static List<a> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new a("external-path", "tt_external_download", "Download"));
             arrayList.add(new a("external-files-path", "tt_external_files_download", "Download"));

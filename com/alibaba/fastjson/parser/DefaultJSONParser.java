@@ -136,14 +136,14 @@ public class DefaultJSONParser implements Closeable {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (ParserConfig) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }

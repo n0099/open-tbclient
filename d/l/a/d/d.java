@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,15 +40,15 @@ import d.l.a.e.b.f.q;
 import java.io.File;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class d implements d.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f74391a;
+    public Handler f71443a;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,16 +78,16 @@ public class d implements d.j {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.l.a.e.b.j.a f74392e;
+        public final /* synthetic */ d.l.a.e.b.j.a f71444e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.l.a.a.a.d.d f74393f;
+        public final /* synthetic */ d.l.a.a.a.d.d f71445f;
 
         public b(d dVar, d.l.a.e.b.j.a aVar, d.l.a.a.a.d.d dVar2) {
             Interceptable interceptable = $ic;
@@ -103,38 +104,38 @@ public class d implements d.j {
                     return;
                 }
             }
-            this.f74392e = aVar;
-            this.f74393f = dVar2;
+            this.f71444e = aVar;
+            this.f71445f = dVar2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                l.p().a(2, l.a(), this.f74393f, this.f74392e.h("no_enough_space_toast_text", "您的存储空间不足，请清理后再试"), null, 0);
+                l.p().a(2, l.a(), this.f71445f, this.f71444e.h("no_enough_space_toast_text", "您的存储空间不足，请清理后再试"), null, 0);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class c implements a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.l.a.b.a.c.b f74394e;
+        public final /* synthetic */ d.l.a.b.a.c.b f71446e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f74395f;
+        public final /* synthetic */ long f71447f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f74396g;
+        public final /* synthetic */ long f71448g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ double f74397h;
+        public final /* synthetic */ double f71449h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f74398i;
+        public final /* synthetic */ DownloadInfo f71450i;
 
         public c(d dVar, d.l.a.b.a.c.b bVar, long j, long j2, double d2, DownloadInfo downloadInfo) {
             Interceptable interceptable = $ic;
@@ -151,26 +152,26 @@ public class d implements d.j {
                     return;
                 }
             }
-            this.f74394e = bVar;
-            this.f74395f = j;
-            this.f74396g = j2;
-            this.f74397h = d2;
-            this.f74398i = downloadInfo;
+            this.f71446e = bVar;
+            this.f71447f = j;
+            this.f71448g = j2;
+            this.f71449h = d2;
+            this.f71450i = downloadInfo;
         }
 
         @Override // d.l.a.e.b.a.a.b
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!h.r.C(this.f74394e)) {
-                    long j = this.f74395f;
-                    if (j <= -1 || this.f74396g <= -1 || j >= this.f74397h) {
+                if (!h.r.C(this.f71446e)) {
+                    long j = this.f71447f;
+                    if (j <= -1 || this.f71448g <= -1 || j >= this.f71449h) {
                         return;
                     }
-                    e.c.a().r("clean_space_install", d.l.a.d.b.f.d("install_no_enough_space"), this.f74394e);
-                    if (d.l.a.d.b.f.p(this.f74398i, ((long) this.f74397h) - this.f74395f)) {
+                    e.c.a().r("clean_space_install", d.l.a.d.b.f.d("install_no_enough_space"), this.f71446e);
+                    if (d.l.a.d.b.f.p(this.f71450i, ((long) this.f71449h) - this.f71447f)) {
                         d.l.a.e.b.a.a.c().i(this);
-                        this.f74394e.I0(true);
+                        this.f71446e.I0(true);
                         return;
                     }
                     return;
@@ -187,7 +188,7 @@ public class d implements d.j {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class e implements q {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -224,7 +225,7 @@ public class d implements d.j {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class h implements d.l.a.e.b.e.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -271,13 +272,13 @@ public class d implements d.j {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class i implements d.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f74400a;
+        public Context f71452a;
 
         public i(Context context) {
             Interceptable interceptable = $ic;
@@ -294,7 +295,7 @@ public class d implements d.j {
                     return;
                 }
             }
-            this.f74400a = context.getApplicationContext();
+            this.f71452a = context.getApplicationContext();
         }
 
         @Override // d.l.a.e.a.d.f
@@ -311,7 +312,7 @@ public class d implements d.j {
             DownloadInfo f2;
             d.l.a.b.a.c.b c2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, Integer.valueOf(i4), Long.valueOf(j)}) == null) || (context = this.f74400a) == null || (f2 = d.l.a.e.b.g.a.H(context).f(i2)) == null || f2.getStatus() == 0 || (c2 = c.g.e().c(f2)) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, Integer.valueOf(i4), Long.valueOf(j)}) == null) || (context = this.f71452a) == null || (f2 = d.l.a.e.b.g.a.H(context).f(i2)) == null || f2.getStatus() == 0 || (c2 = c.g.e().c(f2)) == null) {
                 return;
             }
             if (i3 == 1) {
@@ -365,11 +366,11 @@ public class d implements d.j {
             Context context;
             DownloadInfo f2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3}) == null) || (context = this.f74400a) == null || (f2 = d.l.a.e.b.g.a.H(context).f(i2)) == null || f2.getStatus() != -3) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3}) == null) || (context = this.f71452a) == null || (f2 = d.l.a.e.b.g.a.H(context).f(i2)) == null || f2.getStatus() != -3) {
                 return;
             }
             f2.setPackageName(str2);
-            d.l.a.d.b.c.a().b(this.f74400a, f2);
+            d.l.a.d.b.c.a().b(this.f71452a, f2);
         }
 
         @Override // d.l.a.e.a.d.f
@@ -380,44 +381,44 @@ public class d implements d.j {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class j extends d.c {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static String f74401a = "d$j";
+        public static String f71453a = "d$j";
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes8.dex */
         public class a implements d.n {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public c.b f74402a;
+            public c.b f71454a;
 
             /* renamed from: b  reason: collision with root package name */
-            public DialogInterface.OnClickListener f74403b;
+            public DialogInterface.OnClickListener f71455b;
 
             /* renamed from: c  reason: collision with root package name */
-            public DialogInterface.OnClickListener f74404c;
+            public DialogInterface.OnClickListener f71456c;
 
             /* renamed from: d  reason: collision with root package name */
-            public DialogInterface.OnCancelListener f74405d;
+            public DialogInterface.OnCancelListener f71457d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Context f74406e;
+            public final /* synthetic */ Context f71458e;
 
             /* renamed from: d.l.a.d.d$j$a$a  reason: collision with other inner class name */
-            /* loaded from: classes10.dex */
-            public class C2061a implements c.InterfaceC2044c {
+            /* loaded from: classes8.dex */
+            public class C2029a implements c.InterfaceC2012c {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f74407a;
+                public final /* synthetic */ a f71459a;
 
-                public C2061a(a aVar) {
+                public C2029a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -432,34 +433,34 @@ public class d implements d.j {
                             return;
                         }
                     }
-                    this.f74407a = aVar;
+                    this.f71459a = aVar;
                 }
 
-                @Override // d.l.a.a.a.f.c.InterfaceC2044c
+                @Override // d.l.a.a.a.f.c.InterfaceC2012c
                 public void a(DialogInterface dialogInterface) {
                     Interceptable interceptable = $ic;
-                    if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.f74407a.f74404c == null) {
+                    if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.f71459a.f71455b == null) {
                         return;
                     }
-                    this.f74407a.f74404c.onClick(dialogInterface, -2);
+                    this.f71459a.f71455b.onClick(dialogInterface, -1);
                 }
 
-                @Override // d.l.a.a.a.f.c.InterfaceC2044c
+                @Override // d.l.a.a.a.f.c.InterfaceC2012c
                 public void b(DialogInterface dialogInterface) {
                     Interceptable interceptable = $ic;
-                    if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface) == null) || this.f74407a.f74403b == null) {
+                    if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface) == null) || this.f71459a.f71456c == null) {
                         return;
                     }
-                    this.f74407a.f74403b.onClick(dialogInterface, -1);
+                    this.f71459a.f71456c.onClick(dialogInterface, -2);
                 }
 
-                @Override // d.l.a.a.a.f.c.InterfaceC2044c
+                @Override // d.l.a.a.a.f.c.InterfaceC2012c
                 public void c(DialogInterface dialogInterface) {
                     Interceptable interceptable = $ic;
-                    if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogInterface) == null) || this.f74407a.f74405d == null || dialogInterface == null) {
+                    if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogInterface) == null) || this.f71459a.f71457d == null || dialogInterface == null) {
                         return;
                     }
-                    this.f74407a.f74405d.onCancel(dialogInterface);
+                    this.f71459a.f71457d.onCancel(dialogInterface);
                 }
             }
 
@@ -478,8 +479,8 @@ public class d implements d.j {
                         return;
                     }
                 }
-                this.f74406e = context;
-                this.f74402a = new c.b(this.f74406e);
+                this.f71458e = context;
+                this.f71454a = new c.b(this.f71458e);
             }
 
             @Override // d.l.a.e.a.d.n
@@ -487,7 +488,7 @@ public class d implements d.j {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                    this.f74402a.e(this.f74406e.getResources().getString(i2));
+                    this.f71454a.e(this.f71458e.getResources().getString(i2));
                     return this;
                 }
                 return (d.n) invokeI.objValue;
@@ -498,8 +499,8 @@ public class d implements d.j {
                 InterceptResult invokeIL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i2, onClickListener)) == null) {
-                    this.f74402a.j(this.f74406e.getResources().getString(i2));
-                    this.f74403b = onClickListener;
+                    this.f71454a.j(this.f71458e.getResources().getString(i2));
+                    this.f71455b = onClickListener;
                     return this;
                 }
                 return (d.n) invokeIL.objValue;
@@ -510,7 +511,7 @@ public class d implements d.j {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, onCancelListener)) == null) {
-                    this.f74405d = onCancelListener;
+                    this.f71457d = onCancelListener;
                     return this;
                 }
                 return (d.n) invokeL.objValue;
@@ -521,7 +522,7 @@ public class d implements d.j {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                    this.f74402a.h(str);
+                    this.f71454a.h(str);
                     return this;
                 }
                 return (d.n) invokeL.objValue;
@@ -532,8 +533,8 @@ public class d implements d.j {
                 InterceptResult invokeIL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, onClickListener)) == null) {
-                    this.f74402a.l(this.f74406e.getResources().getString(i2));
-                    this.f74404c = onClickListener;
+                    this.f71454a.l(this.f71458e.getResources().getString(i2));
+                    this.f71456c = onClickListener;
                     return this;
                 }
                 return (d.n) invokeIL.objValue;
@@ -544,7 +545,7 @@ public class d implements d.j {
                 InterceptResult invokeZ;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-                    this.f74402a.f(z);
+                    this.f71454a.f(z);
                     return this;
                 }
                 return (d.n) invokeZ.objValue;
@@ -555,22 +556,22 @@ public class d implements d.j {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    this.f74402a.d(new C2061a(this));
-                    h.q.b(j.f74401a, "getThemedAlertDlgBuilder", null);
-                    this.f74402a.b(3);
-                    return new b(l.p().b(this.f74402a.g()));
+                    this.f71454a.d(new C2029a(this));
+                    h.q.b(j.f71453a, "getThemedAlertDlgBuilder", null);
+                    this.f71454a.b(3);
+                    return new b(l.p().b(this.f71454a.g()));
                 }
                 return (d.m) invokeV.objValue;
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes8.dex */
         public static class b implements d.m {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public Dialog f74408a;
+            public Dialog f71460a;
 
             public b(Dialog dialog) {
                 Interceptable interceptable = $ic;
@@ -588,7 +589,7 @@ public class d implements d.j {
                     }
                 }
                 if (dialog != null) {
-                    this.f74408a = dialog;
+                    this.f71460a = dialog;
                     a();
                 }
             }
@@ -597,7 +598,7 @@ public class d implements d.j {
             public void a() {
                 Dialog dialog;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (dialog = this.f74408a) == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (dialog = this.f71460a) == null) {
                     return;
                 }
                 dialog.show();
@@ -608,7 +609,7 @@ public class d implements d.j {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    Dialog dialog = this.f74408a;
+                    Dialog dialog = this.f71460a;
                     if (dialog != null) {
                         return dialog.isShowing();
                     }
@@ -665,24 +666,24 @@ public class d implements d.j {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes8.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f74409e;
+            public final /* synthetic */ int f71461e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d.l.a.b.a.c.b f74410f;
+            public final /* synthetic */ d.l.a.b.a.c.b f71462f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ k f74411g;
+            public final /* synthetic */ k f71463g;
 
             public a(k kVar, int i2, d.l.a.b.a.c.b bVar) {
                 Interceptable interceptable = $ic;
@@ -699,42 +700,42 @@ public class d implements d.j {
                         return;
                     }
                 }
-                this.f74411g = kVar;
-                this.f74409e = i2;
-                this.f74410f = bVar;
+                this.f71463g = kVar;
+                this.f71461e = i2;
+                this.f71462f = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    DownloadInfo f2 = d.l.a.e.b.g.a.H(l.a()).f(this.f74409e);
+                    DownloadInfo f2 = d.l.a.e.b.g.a.H(l.a()).f(this.f71461e);
                     JSONObject jSONObject = new JSONObject();
                     h.r.q(jSONObject, "ttdownloader_type", 1);
                     h.l.g(f2, jSONObject);
                     if (f2 != null && -2 == f2.getRealStatus() && !f2.isPauseReserveOnWifi()) {
-                        this.f74411g.c(this.f74409e, this.f74410f, jSONObject);
+                        this.f71463g.c(this.f71461e, this.f71462f, jSONObject);
                     } else {
                         h.r.q(jSONObject, "error_code", 1001);
                     }
-                    e.c.a().w("download_notification_try_show", jSONObject, this.f74410f);
+                    e.c.a().w("download_notification_try_show", jSONObject, this.f71462f);
                 }
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes8.dex */
         public class b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f74412e;
+            public final /* synthetic */ int f71464e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d.l.a.b.a.c.b f74413f;
+            public final /* synthetic */ d.l.a.b.a.c.b f71465f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ k f74414g;
+            public final /* synthetic */ k f71466g;
 
             public b(k kVar, int i2, d.l.a.b.a.c.b bVar) {
                 Interceptable interceptable = $ic;
@@ -751,42 +752,42 @@ public class d implements d.j {
                         return;
                     }
                 }
-                this.f74414g = kVar;
-                this.f74412e = i2;
-                this.f74413f = bVar;
+                this.f71466g = kVar;
+                this.f71464e = i2;
+                this.f71465f = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    DownloadInfo f2 = d.l.a.e.b.g.a.H(l.a()).f(this.f74412e);
+                    DownloadInfo f2 = d.l.a.e.b.g.a.H(l.a()).f(this.f71464e);
                     JSONObject jSONObject = new JSONObject();
                     h.r.q(jSONObject, "ttdownloader_type", 2);
                     h.l.g(f2, jSONObject);
-                    if (!h.r.C(this.f74413f)) {
-                        this.f74414g.c(this.f74412e, this.f74413f, jSONObject);
+                    if (!h.r.C(this.f71465f)) {
+                        this.f71466g.c(this.f71464e, this.f71465f, jSONObject);
                     } else {
                         h.r.q(jSONObject, "error_code", 1002);
                     }
-                    e.c.a().w("download_notification_try_show", jSONObject, this.f74413f);
+                    e.c.a().w("download_notification_try_show", jSONObject, this.f71465f);
                 }
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes8.dex */
         public class c implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f74415e;
+            public final /* synthetic */ int f71467e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d.l.a.b.a.c.b f74416f;
+            public final /* synthetic */ d.l.a.b.a.c.b f71468f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ k f74417g;
+            public final /* synthetic */ k f71469g;
 
             public c(k kVar, int i2, d.l.a.b.a.c.b bVar) {
                 Interceptable interceptable = $ic;
@@ -803,36 +804,36 @@ public class d implements d.j {
                         return;
                     }
                 }
-                this.f74417g = kVar;
-                this.f74415e = i2;
-                this.f74416f = bVar;
+                this.f71469g = kVar;
+                this.f71467e = i2;
+                this.f71468f = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    DownloadInfo f2 = d.l.a.e.b.g.a.H(l.a()).f(this.f74415e);
+                    DownloadInfo f2 = d.l.a.e.b.g.a.H(l.a()).f(this.f71467e);
                     JSONObject jSONObject = new JSONObject();
                     h.r.q(jSONObject, "ttdownloader_type", 3);
                     h.l.g(f2, jSONObject);
-                    if (!h.r.F(this.f74416f.e())) {
-                        this.f74417g.c(this.f74415e, this.f74416f, jSONObject);
+                    if (!h.r.F(this.f71468f.e())) {
+                        this.f71469g.c(this.f71467e, this.f71468f, jSONObject);
                     } else {
                         h.r.q(jSONObject, "error_code", 1003);
                     }
-                    e.c.a().w("download_notification_try_show", jSONObject, this.f74416f);
+                    e.c.a().w("download_notification_try_show", jSONObject, this.f71468f);
                 }
             }
         }
 
         /* renamed from: d.l.a.d.d$k$d  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
-        public static class C2062d {
+        /* loaded from: classes8.dex */
+        public static class C2030d {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static k f74418a;
+            public static k f71470a;
             public transient /* synthetic */ FieldHolder $fh;
 
             static {
@@ -848,7 +849,7 @@ public class d implements d.j {
                         return;
                     }
                 }
-                f74418a = new k(null);
+                f71470a = new k(null);
             }
         }
 
@@ -859,7 +860,7 @@ public class d implements d.j {
         public static k a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2062d.f74418a : (k) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2030d.f71470a : (k) invokeV.objValue;
         }
 
         public void b(int i2) {
@@ -1017,7 +1018,7 @@ public class d implements d.j {
                 return;
             }
         }
-        this.f74391a = new Handler(Looper.getMainLooper());
+        this.f71443a = new Handler(Looper.getMainLooper());
     }
 
     @Override // d.l.a.e.a.d.j
@@ -1059,7 +1060,7 @@ public class d implements d.j {
             BaseException baseException2 = null;
             if (baseException != null) {
                 if (d.l.a.e.b.j.a.d(downloadInfo.getId()).b("toast_without_network", 0) == 1 && baseException.getErrorCode() == 1049) {
-                    this.f74391a.post(new a(this));
+                    this.f71443a.post(new a(this));
                 }
                 if (d.l.a.e.b.l.f.V0(baseException)) {
                     if (l.y() != null) {
@@ -1073,7 +1074,7 @@ public class d implements d.j {
                     if ((l.y() == null || !l.y().d()) && (a2 = c.g.e().a(c2.b())) != null && a2.k()) {
                         d.l.a.e.b.j.a d2 = d.l.a.e.b.j.a.d(downloadInfo.getId());
                         if (d2.b("show_no_enough_space_toast", 0) == 1) {
-                            this.f74391a.post(new b(this, d2, a2));
+                            this.f71443a.post(new b(this, d2, a2));
                         }
                     }
                 }
@@ -1104,26 +1105,26 @@ public class d implements d.j {
     }
 
     /* renamed from: d.l.a.d.d$d  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public class C2060d implements q {
+    /* loaded from: classes8.dex */
+    public class C2028d implements q {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d.l.a.d.d$d$a */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes8.dex */
         public class a implements MediaScannerConnection.OnScanCompletedListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ DownloadInfo f74399a;
+            public final /* synthetic */ DownloadInfo f71451a;
 
-            public a(C2060d c2060d, DownloadInfo downloadInfo) {
+            public a(C2028d c2028d, DownloadInfo downloadInfo) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c2060d, downloadInfo};
+                    Object[] objArr = {c2028d, downloadInfo};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -1133,7 +1134,7 @@ public class d implements d.j {
                         return;
                     }
                 }
-                this.f74399a = downloadInfo;
+                this.f71451a = downloadInfo;
             }
 
             @Override // android.media.MediaScannerConnection.OnScanCompletedListener
@@ -1142,12 +1143,12 @@ public class d implements d.j {
                 if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, uri) == null) || uri == null) {
                     return;
                 }
-                this.f74399a.safePutToDBJsonData("file_content_uri", uri.toString());
-                d.l.a.e.b.g.e.M0().a(this.f74399a);
+                this.f71451a.safePutToDBJsonData("file_content_uri", uri.toString());
+                d.l.a.e.b.g.e.M0().a(this.f71451a);
             }
         }
 
-        public C2060d() {
+        public C2028d() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1224,7 +1225,7 @@ public class d implements d.j {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class f implements q {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1291,12 +1292,12 @@ public class d implements d.j {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class g implements d.i, p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes8.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -1414,7 +1415,7 @@ public class d implements d.j {
                     jSONObject.put("download_time", downloadInfo.getDownloadTime());
                     jSONObject.put("download_status", i2);
                     jSONObject.put("cur_bytes", downloadInfo.getCurBytes());
-                    jSONObject.put("total_bytes", downloadInfo.getTotalBytes());
+                    jSONObject.put(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES, downloadInfo.getTotalBytes());
                     int i3 = 1;
                     jSONObject.put("only_wifi", downloadInfo.isOnlyWifi() ? 1 : 0);
                     jSONObject.put("chunk_count", downloadInfo.getChunkCount());

@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.collection.ArrayMap;
 import androidx.core.app.SharedElementCallback;
 import androidx.core.os.CancellationSignal;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.OneShotPreDrawListener;
 import androidx.core.view.ViewCompat;
 import androidx.fragment.app.FragmentTransaction;
@@ -297,7 +298,7 @@ public class FragmentTransition {
 
     public static void calculateFragments(BackStackRecord backStackRecord, SparseArray<FragmentContainerTransition> sparseArray, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65540, null, backStackRecord, sparseArray, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, backStackRecord, sparseArray, z) == null) {
             int size = backStackRecord.mOps.size();
             for (int i2 = 0; i2 < size; i2++) {
                 addToFirstInLastOut(backStackRecord, backStackRecord.mOps.get(i2), sparseArray, false, z);

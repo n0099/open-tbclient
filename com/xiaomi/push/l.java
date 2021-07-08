@@ -2,6 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,18 +12,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile int f43516a = 0;
+    public static volatile int f40530a = 0;
 
     /* renamed from: a  reason: collision with other field name */
     public static Map<String, o> f819a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f43517b = -1;
+    public static int f40531b = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,28 +52,28 @@ public class l {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f43516a == 0) {
+            if (f40530a == 0) {
                 try {
                     i2 = 1;
                 } catch (Throwable th) {
                     com.xiaomi.channel.commonutils.logger.b.a("get isMIUI failed", th);
-                    f43516a = 0;
+                    f40530a = 0;
                 }
                 if (TextUtils.isEmpty(m533a("ro.miui.ui.version.code")) && TextUtils.isEmpty(m533a("ro.miui.ui.version.name"))) {
                     z = false;
                     if (z) {
                         i2 = 2;
                     }
-                    f43516a = i2;
-                    com.xiaomi.channel.commonutils.logger.b.b("isMIUI's value is: " + f43516a);
+                    f40530a = i2;
+                    com.xiaomi.channel.commonutils.logger.b.b("isMIUI's value is: " + f40530a);
                 }
                 z = true;
                 if (z) {
                 }
-                f43516a = i2;
-                com.xiaomi.channel.commonutils.logger.b.b("isMIUI's value is: " + f43516a);
+                f40530a = i2;
+                com.xiaomi.channel.commonutils.logger.b.b("isMIUI's value is: " + f40530a);
             }
-            return f43516a;
+            return f40530a;
         }
         return invokeV.intValue;
     }
@@ -95,7 +96,7 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             o b2 = b(str);
-            return b2 == null ? o.f43519b : b2;
+            return b2 == null ? o.f40533b : b2;
         }
         return (o) invokeL.objValue;
     }
@@ -104,7 +105,7 @@ public class l {
     public static String m532a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             int a2 = t.a();
             return (!m535a() || a2 <= 0) ? "" : a2 < 2 ? "alpha" : a2 < 3 ? "development" : "stable";
         }
@@ -136,49 +137,49 @@ public class l {
         if ((interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) && f819a == null) {
             HashMap hashMap = new HashMap();
             f819a = hashMap;
-            hashMap.put("CN", o.f43518a);
-            f819a.put("FI", o.f43520c);
-            f819a.put("SE", o.f43520c);
-            f819a.put("NO", o.f43520c);
-            f819a.put("FO", o.f43520c);
-            f819a.put("EE", o.f43520c);
-            f819a.put("LV", o.f43520c);
-            f819a.put("LT", o.f43520c);
-            f819a.put("BY", o.f43520c);
-            f819a.put("MD", o.f43520c);
-            f819a.put("UA", o.f43520c);
-            f819a.put("PL", o.f43520c);
-            f819a.put("CZ", o.f43520c);
-            f819a.put("SK", o.f43520c);
-            f819a.put("HU", o.f43520c);
-            f819a.put("DE", o.f43520c);
-            f819a.put("AT", o.f43520c);
-            f819a.put("CH", o.f43520c);
-            f819a.put("LI", o.f43520c);
-            f819a.put("GB", o.f43520c);
-            f819a.put("IE", o.f43520c);
-            f819a.put("NL", o.f43520c);
-            f819a.put("BE", o.f43520c);
-            f819a.put("LU", o.f43520c);
-            f819a.put("FR", o.f43520c);
-            f819a.put("RO", o.f43520c);
-            f819a.put("BG", o.f43520c);
-            f819a.put("RS", o.f43520c);
-            f819a.put("MK", o.f43520c);
-            f819a.put("AL", o.f43520c);
-            f819a.put("GR", o.f43520c);
-            f819a.put("SI", o.f43520c);
-            f819a.put("HR", o.f43520c);
-            f819a.put("IT", o.f43520c);
-            f819a.put("SM", o.f43520c);
-            f819a.put("MT", o.f43520c);
-            f819a.put("ES", o.f43520c);
-            f819a.put("PT", o.f43520c);
-            f819a.put("AD", o.f43520c);
-            f819a.put("CY", o.f43520c);
-            f819a.put("DK", o.f43520c);
-            f819a.put("RU", o.f43521d);
-            f819a.put("IN", o.f43522e);
+            hashMap.put("CN", o.f40532a);
+            f819a.put("FI", o.f40534c);
+            f819a.put("SE", o.f40534c);
+            f819a.put("NO", o.f40534c);
+            f819a.put("FO", o.f40534c);
+            f819a.put("EE", o.f40534c);
+            f819a.put("LV", o.f40534c);
+            f819a.put("LT", o.f40534c);
+            f819a.put("BY", o.f40534c);
+            f819a.put("MD", o.f40534c);
+            f819a.put("UA", o.f40534c);
+            f819a.put("PL", o.f40534c);
+            f819a.put("CZ", o.f40534c);
+            f819a.put("SK", o.f40534c);
+            f819a.put("HU", o.f40534c);
+            f819a.put("DE", o.f40534c);
+            f819a.put("AT", o.f40534c);
+            f819a.put("CH", o.f40534c);
+            f819a.put("LI", o.f40534c);
+            f819a.put("GB", o.f40534c);
+            f819a.put("IE", o.f40534c);
+            f819a.put("NL", o.f40534c);
+            f819a.put("BE", o.f40534c);
+            f819a.put("LU", o.f40534c);
+            f819a.put("FR", o.f40534c);
+            f819a.put("RO", o.f40534c);
+            f819a.put("BG", o.f40534c);
+            f819a.put("RS", o.f40534c);
+            f819a.put("MK", o.f40534c);
+            f819a.put("AL", o.f40534c);
+            f819a.put("GR", o.f40534c);
+            f819a.put("SI", o.f40534c);
+            f819a.put("HR", o.f40534c);
+            f819a.put("IT", o.f40534c);
+            f819a.put("SM", o.f40534c);
+            f819a.put("MT", o.f40534c);
+            f819a.put("ES", o.f40534c);
+            f819a.put("PT", o.f40534c);
+            f819a.put("AD", o.f40534c);
+            f819a.put("CY", o.f40534c);
+            f819a.put("DK", o.f40534c);
+            f819a.put("RU", o.f40535d);
+            f819a.put("IN", o.f40536e);
         }
     }
 
@@ -269,14 +270,14 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (f43517b < 0) {
+            if (f40531b < 0) {
                 Object a2 = bh.a("miui.external.SdkHelper", "isMiuiSystem", new Object[0]);
-                f43517b = 0;
+                f40531b = 0;
                 if (a2 != null && (a2 instanceof Boolean) && !((Boolean) Boolean.class.cast(a2)).booleanValue()) {
-                    f43517b = 1;
+                    f40531b = 1;
                 }
             }
-            return f43517b > 0;
+            return f40531b > 0;
         }
         return invokeV.booleanValue;
     }
@@ -284,6 +285,6 @@ public class l {
     public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? !o.f43518a.name().equalsIgnoreCase(a(b()).name()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? !o.f40532a.name().equalsIgnoreCase(a(b()).name()) : invokeV.booleanValue;
     }
 }

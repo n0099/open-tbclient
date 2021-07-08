@@ -1,5 +1,6 @@
 package com.xiaomi.push;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.PrintStream;
 import java.io.PrintWriter;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class fw extends Exception {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public gf f43140a;
+    public gf f40154a;
 
     /* renamed from: a  reason: collision with other field name */
     public gg f416a;
@@ -35,7 +36,7 @@ public class fw extends Exception {
                 return;
             }
         }
-        this.f43140a = null;
+        this.f40154a = null;
         this.f416a = null;
         this.f417a = null;
     }
@@ -55,10 +56,10 @@ public class fw extends Exception {
                 return;
             }
         }
-        this.f43140a = null;
+        this.f40154a = null;
         this.f416a = null;
         this.f417a = null;
-        this.f43140a = gfVar;
+        this.f40154a = gfVar;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -79,7 +80,7 @@ public class fw extends Exception {
                 return;
             }
         }
-        this.f43140a = null;
+        this.f40154a = null;
         this.f416a = null;
         this.f417a = null;
     }
@@ -102,7 +103,7 @@ public class fw extends Exception {
                 return;
             }
         }
-        this.f43140a = null;
+        this.f40154a = null;
         this.f416a = null;
         this.f417a = null;
         this.f417a = th;
@@ -114,16 +115,16 @@ public class fw extends Exception {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {th};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }
-        this.f43140a = null;
+        this.f40154a = null;
         this.f416a = null;
         this.f417a = null;
         this.f417a = th;
@@ -143,7 +144,7 @@ public class fw extends Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String message = super.getMessage();
-            return (message != null || (ggVar = this.f416a) == null) ? (message != null || (gfVar = this.f43140a) == null) ? message : gfVar.toString() : ggVar.toString();
+            return (message != null || (ggVar = this.f416a) == null) ? (message != null || (gfVar = this.f40154a) == null) ? message : gfVar.toString() : ggVar.toString();
         }
         return (String) invokeV.objValue;
     }
@@ -195,7 +196,7 @@ public class fw extends Exception {
             if (ggVar != null) {
                 sb.append(ggVar);
             }
-            gf gfVar = this.f43140a;
+            gf gfVar = this.f40154a;
             if (gfVar != null) {
                 sb.append(gfVar);
             }

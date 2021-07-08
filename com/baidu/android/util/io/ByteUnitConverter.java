@@ -1,5 +1,6 @@
 package com.baidu.android.util.io;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -178,7 +179,7 @@ public class ByteUnitConverter {
 
     private void convertKiloByte(double d2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, this, new Object[]{Double.valueOf(d2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Double.valueOf(d2)}) == null) {
             convertByte(d2 * 1024.0d);
         }
     }

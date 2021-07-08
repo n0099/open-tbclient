@@ -1,5 +1,6 @@
 package com.bumptech.glide.disklrucache;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +14,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.StringWriter;
 import java.nio.charset.Charset;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class Util {
     public static /* synthetic */ Interceptable $ic;
     public static final Charset US_ASCII;
@@ -86,7 +87,7 @@ public final class Util {
     public static String readFully(Reader reader) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65540, null, reader)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, reader)) != null) {
             return (String) invokeL.objValue;
         }
         try {

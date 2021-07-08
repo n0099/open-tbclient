@@ -3,6 +3,7 @@ package com.baidu.tieba.memberCenter.memberprivilege;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -64,14 +65,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.z0.p0;
+import d.a.o0.z0.p0;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MemberCenterStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,7 +129,7 @@ public class MemberCenterStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class b implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -176,7 +177,7 @@ public class MemberCenterStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class c implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -213,7 +214,7 @@ public class MemberCenterStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class d implements CustomMessageTask.CustomRunnable<Context> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -233,20 +234,20 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.a.r0.w.m> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<d.a.o0.w.m> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2001342, new d.a.s0.v1.h.e.a(customMessage.getData(), 1));
+                return new CustomResponsedMessage<>(2001342, new d.a.p0.v1.h.e.a(customMessage.getData(), 1));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class e implements CustomMessageTask.CustomRunnable<Context> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -266,20 +267,20 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.a.r0.w.m> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<d.a.o0.w.m> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2001343, new d.a.s0.v1.h.d.b(customMessage.getData()));
+                return new CustomResponsedMessage<>(2001343, new d.a.p0.v1.h.d.b(customMessage.getData()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class f implements CustomMessageTask.CustomRunnable<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -302,11 +303,11 @@ public class MemberCenterStatic {
         public CustomResponsedMessage<Object> run(CustomMessage<String> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001294, new d.a.s0.v1.g.b()) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001294, new d.a.p0.v1.g.b()) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class g implements CustomMessageTask.CustomRunnable<TbPageContext> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -341,7 +342,7 @@ public class MemberCenterStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class h implements CustomMessageTask.CustomRunnable<HttpResponsedMessage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -387,7 +388,7 @@ public class MemberCenterStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class i implements CustomMessageTask.CustomRunnable<Context> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -407,20 +408,20 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.a.r0.w.m> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<d.a.o0.w.m> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2001339, new d.a.s0.v1.b.b(customMessage.getData()));
+                return new CustomResponsedMessage<>(2001339, new d.a.p0.v1.b.b(customMessage.getData()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class j implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -454,7 +455,7 @@ public class MemberCenterStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class k implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -493,7 +494,7 @@ public class MemberCenterStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class l implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -551,7 +552,7 @@ public class MemberCenterStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class m implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -592,7 +593,7 @@ public class MemberCenterStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class n implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -724,9 +725,9 @@ public class MemberCenterStatic {
 
     public static void c(int i2, int i3, String str, Class<? extends HttpResponsedMessage> cls, Class<? extends SocketResponsedMessage> cls2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, cls, cls2}) == null) {
-            d.a.s0.h3.d0.a.h(i3, cls2, false, false);
-            d.a.s0.h3.d0.a.c(i3, i2, str, cls, false, false, false, false);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, cls, cls2}) == null) {
+            d.a.p0.h3.d0.a.h(i3, cls2, false, false);
+            d.a.p0.h3.d0.a.c(i3, i2, str, cls, false, false, false, false);
         }
     }
 

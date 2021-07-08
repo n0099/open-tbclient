@@ -21,37 +21,37 @@ import com.bytedance.sdk.openadsdk.k.a.c;
 import com.bytedance.sdk.openadsdk.r.i;
 import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c<T extends c> implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f31266a;
+    public String f31376a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f31267b;
+    public String f31377b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f31268c;
+    public String f31378c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f31269d;
+    public String f31379d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f31270e;
+    public String f31380e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f31271f;
+    public long f31381f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f31272g;
+    public int f31382g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f31273h;
+    public String f31383h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f31274i;
+    public int f31384i;
     public String j;
     public String k;
     public String l;
@@ -72,10 +72,10 @@ public class c<T extends c> implements a {
                 return;
             }
         }
-        this.f31269d = "3.6.1.3";
-        this.f31271f = System.currentTimeMillis() / 1000;
-        this.f31272g = 0;
-        this.f31274i = 0;
+        this.f31379d = "3.6.1.3";
+        this.f31381f = System.currentTimeMillis() / 1000;
+        this.f31382g = 0;
+        this.f31384i = 0;
     }
 
     public static c<c> b() {
@@ -117,7 +117,7 @@ public class c<T extends c> implements a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            this.f31272g = i2;
+            this.f31382g = i2;
             return s();
         }
         return (T) invokeI.objValue;
@@ -127,7 +127,7 @@ public class c<T extends c> implements a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.f31266a = str;
+            this.f31376a = str;
             return s();
         }
         return (T) invokeL.objValue;
@@ -231,7 +231,7 @@ public class c<T extends c> implements a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            this.f31274i = i2;
+            this.f31384i = i2;
             return s();
         }
         return (T) invokeI.objValue;
@@ -251,7 +251,7 @@ public class c<T extends c> implements a {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
-            this.f31271f = j;
+            this.f31381f = j;
             return s();
         }
         return (T) invokeJ.objValue;
@@ -261,7 +261,7 @@ public class c<T extends c> implements a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            this.f31267b = str;
+            this.f31377b = str;
             return s();
         }
         return (T) invokeL.objValue;
@@ -270,14 +270,14 @@ public class c<T extends c> implements a {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f31266a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f31376a : (String) invokeV.objValue;
     }
 
     public T d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            this.f31268c = str;
+            this.f31378c = str;
             return s();
         }
         return (T) invokeL.objValue;
@@ -293,7 +293,7 @@ public class c<T extends c> implements a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            this.f31269d = str;
+            this.f31379d = str;
             return s();
         }
         return (T) invokeL.objValue;
@@ -302,7 +302,7 @@ public class c<T extends c> implements a {
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f31267b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f31377b : (String) invokeV.objValue;
     }
 
     public T f(String str) {
@@ -318,14 +318,14 @@ public class c<T extends c> implements a {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f31268c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f31378c : (String) invokeV.objValue;
     }
 
     public T g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            this.f31273h = str;
+            this.f31383h = str;
             return s();
         }
         return (T) invokeL.objValue;
@@ -334,7 +334,7 @@ public class c<T extends c> implements a {
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f31269d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f31379d : (String) invokeV.objValue;
     }
 
     public T h(String str) {
@@ -366,13 +366,13 @@ public class c<T extends c> implements a {
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f31270e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f31380e : (String) invokeV.objValue;
     }
 
     public long j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f31271f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f31381f : invokeV.longValue;
     }
 
     public T j(String str) {
@@ -388,7 +388,7 @@ public class c<T extends c> implements a {
     public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f31272g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f31382g : invokeV.intValue;
     }
 
     public T k(String str) {
@@ -404,13 +404,13 @@ public class c<T extends c> implements a {
     public String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f31273h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f31383h : (String) invokeV.objValue;
     }
 
     public int m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f31274i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f31384i : invokeV.intValue;
     }
 
     public String n() {

@@ -2,6 +2,7 @@ package com.baidu.searchbox.http.interceptor;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -30,7 +31,7 @@ import okhttp3.ResponseBody;
 import okhttp3.internal.http.HttpHeaders;
 import okio.Buffer;
 import okio.BufferedSource;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LogInterceptor implements Interceptor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "http";
@@ -39,7 +40,7 @@ public class LogInterceptor implements Interceptor {
     public volatile Level level;
     public final Logger logger;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class DefaultLogger implements Logger {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +79,7 @@ public class LogInterceptor implements Interceptor {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class Level {
         public static final /* synthetic */ Level[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -141,7 +142,7 @@ public class LogInterceptor implements Interceptor {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface Logger {
         void log(String str);
     }
@@ -186,7 +187,7 @@ public class LogInterceptor implements Interceptor {
     private boolean bodyEncoded(Headers headers) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, headers)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, headers)) == null) {
             String str = headers.get("Content-Encoding");
             return (str == null || str.equalsIgnoreCase("identity")) ? false : true;
         }

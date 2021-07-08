@@ -11,6 +11,7 @@ import android.view.animation.Interpolator;
 import androidx.annotation.RestrictTo;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.graphics.PathParser;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -118,7 +119,7 @@ public class PathInterpolatorCompat implements Interpolator {
 
     private void initQuad(float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
             Path path = new Path();
             path.moveTo(0.0f, 0.0f);
             path.quadTo(f2, f3, 1.0f, 1.0f);

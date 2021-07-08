@@ -9,6 +9,7 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.view.ContextThemeWrapper;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class DrawableDecoderCompat {
     public static /* synthetic */ Interceptable $ic = null;
     public static volatile boolean shouldCallAppCompatResources = true;
@@ -85,7 +86,7 @@ public final class DrawableDecoderCompat {
     public static Drawable getDrawable(Context context, Context context2, @DrawableRes int i2, @Nullable Resources.Theme theme) {
         InterceptResult invokeLLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65540, null, context, context2, i2, theme)) == null) {
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, context2, i2, theme)) == null) {
             try {
                 if (shouldCallAppCompatResources) {
                     return loadDrawableV7(context2, i2, theme);

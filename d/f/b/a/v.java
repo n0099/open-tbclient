@@ -24,37 +24,37 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArraySet;
 @TargetApi(16)
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class v implements g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final r[] f73518a;
+    public final r[] f70621a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final g f73519b;
+    public final g f70622b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b f73520c;
+    public final b f70623c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final CopyOnWriteArraySet<c> f73521d;
+    public final CopyOnWriteArraySet<c> f70624d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final CopyOnWriteArraySet<d.f.b.a.e0.j> f73522e;
+    public final CopyOnWriteArraySet<d.f.b.a.e0.j> f70625e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final CopyOnWriteArraySet<d.f.b.a.c0.d> f73523f;
+    public final CopyOnWriteArraySet<d.f.b.a.c0.d> f70626f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f73524g;
+    public final int f70627g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f73525h;
+    public final int f70628h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Format f73526i;
+    public Format f70629i;
     public Format j;
     public Surface k;
     public boolean l;
@@ -67,19 +67,19 @@ public class v implements g {
     public int s;
     public float t;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public final class b implements d.f.b.a.j0.e, d.f.b.a.x.d, d.f.b.a.e0.j, d.f.b.a.c0.d, SurfaceHolder.Callback, TextureView.SurfaceTextureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ v f73527e;
+        public final /* synthetic */ v f70630e;
 
         public b(v vVar) {
             Interceptable interceptable = $ic;
@@ -96,16 +96,16 @@ public class v implements g {
                     return;
                 }
             }
-            this.f73527e = vVar;
+            this.f70630e = vVar;
         }
 
         @Override // d.f.b.a.x.d
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f73527e.s = i2;
-                if (this.f73527e.o != null) {
-                    this.f73527e.o.a(i2);
+                this.f70630e.s = i2;
+                if (this.f70630e.o != null) {
+                    this.f70630e.o.a(i2);
                 }
             }
         }
@@ -113,28 +113,28 @@ public class v implements g {
         @Override // d.f.b.a.x.d
         public void b(String str, long j, long j2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) || this.f73527e.o == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) || this.f70630e.o == null) {
                 return;
             }
-            this.f73527e.o.b(str, j, j2);
+            this.f70630e.o.b(str, j, j2);
         }
 
         @Override // d.f.b.a.j0.e
         public void c(int i2, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) || this.f73527e.p == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) || this.f70630e.p == null) {
                 return;
             }
-            this.f73527e.p.c(i2, j);
+            this.f70630e.p.c(i2, j);
         }
 
         @Override // d.f.b.a.x.d
         public void d(d.f.b.a.y.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
-                this.f73527e.r = dVar;
-                if (this.f73527e.o != null) {
-                    this.f73527e.o.d(dVar);
+                this.f70630e.r = dVar;
+                if (this.f70630e.o != null) {
+                    this.f70630e.o.d(dVar);
                 }
             }
         }
@@ -142,24 +142,24 @@ public class v implements g {
         @Override // d.f.b.a.j0.e
         public void e(String str, long j, long j2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) || this.f73527e.p == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) || this.f70630e.p == null) {
                 return;
             }
-            this.f73527e.p.e(str, j, j2);
+            this.f70630e.p.e(str, j, j2);
         }
 
         @Override // d.f.b.a.j0.e
         public void f(Surface surface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, surface) == null) {
-                if (this.f73527e.k == surface) {
-                    Iterator it = this.f73527e.f73521d.iterator();
+                if (this.f70630e.k == surface) {
+                    Iterator it = this.f70630e.f70624d.iterator();
                     while (it.hasNext()) {
                         ((c) it.next()).h();
                     }
                 }
-                if (this.f73527e.p != null) {
-                    this.f73527e.p.f(surface);
+                if (this.f70630e.p != null) {
+                    this.f70630e.p.f(surface);
                 }
             }
         }
@@ -168,7 +168,7 @@ public class v implements g {
         public void g(Metadata metadata) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, metadata) == null) {
-                Iterator it = this.f73527e.f73523f.iterator();
+                Iterator it = this.f70630e.f70626f.iterator();
                 while (it.hasNext()) {
                     ((d.f.b.a.c0.d) it.next()).g(metadata);
                 }
@@ -179,9 +179,9 @@ public class v implements g {
         public void h(Format format) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, format) == null) {
-                this.f73527e.f73526i = format;
-                if (this.f73527e.p != null) {
-                    this.f73527e.p.h(format);
+                this.f70630e.f70629i = format;
+                if (this.f70630e.p != null) {
+                    this.f70630e.p.h(format);
                 }
             }
         }
@@ -190,7 +190,7 @@ public class v implements g {
         public void i(List<d.f.b.a.e0.b> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
-                Iterator it = this.f73527e.f73522e.iterator();
+                Iterator it = this.f70630e.f70625e.iterator();
                 while (it.hasNext()) {
                     ((d.f.b.a.e0.j) it.next()).i(list);
                 }
@@ -200,21 +200,21 @@ public class v implements g {
         @Override // d.f.b.a.x.d
         public void j(int i2, long j, long j2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)}) == null) || this.f73527e.o == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)}) == null) || this.f70630e.o == null) {
                 return;
             }
-            this.f73527e.o.j(i2, j, j2);
+            this.f70630e.o.j(i2, j, j2);
         }
 
         @Override // d.f.b.a.j0.e
         public void k(d.f.b.a.y.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048586, this, dVar) == null) {
-                if (this.f73527e.p != null) {
-                    this.f73527e.p.k(dVar);
+                if (this.f70630e.p != null) {
+                    this.f70630e.p.k(dVar);
                 }
-                this.f73527e.f73526i = null;
-                this.f73527e.q = null;
+                this.f70630e.f70629i = null;
+                this.f70630e.q = null;
             }
         }
 
@@ -222,12 +222,12 @@ public class v implements g {
         public void l(d.f.b.a.y.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048587, this, dVar) == null) {
-                if (this.f73527e.o != null) {
-                    this.f73527e.o.l(dVar);
+                if (this.f70630e.o != null) {
+                    this.f70630e.o.l(dVar);
                 }
-                this.f73527e.j = null;
-                this.f73527e.r = null;
-                this.f73527e.s = 0;
+                this.f70630e.j = null;
+                this.f70630e.r = null;
+                this.f70630e.s = 0;
             }
         }
 
@@ -235,9 +235,9 @@ public class v implements g {
         public void m(d.f.b.a.y.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048588, this, dVar) == null) {
-                this.f73527e.q = dVar;
-                if (this.f73527e.p != null) {
-                    this.f73527e.p.m(dVar);
+                this.f70630e.q = dVar;
+                if (this.f70630e.p != null) {
+                    this.f70630e.p.m(dVar);
                 }
             }
         }
@@ -246,9 +246,9 @@ public class v implements g {
         public void n(Format format) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048589, this, format) == null) {
-                this.f73527e.j = format;
-                if (this.f73527e.o != null) {
-                    this.f73527e.o.n(format);
+                this.f70630e.j = format;
+                if (this.f70630e.o != null) {
+                    this.f70630e.o.n(format);
                 }
             }
         }
@@ -257,7 +257,7 @@ public class v implements g {
         public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048590, this, surfaceTexture, i2, i3) == null) {
-                this.f73527e.U(new Surface(surfaceTexture), true);
+                this.f70630e.U(new Surface(surfaceTexture), true);
             }
         }
 
@@ -266,7 +266,7 @@ public class v implements g {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, surfaceTexture)) == null) {
-                this.f73527e.U(null, true);
+                this.f70630e.U(null, true);
                 return true;
             }
             return invokeL.booleanValue;
@@ -290,12 +290,12 @@ public class v implements g {
         public void onVideoSizeChanged(int i2, int i3, int i4, float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2)}) == null) {
-                Iterator it = this.f73527e.f73521d.iterator();
+                Iterator it = this.f70630e.f70624d.iterator();
                 while (it.hasNext()) {
                     ((c) it.next()).onVideoSizeChanged(i2, i3, i4, f2);
                 }
-                if (this.f73527e.p != null) {
-                    this.f73527e.p.onVideoSizeChanged(i2, i3, i4, f2);
+                if (this.f70630e.p != null) {
+                    this.f70630e.p.onVideoSizeChanged(i2, i3, i4, f2);
                 }
             }
         }
@@ -311,7 +311,7 @@ public class v implements g {
         public void surfaceCreated(SurfaceHolder surfaceHolder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048596, this, surfaceHolder) == null) {
-                this.f73527e.U(surfaceHolder.getSurface(), false);
+                this.f70630e.U(surfaceHolder.getSurface(), false);
             }
         }
 
@@ -319,7 +319,7 @@ public class v implements g {
         public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048597, this, surfaceHolder) == null) {
-                this.f73527e.U(null, false);
+                this.f70630e.U(null, false);
             }
         }
 
@@ -328,7 +328,7 @@ public class v implements g {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface c {
         void h();
 
@@ -350,42 +350,42 @@ public class v implements g {
                 return;
             }
         }
-        this.f73520c = new b(this, null);
-        this.f73521d = new CopyOnWriteArraySet<>();
-        this.f73522e = new CopyOnWriteArraySet<>();
-        this.f73523f = new CopyOnWriteArraySet<>();
+        this.f70623c = new b(this, null);
+        this.f70624d = new CopyOnWriteArraySet<>();
+        this.f70625e = new CopyOnWriteArraySet<>();
+        this.f70626f = new CopyOnWriteArraySet<>();
         Handler handler = new Handler(Looper.myLooper() != null ? Looper.myLooper() : Looper.getMainLooper());
-        b bVar = this.f73520c;
+        b bVar = this.f70623c;
         r[] a2 = uVar.a(handler, bVar, bVar, bVar, bVar);
-        this.f73518a = a2;
+        this.f70621a = a2;
         int i4 = 0;
         int i5 = 0;
         for (r rVar : a2) {
-            int trackType = rVar.getTrackType();
-            if (trackType == 1) {
+            int e2 = rVar.e();
+            if (e2 == 1) {
                 i5++;
-            } else if (trackType == 2) {
+            } else if (e2 == 2) {
                 i4++;
             }
         }
-        this.f73524g = i4;
-        this.f73525h = i5;
+        this.f70627g = i4;
+        this.f70628h = i5;
         this.t = 1.0f;
-        d.f.b.a.x.b bVar2 = d.f.b.a.x.b.f73558e;
-        this.f73519b = N(this.f73518a, hVar, mVar);
+        d.f.b.a.x.b bVar2 = d.f.b.a.x.b.f70661e;
+        this.f70622b = N(this.f70621a, hVar, mVar);
     }
 
     public void I(d.f.b.a.e0.j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-            this.f73522e.add(jVar);
+            this.f70625e.add(jVar);
         }
     }
 
     public void J(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f73521d.add(cVar);
+            this.f70624d.add(cVar);
         }
     }
 
@@ -427,7 +427,7 @@ public class v implements g {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             TextureView textureView = this.n;
             if (textureView != null) {
-                if (textureView.getSurfaceTextureListener() != this.f73520c) {
+                if (textureView.getSurfaceTextureListener() != this.f70623c) {
                     Log.w("SimpleExoPlayer", "SurfaceTextureListener already unset or replaced.");
                 } else {
                     this.n.setSurfaceTextureListener(null);
@@ -436,7 +436,7 @@ public class v implements g {
             }
             SurfaceHolder surfaceHolder = this.m;
             if (surfaceHolder != null) {
-                surfaceHolder.removeCallback(this.f73520c);
+                surfaceHolder.removeCallback(this.f70623c);
                 this.m = null;
             }
         }
@@ -445,14 +445,14 @@ public class v implements g {
     public void Q(d.f.b.a.e0.j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jVar) == null) {
-            this.f73522e.remove(jVar);
+            this.f70625e.remove(jVar);
         }
     }
 
     public void R(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
-            this.f73521d.remove(cVar);
+            this.f70624d.remove(cVar);
         }
     }
 
@@ -474,7 +474,7 @@ public class v implements g {
                 U(null, false);
                 return;
             }
-            surfaceHolder.addCallback(this.f73520c);
+            surfaceHolder.addCallback(this.f70623c);
             Surface surface2 = surfaceHolder.getSurface();
             if (surface2 != null && surface2.isValid()) {
                 surface = surface2;
@@ -487,22 +487,22 @@ public class v implements g {
         r[] rVarArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048588, this, surface, z) == null) {
-            g.b[] bVarArr = new g.b[this.f73524g];
+            g.b[] bVarArr = new g.b[this.f70627g];
             int i2 = 0;
-            for (r rVar : this.f73518a) {
-                if (rVar.getTrackType() == 2) {
+            for (r rVar : this.f70621a) {
+                if (rVar.e() == 2) {
                     bVarArr[i2] = new g.b(rVar, 1, surface);
                     i2++;
                 }
             }
             Surface surface2 = this.k;
             if (surface2 != null && surface2 != surface) {
-                this.f73519b.a(bVarArr);
+                this.f70622b.a(bVarArr);
                 if (this.l) {
                     this.k.release();
                 }
             } else {
-                this.f73519b.s(bVarArr);
+                this.f70622b.s(bVarArr);
             }
             this.k = surface;
             this.l = z;
@@ -528,7 +528,7 @@ public class v implements g {
             if (textureView.getSurfaceTextureListener() != null) {
                 Log.w("SimpleExoPlayer", "Replacing existing SurfaceTextureListener.");
             }
-            textureView.setSurfaceTextureListener(this.f73520c);
+            textureView.setSurfaceTextureListener(this.f70623c);
             SurfaceTexture surfaceTexture = textureView.isAvailable() ? textureView.getSurfaceTexture() : null;
             U(surfaceTexture != null ? new Surface(surfaceTexture) : null, true);
         }
@@ -539,15 +539,15 @@ public class v implements g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048591, this, f2) == null) {
             this.t = f2;
-            g.b[] bVarArr = new g.b[this.f73525h];
+            g.b[] bVarArr = new g.b[this.f70628h];
             int i2 = 0;
-            for (r rVar : this.f73518a) {
-                if (rVar.getTrackType() == 1) {
+            for (r rVar : this.f70621a) {
+                if (rVar.e() == 1) {
                     bVarArr[i2] = new g.b(rVar, 2, Float.valueOf(f2));
                     i2++;
                 }
             }
-            this.f73519b.s(bVarArr);
+            this.f70622b.s(bVarArr);
         }
     }
 
@@ -555,7 +555,7 @@ public class v implements g {
     public void a(g.b... bVarArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, bVarArr) == null) {
-            this.f73519b.a(bVarArr);
+            this.f70622b.a(bVarArr);
         }
     }
 
@@ -563,7 +563,7 @@ public class v implements g {
     public void b(d.f.b.a.d0.l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, lVar) == null) {
-            this.f73519b.b(lVar);
+            this.f70622b.b(lVar);
         }
     }
 
@@ -571,7 +571,7 @@ public class v implements g {
     public void c(p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, pVar) == null) {
-            this.f73519b.c(pVar);
+            this.f70622b.c(pVar);
         }
     }
 
@@ -579,21 +579,21 @@ public class v implements g {
     public p d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f73519b.d() : (p) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f70622b.d() : (p) invokeV.objValue;
     }
 
     @Override // d.f.b.a.q
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f73519b.e() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f70622b.e() : invokeV.booleanValue;
     }
 
     @Override // d.f.b.a.q
     public void f(q.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, bVar) == null) {
-            this.f73519b.f(bVar);
+            this.f70622b.f(bVar);
         }
     }
 
@@ -601,42 +601,42 @@ public class v implements g {
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f73519b.g() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f70622b.g() : invokeV.booleanValue;
     }
 
     @Override // d.f.b.a.q
     public long getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f73519b.getCurrentPosition() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f70622b.getCurrentPosition() : invokeV.longValue;
     }
 
     @Override // d.f.b.a.q
     public long getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f73519b.getDuration() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f70622b.getDuration() : invokeV.longValue;
     }
 
     @Override // d.f.b.a.q
     public int getPlaybackState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f73519b.getPlaybackState() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f70622b.getPlaybackState() : invokeV.intValue;
     }
 
     @Override // d.f.b.a.q
     public int getRepeatMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f73519b.getRepeatMode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f70622b.getRepeatMode() : invokeV.intValue;
     }
 
     @Override // d.f.b.a.q
     public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
-            this.f73519b.h(z);
+            this.f70622b.h(z);
         }
     }
 
@@ -644,7 +644,7 @@ public class v implements g {
     public void i(q.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, bVar) == null) {
-            this.f73519b.i(bVar);
+            this.f70622b.i(bVar);
         }
     }
 
@@ -652,21 +652,21 @@ public class v implements g {
     public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f73519b.j() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f70622b.j() : invokeV.intValue;
     }
 
     @Override // d.f.b.a.q
     public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f73519b.k() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f70622b.k() : invokeV.intValue;
     }
 
     @Override // d.f.b.a.q
     public void l(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
-            this.f73519b.l(z);
+            this.f70622b.l(z);
         }
     }
 
@@ -674,28 +674,28 @@ public class v implements g {
     public w m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f73519b.m() : (w) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f70622b.m() : (w) invokeV.objValue;
     }
 
     @Override // d.f.b.a.q
     public d.f.b.a.f0.g n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.f73519b.n() : (d.f.b.a.f0.g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.f70622b.n() : (d.f.b.a.f0.g) invokeV.objValue;
     }
 
     @Override // d.f.b.a.q
     public int o(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048610, this, i2)) == null) ? this.f73519b.o(i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048610, this, i2)) == null) ? this.f70622b.o(i2) : invokeI.intValue;
     }
 
     @Override // d.f.b.a.q
     public void p(int i2, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048611, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            this.f73519b.p(i2, j);
+            this.f70622b.p(i2, j);
         }
     }
 
@@ -703,21 +703,21 @@ public class v implements g {
     public long q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f73519b.q() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f70622b.q() : invokeV.longValue;
     }
 
     @Override // d.f.b.a.q
     public int r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.f73519b.r() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.f70622b.r() : invokeV.intValue;
     }
 
     @Override // d.f.b.a.q
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
-            this.f73519b.release();
+            this.f70622b.release();
             P();
             Surface surface = this.k;
             if (surface != null) {
@@ -733,7 +733,7 @@ public class v implements g {
     public void s(g.b... bVarArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048615, this, bVarArr) == null) {
-            this.f73519b.s(bVarArr);
+            this.f70622b.s(bVarArr);
         }
     }
 
@@ -741,7 +741,7 @@ public class v implements g {
     public void setRepeatMode(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
-            this.f73519b.setRepeatMode(i2);
+            this.f70622b.setRepeatMode(i2);
         }
     }
 
@@ -749,7 +749,7 @@ public class v implements g {
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
-            this.f73519b.stop();
+            this.f70622b.stop();
         }
     }
 
@@ -757,20 +757,20 @@ public class v implements g {
     public long t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.f73519b.t() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.f70622b.t() : invokeV.longValue;
     }
 
     @Override // d.f.b.a.q
     public int u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.f73519b.u() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.f70622b.u() : invokeV.intValue;
     }
 
     @Override // d.f.b.a.q
     public boolean v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.f73519b.v() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.f70622b.v() : invokeV.booleanValue;
     }
 }

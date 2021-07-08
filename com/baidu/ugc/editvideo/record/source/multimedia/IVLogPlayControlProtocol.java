@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface IVLogPlayControlProtocol {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnPlayStateListener {
         void onPause();
 
@@ -22,7 +22,7 @@ public interface IVLogPlayControlProtocol {
         void onStart();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static abstract class OnPlayStateListenerAdapter implements OnPlayStateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

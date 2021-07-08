@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.b.e;
 import com.kwad.sdk.core.network.BaseResultData;
-import com.kwad.sdk.utils.o;
+import com.kwad.sdk.utils.q;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BatchReportResult extends BaseResultData implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class BatchReportResult extends BaseResultData implements com.kwad.sdk.co
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.result : invokeV.longValue;
     }
 
-    @Override // com.kwad.sdk.core.network.BaseResultData
+    @Override // com.kwad.sdk.core.network.BaseResultData, com.kwad.sdk.core.b
     public void parseJson(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
@@ -68,7 +68,7 @@ public class BatchReportResult extends BaseResultData implements com.kwad.sdk.co
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             JSONObject json = super.toJson();
-            o.a(json, "interval", this.interval);
+            q.a(json, "interval", this.interval);
             return json;
         }
         return (JSONObject) invokeV.objValue;

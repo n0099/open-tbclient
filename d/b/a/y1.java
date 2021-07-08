@@ -17,31 +17,31 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class y1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f71778a;
+    public final Context f68881a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final InitConfig f71779b;
+    public final InitConfig f68882b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final SharedPreferences f71780c;
+    public final SharedPreferences f68883c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final SharedPreferences f71781d;
+    public final SharedPreferences f68884d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final SharedPreferences f71782e;
+    public final SharedPreferences f68885e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile JSONObject f71783f;
+    public volatile JSONObject f68886f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile JSONObject f71784g;
+    public volatile JSONObject f68887g;
 
     public y1(Context context, InitConfig initConfig) {
         Interceptable interceptable = $ic;
@@ -58,17 +58,17 @@ public class y1 {
                 return;
             }
         }
-        this.f71778a = context;
-        this.f71779b = initConfig;
-        this.f71782e = context.getSharedPreferences("embed_applog_stats", 0);
-        this.f71780c = this.f71778a.getSharedPreferences("embed_header_custom", 0);
-        this.f71781d = this.f71778a.getSharedPreferences("embed_last_sp_session", 0);
+        this.f68881a = context;
+        this.f68882b = initConfig;
+        this.f68885e = context.getSharedPreferences("embed_applog_stats", 0);
+        this.f68883c = this.f68881a.getSharedPreferences("embed_header_custom", 0);
+        this.f68884d = this.f68881a.getSharedPreferences("embed_last_sp_session", 0);
     }
 
     public int A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71781d.getInt("session_order", 0) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68884d.getInt("session_order", 0) : invokeV.intValue;
     }
 
     public JSONObject B(String str) {
@@ -81,111 +81,111 @@ public class y1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
             h0.a("setAbConfig, " + jSONObject.toString(), null);
-            this.f71780c.edit().putString("ab_configure", jSONObject.toString()).apply();
-            this.f71783f = null;
+            this.f68883c.edit().putString("ab_configure", jSONObject.toString()).apply();
+            this.f68886f = null;
         }
     }
 
     public SharedPreferences D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f71782e : (SharedPreferences) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f68885e : (SharedPreferences) invokeV.objValue;
     }
 
     public void E(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f71782e.edit().putString(com.alipay.sdk.cons.b.f1841b, str).apply();
+            this.f68885e.edit().putString(com.alipay.sdk.cons.b.f1842b, str).apply();
         }
     }
 
     public void F(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f71780c.edit().putString("ab_version", str).apply();
+            this.f68883c.edit().putString("ab_version", str).apply();
         }
     }
 
     public boolean G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f71779b.isPlayEnable() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f68882b.isPlayEnable() : invokeV.booleanValue;
     }
 
     public JSONObject H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f71784g : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f68887g : (JSONObject) invokeV.objValue;
     }
 
     public long I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f71782e.getLong("app_log_last_config_time", 0L) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f68885e.getLong("app_log_last_config_time", 0L) : invokeV.longValue;
     }
 
     public int J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f71782e.getInt("bav_monitor_rate", 0) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f68885e.getInt("bav_monitor_rate", 0) : invokeV.intValue;
     }
 
     public String K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f71779b.getAid() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f68882b.getAid() : (String) invokeV.objValue;
     }
 
     public String L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f71779b.getChannel() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f68882b.getChannel() : (String) invokeV.objValue;
     }
 
     public String M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f71779b.getGoogleAid() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f68882b.getGoogleAid() : (String) invokeV.objValue;
     }
 
     public String N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f71779b.getLanguage() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f68882b.getLanguage() : (String) invokeV.objValue;
     }
 
     public String O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f71779b.getRegion() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f68882b.getRegion() : (String) invokeV.objValue;
     }
 
     public String P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f71780c.getString("header_custom_info", null) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f68883c.getString("header_custom_info", null) : (String) invokeV.objValue;
     }
 
     public String Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f71780c.getString("ab_sdk_version", "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f68883c.getString("ab_sdk_version", "") : (String) invokeV.objValue;
     }
 
     public String R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f71780c.getString("user_unique_id", null) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f68883c.getString("user_unique_id", null) : (String) invokeV.objValue;
     }
 
     public boolean S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            if (this.f71779b.getProcess() == 0) {
-                this.f71779b.setProcess(!i0.b(this.f71778a).contains(":"));
+            if (this.f68882b.getProcess() == 0) {
+                this.f68882b.setProcess(!i0.b(this.f68881a).contains(":"));
             }
-            return this.f71779b.getProcess() == 1;
+            return this.f68882b.getProcess() == 1;
         }
         return invokeV.booleanValue;
     }
@@ -193,17 +193,17 @@ public class y1 {
     public long T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f71782e.getLong("abtest_fetch_interval", 0L) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f68885e.getLong("abtest_fetch_interval", 0L) : invokeV.longValue;
     }
 
     public String U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            if (!TextUtils.isEmpty(this.f71779b.getAbVersion())) {
-                return this.f71779b.getAbVersion();
+            if (!TextUtils.isEmpty(this.f68882b.getAbVersion())) {
+                return this.f68882b.getAbVersion();
             }
-            return this.f71780c.getString("ab_version", null);
+            return this.f68883c.getString("ab_version", null);
         }
         return (String) invokeV.objValue;
     }
@@ -212,19 +212,19 @@ public class y1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            JSONObject jSONObject = this.f71783f;
+            JSONObject jSONObject = this.f68886f;
             if (jSONObject == null) {
                 synchronized (this) {
                     try {
                         if (W()) {
-                            jSONObject = new JSONObject(this.f71780c.getString("ab_configure", ""));
+                            jSONObject = new JSONObject(this.f68883c.getString("ab_configure", ""));
                         }
                     } catch (JSONException unused) {
                     }
                     if (jSONObject == null) {
                         jSONObject = new JSONObject();
                     }
-                    this.f71783f = jSONObject;
+                    this.f68886f = jSONObject;
                 }
             }
             return jSONObject;
@@ -235,32 +235,32 @@ public class y1 {
     public boolean W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f71782e.getBoolean("bav_ab_config", false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f68885e.getBoolean("bav_ab_config", false) : invokeV.booleanValue;
     }
 
     public boolean X() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f71782e.getBoolean("bav_log_collect", false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f68885e.getBoolean("bav_log_collect", false) : invokeV.booleanValue;
     }
 
     public long Y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f71782e.getLong("session_interval", 30000L) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f68885e.getLong("session_interval", 30000L) : invokeV.longValue;
     }
 
     public long Z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f71782e.getLong("batch_event_interval", 30000L) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f68885e.getLong("batch_event_interval", 30000L) : invokeV.longValue;
     }
 
     @Nullable
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f71782e.getString(com.alipay.sdk.cons.b.f1841b, null) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f68885e.getString(com.alipay.sdk.cons.b.f1842b, null) : (String) invokeV.objValue;
     }
 
     public String a0() {
@@ -284,97 +284,97 @@ public class y1 {
     public String b0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f71779b.getReleaseBuild() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f68882b.getReleaseBuild() : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f71779b.getAppName() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f68882b.getAppName() : (String) invokeV.objValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f71779b.getVersionCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f68882b.getVersionCode() : invokeV.intValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f71779b.getUpdateVersionCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f68882b.getUpdateVersionCode() : invokeV.intValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.f71779b.getManifestVersionCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.f68882b.getManifestVersionCode() : invokeV.intValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f71779b.getVersion() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f68882b.getVersion() : (String) invokeV.objValue;
     }
 
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.f71779b.getTweakedChannel() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.f68882b.getTweakedChannel() : (String) invokeV.objValue;
     }
 
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f71779b.getAbClient() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f68882b.getAbClient() : (String) invokeV.objValue;
     }
 
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.f71779b.getAbGroup() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.f68882b.getAbGroup() : (String) invokeV.objValue;
     }
 
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.f71779b.getAbFeature() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.f68882b.getAbFeature() : (String) invokeV.objValue;
     }
 
     public String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.f71779b.getVersionMinor() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.f68882b.getVersionMinor() : (String) invokeV.objValue;
     }
 
     public String m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.f71779b.getAppImei() == null ? "" : this.f71779b.getAppImei() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.f68882b.getAppImei() == null ? "" : this.f68882b.getAppImei() : (String) invokeV.objValue;
     }
 
     public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.f71779b.isImeiEnable() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.f68882b.isImeiEnable() : invokeV.booleanValue;
     }
 
     public InitConfig o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.f71779b : (InitConfig) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.f68882b : (InitConfig) invokeV.objValue;
     }
 
     public CharSequence p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.f71779b.getZiJieCloudPkg() : (CharSequence) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.f68882b.getZiJieCloudPkg() : (CharSequence) invokeV.objValue;
     }
 
     public String q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.f71779b.getAliyunUdid() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.f68882b.getAliyunUdid() : (String) invokeV.objValue;
     }
 
     public void r(long j) {
@@ -386,14 +386,14 @@ public class y1 {
     public void s(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
-            this.f71780c.edit().putString("ab_sdk_version", str).apply();
+            this.f68883c.edit().putString("ab_sdk_version", str).apply();
         }
     }
 
     public void t(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048623, this, str, i2) == null) {
-            this.f71781d.edit().putString("session_last_day", str).putInt("session_order", i2).apply();
+            this.f68884d.edit().putString("session_last_day", str).putInt("session_order", i2).apply();
         }
     }
 
@@ -406,12 +406,12 @@ public class y1 {
     public void v(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048625, this, jSONObject) == null) {
-            if (h0.f71677b) {
+            if (h0.f68780b) {
                 h0.a("setConfig, " + jSONObject.toString(), null);
             }
-            this.f71784g = jSONObject;
+            this.f68887g = jSONObject;
             long currentTimeMillis = System.currentTimeMillis();
-            SharedPreferences.Editor edit = this.f71782e.edit();
+            SharedPreferences.Editor edit = this.f68885e.edit();
             long optInt = jSONObject.optInt("session_interval", 0);
             if (optInt > 0 && optInt <= IMConstants.FANS_GROUP_INFO_EXPIRED_TIME) {
                 edit.putLong("session_interval", optInt * 1000);
@@ -442,7 +442,7 @@ public class y1 {
             } else {
                 edit.remove("bav_log_collect");
             }
-            h0.f71676a = optBoolean;
+            h0.f68779a = optBoolean;
             if (jSONObject.optBoolean("bav_ab_config", false)) {
                 edit.putBoolean("bav_ab_config", true);
             } else {
@@ -473,20 +473,20 @@ public class y1 {
     public String x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) ? this.f71781d.getString("session_last_day", "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) ? this.f68884d.getString("session_last_day", "") : (String) invokeV.objValue;
     }
 
     public void y(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048628, this, str) == null) {
-            this.f71780c.edit().putString("user_unique_id", str).apply();
+            this.f68883c.edit().putString("user_unique_id", str).apply();
         }
     }
 
     public void z(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048629, this, jSONObject) == null) {
-            this.f71780c.edit().putString("header_custom_info", jSONObject != null ? jSONObject.toString() : "").apply();
+            this.f68883c.edit().putString("header_custom_info", jSONObject != null ? jSONObject.toString() : "").apply();
         }
     }
 }

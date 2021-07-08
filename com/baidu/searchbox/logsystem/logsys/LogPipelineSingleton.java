@@ -3,6 +3,7 @@ package com.baidu.searchbox.logsystem.logsys;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.java.Supplier;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LogPipelineSingleton {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CRASH_PAD_DIR = "crashpad";
@@ -121,7 +122,7 @@ public class LogPipelineSingleton {
 
     public static synchronized void initialize(@NonNull LogSystemConfig logSystemConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, logSystemConfig) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, logSystemConfig) == null) {
             synchronized (LogPipelineSingleton.class) {
                 sInstance = new LogPipelineSingleton(logSystemConfig);
             }

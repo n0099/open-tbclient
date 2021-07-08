@@ -2,6 +2,7 @@ package com.baidu.turbonet.base;
 
 import android.os.StrictMode;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,12 +15,12 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SysUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Boolean f22916a;
+    public static Boolean f23026a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -113,11 +114,11 @@ public class SysUtils {
     public static boolean isLowEndDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
-            if (f22916a == null) {
-                f22916a = Boolean.valueOf(b());
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (f23026a == null) {
+                f23026a = Boolean.valueOf(b());
             }
-            return f22916a.booleanValue();
+            return f23026a.booleanValue();
         }
         return invokeV.booleanValue;
     }

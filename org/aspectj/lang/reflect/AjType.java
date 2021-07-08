@@ -6,7 +6,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public interface AjType<T> extends Type, AnnotatedElement {
     Advice getAdvice(String str) throws NoSuchAdviceException;
 

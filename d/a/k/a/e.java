@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f45842a;
+    public int f42725a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f45843b;
+    public int f42726b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f45844c;
+    public int f42727c;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public abstract class e {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f45843b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42726b : invokeV.intValue;
     }
 
     public abstract com.baidu.cesium.a.b b(byte[] bArr, int i2, int i3);
@@ -45,12 +45,12 @@ public abstract class e {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45842a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42725a : invokeV.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f45844c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42727c : invokeV.intValue;
     }
 }

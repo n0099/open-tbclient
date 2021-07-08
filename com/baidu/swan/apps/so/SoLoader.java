@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.Keep;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,12 +17,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a.h2.a;
-import d.a.q0.a.h2.b;
-import d.a.q0.a.h2.e;
-import d.a.q0.a.h2.f;
-import d.a.q0.a.k;
-import d.a.q0.t.d;
+import d.a.n0.a.h2.a;
+import d.a.n0.a.h2.b;
+import d.a.n0.a.h2.e;
+import d.a.n0.a.h2.f;
+import d.a.n0.a.k;
+import d.a.n0.t.d;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -38,7 +39,7 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class SoLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -61,7 +62,7 @@ public final class SoLoader {
                 return;
             }
         }
-        DEBUG = k.f49133a;
+        DEBUG = k.f45831a;
         sLoadedLibraries = Collections.synchronizedSet(new HashSet());
         soSources = new ArrayList();
     }
@@ -117,7 +118,7 @@ public final class SoLoader {
     public static synchronized File findSoFilesInLibrary(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
             synchronized (SoLoader.class) {
                 String fullName = SoUtils.getFullName(str);
                 if (soSources.size() == 0) {

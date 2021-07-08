@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.cache.DiskLruCacheFactory;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class InternalCacheDiskCacheFactory extends DiskLruCacheFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

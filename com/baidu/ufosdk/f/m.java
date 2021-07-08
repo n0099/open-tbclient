@@ -5,13 +5,14 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.StateListDrawable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -212,7 +213,7 @@ public final class m {
     public static byte[] b(Context e2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, e2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, e2)) == null) {
             byte[] bArr = null;
             try {
             } catch (Throwable th) {
@@ -270,7 +271,7 @@ public final class m {
         InputStream inputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-            Bitmap bitmap = com.baidu.ufosdk.b.f23178g;
+            Bitmap bitmap = com.baidu.ufosdk.b.f23288g;
             if (bitmap != null) {
                 return bitmap;
             }

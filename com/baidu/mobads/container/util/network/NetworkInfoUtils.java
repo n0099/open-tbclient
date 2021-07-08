@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Pair;
 import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.apollon.statistics.g;
 import com.baidu.down.utils.Utils;
@@ -27,7 +28,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class NetworkInfoUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Map<String, Integer> CARRIER_MCCMNC;
@@ -147,7 +148,7 @@ public class NetworkInfoUtils {
     public static Pair<Integer, Integer> getDimensions(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             try {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 WindowManager windowManager = (WindowManager) context.getSystemService("window");
@@ -239,7 +240,7 @@ public class NetworkInfoUtils {
     public static String getNetwork(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) ? i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? i2 != 5 ? i2 != 100 ? i2 != 101 ? RomUtils.UNKNOWN : "ETHERNET" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : "5G" : "4G" : g.f3983b : "2G" : RomUtils.UNKNOWN : "NO" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) ? i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? i2 != 5 ? i2 != 100 ? i2 != 101 ? RomUtils.UNKNOWN : "ETHERNET" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : "5G" : "4G" : g.f3986b : "2G" : RomUtils.UNKNOWN : "NO" : (String) invokeI.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:26:0x0054, code lost:

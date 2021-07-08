@@ -3,6 +3,7 @@ package com.baidu.mobads.container.util.oaid;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.dex.SkyReflectionUtil;
 import com.baidu.mobads.container.download.activate.XSharedPreferences;
@@ -19,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UniqueIdUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SPFILE_NAME = "mobads_uniqueidentifier";
@@ -42,7 +43,7 @@ public class UniqueIdUtils {
     public static String miitOAID = "";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class InvocationHandlerImp implements InvocationHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -151,7 +152,7 @@ public class UniqueIdUtils {
         Class cls;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             try {
                 cls = SkyReflectionUtil.getClassForName(mMdidSdkHelper);
             } catch (Throwable unused) {

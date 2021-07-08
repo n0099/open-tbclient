@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class EAN8Reader extends UPCEANReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

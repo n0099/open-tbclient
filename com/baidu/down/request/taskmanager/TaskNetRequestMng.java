@@ -2,6 +2,7 @@ package com.baidu.down.request.taskmanager;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.common.BasicNameValuePair;
@@ -27,7 +28,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class TaskNetRequestMng {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -67,7 +68,7 @@ public final class TaskNetRequestMng {
 
     public static void checkConfigRequest(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             long j = DownPrefUtils.getLong(context, DownPrefUtils.PREF_CONFIG_REQUEST_TIME, 0L);
             long j2 = DownPrefUtils.getLong(context, DownPrefUtils.PREF_CONFIG_REQUEST_INTERVAL, 86400L);

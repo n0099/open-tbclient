@@ -3,10 +3,10 @@ package d.f.d.c;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public interface s0<E> extends Collection<E> {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface a<E> {
         int getCount();
 

@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.n1.o.k.a;
-import d.a.s0.w2.f0.b.c;
+import d.a.p0.n1.o.k.a;
+import d.a.p0.w2.f0.b.c;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AdCardMultiPicView extends AdCardBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -87,12 +87,12 @@ public class AdCardMultiPicView extends AdCardBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adCard) == null) {
             c cVar = adCard.picInfo;
-            List<String> list = cVar == null ? null : cVar.f69140c;
+            List<String> list = cVar == null ? null : cVar.f65912c;
             if (!a.e(list) && cVar != null) {
-                int k = a.k(cVar.f69140c);
+                int k = a.k(cVar.f65912c);
                 int dimensionPixelSize = (int) ((this.G - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X002) * 2)) / 3.0f);
-                int i2 = cVar.f69142e;
-                int i3 = cVar.f69141d;
+                int i2 = cVar.f65914e;
+                int i3 = cVar.f65913d;
                 int max = (int) (dimensionPixelSize * Math.max(Math.min((i2 == 0 || i3 == 0) ? 1.0f : i2 / i3, 1.0f), 0.0f));
                 this.o0.setVisibility(4);
                 this.q0.setVisibility(4);

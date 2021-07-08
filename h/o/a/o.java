@@ -13,39 +13,39 @@ import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.MissingBackpressureException;
 import rx.internal.operators.NotificationLite;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class o<T> implements d.b<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.g f75461e;
+    public final h.g f72495e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f75462f;
+    public final boolean f72496f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f75463g;
+    public final int f72497g;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class a<T> extends h.j<T> implements h.n.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.j<? super T> f75464e;
+        public final h.j<? super T> f72498e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final g.a f75465f;
+        public final g.a f72499f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final boolean f75466g;
+        public final boolean f72500g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final Queue<Object> f75467h;
+        public final Queue<Object> f72501h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final int f75468i;
+        public final int f72502i;
         public volatile boolean j;
         public final AtomicLong k;
         public final AtomicLong l;
@@ -53,15 +53,15 @@ public final class o<T> implements d.b<T, T> {
         public long n;
 
         /* renamed from: h.o.a.o$a$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
-        public class C2096a implements h.f {
+        /* loaded from: classes8.dex */
+        public class C2064a implements h.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f75469e;
+            public final /* synthetic */ a f72503e;
 
-            public C2096a(a aVar) {
+            public C2064a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,7 +76,7 @@ public final class o<T> implements d.b<T, T> {
                         return;
                     }
                 }
-                this.f75469e = aVar;
+                this.f72503e = aVar;
             }
 
             @Override // h.f
@@ -85,8 +85,8 @@ public final class o<T> implements d.b<T, T> {
                 if (!(interceptable == null || interceptable.invokeJ(1048576, this, j) == null) || j <= 0) {
                     return;
                 }
-                h.o.a.a.b(this.f75469e.k, j);
-                this.f75469e.d();
+                h.o.a.a.b(this.f72503e.k, j);
+                this.f72503e.d();
             }
         }
 
@@ -107,15 +107,15 @@ public final class o<T> implements d.b<T, T> {
             }
             this.k = new AtomicLong();
             this.l = new AtomicLong();
-            this.f75464e = jVar;
-            this.f75465f = gVar.createWorker();
-            this.f75466g = z;
-            i2 = i2 <= 0 ? h.o.d.f.f75625g : i2;
-            this.f75468i = i2 - (i2 >> 2);
+            this.f72498e = jVar;
+            this.f72499f = gVar.createWorker();
+            this.f72500g = z;
+            i2 = i2 <= 0 ? h.o.d.f.f72659g : i2;
+            this.f72502i = i2 - (i2 >> 2);
             if (f0.b()) {
-                this.f75467h = new h.o.d.j.r(i2);
+                this.f72501h = new h.o.d.j.r(i2);
             } else {
-                this.f75467h = new h.o.d.i.c(i2);
+                this.f72501h = new h.o.d.i.c(i2);
             }
             request(i2);
         }
@@ -128,7 +128,7 @@ public final class o<T> implements d.b<T, T> {
                     queue.clear();
                     return true;
                 } else if (z) {
-                    if (this.f75466g) {
+                    if (this.f72500g) {
                         if (z2) {
                             Throwable th = this.m;
                             try {
@@ -170,9 +170,9 @@ public final class o<T> implements d.b<T, T> {
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                h.j<? super T> jVar = this.f75464e;
-                jVar.setProducer(new C2096a(this));
-                jVar.add(this.f75465f);
+                h.j<? super T> jVar = this.f72498e;
+                jVar.setProducer(new C2064a(this));
+                jVar.add(this.f72499f);
                 jVar.add(this);
             }
         }
@@ -183,8 +183,8 @@ public final class o<T> implements d.b<T, T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 long j = this.n;
-                Queue<Object> queue = this.f75467h;
-                h.j<? super T> jVar = this.f75464e;
+                Queue<Object> queue = this.f72501h;
+                h.j<? super T> jVar = this.f72498e;
                 long j2 = 1;
                 do {
                     long j3 = this.k.get();
@@ -204,7 +204,7 @@ public final class o<T> implements d.b<T, T> {
                         }
                         jVar.onNext((Object) NotificationLite.e(poll));
                         j++;
-                        if (j == this.f75468i) {
+                        if (j == this.f72502i) {
                             j3 = h.o.a.a.g(this.k, j);
                             request(j);
                             j = 0;
@@ -222,7 +222,7 @@ public final class o<T> implements d.b<T, T> {
         public void d() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.l.getAndIncrement() == 0) {
-                this.f75465f.b(this);
+                this.f72499f.b(this);
             }
         }
 
@@ -256,7 +256,7 @@ public final class o<T> implements d.b<T, T> {
             if (!(interceptable == null || interceptable.invokeL(1048582, this, t) == null) || isUnsubscribed() || this.j) {
                 return;
             }
-            if (!this.f75467h.offer(NotificationLite.h(t))) {
+            if (!this.f72501h.offer(NotificationLite.h(t))) {
                 onError(new MissingBackpressureException());
             } else {
                 d();
@@ -279,9 +279,9 @@ public final class o<T> implements d.b<T, T> {
                 return;
             }
         }
-        this.f75461e = gVar;
-        this.f75462f = z;
-        this.f75463g = i2 <= 0 ? h.o.d.f.f75625g : i2;
+        this.f72495e = gVar;
+        this.f72496f = z;
+        this.f72497g = i2 <= 0 ? h.o.d.f.f72659g : i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -291,11 +291,11 @@ public final class o<T> implements d.b<T, T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jVar)) == null) {
-            h.g gVar = this.f75461e;
+            h.g gVar = this.f72495e;
             if ((gVar instanceof h.o.c.e) || (gVar instanceof h.o.c.j)) {
                 return jVar;
             }
-            a aVar = new a(gVar, jVar, this.f75462f, this.f75463g);
+            a aVar = new a(gVar, jVar, this.f72496f, this.f72497g);
             aVar.c();
             return aVar;
         }

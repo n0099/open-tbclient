@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public class x extends a<d.a.r0.r.q.a> {
+/* loaded from: classes7.dex */
+public class x extends a<d.a.o0.r.q.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MutiImgSingleHorizontalLayout j;
@@ -54,7 +54,7 @@ public class x extends a<d.a.r0.r.q.a> {
     }
 
     @Override // d.a.j.a
-    public void l(d.a.s0.a0.b0<d.a.r0.r.q.a> b0Var) {
+    public void l(d.a.p0.a0.b0<d.a.o0.r.q.a> b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, b0Var) == null) {
             this.j.setSubClickListener(b0Var);
@@ -64,7 +64,7 @@ public class x extends a<d.a.r0.r.q.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.j.p
     /* renamed from: o */
-    public void a(d.a.r0.r.q.a aVar) {
+    public void a(d.a.o0.r.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.j.a(aVar);

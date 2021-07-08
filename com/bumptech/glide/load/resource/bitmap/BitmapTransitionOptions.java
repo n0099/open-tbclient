@@ -3,6 +3,7 @@ package com.bumptech.glide.load.resource.bitmap;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,7 @@ import com.bumptech.glide.TransitionOptions;
 import com.bumptech.glide.request.transition.BitmapTransitionFactory;
 import com.bumptech.glide.request.transition.DrawableCrossFadeFactory;
 import com.bumptech.glide.request.transition.TransitionFactory;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class BitmapTransitionOptions extends TransitionOptions<BitmapTransitionOptions, Bitmap> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +101,7 @@ public final class BitmapTransitionOptions extends TransitionOptions<BitmapTrans
     public static BitmapTransitionOptions withCrossFade(@NonNull DrawableCrossFadeFactory.Builder builder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, builder)) == null) ? new BitmapTransitionOptions().crossFade(builder) : (BitmapTransitionOptions) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, builder)) == null) ? new BitmapTransitionOptions().crossFade(builder) : (BitmapTransitionOptions) invokeL.objValue;
     }
 
     @NonNull

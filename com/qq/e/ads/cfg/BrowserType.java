@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class BrowserType {
     public static /* synthetic */ Interceptable $ic;
     public static final BrowserType Default;
@@ -16,11 +16,11 @@ public final class BrowserType {
     public static final BrowserType Sys;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ BrowserType[] f40697b;
+    public static final /* synthetic */ BrowserType[] f37711b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f40698a;
+    public final int f37712a;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public final class BrowserType {
         Inner = new BrowserType("Inner", 1, 1);
         BrowserType browserType = new BrowserType("Sys", 2, 2);
         Sys = browserType;
-        f40697b = new BrowserType[]{Default, Inner, browserType};
+        f37711b = new BrowserType[]{Default, Inner, browserType};
     }
 
     public BrowserType(String str, int i2, int i3) {
@@ -60,7 +60,7 @@ public final class BrowserType {
                 return;
             }
         }
-        this.f40698a = i3;
+        this.f37712a = i3;
     }
 
     public static BrowserType valueOf(String str) {
@@ -72,12 +72,12 @@ public final class BrowserType {
     public static BrowserType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BrowserType[]) f40697b.clone() : (BrowserType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BrowserType[]) f37711b.clone() : (BrowserType[]) invokeV.objValue;
     }
 
     public final int value() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40698a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37712a : invokeV.intValue;
     }
 }

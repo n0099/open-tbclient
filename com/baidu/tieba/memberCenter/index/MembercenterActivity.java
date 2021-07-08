@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.k0.d;
-/* loaded from: classes5.dex */
+import d.a.o0.k0.d;
+/* loaded from: classes4.dex */
 public class MembercenterActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class MembercenterActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.r0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.o0.k0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public class MembercenterActivity extends BaseFragmentActivity {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
-                pageStayDurationItem.f55353a = true;
+                pageStayDurationItem.f52058a = true;
             }
             return pageStayDurationItem;
         }
@@ -69,7 +69,7 @@ public class MembercenterActivity extends BaseFragmentActivity {
             String stringExtra = getIntent().getStringExtra("key_url");
             MemberCenterFragment memberCenterFragment = new MemberCenterFragment();
             this.mFragment = memberCenterFragment;
-            memberCenterFragment.L0(stringExtra);
+            memberCenterFragment.M0(stringExtra);
             FragmentManager supportFragmentManager = getSupportFragmentManager();
             this.mFragmentManager = supportFragmentManager;
             FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();

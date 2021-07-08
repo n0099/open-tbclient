@@ -190,7 +190,7 @@ public class ReportFragment extends Fragment {
 
     private void dispatchResume(ActivityInitializationListener activityInitializationListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, this, activityInitializationListener) == null) || activityInitializationListener == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, activityInitializationListener) == null) || activityInitializationListener == null) {
             return;
         }
         activityInitializationListener.onResume();

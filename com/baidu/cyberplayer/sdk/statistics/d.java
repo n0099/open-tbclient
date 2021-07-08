@@ -3,6 +3,7 @@ package com.baidu.cyberplayer.sdk.statistics;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberLog;
@@ -22,19 +23,19 @@ import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5036a;
+    public String f5053a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f5037b;
+    public String f5054b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f5038c;
+    public String f5055c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -49,10 +50,10 @@ public class d {
                 return;
             }
         }
-        this.f5036a = null;
-        this.f5037b = null;
-        this.f5038c = null;
-        this.f5038c = "video_session";
+        this.f5053a = null;
+        this.f5054b = null;
+        this.f5055c = null;
+        this.f5055c = "video_session";
         a(CyberPlayerManager.getApplicationContext());
     }
 
@@ -71,10 +72,10 @@ public class d {
                 return;
             }
         }
-        this.f5036a = null;
-        this.f5037b = null;
-        this.f5038c = null;
-        this.f5038c = str;
+        this.f5053a = null;
+        this.f5054b = null;
+        this.f5055c = null;
+        this.f5055c = str;
         a(CyberPlayerManager.getApplicationContext());
     }
 
@@ -216,7 +217,7 @@ public class d {
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             File file = new File(str);
             return file.exists() && file.isFile() && file.delete();
         }
@@ -238,15 +239,15 @@ public class d {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f5036a) || TextUtils.isEmpty(this.f5037b)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f5053a) || TextUtils.isEmpty(this.f5054b)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
-            String str = this.f5036a;
+            String str = this.f5053a;
             if (b(str)) {
-                String str2 = this.f5037b;
+                String str2 = this.f5054b;
                 a(str2);
                 if (b(str, str2)) {
                     a(str);
@@ -269,20 +270,20 @@ public class d {
         }
         new File(b2).mkdirs();
         String coreVersion = CyberPlayerManager.getCoreVersion();
-        this.f5036a = b2 + File.separator + this.f5038c + "_" + coreVersion + ".bak";
-        this.f5037b = b2 + File.separator + this.f5038c + "_log_" + coreVersion + ".tmp";
+        this.f5053a = b2 + File.separator + this.f5055c + "_" + coreVersion + ".bak";
+        this.f5054b = b2 + File.separator + this.f5055c + "_log_" + coreVersion + ".tmp";
     }
 
     public void a(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) || bArr == null || TextUtils.isEmpty(this.f5036a)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) || bArr == null || TextUtils.isEmpty(this.f5053a)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
             try {
-                a(this.f5036a, bArr, Part.CRLF);
+                a(this.f5053a, bArr, Part.CRLF);
             } catch (AssertionError unused) {
                 CyberLog.e("DpStatFileWriter", "write data to file fail");
             }
@@ -301,7 +302,7 @@ public class d {
                 FileInputStream fileInputStream = new FileInputStream(str);
                 InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String a2 = DpSessionDatasUploader.getInstance().a("sailor_monitor", this.f5038c.equals("live_show_session") ? 24 : 1);
+                String a2 = DpSessionDatasUploader.getInstance().a("sailor_monitor", this.f5055c.equals("live_show_session") ? 24 : 1);
                 if (TextUtils.isEmpty(a2)) {
                     z = true;
                 } else {

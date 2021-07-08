@@ -1,6 +1,7 @@
 package com.baidu.ar.plugin.reflect;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -76,7 +77,7 @@ public class FieldUtils {
         Field field;
         Field declaredField;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65540, null, cls, str, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, str, z)) == null) {
             Validate.isTrue(cls != null, "The class must not be null", new Object[0]);
             Validate.isTrue(!TextUtils.isEmpty(str), "The field name must not be blank/empty", new Object[0]);
             String key = getKey(cls, str);

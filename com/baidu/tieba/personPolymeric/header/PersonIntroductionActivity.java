@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PersonIntroductionActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PERSON_INTRODUCTION = "person_introduction";
@@ -27,13 +27,13 @@ public class PersonIntroductionActivity extends BaseActivity {
     public NavigationBar mNavigationBar;
     public View mRootView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonIntroductionActivity f20157e;
+        public final /* synthetic */ PersonIntroductionActivity f20197e;
 
         public a(PersonIntroductionActivity personIntroductionActivity) {
             Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public class PersonIntroductionActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f20157e = personIntroductionActivity;
+            this.f20197e = personIntroductionActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f20157e.finish();
+                this.f20197e.finish();
             }
         }
     }

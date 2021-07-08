@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.util.StringUtil;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class APPStatus {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40999a;
+    public String f38013a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f41000b;
+    public Context f38014b;
 
     public APPStatus(String str, Context context) {
         Interceptable interceptable = $ic;
@@ -34,20 +34,20 @@ public class APPStatus {
                 return;
             }
         }
-        this.f40999a = str;
-        this.f41000b = context;
+        this.f38013a = str;
+        this.f38014b = context;
     }
 
     public String getAPPID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40999a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38013a : (String) invokeV.objValue;
     }
 
     public String getAPPName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41000b.getPackageName() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38014b.getPackageName() : (String) invokeV.objValue;
     }
 
     public String getAPPRealName() {
@@ -57,7 +57,7 @@ public class APPStatus {
             String aPPName = getAPPName();
             if (!StringUtil.isEmpty(aPPName)) {
                 try {
-                    return this.f41000b.getPackageManager().getPackageInfo(aPPName, 0).applicationInfo.loadLabel(this.f41000b.getPackageManager()).toString();
+                    return this.f38014b.getPackageManager().getPackageInfo(aPPName, 0).applicationInfo.loadLabel(this.f38014b.getPackageManager()).toString();
                 } catch (Exception unused) {
                 }
             }
@@ -73,7 +73,7 @@ public class APPStatus {
             String aPPName = getAPPName();
             if (!StringUtil.isEmpty(aPPName)) {
                 try {
-                    return this.f41000b.getPackageManager().getPackageInfo(aPPName, 0).versionName;
+                    return this.f38014b.getPackageManager().getPackageInfo(aPPName, 0).versionName;
                 } catch (Exception unused) {
                 }
             }

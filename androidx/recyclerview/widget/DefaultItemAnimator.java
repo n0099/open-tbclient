@@ -959,7 +959,7 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
     private boolean endChangeAnimationIfNecessary(ChangeInfo changeInfo, RecyclerView.ViewHolder viewHolder) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, changeInfo, viewHolder)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, changeInfo, viewHolder)) == null) {
             boolean z = false;
             if (changeInfo.newHolder == viewHolder) {
                 changeInfo.newHolder = null;

@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import d.a.c.k.e.n;
-import d.a.s0.e1.g.e.a;
-import d.a.s0.e1.g.h.c;
+import d.a.p0.e1.g.e.a;
+import d.a.p0.e1.g.h.c;
 import java.util.List;
 import tbclient.Error;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements
         }
     }
 
-    @Override // d.a.s0.e1.g.e.a
+    @Override // d.a.p0.e1.g.e.a
     public List<n> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

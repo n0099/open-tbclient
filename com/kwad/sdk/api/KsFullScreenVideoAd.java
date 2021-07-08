@@ -5,12 +5,12 @@ import androidx.annotation.Keep;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface KsFullScreenVideoAd {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface FullScreenVideoAdInteractionListener {
         @KsAdSdkApi
         @Keep
@@ -40,6 +40,14 @@ public interface KsFullScreenVideoAd {
     @KsAdSdkApi
     @Keep
     int getECPM();
+
+    @KsAdSdkApi
+    @Keep
+    int getInteractionType();
+
+    @KsAdSdkApi
+    @Keep
+    int getMaterialType();
 
     @KsAdSdkApi
     @Keep

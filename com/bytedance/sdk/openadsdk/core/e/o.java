@@ -1,6 +1,7 @@
 package com.bytedance.sdk.openadsdk.core.e;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,34 +10,34 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f29999a;
+    public boolean f30109a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30000b;
+    public int f30110b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30001c;
+    public String f30111c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30002d;
+    public String f30112d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30003e;
+    public String f30113e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30004f;
+    public int f30114f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f30005g;
+    public int f30115g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f30006h;
+    public int f30116h;
 
     public o(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
@@ -58,15 +59,15 @@ public class o {
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("playable");
         if (optJSONObject != null) {
-            this.f30002d = optJSONObject.optString("playable_url", "");
-            this.f30003e = optJSONObject.optString("playable_download_url", "");
-            this.f30004f = optJSONObject.optInt("if_playable_loading_show", 0);
-            this.f30005g = optJSONObject.optInt("remove_loading_page_type", 0);
-            this.f30006h = optJSONObject.optInt("playable_orientation", 0);
+            this.f30112d = optJSONObject.optString("playable_url", "");
+            this.f30113e = optJSONObject.optString("playable_download_url", "");
+            this.f30114f = optJSONObject.optInt("if_playable_loading_show", 0);
+            this.f30115g = optJSONObject.optInt("remove_loading_page_type", 0);
+            this.f30116h = optJSONObject.optInt("playable_orientation", 0);
         }
-        this.f29999a = jSONObject.optBoolean("is_playable");
-        this.f30000b = jSONObject.optInt("playable_type", 0);
-        this.f30001c = jSONObject.optString("playable_style");
+        this.f30109a = jSONObject.optBoolean("is_playable");
+        this.f30110b = jSONObject.optInt("playable_type", 0);
+        this.f30111c = jSONObject.optString("playable_style");
     }
 
     public static boolean b(m mVar) {
@@ -74,7 +75,7 @@ public class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, mVar)) == null) {
             o l = l(mVar);
-            return (l == null || !l.f29999a || TextUtils.isEmpty(d(mVar))) ? false : true;
+            return (l == null || !l.f30109a || TextUtils.isEmpty(d(mVar))) ? false : true;
         }
         return invokeL.booleanValue;
     }
@@ -87,7 +88,7 @@ public class o {
             if (l == null) {
                 return null;
             }
-            return l.f30001c;
+            return l.f30111c;
         }
         return (String) invokeL.objValue;
     }
@@ -95,12 +96,12 @@ public class o {
     public static String d(m mVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, mVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, mVar)) == null) {
             o l = l(mVar);
             if (l == null) {
                 return null;
             }
-            return l.f30002d;
+            return l.f30112d;
         }
         return (String) invokeL.objValue;
     }
@@ -133,7 +134,7 @@ public class o {
             } else {
                 o l = l(mVar);
                 if (l != null) {
-                    i2 = l.f30004f;
+                    i2 = l.f30114f;
                 }
                 i2 = 0;
             }
@@ -155,7 +156,7 @@ public class o {
             } else {
                 o l = l(mVar);
                 if (l != null) {
-                    i2 = l.f30005g;
+                    i2 = l.f30115g;
                 }
                 i2 = 0;
             }
@@ -179,7 +180,7 @@ public class o {
                 if (l == null) {
                     return false;
                 }
-                i2 = l.f30005g;
+                i2 = l.f30115g;
             }
             return i2 == 1;
         }
@@ -194,7 +195,7 @@ public class o {
             if (l == null) {
                 return 0;
             }
-            return l.f30006h;
+            return l.f30116h;
         }
         return invokeL.intValue;
     }
@@ -231,7 +232,7 @@ public class o {
             if (l == null) {
                 return 0;
             }
-            return l.f30000b;
+            return l.f30110b;
         }
         return invokeL.intValue;
     }
@@ -240,30 +241,30 @@ public class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
             try {
-                jSONObject.put("is_playable", this.f29999a);
+                jSONObject.put("is_playable", this.f30109a);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            if (!TextUtils.isEmpty(this.f30002d)) {
+            if (!TextUtils.isEmpty(this.f30112d)) {
                 JSONObject jSONObject2 = new JSONObject();
                 try {
-                    jSONObject2.put("playable_url", this.f30002d);
-                    jSONObject2.put("playable_download_url", this.f30003e);
-                    jSONObject2.put("if_playable_loading_show", this.f30004f);
-                    jSONObject2.put("remove_loading_page_type", this.f30005g);
-                    jSONObject2.put("playable_orientation", this.f30006h);
+                    jSONObject2.put("playable_url", this.f30112d);
+                    jSONObject2.put("playable_download_url", this.f30113e);
+                    jSONObject2.put("if_playable_loading_show", this.f30114f);
+                    jSONObject2.put("remove_loading_page_type", this.f30115g);
+                    jSONObject2.put("playable_orientation", this.f30116h);
                     jSONObject.put("playable", jSONObject2);
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }
             }
             try {
-                jSONObject.put("playable_type", this.f30000b);
+                jSONObject.put("playable_type", this.f30110b);
             } catch (JSONException e4) {
                 e4.printStackTrace();
             }
             try {
-                jSONObject.put("playable_style", this.f30001c);
+                jSONObject.put("playable_style", this.f30111c);
             } catch (JSONException e5) {
                 e5.printStackTrace();
             }
@@ -275,7 +276,7 @@ public class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, mVar)) == null) {
             o l = l(mVar);
-            return (l == null || !l.f29999a || TextUtils.isEmpty(e(mVar))) ? false : true;
+            return (l == null || !l.f30109a || TextUtils.isEmpty(e(mVar))) ? false : true;
         }
         return invokeL.booleanValue;
     }

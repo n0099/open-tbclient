@@ -13,7 +13,7 @@ import com.google.common.primitives.Ints;
 import d.f.d.c.s0;
 import d.f.d.c.v0;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RegularImmutableMultiset<E> extends ImmutableMultiset<E> {
     public static /* synthetic */ Interceptable $ic;
     public static final RegularImmutableMultiset<Object> EMPTY;
@@ -22,7 +22,7 @@ public class RegularImmutableMultiset<E> extends ImmutableMultiset<E> {
     public transient ImmutableSet<E> elementSet;
     public final transient int size;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class ElementSet extends IndexedImmutableSet<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,7 @@ public class RegularImmutableMultiset<E> extends ImmutableMultiset<E> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class SerializedForm implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -138,7 +138,7 @@ public class RegularImmutableMultiset<E> extends ImmutableMultiset<E> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

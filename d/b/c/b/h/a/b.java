@@ -18,37 +18,37 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Application f71859a;
+    public Application f68962a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f71860b;
+    public Context f68963b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f71861c;
+    public List<String> f68964c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<Long> f71862d;
+    public List<Long> f68965d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<String> f71863e;
+    public List<String> f68966e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<Long> f71864f;
+    public List<Long> f68967f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f71865g;
+    public String f68968g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f71866h;
+    public long f68969h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f71867i;
+    public String f68970i;
     public long j;
     public String k;
     public long l;
@@ -59,13 +59,13 @@ public class b {
     public int q;
     public final Application.ActivityLifecycleCallbacks r;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class a implements Application.ActivityLifecycleCallbacks {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f71868e;
+        public final /* synthetic */ b f68971e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -82,17 +82,17 @@ public class b {
                     return;
                 }
             }
-            this.f71868e = bVar;
+            this.f68971e = bVar;
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityCreated(Activity activity, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-                this.f71868e.f71865g = activity.getClass().getName();
-                this.f71868e.f71866h = System.currentTimeMillis();
-                this.f71868e.f71861c.add(this.f71868e.f71865g);
-                this.f71868e.f71862d.add(Long.valueOf(this.f71868e.f71866h));
+                this.f68971e.f68968g = activity.getClass().getName();
+                this.f68971e.f68969h = System.currentTimeMillis();
+                this.f68971e.f68964c.add(this.f68971e.f68968g);
+                this.f68971e.f68965d.add(Long.valueOf(this.f68971e.f68969h));
             }
         }
 
@@ -101,13 +101,13 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
                 String name = activity.getClass().getName();
-                int indexOf = this.f71868e.f71861c.indexOf(name);
-                if (indexOf > -1 && indexOf < this.f71868e.f71861c.size()) {
-                    this.f71868e.f71861c.remove(indexOf);
-                    this.f71868e.f71862d.remove(indexOf);
+                int indexOf = this.f68971e.f68964c.indexOf(name);
+                if (indexOf > -1 && indexOf < this.f68971e.f68964c.size()) {
+                    this.f68971e.f68964c.remove(indexOf);
+                    this.f68971e.f68965d.remove(indexOf);
                 }
-                this.f71868e.f71863e.add(name);
-                this.f71868e.f71864f.add(Long.valueOf(System.currentTimeMillis()));
+                this.f68971e.f68966e.add(name);
+                this.f68971e.f68967f.add(Long.valueOf(System.currentTimeMillis()));
             }
         }
 
@@ -115,9 +115,9 @@ public class b {
         public void onActivityPaused(Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-                this.f71868e.m = activity.getClass().getName();
-                this.f71868e.n = System.currentTimeMillis();
-                b.v(this.f71868e);
+                this.f68971e.m = activity.getClass().getName();
+                this.f68971e.n = System.currentTimeMillis();
+                b.v(this.f68971e);
             }
         }
 
@@ -125,9 +125,9 @@ public class b {
         public void onActivityResumed(Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-                this.f71868e.k = activity.getClass().getName();
-                this.f71868e.l = System.currentTimeMillis();
-                b.r(this.f71868e);
+                this.f68971e.k = activity.getClass().getName();
+                this.f68971e.l = System.currentTimeMillis();
+                b.r(this.f68971e);
             }
         }
 
@@ -142,8 +142,8 @@ public class b {
         public void onActivityStarted(Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-                this.f71868e.f71867i = activity.getClass().getName();
-                this.f71868e.j = System.currentTimeMillis();
+                this.f68971e.f68970i = activity.getClass().getName();
+                this.f68971e.j = System.currentTimeMillis();
             }
         }
 
@@ -151,8 +151,8 @@ public class b {
         public void onActivityStopped(Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-                this.f71868e.o = activity.getClass().getName();
-                this.f71868e.p = System.currentTimeMillis();
+                this.f68971e.o = activity.getClass().getName();
+                this.f68971e.p = System.currentTimeMillis();
             }
         }
     }
@@ -172,14 +172,14 @@ public class b {
                 return;
             }
         }
-        this.f71861c = new ArrayList();
-        this.f71862d = new ArrayList();
-        this.f71863e = new ArrayList();
-        this.f71864f = new ArrayList();
+        this.f68964c = new ArrayList();
+        this.f68965d = new ArrayList();
+        this.f68966e = new ArrayList();
+        this.f68967f = new ArrayList();
         this.r = new a(this);
-        this.f71860b = context;
+        this.f68963b = context;
         if (context instanceof Application) {
-            this.f71859a = (Application) context;
+            this.f68962a = (Application) context;
         }
         m();
     }
@@ -202,8 +202,8 @@ public class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("last_create_activity", e(this.f71865g, this.f71866h));
-                jSONObject.put("last_start_activity", e(this.f71867i, this.j));
+                jSONObject.put("last_create_activity", e(this.f68968g, this.f68969h));
+                jSONObject.put("last_start_activity", e(this.f68970i, this.j));
                 jSONObject.put("last_resume_activity", e(this.k, this.l));
                 jSONObject.put("last_pause_activity", e(this.m, this.n));
                 jSONObject.put("last_stop_activity", e(this.o, this.p));
@@ -244,7 +244,7 @@ public class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONArray jSONArray = new JSONArray();
             try {
-                activityManager = (ActivityManager) this.f71860b.getSystemService("activity");
+                activityManager = (ActivityManager) this.f68963b.getSystemService("activity");
             } catch (Exception unused) {
             }
             if (activityManager == null || (runningTasks = activityManager.getRunningTasks(5)) == null) {
@@ -278,7 +278,7 @@ public class b {
     public final void m() {
         Application application;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || Build.VERSION.SDK_INT < 14 || (application = this.f71859a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || Build.VERSION.SDK_INT < 14 || (application = this.f68962a) == null) {
             return;
         }
         application.registerActivityLifecycleCallbacks(this.r);
@@ -289,11 +289,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             JSONArray jSONArray = new JSONArray();
-            List<String> list = this.f71861c;
+            List<String> list = this.f68964c;
             if (list != null && !list.isEmpty()) {
-                for (int i2 = 0; i2 < this.f71861c.size(); i2++) {
+                for (int i2 = 0; i2 < this.f68964c.size(); i2++) {
                     try {
-                        jSONArray.put(e(this.f71861c.get(i2), this.f71862d.get(i2).longValue()));
+                        jSONArray.put(e(this.f68964c.get(i2), this.f68965d.get(i2).longValue()));
                     } catch (Throwable unused) {
                     }
                 }
@@ -308,11 +308,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             JSONArray jSONArray = new JSONArray();
-            List<String> list = this.f71863e;
+            List<String> list = this.f68966e;
             if (list != null && !list.isEmpty()) {
-                for (int i2 = 0; i2 < this.f71863e.size(); i2++) {
+                for (int i2 = 0; i2 < this.f68966e.size(); i2++) {
                     try {
-                        jSONArray.put(e(this.f71863e.get(i2), this.f71864f.get(i2).longValue()));
+                        jSONArray.put(e(this.f68966e.get(i2), this.f68967f.get(i2).longValue()));
                     } catch (Throwable unused) {
                     }
                 }

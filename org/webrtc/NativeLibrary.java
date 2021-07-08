@@ -1,5 +1,6 @@
 package org.webrtc;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class NativeLibrary {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "NativeLibrary";
@@ -15,7 +16,7 @@ public class NativeLibrary {
     public static Object lock;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class DefaultLoader implements NativeLibraryLoader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +105,7 @@ public class NativeLibrary {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (lock) {
                 z = libraryLoaded;
             }

@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class ak implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f42759a;
+    public final /* synthetic */ Context f39773a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ Intent f62a;
@@ -32,7 +32,7 @@ public final class ak implements Runnable {
                 return;
             }
         }
-        this.f42759a = context;
+        this.f39773a = context;
         this.f62a = intent;
     }
 
@@ -40,7 +40,7 @@ public final class ak implements Runnable {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            PushMessageHandler.b(this.f42759a, this.f62a);
+            PushMessageHandler.b(this.f39773a, this.f62a);
         }
     }
 }

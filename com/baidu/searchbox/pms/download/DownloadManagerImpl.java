@@ -3,6 +3,7 @@ package com.baidu.searchbox.pms.download;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -37,7 +38,7 @@ import java.util.List;
 import java.util.Map;
 @Singleton
 @Service
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DownloadManagerImpl implements IDownloadManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +46,7 @@ public class DownloadManagerImpl implements IDownloadManager {
     public Map<String, DownloadTaskExt> mTasks;
 
     /* renamed from: com.baidu.searchbox.pms.download.DownloadManagerImpl$3  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$bddownload$core$cause$EndCause;
         public static /* synthetic */ Interceptable $ic;
@@ -89,7 +90,7 @@ public class DownloadManagerImpl implements IDownloadManager {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class DownloadTaskExt {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -264,7 +265,7 @@ public class DownloadManagerImpl implements IDownloadManager {
     private PriorityStrategy.Priority getPriority(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65540, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2)) == null) {
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {

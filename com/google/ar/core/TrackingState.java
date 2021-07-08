@@ -1,5 +1,6 @@
 package com.google.ar.core;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class TrackingState {
     public static final /* synthetic */ TrackingState[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -87,6 +88,6 @@ public final class TrackingState {
     public static TrackingState[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (TrackingState[]) $VALUES.clone() : (TrackingState[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (TrackingState[]) $VALUES.clone() : (TrackingState[]) invokeV.objValue;
     }
 }

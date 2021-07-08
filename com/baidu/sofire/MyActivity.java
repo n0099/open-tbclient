@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MyActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -88,13 +88,13 @@ public class MyActivity extends Activity {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Intent f10222a;
+                        public final /* synthetic */ Intent f10239a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ WeakReference f10223b;
+                        public final /* synthetic */ WeakReference f10240b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ Context f10224c;
+                        public final /* synthetic */ Context f10241c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -111,9 +111,9 @@ public class MyActivity extends Activity {
                                     return;
                                 }
                             }
-                            this.f10222a = intent;
-                            this.f10223b = weakReference;
-                            this.f10224c = applicationContext;
+                            this.f10239a = intent;
+                            this.f10240b = weakReference;
+                            this.f10241c = applicationContext;
                         }
 
                         @Override // java.lang.Runnable
@@ -121,16 +121,16 @@ public class MyActivity extends Activity {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 try {
-                                    String stringExtra = this.f10222a.getStringExtra("c");
+                                    String stringExtra = this.f10239a.getStringExtra("c");
                                     Intent intent3 = new Intent();
                                     intent3.putExtra("t", "a");
                                     intent3.putExtra("c", stringExtra);
-                                    String a2 = MyActivity.a((Activity) this.f10223b.get());
+                                    String a2 = MyActivity.a((Activity) this.f10240b.get());
                                     if (a2 == null) {
                                         a2 = "";
                                     }
                                     intent3.putExtra("source", a2);
-                                    a.a(this.f10224c.getApplicationContext(), intent3);
+                                    a.a(this.f10241c.getApplicationContext(), intent3);
                                 } catch (Throwable unused) {
                                     com.baidu.sofire.utility.c.a();
                                 }

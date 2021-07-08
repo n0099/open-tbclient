@@ -1,6 +1,7 @@
 package com.google.ar.core;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdDownloadApkUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -12,13 +13,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ArCoreApk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class InstallBehavior {
         public static final /* synthetic */ InstallBehavior[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -94,12 +95,12 @@ public class ArCoreApk {
         public static InstallBehavior[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (InstallBehavior[]) $VALUES.clone() : (InstallBehavior[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (InstallBehavior[]) $VALUES.clone() : (InstallBehavior[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class InstallStatus {
         public static final /* synthetic */ InstallStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -175,12 +176,12 @@ public class ArCoreApk {
         public static InstallStatus[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (InstallStatus[]) $VALUES.clone() : (InstallStatus[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (InstallStatus[]) $VALUES.clone() : (InstallStatus[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class UserMessageType {
         public static final /* synthetic */ UserMessageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -258,11 +259,11 @@ public class ArCoreApk {
         public static UserMessageType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (UserMessageType[]) $VALUES.clone() : (UserMessageType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (UserMessageType[]) $VALUES.clone() : (UserMessageType[]) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(Availability availability);
     }
@@ -290,7 +291,7 @@ public class ArCoreApk {
     public abstract Availability a(Context context);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Availability {
         public static final /* synthetic */ Availability[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -370,7 +371,7 @@ public class ArCoreApk {
         public static Availability valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (Availability) Enum.valueOf(Availability.class, str) : (Availability) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (Availability) Enum.valueOf(Availability.class, str) : (Availability) invokeL.objValue;
         }
 
         public static Availability[] values() {

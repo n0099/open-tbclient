@@ -1,5 +1,6 @@
 package okhttp3.internal.tls;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -7,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.security.auth.x500.X500Principal;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class DistinguishedNameParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -185,7 +186,7 @@ public final class DistinguishedNameParser {
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             int i4 = getByte(this.pos);
             this.pos++;
             if (i4 < 128) {

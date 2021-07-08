@@ -10,22 +10,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.core.e.m;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public m f31014a;
+    public m f31124a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f31015b;
+    public String f31125b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f31016c;
+    public String f31126c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f31017d;
+    public JSONObject f31127d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            this.f31016c = str;
+            this.f31126c = str;
             return this;
         }
         return (a) invokeL.objValue;
@@ -99,7 +99,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONObject)) == null) {
-            this.f31017d = jSONObject;
+            this.f31127d = jSONObject;
             return this;
         }
         return (a) invokeL.objValue;
@@ -112,13 +112,13 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("tag", this.f31015b);
-                jSONObject.put(NotificationCompatJellybean.KEY_LABEL, this.f31016c);
-                if (this.f31017d != null) {
-                    jSONObject.put("extra", this.f31017d);
+                jSONObject.put("tag", this.f31125b);
+                jSONObject.put(NotificationCompatJellybean.KEY_LABEL, this.f31126c);
+                if (this.f31127d != null) {
+                    jSONObject.put("extra", this.f31127d);
                 }
-                if (this.f31014a != null) {
-                    jSONObject.put("material_meta", this.f31014a.aO());
+                if (this.f31124a != null) {
+                    jSONObject.put("material_meta", this.f31124a.aO());
                 }
             } catch (Exception unused) {
             }
@@ -131,7 +131,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mVar)) == null) {
-            this.f31014a = mVar;
+            this.f31124a = mVar;
             return this;
         }
         return (a) invokeL.objValue;
@@ -141,7 +141,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.f31015b = str;
+            this.f31125b = str;
             return this;
         }
         return (a) invokeL.objValue;

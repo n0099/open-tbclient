@@ -24,25 +24,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SlideBarView extends View implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f22431e;
+    public int f22490e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f22432f;
+    public Drawable f22491f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f22433g;
+    public float f22492g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f22434h;
+    public float f22493h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f22435i;
+    public float f22494i;
     public GestureDetector j;
     public c k;
     public Bitmap l;
@@ -58,19 +58,19 @@ public class SlideBarView extends View implements View.OnTouchListener {
     public Matrix v;
     public boolean w;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public final class b extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SlideBarView f22436e;
+        public final /* synthetic */ SlideBarView f22495e;
 
         public b(SlideBarView slideBarView) {
             Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public class SlideBarView extends View implements View.OnTouchListener {
                     return;
                 }
             }
-            this.f22436e = slideBarView;
+            this.f22495e = slideBarView;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -105,7 +105,7 @@ public class SlideBarView extends View implements View.OnTouchListener {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                this.f22436e.d(motionEvent2);
+                this.f22495e.d(motionEvent2);
                 return true;
             }
             return invokeCommon.booleanValue;
@@ -116,7 +116,7 @@ public class SlideBarView extends View implements View.OnTouchListener {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void a(float f2);
 
@@ -141,8 +141,8 @@ public class SlideBarView extends View implements View.OnTouchListener {
                 return;
             }
         }
-        this.f22431e = R.drawable.pick_cover_slide;
-        this.f22435i = 12.0f;
+        this.f22490e = R.drawable.pick_cover_slide;
+        this.f22494i = 12.0f;
         this.q = new Rect();
         this.r = new RectF();
         this.s = new Paint();
@@ -152,8 +152,8 @@ public class SlideBarView extends View implements View.OnTouchListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            float f2 = this.f22433g;
-            float f3 = this.f22435i;
+            float f2 = this.f22492g;
+            float f3 = this.f22494i;
             if (f2 - f3 < 0.0f) {
                 return 0.0f;
             }
@@ -165,9 +165,9 @@ public class SlideBarView extends View implements View.OnTouchListener {
     private float getRealRightRange() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
-            float f2 = this.f22434h;
-            float f3 = this.f22435i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            float f2 = this.f22493h;
+            float f3 = this.f22494i;
             if (f2 + f3 < 0.0f) {
                 return 0.0f;
             }
@@ -186,7 +186,7 @@ public class SlideBarView extends View implements View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(1048576, this, context, attributeSet, i2, i3) == null) {
             TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, R$styleable.SlideBarView, i2, i3);
-            this.f22435i = obtainStyledAttributes.getDimension(R$styleable.SlideBarView_borderSize, 12.0f);
+            this.f22494i = obtainStyledAttributes.getDimension(R$styleable.SlideBarView_borderSize, 12.0f);
             obtainStyledAttributes.recycle();
             this.s.setAntiAlias(true);
         }
@@ -248,10 +248,10 @@ public class SlideBarView extends View implements View.OnTouchListener {
         float f3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
-            Drawable drawable = getResources().getDrawable(this.f22431e);
-            this.f22432f = drawable;
+            Drawable drawable = getResources().getDrawable(this.f22490e);
+            this.f22491f = drawable;
             int i2 = this.o;
-            float f4 = this.f22435i;
+            float f4 = this.f22494i;
             drawable.setBounds(0, 0, i2 + ((int) f4), this.p + ((int) f4));
             if (this.w) {
                 if (this.l != null) {
@@ -275,13 +275,13 @@ public class SlideBarView extends View implements View.OnTouchListener {
                     }
                     this.v.setScale(f3, f3);
                     Matrix matrix = this.v;
-                    float f7 = this.f22435i;
+                    float f7 = this.f22494i;
                     matrix.postTranslate(f5 + (f7 / 2.0f), f2 + (f7 / 2.0f));
                     if (!this.l.isRecycled()) {
                         canvas.drawBitmap(this.l, this.v, this.s);
                     }
                 }
-                this.f22432f.draw(canvas);
+                this.f22491f.draw(canvas);
                 return;
             }
             float f8 = this.o / this.p;
@@ -294,15 +294,15 @@ public class SlideBarView extends View implements View.OnTouchListener {
             }
             this.q.set(0, 0, i7, i8);
             RectF rectF = this.r;
-            float f9 = this.f22435i;
+            float f9 = this.f22494i;
             rectF.set(f9, f9, this.o, this.p);
             Bitmap bitmap = this.l;
             if (bitmap != null && !bitmap.isRecycled()) {
                 canvas.drawBitmap(this.l, this.q, this.r, this.s);
-                this.f22432f.draw(canvas);
+                this.f22491f.draw(canvas);
                 return;
             }
-            this.f22432f.draw(canvas);
+            this.f22491f.draw(canvas);
         }
     }
 
@@ -321,7 +321,7 @@ public class SlideBarView extends View implements View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            float f2 = this.f22435i;
+            float f2 = this.f22494i;
             this.o = i2 - ((int) f2);
             this.p = i3 - ((int) f2);
         }
@@ -382,7 +382,7 @@ public class SlideBarView extends View implements View.OnTouchListener {
     public void setPickDrawable(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f22431e = i2;
+            this.f22490e = i2;
         }
     }
 
@@ -396,8 +396,8 @@ public class SlideBarView extends View implements View.OnTouchListener {
     public void setSlideRange(float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.f22433g = f2;
-            this.f22434h = f3;
+            this.f22492g = f2;
+            this.f22493h = f3;
         }
     }
 
@@ -420,8 +420,8 @@ public class SlideBarView extends View implements View.OnTouchListener {
                 return;
             }
         }
-        this.f22431e = R.drawable.pick_cover_slide;
-        this.f22435i = 12.0f;
+        this.f22490e = R.drawable.pick_cover_slide;
+        this.f22494i = 12.0f;
         this.q = new Rect();
         this.r = new RectF();
         this.s = new Paint();
@@ -447,8 +447,8 @@ public class SlideBarView extends View implements View.OnTouchListener {
                 return;
             }
         }
-        this.f22431e = R.drawable.pick_cover_slide;
-        this.f22435i = 12.0f;
+        this.f22490e = R.drawable.pick_cover_slide;
+        this.f22494i = 12.0f;
         this.q = new Rect();
         this.r = new RectF();
         this.s = new Paint();

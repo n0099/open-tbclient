@@ -14,17 +14,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.v3.k.b;
-/* loaded from: classes5.dex */
+import d.a.p0.v3.j.b;
+/* loaded from: classes4.dex */
 public class PreviewViewContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f21606e;
+    public b f21652e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f21607f;
+    public View f21653f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PreviewViewContainer(Context context, AttributeSet attributeSet) {
@@ -45,19 +45,19 @@ public class PreviewViewContainer extends FrameLayout {
                 return;
             }
         }
-        this.f21607f = null;
+        this.f21653f = null;
     }
 
     private void setFaceFailIdentifyLayoutVisiable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65538, this, z) == null) {
-            if (this.f21607f == null) {
-                this.f21607f = LayoutInflater.from(getContext()).inflate(R.layout.camera_face_fail_identify, (ViewGroup) null);
+            if (this.f21653f == null) {
+                this.f21653f = LayoutInflater.from(getContext()).inflate(R.layout.camera_face_fail_identify, (ViewGroup) null);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 17;
-                addView(this.f21607f, layoutParams);
+                addView(this.f21653f, layoutParams);
             }
-            this.f21607f.setVisibility(z ? 0 : 8);
+            this.f21653f.setVisibility(z ? 0 : 8);
         }
     }
 
@@ -80,7 +80,7 @@ public class PreviewViewContainer extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            b bVar = this.f21606e;
+            b bVar = this.f21652e;
             if (bVar != null) {
                 bVar.b(motionEvent);
             }
@@ -94,7 +94,7 @@ public class PreviewViewContainer extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) || bVar == null) {
             return;
         }
-        this.f21606e = bVar;
+        this.f21652e = bVar;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -116,6 +116,6 @@ public class PreviewViewContainer extends FrameLayout {
                 return;
             }
         }
-        this.f21607f = null;
+        this.f21653f = null;
     }
 }

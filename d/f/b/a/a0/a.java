@@ -7,28 +7,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.b.a.i0.v;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class a implements l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f72091a;
+    public final int f69194a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f72092b;
+    public final int[] f69195b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long[] f72093c;
+    public final long[] f69196c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long[] f72094d;
+    public final long[] f69197d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long[] f72095e;
+    public final long[] f69198e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f72096f;
+    public final long f69199f;
 
     public a(int[] iArr, long[] jArr, long[] jArr2, long[] jArr3) {
         Interceptable interceptable = $ic;
@@ -45,23 +45,23 @@ public final class a implements l {
                 return;
             }
         }
-        this.f72092b = iArr;
-        this.f72093c = jArr;
-        this.f72094d = jArr2;
-        this.f72095e = jArr3;
+        this.f69195b = iArr;
+        this.f69196c = jArr;
+        this.f69197d = jArr2;
+        this.f69198e = jArr3;
         int length = iArr.length;
-        this.f72091a = length;
+        this.f69194a = length;
         if (length > 0) {
-            this.f72096f = jArr2[length - 1] + jArr3[length - 1];
+            this.f69199f = jArr2[length - 1] + jArr3[length - 1];
         } else {
-            this.f72096f = 0L;
+            this.f69199f = 0L;
         }
     }
 
     public int a(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? v.e(this.f72095e, j, true, true) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? v.e(this.f69198e, j, true, true) : invokeJ.intValue;
     }
 
     @Override // d.f.b.a.a0.l
@@ -78,13 +78,13 @@ public final class a implements l {
     public long c(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? this.f72093c[a(j)] : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? this.f69196c[a(j)] : invokeJ.longValue;
     }
 
     @Override // d.f.b.a.a0.l
     public long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f72096f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f69199f : invokeV.longValue;
     }
 }

@@ -1,6 +1,7 @@
 package okhttp3.internal.http2;
 
 import android.net.http.Headers;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.components.countly.XAdRemoteSDKCountly;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -28,7 +29,7 @@ import okio.BufferedSource;
 import okio.ByteString;
 import okio.Okio;
 import okio.Source;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class Hpack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Map<ByteString, Integer> NAME_TO_FIRST_INDEX;
@@ -39,7 +40,7 @@ public final class Hpack {
     public static final Header[] STATIC_HEADER_TABLE;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Reader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +101,7 @@ public final class Hpack {
         private int dynamicTableIndex(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(65540, this, i2)) == null) ? this.nextHeaderIndex + 1 + i2 : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2)) == null) ? this.nextHeaderIndex + 1 + i2 : invokeI.intValue;
         }
 
         private int evictToRecoverBytes(int i2) {
@@ -354,7 +355,7 @@ public final class Hpack {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Writer {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int SETTINGS_HEADER_TABLE_SIZE = 4096;
@@ -419,7 +420,7 @@ public final class Hpack {
         private int evictToRecoverBytes(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65540, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2)) == null) {
                 int i3 = 0;
                 if (i2 > 0) {
                     int length = this.dynamicTable.length;

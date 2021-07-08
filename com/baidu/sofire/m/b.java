@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f10439a;
+    public Context f10456a;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -32,14 +32,14 @@ public final class b {
                 return;
             }
         }
-        this.f10439a = context;
+        this.f10456a = context;
     }
 
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Cursor query = this.f10439a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
+            Cursor query = this.f10456a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
             if (query != null) {
                 r1 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
                 query.close();

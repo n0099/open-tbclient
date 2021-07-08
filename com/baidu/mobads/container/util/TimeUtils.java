@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.b.a.a.b.a;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class TimeUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

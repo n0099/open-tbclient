@@ -3,6 +3,7 @@ package com.yy.hiidostatis.inner.util.log;
 import android.content.Context;
 import android.os.Process;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -21,7 +22,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Properties;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class L {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
@@ -101,7 +102,7 @@ public class L {
 
     public static void error(Object obj, String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65540, null, obj, str, objArr) == null) && isLogOn()) {
+        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str, objArr) == null) && isLogOn()) {
             try {
                 String formatErrorMsg = formatErrorMsg(String.format("%s %s", getPreFix(), getLogText(obj, str, objArr)), objArr);
                 Log.e(getTag(), formatErrorMsg);

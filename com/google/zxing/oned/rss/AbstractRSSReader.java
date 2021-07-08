@@ -1,5 +1,6 @@
 package com.google.zxing.oned.rss;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.detector.MathUtils;
 import com.google.zxing.oned.OneDReader;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractRSSReader extends OneDReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float MAX_AVG_VARIANCE = 0.2f;
@@ -88,7 +89,7 @@ public abstract class AbstractRSSReader extends OneDReader {
         InterceptResult invokeL;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, iArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, iArr)) == null) {
             float f2 = (iArr[0] + iArr[1]) / ((iArr[2] + i2) + iArr[3]);
             if (f2 >= 0.7916667f && f2 <= 0.89285713f) {
                 int i3 = Integer.MAX_VALUE;

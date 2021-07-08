@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import okhttp3.internal.ws.WebSocketProtocol;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class BitArray implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public final class BitArray implements Cloneable {
     public static int[] makeArray(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) ? new int[(i2 + 31) / 32] : (int[]) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? new int[(i2 + 31) / 32] : (int[]) invokeI.objValue;
     }
 
     public void appendBit(boolean z) {

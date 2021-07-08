@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AlaGameFrsLiveTabAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<Fragment> f14191a;
+    public List<Fragment> f14230a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaGameFrsLiveTabAdapter(FragmentManager fragmentManager) {
@@ -38,10 +38,10 @@ public class AlaGameFrsLiveTabAdapter extends FragmentPagerAdapter {
         }
     }
 
-    public void c(List<Fragment> list) {
+    public void b(List<Fragment> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.f14191a = list;
+            this.f14230a = list;
         }
     }
 
@@ -50,7 +50,7 @@ public class AlaGameFrsLiveTabAdapter extends FragmentPagerAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<Fragment> list = this.f14191a;
+            List<Fragment> list = this.f14230a;
             if (list != null) {
                 return list.size();
             }
@@ -64,8 +64,8 @@ public class AlaGameFrsLiveTabAdapter extends FragmentPagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            if (this.f14191a.size() > i2) {
-                return this.f14191a.get(i2);
+            if (this.f14230a.size() > i2) {
+                return this.f14230a.get(i2);
             }
             return null;
         }

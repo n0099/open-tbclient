@@ -1,6 +1,7 @@
 package com.qq.e.comm.managers.plugin;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,15 +10,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.qq.e.comm.util.SystemUtil;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40976a;
+    public static String f37990a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f40977b;
+    public static String f37991b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,14 +34,14 @@ public final class d {
                 return;
             }
         }
-        f40976a = SystemUtil.buildNewPathByProcessName("e_qq_com_plugin");
-        f40977b = SystemUtil.buildNewPathByProcessName("e_qq_com_dex");
+        f37990a = SystemUtil.buildNewPathByProcessName("e_qq_com_plugin");
+        f37991b = SystemUtil.buildNewPathByProcessName("e_qq_com_dex");
     }
 
     public static File a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? context.getDir(f40977b, 0) : (File) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? context.getDir(f37991b, 0) : (File) invokeL.objValue;
     }
 
     public static File b(Context context) {
@@ -58,7 +59,7 @@ public final class d {
     public static File d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) ? new File(i(context), "gdt_plugin.next") : (File) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? new File(i(context), "gdt_plugin.next") : (File) invokeL.objValue;
     }
 
     public static File e(Context context) {
@@ -88,6 +89,6 @@ public final class d {
     public static File i(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) ? context.getDir(f40976a, 0) : (File) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) ? context.getDir(f37990a, 0) : (File) invokeL.objValue;
     }
 }

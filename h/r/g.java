@@ -1,5 +1,6 @@
 package h.r;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,12 +12,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ThreadFactory;
 import rx.internal.util.RxThreadFactory;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f75700a;
+    public static final g f72734a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +33,7 @@ public class g {
                 return;
             }
         }
-        f75700a = new g();
+        f72734a = new g();
     }
 
     public g() {
@@ -70,7 +71,7 @@ public class g {
     public static h.g c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? d(new RxThreadFactory("RxIoScheduler-")) : (h.g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d(new RxThreadFactory("RxIoScheduler-")) : (h.g) invokeV.objValue;
     }
 
     public static h.g d(ThreadFactory threadFactory) {
@@ -106,7 +107,7 @@ public class g {
     public static g h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f75700a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f72734a : (g) invokeV.objValue;
     }
 
     public h.g g() {

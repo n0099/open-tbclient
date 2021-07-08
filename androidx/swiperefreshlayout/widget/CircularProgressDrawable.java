@@ -498,7 +498,7 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
     private float getRotation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) ? this.mRotation : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.mRotation : invokeV.floatValue;
     }
 
     private void setRotation(float f2) {

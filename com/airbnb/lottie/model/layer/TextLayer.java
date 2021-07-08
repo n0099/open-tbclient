@@ -8,6 +8,7 @@ import android.graphics.RectF;
 import android.graphics.Typeface;
 import androidx.annotation.Nullable;
 import androidx.collection.LongSparseArray;
+import androidx.core.view.InputDeviceCompat;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.LottieDrawable;
 import com.airbnb.lottie.LottieProperty;
@@ -285,7 +286,7 @@ public class TextLayer extends BaseLayer {
 
     private void drawCharacterAsGlyph(FontCharacter fontCharacter, Matrix matrix, float f2, DocumentData documentData, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, this, new Object[]{fontCharacter, matrix, Float.valueOf(f2), documentData, canvas}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{fontCharacter, matrix, Float.valueOf(f2), documentData, canvas}) == null) {
             List<ContentGroup> contentsForCharacter = getContentsForCharacter(fontCharacter);
             for (int i2 = 0; i2 < contentsForCharacter.size(); i2++) {
                 Path path = contentsForCharacter.get(i2).getPath();

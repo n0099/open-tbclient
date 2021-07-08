@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LangbridgeSettings implements NoProguard, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static String MW_JSHOOK_HISTORY_NAME = "mw_history.js";

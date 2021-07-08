@@ -72,7 +72,7 @@ public final class ViewGroupKt {
     public static final Sequence<View> getChildren(final ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, viewGroup)) == null) ? new Sequence<View>(viewGroup) { // from class: androidx.core.view.ViewGroupKt$children$1
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup)) == null) ? new Sequence<View>(viewGroup) { // from class: androidx.core.view.ViewGroupKt$children$1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ViewGroup $this_children;

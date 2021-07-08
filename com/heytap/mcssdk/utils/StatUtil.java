@@ -2,6 +2,7 @@ package com.heytap.mcssdk.utils;
 
 import android.content.Context;
 import android.content.Intent;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +13,7 @@ import com.heytap.mcssdk.mode.MessageStat;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class StatUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String COUNT = "count";
@@ -69,7 +70,7 @@ public class StatUtil {
 
     public static void statisticMessageByMcs(Context context, List<MessageStat> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, context, list) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, list) == null) {
             try {
                 Intent intent = new Intent();
                 intent.setAction(PushManager.getReceiveSdkAction(context));

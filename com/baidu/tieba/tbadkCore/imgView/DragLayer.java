@@ -13,18 +13,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.h3.k0.a;
-import d.a.s0.h3.k0.b;
-/* loaded from: classes5.dex */
+import d.a.p0.h3.k0.a;
+import d.a.p0.h3.k0.b;
+/* loaded from: classes4.dex */
 public class DragLayer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f21108e;
+    public a f21154e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f21109f;
+    public b f21155f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DragLayer(Context context) {
@@ -50,15 +50,15 @@ public class DragLayer extends FrameLayout {
     public void a() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f21109f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f21155f) == null) {
             return;
         }
-        Bitmap bitmap = bVar.f61325b;
+        Bitmap bitmap = bVar.f58081b;
         if (bitmap != null) {
             bitmap.recycle();
-            this.f21109f.f61325b = null;
+            this.f21155f.f58081b = null;
         }
-        this.f21109f = null;
+        this.f21155f = null;
     }
 
     public final void b() {
@@ -72,8 +72,8 @@ public class DragLayer extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            b bVar = this.f21109f;
-            if (bVar == null || !this.f21108e.f61320f) {
+            b bVar = this.f21155f;
+            if (bVar == null || !this.f21154e.f58076f) {
                 return;
             }
             bVar.a(canvas);
@@ -83,13 +83,13 @@ public class DragLayer extends FrameLayout {
     public a getDragController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21108e : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21154e : (a) invokeV.objValue;
     }
 
     public b getDragObject() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f21109f : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f21155f : (b) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -113,27 +113,27 @@ public class DragLayer extends FrameLayout {
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) ? this.f21108e.c(motionEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) ? this.f21154e.c(motionEvent) : invokeL.booleanValue;
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) ? this.f21108e.d(motionEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) ? this.f21154e.d(motionEvent) : invokeL.booleanValue;
     }
 
     public void setDragController(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-            this.f21108e = aVar;
+            this.f21154e = aVar;
         }
     }
 
     public void setDragObject(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
-            this.f21109f = bVar;
+            this.f21155f = bVar;
             invalidate();
         }
     }

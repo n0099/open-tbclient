@@ -1,6 +1,7 @@
 package androidx.lifecycle;
 
 import androidx.annotation.MainThread;
+import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
 import com.baidu.pass.face.platform.common.ConstantHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -105,7 +106,7 @@ public final class LifecycleController {
     /* JADX INFO: Access modifiers changed from: private */
     public final void handleDestroy(Job job) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, job) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, job) == null) {
             Job.DefaultImpls.cancel$default(job, (CancellationException) null, 1, (Object) null);
             finish();
         }

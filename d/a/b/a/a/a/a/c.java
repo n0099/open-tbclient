@@ -11,22 +11,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f43775d;
+    public static final int f40853d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public h f43776a;
+    public h f40854a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f43777b;
+    public e f40855b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f43778c;
+    public Context f40856c;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class c {
                 return;
             }
         }
-        f43775d = a.a(24);
+        f40853d = a.a(24);
     }
 
     public c(Context context) {
@@ -59,9 +59,9 @@ public class c {
                 return;
             }
         }
-        this.f43778c = context;
-        this.f43776a = new h(context);
-        this.f43777b = new e(null);
+        this.f40856c = context;
+        this.f40854a = new h(context);
+        this.f40855b = new e(null);
     }
 
     public final int b(Object obj, Object obj2) {
@@ -69,7 +69,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
             try {
-                return this.f43776a.a(obj, obj2);
+                return this.f40854a.a(obj, obj2);
             } catch (q e2) {
                 throw e2;
             } catch (Throwable th) {
@@ -85,7 +85,7 @@ public class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             int i2 = -103;
             try {
-                Object b2 = this.f43776a.b(this.f43778c);
+                Object b2 = this.f40854a.b(this.f40856c);
                 if (b2 == null) {
                     e = new NullPointerException("gpm null error");
                 } else {
@@ -132,8 +132,8 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i2)) == null) {
             try {
-                Class cls = this.f43776a.f43787c;
-                return k.b(cls, new Object[]{str, this.f43777b.f43779a + i2});
+                Class cls = this.f40854a.f40865c;
+                return k.b(cls, new Object[]{str, this.f40855b.f40857a + i2});
             } catch (Exception e2) {
                 e2.printStackTrace();
                 throw new com.baidu.ad.magic.flute.a.a.g("");
@@ -147,7 +147,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, obj, str)) == null) {
             g gVar = new g();
-            for (int i2 = 0; i2 < f43775d; i2++) {
+            for (int i2 = 0; i2 < f40853d; i2++) {
                 gVar.b(f.a(b(obj, e(str, i2))));
             }
             return gVar.a().b();
@@ -170,7 +170,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
             try {
-                return k.b(this.f43776a.f43787c, new Object[]{str, this.f43777b.f43780b});
+                return k.b(this.f40854a.f40865c, new Object[]{str, this.f40855b.f40858b});
             } catch (Exception e2) {
                 e2.printStackTrace();
                 throw new com.baidu.ad.magic.flute.a.a.g("");

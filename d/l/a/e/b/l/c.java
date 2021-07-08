@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import d.l.a.e.b.f.u;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

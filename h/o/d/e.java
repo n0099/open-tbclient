@@ -1,5 +1,6 @@
 package h.o.d;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,18 +10,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f75623a;
+    public static final int f72657a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f75624b;
+    public static final boolean f72658b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class a implements PrivilegedAction<ClassLoader> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,14 +64,14 @@ public final class e {
             }
         }
         int d2 = d();
-        f75623a = d2;
-        f75624b = d2 != 0;
+        f72657a = d2;
+        f72658b = d2 != 0;
     }
 
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f75623a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f72657a : invokeV.intValue;
     }
 
     public static ClassLoader b() {
@@ -88,13 +89,13 @@ public final class e {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f75624b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f72658b : invokeV.booleanValue;
     }
 
     public static int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             try {
                 return ((Integer) Class.forName("android.os.Build$VERSION", true, b()).getField("SDK_INT").get(null)).intValue();
             } catch (Exception unused) {

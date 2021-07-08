@@ -9,6 +9,7 @@ import android.util.DisplayMetrics;
 import android.util.LruCache;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.components.downloader.IDownloader;
 import com.baidu.mobads.container.components.downloader.OAdRemoteDownloadManager;
@@ -21,7 +22,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class XAdSimpleImageLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "XAdSimpleImageLoader";
@@ -31,7 +32,7 @@ public class XAdSimpleImageLoader {
     public Context mAppContext;
     public LruCache<String, Bitmap> mCache;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class ImageSize {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,7 +115,7 @@ public class XAdSimpleImageLoader {
     public static int caculateInSampleSize(BitmapFactory.Options options, ImageView imageView) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, options, imageView)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, options, imageView)) == null) {
             ImageSize generateImageViewSize = generateImageViewSize(imageView);
             int i2 = options.outWidth;
             int i3 = options.outHeight;

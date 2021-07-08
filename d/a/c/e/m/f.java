@@ -3,11 +3,12 @@ package d.a.c.e.m;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +76,7 @@ public class f {
     public static boolean e(Context context, ServiceConnection serviceConnection) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, serviceConnection)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, serviceConnection)) == null) {
             try {
                 context.unbindService(serviceConnection);
                 return true;

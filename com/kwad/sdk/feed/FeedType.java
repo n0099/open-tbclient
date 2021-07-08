@@ -1,6 +1,7 @@
 package com.kwad.sdk.feed;
 
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,10 +13,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.b.c;
 import com.kwad.sdk.core.response.model.AdTemplate;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class FeedType {
     public static final /* synthetic */ FeedType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
+    public static final FeedType FEED_TYPE_CONTENT_11;
+    public static final FeedType FEED_TYPE_CONTENT_12;
+    public static final FeedType FEED_TYPE_CONTENT_13;
     public static final FeedType FEED_TYPE_TEXT_ABOVE;
     public static final FeedType FEED_TYPE_TEXT_ABOVE_GROUP;
     public static final FeedType FEED_TYPE_TEXT_BELOW;
@@ -47,9 +51,12 @@ public final class FeedType {
         FEED_TYPE_TEXT_ABOVE = new FeedType("FEED_TYPE_TEXT_ABOVE", 4, 4);
         FEED_TYPE_TEXT_BELOW = new FeedType("FEED_TYPE_TEXT_BELOW", 5, 5);
         FEED_TYPE_TEXT_ABOVE_GROUP = new FeedType("FEED_TYPE_TEXT_ABOVE_GROUP", 6, 6);
-        FeedType feedType = new FeedType("FEED_TYPE_TEXT_NEW", 7, 7);
-        FEED_TYPE_TEXT_NEW = feedType;
-        $VALUES = new FeedType[]{FEED_TYPE_UNKNOWN, FEED_TYPE_TEXT_IMMERSE, FEED_TYPE_TEXT_LEFT, FEED_TYPE_TEXT_RIGHT, FEED_TYPE_TEXT_ABOVE, FEED_TYPE_TEXT_BELOW, FEED_TYPE_TEXT_ABOVE_GROUP, feedType};
+        FEED_TYPE_TEXT_NEW = new FeedType("FEED_TYPE_TEXT_NEW", 7, 7);
+        FEED_TYPE_CONTENT_11 = new FeedType("FEED_TYPE_CONTENT_11", 8, 11);
+        FEED_TYPE_CONTENT_12 = new FeedType("FEED_TYPE_CONTENT_12", 9, 12);
+        FeedType feedType = new FeedType("FEED_TYPE_CONTENT_13", 10, 13);
+        FEED_TYPE_CONTENT_13 = feedType;
+        $VALUES = new FeedType[]{FEED_TYPE_UNKNOWN, FEED_TYPE_TEXT_IMMERSE, FEED_TYPE_TEXT_LEFT, FEED_TYPE_TEXT_RIGHT, FEED_TYPE_TEXT_ABOVE, FEED_TYPE_TEXT_BELOW, FEED_TYPE_TEXT_ABOVE_GROUP, FEED_TYPE_TEXT_NEW, FEED_TYPE_CONTENT_11, FEED_TYPE_CONTENT_12, feedType};
     }
 
     public FeedType(String str, int i2, int i3) {
@@ -77,13 +84,13 @@ public final class FeedType {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, adTemplate)) == null) {
-            int L = com.kwad.sdk.core.response.b.a.L(c.j(adTemplate));
+            int H = com.kwad.sdk.core.response.b.a.H(c.i(adTemplate));
             int i2 = adTemplate.type;
             if (i2 > FEED_TYPE_TEXT_ABOVE_GROUP.type) {
                 return true;
             }
             FeedType fromInt = fromInt(i2);
-            return L != 1 ? L != 2 ? L == 3 && fromInt != FEED_TYPE_UNKNOWN : (fromInt == FEED_TYPE_UNKNOWN || fromInt == FEED_TYPE_TEXT_ABOVE_GROUP) ? false : true : fromInt == FEED_TYPE_TEXT_ABOVE || fromInt == FEED_TYPE_TEXT_BELOW;
+            return H != 1 ? H != 2 ? H == 3 && fromInt != FEED_TYPE_UNKNOWN : (fromInt == FEED_TYPE_UNKNOWN || fromInt == FEED_TYPE_TEXT_ABOVE_GROUP) ? false : true : fromInt == FEED_TYPE_TEXT_ABOVE || fromInt == FEED_TYPE_TEXT_BELOW;
         }
         return invokeL.booleanValue;
     }
@@ -99,21 +106,27 @@ public final class FeedType {
                     return feedType;
                 }
             }
-            return i2 >= FEED_TYPE_TEXT_NEW.getType() ? FEED_TYPE_TEXT_NEW : FEED_TYPE_UNKNOWN;
+            return isH5Type(i2) ? FEED_TYPE_TEXT_NEW : FEED_TYPE_UNKNOWN;
         }
         return (FeedType) invokeI.objValue;
+    }
+
+    public static boolean isH5Type(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? i2 == 7 || i2 == 8 || i2 >= 2000 : invokeI.booleanValue;
     }
 
     public static FeedType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (FeedType) Enum.valueOf(FeedType.class, str) : (FeedType) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? (FeedType) Enum.valueOf(FeedType.class, str) : (FeedType) invokeL.objValue;
     }
 
     public static FeedType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (FeedType[]) $VALUES.clone() : (FeedType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? (FeedType[]) $VALUES.clone() : (FeedType[]) invokeV.objValue;
     }
 
     public int getType() {

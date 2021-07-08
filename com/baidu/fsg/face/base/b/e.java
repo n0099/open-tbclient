@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.logging.Log;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.imsdk.internal.Constants;
@@ -44,71 +45,71 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f5579a = "UpdateSo";
+    public static String f5596a = "UpdateSo";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f5580b;
+    public Context f5597b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f5581c;
+    public b f5598c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f5582d;
+    public CountDownLatch f5599d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f5583e;
+    public c f5600e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f5584f;
+    public c f5601f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a f5585g;
+    public b.a f5602g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a(c.a aVar);
 
         void a(c.a aVar, byte[] bArr);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f5598a = "dl_so_zip_version";
+        public static final String f5615a = "dl_so_zip_version";
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f5599c = "dl_so_modle_name";
+        public static final String f5616c = "dl_so_modle_name";
 
         /* renamed from: d  reason: collision with root package name */
-        public static final String f5600d = "dl_so_get_config_success";
+        public static final String f5617d = "dl_so_get_config_success";
 
         /* renamed from: e  reason: collision with root package name */
-        public static final String f5601e = "dl_so_zip_file_success";
+        public static final String f5618e = "dl_so_zip_file_success";
 
         /* renamed from: f  reason: collision with root package name */
-        public static final String f5602f = "dl_so_need_update";
+        public static final String f5619f = "dl_so_need_update";
 
         /* renamed from: g  reason: collision with root package name */
-        public static final String f5603g = "dl_so_update_from_net";
+        public static final String f5620g = "dl_so_update_from_net";
 
         /* renamed from: h  reason: collision with root package name */
-        public static final String f5604h = "dl_so_exception_info";
+        public static final String f5621h = "dl_so_exception_info";
 
         /* renamed from: i  reason: collision with root package name */
-        public static final String f5605i = "dl_so_meet_gray";
+        public static final String f5622i = "dl_so_meet_gray";
         public static final String j = "dl_so_zip_enable";
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f5606b;
+        public final /* synthetic */ e f5623b;
         public String k;
         public boolean l;
         public boolean m;
@@ -133,7 +134,7 @@ public class e {
                     return;
                 }
             }
-            this.f5606b = eVar;
+            this.f5623b = eVar;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -152,21 +153,21 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
                 HashMap hashMap = new HashMap();
-                hashMap.put(f5599c, this.f5606b.f5585g.f5560a);
-                hashMap.put(f5598a, this.k);
-                hashMap.put(f5600d, this.l ? "1" : "-1");
+                hashMap.put(f5616c, this.f5623b.f5602g.f5577a);
+                hashMap.put(f5615a, this.k);
+                hashMap.put(f5617d, this.l ? "1" : "-1");
                 if (this.l) {
                     hashMap.put(j, this.r ? "1" : "-1");
-                    hashMap.put(f5602f, this.n ? "1" : "-1");
+                    hashMap.put(f5619f, this.n ? "1" : "-1");
                 }
                 if (this.r) {
-                    hashMap.put(f5605i, this.o ? "1" : "-1");
+                    hashMap.put(f5622i, this.o ? "1" : "-1");
                 }
                 if (this.n) {
-                    hashMap.put(f5603g, this.p ? "1" : "-1");
-                    hashMap.put(f5601e, this.m ? "1" : "-1");
+                    hashMap.put(f5620g, this.p ? "1" : "-1");
+                    hashMap.put(f5618e, this.m ? "1" : "-1");
                 }
-                hashMap.put(f5604h, this.q);
+                hashMap.put(f5621h, this.q);
                 return hashMap;
             }
             return (Map) invokeV.objValue;
@@ -206,28 +207,28 @@ public class e {
     public void c(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65566, this, cVar) == null) {
-            this.f5581c.p = true;
-            com.baidu.fsg.face.base.d.d.d(f5579a, "loadFileFromExternal onFailure distributedSdk uri:" + cVar.o.f5577b);
+            this.f5598c.p = true;
+            com.baidu.fsg.face.base.d.d.d(f5596a, "loadFileFromExternal onFailure distributedSdk uri:" + cVar.o.f5594b);
             String str = System.currentTimeMillis() + "";
-            long doDownload = ApollonDownloadManager.getInstance(this.f5580b).doDownload(Environment.DIRECTORY_DOWNLOADS, str + "", cVar.o.f5577b, false, false, false, ".zip");
-            LogUtil.i(f5579a, "start load engineso file");
+            long doDownload = ApollonDownloadManager.getInstance(this.f5597b).doDownload(Environment.DIRECTORY_DOWNLOADS, str + "", cVar.o.f5594b, false, false, false, ".zip");
+            LogUtil.i(f5596a, "start load engineso file");
             boolean[] zArr = {false};
             if (doDownload != -1) {
-                ApollonDownloadManager.getInstance(this.f5580b).registerObserver(this.f5580b, doDownload, new ApollonDownloadManager.DownloadListener(this, doDownload, str, zArr) { // from class: com.baidu.fsg.face.base.b.e.4
+                ApollonDownloadManager.getInstance(this.f5597b).registerObserver(this.f5597b, doDownload, new ApollonDownloadManager.DownloadListener(this, doDownload, str, zArr) { // from class: com.baidu.fsg.face.base.b.e.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ long f5591a;
+                    public final /* synthetic */ long f5608a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f5592b;
+                    public final /* synthetic */ String f5609b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ boolean[] f5593c;
+                    public final /* synthetic */ boolean[] f5610c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ e f5594d;
+                    public final /* synthetic */ e f5611d;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -244,10 +245,10 @@ public class e {
                                 return;
                             }
                         }
-                        this.f5594d = this;
-                        this.f5591a = doDownload;
-                        this.f5592b = str;
-                        this.f5593c = zArr;
+                        this.f5611d = this;
+                        this.f5608a = doDownload;
+                        this.f5609b = str;
+                        this.f5610c = zArr;
                     }
 
                     /* JADX WARN: Removed duplicated region for block: B:46:0x01e6  */
@@ -265,10 +266,10 @@ public class e {
                         StringBuilder sb;
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeL(1048576, this, downloadItemInfo) == null) && downloadItemInfo.getDownloadState() == 8) {
-                            ApollonDownloadManager.getInstance(this.f5594d.f5580b).unregisterObserver(this.f5594d.f5580b, this.f5591a, this);
+                            ApollonDownloadManager.getInstance(this.f5611d.f5597b).unregisterObserver(this.f5611d.f5597b, this.f5608a, this);
                             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                             try {
-                                fileInputStream = new FileInputStream(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() + "/" + this.f5592b + ".zip");
+                                fileInputStream = new FileInputStream(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() + "/" + this.f5609b + ".zip");
                                 try {
                                     try {
                                         byte[] bArr = new byte[51200];
@@ -279,8 +280,8 @@ public class e {
                                             }
                                             byteArrayOutputStream.write(bArr, 0, read);
                                         }
-                                        this.f5594d.a(byteArrayOutputStream.toByteArray());
-                                        File file2 = new File(this.f5592b);
+                                        this.f5611d.a(byteArrayOutputStream.toByteArray());
+                                        File file2 = new File(this.f5609b);
                                         if (file2.exists()) {
                                             file2.delete();
                                         }
@@ -292,13 +293,13 @@ public class e {
                                     } catch (IOException e4) {
                                         e2 = e4;
                                         e2.printStackTrace();
-                                        com.baidu.fsg.face.base.d.d.d(e.f5579a, "distributeFileDownload() onFailure" + e2.toString());
-                                        this.f5594d.f5584f.p = true;
-                                        com.baidu.fsg.face.base.b.b.a(this.f5594d.f5580b).a(this.f5594d.f5580b, this.f5594d.f5585g.f5560a, this.f5594d.f5584f);
-                                        this.f5594d.f5581c.m = false;
-                                        this.f5594d.f5581c.q = Log.getStackTraceString(e2);
-                                        this.f5594d.f5582d.countDown();
-                                        File file3 = new File(this.f5592b);
+                                        com.baidu.fsg.face.base.d.d.d(e.f5596a, "distributeFileDownload() onFailure" + e2.toString());
+                                        this.f5611d.f5601f.p = true;
+                                        com.baidu.fsg.face.base.b.b.a(this.f5611d.f5597b).a(this.f5611d.f5597b, this.f5611d.f5602g.f5577a, this.f5611d.f5601f);
+                                        this.f5611d.f5598c.m = false;
+                                        this.f5611d.f5598c.q = Log.getStackTraceString(e2);
+                                        this.f5611d.f5599d.countDown();
+                                        File file3 = new File(this.f5609b);
                                         if (file3.exists()) {
                                             file3.delete();
                                         }
@@ -309,25 +310,25 @@ public class e {
                                                 e5.printStackTrace();
                                             }
                                         }
-                                        if (this.f5593c[0]) {
+                                        if (this.f5610c[0]) {
                                             return;
                                         }
-                                        com.baidu.fsg.face.base.d.d.d(e.f5579a, "distributeFileDownload() onFailure" + downloadItemInfo.getDownloadState());
-                                        this.f5594d.f5584f.p = true;
-                                        com.baidu.fsg.face.base.b.b a2 = com.baidu.fsg.face.base.b.b.a(this.f5594d.f5580b);
-                                        e eVar = this.f5594d;
-                                        a2.a(eVar.f5580b, eVar.f5585g.f5560a, this.f5594d.f5584f);
-                                        this.f5594d.f5581c.m = false;
-                                        bVar = this.f5594d.f5581c;
+                                        com.baidu.fsg.face.base.d.d.d(e.f5596a, "distributeFileDownload() onFailure" + downloadItemInfo.getDownloadState());
+                                        this.f5611d.f5601f.p = true;
+                                        com.baidu.fsg.face.base.b.b a2 = com.baidu.fsg.face.base.b.b.a(this.f5611d.f5597b);
+                                        e eVar = this.f5611d;
+                                        a2.a(eVar.f5597b, eVar.f5602g.f5577a, this.f5611d.f5601f);
+                                        this.f5611d.f5598c.m = false;
+                                        bVar = this.f5611d.f5598c;
                                         sb = new StringBuilder();
                                         sb.append("distributeFileDownload() onFailure");
                                         sb.append(downloadItemInfo.getDownloadState());
                                         bVar.q = sb.toString();
-                                        this.f5594d.f5582d.countDown();
+                                        this.f5611d.f5599d.countDown();
                                     }
                                 } catch (Throwable th2) {
                                     th = th2;
-                                    file = new File(this.f5592b);
+                                    file = new File(this.f5609b);
                                     if (file.exists()) {
                                         file.delete();
                                     }
@@ -338,15 +339,15 @@ public class e {
                                             e6.printStackTrace();
                                         }
                                     }
-                                    if (!this.f5593c[0]) {
-                                        com.baidu.fsg.face.base.d.d.d(e.f5579a, "distributeFileDownload() onFailure" + downloadItemInfo.getDownloadState());
-                                        this.f5594d.f5584f.p = true;
-                                        com.baidu.fsg.face.base.b.b a3 = com.baidu.fsg.face.base.b.b.a(this.f5594d.f5580b);
-                                        e eVar2 = this.f5594d;
-                                        a3.a(eVar2.f5580b, eVar2.f5585g.f5560a, this.f5594d.f5584f);
-                                        this.f5594d.f5581c.m = false;
-                                        this.f5594d.f5581c.q = "distributeFileDownload() onFailure" + downloadItemInfo.getDownloadState();
-                                        this.f5594d.f5582d.countDown();
+                                    if (!this.f5610c[0]) {
+                                        com.baidu.fsg.face.base.d.d.d(e.f5596a, "distributeFileDownload() onFailure" + downloadItemInfo.getDownloadState());
+                                        this.f5611d.f5601f.p = true;
+                                        com.baidu.fsg.face.base.b.b a3 = com.baidu.fsg.face.base.b.b.a(this.f5611d.f5597b);
+                                        e eVar2 = this.f5611d;
+                                        a3.a(eVar2.f5597b, eVar2.f5602g.f5577a, this.f5611d.f5601f);
+                                        this.f5611d.f5598c.m = false;
+                                        this.f5611d.f5598c.q = "distributeFileDownload() onFailure" + downloadItemInfo.getDownloadState();
+                                        this.f5611d.f5599d.countDown();
                                     }
                                     throw th;
                                 }
@@ -356,30 +357,30 @@ public class e {
                             } catch (Throwable th3) {
                                 fileInputStream = null;
                                 th = th3;
-                                file = new File(this.f5592b);
+                                file = new File(this.f5609b);
                                 if (file.exists()) {
                                 }
                                 if (fileInputStream != null) {
                                 }
-                                if (!this.f5593c[0]) {
+                                if (!this.f5610c[0]) {
                                 }
                                 throw th;
                             }
-                            if (this.f5593c[0]) {
+                            if (this.f5610c[0]) {
                                 return;
                             }
-                            com.baidu.fsg.face.base.d.d.d(e.f5579a, "distributeFileDownload() onFailure" + downloadItemInfo.getDownloadState());
-                            this.f5594d.f5584f.p = true;
-                            com.baidu.fsg.face.base.b.b a4 = com.baidu.fsg.face.base.b.b.a(this.f5594d.f5580b);
-                            e eVar3 = this.f5594d;
-                            a4.a(eVar3.f5580b, eVar3.f5585g.f5560a, this.f5594d.f5584f);
-                            this.f5594d.f5581c.m = false;
-                            bVar = this.f5594d.f5581c;
+                            com.baidu.fsg.face.base.d.d.d(e.f5596a, "distributeFileDownload() onFailure" + downloadItemInfo.getDownloadState());
+                            this.f5611d.f5601f.p = true;
+                            com.baidu.fsg.face.base.b.b a4 = com.baidu.fsg.face.base.b.b.a(this.f5611d.f5597b);
+                            e eVar3 = this.f5611d;
+                            a4.a(eVar3.f5597b, eVar3.f5602g.f5577a, this.f5611d.f5601f);
+                            this.f5611d.f5598c.m = false;
+                            bVar = this.f5611d.f5598c;
                             sb = new StringBuilder();
                             sb.append("distributeFileDownload() onFailure");
                             sb.append(downloadItemInfo.getDownloadState());
                             bVar.q = sb.toString();
-                            this.f5594d.f5582d.countDown();
+                            this.f5611d.f5599d.countDown();
                         }
                     }
                 });
@@ -396,10 +397,10 @@ public class e {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f5589a;
+                public final /* synthetic */ c f5606a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ e f5590b;
+                public final /* synthetic */ e f5607b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -416,31 +417,31 @@ public class e {
                             return;
                         }
                     }
-                    this.f5590b = this;
-                    this.f5589a = cVar;
+                    this.f5607b = this;
+                    this.f5606a = cVar;
                 }
 
                 @Override // com.baidu.fsg.face.base.b.e.a
                 public void a(c.a aVar, byte[] bArr) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, bArr) == null) {
-                        e eVar = this.f5590b;
-                        Context context = eVar.f5580b;
-                        boolean a2 = eVar.a(context, com.baidu.fsg.face.base.b.b.c(context, eVar.f5585g), bArr);
+                        e eVar = this.f5607b;
+                        Context context = eVar.f5597b;
+                        boolean a2 = eVar.a(context, com.baidu.fsg.face.base.b.b.c(context, eVar.f5602g), bArr);
                         if (a2) {
-                            this.f5590b.f5581c.p = false;
-                            e eVar2 = this.f5590b;
-                            String c2 = com.baidu.fsg.face.base.b.b.c(eVar2.f5580b, eVar2.f5585g);
-                            e eVar3 = this.f5590b;
-                            eVar2.a(c2, com.baidu.fsg.face.base.b.b.a(eVar3.f5580b, eVar3.f5585g));
-                            this.f5589a.p = false;
-                            com.baidu.fsg.face.base.b.b a3 = com.baidu.fsg.face.base.b.b.a(this.f5590b.f5580b);
-                            e eVar4 = this.f5590b;
-                            a3.a(eVar4.f5580b, eVar4.f5585g.f5560a, this.f5589a);
+                            this.f5607b.f5598c.p = false;
+                            e eVar2 = this.f5607b;
+                            String c2 = com.baidu.fsg.face.base.b.b.c(eVar2.f5597b, eVar2.f5602g);
+                            e eVar3 = this.f5607b;
+                            eVar2.a(c2, com.baidu.fsg.face.base.b.b.a(eVar3.f5597b, eVar3.f5602g));
+                            this.f5606a.p = false;
+                            com.baidu.fsg.face.base.b.b a3 = com.baidu.fsg.face.base.b.b.a(this.f5607b.f5597b);
+                            e eVar4 = this.f5607b;
+                            a3.a(eVar4.f5597b, eVar4.f5602g.f5577a, this.f5606a);
                         } else {
-                            this.f5590b.c(this.f5589a);
+                            this.f5607b.c(this.f5606a);
                         }
-                        String str = e.f5579a;
+                        String str = e.f5596a;
                         com.baidu.fsg.face.base.d.d.d(str, "loadFileFromExternal writeFileSuccess:" + a2);
                     }
                 }
@@ -449,10 +450,10 @@ public class e {
                 public void a(c.a aVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar) == null) {
-                        this.f5590b.c(this.f5589a);
+                        this.f5607b.c(this.f5606a);
                     }
                 }
-            }, com.baidu.fsg.face.base.b.b.a(this.f5585g));
+            }, com.baidu.fsg.face.base.b.b.a(this.f5602g));
         }
     }
 
@@ -464,7 +465,7 @@ public class e {
             try {
                 return a(new FileInputStream(new File(str)));
             } catch (IOException e2) {
-                com.baidu.fsg.face.base.d.d.d(f5579a, e2);
+                com.baidu.fsg.face.base.d.d.d(f5596a, e2);
                 return null;
             }
         }
@@ -480,19 +481,19 @@ public class e {
     public void a(Context context, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, context, i2) == null) {
-            this.f5580b = context;
-            this.f5585g = com.baidu.fsg.face.base.b.b.a(i2);
-            if ("UpdateSo".equals(f5579a)) {
-                f5579a = "UpdateSo-" + this.f5585g.f5560a;
+            this.f5597b = context;
+            this.f5602g = com.baidu.fsg.face.base.b.b.a(i2);
+            if ("UpdateSo".equals(f5596a)) {
+                f5596a = "UpdateSo-" + this.f5602g.f5577a;
             }
-            this.f5581c = new b();
-            this.f5582d = new CountDownLatch(1);
+            this.f5598c = new b();
+            this.f5599d = new CountDownLatch(1);
             l.a().c(new k(new Runnable(this) { // from class: com.baidu.fsg.face.base.b.e.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ e f5586a;
+                public final /* synthetic */ e f5603a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -509,23 +510,23 @@ public class e {
                             return;
                         }
                     }
-                    this.f5586a = this;
+                    this.f5603a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        String rimSoDownLoad = BdWalletUtils.getRimSoDownLoad(this.f5586a.f5580b);
+                        String rimSoDownLoad = BdWalletUtils.getRimSoDownLoad(this.f5603a.f5597b);
                         if (!TextUtils.isEmpty(rimSoDownLoad)) {
-                            this.f5586a.a(rimSoDownLoad);
+                            this.f5603a.a(rimSoDownLoad);
                         }
                         try {
-                            this.f5586a.f5582d.await();
-                            com.baidu.fsg.face.base.d.d.b(e.f5579a, "begin stat service");
-                            this.f5586a.f5581c.b();
+                            this.f5603a.f5599d.await();
+                            com.baidu.fsg.face.base.d.d.b(e.f5596a, "begin stat service");
+                            this.f5603a.f5598c.b();
                         } catch (InterruptedException e2) {
-                            com.baidu.fsg.face.base.d.d.d(e.f5579a, e2);
+                            com.baidu.fsg.face.base.d.d.d(e.f5596a, e2);
                         }
                     }
                 }
@@ -542,10 +543,10 @@ public class e {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f5587a;
+                public final /* synthetic */ String f5604a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ e f5588b;
+                public final /* synthetic */ e f5605b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -562,8 +563,8 @@ public class e {
                             return;
                         }
                     }
-                    this.f5588b = this;
-                    this.f5587a = str;
+                    this.f5605b = this;
+                    this.f5604a = str;
                 }
 
                 @Override // java.lang.Runnable
@@ -571,59 +572,59 @@ public class e {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            this.f5588b.f5583e = c.a(new JSONObject(this.f5587a), this.f5588b.f5585g);
-                            this.f5588b.f5584f = com.baidu.fsg.face.base.b.b.a(this.f5588b.f5580b).a(this.f5588b.f5580b, this.f5588b.f5585g.f5560a);
-                            if (!TextUtils.isEmpty(this.f5588b.f5584f.n)) {
-                                this.f5588b.f5585g.f5561b = this.f5588b.f5585g.f5561b.compareTo(this.f5588b.f5584f.n) < 0 ? this.f5588b.f5584f.n : this.f5588b.f5585g.f5561b;
+                            this.f5605b.f5600e = c.a(new JSONObject(this.f5604a), this.f5605b.f5602g);
+                            this.f5605b.f5601f = com.baidu.fsg.face.base.b.b.a(this.f5605b.f5597b).a(this.f5605b.f5597b, this.f5605b.f5602g.f5577a);
+                            if (!TextUtils.isEmpty(this.f5605b.f5601f.n)) {
+                                this.f5605b.f5602g.f5578b = this.f5605b.f5602g.f5578b.compareTo(this.f5605b.f5601f.n) < 0 ? this.f5605b.f5601f.n : this.f5605b.f5602g.f5578b;
                             }
-                            String str2 = e.f5579a;
-                            com.baidu.fsg.face.base.d.d.d(str2, "asyncDistributeConf() newOptions:" + this.f5588b.f5583e.a());
-                            String str3 = e.f5579a;
-                            com.baidu.fsg.face.base.d.d.d(str3, "asyncDistributeConf() oldOptions:" + this.f5588b.f5584f.a());
-                            this.f5588b.f5584f.q = this.f5588b.f5583e.q;
-                            this.f5588b.f5584f.r = this.f5588b.f5583e.r;
-                            com.baidu.fsg.face.base.b.b.a(this.f5588b.f5580b).a(this.f5588b.f5580b, this.f5588b.f5585g.f5560a, this.f5588b.f5584f);
-                            this.f5588b.f5581c.l = true;
-                            this.f5588b.f5581c.k = this.f5588b.f5583e.n;
-                            if (this.f5588b.f5583e.q && this.f5588b.f5583e.r) {
-                                this.f5588b.f5581c.r = true;
-                                this.f5588b.a(this.f5588b.f5584f);
-                                int i2 = this.f5588b.f5583e.s;
-                                this.f5588b.f5583e.s = this.f5588b.f5584f.s;
-                                if (!this.f5588b.a(i2, this.f5588b.f5584f)) {
-                                    this.f5588b.f5581c.o = false;
-                                    this.f5588b.f5581c.n = false;
-                                    this.f5588b.f5582d.countDown();
-                                    this.f5588b.f5584f.p = true;
-                                    com.baidu.fsg.face.base.b.b.a(this.f5588b.f5580b).a(this.f5588b.f5580b, this.f5588b.f5585g.f5560a, this.f5588b.f5584f);
+                            String str2 = e.f5596a;
+                            com.baidu.fsg.face.base.d.d.d(str2, "asyncDistributeConf() newOptions:" + this.f5605b.f5600e.a());
+                            String str3 = e.f5596a;
+                            com.baidu.fsg.face.base.d.d.d(str3, "asyncDistributeConf() oldOptions:" + this.f5605b.f5601f.a());
+                            this.f5605b.f5601f.q = this.f5605b.f5600e.q;
+                            this.f5605b.f5601f.r = this.f5605b.f5600e.r;
+                            com.baidu.fsg.face.base.b.b.a(this.f5605b.f5597b).a(this.f5605b.f5597b, this.f5605b.f5602g.f5577a, this.f5605b.f5601f);
+                            this.f5605b.f5598c.l = true;
+                            this.f5605b.f5598c.k = this.f5605b.f5600e.n;
+                            if (this.f5605b.f5600e.q && this.f5605b.f5600e.r) {
+                                this.f5605b.f5598c.r = true;
+                                this.f5605b.a(this.f5605b.f5601f);
+                                int i2 = this.f5605b.f5600e.s;
+                                this.f5605b.f5600e.s = this.f5605b.f5601f.s;
+                                if (!this.f5605b.a(i2, this.f5605b.f5601f)) {
+                                    this.f5605b.f5598c.o = false;
+                                    this.f5605b.f5598c.n = false;
+                                    this.f5605b.f5599d.countDown();
+                                    this.f5605b.f5601f.p = true;
+                                    com.baidu.fsg.face.base.b.b.a(this.f5605b.f5597b).a(this.f5605b.f5597b, this.f5605b.f5602g.f5577a, this.f5605b.f5601f);
                                     return;
                                 }
-                                this.f5588b.f5581c.o = true;
-                                if (this.f5588b.f5585g.f5561b.compareTo(this.f5588b.f5583e.n) >= 0) {
-                                    this.f5588b.f5581c.n = false;
-                                    this.f5588b.f5582d.countDown();
-                                    this.f5588b.f5584f.p = true;
-                                    com.baidu.fsg.face.base.b.b.a(this.f5588b.f5580b).a(this.f5588b.f5580b, this.f5588b.f5585g.f5560a, this.f5588b.f5584f);
+                                this.f5605b.f5598c.o = true;
+                                if (this.f5605b.f5602g.f5578b.compareTo(this.f5605b.f5600e.n) >= 0) {
+                                    this.f5605b.f5598c.n = false;
+                                    this.f5605b.f5599d.countDown();
+                                    this.f5605b.f5601f.p = true;
+                                    com.baidu.fsg.face.base.b.b.a(this.f5605b.f5597b).a(this.f5605b.f5597b, this.f5605b.f5602g.f5577a, this.f5605b.f5601f);
                                     return;
-                                } else if (this.f5588b.a(this.f5588b.f5583e.o, this.f5588b.f5584f.o)) {
-                                    this.f5588b.f5585g.f5561b = this.f5588b.f5583e.n;
-                                    this.f5588b.b(this.f5588b.f5583e);
-                                    this.f5588b.f5581c.n = true;
+                                } else if (this.f5605b.a(this.f5605b.f5600e.o, this.f5605b.f5601f.o)) {
+                                    this.f5605b.f5602g.f5578b = this.f5605b.f5600e.n;
+                                    this.f5605b.b(this.f5605b.f5600e);
+                                    this.f5605b.f5598c.n = true;
                                     return;
                                 } else {
-                                    this.f5588b.a(this.f5588b.f5583e.o);
-                                    this.f5588b.f5581c.n = false;
-                                    this.f5588b.f5582d.countDown();
+                                    this.f5605b.a(this.f5605b.f5600e.o);
+                                    this.f5605b.f5598c.n = false;
+                                    this.f5605b.f5599d.countDown();
                                     return;
                                 }
                             }
-                            this.f5588b.f5581c.r = false;
-                            this.f5588b.f5581c.n = false;
-                            this.f5588b.f5582d.countDown();
-                            this.f5588b.f5584f.p = true;
-                            com.baidu.fsg.face.base.b.b.a(this.f5588b.f5580b).a(this.f5588b.f5580b, this.f5588b.f5585g.f5560a, this.f5588b.f5584f);
+                            this.f5605b.f5598c.r = false;
+                            this.f5605b.f5598c.n = false;
+                            this.f5605b.f5599d.countDown();
+                            this.f5605b.f5601f.p = true;
+                            com.baidu.fsg.face.base.b.b.a(this.f5605b.f5597b).a(this.f5605b.f5597b, this.f5605b.f5602g.f5577a, this.f5605b.f5601f);
                         } catch (JSONException e2) {
-                            com.baidu.fsg.face.base.d.d.d(e.f5579a, e2);
+                            com.baidu.fsg.face.base.d.d.d(e.f5596a, e2);
                         }
                     }
                 }
@@ -639,9 +640,9 @@ public class e {
                 Random random = new Random();
                 random.setSeed(System.currentTimeMillis());
                 cVar.s = random.nextInt(100);
-                com.baidu.fsg.face.base.b.b.a(this.f5580b).a(this.f5580b, this.f5585g.f5560a, cVar);
+                com.baidu.fsg.face.base.b.b.a(this.f5597b).a(this.f5597b, this.f5602g.f5577a, cVar);
             }
-            String str = f5579a;
+            String str = f5596a;
             com.baidu.fsg.face.base.d.d.b(str, "current gray = " + cVar.s);
         }
     }
@@ -650,7 +651,7 @@ public class e {
     public boolean a(int i2, c cVar) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65552, this, i2, cVar)) == null) ? 100 == this.f5583e.s || cVar.s < i2 : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65552, this, i2, cVar)) == null) ? 100 == this.f5600e.s || cVar.s < i2 : invokeIL.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -662,10 +663,10 @@ public class e {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ byte[] f5595a;
+                public final /* synthetic */ byte[] f5612a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ e f5596b;
+                public final /* synthetic */ e f5613b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -682,8 +683,8 @@ public class e {
                             return;
                         }
                     }
-                    this.f5596b = this;
-                    this.f5595a = bArr;
+                    this.f5613b = this;
+                    this.f5612a = bArr;
                 }
 
                 @Override // java.lang.Runnable
@@ -691,46 +692,46 @@ public class e {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            String str = e.f5579a;
-                            com.baidu.fsg.face.base.d.d.d(str, "distributeFileDownload() onSuccess" + this.f5596b.f5583e.o.f5577b + ",:" + com.baidu.fsg.face.base.b.b.c(this.f5596b.f5580b, this.f5596b.f5585g));
-                            String md5 = MD5Util.toMd5(this.f5595a, false);
-                            String localDecryptProxy = RimArmor.getInstance().localDecryptProxy(this.f5596b.f5583e.o.f5578c);
+                            String str = e.f5596a;
+                            com.baidu.fsg.face.base.d.d.d(str, "distributeFileDownload() onSuccess" + this.f5613b.f5600e.o.f5594b + ",:" + com.baidu.fsg.face.base.b.b.c(this.f5613b.f5597b, this.f5613b.f5602g));
+                            String md5 = MD5Util.toMd5(this.f5612a, false);
+                            String localDecryptProxy = RimArmor.getInstance().localDecryptProxy(this.f5613b.f5600e.o.f5595c);
                             if (localDecryptProxy == null || !localDecryptProxy.equals(md5)) {
-                                this.f5596b.f5584f.p = true;
-                                com.baidu.fsg.face.base.b.b.a(this.f5596b.f5580b).a(this.f5596b.f5580b, this.f5596b.f5585g.f5560a, this.f5596b.f5584f);
-                                this.f5596b.f5581c.m = false;
-                                this.f5596b.f5581c.q = "localMd5 is not equals onlineMd5";
-                                this.f5596b.f5582d.countDown();
+                                this.f5613b.f5601f.p = true;
+                                com.baidu.fsg.face.base.b.b.a(this.f5613b.f5597b).a(this.f5613b.f5597b, this.f5613b.f5602g.f5577a, this.f5613b.f5601f);
+                                this.f5613b.f5598c.m = false;
+                                this.f5613b.f5598c.q = "localMd5 is not equals onlineMd5";
+                                this.f5613b.f5599d.countDown();
                                 return;
                             }
-                            if (!this.f5596b.a(this.f5596b.f5580b, com.baidu.fsg.face.base.b.b.c(this.f5596b.f5580b, this.f5596b.f5585g), this.f5595a)) {
-                                this.f5596b.f5584f.p = true;
-                                com.baidu.fsg.face.base.b.b.a(this.f5596b.f5580b).a(this.f5596b.f5580b, this.f5596b.f5585g.f5560a, this.f5596b.f5584f);
-                                this.f5596b.f5581c.m = false;
-                                this.f5596b.f5581c.q = "zip file write internal fail";
-                                this.f5596b.f5582d.countDown();
+                            if (!this.f5613b.a(this.f5613b.f5597b, com.baidu.fsg.face.base.b.b.c(this.f5613b.f5597b, this.f5613b.f5602g), this.f5612a)) {
+                                this.f5613b.f5601f.p = true;
+                                com.baidu.fsg.face.base.b.b.a(this.f5613b.f5597b).a(this.f5613b.f5597b, this.f5613b.f5602g.f5577a, this.f5613b.f5601f);
+                                this.f5613b.f5598c.m = false;
+                                this.f5613b.f5598c.q = "zip file write internal fail";
+                                this.f5613b.f5599d.countDown();
                             } else {
-                                this.f5596b.a(com.baidu.fsg.face.base.b.b.c(this.f5596b.f5580b, this.f5596b.f5585g), com.baidu.fsg.face.base.b.b.a(this.f5596b.f5580b, this.f5596b.f5585g));
-                                this.f5596b.f5583e.p = false;
-                                com.baidu.fsg.face.base.b.b.a(this.f5596b.f5580b).a(this.f5596b.f5580b, this.f5596b.f5585g.f5560a, this.f5596b.f5583e);
+                                this.f5613b.a(com.baidu.fsg.face.base.b.b.c(this.f5613b.f5597b, this.f5613b.f5602g), com.baidu.fsg.face.base.b.b.a(this.f5613b.f5597b, this.f5613b.f5602g));
+                                this.f5613b.f5600e.p = false;
+                                com.baidu.fsg.face.base.b.b.a(this.f5613b.f5597b).a(this.f5613b.f5597b, this.f5613b.f5602g.f5577a, this.f5613b.f5600e);
                             }
-                            if (e.a(StorageUtils.EXTERNAL_STORAGE_PERMISSION, this.f5596b.f5580b)) {
-                                String a2 = com.baidu.fsg.face.base.b.b.a(this.f5596b.f5585g);
+                            if (e.a(StorageUtils.EXTERNAL_STORAGE_PERMISSION, this.f5613b.f5597b)) {
+                                String a2 = com.baidu.fsg.face.base.b.b.a(this.f5613b.f5602g);
                                 if (g.a(a2)) {
                                     g.b(a2);
                                 }
-                                this.f5596b.a(a2, this.f5595a);
+                                this.f5613b.a(a2, this.f5612a);
                             }
                         } catch (Exception e2) {
-                            String str2 = e.f5579a;
+                            String str2 = e.f5596a;
                             com.baidu.fsg.face.base.d.d.d(str2, "distributeFileDownload() Exception " + e2.toString());
-                            this.f5596b.f5584f.p = true;
-                            com.baidu.fsg.face.base.b.b a3 = com.baidu.fsg.face.base.b.b.a(this.f5596b.f5580b);
-                            e eVar = this.f5596b;
-                            a3.a(eVar.f5580b, eVar.f5585g.f5560a, this.f5596b.f5584f);
-                            this.f5596b.f5581c.m = false;
-                            this.f5596b.f5581c.q = Log.getStackTraceString(e2);
-                            this.f5596b.f5582d.countDown();
+                            this.f5613b.f5601f.p = true;
+                            com.baidu.fsg.face.base.b.b a3 = com.baidu.fsg.face.base.b.b.a(this.f5613b.f5597b);
+                            e eVar = this.f5613b;
+                            a3.a(eVar.f5597b, eVar.f5602g.f5577a, this.f5613b.f5601f);
+                            this.f5613b.f5598c.m = false;
+                            this.f5613b.f5598c.q = Log.getStackTraceString(e2);
+                            this.f5613b.f5599d.countDown();
                         }
                     }
                 }
@@ -741,13 +742,13 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(c.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, aVar) == null) {
             a(aVar, new a(this) { // from class: com.baidu.fsg.face.base.b.e.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ e f5597a;
+                public final /* synthetic */ e f5614a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -764,14 +765,14 @@ public class e {
                             return;
                         }
                     }
-                    this.f5597a = this;
+                    this.f5614a = this;
                 }
 
                 @Override // com.baidu.fsg.face.base.b.e.a
                 public void a(c.a aVar2, byte[] bArr) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar2, bArr) == null) {
-                        com.baidu.fsg.face.base.d.d.d(e.f5579a, "copyInternalFileToExternal(), loadFileFromExternal distributed success");
+                        com.baidu.fsg.face.base.d.d.d(e.f5596a, "copyInternalFileToExternal(), loadFileFromExternal distributed success");
                     }
                 }
 
@@ -779,23 +780,23 @@ public class e {
                 public void a(c.a aVar2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
-                        e eVar = this.f5597a;
-                        String c2 = com.baidu.fsg.face.base.b.b.c(eVar.f5580b, eVar.f5585g);
-                        String a2 = com.baidu.fsg.face.base.b.b.a(this.f5597a.f5585g);
-                        String str = e.f5579a;
+                        e eVar = this.f5614a;
+                        String c2 = com.baidu.fsg.face.base.b.b.c(eVar.f5597b, eVar.f5602g);
+                        String a2 = com.baidu.fsg.face.base.b.b.a(this.f5614a.f5602g);
+                        String str = e.f5596a;
                         com.baidu.fsg.face.base.d.d.d(str, "asyncDistributeConf(), loadFileFromExternal failure internalFile:" + c2);
                         if (g.a(c2)) {
-                            byte[] b2 = this.f5597a.b(c2);
-                            if (e.a(StorageUtils.EXTERNAL_STORAGE_PERMISSION, this.f5597a.f5580b)) {
+                            byte[] b2 = this.f5614a.b(c2);
+                            if (e.a(StorageUtils.EXTERNAL_STORAGE_PERMISSION, this.f5614a.f5597b)) {
                                 if (g.a(a2)) {
                                     g.b(a2);
                                 }
-                                this.f5597a.a(a2, b2);
+                                this.f5614a.a(a2, b2);
                             }
                         }
                     }
                 }
-            }, com.baidu.fsg.face.base.b.b.a(this.f5585g));
+            }, com.baidu.fsg.face.base.b.b.a(this.f5602g));
         }
     }
 
@@ -807,7 +808,7 @@ public class e {
                     if ("mounted".equals(Environment.getExternalStorageState()) && new File(Environment.getExternalStorageDirectory(), str).exists()) {
                         byte[] c2 = c(str);
                         String md5 = MD5Util.toMd5(c2, false);
-                        String localDecryptProxy = RimArmor.getInstance().localDecryptProxy(aVar.f5578c);
+                        String localDecryptProxy = RimArmor.getInstance().localDecryptProxy(aVar.f5595c);
                         if (localDecryptProxy != null && localDecryptProxy.equals(md5)) {
                             aVar2.a(aVar, c2);
                         } else {
@@ -818,7 +819,7 @@ public class e {
                     }
                     return;
                 } catch (Throwable th) {
-                    String str2 = f5579a;
+                    String str2 = f5596a;
                     com.baidu.fsg.face.base.d.d.d(str2, "loadFileFromExternal() Throwable" + th.toString());
                     aVar2.a(aVar);
                     return;
@@ -855,7 +856,7 @@ public class e {
             try {
                 return g.b(file) && g.a(file, bArr);
             } catch (IOException e2) {
-                com.baidu.fsg.face.base.d.d.d(f5579a, e2);
+                com.baidu.fsg.face.base.d.d.d(f5596a, e2);
                 return false;
             }
         }
@@ -886,13 +887,13 @@ public class e {
                     fileOutputStream = fileOutputStream2;
                     th = th;
                     try {
-                        com.baidu.fsg.face.base.d.d.d(f5579a, th);
+                        com.baidu.fsg.face.base.d.d.d(f5596a, th);
                         if (fileOutputStream != null) {
                             try {
                                 fileOutputStream.close();
                                 return;
                             } catch (Throwable th2) {
-                                com.baidu.fsg.face.base.d.d.d(f5579a, th2);
+                                com.baidu.fsg.face.base.d.d.d(f5596a, th2);
                                 return;
                             }
                         }
@@ -902,7 +903,7 @@ public class e {
                             try {
                                 fileOutputStream.close();
                             } catch (Throwable th4) {
-                                com.baidu.fsg.face.base.d.d.d(f5579a, th4);
+                                com.baidu.fsg.face.base.d.d.d(f5596a, th4);
                             }
                         }
                         throw th3;
@@ -913,7 +914,7 @@ public class e {
                 try {
                     fileOutputStream.close();
                 } catch (Throwable th5) {
-                    com.baidu.fsg.face.base.d.d.d(f5579a, th5);
+                    com.baidu.fsg.face.base.d.d.d(f5596a, th5);
                 }
             }
         } catch (Throwable th6) {
@@ -938,7 +939,7 @@ public class e {
     public boolean a(c.a aVar, c.a aVar2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65554, this, aVar, aVar2)) == null) ? aVar2 == null || aVar == null || TextUtils.isEmpty(aVar2.f5578c) || !aVar.f5578c.equals(aVar2.f5578c) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65554, this, aVar, aVar2)) == null) ? aVar2 == null || aVar == null || TextUtils.isEmpty(aVar2.f5595c) || !aVar.f5595c.equals(aVar2.f5595c) : invokeLL.booleanValue;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x0167 */
@@ -961,10 +962,10 @@ public class e {
         if (interceptable != null && interceptable.invokeLL(65549, this, str, str2) != null) {
             return;
         }
-        this.f5581c.m = true;
-        this.f5582d.countDown();
-        com.baidu.fsg.face.base.d.d.b(f5579a, "thread name unZipApkSoToLibDir = " + Thread.currentThread().getName());
-        com.baidu.fsg.face.base.d.d.a(f5579a, "unZipApkSoToLibDir(), zipFilePath:" + str + ",libDir:" + str2);
+        this.f5598c.m = true;
+        this.f5599d.countDown();
+        com.baidu.fsg.face.base.d.d.b(f5596a, "thread name unZipApkSoToLibDir = " + Thread.currentThread().getName());
+        com.baidu.fsg.face.base.d.d.a(f5596a, "unZipApkSoToLibDir(), zipFilePath:" + str + ",libDir:" + str2);
         BufferedOutputStream bufferedOutputStream = 0;
         try {
             try {
@@ -977,22 +978,22 @@ public class e {
                                 try {
                                     bArr = new byte[4096];
                                     name = nextEntry.getName();
-                                    com.baidu.fsg.face.base.d.d.d(f5579a, "unZipApkSoToLibDir() entryName," + name);
+                                    com.baidu.fsg.face.base.d.d.d(f5596a, "unZipApkSoToLibDir() entryName," + name);
                                 } catch (Exception e2) {
                                     e = e2;
                                 }
                                 if (name.endsWith(".so")) {
                                     int lastIndexOf = name.lastIndexOf("_");
                                     String str3 = name.substring(name.lastIndexOf("/") + 1, lastIndexOf) + ".so";
-                                    com.baidu.fsg.face.base.d.d.a(f5579a, "unZipApkSoToLibDir(),fileName2:" + str3);
+                                    com.baidu.fsg.face.base.d.d.a(f5596a, "unZipApkSoToLibDir(),fileName2:" + str3);
                                     File file = new File(str2 + File.separator + str3);
                                     if (file.exists()) {
                                         file.delete();
                                     }
                                     File file2 = new File(file.getParent());
-                                    com.baidu.fsg.face.base.d.d.a(f5579a, "unZipApkSoToLibDir()entryFile" + file.toString() + "entryDir" + file2.toString());
+                                    com.baidu.fsg.face.base.d.d.a(f5596a, "unZipApkSoToLibDir()entryFile" + file.toString() + "entryDir" + file2.toString());
                                     if (!file2.exists()) {
-                                        com.baidu.fsg.face.base.d.d.a(f5579a, "unZipApkSoToLibDir() not exists");
+                                        com.baidu.fsg.face.base.d.d.a(f5596a, "unZipApkSoToLibDir() not exists");
                                         file2.mkdirs();
                                     }
                                     BufferedOutputStream bufferedOutputStream2 = new BufferedOutputStream(new FileOutputStream(file), 4096);
@@ -1033,20 +1034,20 @@ public class e {
                                 zipInputStream.close();
                                 return;
                             } catch (IOException e4) {
-                                com.baidu.fsg.face.base.d.d.d(f5579a, e4);
+                                com.baidu.fsg.face.base.d.d.d(f5596a, e4);
                                 return;
                             }
                         }
                     } catch (Exception e5) {
                         e = e5;
                         bufferedOutputStream = zipInputStream;
-                        com.baidu.fsg.face.base.d.d.d(f5579a, e);
+                        com.baidu.fsg.face.base.d.d.d(f5596a, e);
                         if (bufferedOutputStream != null) {
                             try {
                                 bufferedOutputStream.close();
                                 return;
                             } catch (IOException e6) {
-                                com.baidu.fsg.face.base.d.d.d(f5579a, e6);
+                                com.baidu.fsg.face.base.d.d.d(f5596a, e6);
                                 return;
                             }
                         }
@@ -1058,7 +1059,7 @@ public class e {
                             try {
                                 bufferedOutputStream.close();
                             } catch (IOException e7) {
-                                com.baidu.fsg.face.base.d.d.d(f5579a, e7);
+                                com.baidu.fsg.face.base.d.d.d(f5596a, e7);
                             }
                         }
                         throw th;

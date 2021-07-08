@@ -10,11 +10,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.r0.z.a;
-import d.a.r0.z.b;
+import d.a.o0.z.a;
+import d.a.o0.z.b;
 import tbclient.Error;
 import tbclient.GetUserInfo.GetUserInfoResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class GetUserInfoHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

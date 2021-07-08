@@ -1,6 +1,7 @@
 package com.baidu.ugc.editvideo.record.processor;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
@@ -11,15 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c0.b.a.e;
-import d.a.c0.b.a.j;
-import d.a.y0.b;
-import d.a.y0.t.h;
+import d.a.v0.b;
+import d.a.v0.t.h;
+import d.a.z.b.a.e;
+import d.a.z.b.a.j;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AEffectProcessor extends BaseEffectProcessor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +53,7 @@ public class AEffectProcessor extends BaseEffectProcessor {
     public void checkCamera() {
         MediaSegment mediaSegment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             this.isCamera = false;
             MediaTrack mediaTrack = (MediaTrack) h.c(this.mUpdateMediaTracks, 0);
             if (mediaTrack == null || (mediaSegment = (MediaSegment) h.c(mediaTrack.mediaSegments, 0)) == null || !TextUtils.equals(mediaSegment.type, "camera")) {

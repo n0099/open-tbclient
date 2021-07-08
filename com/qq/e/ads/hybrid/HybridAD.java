@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,28 +17,28 @@ import com.qq.e.comm.util.AdErrorConvertor;
 import com.qq.e.comm.util.GDTLogger;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class HybridAD implements HADI {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f40732a;
+    public volatile boolean f37746a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f40733b;
+    public volatile boolean f37747b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f40734c;
+    public volatile boolean f37748c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HADI f40735d;
+    public HADI f37749d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HybridADListener f40736e;
+    public HybridADListener f37750e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CountDownLatch f40737f;
+    public CountDownLatch f37751f;
 
     public HybridAD(Context context, HybridADSetting hybridADSetting, HybridADListener hybridADListener) {
         Interceptable interceptable = $ic;
@@ -54,7 +55,7 @@ public class HybridAD implements HADI {
                 return;
             }
         }
-        this.f40737f = new CountDownLatch(1);
+        this.f37751f = new CountDownLatch(1);
         if (GDTADManager.getInstance().isInitialized()) {
             a(context, GDTADManager.getInstance().getAppStatus().getAPPID(), hybridADSetting, hybridADListener);
             return;
@@ -79,43 +80,43 @@ public class HybridAD implements HADI {
                 return;
             }
         }
-        this.f40737f = new CountDownLatch(1);
+        this.f37751f = new CountDownLatch(1);
         GDTLogger.w("此构造方法即将废弃，请在 Application 中初始化 SDK 后，使用不带 appId 的构造方法，详细请参考Demo");
         a(context, str, hybridADSetting, hybridADListener);
     }
 
     private void a(Context context, String str, HybridADSetting hybridADSetting, HybridADListener hybridADListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65540, this, context, str, hybridADSetting, hybridADListener) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, str, hybridADSetting, hybridADListener) == null) {
             if (context == null || TextUtils.isEmpty(str) || hybridADListener == null) {
                 GDTLogger.e(String.format("HybridAD Constructor params error, context=%s, appID=%s,HybridADListener=%s", context, str, hybridADListener));
                 return;
             }
-            this.f40736e = hybridADListener;
-            this.f40733b = true;
+            this.f37750e = hybridADListener;
+            this.f37747b = true;
             if (!a.a(context)) {
                 GDTLogger.e("Required Activity/Service/Permission Not Declared in AndroidManifest.xml");
                 return;
             }
-            this.f40734c = true;
+            this.f37748c = true;
             GDTADManager.INIT_EXECUTOR.execute(new Runnable(this, context, str, hybridADSetting, hybridADListener) { // from class: com.qq.e.ads.hybrid.HybridAD.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ HybridADSetting f40738a;
+                public final /* synthetic */ HybridADSetting f37752a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ HybridADListener f40739b;
+                public final /* synthetic */ HybridADListener f37753b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ HybridAD f40740c;
+                public final /* synthetic */ HybridAD f37754c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public /* synthetic */ Context f40741d;
+                public /* synthetic */ Context f37755d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public /* synthetic */ String f40742e;
+                public /* synthetic */ String f37756e;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -132,28 +133,28 @@ public class HybridAD implements HADI {
                             return;
                         }
                     }
-                    this.f40740c = this;
-                    this.f40741d = context;
-                    this.f40742e = str;
-                    this.f40738a = hybridADSetting;
-                    this.f40739b = hybridADListener;
+                    this.f37754c = this;
+                    this.f37755d = context;
+                    this.f37756e = str;
+                    this.f37752a = hybridADSetting;
+                    this.f37753b = hybridADListener;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (GDTADManager.getInstance().initWith(this.f40741d, this.f40742e)) {
+                        if (GDTADManager.getInstance().initWith(this.f37755d, this.f37756e)) {
                             try {
                                 new Handler(Looper.getMainLooper()).post(new Runnable(this, GDTADManager.getInstance().getPM().getPOFactory()) { // from class: com.qq.e.ads.hybrid.HybridAD.1.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public /* synthetic */ POFactory f40743a;
+                                    public /* synthetic */ POFactory f37757a;
 
                                     /* renamed from: b  reason: collision with root package name */
-                                    public /* synthetic */ AnonymousClass1 f40744b;
+                                    public /* synthetic */ AnonymousClass1 f37758b;
 
                                     {
                                         Interceptable interceptable3 = $ic;
@@ -170,24 +171,24 @@ public class HybridAD implements HADI {
                                                 return;
                                             }
                                         }
-                                        this.f40744b = this;
-                                        this.f40743a = r7;
+                                        this.f37758b = this;
+                                        this.f37757a = r7;
                                     }
 
                                     @Override // java.lang.Runnable
                                     public void run() {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                            POFactory pOFactory = this.f40743a;
+                                            POFactory pOFactory = this.f37757a;
                                             if (pOFactory != null) {
-                                                AnonymousClass1 anonymousClass1 = this.f40744b;
-                                                anonymousClass1.f40740c.f40735d = pOFactory.getHybridAD(anonymousClass1.f40738a, anonymousClass1.f40739b);
-                                                this.f40744b.f40740c.f40732a = true;
+                                                AnonymousClass1 anonymousClass1 = this.f37758b;
+                                                anonymousClass1.f37754c.f37749d = pOFactory.getHybridAD(anonymousClass1.f37752a, anonymousClass1.f37753b);
+                                                this.f37758b.f37754c.f37746a = true;
                                             } else {
                                                 GDTLogger.e("poFactory is null");
-                                                HybridAD.a(this.f40744b.f40740c, 2001);
+                                                HybridAD.a(this.f37758b.f37754c, 2001);
                                             }
-                                            this.f40744b.f40740c.f40737f.countDown();
+                                            this.f37758b.f37754c.f37751f.countDown();
                                         }
                                     }
                                 });
@@ -198,8 +199,8 @@ public class HybridAD implements HADI {
                         } else {
                             GDTLogger.e("Fail to init ADManager");
                         }
-                        HybridAD.a(this.f40740c, 2001);
-                        this.f40740c.f40737f.countDown();
+                        HybridAD.a(this.f37754c, 2001);
+                        this.f37754c.f37751f.countDown();
                     }
                 }
             });
@@ -212,10 +213,10 @@ public class HybridAD implements HADI {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public /* synthetic */ int f40747a;
+            public /* synthetic */ int f37761a;
 
             /* renamed from: b  reason: collision with root package name */
-            public /* synthetic */ HybridAD f40748b;
+            public /* synthetic */ HybridAD f37762b;
 
             {
                 Interceptable interceptable = $ic;
@@ -232,17 +233,17 @@ public class HybridAD implements HADI {
                         return;
                     }
                 }
-                this.f40748b = hybridAD;
-                this.f40747a = r7;
+                this.f37762b = hybridAD;
+                this.f37761a = r7;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f40748b.f40736e == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f37762b.f37750e == null) {
                     return;
                 }
-                this.f40748b.f40736e.onError(AdErrorConvertor.formatErrorCode(this.f40747a));
+                this.f37762b.f37750e.onError(AdErrorConvertor.formatErrorCode(this.f37761a));
             }
         });
     }
@@ -252,7 +253,7 @@ public class HybridAD implements HADI {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (this.f40733b && this.f40734c) {
+            if (this.f37747b && this.f37748c) {
                 z = true;
             } else {
                 GDTLogger.e("AD init Params OR Context error, details in logs produced while init HybridAD");
@@ -260,18 +261,18 @@ public class HybridAD implements HADI {
             }
             if (!z) {
                 GDTLogger.e("HybridAD loadUrl error");
-            } else if (this.f40732a) {
-                this.f40735d.loadUrl(str);
+            } else if (this.f37746a) {
+                this.f37749d.loadUrl(str);
             } else {
                 new Thread(new Runnable(this, str) { // from class: com.qq.e.ads.hybrid.HybridAD.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public /* synthetic */ String f40745a;
+                    public /* synthetic */ String f37759a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public /* synthetic */ HybridAD f40746b;
+                    public /* synthetic */ HybridAD f37760b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -288,8 +289,8 @@ public class HybridAD implements HADI {
                                 return;
                             }
                         }
-                        this.f40746b = this;
-                        this.f40745a = str;
+                        this.f37760b = this;
+                        this.f37759a = str;
                     }
 
                     @Override // java.lang.Runnable
@@ -297,16 +298,16 @@ public class HybridAD implements HADI {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
-                                this.f40746b.f40737f.await(30L, TimeUnit.SECONDS);
-                                if (this.f40746b.f40732a) {
-                                    this.f40746b.f40735d.loadUrl(this.f40745a);
+                                this.f37760b.f37751f.await(30L, TimeUnit.SECONDS);
+                                if (this.f37760b.f37746a) {
+                                    this.f37760b.f37749d.loadUrl(this.f37759a);
                                     return;
                                 }
                                 GDTLogger.e("delegate init failed ");
-                                HybridAD.a(this.f40746b, 2001);
+                                HybridAD.a(this.f37760b, 2001);
                             } catch (InterruptedException unused) {
                                 GDTLogger.e("buffered loadUrl action timeout");
-                                HybridAD.a(this.f40746b, 2001);
+                                HybridAD.a(this.f37760b, 2001);
                             }
                         }
                     }

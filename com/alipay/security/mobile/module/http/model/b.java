@@ -38,12 +38,12 @@ public class b {
             if (dataReportResult == null) {
                 return null;
             }
-            cVar.f2096a = dataReportResult.success;
-            cVar.f2097b = dataReportResult.resultCode;
+            cVar.f2097a = dataReportResult.success;
+            cVar.f2098b = dataReportResult.resultCode;
             Map<String, String> map = dataReportResult.resultData;
             if (map != null) {
-                cVar.f2103h = map.get("apdid");
-                cVar.f2104i = map.get("apdidToken");
+                cVar.f2104h = map.get("apdid");
+                cVar.f2105i = map.get("apdidToken");
                 cVar.l = map.get("dynamicKey");
                 cVar.m = map.get("timeInterval");
                 cVar.n = map.get("webrtcUrl");
@@ -78,16 +78,16 @@ public class b {
             if (dVar == null) {
                 return null;
             }
-            dataReportRequest.os = dVar.f2105a;
+            dataReportRequest.os = dVar.f2106a;
             dataReportRequest.rpcVersion = dVar.j;
             dataReportRequest.bizType = "1";
             HashMap hashMap = new HashMap();
             dataReportRequest.bizData = hashMap;
-            hashMap.put("apdid", dVar.f2106b);
-            dataReportRequest.bizData.put("apdidToken", dVar.f2107c);
-            dataReportRequest.bizData.put("umidToken", dVar.f2108d);
-            dataReportRequest.bizData.put("dynamicKey", dVar.f2109e);
-            dataReportRequest.deviceData = dVar.f2110f;
+            hashMap.put("apdid", dVar.f2107b);
+            dataReportRequest.bizData.put("apdidToken", dVar.f2108c);
+            dataReportRequest.bizData.put("umidToken", dVar.f2109d);
+            dataReportRequest.bizData.put("dynamicKey", dVar.f2110e);
+            dataReportRequest.deviceData = dVar.f2111f;
             return dataReportRequest;
         }
         return (DataReportRequest) invokeL.objValue;

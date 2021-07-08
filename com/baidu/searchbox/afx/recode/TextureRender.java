@@ -19,7 +19,7 @@ import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class TextureRender {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FLOAT_SIZE_BYTES = 4;

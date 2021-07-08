@@ -1,5 +1,6 @@
 package io.reactivex.android.plugins;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +11,7 @@ import io.reactivex.Scheduler;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
 import java.util.concurrent.Callable;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class RxAndroidPlugins {
     public static /* synthetic */ Interceptable $ic;
     public static volatile Function<Callable<Scheduler>, Scheduler> onInitMainThreadHandler;
@@ -79,7 +80,7 @@ public final class RxAndroidPlugins {
     public static Function<Callable<Scheduler>, Scheduler> getInitMainThreadSchedulerHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? onInitMainThreadHandler : (Function) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? onInitMainThreadHandler : (Function) invokeV.objValue;
     }
 
     public static Function<Scheduler, Scheduler> getOnMainThreadSchedulerHandler() {

@@ -1,5 +1,5 @@
 package com.bytedance.sdk.component.d.c.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface a<K, V> {
     V a(K k);
 

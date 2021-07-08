@@ -1,5 +1,6 @@
 package com.baidu.searchbox.elasticthread.statistic;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.elasticthread.executor.BaseDredgeExecutorCell;
 import com.baidu.searchbox.elasticthread.executor.BaseExecutorCell;
@@ -17,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class RealTimeStatusPrinter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -88,7 +89,7 @@ public class RealTimeStatusPrinter {
     private JSONObject loadDredgeExecutorData(BaseDredgeExecutorCell baseDredgeExecutorCell) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, baseDredgeExecutorCell)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, baseDredgeExecutorCell)) == null) {
             JSONObject jSONObject = new JSONObject();
             if (baseDredgeExecutorCell != null) {
                 jSONObject.put("Status", baseDredgeExecutorCell.isOpen() ? "working" : "shutdown");

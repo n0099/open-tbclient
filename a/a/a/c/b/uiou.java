@@ -33,7 +33,7 @@ public abstract class uiou implements a.a.a.c.a.bv {
     public final bv f1453b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final e f1454c;
+    public final lbvzx f1454c;
 
     /* renamed from: d  reason: collision with root package name */
     public final bv.InterfaceC0007bv f1455d;
@@ -44,12 +44,12 @@ public abstract class uiou implements a.a.a.c.a.bv {
     /* renamed from: f  reason: collision with root package name */
     public volatile int f1457f;
 
-    public uiou(bv bvVar, e eVar, bv.InterfaceC0007bv interfaceC0007bv) {
+    public uiou(bv bvVar, lbvzx lbvzxVar, bv.InterfaceC0007bv interfaceC0007bv) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bvVar, eVar, interfaceC0007bv};
+            Object[] objArr = {bvVar, lbvzxVar, interfaceC0007bv};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -61,7 +61,7 @@ public abstract class uiou implements a.a.a.c.a.bv {
         }
         this.f1457f = 0;
         this.f1453b = bvVar;
-        this.f1454c = eVar;
+        this.f1454c = lbvzxVar;
         this.f1455d = interfaceC0007bv;
         String c2 = c();
         this.f1452a = c2;
@@ -72,7 +72,7 @@ public abstract class uiou implements a.a.a.c.a.bv {
 
     public abstract RandomAccessFile a(File file, String str, long j);
 
-    public abstract Map<String, String> a(e eVar);
+    public abstract Map<String, String> a(lbvzx lbvzxVar);
 
     public final void a() {
         HttpURLConnection httpURLConnection;
@@ -82,7 +82,7 @@ public abstract class uiou implements a.a.a.c.a.bv {
                 HttpURLConnection httpURLConnection2 = null;
                 try {
                     try {
-                        httpURLConnection = (HttpURLConnection) new URL(this.f1454c.f1445a).openConnection();
+                        httpURLConnection = (HttpURLConnection) new URL(this.f1454c.f1436a).openConnection();
                     } catch (Throwable th) {
                         th = th;
                     }
@@ -130,19 +130,19 @@ public abstract class uiou implements a.a.a.c.a.bv {
                 case 106:
                     synchronized (this.f1455d) {
                         this.f1456e = 106;
-                        ((a) this.f1455d).d();
+                        ((shuoy) this.f1455d).d();
                     }
                     return;
                 case 107:
                     synchronized (this.f1455d) {
                         this.f1456e = 107;
-                        ((a) this.f1455d).c();
+                        ((shuoy) this.f1455d).c();
                     }
                     return;
                 case 108:
                     synchronized (this.f1455d) {
                         this.f1456e = 108;
-                        ((a) this.f1455d).b(downloadException);
+                        ((shuoy) this.f1455d).b(downloadException);
                     }
                     return;
                 default:
@@ -181,10 +181,10 @@ public abstract class uiou implements a.a.a.c.a.bv {
                     }
                     randomAccessFile.write(bArr, 0, read);
                     long j = read;
-                    this.f1454c.f1448d += j;
+                    this.f1454c.f1439d += j;
                     synchronized (this.f1455d) {
-                        this.f1453b.f1444d += j;
-                        ((a) this.f1455d).a(this.f1453b.f1444d, this.f1453b.f1443c);
+                        this.f1453b.f1435d += j;
+                        ((shuoy) this.f1455d).a(this.f1453b.f1435d, this.f1453b.f1434c);
                     }
                 } catch (IOException e2) {
                     c(this.f1454c);
@@ -207,14 +207,14 @@ public abstract class uiou implements a.a.a.c.a.bv {
             try {
                 InputStream inputStream = httpURLConnection.getInputStream();
                 try {
-                    long j = this.f1454c.f1446b;
-                    long j2 = this.f1454c.f1448d;
+                    long j = this.f1454c.f1437b;
+                    long j2 = this.f1454c.f1439d;
                     try {
-                        File file = this.f1453b.f1442b;
+                        File file = this.f1453b.f1433b;
                         if (!file.exists()) {
                             file.mkdirs();
                         }
-                        RandomAccessFile a2 = a(file, this.f1453b.f1441a, j + j2);
+                        RandomAccessFile a2 = a(file, this.f1453b.f1432a, j + j2);
                         a(inputStream, a2);
                         try {
                             a(inputStream);
@@ -260,11 +260,11 @@ public abstract class uiou implements a.a.a.c.a.bv {
 
     public abstract int b();
 
-    public abstract void b(e eVar);
+    public abstract void b(lbvzx lbvzxVar);
 
     public abstract String c();
 
-    public abstract void c(e eVar);
+    public abstract void c(lbvzx lbvzxVar);
 
     public boolean d() {
         InterceptResult invokeV;
@@ -284,7 +284,7 @@ public abstract class uiou implements a.a.a.c.a.bv {
                 synchronized (this.f1455d) {
                     this.f1456e = 105;
                     bv.InterfaceC0007bv interfaceC0007bv = this.f1455d;
-                    ((a) interfaceC0007bv).a(this.f1453b.f1442b.getAbsolutePath() + File.separator + this.f1453b.f1441a);
+                    ((shuoy) interfaceC0007bv).a(this.f1453b.f1433b.getAbsolutePath() + File.separator + this.f1453b.f1432a);
                 }
             } catch (DownloadException e2) {
                 a(e2);

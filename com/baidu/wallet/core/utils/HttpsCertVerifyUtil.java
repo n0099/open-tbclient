@@ -4,6 +4,7 @@ import android.net.http.SslCertificate;
 import android.net.http.SslError;
 import android.os.Bundle;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,12 +21,12 @@ import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class HttpsCertVerifyUtil {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24632a = ",";
+    public static final String f24742a = ",";
     public transient /* synthetic */ FieldHolder $fh;
 
     public HttpsCertVerifyUtil() {
@@ -51,7 +52,7 @@ public class HttpsCertVerifyUtil {
     public static byte[] a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (str == null || str.trim().length() == 0) {
                 return null;
             }

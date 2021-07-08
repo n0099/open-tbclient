@@ -20,29 +20,29 @@ import com.kwai.filedownloader.services.c;
 import java.io.File;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<Integer, DownloadTask> f33542a;
+    public final Map<Integer, DownloadTask> f33652a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, Integer> f33543b;
+    public final Map<String, Integer> f33653b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f33544c;
+    public c f33654c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f33545d;
+    public boolean f33655d;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f33546a;
+        public static final d f33656a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -58,7 +58,7 @@ public class d {
                     return;
                 }
             }
-            f33546a = new d();
+            f33656a = new d();
         }
     }
 
@@ -75,26 +75,30 @@ public class d {
                 return;
             }
         }
-        this.f33542a = new ConcurrentHashMap();
-        this.f33543b = new ConcurrentHashMap();
-        this.f33545d = false;
+        this.f33652a = new ConcurrentHashMap();
+        this.f33653b = new ConcurrentHashMap();
+        this.f33655d = false;
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f33546a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f33656a : (d) invokeV.objValue;
     }
 
     private void a(int i2, DownloadTask.DownloadRequest downloadRequest) {
         DownloadTask downloadTask;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65538, this, i2, downloadRequest) == null) || (downloadTask = this.f33542a.get(Integer.valueOf(i2))) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(65538, this, i2, downloadRequest) == null) || (downloadTask = this.f33652a.get(Integer.valueOf(i2))) == null) {
             return;
         }
         downloadTask.resume(downloadRequest);
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:11:0x002e  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static void a(@NonNull Context context, @NonNull File file, @Nullable f fVar) {
         h.a aVar;
         Interceptable interceptable = $ic;
@@ -103,10 +107,19 @@ public class d {
             b.a(file);
             e.a().a(fVar);
             c.a a2 = new c.a().a(Integer.MAX_VALUE);
+            h.a aVar2 = null;
             try {
                 aVar = new h.a(false);
-            } catch (Throwable unused) {
-                aVar = null;
+                try {
+                    aVar.a("");
+                } catch (Throwable unused) {
+                    aVar2 = aVar;
+                    aVar = aVar2;
+                    if (aVar != null) {
+                    }
+                    q.a(context, a2);
+                }
+            } catch (Throwable unused2) {
             }
             if (aVar != null) {
                 a2.a(aVar);
@@ -122,18 +135,18 @@ public class d {
             DownloadTask downloadTask = new DownloadTask(downloadRequest);
             if (downloadRequest.getDownloadUrl().contains("downali.game.uc.cn")) {
                 b();
-            } else if (this.f33545d) {
+            } else if (this.f33655d) {
                 c();
             }
-            if (this.f33542a.get(Integer.valueOf(downloadTask.getId())) != null) {
+            if (this.f33652a.get(Integer.valueOf(downloadTask.getId())) != null) {
                 a(downloadTask.getId(), downloadRequest);
                 b(downloadTask.getId());
-                a(downloadTask.getId(), cVar, this.f33544c);
+                a(downloadTask.getId(), cVar, this.f33654c);
             } else {
-                this.f33542a.put(Integer.valueOf(downloadTask.getId()), downloadTask);
-                this.f33543b.put(downloadTask.getUrl(), Integer.valueOf(downloadTask.getId()));
+                this.f33652a.put(Integer.valueOf(downloadTask.getId()), downloadTask);
+                this.f33653b.put(downloadTask.getUrl(), Integer.valueOf(downloadTask.getId()));
                 downloadTask.submit();
-                a(downloadTask.getId(), cVar, this.f33544c);
+                a(downloadTask.getId(), cVar, this.f33654c);
             }
             return downloadTask.getId();
         }
@@ -143,13 +156,13 @@ public class d {
     public DownloadTask a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f33542a.get(Integer.valueOf(i2)) : (DownloadTask) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f33652a.get(Integer.valueOf(i2)) : (DownloadTask) invokeI.objValue;
     }
 
     public void a(int i2, c... cVarArr) {
         DownloadTask downloadTask;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, cVarArr) == null) || (downloadTask = this.f33542a.get(Integer.valueOf(i2))) == null || cVarArr == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, cVarArr) == null) || (downloadTask = this.f33652a.get(Integer.valueOf(i2))) == null || cVarArr == null) {
             return;
         }
         for (c cVar : cVarArr) {
@@ -163,15 +176,15 @@ public class d {
     public void a(@NonNull DownloadTask downloadTask) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, downloadTask) == null) {
-            this.f33542a.remove(Integer.valueOf(downloadTask.getId()));
-            this.f33543b.remove(downloadTask.getUrl());
+            this.f33652a.remove(Integer.valueOf(downloadTask.getId()));
+            this.f33653b.remove(downloadTask.getUrl());
         }
     }
 
     public void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f33544c = cVar;
+            this.f33654c = cVar;
         }
     }
 
@@ -187,7 +200,7 @@ public class d {
             }
             if (aVar != null) {
                 com.kwai.filedownloader.download.b.a().b(new c.a().a(Integer.MAX_VALUE).a(aVar));
-                this.f33545d = true;
+                this.f33655d = true;
             }
         }
     }
@@ -195,7 +208,7 @@ public class d {
     public void b(int i2) {
         DownloadTask downloadTask;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (downloadTask = this.f33542a.get(Integer.valueOf(i2))) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (downloadTask = this.f33652a.get(Integer.valueOf(i2))) == null) {
             return;
         }
         downloadTask.clearListener();
@@ -220,7 +233,7 @@ public class d {
     public void c(int i2) {
         DownloadTask downloadTask;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || (downloadTask = this.f33542a.get(Integer.valueOf(i2))) == null) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || (downloadTask = this.f33652a.get(Integer.valueOf(i2))) == null) {
             return;
         }
         downloadTask.cancel();
@@ -230,7 +243,7 @@ public class d {
     public void d(int i2) {
         DownloadTask downloadTask;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || (downloadTask = this.f33542a.get(Integer.valueOf(i2))) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || (downloadTask = this.f33652a.get(Integer.valueOf(i2))) == null) {
             return;
         }
         downloadTask.userPause();
@@ -242,7 +255,7 @@ public class d {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             while (true) {
                 boolean z = false;
-                for (Map.Entry<Integer, DownloadTask> entry : this.f33542a.entrySet()) {
+                for (Map.Entry<Integer, DownloadTask> entry : this.f33652a.entrySet()) {
                     DownloadTask value = entry.getValue();
                     if (value != null) {
                         int status = value.getStatus();
@@ -261,6 +274,19 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
             a(i2, (DownloadTask.DownloadRequest) null);
+        }
+    }
+
+    public void f(int i2) {
+        DownloadTask a2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || (a2 = a(i2)) == null) {
+            return;
+        }
+        if (a2.isUserPause()) {
+            e(i2);
+        } else {
+            d(i2);
         }
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.net.tnc.TNCManager;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ImMessageCenterShowItemData extends AbstractImageProvider implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 3133087680118197014L;

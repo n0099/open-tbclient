@@ -10,7 +10,7 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class TaskScheduler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "TaskScheduler";
@@ -21,7 +21,7 @@ public class TaskScheduler {
     public ThreadPoolExecutor mMiddlePoolExecutor;
     public ScheduledThreadPoolExecutor mScheduledPoolExecutor;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface ThreadType {
         public static final int THREAD_TYPE_DOWNLOAD = 3;
         public static final int THREAD_TYPE_HIGH = 1;

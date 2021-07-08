@@ -6,21 +6,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bytedance.sdk.component.d.c.a;
 import com.kwad.sdk.core.imageloader.core.ImageLoader;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f28701a;
+    public static volatile boolean f28811a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(Context context, o oVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, context, oVar) == null) {
-            if (f28701a) {
+            if (f28811a) {
                 com.bytedance.sdk.component.d.c.c.a(ImageLoader.TAG, "already init!");
             }
-            f28701a = true;
+            f28811a = true;
             if (oVar == null) {
                 oVar = o.a(context);
             }

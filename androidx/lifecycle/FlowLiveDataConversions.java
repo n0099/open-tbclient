@@ -1,6 +1,7 @@
 package androidx.lifecycle;
 
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -60,7 +61,7 @@ public final class FlowLiveDataConversions {
     public static final <T> LiveData<T> asLiveData(Flow<? extends T> flow, CoroutineContext coroutineContext, Duration duration) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, flow, coroutineContext, duration)) == null) ? asLiveData(flow, coroutineContext, duration.toMillis()) : (LiveData) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, flow, coroutineContext, duration)) == null) ? asLiveData(flow, coroutineContext, duration.toMillis()) : (LiveData) invokeLLL.objValue;
     }
 
     public static /* synthetic */ LiveData asLiveData$default(Flow flow, CoroutineContext coroutineContext, Duration duration, int i2, Object obj) {

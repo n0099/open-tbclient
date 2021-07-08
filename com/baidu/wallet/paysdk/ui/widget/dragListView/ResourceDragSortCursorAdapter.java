@@ -11,19 +11,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class ResourceDragSortCursorAdapter extends DragSortCursorAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f26913a;
+    public int f27023a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f26914b;
+    public int f27024b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LayoutInflater f26915c;
+    public LayoutInflater f27025c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @Deprecated
@@ -45,36 +45,36 @@ public abstract class ResourceDragSortCursorAdapter extends DragSortCursorAdapte
                 return;
             }
         }
-        this.f26914b = i2;
-        this.f26913a = i2;
-        this.f26915c = (LayoutInflater) context.getSystemService("layout_inflater");
+        this.f27024b = i2;
+        this.f27023a = i2;
+        this.f27025c = (LayoutInflater) context.getSystemService("layout_inflater");
     }
 
     @Override // androidx.cursoradapter.widget.CursorAdapter
     public View newDropDownView(Context context, Cursor cursor, ViewGroup viewGroup) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, cursor, viewGroup)) == null) ? this.f26915c.inflate(this.f26914b, viewGroup, false) : (View) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, cursor, viewGroup)) == null) ? this.f27025c.inflate(this.f27024b, viewGroup, false) : (View) invokeLLL.objValue;
     }
 
     @Override // androidx.cursoradapter.widget.CursorAdapter
     public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, cursor, viewGroup)) == null) ? this.f26915c.inflate(this.f26913a, viewGroup, false) : (View) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, cursor, viewGroup)) == null) ? this.f27025c.inflate(this.f27023a, viewGroup, false) : (View) invokeLLL.objValue;
     }
 
     public void setDropDownViewResource(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f26914b = i2;
+            this.f27024b = i2;
         }
     }
 
     public void setViewResource(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f26913a = i2;
+            this.f27023a = i2;
         }
     }
 
@@ -97,9 +97,9 @@ public abstract class ResourceDragSortCursorAdapter extends DragSortCursorAdapte
                 return;
             }
         }
-        this.f26914b = i2;
-        this.f26913a = i2;
-        this.f26915c = (LayoutInflater) context.getSystemService("layout_inflater");
+        this.f27024b = i2;
+        this.f27023a = i2;
+        this.f27025c = (LayoutInflater) context.getSystemService("layout_inflater");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -121,8 +121,8 @@ public abstract class ResourceDragSortCursorAdapter extends DragSortCursorAdapte
                 return;
             }
         }
-        this.f26914b = i2;
-        this.f26913a = i2;
-        this.f26915c = (LayoutInflater) context.getSystemService("layout_inflater");
+        this.f27024b = i2;
+        this.f27023a = i2;
+        this.f27025c = (LayoutInflater) context.getSystemService("layout_inflater");
     }
 }

@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class j implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f42795a;
+    public final /* synthetic */ Context f39809a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ e f93a;
@@ -36,7 +36,7 @@ public final class j implements Runnable {
             }
         }
         this.f94a = str;
-        this.f42795a = context;
+        this.f39809a = context;
         this.f93a = eVar;
     }
 
@@ -67,7 +67,7 @@ public final class j implements Runnable {
             return;
         }
         com.xiaomi.channel.commonutils.logger.b.m70a("ASSEMBLE_PUSH : receive correct token");
-        i.d(this.f42795a, this.f93a, str);
-        i.m130a(this.f42795a);
+        i.d(this.f39809a, this.f93a, str);
+        i.m130a(this.f39809a);
     }
 }

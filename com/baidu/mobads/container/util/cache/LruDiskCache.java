@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.PriorityQueue;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LruDiskCache extends LruCache<String, CacheResource<File>> {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
@@ -37,7 +37,7 @@ public class LruDiskCache extends LruCache<String, CacheResource<File>> {
     public volatile boolean restoreCompleted;
     public long tailModifiedTime;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface OnCacheListener {
         void onCacheComplete(String str, CacheResource<File> cacheResource);
 

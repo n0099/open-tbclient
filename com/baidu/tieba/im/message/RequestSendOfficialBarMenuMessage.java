@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.b;
 import protobuf.SendMenuMsg.DataReq;
 import protobuf.SendMenuMsg.SendMenuMsgReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RequestSendOfficialBarMenuMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -24,12 +24,12 @@ import com.baidu.wallet.core.lollipop.json.JSONObject;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.core.utils.VerSig;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class OtherBean<T> extends NetworkBean<T> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24583a = "OtherBaseBean";
+    public static final String f24693a = "OtherBaseBean";
     public transient /* synthetic */ FieldHolder $fh;
     public int mRetCode;
 

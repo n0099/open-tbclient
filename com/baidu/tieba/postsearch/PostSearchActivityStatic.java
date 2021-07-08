@@ -1,5 +1,6 @@
 package com.baidu.tieba.postsearch;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -17,12 +18,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PostSearchActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements CustomMessageTask.CustomRunnable<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,14 +54,14 @@ public class PostSearchActivityStatic {
                 if (StringUtils.isNull(data)) {
                     return null;
                 }
-                d.a.s0.h3.n0.a.q(data);
+                d.a.p0.h3.n0.a.q(data);
                 return new CustomResponsedMessage<>(2009003);
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class b implements CustomMessageTask.CustomRunnable<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +88,7 @@ public class PostSearchActivityStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                d.a.s0.h3.n0.a.d();
+                d.a.p0.h3.n0.a.d();
                 return new CustomResponsedMessage<>(2009004);
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -147,7 +148,7 @@ public class PostSearchActivityStatic {
 
     public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             CustomMessageTask customMessageTask = new CustomMessageTask(2009003, new a());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);

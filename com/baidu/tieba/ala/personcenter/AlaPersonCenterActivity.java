@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.v.j.c.a;
-/* loaded from: classes5.dex */
+import d.a.p0.v.j.c.a;
+/* loaded from: classes4.dex */
 public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

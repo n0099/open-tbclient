@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +16,7 @@ import com.bytedance.sdk.component.a.q;
 import com.bytedance.sdk.openadsdk.core.e.m;
 import com.bytedance.sdk.openadsdk.core.o;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class j extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +38,7 @@ public class j extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
     private int b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return 0;
             }

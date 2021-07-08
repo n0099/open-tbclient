@@ -14,6 +14,7 @@ import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleRes;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.content.res.ResourcesCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,7 +23,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class TextAppearance {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "TextAppearance";
@@ -89,7 +90,7 @@ public class TextAppearance {
     private void createFallbackFont() {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             if (this.font == null && (str = this.fontFamily) != null) {
                 this.font = Typeface.create(str, this.textStyle);
             }

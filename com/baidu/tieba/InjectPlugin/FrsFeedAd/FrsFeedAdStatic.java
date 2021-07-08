@@ -1,5 +1,6 @@
 package com.baidu.tieba.InjectPlugin.FrsFeedAd;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -13,20 +14,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.k.e.n;
-import d.a.r0.r.q.b2;
-import d.a.s0.e.e.c;
-import d.a.s0.e.e.d;
-import d.a.s0.e.e.e;
-import d.a.s0.e.f.b;
-import d.a.s0.w2.t;
+import d.a.o0.r.q.b2;
+import d.a.p0.e.e.c;
+import d.a.p0.e.e.d;
+import d.a.p0.e.e.e;
+import d.a.p0.e.f.b;
+import d.a.p0.w2.t;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class FrsFeedAdStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,11 +54,11 @@ public class FrsFeedAdStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             b bVar;
-            d.a.s0.e.e.b c2;
+            d.a.p0.e.e.b c2;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof b) && (c2 = (bVar = (b) customResponsedMessage.getData()).c()) != null && (c2 instanceof t)) {
                 t tVar = (t) c2;
-                d.a.s0.e.e.a injectPlugin = c2.getInjectPlugin(1);
+                d.a.p0.e.e.a injectPlugin = c2.getInjectPlugin(1);
                 if (injectPlugin == null) {
                     d a2 = e.b().a(1);
                     if (a2 == null) {
@@ -67,21 +68,21 @@ public class FrsFeedAdStatic {
                     c2.setInjectPlugin(1, injectPlugin);
                     injectPlugin.o(new c(tVar));
                 }
-                if (injectPlugin instanceof d.a.s0.e.b.d) {
-                    d.a.s0.e.b.d dVar = (d.a.s0.e.b.d) injectPlugin;
+                if (injectPlugin instanceof d.a.p0.e.b.d) {
+                    d.a.p0.e.b.d dVar = (d.a.p0.e.b.d) injectPlugin;
                     if (bVar.a() == 1) {
                         List list = (List) bVar.f();
-                        d.a.s0.e.b.b.c(dVar.d());
-                        for (BdUniqueId bdUniqueId : d.a.s0.e.b.b.d()) {
-                            d.a.s0.e.b.a aVar = new d.a.s0.e.b.a(tVar, bdUniqueId);
-                            aVar.f0(tVar.n());
+                        d.a.p0.e.b.b.c(dVar.d());
+                        for (BdUniqueId bdUniqueId : d.a.p0.e.b.b.d()) {
+                            d.a.p0.e.b.a aVar = new d.a.p0.e.b.a(tVar, bdUniqueId);
+                            aVar.f0(tVar.m());
                             list.add(aVar);
                         }
                     } else if (bVar.a() == 2) {
                         dVar.j(bVar.d());
                     } else if (bVar.a() == 3) {
                         List<n> n = bVar.n();
-                        List<d.a.s0.e.b.c> d2 = FrsFeedAdStatic.d(n);
+                        List<d.a.p0.e.b.c> d2 = FrsFeedAdStatic.d(n);
                         if (bVar.p()) {
                             dVar.n(d2, FrsFeedAdStatic.d(bVar.k()), bVar.o(), bVar.e());
                         } else {
@@ -129,17 +130,17 @@ public class FrsFeedAdStatic {
         }
     }
 
-    public static List<n> c(List<d.a.s0.e.b.c> list) {
+    public static List<n> c(List<d.a.p0.e.b.c> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
             if (list == null || list.isEmpty()) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (d.a.s0.e.b.c cVar : list) {
+            for (d.a.p0.e.b.c cVar : list) {
                 if (cVar.c() == 3) {
-                    d.a.s0.e.b.b bVar = new d.a.s0.e.b.b();
+                    d.a.p0.e.b.b bVar = new d.a.p0.e.b.b();
                     bVar.i(cVar.a());
                     bVar.j(cVar.b());
                     arrayList.add(bVar);
@@ -152,13 +153,13 @@ public class FrsFeedAdStatic {
         return (List) invokeL.objValue;
     }
 
-    public static List<d.a.s0.e.b.c> d(List<n> list) {
+    public static List<d.a.p0.e.b.c> d(List<n> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, list)) == null) {
             ArrayList arrayList = new ArrayList();
             for (n nVar : list) {
-                d.a.s0.e.b.c cVar = new d.a.s0.e.b.c();
+                d.a.p0.e.b.c cVar = new d.a.p0.e.b.c();
                 if (nVar instanceof b2) {
                     b2 b2Var = (b2) nVar;
                     if (b2Var.m0() == 1) {
@@ -169,9 +170,9 @@ public class FrsFeedAdStatic {
                         cVar.f(4);
                     }
                     cVar.d(nVar);
-                } else if (nVar instanceof d.a.s0.e.b.b) {
+                } else if (nVar instanceof d.a.p0.e.b.b) {
                     cVar.f(3);
-                    d.a.s0.e.b.b bVar = (d.a.s0.e.b.b) nVar;
+                    d.a.p0.e.b.b bVar = (d.a.p0.e.b.b) nVar;
                     cVar.e(bVar.e());
                     cVar.d(bVar.b());
                 } else {

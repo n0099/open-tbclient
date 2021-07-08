@@ -11,27 +11,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface o extends IInterface {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a extends Binder implements o {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.o$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public static class C0541a implements o {
+        /* loaded from: classes6.dex */
+        public static class C0502a implements o {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static o f41500a;
+            public static o f38514a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f41501b;
+            public IBinder f38515b;
 
-            public C0541a(IBinder iBinder) {
+            public C0502a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,7 +46,7 @@ public interface o extends IInterface {
                         return;
                     }
                 }
-                this.f41501b = iBinder;
+                this.f38515b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.o
@@ -57,7 +57,7 @@ public interface o extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadDiskSpaceAidlCallback");
-                        if (!this.f41501b.transact(1, obtain, obtain2, 0) && a.b() != null) {
+                        if (!this.f38515b.transact(1, obtain, obtain2, 0) && a.b() != null) {
                             a.b().a();
                         } else {
                             obtain2.readException();
@@ -73,7 +73,7 @@ public interface o extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41501b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38515b : (IBinder) invokeV.objValue;
             }
         }
 
@@ -104,7 +104,7 @@ public interface o extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof o)) {
                     return (o) queryLocalInterface;
                 }
-                return new C0541a(iBinder);
+                return new C0502a(iBinder);
             }
             return (o) invokeL.objValue;
         }
@@ -112,7 +112,7 @@ public interface o extends IInterface {
         public static o b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0541a.f41500a : (o) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0502a.f38514a : (o) invokeV.objValue;
         }
 
         @Override // android.os.IInterface

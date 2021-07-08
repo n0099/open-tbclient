@@ -1,6 +1,7 @@
 package com.baidu.down.manage;
 
 import android.provider.BaseColumns;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class DownloadConstants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long CTRL_FLAG_AUTO_PAUSED = 2;
@@ -45,7 +46,7 @@ public final class DownloadConstants {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class DestinationMode {
         public static final /* synthetic */ DestinationMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -108,7 +109,7 @@ public final class DownloadConstants {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class DownloadColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_AUTO_PAUSE = "AUTO_PAUSE";
@@ -196,7 +197,7 @@ public final class DownloadConstants {
     public static boolean isStatusError(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) ? i2 >= 400 && i2 < 600 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? i2 >= 400 && i2 < 600 : invokeI.booleanValue;
     }
 
     public static void setDestinationDir(String str) {

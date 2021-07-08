@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.views.CloseParentView;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class N1 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ CloseParentView f42414a;
+    public final /* synthetic */ CloseParentView f39428a;
 
     public N1(CloseParentView closeParentView) {
         Interceptable interceptable = $ic;
@@ -29,16 +29,16 @@ public class N1 implements View.OnClickListener {
                 return;
             }
         }
-        this.f42414a = closeParentView;
+        this.f39428a = closeParentView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         O1 o1;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (o1 = this.f42414a.f42676g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (o1 = this.f39428a.f39690g) == null) {
             return;
         }
-        ((t) o1).f42646a.finish();
+        ((t) o1).f39660a.finish();
     }
 }

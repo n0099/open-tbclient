@@ -49,7 +49,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CORNER_ANIMATION_DURATION = 500;
@@ -122,7 +122,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     @Nullable
     public WeakReference<V> viewRef;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static abstract class BottomSheetCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -148,11 +148,11 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public @interface SaveFlags {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -292,13 +292,13 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcelable, bottomSheetBehavior};
-                interceptable.invokeUnInit(65540, newInitContext);
+                interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     super((Parcelable) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65540, newInitContext);
+                    interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                     return;
                 }
             }
@@ -332,7 +332,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class SettleRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -378,7 +378,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public @interface State {
     }
 

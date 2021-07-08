@@ -7,6 +7,7 @@ import android.net.NetworkInfo;
 import android.os.Environment;
 import android.text.format.Formatter;
 import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,10 +29,10 @@ public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3952a = "utf-8";
+    public static final String f3955a = "utf-8";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3953b = "c82c403505338808201aad86f8194734";
+    public static final String f3956b = "c82c403505338808201aad86f8194734";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -410,7 +411,7 @@ public final class a {
     public static String a(byte[] bArr, String str, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65540, null, bArr, str, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, str, z)) == null) {
             StringBuilder sb = new StringBuilder();
             for (byte b2 : bArr) {
                 String hexString = Integer.toHexString(b2 & 255);

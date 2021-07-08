@@ -12,37 +12,37 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.pngencrypt.ChunkReader;
 import java.io.Closeable;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class b implements f, Closeable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ boolean f38677d;
+    public static final /* synthetic */ boolean f35749d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f38678a;
+    public boolean f35750a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f38679b;
+    public boolean f35751b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f38680c;
+    public boolean f35752c;
 
     /* renamed from: e  reason: collision with root package name */
-    public final byte[] f38681e;
+    public final byte[] f35753e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f38682f;
+    public final int f35754f;
 
     /* renamed from: g  reason: collision with root package name */
-    public byte[] f38683g;
+    public byte[] f35755g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f38684h;
+    public int f35756h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f38685i;
+    public int f35757i;
     public long j;
     public DeflatedChunksSet k;
     public ChunkReader l;
@@ -62,7 +62,7 @@ public abstract class b implements f, Closeable {
                 return;
             }
         }
-        f38677d = !b.class.desiredAssertionStatus();
+        f35749d = !b.class.desiredAssertionStatus();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -98,18 +98,18 @@ public abstract class b implements f, Closeable {
                 return;
             }
         }
-        this.f38683g = new byte[8];
-        this.f38684h = 0;
-        this.f38678a = false;
-        this.f38679b = false;
-        this.f38680c = false;
-        this.f38685i = 0;
+        this.f35755g = new byte[8];
+        this.f35756h = 0;
+        this.f35750a = false;
+        this.f35751b = false;
+        this.f35752c = false;
+        this.f35757i = 0;
         this.j = 0L;
         this.n = ErrorBehaviour.STRICT;
-        this.f38681e = bArr;
+        this.f35753e = bArr;
         int length = bArr == null ? 0 : bArr.length;
-        this.f38682f = length;
-        this.f38678a = length <= 0;
+        this.f35754f = length;
+        this.f35750a = length <= 0;
     }
 
     @Override // com.kwad.sdk.pngencrypt.f
@@ -120,7 +120,7 @@ public abstract class b implements f, Closeable {
         long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
-            if (this.f38680c) {
+            if (this.f35752c) {
                 return -1;
             }
             if (i3 == 0) {
@@ -129,22 +129,22 @@ public abstract class b implements f, Closeable {
             if (i3 < 0) {
                 com.kwad.sdk.core.d.a.a(new PngjException("This should not happen. Bad length: " + i3));
             }
-            if (this.f38678a) {
+            if (this.f35750a) {
                 ChunkReader chunkReader = this.l;
                 if (chunkReader == null || chunkReader.b()) {
-                    int i5 = 8 - this.f38684h;
+                    int i5 = 8 - this.f35756h;
                     if (i5 <= i3) {
                         i3 = i5;
                     }
-                    System.arraycopy(bArr, i2, this.f38683g, this.f38684h, i3);
-                    int i6 = this.f38684h + i3;
-                    this.f38684h = i6;
+                    System.arraycopy(bArr, i2, this.f35755g, this.f35756h, i3);
+                    int i6 = this.f35756h + i3;
+                    this.f35756h = i6;
                     i4 = 0 + i3;
                     this.j += i3;
                     if (i6 == 8) {
-                        this.f38685i++;
-                        a(n.c(this.f38683g, 0), com.kwad.sdk.pngencrypt.chunk.b.a(this.f38683g, 4), this.j - 8);
-                        this.f38684h = 0;
+                        this.f35757i++;
+                        a(n.c(this.f35755g, 0), com.kwad.sdk.pngencrypt.chunk.b.a(this.f35755g, 4), this.j - 8);
+                        this.f35756h = 0;
                     }
                     return i4;
                 }
@@ -156,17 +156,17 @@ public abstract class b implements f, Closeable {
                 j = this.j;
                 j2 = a2;
             } else {
-                int i7 = this.f38682f - this.f38684h;
+                int i7 = this.f35754f - this.f35756h;
                 if (i7 <= i3) {
                     i3 = i7;
                 }
-                System.arraycopy(bArr, i2, this.f38683g, this.f38684h, i3);
-                int i8 = this.f38684h + i3;
-                this.f38684h = i8;
-                if (i8 == this.f38682f) {
-                    a(this.f38683g);
-                    this.f38684h = 0;
-                    this.f38678a = true;
+                System.arraycopy(bArr, i2, this.f35755g, this.f35756h, i3);
+                int i8 = this.f35756h + i3;
+                this.f35756h = i8;
+                if (i8 == this.f35754f) {
+                    a(this.f35755g);
+                    this.f35756h = 0;
+                    this.f35750a = true;
                 }
                 i4 = 0 + i3;
                 j = this.j;
@@ -193,7 +193,7 @@ public abstract class b implements f, Closeable {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ b f38687d;
+                public final /* synthetic */ b f35759d;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -214,7 +214,7 @@ public abstract class b implements f, Closeable {
                             return;
                         }
                     }
-                    this.f38687d = this;
+                    this.f35759d = this;
                 }
 
                 @Override // com.kwad.sdk.pngencrypt.ChunkReader
@@ -229,7 +229,7 @@ public abstract class b implements f, Closeable {
                 public void c() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.f38687d.a(this);
+                        this.f35759d.a(this);
                     }
                 }
             };
@@ -243,7 +243,7 @@ public abstract class b implements f, Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j)}) == null) {
             com.kwad.sdk.core.d.a.a("PNG_ENCRYPT", "New chunk: " + str + " " + i2 + " off:" + j);
-            if (str.length() != 4 || !com.kwad.sdk.pngencrypt.chunk.b.f38715e.matcher(str).matches()) {
+            if (str.length() != 4 || !com.kwad.sdk.pngencrypt.chunk.b.f35787e.matcher(str).matches()) {
                 com.kwad.sdk.core.d.a.a(new PngjException("Bad chunk id: " + str));
             }
             if (i2 < 0) {
@@ -272,7 +272,7 @@ public abstract class b implements f, Closeable {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ b f38686d;
+                    public final /* synthetic */ b f35758d;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -293,7 +293,7 @@ public abstract class b implements f, Closeable {
                                 return;
                             }
                         }
-                        this.f38686d = this;
+                        this.f35758d = this;
                     }
 
                     @Override // com.kwad.sdk.pngencrypt.d, com.kwad.sdk.pngencrypt.ChunkReader
@@ -301,7 +301,7 @@ public abstract class b implements f, Closeable {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             super.c();
-                            this.f38686d.a(this);
+                            this.f35758d.a(this);
                         }
                     }
                 };
@@ -318,18 +318,18 @@ public abstract class b implements f, Closeable {
         String d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, chunkReader) == null) {
-            if (this.f38685i == 1 && (d2 = d()) != null && !d2.equals(chunkReader.a().f38719c)) {
-                String str = "Bad first chunk: " + chunkReader.a().f38719c + " expected: " + d();
-                if (this.n.f38668c < ErrorBehaviour.SUPER_LENIENT.f38668c) {
+            if (this.f35757i == 1 && (d2 = d()) != null && !d2.equals(chunkReader.a().f35791c)) {
+                String str = "Bad first chunk: " + chunkReader.a().f35791c + " expected: " + d();
+                if (this.n.f35740c < ErrorBehaviour.SUPER_LENIENT.f35740c) {
                     com.kwad.sdk.core.d.a.a(new PngjException(str));
                 } else {
                     com.kwad.sdk.core.d.a.a("PNG_ENCRYPT", str);
                 }
             }
-            if (e() == null || !chunkReader.a().f38719c.equals(e())) {
+            if (e() == null || !chunkReader.a().f35791c.equals(e())) {
                 return;
             }
-            this.f38679b = true;
+            this.f35751b = true;
             close();
         }
     }
@@ -355,7 +355,7 @@ public abstract class b implements f, Closeable {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f38679b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f35751b : invokeV.booleanValue;
     }
 
     public boolean b(int i2, String str) {
@@ -390,7 +390,7 @@ public abstract class b implements f, Closeable {
             if (deflatedChunksSet != null) {
                 deflatedChunksSet.f();
             }
-            this.f38680c = true;
+            this.f35752c = true;
         }
     }
 

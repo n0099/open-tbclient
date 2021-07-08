@@ -14,37 +14,37 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DynamicWaveView extends View {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f6114a = 1715238655;
+    public static final int f6131a = 1715238655;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final float f6115b = 30.0f;
+    public static final float f6132b = 30.0f;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f6116c = 0;
+    public static final int f6133c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f6117d = 3;
+    public static final int f6134d = 3;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f6118e = 5;
+    public static final int f6135e = 5;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f6119f;
+    public float f6136f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f6120g;
+    public int f6137g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f6121h;
+    public int f6138h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f6122i;
+    public int f6139i;
     public int j;
     public int k;
     public float[] l;
@@ -105,16 +105,16 @@ public class DynamicWaveView extends View {
             canvas.setDrawFilter(this.t);
             b();
             int i2 = this.j;
-            int i3 = this.f6120g - i2;
+            int i3 = this.f6137g - i2;
             while (i2 < i3) {
-                int i4 = (int) ((this.f6121h - this.m[i2]) - this.k);
-                int i5 = this.f6122i;
-                int sqrt = (int) (i5 + Math.sqrt(Math.pow(i5, 2.0d) - Math.pow(Math.abs(this.f6122i - i2), 2.0d)));
+                int i4 = (int) ((this.f6138h - this.m[i2]) - this.k);
+                int i5 = this.f6139i;
+                int sqrt = (int) (i5 + Math.sqrt(Math.pow(i5, 2.0d) - Math.pow(Math.abs(this.f6139i - i2), 2.0d)));
                 if (sqrt >= i4) {
                     float f2 = i2;
                     canvas.drawLine(f2, i4, f2, sqrt, this.s);
                 }
-                int i6 = (int) ((this.f6121h - this.n[i2]) - this.k);
+                int i6 = (int) ((this.f6138h - this.n[i2]) - this.k);
                 if (sqrt >= i6) {
                     float f3 = i2;
                     canvas.drawLine(f3, i6, f3, sqrt, this.s);
@@ -124,10 +124,10 @@ public class DynamicWaveView extends View {
             int i7 = this.q + this.o;
             this.q = i7;
             this.r += this.p;
-            if (i7 >= this.f6120g) {
+            if (i7 >= this.f6137g) {
                 this.q = 0;
             }
-            if (this.r > this.f6120g) {
+            if (this.r > this.f6137g) {
                 this.r = 0;
             }
         }
@@ -138,15 +138,15 @@ public class DynamicWaveView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f6120g = i2;
-            this.f6121h = i3;
-            this.f6122i = i2 / 2;
+            this.f6137g = i2;
+            this.f6138h = i3;
+            this.f6139i = i2 / 2;
             this.l = new float[i2];
             this.m = new float[i2];
             this.n = new float[i2];
-            this.f6119f = (float) (6.283185307179586d / i2);
-            for (int i6 = 0; i6 < this.f6120g; i6++) {
-                this.l[i6] = (float) ((Math.sin(this.f6119f * i6) * 30.0d) + 0.0d);
+            this.f6136f = (float) (6.283185307179586d / i2);
+            for (int i6 = 0; i6 < this.f6137g; i6++) {
+                this.l[i6] = (float) ((Math.sin(this.f6136f * i6) * 30.0d) + 0.0d);
             }
         }
     }
@@ -216,7 +216,7 @@ public class DynamicWaveView extends View {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ DynamicWaveView f6123a;
+                public final /* synthetic */ DynamicWaveView f6140a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -233,17 +233,17 @@ public class DynamicWaveView extends View {
                             return;
                         }
                     }
-                    this.f6123a = this;
+                    this.f6140a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        while (this.f6123a.v) {
+                        while (this.f6140a.v) {
                             try {
                                 Thread.sleep(20L);
-                                this.f6123a.postInvalidate();
+                                this.f6140a.postInvalidate();
                             } catch (InterruptedException e2) {
                                 e2.printStackTrace();
                             }
@@ -282,7 +282,7 @@ public class DynamicWaveView extends View {
         this.s = paint;
         paint.setAntiAlias(true);
         this.s.setStyle(Paint.Style.FILL);
-        this.s.setColor(f6114a);
+        this.s.setColor(f6131a);
         this.t = new PaintFlagsDrawFilter(0, 3);
         this.j = h.a(context, 5.0f);
         this.k = h.a(context, 30.0f);

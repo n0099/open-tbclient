@@ -1,5 +1,6 @@
 package com.sdk.base.framework.f.h;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,12 +19,12 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b extends com.sdk.base.framework.f.a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f41235a = "RSA/ECB/PKCS1Padding";
+    public static String f38249a = "RSA/ECB/PKCS1Padding";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +40,7 @@ public class b extends com.sdk.base.framework.f.a {
                 return;
             }
         }
-        boolean z = f.f41195b;
+        boolean z = f.f38209b;
     }
 
     public b() {
@@ -75,7 +76,7 @@ public class b extends com.sdk.base.framework.f.a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, rSAPublicKey, bArr)) == null) {
             if (rSAPublicKey != null) {
                 try {
-                    Cipher cipher = Cipher.getInstance(f41235a);
+                    Cipher cipher = Cipher.getInstance(f38249a);
                     cipher.init(2, rSAPublicKey);
                     return cipher.doFinal(bArr);
                 } catch (InvalidKeyException unused) {
@@ -98,9 +99,9 @@ public class b extends com.sdk.base.framework.f.a {
     public static String b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             PublicKey a2 = a.a(str);
-            Cipher cipher = Cipher.getInstance(f41235a);
+            Cipher cipher = Cipher.getInstance(f38249a);
             cipher.init(1, a2);
             return com.sdk.base.framework.f.i.c.a(cipher.doFinal(str2.getBytes(Charset.defaultCharset()))).toString();
         }

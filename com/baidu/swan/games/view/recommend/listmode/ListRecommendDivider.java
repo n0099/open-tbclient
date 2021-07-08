@@ -13,21 +13,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.f.b;
-import d.a.q0.f.c;
-/* loaded from: classes4.dex */
+import d.a.n0.f.b;
+import d.a.n0.f.c;
+/* loaded from: classes3.dex */
 public class ListRecommendDivider extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f11932a;
+    public int f11949a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f11933b;
+    public int f11950b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f11934c;
+    public Paint f11951c;
 
     public ListRecommendDivider(@NonNull Context context) {
         Interceptable interceptable = $ic;
@@ -45,10 +45,10 @@ public class ListRecommendDivider extends RecyclerView.ItemDecoration {
             }
         }
         Resources resources = context.getResources();
-        this.f11932a = resources.getDimensionPixelSize(c.swangame_recommend_dialog_list_divider_height);
-        this.f11933b = resources.getDimensionPixelSize(c.swangame_recommend_dialog_list_divider_margin);
+        this.f11949a = resources.getDimensionPixelSize(c.swangame_recommend_dialog_list_divider_height);
+        this.f11950b = resources.getDimensionPixelSize(c.swangame_recommend_dialog_list_divider_margin);
         Paint paint = new Paint();
-        this.f11934c = paint;
+        this.f11951c = paint;
         paint.setColor(resources.getColor(b.swangame_recommend_dialog_list_divider));
     }
 
@@ -56,7 +56,7 @@ public class ListRecommendDivider extends RecyclerView.ItemDecoration {
     public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view, recyclerView, state) == null) {
-            rect.set(0, 0, 0, this.f11932a);
+            rect.set(0, 0, 0, this.f11949a);
         }
     }
 
@@ -68,7 +68,7 @@ public class ListRecommendDivider extends RecyclerView.ItemDecoration {
             for (int i2 = 0; i2 < itemCount; i2++) {
                 View childAt = recyclerView.getChildAt(i2);
                 if (childAt != null && recyclerView.getChildAdapterPosition(childAt) != itemCount - 1) {
-                    canvas.drawRect(this.f11933b, childAt.getBottom(), childAt.getWidth() - this.f11933b, childAt.getBottom() + this.f11932a, this.f11934c);
+                    canvas.drawRect(this.f11950b, childAt.getBottom(), childAt.getWidth() - this.f11950b, childAt.getBottom() + this.f11949a, this.f11951c);
                 }
             }
         }

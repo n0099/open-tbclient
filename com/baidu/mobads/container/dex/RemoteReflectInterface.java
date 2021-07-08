@@ -2,6 +2,7 @@ package com.baidu.mobads.container.dex;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.XAdRemoteCommonUtils;
 import com.baidu.mobads.container.components.command.XAdRemoteAPKDownloadExtraInfo;
 import com.baidu.mobads.container.components.command.XAdRemoteDownloadAPKCommand;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class RemoteReflectInterface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -110,7 +111,7 @@ public class RemoteReflectInterface {
     public static boolean resumeDownload(Context context, JSONObject jSONObject, String str, String str2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65540, null, context, jSONObject, str, str2)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, jSONObject, str, str2)) == null) {
             try {
                 XAdRemoteDownloadAdInfo createAdInfoFromJson = XAdRemoteDownloadAdInfo.createAdInfoFromJson(jSONObject);
                 createAdInfoFromJson.mProd = str;

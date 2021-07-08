@@ -23,11 +23,11 @@ import com.baidu.ugc.editvideo.faceunity.gles.OffscreenSurface;
 import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
 import com.baidu.ugc.editvideo.faceunity.gles.WindowSurface;
 import com.faceunity.gles.GeneratedTexture;
-import d.a.y0.t.c;
+import d.a.v0.t.c;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailableListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -172,7 +172,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
 
     private void setupEgl() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65540, this) == null) && this.mIsOffscreenRenderer) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.mIsOffscreenRenderer) {
             EglCore eglCore = new EglCore(null, 2);
             this.mEglCore = eglCore;
             OffscreenSurface offscreenSurface = new OffscreenSurface(eglCore, this.mVideoWidth, this.mVideoHeight);

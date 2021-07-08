@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.s0.m2.e.q;
+import d.a.p0.m2.e.q;
 import tbclient.Error;
 import tbclient.GetRecommendGodList.GetRecommendGodListResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RecommendGodSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

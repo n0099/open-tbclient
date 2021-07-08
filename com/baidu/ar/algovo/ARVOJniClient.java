@@ -1,5 +1,6 @@
 package com.baidu.ar.algovo;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.algo.ARAlgoJniClient;
 import com.baidu.ar.algo.FrameType;
 import com.baidu.ar.slam.TrackModel;
@@ -87,7 +88,7 @@ public class ARVOJniClient {
         InterceptResult invokeV;
         int removeAllModels;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (ARVOJniClient.class) {
                 removeAllModels = ARAlgoJniClient.getAlgoInstance().removeAllModels(sTrackerId);
                 if (removeAllModels == 0 && sModelIds != null) {

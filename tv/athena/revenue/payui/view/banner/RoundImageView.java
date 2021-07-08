@@ -22,25 +22,25 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\b\u0014\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0007\u0018\u00002\u00020\u0001B\u0011\b\u0016\u0012\u0006\u0010'\u001a\u00020&¢\u0006\u0004\b(\u0010)B\u001b\b\u0016\u0012\u0006\u0010'\u001a\u00020&\u0012\b\u0010+\u001a\u0004\u0018\u00010*¢\u0006\u0004\b(\u0010,B#\b\u0016\u0012\u0006\u0010'\u001a\u00020&\u0012\b\u0010+\u001a\u0004\u0018\u00010*\u0012\u0006\u0010-\u001a\u00020\u000b¢\u0006\u0004\b(\u0010.J\u0019\u0010\u0005\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006J\u0017\u0010\u0007\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0007\u0010\u0006J\u0017\u0010\b\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\b\u0010\u0006J\u0017\u0010\t\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\t\u0010\u0006J\u0017\u0010\n\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\n\u0010\u0006J/\u0010\u0010\u001a\u00020\u00042\u0006\u0010\f\u001a\u00020\u000b2\u0006\u0010\r\u001a\u00020\u000b2\u0006\u0010\u000e\u001a\u00020\u000b2\u0006\u0010\u000f\u001a\u00020\u000bH\u0014¢\u0006\u0004\b\u0010\u0010\u0011J\u0015\u0010\u0013\u001a\u00020\u00042\u0006\u0010\u0012\u001a\u00020\u000b¢\u0006\u0004\b\u0013\u0010\u0014J\u0015\u0010\u0016\u001a\u00020\u00042\u0006\u0010\u0015\u001a\u00020\u000b¢\u0006\u0004\b\u0016\u0010\u0014J\u0015\u0010\u0018\u001a\u00020\u00042\u0006\u0010\u0017\u001a\u00020\u000b¢\u0006\u0004\b\u0018\u0010\u0014J\u0015\u0010\u001a\u001a\u00020\u00042\u0006\u0010\u0019\u001a\u00020\u000b¢\u0006\u0004\b\u001a\u0010\u0014J\u0015\u0010\u001c\u001a\u00020\u00042\u0006\u0010\u001b\u001a\u00020\u000b¢\u0006\u0004\b\u001c\u0010\u0014R\u0016\u0010\u001d\u001a\u00020\u000b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001d\u0010\u001eR\u0016\u0010\u001f\u001a\u00020\u000b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001f\u0010\u001eR\u0016\u0010!\u001a\u00020 8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b!\u0010\"R\u0016\u0010#\u001a\u00020 8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b#\u0010\"R\u0016\u0010$\u001a\u00020\u000b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b$\u0010\u001eR\u0016\u0010%\u001a\u00020\u000b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b%\u0010\u001e¨\u0006/"}, d2 = {"Ltv/athena/revenue/payui/view/banner/RoundImageView;", "Landroid/widget/ImageView;", "Landroid/graphics/Canvas;", "canvas", "", "draw", "(Landroid/graphics/Canvas;)V", "drawBottomLeft", "drawBottomRight", "drawTopLeft", "drawTopRight", "", "w", "h", "oldw", "oldh", "onSizeChanged", "(IIII)V", "bottomLeft", "setBottomLeftRadius", "(I)V", "bottomRight", "setBottomRightRadius", "cornerRadius", "setRadius", "topLeft", "setTopLeftRadius", "topRight", "setTopRightRadius", "mBottomLeft", "I", "mBottomRight", "Landroid/graphics/Paint;", "mImagePaint", "Landroid/graphics/Paint;", "mRoundPaint", "mTopToLeft", "mTopToRight", "Landroid/content/Context;", "context", "<init>", "(Landroid/content/Context;)V", "Landroid/util/AttributeSet;", "attrs", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyle", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "payui_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class RoundImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f76758e;
+    public int f73792e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f76759f;
+    public int f73793f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f76760g;
+    public int f73794g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f76761h;
+    public int f73795h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f76762i;
+    public Paint f73796i;
     public Paint j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -66,25 +66,25 @@ public final class RoundImageView extends ImageView {
 
     public final void a(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.f76760g <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.f73794g <= 0) {
             return;
         }
         int height = getHeight();
         Path path = new Path();
         float f2 = height;
-        path.moveTo(0.0f, f2 - this.f76760g);
+        path.moveTo(0.0f, f2 - this.f73794g);
         path.lineTo(0.0f, f2);
-        path.lineTo(this.f76760g, f2);
+        path.lineTo(this.f73794g, f2);
         float f3 = 2;
-        int i2 = this.f76760g;
+        int i2 = this.f73794g;
         path.arcTo(new RectF(0.0f, f2 - (i2 * f3), i2 * f3, f2), 90.0f, 90.0f);
         path.close();
-        canvas.drawPath(path, this.f76762i);
+        canvas.drawPath(path, this.f73796i);
     }
 
     public final void b(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || this.f76761h <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || this.f73795h <= 0) {
             return;
         }
         int height = getHeight();
@@ -92,48 +92,48 @@ public final class RoundImageView extends ImageView {
         Path path = new Path();
         float f2 = width;
         float f3 = height;
-        path.moveTo(f2 - this.f76761h, f3);
+        path.moveTo(f2 - this.f73795h, f3);
         path.lineTo(f2, f3);
-        path.lineTo(f2, f3 - this.f76761h);
+        path.lineTo(f2, f3 - this.f73795h);
         float f4 = 2;
-        int i2 = this.f76761h;
+        int i2 = this.f73795h;
         path.arcTo(new RectF(f2 - (i2 * f4), f3 - (f4 * i2), f2, f3), 0.0f, 90.0f);
         path.close();
-        canvas.drawPath(path, this.f76762i);
+        canvas.drawPath(path, this.f73796i);
     }
 
     public final void c(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) || this.f76758e <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) || this.f73792e <= 0) {
             return;
         }
         Path path = new Path();
-        path.moveTo(0.0f, this.f76758e);
+        path.moveTo(0.0f, this.f73792e);
         path.lineTo(0.0f, 0.0f);
-        path.lineTo(this.f76758e, 0.0f);
-        int i2 = this.f76758e;
+        path.lineTo(this.f73792e, 0.0f);
+        int i2 = this.f73792e;
         float f2 = 2;
         path.arcTo(new RectF(0.0f, 0.0f, i2 * f2, i2 * f2), -90.0f, -90.0f);
         path.close();
-        canvas.drawPath(path, this.f76762i);
+        canvas.drawPath(path, this.f73796i);
     }
 
     public final void d(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) || this.f76759f <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) || this.f73793f <= 0) {
             return;
         }
         int width = getWidth();
         Path path = new Path();
         float f2 = width;
-        path.moveTo(f2 - this.f76759f, 0.0f);
+        path.moveTo(f2 - this.f73793f, 0.0f);
         path.lineTo(f2, 0.0f);
-        path.lineTo(f2, this.f76759f);
+        path.lineTo(f2, this.f73793f);
         float f3 = 2;
-        int i2 = this.f76759f;
+        int i2 = this.f73793f;
         path.arcTo(new RectF(f2 - (i2 * f3), 0.0f, f2, i2 * f3), 0.0f, -90.0f);
         path.close();
-        canvas.drawPath(path, this.f76762i);
+        canvas.drawPath(path, this.f73796i);
     }
 
     @Override // android.view.View
@@ -166,7 +166,7 @@ public final class RoundImageView extends ImageView {
     public final void setBottomLeftRadius(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f76760g = i2;
+            this.f73794g = i2;
             invalidate();
         }
     }
@@ -174,7 +174,7 @@ public final class RoundImageView extends ImageView {
     public final void setBottomRightRadius(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f76761h = i2;
+            this.f73795h = i2;
             invalidate();
         }
     }
@@ -182,10 +182,10 @@ public final class RoundImageView extends ImageView {
     public final void setRadius(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f76758e = i2;
-            this.f76759f = i2;
-            this.f76760g = i2;
-            this.f76761h = i2;
+            this.f73792e = i2;
+            this.f73793f = i2;
+            this.f73794g = i2;
+            this.f73795h = i2;
             invalidate();
         }
     }
@@ -193,7 +193,7 @@ public final class RoundImageView extends ImageView {
     public final void setTopLeftRadius(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f76758e = i2;
+            this.f73792e = i2;
             invalidate();
         }
     }
@@ -201,7 +201,7 @@ public final class RoundImageView extends ImageView {
     public final void setTopRightRadius(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f76759f = i2;
+            this.f73793f = i2;
             invalidate();
         }
     }
@@ -246,18 +246,18 @@ public final class RoundImageView extends ImageView {
                 return;
             }
         }
-        this.f76762i = new Paint();
+        this.f73796i = new Paint();
         this.j = new Paint();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, h.PayUi_RoundImageView, i2, 0);
-        this.f76758e = obtainStyledAttributes.getDimensionPixelSize(h.PayUi_RoundImageView_payUiTopLeftRadius, 0);
-        this.f76759f = obtainStyledAttributes.getDimensionPixelSize(h.PayUi_RoundImageView_payUiTopRightRadius, 0);
-        this.f76760g = obtainStyledAttributes.getDimensionPixelSize(h.PayUi_RoundImageView_payUiBottomLeftRadius, 0);
-        this.f76761h = obtainStyledAttributes.getDimensionPixelSize(h.PayUi_RoundImageView_payUiBottomRightRadius, 0);
+        this.f73792e = obtainStyledAttributes.getDimensionPixelSize(h.PayUi_RoundImageView_payUiTopLeftRadius, 0);
+        this.f73793f = obtainStyledAttributes.getDimensionPixelSize(h.PayUi_RoundImageView_payUiTopRightRadius, 0);
+        this.f73794g = obtainStyledAttributes.getDimensionPixelSize(h.PayUi_RoundImageView_payUiBottomLeftRadius, 0);
+        this.f73795h = obtainStyledAttributes.getDimensionPixelSize(h.PayUi_RoundImageView_payUiBottomRightRadius, 0);
         obtainStyledAttributes.recycle();
-        this.f76762i.setColor(-1);
-        this.f76762i.setAntiAlias(true);
-        this.f76762i.setStyle(Paint.Style.FILL);
-        this.f76762i.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f73796i.setColor(-1);
+        this.f73796i.setAntiAlias(true);
+        this.f73796i.setStyle(Paint.Style.FILL);
+        this.f73796i.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         this.j.setXfermode(null);
     }
 }

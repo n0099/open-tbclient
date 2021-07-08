@@ -15,7 +15,7 @@ import com.xiaomi.push.hp;
 import com.xiaomi.push.ie;
 import com.xiaomi.push.ip;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class bb implements ee {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class bb implements ee {
             ieVar.c(hp.I.f509a);
             ieVar.a(at.a());
             ieVar.f650a = hashMap;
-            byte[] a2 = ip.a(y.a(ieVar.c(), ieVar.b(), ieVar, hf.f43244i));
+            byte[] a2 = ip.a(y.a(ieVar.c(), ieVar.b(), ieVar, hf.f40258i));
             if (!(context instanceof XMPushService)) {
                 com.xiaomi.channel.commonutils.logger.b.m70a("MoleInfo : context is not correct in pushLayer " + ieVar.m465a());
                 return;

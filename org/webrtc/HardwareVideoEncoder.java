@@ -16,7 +16,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.video.player.KsMediaMeta;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Map;
@@ -30,7 +29,7 @@ import org.webrtc.ThreadUtils;
 import org.webrtc.VideoEncoder;
 import org.webrtc.VideoFrame;
 @TargetApi(19)
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class HardwareVideoEncoder implements VideoEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEQUEUE_OUTPUT_BUFFER_TIMEOUT_US = 100000;
@@ -81,7 +80,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
     public final YuvFormat yuvFormat;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static abstract class YuvFormat {
         public static final /* synthetic */ YuvFormat[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -213,7 +212,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
         public static YuvFormat valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (YuvFormat) Enum.valueOf(YuvFormat.class, str) : (YuvFormat) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (YuvFormat) Enum.valueOf(YuvFormat.class, str) : (YuvFormat) invokeL.objValue;
         }
 
         public static YuvFormat[] values() {
@@ -268,7 +267,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
     private Thread createOutputThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) ? new Thread(this) { // from class: org.webrtc.HardwareVideoEncoder.1
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? new Thread(this) { // from class: org.webrtc.HardwareVideoEncoder.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ HardwareVideoEncoder this$0;
@@ -375,7 +374,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
                 int intValue = (this.useSurfaceMode ? this.surfaceColorFormat : this.yuvColorFormat).intValue();
                 try {
                     MediaFormat createVideoFormat = MediaFormat.createVideoFormat(this.codecType.mimeType(), this.width, this.height);
-                    createVideoFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, this.adjustedBitrate);
+                    createVideoFormat.setInteger("bitrate", this.adjustedBitrate);
                     createVideoFormat.setInteger(KEY_BITRATE_MODE, 2);
                     createVideoFormat.setInteger("color-format", intValue);
                     createVideoFormat.setInteger("frame-rate", this.bitrateAdjuster.getCodecConfigFramerate());

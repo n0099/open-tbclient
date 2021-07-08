@@ -7,37 +7,37 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f72308a;
+    public c f69411a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f72309b;
+    public long f69412b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f72310c;
+    public long f69413c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f72311d;
+    public long f69414d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f72312e;
+    public int f69415e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f72313f;
+    public int f69416f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long[] f72314g;
+    public long[] f69417g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int[] f72315h;
+    public int[] f69418h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int[] f72316i;
+    public int[] f69419i;
     public int[] j;
     public long[] k;
     public boolean[] l;
@@ -66,7 +66,7 @@ public final class l {
     public void a(d.f.b.a.a0.f fVar) throws IOException, InterruptedException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            fVar.readFully(this.q.f73386a, 0, this.p);
+            fVar.readFully(this.q.f70489a, 0, this.p);
             this.q.J(0);
             this.r = false;
         }
@@ -75,7 +75,7 @@ public final class l {
     public void b(d.f.b.a.i0.l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar) == null) {
-            lVar.g(this.q.f73386a, 0, this.p);
+            lVar.g(this.q.f70489a, 0, this.p);
             this.q.J(0);
             this.r = false;
         }
@@ -103,17 +103,17 @@ public final class l {
     public void e(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-            this.f72312e = i2;
-            this.f72313f = i3;
-            int[] iArr = this.f72315h;
+            this.f69415e = i2;
+            this.f69416f = i3;
+            int[] iArr = this.f69418h;
             if (iArr == null || iArr.length < i2) {
-                this.f72314g = new long[i2];
-                this.f72315h = new int[i2];
+                this.f69417g = new long[i2];
+                this.f69418h = new int[i2];
             }
-            int[] iArr2 = this.f72316i;
+            int[] iArr2 = this.f69419i;
             if (iArr2 == null || iArr2.length < i3) {
                 int i4 = (i3 * 125) / 100;
-                this.f72316i = new int[i4];
+                this.f69419i = new int[i4];
                 this.j = new int[i4];
                 this.k = new long[i4];
                 this.l = new boolean[i4];
@@ -125,7 +125,7 @@ public final class l {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f72312e = 0;
+            this.f69415e = 0;
             this.s = 0L;
             this.m = false;
             this.r = false;

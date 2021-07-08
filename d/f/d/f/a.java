@@ -6,18 +6,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.math.RoundingMode;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d.f.d.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static /* synthetic */ class C2034a {
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class C2003a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f73825a;
+        public static final /* synthetic */ int[] f70928a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -34,37 +34,37 @@ public final class a {
                 }
             }
             int[] iArr = new int[RoundingMode.values().length];
-            f73825a = iArr;
+            f70928a = iArr;
             try {
                 iArr[RoundingMode.UNNECESSARY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f73825a[RoundingMode.FLOOR.ordinal()] = 2;
+                f70928a[RoundingMode.FLOOR.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f73825a[RoundingMode.CEILING.ordinal()] = 3;
+                f70928a[RoundingMode.CEILING.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f73825a[RoundingMode.DOWN.ordinal()] = 4;
+                f70928a[RoundingMode.DOWN.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f73825a[RoundingMode.UP.ordinal()] = 5;
+                f70928a[RoundingMode.UP.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f73825a[RoundingMode.HALF_EVEN.ordinal()] = 6;
+                f70928a[RoundingMode.HALF_EVEN.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f73825a[RoundingMode.HALF_UP.ordinal()] = 7;
+                f70928a[RoundingMode.HALF_UP.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f73825a[RoundingMode.HALF_DOWN.ordinal()] = 8;
+                f70928a[RoundingMode.HALF_DOWN.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
         }
@@ -97,7 +97,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Double.valueOf(d2), roundingMode})) == null) {
             if (b.c(d2)) {
-                switch (C2034a.f73825a[roundingMode.ordinal()]) {
+                switch (C2003a.f70928a[roundingMode.ordinal()]) {
                     case 1:
                         e.d(a(d2));
                         return d2;

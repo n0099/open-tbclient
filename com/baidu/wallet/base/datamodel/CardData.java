@@ -17,12 +17,12 @@ import com.baidu.wallet.core.NoProguard;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.datamodel.GetCardInfoResponse;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CardData implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class BondCard implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int UNBIND_CARD_DISABLE_BAIDU_FINANCE = 0;
@@ -77,7 +77,7 @@ public class CardData implements NoProguard {
         public String valid_date;
         public String verify_code;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public static class ChannelQuota implements NoProguard, Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -3143189382088186302L;

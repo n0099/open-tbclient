@@ -8,13 +8,14 @@ import a.a.a.a.y.d;
 import android.content.Context;
 import android.os.Looper;
 import android.os.SystemClock;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class FunAdSdk {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PLATFORM_CSJ = "csj";
@@ -26,7 +27,7 @@ public final class FunAdSdk {
     public static FunAdConfig sFunAdConfig;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface SdkInitializeCallback {
         void onComplete();
     }
@@ -70,7 +71,7 @@ public final class FunAdSdk {
     public static FunAdConfig getFunAdConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? sFunAdConfig : (FunAdConfig) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? sFunAdConfig : (FunAdConfig) invokeV.objValue;
     }
 
     public static String getPlatformId(String str) {

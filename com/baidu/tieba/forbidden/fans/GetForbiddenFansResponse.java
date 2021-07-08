@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.q.a1;
-import d.a.s0.r0.a.a;
+import d.a.o0.r.q.a1;
+import d.a.p0.r0.a.a;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GetForbiddenFansResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class GetForbiddenFansResponse extends JsonHttpResponsedMessage {
                     for (int i3 = 0; i3 < length; i3++) {
                         a aVar = new a();
                         aVar.a(optJSONArray.getJSONObject(i3));
-                        if (aVar.f64998a != 0) {
+                        if (aVar.f61776a != 0) {
                             this.fansList.add(aVar);
                         }
                     }

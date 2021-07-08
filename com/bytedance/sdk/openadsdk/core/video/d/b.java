@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.utils.j;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.video.d.b$b  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface InterfaceC0344b {
         void a(Bitmap bitmap);
     }
@@ -29,16 +29,16 @@ public class b {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a extends AsyncTask<String, Integer, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public InterfaceC0344b f30535a;
+        public InterfaceC0344b f30645a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f30536b;
+        public long f30646b;
 
         public a(InterfaceC0344b interfaceC0344b, long j) {
             Interceptable interceptable = $ic;
@@ -55,9 +55,9 @@ public class b {
                     return;
                 }
             }
-            this.f30536b = 0L;
-            this.f30535a = interfaceC0344b;
-            this.f30536b = j;
+            this.f30646b = 0L;
+            this.f30645a = interfaceC0344b;
+            this.f30646b = j;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -76,7 +76,7 @@ public class b {
                     } else {
                         mediaMetadataRetriever.setDataSource(str);
                     }
-                    bitmap = mediaMetadataRetriever.getFrameAtTime(this.f30536b * 1000, 3);
+                    bitmap = mediaMetadataRetriever.getFrameAtTime(this.f30646b * 1000, 3);
                     mediaMetadataRetriever.release();
                     return bitmap;
                 } catch (Throwable th) {
@@ -94,7 +94,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
                 super.onPostExecute(bitmap);
-                InterfaceC0344b interfaceC0344b = this.f30535a;
+                InterfaceC0344b interfaceC0344b = this.f30645a;
                 if (interfaceC0344b != null) {
                     interfaceC0344b.a(bitmap);
                 }

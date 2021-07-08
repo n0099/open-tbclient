@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class j extends a<String> {
+/* loaded from: classes6.dex */
+public class j extends b<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,27 +34,28 @@ public class j extends a<String> {
         }
     }
 
-    @Override // com.kwad.sdk.core.config.item.a
+    @Override // com.kwad.sdk.core.config.item.b
     public void a(@NonNull SharedPreferences.Editor editor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, editor) == null) {
-            editor.putString(a(), b());
+            editor.putString(b(), a());
         }
     }
 
-    @Override // com.kwad.sdk.core.config.item.a
+    @Override // com.kwad.sdk.core.config.item.b
     public void a(@NonNull SharedPreferences sharedPreferences) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sharedPreferences) == null) {
-            a((j) sharedPreferences.getString(a(), c()));
+            a((j) sharedPreferences.getString(b(), c()));
         }
     }
 
-    @Override // com.kwad.sdk.core.config.item.a
+    @Override // com.kwad.sdk.core.config.item.b
     public void a(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            a((j) (jSONObject != null ? jSONObject.optString(a(), c()) : c()));
+            a((j) ((jSONObject == null || (optJSONObject = jSONObject.optJSONObject(b())) == null) ? c() : optJSONObject.toString()));
         }
     }
 }

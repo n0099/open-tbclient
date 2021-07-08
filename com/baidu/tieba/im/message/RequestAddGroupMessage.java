@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.b;
 import protobuf.AddGroup.AddGroupReqIdl;
 import protobuf.AddGroup.DataReq;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RequestAddGroupMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

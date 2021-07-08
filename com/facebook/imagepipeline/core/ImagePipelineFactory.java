@@ -45,7 +45,7 @@ import com.facebook.imagepipeline.transcoder.SimpleImageTranscoderFactory;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ImagePipelineFactory {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;
@@ -159,7 +159,7 @@ public class ImagePipelineFactory {
     private ImageTranscoderFactory getImageTranscoderFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             if (this.mImageTranscoderFactory == null) {
                 if (this.mConfig.getImageTranscoderFactory() == null && this.mConfig.getImageTranscoderType() == null && this.mConfig.getExperiments().isNativeCodeDisabled()) {
                     this.mImageTranscoderFactory = new SimpleImageTranscoderFactory(this.mConfig.getExperiments().getMaxBitmapSize());

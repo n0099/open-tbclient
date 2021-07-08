@@ -18,7 +18,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f2026a;
+    public static boolean f2027a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class e {
                 return;
             }
         }
-        f2026a = Build.VERSION.SDK_INT >= 11;
+        f2027a = Build.VERSION.SDK_INT >= 11;
     }
 
     public e() {
@@ -64,7 +64,7 @@ public class e {
             try {
                 create.show();
             } catch (Throwable th) {
-                com.alipay.sdk.util.c.a(com.alipay.sdk.net.a.f1893a, th);
+                com.alipay.sdk.util.c.a(com.alipay.sdk.net.a.f1894a, th);
             }
             return create;
         }
@@ -76,7 +76,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, str, str2, onClickListener, str3, onClickListener2})) == null) {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
-            if (f2026a) {
+            if (f2027a) {
                 if (!TextUtils.isEmpty(str3) && onClickListener2 != null) {
                     builder.setPositiveButton(str3, onClickListener2);
                 }

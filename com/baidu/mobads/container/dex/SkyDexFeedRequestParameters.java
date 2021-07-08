@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SkyDexFeedRequestParameters {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ADS_TYPE_DOWNLOAD = 2;
@@ -29,13 +29,13 @@ public class SkyDexFeedRequestParameters {
     public int width;
 
     /* renamed from: com.baidu.mobads.container.dex.SkyDexFeedRequestParameters$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

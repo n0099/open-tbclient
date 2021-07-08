@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.s0.v1.h.a.f;
+import d.a.p0.v1.h.a.f;
 import tbclient.Error;
 import tbclient.SetTail.SetTailResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SetTailSocketResponseMessage extends SocketResponsedMessage implements IDataResponseMessage<f> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

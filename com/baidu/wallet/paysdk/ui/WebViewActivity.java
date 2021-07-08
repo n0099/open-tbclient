@@ -35,7 +35,7 @@ import com.baidu.wallet.paysdk.PayUtils;
 import java.net.URLEncoder;
 import java.util.Arrays;
 @SuppressLint({"SetJavaScriptEnabled"})
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class WebViewActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHANNEL_DISCOUNT_PARAMS = "channel_discount_params";
@@ -47,13 +47,13 @@ public class WebViewActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public SafeWebView mWebView;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends SafeWebView.SafeChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WebViewActivity f26679a;
+        public final /* synthetic */ WebViewActivity f26789a;
 
         public a(WebViewActivity webViewActivity) {
             Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public class WebViewActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f26679a = webViewActivity;
+            this.f26789a = webViewActivity;
         }
 
         @Override // com.baidu.apollon.webmanager.SafeWebView.SafeChromeClient, android.webkit.WebChromeClient
@@ -78,22 +78,22 @@ public class WebViewActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onReceivedTitle(webView, str);
-                WebViewActivity webViewActivity = this.f26679a;
+                WebViewActivity webViewActivity = this.f26789a;
                 if (TextUtils.isEmpty(str)) {
-                    str = ResUtils.getString(this.f26679a.getActivity(), "ebpay_bd_wallet");
+                    str = ResUtils.getString(this.f26789a.getActivity(), "ebpay_bd_wallet");
                 }
                 webViewActivity.initActionBar(str);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b extends SafeWebView.SafeWebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WebViewActivity f26680a;
+        public final /* synthetic */ WebViewActivity f26790a;
 
         public b(WebViewActivity webViewActivity) {
             Interceptable interceptable = $ic;
@@ -110,7 +110,7 @@ public class WebViewActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f26680a = webViewActivity;
+            this.f26790a = webViewActivity;
         }
 
         @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
@@ -118,7 +118,7 @@ public class WebViewActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
-                WalletGlobalUtils.safeDismissDialog(this.f26680a, -1);
+                WalletGlobalUtils.safeDismissDialog(this.f26790a, -1);
             }
         }
 
@@ -144,7 +144,7 @@ public class WebViewActivity extends BaseActivity {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str)) == null) {
                 if (str.startsWith("tel:")) {
                     try {
-                        this.f26680a.startActivity(new Intent("android.intent.action.DIAL", Uri.parse(str)));
+                        this.f26790a.startActivity(new Intent("android.intent.action.DIAL", Uri.parse(str)));
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
@@ -153,10 +153,10 @@ public class WebViewActivity extends BaseActivity {
                     try {
                         Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse(str.substring(0, str.indexOf("?"))));
                         intent.putExtra("android.intent.extra.SUBJECT", Uri.parse(str.replace(com.baidu.webkit.sdk.WebView.SCHEME_MAILTO, "mailto://")).getQueryParameter("subject"));
-                        this.f26680a.startActivity(intent);
+                        this.f26790a.startActivity(intent);
                     } catch (Exception e3) {
                         e3.printStackTrace();
-                        GlobalUtils.toast(this.f26680a.getActivity(), "请先配置邮箱");
+                        GlobalUtils.toast(this.f26790a.getActivity(), "请先配置邮箱");
                     }
                     return true;
                 } else {
@@ -210,7 +210,7 @@ public class WebViewActivity extends BaseActivity {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ WebViewActivity f26678a;
+            public final /* synthetic */ WebViewActivity f26788a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -227,15 +227,15 @@ public class WebViewActivity extends BaseActivity {
                         return;
                     }
                 }
-                this.f26678a = this;
+                this.f26788a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    GlobalUtils.hideKeyboard(this.f26678a.getActivity());
-                    this.f26678a.onBackPressed();
+                    GlobalUtils.hideKeyboard(this.f26788a.getActivity());
+                    this.f26788a.onBackPressed();
                 }
             }
         });

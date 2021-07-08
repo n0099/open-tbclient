@@ -1,6 +1,7 @@
 package org.webrtc;
 
 import android.opengl.GLES20;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +15,7 @@ import java.nio.Buffer;
 import java.nio.FloatBuffer;
 import javax.annotation.Nullable;
 import org.webrtc.RendererCommon;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class GlGenericDrawer implements RendererCommon.GlDrawer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_VERTEX_SHADER_STRING = "varying vec2 tc;\nattribute vec4 in_pos;\nattribute vec4 in_tc;\nuniform mat4 tex_mat;\nvoid main() {\n  gl_Position = in_pos;\n  tc = (tex_mat * in_tc).xy;\n}\n";
@@ -35,7 +36,7 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
     public int texMatrixLocation;
     public final String vertexShader;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface ShaderCallbacks {
         void onNewShader(GlShader glShader);
 
@@ -43,7 +44,7 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class ShaderType {
         public static final /* synthetic */ ShaderType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -200,7 +201,7 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
     private void prepareShader(ShaderType shaderType, float[] fArr, int i2, int i3, int i4, int i5) {
         GlShader glShader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, this, new Object[]{shaderType, fArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{shaderType, fArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             if (shaderType.equals(this.currentShaderType)) {
                 glShader = this.currentShader;
             } else {

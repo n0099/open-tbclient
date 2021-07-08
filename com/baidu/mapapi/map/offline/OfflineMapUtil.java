@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class OfflineMapUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,21 +39,21 @@ public class OfflineMapUtil {
                 return null;
             }
             MKOLSearchRecord mKOLSearchRecord = new MKOLSearchRecord();
-            mKOLSearchRecord.cityID = qVar.f7740a;
-            mKOLSearchRecord.cityName = qVar.f7741b;
-            mKOLSearchRecord.cityType = qVar.f7743d;
+            mKOLSearchRecord.cityID = qVar.f7757a;
+            mKOLSearchRecord.cityName = qVar.f7758b;
+            mKOLSearchRecord.cityType = qVar.f7760d;
             long j = 0;
             if (qVar.a() != null) {
                 ArrayList<MKOLSearchRecord> arrayList = new ArrayList<>();
                 Iterator<q> it = qVar.a().iterator();
                 while (it.hasNext()) {
                     arrayList.add(getSearchRecordFromLocalCityInfo(it.next()));
-                    j += next.f7742c;
+                    j += next.f7759c;
                     mKOLSearchRecord.childCities = arrayList;
                 }
             }
             if (mKOLSearchRecord.cityType != 1) {
-                j = qVar.f7742c;
+                j = qVar.f7759c;
             }
             mKOLSearchRecord.dataSize = j;
             return mKOLSearchRecord;
@@ -69,16 +69,16 @@ public class OfflineMapUtil {
                 return null;
             }
             MKOLUpdateElement mKOLUpdateElement = new MKOLUpdateElement();
-            mKOLUpdateElement.cityID = tVar.f7751a;
-            mKOLUpdateElement.cityName = tVar.f7752b;
-            GeoPoint geoPoint = tVar.f7757g;
+            mKOLUpdateElement.cityID = tVar.f7768a;
+            mKOLUpdateElement.cityName = tVar.f7769b;
+            GeoPoint geoPoint = tVar.f7774g;
             if (geoPoint != null) {
                 mKOLUpdateElement.geoPt = CoordUtil.mc2ll(geoPoint);
             }
-            mKOLUpdateElement.level = tVar.f7755e;
-            int i2 = tVar.f7759i;
+            mKOLUpdateElement.level = tVar.f7772e;
+            int i2 = tVar.f7776i;
             mKOLUpdateElement.ratio = i2;
-            int i3 = tVar.f7758h;
+            int i3 = tVar.f7775h;
             mKOLUpdateElement.serversize = i3;
             if (i2 != 100) {
                 i3 = (i3 / 100) * i2;

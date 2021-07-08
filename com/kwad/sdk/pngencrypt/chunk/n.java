@@ -5,16 +5,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.pngencrypt.PngjException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class n extends aa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f38743h;
+    public String f35815h;
 
     /* renamed from: i  reason: collision with root package name */
-    public byte[] f38744i;
+    public byte[] f35816i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n(com.kwad.sdk.pngencrypt.k kVar) {
@@ -41,16 +41,16 @@ public class n extends aa {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            int c2 = b.c(dVar.f38720d);
-            this.f38743h = b.a(dVar.f38720d, 0, c2);
-            byte[] bArr = dVar.f38720d;
+            int c2 = b.c(dVar.f35792d);
+            this.f35815h = b.a(dVar.f35792d, 0, c2);
+            byte[] bArr = dVar.f35792d;
             if ((bArr[c2 + 1] & 255) != 0) {
                 throw new PngjException("bad compression for ChunkTypeICCP");
             }
             int i2 = c2 + 2;
             int length = bArr.length - i2;
             byte[] bArr2 = new byte[length];
-            this.f38744i = bArr2;
+            this.f35816i = bArr2;
             System.arraycopy(bArr, i2, bArr2, 0, length);
         }
     }

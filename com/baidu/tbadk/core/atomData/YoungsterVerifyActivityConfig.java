@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class YoungsterVerifyActivityConfig extends TbWebViewActivityConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PARAMA_AUTH_ID = "authid";

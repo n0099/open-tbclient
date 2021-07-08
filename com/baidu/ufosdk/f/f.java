@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
 import android.os.StatFs;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,22 +19,22 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Arrays;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f23221c;
+    public static String f23331c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static f f23222d;
+    public static f f23332d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f23223a;
+    public final int f23333a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f23224b;
+    public final String f23334b;
 
     static {
         InterceptResult invokeClinit;
@@ -48,8 +49,8 @@ public final class f {
                 return;
             }
         }
-        f23221c = Environment.getExternalStorageDirectory().getPath() + "/image_cache";
-        f23222d = null;
+        f23331c = Environment.getExternalStorageDirectory().getPath() + "/image_cache";
+        f23332d = null;
     }
 
     public f() {
@@ -65,8 +66,8 @@ public final class f {
                 return;
             }
         }
-        this.f23224b = "ufo";
-        this.f23223a = 1209600000;
+        this.f23334b = "ufo";
+        this.f23333a = 1209600000;
     }
 
     public static Bitmap a(String str) {
@@ -76,7 +77,7 @@ public final class f {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             String b2 = b(str);
             if (new File(b2).exists() && (decodeFile = BitmapFactory.decodeFile(b2, null)) != null) {
-                new File(f23221c + "/cache/image/", b2).setLastModified(System.currentTimeMillis());
+                new File(f23331c + "/cache/image/", b2).setLastModified(System.currentTimeMillis());
                 return decodeFile;
             }
             return null;
@@ -88,10 +89,10 @@ public final class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f23222d == null) {
-                f23222d = new f();
+            if (f23332d == null) {
+                f23332d = new f();
             }
-            return f23222d;
+            return f23332d;
         }
         return (f) invokeV.objValue;
     }
@@ -99,8 +100,8 @@ public final class f {
     public static String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
-            return f23221c + "/cache/image/" + str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return f23331c + "/cache/image/" + str;
         }
         return (String) invokeL.objValue;
     }
@@ -108,7 +109,7 @@ public final class f {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
-            String str = f23221c + "/cache/image/";
+            String str = f23331c + "/cache/image/";
             File[] listFiles = new File(str).listFiles();
             if (listFiles == null) {
                 return;
@@ -165,11 +166,11 @@ public final class f {
                         c.c("ufo ->Low free space onsd, do not cache");
                         return;
                     }
-                    c(f23221c + "/cache/image/");
+                    c(f23331c + "/cache/image/");
                     if (equals) {
-                        File file2 = new File(f23221c);
-                        File file3 = new File(f23221c + "/cache");
-                        File file4 = new File(f23221c + "/cache/image");
+                        File file2 = new File(f23331c);
+                        File file3 = new File(f23331c + "/cache");
+                        File file4 = new File(f23331c + "/cache/image");
                         if (!file2.exists()) {
                             file2.mkdir();
                         }

@@ -18,6 +18,7 @@ import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.Log;
 import android.view.KeyEvent;
 import androidx.annotation.RestrictTo;
+import androidx.core.view.InputDeviceCompat;
 import androidx.media.MediaBrowserServiceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -159,7 +160,7 @@ public class MediaButtonReceiver extends BroadcastReceiver {
     public static ComponentName getServiceComponentByAction(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
             PackageManager packageManager = context.getPackageManager();
             Intent intent = new Intent(str);
             intent.setPackage(context.getPackageName());

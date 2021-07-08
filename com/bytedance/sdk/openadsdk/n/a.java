@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
@@ -29,7 +30,6 @@ import com.bytedance.sdk.openadsdk.core.l;
 import com.bytedance.sdk.openadsdk.core.o;
 import com.bytedance.sdk.openadsdk.core.s;
 import com.bytedance.sdk.openadsdk.r.q;
-import com.kwai.video.player.KsMediaMeta;
 import d.b.c.b.g;
 import d.b.c.b.k;
 import d.l.a.b.a.a.c;
@@ -42,7 +42,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,9 +61,9 @@ public class a {
         if (interceptable == null || interceptable.invokeLL(65539, null, context, jSONObject) == null) {
             try {
                 float f2 = 0.0f;
-                float f3 = b.a(context) == null ? 0.0f : b.a(context).f30210a;
+                float f3 = b.a(context) == null ? 0.0f : b.a(context).f30320a;
                 if (b.a(context) != null) {
-                    f2 = b.a(context).f30211b;
+                    f2 = b.a(context).f30321b;
                 }
                 jSONObject.put("latitude", f3);
                 jSONObject.put("longitude", f2);
@@ -75,7 +75,7 @@ public class a {
 
     public static void a(TTAdConfig tTAdConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, tTAdConfig) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tTAdConfig) == null) {
         }
     }
 
@@ -153,7 +153,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (l.f30233b == null || l.f30233b.isCanUseWifiState()) {
+            if (l.f30343b == null || l.f30343b.isCanUseWifiState()) {
                 return j.h(o.a());
             }
             return null;
@@ -175,8 +175,8 @@ public class a {
                 com.bytedance.sdk.openadsdk.core.k.a a2 = b.a(o.a());
                 JSONObject jSONObject2 = new JSONObject();
                 if (a2 != null) {
-                    jSONObject2.put("longitude", a2.f30211b);
-                    jSONObject2.put("latitude", a2.f30210a);
+                    jSONObject2.put("longitude", a2.f30321b);
+                    jSONObject2.put("latitude", a2.f30320a);
                 }
                 jSONObject.put("location", jSONObject2);
             } catch (JSONException e2) {
@@ -193,7 +193,7 @@ public class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f31514a;
+                public final /* synthetic */ Context f31624a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -210,7 +210,7 @@ public class a {
                             return;
                         }
                     }
-                    this.f31514a = context;
+                    this.f31624a = context;
                 }
 
                 @Override // d.b.c.b.g
@@ -221,12 +221,12 @@ public class a {
                         HashMap hashMap = new HashMap();
                         String appLogDid = AppLogHelper.getInstance().getAppLogDid();
                         if (TextUtils.isEmpty(appLogDid)) {
-                            appLogDid = j.a(this.f31514a);
+                            appLogDid = j.a(this.f31624a);
                         }
                         if (!TextUtils.isEmpty(appLogDid)) {
                             hashMap.put("device_id", appLogDid);
                         }
-                        hashMap.put("ac", NetworkUtils.getNetworkTypeString(this.f31514a));
+                        hashMap.put("ac", NetworkUtils.getNetworkTypeString(this.f31624a));
                         hashMap.put("aid", 164362);
                         hashMap.put("app_name", "unionser_slardar_applog");
                         String f2 = com.bytedance.sdk.openadsdk.r.o.f();
@@ -246,7 +246,7 @@ public class a {
                         hashMap.put(Config.ROM, com.bytedance.sdk.openadsdk.r.j.a());
                         hashMap.put(PmsConstant.EnvParam.Key.CPU_ABI, Build.CPU_ABI);
                         hashMap.put("device_brand", Build.BRAND);
-                        hashMap.put(KsMediaMeta.KSM_KEY_LANGUAGE, Locale.getDefault().getLanguage());
+                        hashMap.put("language", Locale.getDefault().getLanguage());
                         hashMap.put("os_api", String.valueOf(Build.VERSION.SDK_INT));
                         try {
                             String str = Build.VERSION.RELEASE;
@@ -256,9 +256,9 @@ public class a {
                             hashMap.put(HttpConstants.OS_VERSION, str);
                         } catch (Exception unused) {
                         }
-                        hashMap.put("openudid", j.c(this.f31514a));
-                        hashMap.put("dpi", String.valueOf(q.g(this.f31514a)));
-                        hashMap.put("resolution", q.c(this.f31514a) + "*" + q.d(this.f31514a));
+                        hashMap.put("openudid", j.c(this.f31624a));
+                        hashMap.put("dpi", String.valueOf(q.g(this.f31624a)));
+                        hashMap.put("resolution", q.c(this.f31624a) + "*" + q.d(this.f31624a));
                         return hashMap;
                     }
                     return (Map) invokeV.objValue;
@@ -268,7 +268,7 @@ public class a {
                 public String b() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? j.a(this.f31514a) : (String) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? j.a(this.f31624a) : (String) invokeV.objValue;
                 }
 
                 @Override // d.b.c.b.g
@@ -395,8 +395,8 @@ public class a {
         }
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("latitude", a2.f30210a);
-            jSONObject2.put("longitude", a2.f30211b);
+            jSONObject2.put("latitude", a2.f30320a);
+            jSONObject2.put("longitude", a2.f30321b);
             jSONObject.put("geo", jSONObject2);
         } catch (Exception unused) {
         }
@@ -420,7 +420,7 @@ public class a {
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? (l.f30233b == null || l.f30233b.isCanUsePhoneState()) ? j.f(o.a()) : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? (l.f30343b == null || l.f30343b.isCanUsePhoneState()) ? j.f(o.a()) : "" : (String) invokeV.objValue;
     }
 
     public static Map<String, String> b(String str, String str2) {

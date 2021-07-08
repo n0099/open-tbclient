@@ -5,13 +5,14 @@ import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Process;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ContextCompat {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ContextCompat";
@@ -58,7 +59,7 @@ public class ContextCompat {
     public static final int getColor(Context context, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2)) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
                 return ContextCompatApi23.getColor(context, i2);
             }

@@ -27,7 +27,7 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 import org.webrtc.RendererCommon;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class EglRenderer implements VideoSink {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long LOG_INTERVAL_SEC = 4;
@@ -65,7 +65,7 @@ public class EglRenderer implements VideoSink {
     public long statisticsStartTimeNs;
     public boolean usePresentationTimeStamp;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class EglSurfaceCreation implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,12 +120,12 @@ public class EglRenderer implements VideoSink {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface FrameListener {
         void onFrame(Bitmap bitmap);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class FrameListenerAndParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -156,7 +156,7 @@ public class EglRenderer implements VideoSink {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class HandlerWithExceptionCallback extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

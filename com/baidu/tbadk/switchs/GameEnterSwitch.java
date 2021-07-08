@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.f.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class GameEnterSwitch extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GAME_ENTER_KEY = "android_game_enter_switch";

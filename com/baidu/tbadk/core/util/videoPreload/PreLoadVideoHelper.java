@@ -11,7 +11,7 @@ import com.bumptech.glide.load.engine.GlideException;
 import d.a.c.k.e.o;
 import d.a.c.k.e.q;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PreLoadVideoHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.net.http.Headers;
 import android.text.TextUtils;
 import android.webkit.CookieManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.account.request.IMGetTokenByCuidRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.task.TaskManager;
@@ -366,7 +367,7 @@ public class HttpHelper {
     public static byte[] dealResonsResult(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65540, null, inputStream)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream)) != null) {
             return (byte[]) invokeL.objValue;
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

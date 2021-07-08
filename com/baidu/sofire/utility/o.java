@@ -1,6 +1,7 @@
 package com.baidu.sofire.utility;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,12 +12,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class o {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f10506a;
+    public static final String[] f10523a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +33,7 @@ public final class o {
                 return;
             }
         }
-        f10506a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
+        f10523a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
     }
 
     public static String a(String str) {
@@ -61,13 +62,13 @@ public final class o {
     public static String b(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
             for (int i2 : bArr) {
                 if (i2 < 0) {
                     i2 += 256;
                 }
-                stringBuffer.append(f10506a[i2 / 16] + f10506a[i2 % 16]);
+                stringBuffer.append(f10523a[i2 / 16] + f10523a[i2 % 16]);
             }
             return stringBuffer.toString();
         }

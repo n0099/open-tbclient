@@ -1,6 +1,7 @@
 package com.baidu.ar.face.a;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.a.c;
 import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -196,7 +197,7 @@ public class a {
     private C0079a f(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, jSONObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONObject)) == null) {
             C0079a c0079a = new C0079a(this);
             try {
                 String string = jSONObject.getString("track_param_0");

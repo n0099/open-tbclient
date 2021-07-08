@@ -1,6 +1,7 @@
 package com.baidu.wallet.core.utils;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +12,7 @@ import com.google.zxing.client.result.ResultParser;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class StringUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +74,7 @@ public final class StringUtils {
     public static String formatAmount(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? fen2Yuan(yuan2Fen(str)) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? fen2Yuan(yuan2Fen(str)) : (String) invokeL.objValue;
     }
 
     public static String formatMoneyAmount(String str) {

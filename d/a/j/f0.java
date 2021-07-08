@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f0 extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class f0 extends h {
             }
         }
         int g2 = d.a.c.e.p.l.g(context, R.dimen.M_H_X003);
-        int g3 = d.a.c.e.p.l.g(context, d.a.r0.b.g.b.c(R.dimen.tbds21, R.dimen.tbds0));
+        int g3 = d.a.c.e.p.l.g(context, d.a.o0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
         r(g2);
         q(g3);
         this.l = new RecommendInfoLayout(context);
@@ -54,21 +54,21 @@ public class f0 extends h {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            this.l.c();
+            this.l.b();
         }
     }
 
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (d.a.r0.b.d.V()) {
-                int g2 = d.a.c.e.p.l.g(this.f45735f, R.dimen.M_H_X003);
-                int g3 = d.a.c.e.p.l.g(this.f45735f, d.a.r0.b.g.b.c(R.dimen.tbds21, R.dimen.tbds0));
+            if (d.a.o0.b.d.f0()) {
+                int g2 = d.a.c.e.p.l.g(this.f42627f, R.dimen.M_H_X003);
+                int g3 = d.a.c.e.p.l.g(this.f42627f, d.a.o0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
                 r(g2);
                 q(g3);
                 return;
             }
-            int g4 = d.a.c.e.p.l.g(this.f45735f, R.dimen.tbds10);
+            int g4 = d.a.c.e.p.l.g(this.f42627f, R.dimen.tbds10);
             r(g4);
             q(0);
             u(this.l, g4, 0);
@@ -78,7 +78,7 @@ public class f0 extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.j.p
     /* renamed from: t */
-    public void a(d.a.r0.r.q.a aVar) {
+    public void a(d.a.o0.r.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.l.setData(aVar);

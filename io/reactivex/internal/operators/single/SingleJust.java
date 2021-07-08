@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Single;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposables;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class SingleJust<T> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

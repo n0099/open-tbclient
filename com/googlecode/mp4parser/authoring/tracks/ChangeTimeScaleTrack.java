@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ChangeTimeScaleTrack implements Track {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger LOG;
@@ -114,7 +114,7 @@ public class ChangeTimeScaleTrack implements Track {
     public static long[] getTimes(Track track, long[] jArr, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{track, jArr, Long.valueOf(j)})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{track, jArr, Long.valueOf(j)})) != null) {
             return (long[]) invokeCommon.objValue;
         }
         long[] jArr2 = new long[jArr.length];

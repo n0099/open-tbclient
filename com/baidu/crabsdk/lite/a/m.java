@@ -8,24 +8,24 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class m {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static TelephonyManager f4711a;
+    public static TelephonyManager f4728a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ConnectivityManager f4712b;
+    public static ConnectivityManager f4729b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f4713c;
+    public static Context f4730c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, context) == null) {
-            f4713c = context;
+            f4730c = context;
         }
     }
 
@@ -34,10 +34,10 @@ public final class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
-                if (f4712b == null) {
-                    f4712b = (ConnectivityManager) f4713c.getSystemService("connectivity");
+                if (f4729b == null) {
+                    f4729b = (ConnectivityManager) f4730c.getSystemService("connectivity");
                 }
-                NetworkInfo activeNetworkInfo = f4712b.getActiveNetworkInfo();
+                NetworkInfo activeNetworkInfo = f4729b.getActiveNetworkInfo();
                 return activeNetworkInfo == null ? RomUtils.UNKNOWN : !activeNetworkInfo.isConnected() ? "NONE" : activeNetworkInfo.getTypeName().toUpperCase();
             } catch (RuntimeException unused) {
                 return RomUtils.UNKNOWN;
@@ -54,10 +54,10 @@ public final class m {
             String str2 = "\n";
             StringBuilder sb = new StringBuilder();
             try {
-                if (f4712b == null) {
-                    f4712b = (ConnectivityManager) f4713c.getSystemService("connectivity");
+                if (f4729b == null) {
+                    f4729b = (ConnectivityManager) f4730c.getSystemService("connectivity");
                 }
-                activeNetworkInfo = f4712b.getActiveNetworkInfo();
+                activeNetworkInfo = f4729b.getActiveNetworkInfo();
             } catch (RuntimeException e2) {
                 com.baidu.crabsdk.lite.b.a.e(str, "getNetworkInfo", e2);
             }
@@ -72,11 +72,11 @@ public final class m {
                     sb.append("subType: ");
                     sb.append(activeNetworkInfo.getSubtypeName());
                     sb.append("\n");
-                    if (f4711a == null) {
-                        f4711a = (TelephonyManager) f4713c.getSystemService("phone");
+                    if (f4728a == null) {
+                        f4728a = (TelephonyManager) f4730c.getSystemService("phone");
                     }
                     sb.append("isRoaming: ");
-                    sb.append(f4711a.isNetworkRoaming() ? "yes" : "no");
+                    sb.append(f4728a.isNetworkRoaming() ? "yes" : "no");
                 }
                 return sb.toString();
             }

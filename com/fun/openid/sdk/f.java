@@ -1,10 +1,10 @@
 package com.fun.openid.sdk;
 
 import android.content.Context;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface f {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
     }
 

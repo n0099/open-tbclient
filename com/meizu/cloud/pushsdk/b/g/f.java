@@ -2,35 +2,35 @@ package com.meizu.cloud.pushsdk.b.g;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class f implements l {
 
     /* renamed from: a  reason: collision with root package name */
-    public final l f40240a;
+    public final l f37254a;
 
     public f(l lVar) {
         if (lVar == null) {
             throw new IllegalArgumentException("delegate == null");
         }
-        this.f40240a = lVar;
+        this.f37254a = lVar;
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.l
     public void a(b bVar, long j) throws IOException {
-        this.f40240a.a(bVar, j);
+        this.f37254a.a(bVar, j);
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.l, java.io.Closeable, java.lang.AutoCloseable, com.meizu.cloud.pushsdk.b.g.m
     public void close() throws IOException {
-        this.f40240a.close();
+        this.f37254a.close();
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.l, java.io.Flushable
     public void flush() throws IOException {
-        this.f40240a.flush();
+        this.f37254a.flush();
     }
 
     public String toString() {
-        return getClass().getSimpleName() + "(" + this.f40240a.toString() + SmallTailInfo.EMOTION_SUFFIX;
+        return getClass().getSimpleName() + "(" + this.f37254a.toString() + SmallTailInfo.EMOTION_SUFFIX;
     }
 }

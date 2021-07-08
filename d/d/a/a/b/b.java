@@ -1,5 +1,5 @@
 package d.d.a.a.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public interface b {
     int get3GSendingInterval();
 

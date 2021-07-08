@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -23,61 +24,61 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class NativeLoader {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7515a = "NativeLoader";
+    public static final String f7532a = "NativeLoader";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f7516b;
+    public static Context f7533b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Set<String> f7517c;
+    public static final Set<String> f7534c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Set<String> f7518d;
+    public static final Set<String> f7535d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static NativeLoader f7519e;
+    public static NativeLoader f7536e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static a f7520f;
+    public static a f7537f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f7521g;
+    public static boolean f7538g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f7522h;
+    public static String f7539h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f7523a;
+        public static final a f7540a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f7524b;
+        public static final a f7541b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f7525c;
+        public static final a f7542c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f7526d;
+        public static final a f7543d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f7527e;
+        public static final a f7544e;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final /* synthetic */ a[] f7528g;
+        public static final /* synthetic */ a[] f7545g;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f7529f;
+        public String f7546f;
 
         static {
             InterceptResult invokeClinit;
@@ -92,13 +93,13 @@ public class NativeLoader {
                     return;
                 }
             }
-            f7523a = new a("ARMEABI", 0, "armeabi");
-            f7524b = new a("ARMV7", 1, "armeabi-v7a");
-            f7525c = new a("ARM64", 2, "arm64-v8a");
-            f7526d = new a("X86", 3, "x86");
+            f7540a = new a("ARMEABI", 0, "armeabi");
+            f7541b = new a("ARMV7", 1, "armeabi-v7a");
+            f7542c = new a("ARM64", 2, "arm64-v8a");
+            f7543d = new a("X86", 3, "x86");
             a aVar = new a("X86_64", 4, "x86_64");
-            f7527e = aVar;
-            f7528g = new a[]{f7523a, f7524b, f7525c, f7526d, aVar};
+            f7544e = aVar;
+            f7545g = new a[]{f7540a, f7541b, f7542c, f7543d, aVar};
         }
 
         public a(String str, int i2, String str2) {
@@ -119,7 +120,7 @@ public class NativeLoader {
                     return;
                 }
             }
-            this.f7529f = str2;
+            this.f7546f = str2;
         }
 
         public static a valueOf(String str) {
@@ -131,13 +132,13 @@ public class NativeLoader {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f7528g.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f7545g.clone() : (a[]) invokeV.objValue;
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7529f : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7546f : (String) invokeV.objValue;
         }
     }
 
@@ -154,11 +155,11 @@ public class NativeLoader {
                 return;
             }
         }
-        f7517c = new HashSet();
-        f7518d = new HashSet();
-        f7520f = a.f7523a;
-        f7521g = false;
-        f7522h = null;
+        f7534c = new HashSet();
+        f7535d = new HashSet();
+        f7537f = a.f7540a;
+        f7538g = false;
+        f7539h = null;
     }
 
     public NativeLoader() {
@@ -179,7 +180,7 @@ public class NativeLoader {
     private String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? 8 <= Build.VERSION.SDK_INT ? f7516b.getPackageCodePath() : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? 8 <= Build.VERSION.SDK_INT ? f7533b.getPackageCodePath() : "" : (String) invokeV.objValue;
     }
 
     private String a(a aVar) {
@@ -194,7 +195,7 @@ public class NativeLoader {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
     private void a(InputStream inputStream, FileOutputStream fileOutputStream) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, this, inputStream, fileOutputStream) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, inputStream, fileOutputStream) == null) {
             byte[] bArr = new byte[4096];
             while (true) {
                 try {
@@ -207,12 +208,12 @@ public class NativeLoader {
                     try {
                         inputStream.close();
                     } catch (IOException e2) {
-                        Log.e(f7515a, "Close InputStream error", e2);
+                        Log.e(f7532a, "Close InputStream error", e2);
                     }
                     try {
                         fileOutputStream.close();
                     } catch (IOException e3) {
-                        Log.e(f7515a, "Close OutputStream error", e3);
+                        Log.e(f7532a, "Close OutputStream error", e3);
                     }
                     throw th;
                 }
@@ -221,12 +222,12 @@ public class NativeLoader {
             try {
                 inputStream.close();
             } catch (IOException e4) {
-                Log.e(f7515a, "Close InputStream error", e4);
+                Log.e(f7532a, "Close InputStream error", e4);
             }
             try {
                 fileOutputStream.close();
             } catch (IOException e5) {
-                Log.e(f7515a, "Close OutputStream error", e5);
+                Log.e(f7532a, "Close OutputStream error", e5);
             }
         }
     }
@@ -234,10 +235,10 @@ public class NativeLoader {
     private void a(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, th) == null) {
-            Log.e(f7515a, "loadException", th);
-            Iterator<String> it = f7518d.iterator();
+            Log.e(f7532a, "loadException", th);
+            Iterator<String> it = f7535d.iterator();
             while (it.hasNext()) {
-                String str = f7515a;
+                String str = f7532a;
                 Log.e(str, it.next() + " Failed to load.");
             }
         }
@@ -246,8 +247,8 @@ public class NativeLoader {
     public static void a(boolean z, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(AdIconUtil.BAIDU_LOGO_ID, null, z, str) == null) {
-            f7521g = z;
-            f7522h = str;
+            f7538g = z;
+            f7539h = str;
         }
     }
 
@@ -256,13 +257,13 @@ public class NativeLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, str)) == null) {
             try {
-                synchronized (f7517c) {
-                    if (f7517c.contains(str)) {
+                synchronized (f7534c) {
+                    if (f7534c.contains(str)) {
                         return true;
                     }
                     System.loadLibrary(str);
-                    synchronized (f7517c) {
-                        f7517c.add(str);
+                    synchronized (f7534c) {
+                        f7534c.add(str);
                     }
                     return true;
                 }
@@ -282,7 +283,7 @@ public class NativeLoader {
             if (!file.exists() || file.length() <= 0) {
                 String str2 = a(aVar) + str;
                 ZipFile zipFile2 = null;
-                String a2 = !f7521g ? a() : f7522h;
+                String a2 = !f7538g ? a() : f7539h;
                 if (a2 != null) {
                     try {
                         if (!a2.isEmpty()) {
@@ -297,7 +298,7 @@ public class NativeLoader {
                                     try {
                                         zipFile.close();
                                     } catch (IOException e3) {
-                                        Log.e(f7515a, "Release file failed", e3);
+                                        Log.e(f7532a, "Release file failed", e3);
                                     }
                                     return false;
                                 }
@@ -305,18 +306,18 @@ public class NativeLoader {
                                 try {
                                     zipFile.close();
                                 } catch (IOException e4) {
-                                    Log.e(f7515a, "Release file failed", e4);
+                                    Log.e(f7532a, "Release file failed", e4);
                                 }
                                 return true;
                             } catch (Exception e5) {
                                 e = e5;
                                 zipFile2 = zipFile;
-                                Log.e(f7515a, "Copy library file error", e);
+                                Log.e(f7532a, "Copy library file error", e);
                                 if (zipFile2 != null) {
                                     try {
                                         zipFile2.close();
                                     } catch (IOException e6) {
-                                        Log.e(f7515a, "Release file failed", e6);
+                                        Log.e(f7532a, "Release file failed", e6);
                                     }
                                 }
                                 return false;
@@ -327,7 +328,7 @@ public class NativeLoader {
                                     try {
                                         zipFile2.close();
                                     } catch (IOException e7) {
-                                        Log.e(f7515a, "Release file failed", e7);
+                                        Log.e(f7532a, "Release file failed", e7);
                                     }
                                 }
                                 throw th;
@@ -347,14 +348,14 @@ public class NativeLoader {
     private boolean a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65545, this, str, str2)) == null) ? !a(str2, a.f7524b) ? b(str, str2) : f(str2, str) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65545, this, str, str2)) == null) ? !a(str2, a.f7541b) ? b(str, str2) : f(str2, str) : invokeLL.booleanValue;
     }
 
     private String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
-            File file = new File(f7516b.getFilesDir(), "libs");
+            File file = new File(f7533b.getFilesDir(), "libs");
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -368,14 +369,14 @@ public class NativeLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, str)) == null) {
             String mapLibraryName = System.mapLibraryName(str);
-            synchronized (f7517c) {
-                if (f7517c.contains(str)) {
+            synchronized (f7534c) {
+                if (f7534c.contains(str)) {
                     return true;
                 }
-                int i2 = d.f7605a[f7520f.ordinal()];
+                int i2 = d.f7622a[f7537f.ordinal()];
                 boolean d2 = i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? i2 != 5 ? false : d(str, mapLibraryName) : e(str, mapLibraryName) : b(str, mapLibraryName) : a(str, mapLibraryName) : c(str, mapLibraryName);
-                synchronized (f7517c) {
-                    f7517c.add(str);
+                synchronized (f7534c) {
+                    f7534c.add(str);
                 }
                 return d2;
             }
@@ -387,10 +388,10 @@ public class NativeLoader {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, this, str, str2)) == null) {
-            if (a(str2, a.f7523a)) {
+            if (a(str2, a.f7540a)) {
                 return f(str2, str);
             }
-            String str3 = f7515a;
+            String str3 = f7532a;
             Log.e(str3, "found lib" + str + ".so error");
             return false;
         }
@@ -404,18 +405,18 @@ public class NativeLoader {
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
             String str = Build.VERSION.SDK_INT < 21 ? Build.CPU_ABI : Build.SUPPORTED_ABIS[0];
             if (str == null) {
-                return a.f7523a;
+                return a.f7540a;
             }
             if (str.contains("arm") && str.contains("v7")) {
-                f7520f = a.f7524b;
+                f7537f = a.f7541b;
             }
             if (str.contains("arm") && str.contains(WebKitFactory.OS_64)) {
-                f7520f = a.f7525c;
+                f7537f = a.f7542c;
             }
             if (str.contains("x86")) {
-                f7520f = str.contains(WebKitFactory.OS_64) ? a.f7527e : a.f7526d;
+                f7537f = str.contains(WebKitFactory.OS_64) ? a.f7544e : a.f7543d;
             }
-            return f7520f;
+            return f7537f;
         }
         return (a) invokeV.objValue;
     }
@@ -423,19 +424,19 @@ public class NativeLoader {
     private boolean c(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65550, this, str, str2)) == null) ? !a(str2, a.f7525c) ? a(str, str2) : f(str2, str) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65550, this, str, str2)) == null) ? !a(str2, a.f7542c) ? a(str, str2) : f(str2, str) : invokeLL.booleanValue;
     }
 
     private boolean d(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65551, this, str, str2)) == null) ? !a(str2, a.f7526d) ? a(str, str2) : f(str2, str) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65551, this, str, str2)) == null) ? !a(str2, a.f7543d) ? a(str, str2) : f(str2, str) : invokeLL.booleanValue;
     }
 
     private boolean e(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65552, this, str, str2)) == null) ? !a(str2, a.f7527e) ? d(str, str2) : f(str2, str) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65552, this, str, str2)) == null) ? !a(str2, a.f7544e) ? d(str, str2) : f(str2, str) : invokeLL.booleanValue;
     }
 
     private boolean f(String str, String str2) {
@@ -444,13 +445,13 @@ public class NativeLoader {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, this, str, str2)) == null) {
             try {
                 System.load(new File(b(), str).getAbsolutePath());
-                synchronized (f7517c) {
-                    f7517c.add(str2);
+                synchronized (f7534c) {
+                    f7534c.add(str2);
                 }
                 return true;
             } catch (Throwable th) {
-                synchronized (f7518d) {
-                    f7518d.add(str2);
+                synchronized (f7535d) {
+                    f7535d.add(str2);
                     a(th);
                     return false;
                 }
@@ -465,11 +466,11 @@ public class NativeLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
             synchronized (NativeLoader.class) {
-                if (f7519e == null) {
-                    f7519e = new NativeLoader();
-                    f7520f = c();
+                if (f7536e == null) {
+                    f7536e = new NativeLoader();
+                    f7537f = c();
                 }
-                nativeLoader = f7519e;
+                nativeLoader = f7536e;
             }
             return nativeLoader;
         }
@@ -479,7 +480,7 @@ public class NativeLoader {
     public static void setContext(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, null, context) == null) {
-            f7516b = context;
+            f7533b = context;
         }
     }
 
@@ -488,9 +489,9 @@ public class NativeLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             synchronized (this) {
-                if (f7521g) {
-                    if (f7522h == null || f7522h.isEmpty()) {
-                        Log.e(f7515a, "Given custom so file path is null, please check!");
+                if (f7538g) {
+                    if (f7539h == null || f7539h.isEmpty()) {
+                        Log.e(f7532a, "Given custom so file path is null, please check!");
                         return false;
                     }
                     return b(str);

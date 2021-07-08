@@ -1,6 +1,7 @@
 package com.kwad.sdk.crash.utils;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,6 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -19,15 +21,15 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char f37013a;
+    public static final char f35383a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f37014b;
+    public static final String f35384b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,11 +45,11 @@ public class h {
                 return;
             }
         }
-        f37013a = File.separatorChar;
+        f35383a = File.separatorChar;
         StringBuilderWriter stringBuilderWriter = new StringBuilderWriter(4);
         PrintWriter printWriter = new PrintWriter(stringBuilderWriter);
         printWriter.println();
-        f37014b = stringBuilderWriter.toString();
+        f35384b = stringBuilderWriter.toString();
         printWriter.close();
     }
 
@@ -90,7 +92,7 @@ public class h {
     public static String a(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, inputStream)) == null) ? a(inputStream, Charset.defaultCharset()) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream)) == null) ? a(inputStream, Charset.defaultCharset()) : (String) invokeL.objValue;
     }
 
     public static String a(InputStream inputStream, Charset charset) {
@@ -165,15 +167,56 @@ public class h {
         outputStream.write(str.getBytes(a.a(charset)));
     }
 
+    public static void a(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65546, null, str, str2, z) == null) {
+            FileWriter fileWriter = null;
+            try {
+                try {
+                    File file = new File(str);
+                    if (!file.exists()) {
+                        file.getParentFile().mkdirs();
+                        file.createNewFile();
+                    }
+                    FileWriter fileWriter2 = new FileWriter(str, z);
+                    try {
+                        fileWriter2.write(str2);
+                        fileWriter2.close();
+                    } catch (Throwable th) {
+                        th = th;
+                        fileWriter = fileWriter2;
+                        try {
+                            com.kwad.sdk.core.d.a.b(th);
+                            if (fileWriter != null) {
+                                fileWriter.close();
+                            }
+                        } catch (Throwable th2) {
+                            if (fileWriter != null) {
+                                try {
+                                    fileWriter.close();
+                                } catch (Exception unused) {
+                                }
+                            }
+                            throw th2;
+                        }
+                    }
+                } catch (Throwable th3) {
+                    th = th3;
+                }
+            } catch (Exception unused2) {
+            }
+        }
+    }
+
     public static long b(Reader reader, Writer writer) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, reader, writer)) == null) ? a(reader, writer, new char[4096]) : invokeLL.longValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, reader, writer)) == null) ? a(reader, writer, new char[4096]) : invokeLL.longValue;
     }
 
     public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
             try {
                 a(str);
             } catch (Throwable unused) {

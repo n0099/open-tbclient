@@ -29,7 +29,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class QRCodeMultiReader extends QRCodeReader implements MultipleBarcodeReader {
     public static /* synthetic */ Interceptable $ic;
     public static final Result[] EMPTY_RESULT_ARRAY;
@@ -37,13 +37,13 @@ public final class QRCodeMultiReader extends QRCodeReader implements MultipleBar
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.zxing.multi.qrcode.QRCodeMultiReader$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class SAComparator implements Serializable, Comparator<Result> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

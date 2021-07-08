@@ -38,7 +38,7 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DecodeProducer implements Producer<CloseableReference<CloseableImage>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENCODED_IMAGE_SIZE = "encodedImageSize";
@@ -61,7 +61,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
     public final int mMaxBitmapSize;
     public final ProgressiveJpegConfig mProgressiveJpegConfig;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class LocalImagesProgressiveDecoder extends ProgressiveDecoder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +119,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class NetworkImagesProgressiveDecoder extends ProgressiveDecoder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -194,7 +194,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public abstract class ProgressiveDecoder extends DelegatingConsumer<EncodedImage, CloseableReference<CloseableImage>> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DECODE_EXCEPTION_MESSAGE_NUM_HEADER_BYTES = 10;

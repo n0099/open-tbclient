@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.s0.l0.k.c.a;
+import d.a.p0.l0.k.c.a;
 import tbclient.Recommforum.RecommforumResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ResponseHttpRecommendMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

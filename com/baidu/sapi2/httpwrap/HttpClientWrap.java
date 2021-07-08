@@ -29,7 +29,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class HttpClientWrap {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public class HttpClientWrap {
     public void handleOnfailure(HttpHandlerWrap httpHandlerWrap, Throwable th, String str) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, this, httpHandlerWrap, th, str) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, httpHandlerWrap, th, str) == null) {
             if (th == null || !SSLPeerUnverifiedException.class.getSimpleName().equals(th.getClass().getSimpleName())) {
                 i2 = -202;
             } else {

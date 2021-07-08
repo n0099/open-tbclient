@@ -2,6 +2,7 @@ package com.baidu.pass.face.platform.utils;
 
 import android.text.TextUtils;
 import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class EncodeUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +62,7 @@ public class EncodeUtil {
     public static byte[] aesEncryptToBytes(String str, String str2) throws Exception {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             Cipher cipher = Cipher.getInstance("AES");
             cipher.init(1, new SecretKeySpec(base64Decode(str2), "AES"));
             return cipher.doFinal(str.getBytes("utf-8"));

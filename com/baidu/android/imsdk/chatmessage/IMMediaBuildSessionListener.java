@@ -1,6 +1,7 @@
 package com.baidu.android.imsdk.chatmessage;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.chatuser.ChatUser;
 import com.baidu.android.imsdk.chatuser.IGetUserIdentityListener;
@@ -292,7 +293,7 @@ public class IMMediaBuildSessionListener implements IMListener {
     /* JADX INFO: Access modifiers changed from: private */
     public void callBack(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65540, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
             this.mResultCode |= i2;
             if (this.count.decrementAndGet() != 0 || this.mListener == null) {
                 return;

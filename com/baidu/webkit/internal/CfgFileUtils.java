@@ -1,6 +1,7 @@
 package com.baidu.webkit.internal;
 
 import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +16,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CfgFileUtils implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ALT_SERVICE = "alt_service";
@@ -168,7 +169,7 @@ public class CfgFileUtils implements INoProGuard {
     public static boolean get(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65540, null, str, z)) == null) ? gerPrefs().getBoolean(str, z) : invokeLZ.booleanValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, z)) == null) ? gerPrefs().getBoolean(str, z) : invokeLZ.booleanValue;
     }
 
     public static String getFilePath(String str) {

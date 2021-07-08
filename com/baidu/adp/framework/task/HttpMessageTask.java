@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.video.player.KsMediaMeta;
 import d.a.c.c.j.e;
 /* loaded from: classes.dex */
 public class HttpMessageTask extends MessageTask {
@@ -134,10 +133,10 @@ public class HttpMessageTask extends MessageTask {
             return;
         }
         Uri parse = Uri.parse(this.mUrl);
-        if (StringUtils.isNull(parse.getQueryParameter("cmd")) || !StringUtils.isNull(parse.getQueryParameter(KsMediaMeta.KSM_KEY_FORMAT))) {
+        if (StringUtils.isNull(parse.getQueryParameter("cmd")) || !StringUtils.isNull(parse.getQueryParameter("format"))) {
             return;
         }
-        this.mUrl = parse.buildUpon().appendQueryParameter(KsMediaMeta.KSM_KEY_FORMAT, "protobuf").toString();
+        this.mUrl = parse.buildUpon().appendQueryParameter("format", "protobuf").toString();
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask

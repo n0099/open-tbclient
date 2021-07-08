@@ -7,22 +7,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PoiParaOption {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7497a;
+    public String f7514a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7498b;
+    public String f7515b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f7499c;
+    public LatLng f7516c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f7500d;
+    public int f7517d;
 
     public PoiParaOption() {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class PoiParaOption {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, latLng)) == null) {
-            this.f7499c = latLng;
+            this.f7516c = latLng;
             return this;
         }
         return (PoiParaOption) invokeL.objValue;
@@ -51,32 +51,32 @@ public class PoiParaOption {
     public LatLng getCenter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7499c : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7516c : (LatLng) invokeV.objValue;
     }
 
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7498b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7515b : (String) invokeV.objValue;
     }
 
     public int getRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7500d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7517d : invokeV.intValue;
     }
 
     public String getUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7497a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7514a : (String) invokeV.objValue;
     }
 
     public PoiParaOption key(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            this.f7498b = str;
+            this.f7515b = str;
             return this;
         }
         return (PoiParaOption) invokeL.objValue;
@@ -86,7 +86,7 @@ public class PoiParaOption {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            this.f7500d = i2;
+            this.f7517d = i2;
             return this;
         }
         return (PoiParaOption) invokeI.objValue;
@@ -96,7 +96,7 @@ public class PoiParaOption {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            this.f7497a = str;
+            this.f7514a = str;
             return this;
         }
         return (PoiParaOption) invokeL.objValue;

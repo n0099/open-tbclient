@@ -1,8 +1,7 @@
 package d.n.a.a.a.a;
 
 import android.content.Context;
-import android.os.Build;
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,22 +13,31 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class b implements a {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
 
-    /* renamed from: d  reason: collision with root package name */
-    public static AtomicBoolean f75044d;
+    /* renamed from: f  reason: collision with root package name */
+    public static String f72096f = "KWE_NS";
+
+    /* renamed from: g  reason: collision with root package name */
+    public static AtomicBoolean f72097g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f75045a;
+    public a f72098a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CountDownLatch f75046b;
+    public CountDownLatch f72099b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.n.a.a.a.b.b f75047c;
+    public d.n.a.a.a.b.b f72100c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Context f72101d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public d.n.a.a.c.a.e f72102e;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +52,7 @@ public final class b implements a {
                 return;
             }
         }
-        f75044d = new AtomicBoolean(false);
+        f72097g = new AtomicBoolean(false);
     }
 
     public b() {
@@ -60,8 +68,8 @@ public final class b implements a {
                 return;
             }
         }
-        this.f75046b = null;
-        this.f75047c = null;
+        this.f72099b = null;
+        this.f72100c = null;
     }
 
     public /* synthetic */ b(byte b2) {
@@ -72,15 +80,11 @@ public final class b implements a {
         InterceptResult invokeV;
         b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
-            bVar = d.f75051a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            bVar = e.f72107a;
             return bVar;
         }
         return (b) invokeV.objValue;
-    }
-
-    public static /* synthetic */ String e(b bVar) {
-        return !TextUtils.isEmpty(Build.MANUFACTURER) ? Build.MANUFACTURER.toLowerCase() : "";
     }
 
     @Override // d.n.a.a.a.a.a
@@ -88,54 +92,58 @@ public final class b implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, bVar) == null) {
             try {
-                if (this.f75045a != null) {
-                    this.f75045a.a(z, bVar);
+                if (this.f72098a != null) {
+                    this.f72098a.a(z, bVar);
                 }
             } catch (Throwable th) {
-                d.n.a.a.c.b.b.c(th);
+                d.n.a.a.c.b.c.c(th);
             }
         }
     }
 
-    public final void f(Context context, a aVar) {
+    public final void g(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             try {
-                if (!f75044d.compareAndSet(false, true)) {
-                    d.n.a.a.c.b.b.e("OaHelper has been initialized,return");
+                d dVar = new d(this);
+                if (!f72097g.compareAndSet(false, true)) {
+                    d.n.a.a.c.b.c.b("OaHelper has been initialized,return");
                     return;
                 }
-                if (Build.VERSION.SDK_INT >= 29) {
-                    this.f75046b = new CountDownLatch(1);
+                if (this.f72101d == null) {
+                    this.f72101d = context;
                 }
-                new Thread(new c(this, aVar, context)).start();
+                this.f72102e = new d.n.a.a.c.a.e(this.f72101d);
+                Thread thread = new Thread(new c(this, context, dVar));
+                thread.setName("adsence-dfp");
+                thread.start();
             } catch (Throwable th) {
-                d.n.a.a.c.b.b.c(th);
-                a(false, null);
+                d.n.a.a.c.b.c.c(th);
             }
         }
     }
 
-    public final void h() {
+    public final void i() {
         CountDownLatch countDownLatch;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (countDownLatch = this.f75046b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (countDownLatch = this.f72099b) == null) {
             return;
         }
         countDownLatch.countDown();
     }
 
-    public final void i() {
+    public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
-                if (this.f75046b == null || this.f75046b.getCount() <= 0) {
+                if (this.f72099b == null || this.f72099b.getCount() <= 0) {
                     return;
                 }
-                d.n.a.a.c.b.b.e("awaitCdOaid");
-                this.f75046b.await(2000L, TimeUnit.MILLISECONDS);
+                d.n.a.a.c.b.c.b("awaitCdOaid");
+                this.f72099b.await(2000L, TimeUnit.MILLISECONDS);
             } catch (InterruptedException e2) {
-                d.n.a.a.c.b.b.c(e2);
+                d.n.a.a.c.b.c.c(e2);
+                Thread.currentThread().interrupt();
             }
         }
     }

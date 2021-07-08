@@ -57,7 +57,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AddressListActivity extends BaseAddressActivity<AddressPresenter> implements AdapterView.OnItemLongClickListener, AddrOptionDialog.OptionOnClickListener, AddrListAdapter.EditAddressListener, AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CREATE_ADDRESS_CODE = 1001;

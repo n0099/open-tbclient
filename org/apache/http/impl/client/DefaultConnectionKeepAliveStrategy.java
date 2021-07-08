@@ -9,7 +9,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.conn.ConnectionKeepAliveStrategy;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class DefaultConnectionKeepAliveStrategy implements ConnectionKeepAliveStrategy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

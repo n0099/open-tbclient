@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
 import javax.net.ssl.SSLContext;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BdNetTask implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -52,7 +52,7 @@ public class BdNetTask implements INoProGuard {
     public b mTaskPriority;
     public String mUrl;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a extends AsyncTask<HttpURLConnection, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,24 +105,24 @@ public class BdNetTask implements INoProGuard {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f27446a;
+        public static final b f27556a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final b f27447b;
+        public static final b f27557b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final b f27448c;
+        public static final b f27558c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final b f27449d;
+        public static final b f27559d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final /* synthetic */ b[] f27450e;
+        public static final /* synthetic */ b[] f27560e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -138,12 +138,12 @@ public class BdNetTask implements INoProGuard {
                     return;
                 }
             }
-            f27446a = new b("PRIORITY_HIGHER", 0);
-            f27447b = new b("PRIORITY_NORMAL", 1);
-            f27448c = new b("PRIORITY_LOWER", 2);
+            f27556a = new b("PRIORITY_HIGHER", 0);
+            f27557b = new b("PRIORITY_NORMAL", 1);
+            f27558c = new b("PRIORITY_LOWER", 2);
             b bVar = new b("PRIORITY_IDLE", 3);
-            f27449d = bVar;
-            f27450e = new b[]{f27446a, f27447b, f27448c, bVar};
+            f27559d = bVar;
+            f27560e = new b[]{f27556a, f27557b, f27558c, bVar};
         }
 
         public b(String str, int i2) {
@@ -174,7 +174,7 @@ public class BdNetTask implements INoProGuard {
         public static b[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f27450e.clone() : (b[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f27560e.clone() : (b[]) invokeV.objValue;
         }
     }
 
@@ -217,7 +217,7 @@ public class BdNetTask implements INoProGuard {
         this.mConnectionTimeOut = 0;
         this.mFollowRedirects = true;
         this.isUseCorenet = true;
-        this.mTaskPriority = b.f27447b;
+        this.mTaskPriority = b.f27557b;
     }
 
     private void clearForRecycle() {
@@ -255,7 +255,7 @@ public class BdNetTask implements INoProGuard {
 
     private void disconnect() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             try {
                 if (this.mConnection != null) {
                     this.mConnection.disconnect();
@@ -467,7 +467,7 @@ public class BdNetTask implements INoProGuard {
     public boolean isHigherPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mTaskPriority == b.f27446a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mTaskPriority == b.f27556a : invokeV.booleanValue;
     }
 
     public boolean isRedirect() {

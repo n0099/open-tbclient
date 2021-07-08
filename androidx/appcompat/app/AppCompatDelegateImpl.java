@@ -106,6 +106,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.Thread;
 import java.util.List;
+import org.webrtc.MediaStreamTrack;
 import org.xmlpull.v1.XmlPullParser;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
@@ -1937,7 +1938,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 z2 = z3;
             }
             if (z2) {
-                AudioManager audioManager = (AudioManager) this.mContext.getApplicationContext().getSystemService("audio");
+                AudioManager audioManager = (AudioManager) this.mContext.getApplicationContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
                 if (audioManager != null) {
                     audioManager.playSoundEffect(0);
                 } else {
@@ -3614,14 +3615,14 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, window, appCompatCallback};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (Window) objArr2[1], (AppCompatCallback) objArr2[2], objArr2[3]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }

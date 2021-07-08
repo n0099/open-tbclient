@@ -5,8 +5,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.j0.a.a;
-/* loaded from: classes3.dex */
+import d.a.g0.a.a;
+/* loaded from: classes2.dex */
 public class IAlertManager_AlertManager_Provider implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class IAlertManager_AlertManager_Provider implements a {
         }
     }
 
-    @Override // d.a.j0.a.a
+    @Override // d.a.g0.a.a
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

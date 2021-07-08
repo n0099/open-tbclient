@@ -2,6 +2,7 @@ package com.cmic.sso.sdk.auth;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.mipush.sdk.MiPushCommandMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +35,7 @@ public class c {
     public static JSONObject b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, str);

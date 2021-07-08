@@ -193,7 +193,7 @@ public class IconCompat extends CustomVersionedParcelable {
     public static IconCompat createFromIcon(@NonNull Context context, @NonNull Icon icon) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, icon)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, icon)) == null) {
             Preconditions.checkNotNull(icon);
             int type = getType(icon);
             if (type == 2) {

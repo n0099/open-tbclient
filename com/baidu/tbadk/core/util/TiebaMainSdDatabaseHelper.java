@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.k.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TiebaMainSdDatabaseHelper extends d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DATABASE_VERSION = 11;

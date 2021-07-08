@@ -1,5 +1,6 @@
 package com.google.zxing.maxicode.decoder;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +15,7 @@ import com.google.zxing.common.DecoderResult;
 import io.flutter.plugin.common.StandardMessageCodec;
 import java.text.DecimalFormat;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DecodedBitStreamParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char ECI = 65530;
@@ -110,7 +111,7 @@ public final class DecodedBitStreamParser {
     public static int getCountry(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, bArr)) == null) ? getInt(bArr, new byte[]{53, 54, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 37, 38}) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) ? getInt(bArr, new byte[]{53, 54, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 37, 38}) : invokeL.intValue;
     }
 
     public static int getInt(byte[] bArr, byte[] bArr2) {

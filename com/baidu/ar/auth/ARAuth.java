@@ -2,6 +2,7 @@ package com.baidu.ar.auth;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.callback.ICallbackWith;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -72,7 +73,7 @@ public class ARAuth {
     public static boolean checkFeatureAuth(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             j gA = iW.gA();
             if (gA != null) {
                 return gA.checkFeatureAuth(i2);

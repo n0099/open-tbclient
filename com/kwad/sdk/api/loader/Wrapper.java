@@ -6,6 +6,8 @@ import android.content.ContextWrapper;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import androidx.annotation.Keep;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +19,7 @@ import com.kwad.sdk.api.core.ResContext;
 import java.util.Map;
 import java.util.WeakHashMap;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Wrapper {
     public static /* synthetic */ Interceptable $ic;
     public static Map<Context, Context> sResContextCache;
@@ -76,12 +78,19 @@ public class Wrapper {
         return (Context) invokeL.objValue;
     }
 
+    @Nullable
     @Keep
-    public static Context wrapContextIfNeed(Context context) {
+    public static Context wrapContextIfNeed(@Nullable Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (Loader.get().isExternalLoaded() && !(context instanceof ResContext)) {
+            if (Loader.get().isExternalLoaded()) {
+                if (context == null) {
+                    return null;
+                }
+                if (context instanceof ResContext) {
+                    return context;
+                }
                 if (context instanceof ContextThemeWrapper) {
                     Context context2 = sResContextCache.get(context);
                     if (context2 == null) {
@@ -125,7 +134,7 @@ public class Wrapper {
     public static LayoutInflater wrapInflaterIfNeed(LayoutInflater layoutInflater) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, layoutInflater)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, layoutInflater)) == null) {
             if (Loader.get().isExternalLoaded()) {
                 Context context = layoutInflater.getContext();
                 if (context instanceof ResContext) {

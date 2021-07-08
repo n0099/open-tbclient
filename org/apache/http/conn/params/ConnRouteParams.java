@@ -1,5 +1,6 @@
 package org.apache.http.conn.params;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,7 +14,7 @@ import org.apache.http.HttpHost;
 import org.apache.http.conn.routing.HttpRoute;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class ConnRouteParams implements ConnRoutePNames {
     public static /* synthetic */ Interceptable $ic;
     public static final HttpHost NO_HOST = null;
@@ -72,7 +73,7 @@ public class ConnRouteParams implements ConnRoutePNames {
     public static InetAddress getLocalAddress(HttpParams httpParams) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, httpParams)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, httpParams)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (InetAddress) invokeL.objValue;

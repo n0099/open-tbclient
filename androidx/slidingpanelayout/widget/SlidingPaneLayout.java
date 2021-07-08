@@ -555,7 +555,7 @@ public class SlidingPaneLayout extends ViewGroup {
 
     private void dimChildView(View view, float f2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, this, new Object[]{view, Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{view, Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
             LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
             if (f2 > 0.0f && i2 != 0) {
                 int i3 = (((int) ((((-16777216) & i2) >>> 24) * f2)) << 24) | (i2 & 16777215);
@@ -1593,13 +1593,13 @@ public class SlidingPaneLayout extends ViewGroup {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {layoutParams};
-                interceptable.invokeUnInit(65540, newInitContext);
+                interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     super((ViewGroup.LayoutParams) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65540, newInitContext);
+                    interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                     return;
                 }
             }

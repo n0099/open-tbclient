@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.mipush.sdk.Constants;
 import java.net.URLEncoder;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class XAdRemoteAbstractTrackingInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String COUNTLY_AD_TYPE = "adt";

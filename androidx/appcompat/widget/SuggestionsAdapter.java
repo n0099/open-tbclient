@@ -190,7 +190,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
     private Drawable getActivityIconWithCache(ComponentName componentName) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, componentName)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, componentName)) == null) {
             String flattenToShortString = componentName.flattenToShortString();
             if (this.mOutsideDrawablesCache.containsKey(flattenToShortString)) {
                 Drawable.ConstantState constantState = this.mOutsideDrawablesCache.get(flattenToShortString);

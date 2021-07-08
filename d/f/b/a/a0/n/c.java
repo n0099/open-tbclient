@@ -1,5 +1,6 @@
 package d.f.b.a.a0.n;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,13 +15,13 @@ import d.f.b.a.i0.l;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class c extends TagPayloadReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f72143b;
+    public long f69246b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(m mVar) {
@@ -40,7 +41,7 @@ public final class c extends TagPayloadReader {
                 return;
             }
         }
-        this.f72143b = -9223372036854775807L;
+        this.f69246b = -9223372036854775807L;
     }
 
     public static Boolean e(l lVar) {
@@ -96,7 +97,7 @@ public final class c extends TagPayloadReader {
     public static Double h(l lVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, lVar)) == null) ? Double.valueOf(Double.longBitsToDouble(lVar.q())) : (Double) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, lVar)) == null) ? Double.valueOf(Double.longBitsToDouble(lVar.q())) : (Double) invokeL.objValue;
     }
 
     public static HashMap<String, Object> i(l lVar) {
@@ -151,7 +152,7 @@ public final class c extends TagPayloadReader {
             int D = lVar.D();
             int c2 = lVar.c();
             lVar.K(D);
-            return new String(lVar.f73386a, c2, D);
+            return new String(lVar.f70489a, c2, D);
         }
         return (String) invokeL.objValue;
     }
@@ -182,7 +183,7 @@ public final class c extends TagPayloadReader {
                     if (i2.containsKey("duration")) {
                         double doubleValue = ((Double) i2.get("duration")).doubleValue();
                         if (doubleValue > 0.0d) {
-                            this.f72143b = (long) (doubleValue * 1000000.0d);
+                            this.f69246b = (long) (doubleValue * 1000000.0d);
                             return;
                         }
                         return;
@@ -198,6 +199,6 @@ public final class c extends TagPayloadReader {
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f72143b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f69246b : invokeV.longValue;
     }
 }

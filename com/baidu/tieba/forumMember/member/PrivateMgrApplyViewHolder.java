@@ -10,28 +10,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PrivateMgrApplyViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f15223a;
+    public TextView f15262a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f15224b;
+    public TextView f15263b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f15225c;
+    public RelativeLayout f15264c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f15226d;
+    public View f15265d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f15227e;
+    public LinearLayout f15266e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15228f;
+    public int f15267f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PrivateMgrApplyViewHolder(View view) {
@@ -51,11 +51,11 @@ public class PrivateMgrApplyViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f15228f = 3;
-        this.f15227e = (LinearLayout) view.findViewById(R.id.root_private_member_apply);
-        this.f15226d = view.findViewById(R.id.private_apply_line);
-        this.f15223a = (TextView) view.findViewById(R.id.private_apply_tip);
-        this.f15224b = (TextView) view.findViewById(R.id.private_left_tv);
-        this.f15225c = (RelativeLayout) view.findViewById(R.id.private_apply_layout);
+        this.f15267f = 3;
+        this.f15266e = (LinearLayout) view.findViewById(R.id.root_private_member_apply);
+        this.f15265d = view.findViewById(R.id.private_apply_line);
+        this.f15262a = (TextView) view.findViewById(R.id.private_apply_tip);
+        this.f15263b = (TextView) view.findViewById(R.id.private_left_tv);
+        this.f15264c = (RelativeLayout) view.findViewById(R.id.private_apply_layout);
     }
 }

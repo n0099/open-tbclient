@@ -3,6 +3,7 @@ package com.facebook.imagepipeline.animated.factory;
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -30,7 +31,7 @@ import com.facebook.imagepipeline.image.ImmutableQualityInfo;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AnimatedImageFactoryImpl implements AnimatedImageFactory {
     public static /* synthetic */ Interceptable $ic;
     public static AnimatedImageDecoder sGifAnimatedImageDecoder;
@@ -144,7 +145,7 @@ public class AnimatedImageFactoryImpl implements AnimatedImageFactory {
     private List<CloseableReference<Bitmap>> decodeAllFrames(AnimatedImage animatedImage, Bitmap.Config config) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, animatedImage, config)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, animatedImage, config)) == null) {
             AnimatedDrawableBackend animatedDrawableBackend = this.mAnimatedDrawableBackendProvider.get(AnimatedImageResult.forAnimatedImage(animatedImage), null);
             ArrayList arrayList = new ArrayList(animatedDrawableBackend.getFrameCount());
             AnimatedImageCompositor animatedImageCompositor = new AnimatedImageCompositor(animatedDrawableBackend, new AnimatedImageCompositor.Callback(this, arrayList) { // from class: com.facebook.imagepipeline.animated.factory.AnimatedImageFactoryImpl.2

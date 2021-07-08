@@ -3,6 +3,7 @@ package com.baidu.android.pushservice;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.i.a.b;
 import com.baidu.android.pushservice.j.m;
@@ -23,31 +24,31 @@ public final class h {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f3139a = 5287;
+    public static int f3142a = 5287;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f3140b = 5288;
+    public static int f3143b = 5288;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f3141c = "https://info.tuisong.baidu.com";
+    public static String f3144c = "https://info.tuisong.baidu.com";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f3142d = "/setter";
+    public static String f3145d = "/setter";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f3143e = "/v2/setter";
+    public static String f3146e = "/v2/setter";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f3144f = "/getter";
+    public static String f3147f = "/getter";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f3145g = "/v2/getter";
+    public static String f3148g = "/v2/getter";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f3146h = "/bccs/upload";
+    public static String f3149h = "/bccs/upload";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f3147i = "https://ack.tuisong.baidu.com";
+    public static String f3150i = "https://ack.tuisong.baidu.com";
     public static String j = "/click";
     public static String k = "api.tuisong.baidu.com";
     public static String[] l = null;
@@ -76,7 +77,7 @@ public final class h {
     public static int a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? m.o(context) ? f3140b : f3139a : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? m.o(context) ? f3143b : f3142a : invokeL.intValue;
     }
 
     public static String a() {
@@ -99,7 +100,7 @@ public final class h {
 
     public static void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(65540, null, context) != null) {
+        if (interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) != null) {
             return;
         }
         if (!PushSettings.f(context)) {
@@ -161,27 +162,27 @@ public final class h {
             }
             String property3 = properties.getProperty("data_update_server");
             if (!TextUtils.isEmpty(property3)) {
-                f3141c = property3;
+                f3144c = property3;
             }
             String property4 = properties.getProperty("push_ack_server");
             if (!TextUtils.isEmpty(property4)) {
-                f3147i = property4;
+                f3150i = property4;
             }
             if (m.o(context)) {
                 String property5 = properties.getProperty("socket_server_port_v3");
                 if (!TextUtils.isEmpty(property5)) {
-                    f3140b = Integer.parseInt(property5);
+                    f3143b = Integer.parseInt(property5);
                 }
             } else {
                 String property6 = properties.getProperty("socket_server_port");
                 if (!TextUtils.isEmpty(property6)) {
-                    f3139a = Integer.parseInt(property6);
+                    f3142a = Integer.parseInt(property6);
                 }
             }
-            if (f.f3081a == 0) {
+            if (f.f3084a == 0) {
                 String property7 = properties.getProperty(Constants.API_KEY);
                 if (TextUtils.equals(properties.getProperty(EmotionResourceInfo.JSON_KEY_PKG_NAME), context.getPackageName()) && !TextUtils.isEmpty(property7)) {
-                    f.f3082b = property7;
+                    f.f3085b = property7;
                 }
             }
             o = true;

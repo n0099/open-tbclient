@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class XAdBasicHandler extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public OnMessageListener mOnMessageListener;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface OnMessageListener {
         void onMessage(Message message);
     }

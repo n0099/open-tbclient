@@ -7,6 +7,7 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import android.view.Surface;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.ar.record.EncoderParams;
@@ -172,7 +173,7 @@ public class MovieRecorder implements b {
 
     public static void P(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65540, null, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2) == null) {
             uf = i2;
         }
     }

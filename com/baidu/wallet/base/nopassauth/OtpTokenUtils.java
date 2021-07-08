@@ -2,6 +2,7 @@ package com.baidu.wallet.base.nopassauth;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.armor.SafePay;
 import com.baidu.apollon.utils.SharedPreferencesUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -22,21 +23,21 @@ import java.net.URL;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class OtpTokenUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23996a = "OtpTokenUtils";
+    public static final String f24106a = "OtpTokenUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f23997b = "key_later_server_time";
+    public static final String f24107b = "key_later_server_time";
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f23998c = 0;
+    public static long f24108c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f23999d = 10;
+    public static int f24109d = 10;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -84,7 +85,7 @@ public final class OtpTokenUtils {
     public static String getEncryptTOtpCode(Context context, int i2, String str, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{context, Integer.valueOf(i2), str, Integer.valueOf(i3)})) == null) ? !TextUtils.isEmpty(str) ? new c(str, i2, 0L, i3).a(context) : "" : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, Integer.valueOf(i2), str, Integer.valueOf(i3)})) == null) ? !TextUtils.isEmpty(str) ? new c(str, i2, 0L, i3).a(context) : "" : (String) invokeCommon.objValue;
     }
 
     public static String getSN(String str) {
@@ -160,13 +161,13 @@ public final class OtpTokenUtils {
     public static long getmSyncWithServerTime(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? ((Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f23997b, 0L)).longValue() : invokeL.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? ((Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f24107b, 0L)).longValue() : invokeL.longValue;
     }
 
     public static void setmSyncWithServerTime(Context context, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65545, null, context, j) == null) {
-            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f23997b, Long.valueOf(j));
+            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f24107b, Long.valueOf(j));
         }
     }
 
@@ -178,7 +179,7 @@ public final class OtpTokenUtils {
             HttpsURLConnection httpsURLConnection2 = null;
             try {
                 try {
-                    f23998c = 0L;
+                    f24108c = 0L;
                     httpsURLConnection = (HttpsURLConnection) new URL("https://www.baidu.com/").openConnection();
                 } catch (Throwable th) {
                     th = th;
@@ -190,7 +191,7 @@ public final class OtpTokenUtils {
                 httpsURLConnection.setDoOutput(true);
                 httpsURLConnection.setUseCaches(false);
                 httpsURLConnection.setRequestMethod("GET");
-                httpsURLConnection.setConnectTimeout(f23999d * 1000);
+                httpsURLConnection.setConnectTimeout(f24109d * 1000);
                 httpsURLConnection.setHostnameVerifier(new HostnameVerifier() { // from class: com.baidu.wallet.base.nopassauth.OtpTokenUtils.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -217,7 +218,7 @@ public final class OtpTokenUtils {
                     }
                 });
                 httpsURLConnection.connect();
-                f23998c = httpsURLConnection.getDate() / 1000;
+                f24108c = httpsURLConnection.getDate() / 1000;
                 if (httpsURLConnection != null) {
                     try {
                         InputStream a2 = a(httpsURLConnection);
@@ -229,7 +230,7 @@ public final class OtpTokenUtils {
                     }
                     httpsURLConnection.disconnect();
                 }
-                return (System.currentTimeMillis() / 1000) - f23998c;
+                return (System.currentTimeMillis() / 1000) - f24108c;
             } catch (Exception e4) {
                 e = e4;
                 httpsURLConnection2 = httpsURLConnection;

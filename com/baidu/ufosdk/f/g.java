@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.Comparator;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class g implements Comparator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ f f23225a;
+    public final /* synthetic */ f f23335a;
 
     public g(f fVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class g implements Comparator {
                 return;
             }
         }
-        this.f23225a = fVar;
+        this.f23335a = fVar;
     }
 
     @Override // java.util.Comparator

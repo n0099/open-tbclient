@@ -21,28 +21,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.e;
-import d.a.s0.z2.c.d;
-import d.a.s0.z2.c.i;
+import d.a.p0.z2.c.d;
+import d.a.p0.z2.c.i;
 import java.util.Date;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AboutActivity extends BaseActivity<AboutActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int REQUEST_WRITE_EXTERNAL_STORGE_PERMISSON;
-    public d.a.s0.z2.c.j.a collectorManager;
+    public d.a.p0.z2.c.j.a collectorManager;
     public String functionIntroUrl;
     public AboutModel mModel;
-    public d.a.s0.z2.c.a mView;
+    public d.a.p0.z2.c.a mView;
     public i mVisitPreviewServerDialog;
     public c receiver;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AboutActivity f20724a;
+        public final /* synthetic */ AboutActivity f20770a;
 
         public a(AboutActivity aboutActivity) {
             Interceptable interceptable = $ic;
@@ -59,38 +59,38 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                     return;
                 }
             }
-            this.f20724a = aboutActivity;
+            this.f20770a = aboutActivity;
         }
 
-        @Override // d.a.s0.z2.c.d
+        @Override // d.a.p0.z2.c.d
         public void a(int i2) {
             String str;
             String fileDireciory;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 if (i2 == 0) {
-                    this.f20724a.finish();
+                    this.f20770a.finish();
                 } else if (i2 == 1) {
-                    this.f20724a.checkUpdata();
+                    this.f20770a.checkUpdata();
                 } else if (i2 == 2) {
-                    this.f20724a.sendMessage(new CustomMessage(2015001, new GuildActivityConfig(this.f20724a.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE, false)));
+                    this.f20770a.sendMessage(new CustomMessage(2015001, new GuildActivityConfig(this.f20770a.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE, false)));
                 } else if (i2 == 3) {
-                    d.a.r0.r.d0.b.j().t(SettingTextFunctionIntroView.m, true);
-                    d.a.r0.l.a.o(this.f20724a.getPageContext().getPageActivity(), this.f20724a.getPageContext().getString(R.string.function_intro), this.f20724a.functionIntroUrl, true, false, false);
+                    d.a.o0.r.d0.b.j().t(SettingTextFunctionIntroView.m, true);
+                    d.a.o0.l.a.o(this.f20770a.getPageContext().getPageActivity(), this.f20770a.getPageContext().getString(R.string.function_intro), this.f20770a.functionIntroUrl, true, false, false);
                 } else if (i2 != 4) {
                     if (i2 == 5) {
-                        if (this.f20724a.mVisitPreviewServerDialog == null) {
-                            AboutActivity aboutActivity = this.f20724a;
+                        if (this.f20770a.mVisitPreviewServerDialog == null) {
+                            AboutActivity aboutActivity = this.f20770a;
                             aboutActivity.mVisitPreviewServerDialog = new i(aboutActivity.getActivity());
-                            this.f20724a.mVisitPreviewServerDialog.create(this.f20724a.getPageContext());
+                            this.f20770a.mVisitPreviewServerDialog.create(this.f20770a.getPageContext());
                         }
-                        this.f20724a.mVisitPreviewServerDialog.show();
+                        this.f20770a.mVisitPreviewServerDialog.show();
                     } else if (i2 == 6) {
-                        if (PermissionUtil.checkWriteExternalStorage(this.f20724a)) {
-                            this.f20724a.startCollectLog();
+                        if (PermissionUtil.checkWriteExternalStorage(this.f20770a)) {
+                            this.f20770a.startCollectLog();
                             return;
                         }
-                        AboutActivity aboutActivity2 = this.f20724a;
+                        AboutActivity aboutActivity2 = this.f20770a;
                         PermissionUtil.requestWriteExternalStorgePermission(aboutActivity2, aboutActivity2.REQUEST_WRITE_EXTERNAL_STORGE_PERMISSON);
                     }
                 } else {
@@ -111,13 +111,13 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AboutActivity f20725a;
+        public final /* synthetic */ AboutActivity f20771a;
 
         public b(AboutActivity aboutActivity) {
             Interceptable interceptable = $ic;
@@ -134,19 +134,19 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                     return;
                 }
             }
-            this.f20725a = aboutActivity;
+            this.f20771a = aboutActivity;
         }
 
         @Override // d.a.c.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                this.f20725a.handlCallBack(obj);
+                this.f20771a.handlCallBack(obj);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -206,7 +206,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public void checkUpdata() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            d.a.s0.m1.c.b().a(true);
+            d.a.p0.m1.c.b().a(true);
             AboutModel aboutModel = this.mModel;
             if (aboutModel == null) {
                 this.mModel = new AboutModel(this, new b(this));
@@ -214,7 +214,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 aboutModel.cancelLoadData();
             }
             this.mModel.A();
-            d.a.s0.z2.c.a aVar = this.mView;
+            d.a.p0.z2.c.a aVar = this.mView;
             if (aVar != null) {
                 aVar.p();
             }
@@ -225,11 +225,11 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public void handlCallBack(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, obj) == null) {
-            d.a.s0.z2.c.a aVar = this.mView;
+            d.a.p0.z2.c.a aVar = this.mView;
             if (aVar != null) {
                 aVar.q();
             }
-            d.a.r0.s.e.e eVar = obj != null ? (d.a.r0.s.e.e) obj : null;
+            d.a.o0.s.e.e eVar = obj != null ? (d.a.o0.s.e.e) obj : null;
             if (eVar != null) {
                 TbadkCoreApplication.getInst().setVersionData(eVar.s());
                 TbadkCoreApplication.getInst().refreshNewVersion(false);
@@ -243,7 +243,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                         sendMessage(customMessage);
                     }
                 }
-                d.a.s0.z2.c.a aVar2 = this.mView;
+                d.a.p0.z2.c.a aVar2 = this.mView;
                 if (aVar2 != null) {
                     aVar2.u();
                     return;
@@ -287,7 +287,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.onChangeSkinType(i2);
-            d.a.s0.z2.c.a aVar = this.mView;
+            d.a.p0.z2.c.a aVar = this.mView;
             if (aVar != null) {
                 aVar.w(i2);
             }
@@ -299,8 +299,8 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            this.collectorManager = new d.a.s0.z2.c.j.a(this);
-            d.a.s0.z2.c.a aVar = new d.a.s0.z2.c.a(this, new a(this));
+            this.collectorManager = new d.a.p0.z2.c.j.a(this);
+            d.a.p0.z2.c.a aVar = new d.a.p0.z2.c.a(this, new a(this));
             this.mView = aVar;
             aVar.u();
             regReceiver();
@@ -317,7 +317,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             if (aboutModel != null) {
                 aboutModel.cancelLoadData();
             }
-            d.a.s0.z2.c.a aVar = this.mView;
+            d.a.p0.z2.c.a aVar = this.mView;
             if (aVar != null) {
                 aVar.q();
             }
@@ -325,7 +325,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             if (iVar != null) {
                 iVar.dismiss();
             }
-            d.a.s0.z2.c.j.a aVar2 = this.collectorManager;
+            d.a.p0.z2.c.j.a aVar2 = this.collectorManager;
             if (aVar2 != null) {
                 aVar2.i();
                 this.collectorManager = null;
@@ -350,7 +350,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResume();
-            d.a.s0.z2.c.a aVar = this.mView;
+            d.a.p0.z2.c.a aVar = this.mView;
             if (aVar != null) {
                 aVar.u();
             }

@@ -20,31 +20,31 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2752a;
+    public String f2755a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2753b;
+    public String f2756b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f2754c;
+    public int f2757c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<e> f2755d;
+    public ArrayList<e> f2758d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<f> f2756e;
+    public ArrayList<f> f2759e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f2757f;
+    public String f2760f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f2758g;
+    public String f2761g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f2759h;
+    public a f2762h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f2760i;
+    public int f2763i;
 
     /* loaded from: classes.dex */
     public class a {
@@ -52,13 +52,13 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f2761a;
+        public int f2764a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f2762b;
+        public int f2765b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f2763c;
+        public final /* synthetic */ c f2766c;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public class c {
                     return;
                 }
             }
-            this.f2763c = cVar;
+            this.f2766c = cVar;
         }
     }
 
@@ -94,8 +94,8 @@ public class c {
                 return;
             }
         }
-        this.f2760i = 0;
-        this.f2752a = str;
+        this.f2763i = 0;
+        this.f2755a = str;
         a(context, str);
     }
 
@@ -227,13 +227,13 @@ public class c {
     public a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2759h : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2762h : (a) invokeV.objValue;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f2754c = i2;
+            this.f2757c = i2;
         }
     }
 
@@ -241,99 +241,99 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
             a aVar = new a(this);
-            this.f2759h = aVar;
-            aVar.f2761a = i2;
-            aVar.f2762b = i3;
+            this.f2762h = aVar;
+            aVar.f2764a = i2;
+            aVar.f2765b = i3;
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f2753b = str;
+            this.f2756b = str;
         }
     }
 
     public void a(ArrayList<e> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.f2755d = arrayList;
+            this.f2758d = arrayList;
         }
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2753b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2756b : (String) invokeV.objValue;
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f2760i = i2;
+            this.f2763i = i2;
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f2757f = str;
+            this.f2760f = str;
         }
     }
 
     public void b(ArrayList<f> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
-            this.f2756e = arrayList;
+            this.f2759e = arrayList;
         }
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f2754c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f2757c : invokeV.intValue;
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f2758g = str;
+            this.f2761g = str;
         }
     }
 
     public ArrayList<e> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f2755d : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f2758d : (ArrayList) invokeV.objValue;
     }
 
     public ArrayList<f> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f2756e : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f2759e : (ArrayList) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f2757f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f2760f : (String) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f2758g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f2761g : (String) invokeV.objValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f2760i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f2763i : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f2752a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f2755a : (String) invokeV.objValue;
     }
 }

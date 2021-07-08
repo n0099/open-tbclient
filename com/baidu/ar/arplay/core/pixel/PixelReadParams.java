@@ -102,7 +102,7 @@ public class PixelReadParams {
         public static FrameType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (FrameType[]) $VALUES.clone() : (FrameType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (FrameType[]) $VALUES.clone() : (FrameType[]) invokeV.objValue;
         }
 
         public int getValue() {

@@ -256,7 +256,7 @@ public class DropDownListView extends ListView {
 
     private void positionSelectorCompat(int i2, View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65540, this, i2, view) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, view) == null) {
             Rect rect = this.mSelectorRect;
             rect.set(view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
             rect.left -= this.mSelectionLeftPadding;

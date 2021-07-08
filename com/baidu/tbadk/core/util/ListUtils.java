@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ListUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +56,7 @@ public class ListUtils {
 
     public static <T> void clear(List<T> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, null, list) == null) || list == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list) == null) || list == null) {
             return;
         }
         list.clear();

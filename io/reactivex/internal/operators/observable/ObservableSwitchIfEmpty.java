@@ -9,13 +9,13 @@ import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.SequentialDisposable;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class ObservableSwitchIfEmpty<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ObservableSource<? extends T> other;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class SwitchIfEmptyObserver<T> implements Observer<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

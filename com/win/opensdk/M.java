@@ -16,22 +16,22 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class M extends AsyncTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public O f42401a;
+    public O f39415a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f42402b;
+    public final /* synthetic */ String f39416b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ boolean f42403c;
+    public final /* synthetic */ boolean f39417c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ Q f42404d;
+    public final /* synthetic */ Q f39418d;
 
     public M(Q q, String str, boolean z) {
         Interceptable interceptable = $ic;
@@ -48,9 +48,9 @@ public class M extends AsyncTask {
                 return;
             }
         }
-        this.f42404d = q;
-        this.f42402b = str;
-        this.f42403c = z;
+        this.f39418d = q;
+        this.f39416b = str;
+        this.f39417c = z;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IF] complete} */
@@ -74,18 +74,18 @@ public class M extends AsyncTask {
             Void[] voidArr = (Void[]) objArr;
             int i2 = 1;
             try {
-                httpURLConnection = (HttpURLConnection) new URL(this.f42402b).openConnection();
+                httpURLConnection = (HttpURLConnection) new URL(this.f39416b).openConnection();
             } catch (Throwable th) {
                 th = th;
                 httpURLConnection = null;
             }
             try {
                 try {
-                    if (this.f42403c) {
+                    if (this.f39417c) {
                         httpURLConnection.connect();
                         int contentLength = httpURLConnection.getContentLength();
                         if (contentLength <= 0) {
-                            this.f42401a = new O("Invalid content length. The URL is probably not pointing to a file");
+                            this.f39415a = new O("Invalid content length. The URL is probably not pointing to a file");
                             cancel(true);
                         }
                         inputStream = new BufferedInputStream(httpURLConnection.getInputStream(), 8192);
@@ -111,7 +111,7 @@ public class M extends AsyncTask {
                             th = th2;
                             try {
                                 if (!isCancelled()) {
-                                    this.f42401a = new O(th);
+                                    this.f39415a = new O(th);
                                     cancel(true);
                                 }
                                 if (httpURLConnection != null) {
@@ -204,8 +204,8 @@ public class M extends AsyncTask {
     public void onCancelled() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f42404d.f42441b.remove(this.f42402b);
-            ((j) this.f42404d.f42440a).a(this.f42401a);
+            this.f39418d.f39455b.remove(this.f39416b);
+            ((j) this.f39418d.f39454a).a(this.f39415a);
         }
     }
 
@@ -217,16 +217,16 @@ public class M extends AsyncTask {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
             Bitmap bitmap = (Bitmap) obj;
             if (bitmap == null) {
-                ((j) this.f42404d.f42440a).a(new O("downloaded file could not be decoded as bitmap"));
+                ((j) this.f39418d.f39454a).a(new O("downloaded file could not be decoded as bitmap"));
             } else {
-                j jVar = (j) this.f42404d.f42440a;
-                PBSplash pBSplash = jVar.f42598b;
+                j jVar = (j) this.f39418d.f39454a;
+                PBSplash pBSplash = jVar.f39612b;
                 if (pBSplash.j) {
                     file = pBSplash.l;
                     if (!file.exists()) {
-                        file2 = jVar.f42598b.l;
+                        file2 = jVar.f39612b.l;
                         i iVar = new i(jVar);
-                        Bitmap.CompressFormat compressFormat = jVar.f42597a;
+                        Bitmap.CompressFormat compressFormat = jVar.f39611a;
                         if (file2.isDirectory()) {
                             new O("the specified path points to a directory, should be a file");
                         } else if (file2.exists()) {
@@ -249,15 +249,15 @@ public class M extends AsyncTask {
                         }
                     }
                 } else {
-                    PBSplashListener pBSplashListener = pBSplash.f42432e;
+                    PBSplashListener pBSplashListener = pBSplash.f39446e;
                     if (pBSplashListener != null) {
-                        pBSplash.f42430c = bitmap;
+                        pBSplash.f39444c = bitmap;
                         pBSplashListener.onLoaded();
-                        jVar.f42598b.f42436i = true;
+                        jVar.f39612b.f39450i = true;
                     }
                 }
             }
-            this.f42404d.f42441b.remove(this.f42402b);
+            this.f39418d.f39455b.remove(this.f39416b);
             System.gc();
         }
     }
@@ -266,7 +266,7 @@ public class M extends AsyncTask {
     public void onPreExecute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f42404d.f42441b.add(this.f42402b);
+            this.f39418d.f39455b.add(this.f39416b);
         }
     }
 
@@ -274,7 +274,7 @@ public class M extends AsyncTask {
     public void onProgressUpdate(Object[] objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, objArr) == null) {
-            ((j) this.f42404d.f42440a).a(((Integer[]) objArr)[0].intValue());
+            ((j) this.f39418d.f39454a).a(((Integer[]) objArr)[0].intValue());
         }
     }
 }

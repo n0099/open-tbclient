@@ -14,19 +14,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class k implements d.l.a.e.b.g.k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final SparseArray<DownloadInfo> f74916e;
+    public final SparseArray<DownloadInfo> f71968e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final SparseArray<List<com.ss.android.socialbase.downloader.model.b>> f74917f;
+    public final SparseArray<List<com.ss.android.socialbase.downloader.model.b>> f71969f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final SparseArray<Map<Long, d.l.a.e.b.i.i>> f74918g;
+    public final SparseArray<Map<Long, d.l.a.e.b.i.i>> f71970g;
 
     public k() {
         Interceptable interceptable = $ic;
@@ -41,15 +41,15 @@ public class k implements d.l.a.e.b.g.k {
                 return;
             }
         }
-        this.f74916e = new SparseArray<>();
-        this.f74917f = new SparseArray<>();
-        this.f74918g = new SparseArray<>();
+        this.f71968e = new SparseArray<>();
+        this.f71969f = new SparseArray<>();
+        this.f71970g = new SparseArray<>();
     }
 
     public SparseArray<DownloadInfo> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f74916e : (SparseArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71968e : (SparseArray) invokeV.objValue;
     }
 
     @Override // d.l.a.e.b.g.k
@@ -67,7 +67,7 @@ public class k implements d.l.a.e.b.g.k {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
             synchronized (this) {
                 try {
-                    downloadInfo = this.f74916e.get(i2);
+                    downloadInfo = this.f71968e.get(i2);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     downloadInfo = null;
@@ -101,12 +101,12 @@ public class k implements d.l.a.e.b.g.k {
                 if (TextUtils.isEmpty(str)) {
                     return null;
                 }
-                if (this.f74916e.size() == 0) {
+                if (this.f71968e.size() == 0) {
                     return null;
                 }
                 ArrayList arrayList = new ArrayList();
-                for (int i2 = 0; i2 < this.f74916e.size(); i2++) {
-                    DownloadInfo downloadInfo = this.f74916e.get(this.f74916e.keyAt(i2));
+                for (int i2 = 0; i2 < this.f71968e.size(); i2++) {
+                    DownloadInfo downloadInfo = this.f71968e.get(this.f71968e.keyAt(i2));
                     if (downloadInfo != null && !TextUtils.isEmpty(downloadInfo.getMimeType()) && downloadInfo.getMimeType().equals(str) && downloadInfo.getStatus() == -3) {
                         arrayList.add(downloadInfo);
                     }
@@ -126,12 +126,12 @@ public class k implements d.l.a.e.b.g.k {
                 if (TextUtils.isEmpty(str)) {
                     return null;
                 }
-                if (this.f74916e.size() == 0) {
+                if (this.f71968e.size() == 0) {
                     return null;
                 }
                 ArrayList arrayList = new ArrayList();
-                for (int i2 = 0; i2 < this.f74916e.size(); i2++) {
-                    DownloadInfo downloadInfo = this.f74916e.get(this.f74916e.keyAt(i2));
+                for (int i2 = 0; i2 < this.f71968e.size(); i2++) {
+                    DownloadInfo downloadInfo = this.f71968e.get(this.f71968e.keyAt(i2));
                     if (downloadInfo != null && !TextUtils.isEmpty(downloadInfo.getMimeType()) && downloadInfo.getMimeType().equals(str) && d.l.a.e.b.d.a.g(downloadInfo.getStatus())) {
                         arrayList.add(downloadInfo);
                     }
@@ -168,7 +168,7 @@ public class k implements d.l.a.e.b.g.k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i2)) == null) {
             synchronized (this) {
-                this.f74916e.remove(i2);
+                this.f71968e.remove(i2);
             }
             return true;
         }
@@ -178,7 +178,7 @@ public class k implements d.l.a.e.b.g.k {
     public SparseArray<List<com.ss.android.socialbase.downloader.model.b>> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f74917f : (SparseArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f71969f : (SparseArray) invokeV.objValue;
     }
 
     @Override // d.l.a.e.b.g.k
@@ -245,7 +245,7 @@ public class k implements d.l.a.e.b.g.k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i2)) == null) {
             synchronized (this) {
-                map = this.f74918g.get(i2);
+                map = this.f71970g.get(i2);
             }
             return map;
         }
@@ -257,7 +257,7 @@ public class k implements d.l.a.e.b.g.k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
             synchronized (this) {
-                this.f74918g.remove(i2);
+                this.f71970g.remove(i2);
             }
         }
     }
@@ -268,7 +268,7 @@ public class k implements d.l.a.e.b.g.k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i2)) == null) {
             synchronized (this) {
-                Map<Long, d.l.a.e.b.i.i> map = this.f74918g.get(i2);
+                Map<Long, d.l.a.e.b.i.i> map = this.f71970g.get(i2);
                 if (map != null && !map.isEmpty()) {
                     return new ArrayList(map.values());
                 }
@@ -287,9 +287,9 @@ public class k implements d.l.a.e.b.g.k {
             synchronized (this) {
                 arrayList = new ArrayList();
                 try {
-                    int size = this.f74916e.size();
+                    int size = this.f71968e.size();
                     for (int i2 = 0; i2 < size; i2++) {
-                        DownloadInfo valueAt = this.f74916e.valueAt(i2);
+                        DownloadInfo valueAt = this.f71968e.valueAt(i2);
                         if (str != null && str.equals(valueAt.getUrl())) {
                             arrayList.add(valueAt);
                         }
@@ -325,12 +325,12 @@ public class k implements d.l.a.e.b.g.k {
                 if (TextUtils.isEmpty(str)) {
                     return null;
                 }
-                if (this.f74916e.size() == 0) {
+                if (this.f71968e.size() == 0) {
                     return null;
                 }
                 ArrayList arrayList = new ArrayList();
-                for (int i2 = 0; i2 < this.f74916e.size(); i2++) {
-                    DownloadInfo downloadInfo = this.f74916e.get(this.f74916e.keyAt(i2));
+                for (int i2 = 0; i2 < this.f71968e.size(); i2++) {
+                    DownloadInfo downloadInfo = this.f71968e.get(this.f71968e.keyAt(i2));
                     if (downloadInfo != null && !TextUtils.isEmpty(downloadInfo.getMimeType()) && downloadInfo.getMimeType().equals(str) && d.l.a.e.b.d.a.c(downloadInfo.getStatus())) {
                         arrayList.add(downloadInfo);
                     }
@@ -346,10 +346,10 @@ public class k implements d.l.a.e.b.g.k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
             int k = bVar.k();
-            List<com.ss.android.socialbase.downloader.model.b> list = this.f74917f.get(k);
+            List<com.ss.android.socialbase.downloader.model.b> list = this.f71969f.get(k);
             if (list == null) {
                 list = new ArrayList<>();
-                this.f74917f.put(k, list);
+                this.f71969f.put(k, list);
             }
             list.add(bVar);
         }
@@ -391,7 +391,7 @@ public class k implements d.l.a.e.b.g.k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
             synchronized (this) {
-                list = this.f74917f.get(i2);
+                list = this.f71969f.get(i2);
             }
             return list;
         }
@@ -403,7 +403,7 @@ public class k implements d.l.a.e.b.g.k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
             synchronized (this) {
-                this.f74917f.remove(i2);
+                this.f71969f.remove(i2);
             }
         }
     }
@@ -413,8 +413,8 @@ public class k implements d.l.a.e.b.g.k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             synchronized (this) {
-                this.f74916e.clear();
-                this.f74917f.clear();
+                this.f71968e.clear();
+                this.f71969f.clear();
             }
         }
     }
@@ -440,12 +440,12 @@ public class k implements d.l.a.e.b.g.k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             synchronized (this) {
-                if (this.f74916e.size() == 0) {
+                if (this.f71968e.size() == 0) {
                     return null;
                 }
-                ArrayList arrayList = new ArrayList(this.f74916e.size());
-                for (int i2 = 0; i2 < this.f74916e.size(); i2++) {
-                    DownloadInfo valueAt = this.f74916e.valueAt(i2);
+                ArrayList arrayList = new ArrayList(this.f71968e.size());
+                for (int i2 = 0; i2 < this.f71968e.size(); i2++) {
+                    DownloadInfo valueAt = this.f71968e.valueAt(i2);
                     if (valueAt != null) {
                         arrayList.add(valueAt);
                     }
@@ -571,10 +571,10 @@ public class k implements d.l.a.e.b.g.k {
                 if (downloadInfo == null) {
                     return true;
                 }
-                if (this.f74916e.get(downloadInfo.getId()) == null) {
+                if (this.f71968e.get(downloadInfo.getId()) == null) {
                     z = false;
                 }
-                this.f74916e.put(downloadInfo.getId(), downloadInfo);
+                this.f71968e.put(downloadInfo.getId(), downloadInfo);
                 return z;
             }
         }
@@ -646,7 +646,7 @@ public class k implements d.l.a.e.b.g.k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i2, map)) == null) {
             synchronized (this) {
-                this.f74918g.put(i2, map);
+                this.f71970g.put(i2, map);
             }
             return false;
         }

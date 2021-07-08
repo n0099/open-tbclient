@@ -12,33 +12,33 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.adnet.err.VAdError;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class g implements com.bytedance.sdk.component.adnet.face.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Executor f27891a;
+    public final Executor f28001a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Executor f27892b;
+    public final Executor f28002b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.bytedance.sdk.component.adnet.c.c f27893c;
+    public com.bytedance.sdk.component.adnet.c.c f28003c;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Request f27896a;
+        public final Request f28006a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final m f27897b;
+        public final m f28007b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Runnable f27898c;
+        public final Runnable f28008c;
 
         public a(Request request, m mVar, Runnable runnable) {
             Interceptable interceptable = $ic;
@@ -55,36 +55,36 @@ public class g implements com.bytedance.sdk.component.adnet.face.c {
                     return;
                 }
             }
-            this.f27896a = request;
-            this.f27897b = mVar;
-            this.f27898c = runnable;
+            this.f28006a = request;
+            this.f28007b = mVar;
+            this.f28008c = runnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f27896a.isCanceled()) {
-                    this.f27896a.a("canceled-at-delivery");
+                if (this.f28006a.isCanceled()) {
+                    this.f28006a.a("canceled-at-delivery");
                     return;
                 }
-                this.f27897b.f27927g = this.f27896a.getExtra();
-                this.f27897b.a(SystemClock.elapsedRealtime() - this.f27896a.getStartTime());
-                this.f27897b.b(this.f27896a.getNetDuration());
+                this.f28007b.f28037g = this.f28006a.getExtra();
+                this.f28007b.a(SystemClock.elapsedRealtime() - this.f28006a.getStartTime());
+                this.f28007b.b(this.f28006a.getNetDuration());
                 try {
-                    if (this.f27897b.a()) {
-                        this.f27896a.a(this.f27897b);
+                    if (this.f28007b.a()) {
+                        this.f28006a.a(this.f28007b);
                     } else {
-                        this.f27896a.deliverError(this.f27897b);
+                        this.f28006a.deliverError(this.f28007b);
                     }
                 } catch (Throwable unused) {
                 }
-                if (this.f27897b.f27924d) {
-                    this.f27896a.addMarker("intermediate-response");
+                if (this.f28007b.f28034d) {
+                    this.f28006a.addMarker("intermediate-response");
                 } else {
-                    this.f27896a.a(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE);
+                    this.f28006a.a(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE);
                 }
-                Runnable runnable = this.f27898c;
+                Runnable runnable = this.f28008c;
                 if (runnable != null) {
                     try {
                         runnable.run();
@@ -110,15 +110,15 @@ public class g implements com.bytedance.sdk.component.adnet.face.c {
                 return;
             }
         }
-        this.f27891a = new Executor(this, handler) { // from class: com.bytedance.sdk.component.adnet.core.g.1
+        this.f28001a = new Executor(this, handler) { // from class: com.bytedance.sdk.component.adnet.core.g.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Handler f27894a;
+            public final /* synthetic */ Handler f28004a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ g f27895b;
+            public final /* synthetic */ g f28005b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -135,26 +135,26 @@ public class g implements com.bytedance.sdk.component.adnet.face.c {
                         return;
                     }
                 }
-                this.f27895b = this;
-                this.f27894a = handler;
+                this.f28005b = this;
+                this.f28004a = handler;
             }
 
             @Override // java.util.concurrent.Executor
             public void execute(Runnable runnable) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, runnable) == null) {
-                    this.f27894a.post(runnable);
+                    this.f28004a.post(runnable);
                 }
             }
         };
-        this.f27892b = Executors.newCachedThreadPool();
-        this.f27893c = com.bytedance.sdk.component.adnet.c.f.a();
+        this.f28002b = Executors.newCachedThreadPool();
+        this.f28003c = com.bytedance.sdk.component.adnet.c.f.a();
     }
 
     private Executor a(Request<?> request) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, request)) == null) ? (request == null || request.isResponseOnMain()) ? this.f27891a : this.f27892b : (Executor) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, request)) == null) ? (request == null || request.isResponseOnMain()) ? this.f28001a : this.f28002b : (Executor) invokeL.objValue;
     }
 
     @Override // com.bytedance.sdk.component.adnet.face.c
@@ -162,7 +162,7 @@ public class g implements com.bytedance.sdk.component.adnet.face.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, request, mVar) == null) {
             a(request, mVar, null);
-            com.bytedance.sdk.component.adnet.c.c cVar = this.f27893c;
+            com.bytedance.sdk.component.adnet.c.c cVar = this.f28003c;
             if (cVar != null) {
                 cVar.a(request, mVar);
             }
@@ -176,7 +176,7 @@ public class g implements com.bytedance.sdk.component.adnet.face.c {
             request.markDelivered();
             request.addMarker("post-response");
             a(request).execute(new a(request, mVar, runnable));
-            com.bytedance.sdk.component.adnet.c.c cVar = this.f27893c;
+            com.bytedance.sdk.component.adnet.c.c cVar = this.f28003c;
             if (cVar != null) {
                 cVar.a(request, mVar);
             }
@@ -189,7 +189,7 @@ public class g implements com.bytedance.sdk.component.adnet.face.c {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, request, vAdError) == null) {
             request.addMarker("post-error");
             a(request).execute(new a(request, m.a(vAdError), null));
-            com.bytedance.sdk.component.adnet.c.c cVar = this.f27893c;
+            com.bytedance.sdk.component.adnet.c.c cVar = this.f28003c;
             if (cVar != null) {
                 cVar.a(request, vAdError);
             }

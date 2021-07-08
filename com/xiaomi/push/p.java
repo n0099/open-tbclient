@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,12 +13,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile p f43523a;
+    public static volatile p f40537a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -53,14 +54,14 @@ public class p {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f43523a == null) {
+            if (f40537a == null) {
                 synchronized (p.class) {
-                    if (f43523a == null) {
-                        f43523a = new p(context);
+                    if (f40537a == null) {
+                        f40537a = new p(context);
                     }
                 }
             }
-            return f43523a;
+            return f40537a;
         }
         return (p) invokeL.objValue;
     }
@@ -88,7 +89,7 @@ public class p {
 
     private synchronized void b(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, this, str, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, str2, str3) == null) {
             synchronized (this) {
                 if (this.f823a == null) {
                     this.f823a = new HashMap();

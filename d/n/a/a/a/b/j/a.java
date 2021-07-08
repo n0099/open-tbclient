@@ -7,15 +7,16 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes10.dex */
+import d.n.a.a.c.b.c;
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f75115a;
+    public static Object f72153a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Class f75116b;
+    public static Class f72154b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,10 +34,10 @@ public final class a {
         }
         try {
             Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-            f75116b = cls;
-            f75115a = cls.newInstance();
+            f72154b = cls;
+            f72153a = cls.newInstance();
         } catch (Throwable th) {
-            d.n.a.a.c.b.b.c(th);
+            c.c(th);
         }
     }
 
@@ -50,17 +51,17 @@ public final class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            if (f75115a == null || TextUtils.isEmpty(str)) {
+            if (f72153a == null || TextUtils.isEmpty(str)) {
                 return null;
             }
             try {
-                Object invoke = f75116b.getMethod(str, Context.class).invoke(f75115a, context);
+                Object invoke = f72154b.getMethod(str, Context.class).invoke(f72153a, context);
                 if (invoke != null) {
                     return (String) invoke;
                 }
                 return null;
             } catch (Throwable th) {
-                d.n.a.a.c.b.b.c(th);
+                c.c(th);
                 return null;
             }
         }
@@ -70,6 +71,6 @@ public final class a {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f75116b == null || f75115a == null) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f72154b == null || f72153a == null) ? false : true : invokeV.booleanValue;
     }
 }

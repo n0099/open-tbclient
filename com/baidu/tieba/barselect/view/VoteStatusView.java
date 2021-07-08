@@ -15,26 +15,26 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.x.e.c;
-/* loaded from: classes5.dex */
+import d.a.p0.x.e.c;
+/* loaded from: classes4.dex */
 public class VoteStatusView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14436e;
+    public int f14475e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f14437f;
+    public boolean f14476f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f14438g;
+    public Paint f14477g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Shader f14439h;
+    public Shader f14478h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f14440i;
+    public int f14479i;
     public int j;
     public int k;
     public Path l;
@@ -68,13 +68,13 @@ public class VoteStatusView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.k = SkinManager.getColor(R.color.CAM_X0204);
-            this.f14440i = SkinManager.getColor(R.color.CAM_X0303);
+            this.f14479i = SkinManager.getColor(R.color.CAM_X0303);
             this.j = SkinManager.getColor(R.color.CAM_X0302);
             Paint paint = new Paint();
-            this.f14438g = paint;
+            this.f14477g = paint;
             paint.setAntiAlias(true);
-            this.f14438g.setStyle(Paint.Style.FILL);
-            this.f14438g.setColor(this.k);
+            this.f14477g.setStyle(Paint.Style.FILL);
+            this.f14477g.setColor(this.k);
             this.l = new Path();
             this.m = new Path();
             this.n = new Path();
@@ -86,10 +86,10 @@ public class VoteStatusView extends View {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f14440i = SkinManager.getColor(i2, R.color.CAM_X0303);
+            this.f14479i = SkinManager.getColor(i2, R.color.CAM_X0303);
             this.j = SkinManager.getColor(i2, R.color.CAM_X0302);
             this.k = SkinManager.getColor(i2, R.color.CAM_X0204);
-            this.f14437f = true;
+            this.f14476f = true;
             invalidate();
         }
     }
@@ -114,33 +114,33 @@ public class VoteStatusView extends View {
             float f6 = (height * 17) / 26;
             this.o.addRect(f2, f5, f3, f6, Path.Direction.CW);
             this.p.addRect(f3, f5, f4, f6, Path.Direction.CW);
-            this.f14438g.setColor(this.k);
-            this.f14438g.setShader(null);
-            if (this.f14439h == null || this.f14437f) {
-                this.f14439h = new LinearGradient(f2, 0.0f, f4, 0.0f, this.f14440i, this.j, Shader.TileMode.CLAMP);
-                this.f14437f = false;
+            this.f14477g.setColor(this.k);
+            this.f14477g.setShader(null);
+            if (this.f14478h == null || this.f14476f) {
+                this.f14478h = new LinearGradient(f2, 0.0f, f4, 0.0f, this.f14479i, this.j, Shader.TileMode.CLAMP);
+                this.f14476f = false;
             }
-            if (this.f14436e == c.f69388c) {
-                this.f14438g.setShader(this.f14439h);
+            if (this.f14475e == c.f66176c) {
+                this.f14477g.setShader(this.f14478h);
             }
-            canvas.drawPath(this.p, this.f14438g);
-            canvas.drawPath(this.n, this.f14438g);
-            if (this.f14436e == c.f69387b) {
-                this.f14438g.setShader(this.f14439h);
+            canvas.drawPath(this.p, this.f14477g);
+            canvas.drawPath(this.n, this.f14477g);
+            if (this.f14475e == c.f66175b) {
+                this.f14477g.setShader(this.f14478h);
             }
-            canvas.drawPath(this.o, this.f14438g);
-            canvas.drawPath(this.m, this.f14438g);
-            if (this.f14436e == c.f69386a) {
-                this.f14438g.setShader(this.f14439h);
+            canvas.drawPath(this.o, this.f14477g);
+            canvas.drawPath(this.m, this.f14477g);
+            if (this.f14475e == c.f66174a) {
+                this.f14477g.setShader(this.f14478h);
             }
-            canvas.drawPath(this.l, this.f14438g);
+            canvas.drawPath(this.l, this.f14477g);
         }
     }
 
     public void setStatus(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f14436e = i2;
+            this.f14475e = i2;
             invalidate();
         }
     }
@@ -164,8 +164,8 @@ public class VoteStatusView extends View {
                 return;
             }
         }
-        this.f14436e = -1;
-        this.f14437f = true;
+        this.f14475e = -1;
+        this.f14476f = true;
         a();
     }
 }

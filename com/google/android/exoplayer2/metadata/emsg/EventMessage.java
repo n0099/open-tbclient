@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.metadata.Metadata;
 import d.f.b.a.i0.v;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class EventMessage implements Metadata.Entry {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<EventMessage> CREATOR;
@@ -25,7 +25,7 @@ public final class EventMessage implements Metadata.Entry {
     public final String schemeIdUri;
     public final String value;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Parcelable.Creator<EventMessage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

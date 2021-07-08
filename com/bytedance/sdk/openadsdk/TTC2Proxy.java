@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTAdNative;
 import com.bytedance.sdk.openadsdk.component.splash.b;
 import com.bytedance.sdk.openadsdk.component.splash.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TTC2Proxy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.v.a;
-import d.a.w.a.b.d.b;
+import d.a.t.a;
+import d.a.u.a.b.d.b;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -126,15 +126,15 @@ public class AckHandlerThread extends HandlerThread {
     /* JADX INFO: Access modifiers changed from: private */
     public void retryAck(Context context, NewAckMessage newAckMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65543, this, context, newAckMessage) == null) && a.f70712e && newAckMessage != null) {
+        if ((interceptable == null || interceptable.invokeLL(65543, this, context, newAckMessage) == null) && a.f67515e && newAckMessage != null) {
             BLCPRequest bLCPRequest = new BLCPRequest();
-            bLCPRequest.f6395a = 2L;
-            bLCPRequest.f6396b = 95L;
-            bLCPRequest.f6397c = newAckMessage.getBody().getBytes();
-            bLCPRequest.f6398d = System.nanoTime();
+            bLCPRequest.f6412a = 2L;
+            bLCPRequest.f6413b = 95L;
+            bLCPRequest.f6414c = newAckMessage.getBody().getBytes();
+            bLCPRequest.f6415d = System.nanoTime();
             String str = TAG;
-            LogUtils.d(str, "ackRequest msgid:" + bLCPRequest.f6398d);
-            d.a.w.a.b.a.c(bLCPRequest, new b(this, newAckMessage, context) { // from class: com.baidu.android.imsdk.request.AckHandlerThread.2
+            LogUtils.d(str, "ackRequest msgid:" + bLCPRequest.f6415d);
+            d.a.u.a.b.a.c(bLCPRequest, new b(this, newAckMessage, context) { // from class: com.baidu.android.imsdk.request.AckHandlerThread.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AckHandlerThread this$0;
@@ -161,7 +161,7 @@ public class AckHandlerThread extends HandlerThread {
                     this.val$context = context;
                 }
 
-                @Override // d.a.w.a.b.d.b
+                @Override // d.a.u.a.b.d.b
                 public void onResponse(int i2, String str2, long j, long j2, long j3, byte[] bArr) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), bArr}) == null) && i2 == 0) {

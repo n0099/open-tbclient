@@ -13,12 +13,12 @@ import d.f.d.c.k;
 import d.f.d.c.m;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements k<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class SerializedForm extends ImmutableMap.SerializedForm {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -52,7 +52,7 @@ public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class a<K, V> extends ImmutableMap.b<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,12 +105,12 @@ public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                if (this.f33099c == 0) {
+                if (this.f33209c == 0) {
                     return ImmutableBiMap.of();
                 }
                 g();
-                this.f33100d = true;
-                return new RegularImmutableBiMap(this.f33098b, this.f33099c);
+                this.f33210d = true;
+                return new RegularImmutableBiMap(this.f33208b, this.f33209c);
             }
             return (ImmutableBiMap) invokeV.objValue;
         }
@@ -209,7 +209,7 @@ public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements
     public static <K, V> ImmutableBiMap<K, V> copyOf(Map<? extends K, ? extends V> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, map)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map)) == null) {
             if (map instanceof ImmutableBiMap) {
                 ImmutableBiMap<K, V> immutableBiMap = (ImmutableBiMap) map;
                 if (!immutableBiMap.isPartialView()) {

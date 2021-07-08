@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.h264.model;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -14,7 +15,7 @@ import com.googlecode.mp4parser.h264.write.CAVLCWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SeqParameterSet extends BitstreamElement {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -251,7 +252,7 @@ public class SeqParameterSet extends BitstreamElement {
 
     public static void readScalingListMatrix(CAVLCReader cAVLCReader, SeqParameterSet seqParameterSet) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, cAVLCReader, seqParameterSet) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cAVLCReader, seqParameterSet) == null) {
             seqParameterSet.scalingMatrix = new ScalingMatrix();
             for (int i2 = 0; i2 < 8; i2++) {
                 if (cAVLCReader.readBool("SPS: seqScalingListPresentFlag")) {

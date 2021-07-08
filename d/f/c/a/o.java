@@ -10,19 +10,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.ArCoreApk;
 import com.google.ar.core.u;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class o implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Context f73701e;
+    public final /* synthetic */ Context f70804e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ ArCoreApk.a f73702f;
+    public final /* synthetic */ ArCoreApk.a f70805f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ l f73703g;
+    public final /* synthetic */ l f70806g;
 
     public o(l lVar, Context context, ArCoreApk.a aVar) {
         Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public final class o implements Runnable {
                 return;
             }
         }
-        this.f73703g = lVar;
-        this.f73701e = context;
-        this.f73702f = aVar;
+        this.f70806g = lVar;
+        this.f70804e = context;
+        this.f70805f = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -51,14 +51,14 @@ public final class o implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                aVar = this.f73703g.f73693d;
-                String str = this.f73701e.getApplicationInfo().packageName;
-                l lVar = this.f73703g;
+                aVar = this.f70806g.f70796d;
+                String str = this.f70804e.getApplicationInfo().packageName;
+                l lVar = this.f70806g;
                 l = l.l();
                 aVar.a(str, l, new u(this));
             } catch (RemoteException e2) {
                 Log.e("ARCore-InstallService", "requestInfo threw", e2);
-                this.f73702f.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+                this.f70805f.a(ArCoreApk.Availability.UNKNOWN_ERROR);
             }
         }
     }

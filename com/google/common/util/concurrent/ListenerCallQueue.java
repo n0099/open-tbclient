@@ -18,19 +18,19 @@ import java.util.Queue;
 import java.util.concurrent.Executor;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ListenerCallQueue<L> {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger logger;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<PerListenerQueue<L>> listeners;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Event<L> {
         void call(L l);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class PerListenerQueue<L> implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

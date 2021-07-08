@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.e0.a.c;
-import d.a.e0.a.e;
-import d.a.e0.a.f;
-/* loaded from: classes3.dex */
+import d.a.b0.a.c;
+import d.a.b0.a.e;
+import d.a.b0.a.f;
+/* loaded from: classes2.dex */
 public class YouthStyleLoginActivity extends LoginActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class YouthStyleLoginActivity extends LoginActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ YouthStyleLoginActivity f9876a;
+                public final /* synthetic */ YouthStyleLoginActivity f9893a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -71,14 +71,14 @@ public class YouthStyleLoginActivity extends LoginActivity {
                             return;
                         }
                     }
-                    this.f9876a = this;
+                    this.f9893a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f9876a.onClose();
+                        this.f9893a.onClose();
                     }
                 }
             });

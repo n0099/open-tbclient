@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ShapeAppearancePathProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,14 +33,14 @@ public class ShapeAppearancePathProvider {
     public final ShapePath shapePath;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface PathListener {
         void onCornerPathCreated(ShapePath shapePath, Matrix matrix, int i2);
 
         void onEdgePathCreated(ShapePath shapePath, Matrix matrix, int i2);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ShapeAppearancePathSpec {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -176,7 +177,7 @@ public class ShapeAppearancePathProvider {
 
     private void getCoordinatesOfCorner(int i2, @NonNull RectF rectF, @NonNull PointF pointF) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65540, this, i2, rectF, pointF) == null) {
+        if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, rectF, pointF) == null) {
             if (i2 == 1) {
                 pointF.set(rectF.right, rectF.bottom);
             } else if (i2 == 2) {

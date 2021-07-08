@@ -24,7 +24,7 @@ import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class NetworkInfoPlugin implements FlutterPlugin, NetworkInfoAuto.HostNetworkInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -216,7 +216,7 @@ public class NetworkInfoPlugin implements FlutterPlugin, NetworkInfoAuto.HostNet
         if (interceptable == null || interceptable.invokeL(1048580, this, flutterPluginBinding) == null) {
             this.mFlutterNetworkInfo = new NetworkInfoAuto.FlutterNetworkInfo(flutterPluginBinding.getBinaryMessenger());
             MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
-            d.a.s0.q0.a.e.j.i(flutterPluginBinding.getBinaryMessenger(), this);
+            d.a.p0.q0.a.e.j.i(flutterPluginBinding.getBinaryMessenger(), this);
         }
     }
 
@@ -226,7 +226,7 @@ public class NetworkInfoPlugin implements FlutterPlugin, NetworkInfoAuto.HostNet
         if (interceptable == null || interceptable.invokeL(1048581, this, flutterPluginBinding) == null) {
             MessageManager.getInstance().unRegisterListener(this.mNetworkChangedListener);
             this.mFlutterNetworkInfo = null;
-            d.a.s0.q0.a.e.j.i(flutterPluginBinding.getBinaryMessenger(), null);
+            d.a.p0.q0.a.e.j.i(flutterPluginBinding.getBinaryMessenger(), null);
         }
     }
 }

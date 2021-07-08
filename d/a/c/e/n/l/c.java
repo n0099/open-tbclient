@@ -11,7 +11,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,9 +39,9 @@ public class c {
             while (it.hasNext()) {
                 d.a.c.e.n.h.d dVar = (d.a.c.e.n.h.d) it.next();
                 if (dVar != null) {
-                    long j = dVar.f44345c;
+                    long j = dVar.f41361c;
                     if (j != 0 && j + 604800000 < currentTimeMillis) {
-                        arrayList3.add(dVar.f44344b);
+                        arrayList3.add(dVar.f41360b);
                     } else {
                         arrayList2.add(dVar);
                     }
@@ -70,7 +70,7 @@ public class c {
                 long j = 0;
                 for (int i2 = 0; i2 < size; i2++) {
                     d.a.c.e.n.h.d dVar = a2.get(i2);
-                    j += dVar.f44343a;
+                    j += dVar.f41359a;
                     arrayList.add(dVar);
                     if (j >= 20480) {
                         bdUploadingLogInfo.add(arrayList);

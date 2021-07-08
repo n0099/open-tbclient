@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +27,7 @@ import com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView;
 import com.bytedance.sdk.openadsdk.core.widget.TTRoundRectImageView;
 import com.bytedance.sdk.openadsdk.r.o;
 import com.bytedance.sdk.openadsdk.r.q;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FullInteractionStyleView extends BackupView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,14 +62,14 @@ public class FullInteractionStyleView extends BackupView {
             }
         }
         this.p = 1;
-        this.f30269a = context;
+        this.f30379a = context;
     }
 
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            this.f30274f = q.d(this.f30269a, this.n);
-            this.f30275g = q.d(this.f30269a, this.o);
+            this.f30384f = q.d(this.f30379a, this.n);
+            this.f30385g = q.d(this.f30379a, this.o);
             int i2 = (int) (this.l * 1000.0f);
             if (this.p == 1) {
                 if (i2 == 666) {
@@ -101,7 +102,7 @@ public class FullInteractionStyleView extends BackupView {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.q = LayoutInflater.from(this.f30269a).inflate(r.f(this.f30269a, "tt_interaction_style_1_1"), (ViewGroup) this, true);
+            this.q = LayoutInflater.from(this.f30379a).inflate(r.f(this.f30379a, "tt_interaction_style_1_1"), (ViewGroup) this, true);
             d();
             f();
         }
@@ -110,16 +111,16 @@ public class FullInteractionStyleView extends BackupView {
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            this.t = (FrameLayout) this.q.findViewById(r.e(this.f30269a, "tt_ad_container"));
-            ImageView imageView = (ImageView) this.q.findViewById(r.e(this.f30269a, "tt_full_img"));
-            TTRoundRectImageView tTRoundRectImageView = (TTRoundRectImageView) this.q.findViewById(r.e(this.f30269a, "tt_full_ad_icon"));
-            TextView textView = (TextView) this.q.findViewById(r.e(this.f30269a, "tt_full_ad_app_name"));
-            TextView textView2 = (TextView) this.q.findViewById(r.e(this.f30269a, "tt_full_ad_download"));
-            if (!TextUtils.isEmpty(this.f30270b.aj())) {
-                textView2.setText(this.f30270b.aj());
+            this.t = (FrameLayout) this.q.findViewById(r.e(this.f30379a, "tt_ad_container"));
+            ImageView imageView = (ImageView) this.q.findViewById(r.e(this.f30379a, "tt_full_img"));
+            TTRoundRectImageView tTRoundRectImageView = (TTRoundRectImageView) this.q.findViewById(r.e(this.f30379a, "tt_full_ad_icon"));
+            TextView textView = (TextView) this.q.findViewById(r.e(this.f30379a, "tt_full_ad_app_name"));
+            TextView textView2 = (TextView) this.q.findViewById(r.e(this.f30379a, "tt_full_ad_download"));
+            if (!TextUtils.isEmpty(this.f30380b.aj())) {
+                textView2.setText(this.f30380b.aj());
             }
             a(this.t, imageView);
-            com.bytedance.sdk.openadsdk.l.e.b().a(this.f30270b.Y().a(), tTRoundRectImageView);
+            com.bytedance.sdk.openadsdk.l.e.b().a(this.f30380b.Y().a(), tTRoundRectImageView);
             textView.setText(getTitle());
             b(this.t);
             b(imageView);
@@ -132,7 +133,7 @@ public class FullInteractionStyleView extends BackupView {
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            this.q = LayoutInflater.from(this.f30269a).inflate(r.f(this.f30269a, "tt_interaction_style_2_3"), (ViewGroup) this, true);
+            this.q = LayoutInflater.from(this.f30379a).inflate(r.f(this.f30379a, "tt_interaction_style_2_3"), (ViewGroup) this, true);
             d();
             f();
         }
@@ -141,7 +142,7 @@ public class FullInteractionStyleView extends BackupView {
     private void f() {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || (textView = (TextView) this.q.findViewById(r.e(this.f30269a, "tt_full_ad_desc"))) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || (textView = (TextView) this.q.findViewById(r.e(this.f30379a, "tt_full_ad_desc"))) == null) {
             return;
         }
         textView.setText(getDescription());
@@ -151,7 +152,7 @@ public class FullInteractionStyleView extends BackupView {
     private void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            this.q = LayoutInflater.from(this.f30269a).inflate(r.f(this.f30269a, "tt_interaction_style_2_3_h"), (ViewGroup) this, true);
+            this.q = LayoutInflater.from(this.f30379a).inflate(r.f(this.f30379a, "tt_interaction_style_2_3_h"), (ViewGroup) this, true);
             d();
             f();
         }
@@ -160,19 +161,19 @@ public class FullInteractionStyleView extends BackupView {
     private float getHeightDp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) ? q.c(this.f30269a, q.h(this.f30269a)) : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) ? q.c(this.f30379a, q.h(this.f30379a)) : invokeV.floatValue;
     }
 
     private float getWidthDp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) ? q.c(this.f30269a, q.i(this.f30269a)) : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) ? q.c(this.f30379a, q.i(this.f30379a)) : invokeV.floatValue;
     }
 
     private void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            this.q = LayoutInflater.from(this.f30269a).inflate(r.f(this.f30269a, "tt_interaction_style_3_2_h"), (ViewGroup) this, true);
+            this.q = LayoutInflater.from(this.f30379a).inflate(r.f(this.f30379a, "tt_interaction_style_3_2_h"), (ViewGroup) this, true);
             d();
         }
     }
@@ -180,7 +181,7 @@ public class FullInteractionStyleView extends BackupView {
     private void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, this) == null) {
-            this.q = LayoutInflater.from(this.f30269a).inflate(r.f(this.f30269a, "tt_interaction_style_9_16_h"), (ViewGroup) this, true);
+            this.q = LayoutInflater.from(this.f30379a).inflate(r.f(this.f30379a, "tt_interaction_style_9_16_h"), (ViewGroup) this, true);
             d();
             f();
         }
@@ -189,7 +190,7 @@ public class FullInteractionStyleView extends BackupView {
     private void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
-            this.q = LayoutInflater.from(this.f30269a).inflate(r.f(this.f30269a, "tt_interaction_style_16_9_h"), (ViewGroup) this, true);
+            this.q = LayoutInflater.from(this.f30379a).inflate(r.f(this.f30379a, "tt_interaction_style_16_9_h"), (ViewGroup) this, true);
             d();
         }
     }
@@ -197,11 +198,11 @@ public class FullInteractionStyleView extends BackupView {
     private void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            View inflate = LayoutInflater.from(this.f30269a).inflate(r.f(this.f30269a, "tt_interaction_style_3_2"), (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(this.f30379a).inflate(r.f(this.f30379a, "tt_interaction_style_3_2"), (ViewGroup) this, true);
             this.q = inflate;
-            this.t = (FrameLayout) inflate.findViewById(r.e(this.f30269a, "tt_ad_container"));
-            ImageView imageView = (ImageView) this.q.findViewById(r.e(this.f30269a, "tt_bu_img"));
-            TextView textView = (TextView) this.q.findViewById(r.e(this.f30269a, "tt_bu_desc"));
+            this.t = (FrameLayout) inflate.findViewById(r.e(this.f30379a, "tt_ad_container"));
+            ImageView imageView = (ImageView) this.q.findViewById(r.e(this.f30379a, "tt_bu_img"));
+            TextView textView = (TextView) this.q.findViewById(r.e(this.f30379a, "tt_bu_desc"));
             a(this.t, imageView);
             textView.setText(getDescription());
             b(this.t);
@@ -213,7 +214,7 @@ public class FullInteractionStyleView extends BackupView {
     private void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, this) == null) {
-            this.q = LayoutInflater.from(this.f30269a).inflate(r.f(this.f30269a, "tt_interaction_style_9_16_v"), (ViewGroup) this, true);
+            this.q = LayoutInflater.from(this.f30379a).inflate(r.f(this.f30379a, "tt_interaction_style_9_16_v"), (ViewGroup) this, true);
             d();
         }
     }
@@ -221,7 +222,7 @@ public class FullInteractionStyleView extends BackupView {
     private void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65555, this) == null) {
-            this.q = LayoutInflater.from(this.f30269a).inflate(r.f(this.f30269a, "tt_interaction_style_16_9_v"), (ViewGroup) this, true);
+            this.q = LayoutInflater.from(this.f30379a).inflate(r.f(this.f30379a, "tt_interaction_style_16_9_v"), (ViewGroup) this, true);
             d();
             f();
         }
@@ -239,12 +240,12 @@ public class FullInteractionStyleView extends BackupView {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{mVar, aVar, Float.valueOf(f2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             this.l = f2;
             this.p = i2;
-            this.f30270b = mVar;
+            this.f30380b = mVar;
             this.r = aVar;
-            this.f30273e = "fullscreen_interstitial_ad";
+            this.f30383e = "fullscreen_interstitial_ad";
             this.n = i3;
             this.o = i4;
-            b(this.f30276h);
+            b(this.f30386h);
             b();
         }
     }
@@ -282,12 +283,12 @@ public class FullInteractionStyleView extends BackupView {
     private void a(FrameLayout frameLayout, ImageView imageView) {
         m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, this, frameLayout, imageView) == null) || (mVar = this.f30270b) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65539, this, frameLayout, imageView) == null) || (mVar = this.f30380b) == null) {
             return;
         }
         int ap = mVar.ap();
         boolean z = ap == 5 || ap == 15;
-        if (this.f30270b.V() != null && z) {
+        if (this.f30380b.V() != null && z) {
             q.a((View) imageView, 8);
             q.a((View) frameLayout, 0);
             return;
@@ -304,11 +305,11 @@ public class FullInteractionStyleView extends BackupView {
         }
         com.bytedance.sdk.openadsdk.core.b.a aVar = this.u;
         if (aVar == null) {
-            Context context = this.f30269a;
-            m mVar = this.f30270b;
-            String str = this.f30273e;
+            Context context = this.f30379a;
+            m mVar = this.f30380b;
+            String str = this.f30383e;
             aVar = new com.bytedance.sdk.openadsdk.core.b.a(context, mVar, str, o.a(str));
-            aVar.a(a(this.f30270b, this.f30269a));
+            aVar.a(a(this.f30380b, this.f30379a));
         }
         view.setOnTouchListener(aVar);
         view.setOnClickListener(aVar);
@@ -317,7 +318,7 @@ public class FullInteractionStyleView extends BackupView {
     private void a(ImageView imageView) {
         m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, this, imageView) == null) || (mVar = this.f30270b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, imageView) == null) || (mVar = this.f30380b) == null) {
             return;
         }
         com.bytedance.sdk.openadsdk.l.e.b().a(mVar.ad().get(0).a(), imageView);
@@ -328,7 +329,7 @@ public class FullInteractionStyleView extends BackupView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, mVar, context)) == null) {
             if (mVar != null && mVar.X() == 4) {
-                return com.bytedance.sdk.openadsdk.downloadnew.a.a(context, mVar, this.f30273e);
+                return com.bytedance.sdk.openadsdk.downloadnew.a.a(context, mVar, this.f30383e);
             }
             return null;
         }
@@ -351,8 +352,8 @@ public class FullInteractionStyleView extends BackupView {
                 min = Math.min(heightDp, widthDp);
                 max = Math.max(heightDp, widthDp);
             }
-            if (this.p != 2 && q.b((Activity) this.f30269a)) {
-                Context context = this.f30269a;
+            if (this.p != 2 && q.b((Activity) this.f30379a)) {
+                Context context = this.f30379a;
                 max -= q.c(context, q.j(context));
             }
             int i3 = 20;
@@ -379,7 +380,7 @@ public class FullInteractionStyleView extends BackupView {
                 max2 = 0;
                 i3 = 0;
             }
-            ((Activity) this.f30269a).getWindow().getDecorView().setPadding(q.d(this.f30269a, i4), q.d(this.f30269a, i3), q.d(this.f30269a, max2), q.d(this.f30269a, i2));
+            ((Activity) this.f30379a).getWindow().getDecorView().setPadding(q.d(this.f30379a, i4), q.d(this.f30379a, i3), q.d(this.f30379a, max2), q.d(this.f30379a, i2));
         }
     }
 }

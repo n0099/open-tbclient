@@ -1,5 +1,6 @@
 package okio;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -25,7 +26,7 @@ import java.nio.file.Path;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Nullable;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class Okio {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger logger;
@@ -216,7 +217,7 @@ public final class Okio {
     public static BufferedSink buffer(Sink sink) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, sink)) == null) ? new RealBufferedSink(sink) : (BufferedSink) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, sink)) == null) ? new RealBufferedSink(sink) : (BufferedSink) invokeL.objValue;
     }
 
     public static Sink sink(OutputStream outputStream, Timeout timeout) {

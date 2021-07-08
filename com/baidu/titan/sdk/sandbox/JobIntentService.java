@@ -19,7 +19,7 @@ import androidx.annotation.RequiresApi;
 import com.bytedance.sdk.openadsdk.TTAdConstant;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class JobIntentService extends Service {
     public static final boolean DEBUG = false;
     public static final String TAG = "JobIntentService";
@@ -33,7 +33,7 @@ public abstract class JobIntentService extends Service {
     public boolean mStopped = false;
     public boolean mDestroyed = false;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public final class CommandProcessor extends AsyncTask<Void, Void, Void> {
         public CommandProcessor() {
         }
@@ -64,14 +64,14 @@ public abstract class JobIntentService extends Service {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface CompatJobEngine {
         IBinder compatGetBinder();
 
         GenericWorkItem dequeueWork();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class CompatWorkEnqueuer extends WorkEnqueuer {
         public final Context mContext;
         public final PowerManager.WakeLock mLaunchWakeLock;
@@ -139,7 +139,7 @@ public abstract class JobIntentService extends Service {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public final class CompatWorkItem implements GenericWorkItem {
         public final Intent mIntent;
         public final int mStartId;
@@ -160,7 +160,7 @@ public abstract class JobIntentService extends Service {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface GenericWorkItem {
         void complete();
 
@@ -168,7 +168,7 @@ public abstract class JobIntentService extends Service {
     }
 
     @RequiresApi(26)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class JobServiceEngineImpl extends JobServiceEngine implements CompatJobEngine {
         public static final boolean DEBUG = false;
         public static final String TAG = "JobServiceEngineImpl";
@@ -176,7 +176,7 @@ public abstract class JobIntentService extends Service {
         public JobParameters mParams;
         public final JobIntentService mService;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public final class WrapperWorkItem implements GenericWorkItem {
             public final JobWorkItem mJobWork;
 
@@ -243,7 +243,7 @@ public abstract class JobIntentService extends Service {
     }
 
     @RequiresApi(26)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class JobWorkEnqueuer extends WorkEnqueuer {
         public final JobInfo mJobInfo;
         public final JobScheduler mJobScheduler;
@@ -261,7 +261,7 @@ public abstract class JobIntentService extends Service {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static abstract class WorkEnqueuer {
         public final ComponentName mComponentName;
         public boolean mHasJobId;

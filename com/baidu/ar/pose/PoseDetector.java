@@ -90,7 +90,7 @@ public class PoseDetector extends com.baidu.ar.b.a.a {
 
     public static void m(float[] fArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, fArr) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, fArr) == null) {
             for (int i2 = 0; i2 < 8; i2++) {
                 int[] iArr = tP;
                 float f2 = fArr[iArr[i2] * 3];
@@ -157,7 +157,7 @@ public class PoseDetector extends com.baidu.ar.b.a.a {
                     }
                     float f2 = this.qr.getFloat(PoseAR.MDL_MAGIC_FILTER_CUTOFFSLOPE, 1.0f);
                     float[] floatArray = this.qr.getFloatArray(PoseAR.MDL_MAGIC_FILTER_MIN_CUTOFFFREQ);
-                    return aVar.f4226tv ? ARMdlInterfaceJNI.initPoseFromAsset(strArr[0], strArr[1], strArr[2], 1, f2, floatArray, floatArray) : ARMdlInterfaceJNI.initPose(strArr[0], strArr[1], strArr[2], 1, f2, floatArray, floatArray);
+                    return aVar.f4229tv ? ARMdlInterfaceJNI.initPoseFromAsset(strArr[0], strArr[1], strArr[2], 1, f2, floatArray, floatArray) : ARMdlInterfaceJNI.initPose(strArr[0], strArr[1], strArr[2], 1, f2, floatArray, floatArray);
                 }
                 return invokeL2.intValue;
             }

@@ -2,6 +2,7 @@ package androidx.core.graphics;
 
 import android.graphics.Point;
 import android.graphics.PointF;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -108,7 +109,7 @@ public final class PointKt {
     public static final Point minus(Point point, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, point, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, point, i2)) == null) {
             Point point2 = new Point(point.x, point.y);
             int i3 = -i2;
             point2.offset(i3, i3);

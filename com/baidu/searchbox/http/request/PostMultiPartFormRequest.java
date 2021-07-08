@@ -21,14 +21,14 @@ import okhttp3.MultipartBody;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.internal.Util;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PostMultiPartFormRequest extends HttpParaRequest<PostMultiPartFormRequestBuilder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<PostBytes> bytes;
     public List<PostFile> files;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class PostBytes {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +84,7 @@ public class PostMultiPartFormRequest extends HttpParaRequest<PostMultiPartFormR
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class PostFile {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,7 +150,7 @@ public class PostMultiPartFormRequest extends HttpParaRequest<PostMultiPartFormR
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class PostMultiPartFormRequestBuilder extends HttpRequestParasBuilder<PostMultiPartFormRequestBuilder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

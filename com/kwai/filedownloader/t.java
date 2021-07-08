@@ -1,7 +1,7 @@
 package com.kwai.filedownloader;
 
 import android.content.Context;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface t {
     void a(Context context);
 

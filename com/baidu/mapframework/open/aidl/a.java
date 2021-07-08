@@ -12,23 +12,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface a extends IInterface {
 
     /* renamed from: com.baidu.mapframework.open.aidl.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static abstract class AbstractBinderC0114a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.mapframework.open.aidl.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public static class C0115a implements a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f7513a;
+            public IBinder f7530a;
 
             public C0115a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public interface a extends IInterface {
                         return;
                     }
                 }
-                this.f7513a = iBinder;
+                this.f7530a = iBinder;
             }
 
             @Override // com.baidu.mapframework.open.aidl.a
@@ -57,7 +57,7 @@ public interface a extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.baidu.mapframework.open.aidl.IMapOpenService");
                         obtain.writeStrongBinder(bVar != null ? bVar.asBinder() : null);
-                        this.f7513a.transact(1, obtain, obtain2, 0);
+                        this.f7530a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
                         obtain2.recycle();
@@ -70,7 +70,7 @@ public interface a extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7513a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7530a : (IBinder) invokeV.objValue;
             }
         }
 

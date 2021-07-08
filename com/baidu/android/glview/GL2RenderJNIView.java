@@ -132,7 +132,7 @@ public class GL2RenderJNIView extends GLSurfaceView {
 
         private void printConfigs(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig[] eGLConfigArr) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(65540, this, egl10, eGLDisplay, eGLConfigArr) == null) {
+            if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, egl10, eGLDisplay, eGLConfigArr) == null) {
                 int length = eGLConfigArr.length;
                 Log.w(GL2RenderJNIView.TAG, String.format("%d configurations", Integer.valueOf(length)));
                 for (int i2 = 0; i2 < length; i2++) {

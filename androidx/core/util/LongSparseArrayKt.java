@@ -2,6 +2,7 @@ package androidx.core.util;
 
 import android.util.LongSparseArray;
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,7 +59,7 @@ public final class LongSparseArrayKt {
     public static final <T> T getOrDefault(LongSparseArray<T> longSparseArray, long j, T t) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{longSparseArray, Long.valueOf(j), t})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{longSparseArray, Long.valueOf(j), t})) == null) {
             T t2 = longSparseArray.get(j);
             return t2 != null ? t2 : t;
         }

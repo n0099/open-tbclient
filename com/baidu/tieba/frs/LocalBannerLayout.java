@@ -14,35 +14,35 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.r0.r.w.b.c;
-import d.a.r0.r.w.b.d;
-import d.a.r0.r.w.b.e;
-import d.a.s0.u0.h;
+import d.a.o0.r.w.b.c;
+import d.a.o0.r.w.b.d;
+import d.a.o0.r.w.b.e;
+import d.a.p0.u0.h;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class LocalBannerLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public CoverFlowLocalView<h> f15405e;
+    public CoverFlowLocalView<h> f15444e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d<h> f15406f;
+    public d<h> f15445f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<h> f15407g;
+    public List<h> f15446g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d<h> f15408h;
+    public d<h> f15447h;
 
-    /* loaded from: classes5.dex */
-    public class a extends d.a.r0.r.w.b.b {
+    /* loaded from: classes4.dex */
+    public class a extends d.a.o0.r.w.b.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LocalBannerLayout f15409a;
+        public final /* synthetic */ LocalBannerLayout f15448a;
 
         public a(LocalBannerLayout localBannerLayout) {
             Interceptable interceptable = $ic;
@@ -59,10 +59,10 @@ public class LocalBannerLayout extends RelativeLayout {
                     return;
                 }
             }
-            this.f15409a = localBannerLayout;
+            this.f15448a = localBannerLayout;
         }
 
-        @Override // d.a.r0.r.w.b.b, d.a.r0.r.w.a
+        @Override // d.a.o0.r.w.b.b, d.a.o0.r.w.a
         public c a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -78,19 +78,19 @@ public class LocalBannerLayout extends RelativeLayout {
             return (c) invokeV.objValue;
         }
 
-        @Override // d.a.r0.r.w.b.b, d.a.r0.r.w.a
+        @Override // d.a.o0.r.w.b.b, d.a.o0.r.w.a
         public e c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 e eVar = new e();
-                eVar.a(l.g(this.f15409a.getContext(), R.dimen.tbds690));
+                eVar.a(l.g(this.f15448a.getContext(), R.dimen.tbds690));
                 return eVar;
             }
             return (e) invokeV.objValue;
         }
 
-        @Override // d.a.r0.r.w.b.b, d.a.r0.r.w.a
+        @Override // d.a.o0.r.w.b.b, d.a.o0.r.w.a
         public TbImageView d(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -106,13 +106,13 @@ public class LocalBannerLayout extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements d<h> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LocalBannerLayout f15410a;
+        public final /* synthetic */ LocalBannerLayout f15449a;
 
         public b(LocalBannerLayout localBannerLayout) {
             Interceptable interceptable = $ic;
@@ -129,27 +129,27 @@ public class LocalBannerLayout extends RelativeLayout {
                     return;
                 }
             }
-            this.f15410a = localBannerLayout;
+            this.f15449a = localBannerLayout;
         }
 
-        @Override // d.a.r0.r.w.b.d
+        @Override // d.a.o0.r.w.b.d
         public void b(int i2, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || i2 < 0 || this.f15410a.f15407g == null || i2 > this.f15410a.f15407g.size() + 1 || this.f15410a.f15406f == null) {
+            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || i2 < 0 || this.f15449a.f15446g == null || i2 > this.f15449a.f15446g.size() + 1 || this.f15449a.f15445f == null) {
                 return;
             }
-            this.f15410a.f15406f.b(i2, str);
+            this.f15449a.f15445f.b(i2, str);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.r0.r.w.b.d
+        @Override // d.a.o0.r.w.b.d
         /* renamed from: c */
         public void a(int i2, h hVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, hVar) == null) || i2 < 0 || this.f15410a.f15407g == null || i2 > this.f15410a.f15407g.size() + 1 || this.f15410a.f15406f == null) {
+            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, hVar) == null) || i2 < 0 || this.f15449a.f15446g == null || i2 > this.f15449a.f15446g.size() + 1 || this.f15449a.f15445f == null) {
                 return;
             }
-            this.f15410a.f15406f.a(i2, hVar);
+            this.f15449a.f15445f.a(i2, hVar);
         }
     }
 
@@ -177,31 +177,31 @@ public class LocalBannerLayout extends RelativeLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f15405e = new CoverFlowLocalView<>(getContext());
+            this.f15444e = new CoverFlowLocalView<>(getContext());
             a aVar = new a(this);
-            this.f15405e.setIndicatorNoOffet(false);
-            this.f15405e.setDisableParentEvent(false);
-            this.f15405e.setCoverFlowFactory(aVar);
-            this.f15405e.setIndicatorVisible(0);
-            this.f15405e.setIsAutoPlayDragging(false);
-            this.f15405e.setAutoPlay(false);
-            this.f15405e.setCallback(this.f15408h);
-            addView(this.f15405e);
+            this.f15444e.setIndicatorNoOffet(false);
+            this.f15444e.setDisableParentEvent(false);
+            this.f15444e.setCoverFlowFactory(aVar);
+            this.f15444e.setIndicatorVisible(0);
+            this.f15444e.setIsAutoPlayDragging(false);
+            this.f15444e.setAutoPlay(false);
+            this.f15444e.setCallback(this.f15447h);
+            addView(this.f15444e);
         }
     }
 
     public void setData(List<h> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f15407g = list;
-            this.f15405e.setData(list);
+            this.f15446g = list;
+            this.f15444e.setData(list);
         }
     }
 
     public void setOnCoverViewCallback(d<h> dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
-            this.f15406f = dVar;
+            this.f15445f = dVar;
         }
     }
 
@@ -245,7 +245,7 @@ public class LocalBannerLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f15408h = new b(this);
+        this.f15447h = new b(this);
         c();
     }
 }

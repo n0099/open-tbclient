@@ -1,5 +1,6 @@
 package com.baidubce.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ConvertUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] CHUNK_SEPARATOR;
@@ -93,7 +94,7 @@ public class ConvertUtils {
     public static byte[] inputStreamToByte(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65540, null, inputStream)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream)) != null) {
             return (byte[]) invokeL.objValue;
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

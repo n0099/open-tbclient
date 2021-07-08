@@ -787,7 +787,7 @@ public class ViewPager extends ViewGroup {
 
     private void completeScroll(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65540, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, this, z) == null) {
             boolean z2 = this.mScrollState == 2;
             if (z2) {
                 setScrollingCacheEnabled(false);

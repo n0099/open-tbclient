@@ -6,6 +6,7 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FunOpenIDSdk {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SDK_VERSION = "1.3.2";
@@ -111,7 +112,7 @@ public class FunOpenIDSdk {
     public static String getMD5(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
                 MessageDigest messageDigest = MessageDigest.getInstance("MD5");
                 messageDigest.update(str.getBytes());
@@ -138,7 +139,7 @@ public class FunOpenIDSdk {
                         Log.e(TAG, "getOaid context is null !!!");
                     }
                 } else if (onGetOaidListener != null) {
-                    j.f32669a.execute(new e(context, onGetOaidListener));
+                    j.f32779a.execute(new e(context, onGetOaidListener));
                 } else {
                     if (isLogEnabled()) {
                         Log.e(TAG, "getOaid onGetOaidListener is null !!!");
@@ -151,7 +152,7 @@ public class FunOpenIDSdk {
     public static String getSdkVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? SDK_VERSION : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? "1.3.2" : (String) invokeV.objValue;
     }
 
     public static String getVivoAppId() {

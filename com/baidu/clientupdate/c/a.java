@@ -36,28 +36,28 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.regex.Pattern;
 import kotlinx.coroutines.DebugKt;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static StringBuilder A;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f4630a;
+    public static a f4647a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f4631b;
+    public static Context f4648b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f4632c;
+    public static String f4649c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f4633d;
+    public static String f4650d;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f4634f;
+    public static String f4651f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f4635g;
+    public static String f4652g;
     public static String l;
     public static String m;
     public static String n;
@@ -67,13 +67,13 @@ public final class a {
     public d B;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f4636e;
+    public String f4653e;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f4637h;
+    public String f4654h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f4638i;
+    public boolean f4655i;
     public String j;
     public Map k;
     public String o;
@@ -102,11 +102,11 @@ public final class a {
                 return;
             }
         }
-        this.f4638i = false;
+        this.f4655i = false;
         this.k = new HashMap();
         this.z = Boolean.FALSE;
         Context applicationContext = context.getApplicationContext();
-        f4631b = applicationContext;
+        f4648b = applicationContext;
         this.B = d.a(applicationContext);
         d();
     }
@@ -117,10 +117,10 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (a.class) {
-                if (f4630a == null) {
-                    f4630a = new a(context);
+                if (f4647a == null) {
+                    f4647a = new a(context);
                 }
-                aVar = f4630a;
+                aVar = f4647a;
             }
             return aVar;
         }
@@ -143,7 +143,7 @@ public final class a {
             stringBuffer.append("_");
             stringBuffer.append(str);
             stringBuffer.append("_");
-            stringBuffer.append(f4632c);
+            stringBuffer.append(f4649c);
             stringBuffer.append("_");
             stringBuffer.append(i4);
             String stringBuffer2 = stringBuffer.toString();
@@ -165,7 +165,7 @@ public final class a {
                 return "WF";
             }
             int subtype = activeNetworkInfo.getSubtype();
-            return (subtype == 7 || subtype == 5 || subtype == 6 || subtype == 8 || subtype == 10 || subtype == 9 || subtype == 3 || subtype == 14 || subtype == 12 || subtype == 15) ? g.f3983b : subtype == 13 ? "4G" : "2G";
+            return (subtype == 7 || subtype == 5 || subtype == 6 || subtype == 8 || subtype == 10 || subtype == 9 || subtype == 3 || subtype == 14 || subtype == 12 || subtype == 15) ? g.f3986b : subtype == 13 ? "4G" : "2G";
         }
         return (String) invokeL.objValue;
     }
@@ -173,26 +173,26 @@ public final class a {
     public static boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? Pattern.compile("[0-9]*").matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? Pattern.compile("[0-9]*").matcher(str).matches() : invokeL.booleanValue;
     }
 
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            this.f4636e = f4631b.getPackageName();
-            this.s = (ActivityManager) f4631b.getSystemService("activity");
+            this.f4653e = f4648b.getPackageName();
+            this.s = (ActivityManager) f4648b.getSystemService("activity");
             try {
-                PackageInfo packageInfo = f4631b.getPackageManager().getPackageInfo(this.f4636e, 64);
-                f4632c = packageInfo.versionName;
-                f4633d = String.valueOf(packageInfo.versionCode);
+                PackageInfo packageInfo = f4648b.getPackageManager().getPackageInfo(this.f4653e, 64);
+                f4649c = packageInfo.versionName;
+                f4650d = String.valueOf(packageInfo.versionCode);
                 x = new File(packageInfo.applicationInfo.publicSourceDir).length() + "";
             } catch (PackageManager.NameNotFoundException e2) {
                 e2.printStackTrace();
             }
-            w = j.a(f4631b, this.f4636e);
-            f4634f = g();
-            this.f4637h = f();
-            f4635g = b(f4631b);
+            w = j.a(f4648b, this.f4653e);
+            f4651f = g();
+            this.f4654h = f();
+            f4652g = b(f4648b);
         }
     }
 
@@ -270,9 +270,9 @@ public final class a {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            if (TextUtils.isEmpty(f4634f)) {
+            if (TextUtils.isEmpty(f4651f)) {
                 try {
-                    str = CommonParam.getCUID(f4631b);
+                    str = CommonParam.getCUID(f4648b);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     str = System.currentTimeMillis() + "";
@@ -280,7 +280,7 @@ public final class a {
                 LogUtil.logD("BaiduParamManager", "new generated uid " + str);
                 return str;
             }
-            return f4634f;
+            return f4651f;
         }
         return (String) invokeV.objValue;
     }
@@ -319,7 +319,7 @@ public final class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
                 ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-                ((ActivityManager) f4631b.getSystemService("activity")).getMemoryInfo(memoryInfo);
+                ((ActivityManager) f4648b.getSystemService("activity")).getMemoryInfo(memoryInfo);
                 return Long.toHexString(memoryInfo.totalMem);
             }
             try {
@@ -371,7 +371,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             this.v = str;
-            f4635g = b(f4631b);
+            f4652g = b(f4648b);
         }
     }
 
@@ -395,25 +395,25 @@ public final class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             StringBuilder sb = new StringBuilder();
             A = sb;
-            sb.append("{\"cid\":\"" + f4634f + "\",");
+            sb.append("{\"cid\":\"" + f4651f + "\",");
             StringBuilder sb2 = A;
             sb2.append("\"pl\":\"" + l + "\",");
             StringBuilder sb3 = A;
-            sb3.append("\"os\":\"" + f4635g + "\",");
+            sb3.append("\"os\":\"" + f4652g + "\",");
             StringBuilder sb4 = A;
             sb4.append("\"ot\":\"" + m + "\",");
             StringBuilder sb5 = A;
             sb5.append("\"cl\":\"" + n + "\",");
             StringBuilder sb6 = A;
-            sb6.append("\"cvn\":\"" + f4632c + "\",");
+            sb6.append("\"cvn\":\"" + f4649c + "\",");
             StringBuilder sb7 = A;
-            sb7.append("\"cvc\":\"" + f4633d + "\",");
+            sb7.append("\"cvc\":\"" + f4650d + "\",");
             StringBuilder sb8 = A;
             sb8.append("\"csz\":\"" + x + "\",");
             StringBuilder sb9 = A;
             sb9.append("\"cmd5\":\"" + w + "\",");
-            ClientUpdateInfo a2 = com.baidu.clientupdate.d.a.a(f4631b).a();
-            RuleInfo b2 = com.baidu.clientupdate.d.a.a(f4631b).b();
+            ClientUpdateInfo a2 = com.baidu.clientupdate.d.a.a(f4648b).a();
+            RuleInfo b2 = com.baidu.clientupdate.d.a.a(f4648b).b();
             if (a2 == null || b2 == null) {
                 A.append("\"ug\":\"\",");
                 A.append("\"vn\":\"\",");
@@ -444,14 +444,14 @@ public final class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             try {
                 b bVar = new b(a() + str);
-                bVar.a("versioncode", f4633d);
-                bVar.a("versionname", f4632c);
-                bVar.a("pkgname", this.f4636e);
-                bVar.a("cuid", f4634f);
-                bVar.a("ua", f4635g);
-                bVar.a("ut", this.f4637h);
-                bVar.a(DebugKt.DEBUG_PROPERTY_VALUE_AUTO, String.valueOf(this.f4638i));
-                String c2 = c(f4631b);
+                bVar.a("versioncode", f4650d);
+                bVar.a("versionname", f4649c);
+                bVar.a("pkgname", this.f4653e);
+                bVar.a("cuid", f4651f);
+                bVar.a("ua", f4652g);
+                bVar.a("ut", this.f4654h);
+                bVar.a(DebugKt.DEBUG_PROPERTY_VALUE_AUTO, String.valueOf(this.f4655i));
+                String c2 = c(f4648b);
                 this.j = c2;
                 bVar.a("network", c2);
                 String h2 = h();
@@ -472,7 +472,7 @@ public final class a {
                 if (!TextUtils.isEmpty(w)) {
                     bVar.a("usermd5", w);
                 }
-                String a2 = j.a(f4631b, "com.baidu.appsearch");
+                String a2 = j.a(f4648b, "com.baidu.appsearch");
                 this.y = a2;
                 if (!TextUtils.isEmpty(a2)) {
                     bVar.a("appsearchmd5", this.y);
@@ -497,7 +497,7 @@ public final class a {
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f4638i = z;
+            this.f4655i = z;
         }
     }
 
@@ -505,7 +505,7 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            RuleInfo b2 = com.baidu.clientupdate.d.a.a(f4631b).b();
+            RuleInfo b2 = com.baidu.clientupdate.d.a.a(f4648b).b();
             return b2 != null ? b2.mUpgradeid : "-1";
         }
         return (String) invokeV.objValue;
@@ -514,14 +514,14 @@ public final class a {
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            f4632c = str;
+            f4649c = str;
         }
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            f4633d = str;
+            f4650d = str;
         }
     }
 

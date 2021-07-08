@@ -13,11 +13,11 @@ import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.ugc.editvideo.record.processor.MultiMediaPreProcessor;
 import com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSource;
 import com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener;
-import d.a.y0.t.c;
-import d.a.y0.t.h;
+import d.a.v0.t.c;
+import d.a.v0.t.h;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MultiMediaPreGlRenderer extends BaseGlRenderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -36,7 +36,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 @TargetApi(16)
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class MediaCodecRenderer extends a {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] Y;
@@ -115,7 +115,7 @@ public abstract class MediaCodecRenderer extends a {
                 return;
             }
         }
-        d.f.b.a.i0.a.f(v.f73412a >= 16);
+        d.f.b.a.i0.a.f(v.f70515a >= 16);
         d.f.b.a.i0.a.e(bVar);
         this.m = bVar;
         this.n = aVar;
@@ -129,51 +129,51 @@ public abstract class MediaCodecRenderer extends a {
         this.Q = 0;
     }
 
-    public static boolean G(String str, Format format) {
+    public static boolean H(String str, Format format) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, format)) == null) ? v.f73412a < 21 && format.initializationData.isEmpty() && "OMX.MTK.VIDEO.DECODER.AVC".equals(str) : invokeLL.booleanValue;
-    }
-
-    public static boolean H(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (v.f73412a <= 23 && "OMX.google.vorbis.decoder".equals(str)) || (v.f73412a <= 19 && "hb2000".equals(v.f73413b) && ("OMX.amlogic.avc.decoder.awesome".equals(str) || "OMX.amlogic.avc.decoder.awesome.secure".equals(str))) : invokeL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, format)) == null) ? v.f70515a < 21 && format.initializationData.isEmpty() && "OMX.MTK.VIDEO.DECODER.AVC".equals(str) : invokeLL.booleanValue;
     }
 
     public static boolean I(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? v.f73412a == 21 && "OMX.google.aac.decoder".equals(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (v.f70515a <= 23 && "OMX.google.vorbis.decoder".equals(str)) || (v.f70515a <= 19 && "hb2000".equals(v.f70516b) && ("OMX.amlogic.avc.decoder.awesome".equals(str) || "OMX.amlogic.avc.decoder.awesome.secure".equals(str))) : invokeL.booleanValue;
     }
 
     public static boolean J(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? v.f73412a <= 17 && ("OMX.rk.video_decoder.avc".equals(str) || "OMX.allwinner.video.decoder.avc".equals(str)) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? v.f70515a == 21 && "OMX.google.aac.decoder".equals(str) : invokeL.booleanValue;
     }
 
     public static boolean K(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? v.f70515a <= 17 && ("OMX.rk.video_decoder.avc".equals(str) || "OMX.allwinner.video.decoder.avc".equals(str)) : invokeL.booleanValue;
+    }
+
+    public static boolean L(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
-            int i2 = v.f73412a;
-            return i2 < 18 || (i2 == 18 && ("OMX.SEC.avc.dec".equals(str) || "OMX.SEC.avc.dec.secure".equals(str))) || (v.f73412a == 19 && v.f73415d.startsWith("SM-G800") && ("OMX.Exynos.avc.dec".equals(str) || "OMX.Exynos.avc.dec.secure".equals(str)));
+            int i2 = v.f70515a;
+            return i2 < 18 || (i2 == 18 && ("OMX.SEC.avc.dec".equals(str) || "OMX.SEC.avc.dec.secure".equals(str))) || (v.f70515a == 19 && v.f70518d.startsWith("SM-G800") && ("OMX.Exynos.avc.dec".equals(str) || "OMX.Exynos.avc.dec.secure".equals(str)));
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean L(String str, Format format) {
+    public static boolean M(String str, Format format) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, format)) == null) ? v.f73412a <= 18 && format.channelCount == 1 && "OMX.MTK.AUDIO.DECODER.MP3".equals(str) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, format)) == null) ? v.f70515a <= 18 && format.channelCount == 1 && "OMX.MTK.AUDIO.DECODER.MP3".equals(str) : invokeLL.booleanValue;
     }
 
-    public static MediaCodec.CryptoInfo U(e eVar, int i2) {
+    public static MediaCodec.CryptoInfo V(e eVar, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, eVar, i2)) == null) {
-            MediaCodec.CryptoInfo a2 = eVar.f73651f.a();
+            MediaCodec.CryptoInfo a2 = eVar.f70754f.a();
             if (i2 == 0) {
                 return a2;
             }
@@ -187,25 +187,32 @@ public abstract class MediaCodecRenderer extends a {
         return (MediaCodec.CryptoInfo) invokeLI.objValue;
     }
 
-    public boolean E(MediaCodec mediaCodec, boolean z, Format format, Format format2) {
+    @Override // d.f.b.a.a
+    public void A() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    public boolean F(MediaCodec mediaCodec, boolean z, Format format, Format format2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{mediaCodec, Boolean.valueOf(z), format, format2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{mediaCodec, Boolean.valueOf(z), format, format2})) == null) {
             return false;
         }
         return invokeCommon.booleanValue;
     }
 
-    public final int F(String str) {
+    public final int G(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (v.f73412a <= 25 && "OMX.Exynos.avc.dec.secure".equals(str) && (v.f73415d.startsWith("SM-T585") || v.f73415d.startsWith("SM-A510") || v.f73415d.startsWith("SM-A520") || v.f73415d.startsWith("SM-J700"))) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (v.f70515a <= 25 && "OMX.Exynos.avc.dec.secure".equals(str) && (v.f70518d.startsWith("SM-T585") || v.f70518d.startsWith("SM-A510") || v.f70518d.startsWith("SM-A520") || v.f70518d.startsWith("SM-J700"))) {
                 return 2;
             }
-            if (v.f73412a < 24) {
+            if (v.f70515a < 24) {
                 if ("OMX.Nvidia.h264.decode".equals(str) || "OMX.Nvidia.h264.decode.secure".equals(str)) {
-                    return ("flounder".equals(v.f73413b) || "flounder_lte".equals(v.f73413b) || "grouper".equals(v.f73413b) || "tilapia".equals(v.f73413b)) ? 1 : 0;
+                    return ("flounder".equals(v.f70516b) || "flounder_lte".equals(v.f70516b) || "grouper".equals(v.f70516b) || "tilapia".equals(v.f70516b)) ? 1 : 0;
                 }
                 return 0;
             }
@@ -214,38 +221,38 @@ public abstract class MediaCodecRenderer extends a {
         return invokeL.intValue;
     }
 
-    public abstract void M(d.f.b.a.b0.a aVar, MediaCodec mediaCodec, Format format, MediaCrypto mediaCrypto) throws MediaCodecUtil.DecoderQueryException;
+    public abstract void N(d.f.b.a.b0.a aVar, MediaCodec mediaCodec, Format format, MediaCrypto mediaCrypto) throws MediaCodecUtil.DecoderQueryException;
 
-    public final boolean N(long j, long j2) throws ExoPlaybackException {
+    public final boolean O(long j, long j2) throws ExoPlaybackException {
         InterceptResult invokeCommon;
-        boolean c0;
+        boolean d0;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
             if (this.M < 0) {
                 if (this.E && this.S) {
                     try {
-                        this.M = this.x.dequeueOutputBuffer(this.t, T());
+                        this.M = this.x.dequeueOutputBuffer(this.t, U());
                     } catch (IllegalStateException unused) {
-                        b0();
+                        c0();
                         if (this.U) {
-                            f0();
+                            g0();
                         }
                         return false;
                     }
                 } else {
-                    this.M = this.x.dequeueOutputBuffer(this.t, T());
+                    this.M = this.x.dequeueOutputBuffer(this.t, U());
                 }
                 int i2 = this.M;
                 if (i2 < 0) {
                     if (i2 == -2) {
-                        e0();
+                        f0();
                         return true;
                     } else if (i2 == -3) {
-                        d0();
+                        e0();
                         return true;
                     } else {
                         if (this.C && (this.T || this.Q == 2)) {
-                            b0();
+                            c0();
                         }
                         return false;
                     }
@@ -257,7 +264,7 @@ public abstract class MediaCodecRenderer extends a {
                 } else {
                     MediaCodec.BufferInfo bufferInfo = this.t;
                     if ((bufferInfo.flags & 4) != 0) {
-                        b0();
+                        c0();
                         this.M = -1;
                         return false;
                     }
@@ -267,16 +274,16 @@ public abstract class MediaCodecRenderer extends a {
                         MediaCodec.BufferInfo bufferInfo2 = this.t;
                         byteBuffer.limit(bufferInfo2.offset + bufferInfo2.size);
                     }
-                    this.N = i0(this.t.presentationTimeUs);
+                    this.N = j0(this.t.presentationTimeUs);
                 }
             }
             if (this.E && this.S) {
                 try {
-                    c0 = c0(j, j2, this.x, this.J[this.M], this.M, this.t.flags, this.t.presentationTimeUs, this.N);
+                    d0 = d0(j, j2, this.x, this.J[this.M], this.M, this.t.flags, this.t.presentationTimeUs, this.N);
                 } catch (IllegalStateException unused2) {
-                    b0();
+                    c0();
                     if (this.U) {
-                        f0();
+                        g0();
                     }
                     return false;
                 }
@@ -286,10 +293,10 @@ public abstract class MediaCodecRenderer extends a {
                 int i3 = this.M;
                 ByteBuffer byteBuffer2 = byteBufferArr[i3];
                 MediaCodec.BufferInfo bufferInfo3 = this.t;
-                c0 = c0(j, j2, mediaCodec, byteBuffer2, i3, bufferInfo3.flags, bufferInfo3.presentationTimeUs, this.N);
+                d0 = d0(j, j2, mediaCodec, byteBuffer2, i3, bufferInfo3.flags, bufferInfo3.presentationTimeUs, this.N);
             }
-            if (c0) {
-                Z(this.t.presentationTimeUs);
+            if (d0) {
+                a0(this.t.presentationTimeUs);
                 this.M = -1;
                 return true;
             }
@@ -298,12 +305,12 @@ public abstract class MediaCodecRenderer extends a {
         return invokeCommon.booleanValue;
     }
 
-    public final boolean O() throws ExoPlaybackException {
+    public final boolean P() throws ExoPlaybackException {
         InterceptResult invokeV;
         int position;
-        int B;
+        int C;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             MediaCodec mediaCodec = this.x;
             if (mediaCodec == null || this.Q == 2 || this.T) {
                 return false;
@@ -315,7 +322,7 @@ public abstract class MediaCodecRenderer extends a {
                     return false;
                 }
                 e eVar = this.p;
-                eVar.f73652g = this.I[dequeueInputBuffer];
+                eVar.f70755g = this.I[dequeueInputBuffer];
                 eVar.f();
             }
             if (this.Q == 1) {
@@ -328,34 +335,34 @@ public abstract class MediaCodecRenderer extends a {
                 return false;
             } else if (this.G) {
                 this.G = false;
-                this.p.f73652g.put(Y);
+                this.p.f70755g.put(Y);
                 this.x.queueInputBuffer(this.L, 0, Y.length, 0L, 0);
                 this.L = -1;
                 this.R = true;
                 return true;
             } else {
                 if (this.V) {
-                    B = -4;
+                    C = -4;
                     position = 0;
                 } else {
                     if (this.P == 1) {
                         for (int i2 = 0; i2 < this.u.initializationData.size(); i2++) {
-                            this.p.f73652g.put(this.u.initializationData.get(i2));
+                            this.p.f70755g.put(this.u.initializationData.get(i2));
                         }
                         this.P = 2;
                     }
-                    position = this.p.f73652g.position();
-                    B = B(this.r, this.p, false);
+                    position = this.p.f70755g.position();
+                    C = C(this.r, this.p, false);
                 }
-                if (B == -3) {
+                if (C == -3) {
                     return false;
                 }
-                if (B == -5) {
+                if (C == -5) {
                     if (this.P == 2) {
                         this.p.f();
                         this.P = 1;
                     }
-                    X(this.r.f73492a);
+                    Y(this.r.f70595a);
                     return true;
                 } else if (this.p.j()) {
                     if (this.P == 2) {
@@ -364,7 +371,7 @@ public abstract class MediaCodecRenderer extends a {
                     }
                     this.T = true;
                     if (!this.R) {
-                        b0();
+                        c0();
                         return false;
                     }
                     try {
@@ -375,7 +382,7 @@ public abstract class MediaCodecRenderer extends a {
                         }
                         return false;
                     } catch (MediaCodec.CryptoException e2) {
-                        throw ExoPlaybackException.createForRenderer(e2, t());
+                        throw ExoPlaybackException.createForRenderer(e2, u());
                     }
                 } else if (this.W && !this.p.k()) {
                     this.p.f();
@@ -386,37 +393,37 @@ public abstract class MediaCodecRenderer extends a {
                 } else {
                     this.W = false;
                     boolean p = this.p.p();
-                    boolean j0 = j0(p);
-                    this.V = j0;
-                    if (j0) {
+                    boolean k0 = k0(p);
+                    this.V = k0;
+                    if (k0) {
                         return false;
                     }
                     if (this.A && !p) {
-                        j.b(this.p.f73652g);
-                        if (this.p.f73652g.position() == 0) {
+                        j.b(this.p.f70755g);
+                        if (this.p.f70755g.position() == 0) {
                             return true;
                         }
                         this.A = false;
                     }
                     try {
-                        long j = this.p.f73653h;
+                        long j = this.p.f70756h;
                         if (this.p.i()) {
                             this.s.add(Long.valueOf(j));
                         }
                         this.p.o();
-                        a0(this.p);
+                        b0(this.p);
                         if (p) {
-                            this.x.queueSecureInputBuffer(this.L, 0, U(this.p, position), j, 0);
+                            this.x.queueSecureInputBuffer(this.L, 0, V(this.p, position), j, 0);
                         } else {
-                            this.x.queueInputBuffer(this.L, 0, this.p.f73652g.limit(), j, 0);
+                            this.x.queueInputBuffer(this.L, 0, this.p.f70755g.limit(), j, 0);
                         }
                         this.L = -1;
                         this.R = true;
                         this.P = 0;
-                        this.X.f73644c++;
+                        this.X.f70747c++;
                         return true;
                     } catch (MediaCodec.CryptoException e3) {
-                        throw ExoPlaybackException.createForRenderer(e3, t());
+                        throw ExoPlaybackException.createForRenderer(e3, u());
                     }
                 }
             }
@@ -424,9 +431,9 @@ public abstract class MediaCodecRenderer extends a {
         return invokeV.booleanValue;
     }
 
-    public void P() throws ExoPlaybackException {
+    public void Q() throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.K = -9223372036854775807L;
             this.L = -1;
             this.M = -1;
@@ -438,15 +445,15 @@ public abstract class MediaCodecRenderer extends a {
             this.H = false;
             if (!this.B && (!this.D || !this.S)) {
                 if (this.Q != 0) {
-                    f0();
-                    V();
+                    g0();
+                    W();
                 } else {
                     this.x.flush();
                     this.R = false;
                 }
             } else {
-                f0();
-                V();
+                g0();
+                W();
             }
             if (!this.O || this.u == null) {
                 return;
@@ -455,39 +462,39 @@ public abstract class MediaCodecRenderer extends a {
         }
     }
 
-    public final MediaCodec Q() {
+    public final MediaCodec R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.x : (MediaCodec) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.x : (MediaCodec) invokeV.objValue;
     }
 
-    public final d.f.b.a.b0.a R() {
+    public final d.f.b.a.b0.a S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.y : (d.f.b.a.b0.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.y : (d.f.b.a.b0.a) invokeV.objValue;
     }
 
-    public d.f.b.a.b0.a S(b bVar, Format format, boolean z) throws MediaCodecUtil.DecoderQueryException {
+    public d.f.b.a.b0.a T(b bVar, Format format, boolean z) throws MediaCodecUtil.DecoderQueryException {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar, format, z)) == null) ? bVar.a(format.sampleMimeType, z) : (d.f.b.a.b0.a) invokeLLZ.objValue;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048585, this, bVar, format, z)) == null) ? bVar.a(format.sampleMimeType, z) : (d.f.b.a.b0.a) invokeLLZ.objValue;
     }
 
-    public long T() {
+    public long U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return 0L;
         }
         return invokeV.longValue;
     }
 
-    public final void V() throws ExoPlaybackException {
+    public final void W() throws ExoPlaybackException {
         Format format;
         MediaCrypto mediaCrypto;
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.x == null && (format = this.u) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.x == null && (format = this.u) != null) {
             DrmSession<c> drmSession = this.w;
             this.v = drmSession;
             String str = format.sampleMimeType;
@@ -496,7 +503,7 @@ public abstract class MediaCodecRenderer extends a {
                 if (a2 == null) {
                     DrmSession.DrmSessionException error = this.v.getError();
                     if (error != null) {
-                        throw ExoPlaybackException.createForRenderer(error, t());
+                        throw ExoPlaybackException.createForRenderer(error, u());
                     }
                     return;
                 }
@@ -508,62 +515,62 @@ public abstract class MediaCodecRenderer extends a {
             }
             if (this.y == null) {
                 try {
-                    d.f.b.a.b0.a S = S(this.m, this.u, z);
-                    this.y = S;
-                    if (S == null && z) {
-                        d.f.b.a.b0.a S2 = S(this.m, this.u, false);
-                        this.y = S2;
-                        if (S2 != null) {
-                            Log.w("MediaCodecRenderer", "Drm session requires secure decoder for " + str + ", but no secure decoder available. Trying to proceed with " + this.y.f72605a + ".");
+                    d.f.b.a.b0.a T = T(this.m, this.u, z);
+                    this.y = T;
+                    if (T == null && z) {
+                        d.f.b.a.b0.a T2 = T(this.m, this.u, false);
+                        this.y = T2;
+                        if (T2 != null) {
+                            Log.w("MediaCodecRenderer", "Drm session requires secure decoder for " + str + ", but no secure decoder available. Trying to proceed with " + this.y.f69708a + ".");
                         }
                     }
                     if (this.y == null) {
-                        l0(new DecoderInitializationException(this.u, (Throwable) null, z, (int) DecoderInitializationException.NO_SUITABLE_DECODER_ERROR));
+                        m0(new DecoderInitializationException(this.u, (Throwable) null, z, (int) DecoderInitializationException.NO_SUITABLE_DECODER_ERROR));
                         throw null;
                     }
                 } catch (MediaCodecUtil.DecoderQueryException e2) {
-                    l0(new DecoderInitializationException(this.u, e2, z, (int) DecoderInitializationException.DECODER_QUERY_ERROR));
+                    m0(new DecoderInitializationException(this.u, e2, z, (int) DecoderInitializationException.DECODER_QUERY_ERROR));
                     throw null;
                 }
             }
-            if (h0(this.y)) {
-                String str2 = this.y.f72605a;
-                this.z = F(str2);
-                this.A = G(str2, this.u);
-                this.B = K(str2);
-                this.C = J(str2);
-                this.D = H(str2);
-                this.E = I(str2);
-                this.F = L(str2, this.u);
+            if (i0(this.y)) {
+                String str2 = this.y.f69708a;
+                this.z = G(str2);
+                this.A = H(str2, this.u);
+                this.B = L(str2);
+                this.C = K(str2);
+                this.D = I(str2);
+                this.E = J(str2);
+                this.F = M(str2, this.u);
                 try {
                     long elapsedRealtime = SystemClock.elapsedRealtime();
                     t.a("createCodec:" + str2);
                     this.x = MediaCodec.createByCodecName(str2);
                     t.c();
                     t.a("configureCodec");
-                    M(this.y, this.x, this.u, mediaCrypto);
+                    N(this.y, this.x, this.u, mediaCrypto);
                     t.c();
                     t.a("startCodec");
                     this.x.start();
                     t.c();
                     long elapsedRealtime2 = SystemClock.elapsedRealtime();
-                    W(str2, elapsedRealtime2, elapsedRealtime2 - elapsedRealtime);
+                    X(str2, elapsedRealtime2, elapsedRealtime2 - elapsedRealtime);
                     this.I = this.x.getInputBuffers();
                     this.J = this.x.getOutputBuffers();
                     this.K = getState() == 2 ? SystemClock.elapsedRealtime() + 1000 : -9223372036854775807L;
                     this.L = -1;
                     this.M = -1;
                     this.W = true;
-                    this.X.f73642a++;
+                    this.X.f70745a++;
                 } catch (Exception e3) {
-                    l0(new DecoderInitializationException(this.u, e3, z, str2));
+                    m0(new DecoderInitializationException(this.u, e3, z, str2));
                     throw null;
                 }
             }
         }
     }
 
-    public abstract void W(String str, long j, long j2);
+    public abstract void X(String str, long j, long j2);
 
     /* JADX WARN: Code restructure failed: missing block: B:32:0x007a, code lost:
         if (r5.height == r0.height) goto L33;
@@ -571,10 +578,10 @@ public abstract class MediaCodecRenderer extends a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void X(Format format) throws ExoPlaybackException {
+    public void Y(Format format) throws ExoPlaybackException {
         MediaCodec mediaCodec;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, format) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, format) == null) {
             Format format2 = this.u;
             this.u = format;
             boolean z = true;
@@ -588,13 +595,13 @@ public abstract class MediaCodecRenderer extends a {
                             this.n.a(c2);
                         }
                     } else {
-                        throw ExoPlaybackException.createForRenderer(new IllegalStateException("Media requires a DrmSessionManager"), t());
+                        throw ExoPlaybackException.createForRenderer(new IllegalStateException("Media requires a DrmSessionManager"), u());
                     }
                 } else {
                     this.w = null;
                 }
             }
-            if (this.w == this.v && (mediaCodec = this.x) != null && E(mediaCodec, this.y.f72606b, format2, this.u)) {
+            if (this.w == this.v && (mediaCodec = this.x) != null && F(mediaCodec, this.y.f69709b, format2, this.u)) {
                 this.O = true;
                 this.P = 1;
                 int i2 = this.z;
@@ -610,19 +617,13 @@ public abstract class MediaCodecRenderer extends a {
             } else if (this.R) {
                 this.Q = 1;
             } else {
-                f0();
-                V();
+                g0();
+                W();
             }
         }
     }
 
-    public abstract void Y(MediaCodec mediaCodec, MediaFormat mediaFormat) throws ExoPlaybackException;
-
-    public void Z(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
-        }
-    }
+    public abstract void Z(MediaCodec mediaCodec, MediaFormat mediaFormat) throws ExoPlaybackException;
 
     @Override // d.f.b.a.s
     public final int a(Format format) throws ExoPlaybackException {
@@ -630,17 +631,17 @@ public abstract class MediaCodecRenderer extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, format)) == null) {
             try {
-                return k0(this.m, this.n, format);
+                return l0(this.m, this.n, format);
             } catch (MediaCodecUtil.DecoderQueryException e2) {
-                throw ExoPlaybackException.createForRenderer(e2, t());
+                throw ExoPlaybackException.createForRenderer(e2, u());
             }
         }
         return invokeL.intValue;
     }
 
-    public void a0(e eVar) {
+    public void a0(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, eVar) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
         }
     }
 
@@ -651,31 +652,37 @@ public abstract class MediaCodecRenderer extends a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.U : invokeV.booleanValue;
     }
 
-    public final void b0() throws ExoPlaybackException {
+    public void b0(e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            if (this.Q == 2) {
-                f0();
-                V();
-                return;
-            }
-            this.U = true;
-            g0();
+        if (interceptable == null || interceptable.invokeL(1048594, this, eVar) == null) {
         }
     }
 
-    public abstract boolean c0(long j, long j2, MediaCodec mediaCodec, ByteBuffer byteBuffer, int i2, int i3, long j3, boolean z) throws ExoPlaybackException;
-
-    public final void d0() {
+    public final void c0() throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            if (this.Q == 2) {
+                g0();
+                W();
+                return;
+            }
+            this.U = true;
+            h0();
+        }
+    }
+
+    public abstract boolean d0(long j, long j2, MediaCodec mediaCodec, ByteBuffer byteBuffer, int i2, int i3, long j3, boolean z) throws ExoPlaybackException;
+
+    public final void e0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             this.J = this.x.getOutputBuffers();
         }
     }
 
-    public final void e0() throws ExoPlaybackException {
+    public final void f0() throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             MediaFormat outputFormat = this.x.getOutputFormat();
             if (this.z != 0 && outputFormat.getInteger("width") == 32 && outputFormat.getInteger("height") == 32) {
                 this.H = true;
@@ -684,15 +691,15 @@ public abstract class MediaCodecRenderer extends a {
             if (this.F) {
                 outputFormat.setInteger("channel-count", 1);
             }
-            Y(this.x, outputFormat);
+            Z(this.x, outputFormat);
         }
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     /* JADX DEBUG: Finally have unexpected throw blocks count: 4, expect 1 */
-    public void f0() {
+    public void g0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             this.K = -9223372036854775807L;
             this.L = -1;
             this.M = -1;
@@ -715,10 +722,10 @@ public abstract class MediaCodecRenderer extends a {
             this.S = false;
             this.P = 0;
             this.Q = 0;
-            this.p.f73652g = null;
+            this.p.f70755g = null;
             MediaCodec mediaCodec = this.x;
             if (mediaCodec != null) {
-                this.X.f73643b++;
+                this.X.f70746b++;
                 try {
                     mediaCodec.stop();
                     try {
@@ -771,25 +778,32 @@ public abstract class MediaCodecRenderer extends a {
         }
     }
 
-    public void g0() throws ExoPlaybackException {
+    public void h0() throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
         }
     }
 
-    public boolean h0(d.f.b.a.b0.a aVar) {
+    public boolean i0(d.f.b.a.b0.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, aVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, aVar)) == null) {
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    public final boolean i0(long j) {
+    @Override // d.f.b.a.r
+    public boolean isReady() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? (this.u == null || this.V || (!v() && this.M < 0 && (this.K == -9223372036854775807L || SystemClock.elapsedRealtime() >= this.K))) ? false : true : invokeV.booleanValue;
+    }
+
+    public final boolean j0(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048601, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048603, this, j)) == null) {
             int size = this.s.size();
             for (int i2 = 0; i2 < size; i2++) {
                 if (this.s.get(i2).longValue() == j) {
@@ -803,62 +817,55 @@ public abstract class MediaCodecRenderer extends a {
     }
 
     @Override // d.f.b.a.r
-    public boolean isReady() {
-        InterceptResult invokeV;
+    public void k(long j, long j2) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? (this.u == null || this.V || (!u() && this.M < 0 && (this.K == -9223372036854775807L || SystemClock.elapsedRealtime() >= this.K))) ? false : true : invokeV.booleanValue;
-    }
-
-    @Override // d.f.b.a.r
-    public void j(long j, long j2) throws ExoPlaybackException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             if (this.U) {
-                g0();
+                h0();
                 return;
             }
             if (this.u == null) {
                 this.q.f();
-                int B = B(this.r, this.q, true);
-                if (B != -5) {
-                    if (B == -4) {
+                int C = C(this.r, this.q, true);
+                if (C != -5) {
+                    if (C == -4) {
                         d.f.b.a.i0.a.f(this.q.j());
                         this.T = true;
-                        b0();
+                        c0();
                         return;
                     }
                     return;
                 }
-                X(this.r.f73492a);
+                Y(this.r.f70595a);
             }
-            V();
+            W();
             if (this.x != null) {
                 t.a("drainAndFeed");
                 do {
-                } while (N(j, j2));
+                } while (O(j, j2));
                 do {
-                } while (O());
+                } while (P());
                 t.c();
             } else {
-                this.X.f73645d += C(j);
+                this.X.f70748d += D(j);
                 this.q.f();
-                int B2 = B(this.r, this.q, false);
-                if (B2 == -5) {
-                    X(this.r.f73492a);
-                } else if (B2 == -4) {
+                int C2 = C(this.r, this.q, false);
+                if (C2 == -5) {
+                    Y(this.r.f70595a);
+                } else if (C2 == -4) {
                     d.f.b.a.i0.a.f(this.q.j());
                     this.T = true;
-                    b0();
+                    c0();
                 }
             }
             this.X.a();
         }
     }
 
-    public final boolean j0(boolean z) throws ExoPlaybackException {
+    public final boolean k0(boolean z) throws ExoPlaybackException {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048604, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048605, this, z)) == null) {
             if (this.v == null || (!z && this.o)) {
                 return false;
             }
@@ -866,25 +873,25 @@ public abstract class MediaCodecRenderer extends a {
             if (state != 1) {
                 return state != 4;
             }
-            throw ExoPlaybackException.createForRenderer(this.v.getError(), t());
+            throw ExoPlaybackException.createForRenderer(this.v.getError(), u());
         }
         return invokeZ.booleanValue;
     }
 
-    public abstract int k0(b bVar, d.f.b.a.z.a<c> aVar, Format format) throws MediaCodecUtil.DecoderQueryException;
+    public abstract int l0(b bVar, d.f.b.a.z.a<c> aVar, Format format) throws MediaCodecUtil.DecoderQueryException;
 
-    public final void l0(DecoderInitializationException decoderInitializationException) throws ExoPlaybackException {
+    public final void m0(DecoderInitializationException decoderInitializationException) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, decoderInitializationException) == null) {
-            throw ExoPlaybackException.createForRenderer(decoderInitializationException, t());
+        if (interceptable == null || interceptable.invokeL(1048607, this, decoderInitializationException) == null) {
+            throw ExoPlaybackException.createForRenderer(decoderInitializationException, u());
         }
     }
 
     @Override // d.f.b.a.a, d.f.b.a.s
-    public final int q() {
+    public final int r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
             return 8;
         }
         return invokeV.intValue;
@@ -893,12 +900,12 @@ public abstract class MediaCodecRenderer extends a {
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     /* JADX DEBUG: Finally have unexpected throw blocks count: 4, expect 1 */
     @Override // d.f.b.a.a
-    public void v() {
+    public void w() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
             this.u = null;
             try {
-                f0();
+                g0();
                 try {
                     if (this.v != null) {
                         this.n.a(this.v);
@@ -944,29 +951,22 @@ public abstract class MediaCodecRenderer extends a {
     }
 
     @Override // d.f.b.a.a
-    public void w(boolean z) throws ExoPlaybackException {
+    public void x(boolean z) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
             this.X = new d();
         }
     }
 
     @Override // d.f.b.a.a
-    public void x(long j, boolean z) throws ExoPlaybackException {
+    public void y(long j, boolean z) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048611, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
             this.T = false;
             this.U = false;
             if (this.x != null) {
-                P();
+                Q();
             }
-        }
-    }
-
-    @Override // d.f.b.a.a
-    public void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
         }
     }
 
@@ -977,7 +977,7 @@ public abstract class MediaCodecRenderer extends a {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class DecoderInitializationException extends Exception {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CUSTOM_ERROR_CODE_BASE = -50000;
@@ -1059,7 +1059,7 @@ public abstract class MediaCodecRenderer extends a {
             this.mimeType = format.sampleMimeType;
             this.secureDecoderRequired = z;
             this.decoderName = str;
-            this.diagnosticInfo = v.f73412a >= 21 ? getDiagnosticInfoV21(th) : null;
+            this.diagnosticInfo = v.f70515a >= 21 ? getDiagnosticInfoV21(th) : null;
         }
     }
 }

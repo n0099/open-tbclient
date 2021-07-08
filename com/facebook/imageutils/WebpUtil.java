@@ -1,6 +1,7 @@
 package com.facebook.imageutils;
 
 import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +12,7 @@ import com.baidu.wallet.base.audio.b;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class WebpUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String VP8L_HEADER = "VP8L";
@@ -65,7 +66,7 @@ public class WebpUtil {
     public static String getHeader(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
             StringBuilder sb = new StringBuilder();
             for (byte b2 : bArr) {
                 sb.append((char) b2);
@@ -107,7 +108,7 @@ public class WebpUtil {
                         inputStream.close();
                     }
                 }
-                if (compare(bArr, b.f23840e)) {
+                if (compare(bArr, b.f23950e)) {
                     getInt(inputStream);
                     inputStream.read(bArr);
                     if (!compare(bArr, "WEBP")) {

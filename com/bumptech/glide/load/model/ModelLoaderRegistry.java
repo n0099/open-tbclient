@@ -3,6 +3,7 @@ package com.bumptech.glide.load.model;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.util.Pools;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,20 +15,20 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ModelLoaderRegistry {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ModelLoaderCache cache;
     public final MultiModelLoaderFactory multiModelLoaderFactory;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ModelLoaderCache {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Map<Class<?>, Entry<?>> cachedModelLoaders;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public static class Entry<Model> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -145,7 +146,7 @@ public class ModelLoaderRegistry {
 
     private <Model, Data> void tearDown(@NonNull List<ModelLoaderFactory<? extends Model, ? extends Data>> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, list) == null) {
             for (ModelLoaderFactory<? extends Model, ? extends Data> modelLoaderFactory : list) {
                 modelLoaderFactory.teardown();
             }

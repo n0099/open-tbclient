@@ -22,11 +22,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.e0.a.b;
+import d.a.b0.a.b;
 import java.lang.ref.WeakReference;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LoadCircleView extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_ALPHA_VALUE = 255;
@@ -55,7 +55,7 @@ public class LoadCircleView extends View {
     public Timer mTimer;
     public int mWidth;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class MainThreadHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

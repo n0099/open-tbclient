@@ -16,38 +16,38 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f39654a = 10;
+    public static int f36862a = 10;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f39655b = 5;
+    public static int f36863b = 5;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Executor f39656c;
+    public final Executor f36864c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Handler f39657d;
+    public final Handler f36865d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final LinkedBlockingQueue<s> f39658e;
+    public final LinkedBlockingQueue<s> f36866e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Object f39659f;
+    public final Object f36867f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final ArrayList<s> f39660g;
+    public final ArrayList<s> f36868g;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final j f39663a;
+        public static final j f36871a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -63,11 +63,11 @@ public class j {
                     return;
                 }
             }
-            f39663a = new j();
+            f36871a = new j();
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class b implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -143,23 +143,23 @@ public class j {
                 return;
             }
         }
-        this.f39656c = com.kwai.filedownloader.f.b.a(5, "BlockCompleted");
-        this.f39659f = new Object();
-        this.f39660g = new ArrayList<>();
-        this.f39657d = new Handler(Looper.getMainLooper(), new b());
-        this.f39658e = new LinkedBlockingQueue<>();
+        this.f36864c = com.kwai.filedownloader.f.b.a(5, "BlockCompleted");
+        this.f36867f = new Object();
+        this.f36868g = new ArrayList<>();
+        this.f36865d = new Handler(Looper.getMainLooper(), new b());
+        this.f36866e = new LinkedBlockingQueue<>();
     }
 
     public static j a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f39663a : (j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f36871a : (j) invokeV.objValue;
     }
 
     private void b(s sVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, sVar) == null) {
-            Handler handler = this.f39657d;
+            Handler handler = this.f36865d;
             handler.sendMessage(handler.obtainMessage(1, sVar));
         }
     }
@@ -167,32 +167,32 @@ public class j {
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f39654a > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f36862a > 0 : invokeV.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            synchronized (this.f39659f) {
-                if (this.f39660g.isEmpty()) {
-                    if (this.f39658e.isEmpty()) {
+            synchronized (this.f36867f) {
+                if (this.f36868g.isEmpty()) {
+                    if (this.f36866e.isEmpty()) {
                         return;
                     }
                     int i2 = 0;
                     if (b()) {
-                        int i3 = f39654a;
-                        int min = Math.min(this.f39658e.size(), f39655b);
+                        int i3 = f36862a;
+                        int min = Math.min(this.f36866e.size(), f36863b);
                         while (i2 < min) {
-                            this.f39660g.add(this.f39658e.remove());
+                            this.f36868g.add(this.f36866e.remove());
                             i2++;
                         }
                         i2 = i3;
                     } else {
-                        this.f39658e.drainTo(this.f39660g);
+                        this.f36866e.drainTo(this.f36868g);
                     }
-                    Handler handler = this.f39657d;
-                    handler.sendMessageDelayed(handler.obtainMessage(2, this.f39660g), i2);
+                    Handler handler = this.f36865d;
+                    handler.sendMessageDelayed(handler.obtainMessage(2, this.f36868g), i2);
                 }
             }
         }
@@ -201,8 +201,8 @@ public class j {
     private void c(s sVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, sVar) == null) {
-            synchronized (this.f39659f) {
-                this.f39658e.offer(sVar);
+            synchronized (this.f36867f) {
+                this.f36866e.offer(sVar);
             }
             c();
         }
@@ -221,15 +221,15 @@ public class j {
             if (sVar.c()) {
                 sVar.b();
             } else if (sVar.d()) {
-                this.f39656c.execute(new Runnable(this, sVar) { // from class: com.kwai.filedownloader.j.1
+                this.f36864c.execute(new Runnable(this, sVar) { // from class: com.kwai.filedownloader.j.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ s f39661a;
+                    public final /* synthetic */ s f36869a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ j f39662b;
+                    public final /* synthetic */ j f36870b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -246,28 +246,28 @@ public class j {
                                 return;
                             }
                         }
-                        this.f39662b = this;
-                        this.f39661a = sVar;
+                        this.f36870b = this;
+                        this.f36869a = sVar;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f39661a.b();
+                            this.f36869a.b();
                         }
                     }
                 });
             } else {
-                if (!b() && !this.f39658e.isEmpty()) {
-                    synchronized (this.f39659f) {
-                        if (!this.f39658e.isEmpty()) {
-                            Iterator<s> it = this.f39658e.iterator();
+                if (!b() && !this.f36866e.isEmpty()) {
+                    synchronized (this.f36867f) {
+                        if (!this.f36866e.isEmpty()) {
+                            Iterator<s> it = this.f36866e.iterator();
                             while (it.hasNext()) {
                                 b(it.next());
                             }
                         }
-                        this.f39658e.clear();
+                        this.f36866e.clear();
                     }
                 }
                 if (!b() || z) {

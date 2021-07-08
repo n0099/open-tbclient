@@ -9,21 +9,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.b.d;
 import com.kwad.sdk.core.network.BaseResultData;
-import com.kwad.sdk.utils.o;
+import com.kwad.sdk.utils.q;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PhotoShareInfo extends BaseResultData implements com.kwad.sdk.core.b, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1941263519515554943L;
     public transient /* synthetic */ FieldHolder $fh;
     public ShareUrlInfo data;
 
-    /* loaded from: classes7.dex */
-    public static class ShareUrlInfo implements com.kwad.sdk.core.b, Serializable {
+    /* loaded from: classes6.dex */
+    public static class ShareUrlInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7887599282226106153L;
         public transient /* synthetic */ FieldHolder $fh;
+        public String mediaShareItem;
         public String shareUrl;
 
         public ShareUrlInfo() {
@@ -38,25 +39,6 @@ public class PhotoShareInfo extends BaseResultData implements com.kwad.sdk.core.
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-        }
-
-        public void parseJson(@Nullable JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                this.shareUrl = jSONObject.optString("shareUrl");
-            }
-        }
-
-        @Override // com.kwad.sdk.core.b
-        public JSONObject toJson() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                o.a(jSONObject, "shareUrl", this.shareUrl);
-                return jSONObject;
-            }
-            return (JSONObject) invokeV.objValue;
         }
     }
 
@@ -76,10 +58,20 @@ public class PhotoShareInfo extends BaseResultData implements com.kwad.sdk.core.
         this.data = new ShareUrlInfo();
     }
 
-    public String getShareUrl() {
+    public String getMediaShareItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ShareUrlInfo shareUrlInfo = this.data;
+            return shareUrlInfo != null ? shareUrlInfo.mediaShareItem : "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getShareUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ShareUrlInfo shareUrlInfo = this.data;
             return shareUrlInfo != null ? shareUrlInfo.shareUrl : "";
         }
@@ -90,13 +82,13 @@ public class PhotoShareInfo extends BaseResultData implements com.kwad.sdk.core.
     public boolean isDataEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.data == null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.data == null : invokeV.booleanValue;
     }
 
-    @Override // com.kwad.sdk.core.network.BaseResultData
+    @Override // com.kwad.sdk.core.network.BaseResultData, com.kwad.sdk.core.b
     public void parseJson(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
             super.parseJson(jSONObject);
             if (jSONObject == null) {
                 return;
@@ -113,9 +105,9 @@ public class PhotoShareInfo extends BaseResultData implements com.kwad.sdk.core.
     public JSONObject toJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             JSONObject json = super.toJson();
-            o.a(json, "data", this.data);
+            q.a(json, "data", this.data);
             return json;
         }
         return (JSONObject) invokeV.objValue;

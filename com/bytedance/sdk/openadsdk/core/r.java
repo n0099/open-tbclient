@@ -5,6 +5,7 @@ import android.os.Environment;
 import android.os.FileObserver;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,33 +17,33 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class r {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f30411a;
+    public static String f30521a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f30412b;
+    public static String f30522b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f30413c;
+    public static String f30523c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile boolean f30414d;
+    public static volatile boolean f30524d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile boolean f30415e;
+    public static volatile boolean f30525e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static b f30416f;
+    public static b f30526f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f30417g;
+    public static long f30527g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(String str);
     }
@@ -60,19 +61,19 @@ public class r {
                 return;
             }
         }
-        f30411a = Environment.DIRECTORY_DCIM;
-        f30412b = Environment.DIRECTORY_PICTURES;
-        f30413c = "Screenshots";
-        f30414d = false;
-        f30415e = false;
-        f30417g = 0L;
+        f30521a = Environment.DIRECTORY_DCIM;
+        f30522b = Environment.DIRECTORY_PICTURES;
+        f30523c = "Screenshots";
+        f30524d = false;
+        f30525e = false;
+        f30527g = 0L;
     }
 
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            f30415e = true;
-            if (f30414d) {
+            f30525e = true;
+            if (f30524d) {
                 return;
             }
             if (Build.VERSION.SDK_INT < 23 || o.a().checkSelfPermission(StorageUtils.EXTERNAL_STORAGE_PERMISSION) == 0) {
@@ -115,12 +116,12 @@ public class r {
     public static long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? f30417g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f30527g : invokeV.longValue;
     }
 
     public static void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) || f30414d) {
+        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) || f30524d) {
             return;
         }
         com.bytedance.sdk.component.utils.j.a("SSO start");
@@ -128,7 +129,7 @@ public class r {
         if (f2 == null) {
             return;
         }
-        f30416f = b.a(f2, new a() { // from class: com.bytedance.sdk.openadsdk.core.r.2
+        f30526f = b.a(f2, new a() { // from class: com.bytedance.sdk.openadsdk.core.r.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -150,19 +151,19 @@ public class r {
             public void a(String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
-                    long unused = r.f30417g = System.currentTimeMillis();
+                    long unused = r.f30527g = System.currentTimeMillis();
                     com.bytedance.sdk.component.utils.j.a("Update sso");
                 }
             }
         });
-        f30414d = true;
+        f30524d = true;
         StringBuilder sb = new StringBuilder();
         sb.append("SSO File exist: ");
         sb.append(f2 != null ? Boolean.valueOf(f2.exists()) : "false");
         sb.append(", has started: ");
-        sb.append(f30416f != null);
+        sb.append(f30526f != null);
         com.bytedance.sdk.component.utils.j.a(sb.toString());
-        b bVar = f30416f;
+        b bVar = f30526f;
         if (bVar != null) {
             bVar.startWatching();
         }
@@ -178,12 +179,12 @@ public class r {
                 if (externalStorageDirectory == null) {
                     return null;
                 }
-                file = new File(externalStorageDirectory, f30412b + File.separator + f30413c);
+                file = new File(externalStorageDirectory, f30522b + File.separator + f30523c);
                 if (file.exists()) {
                     com.bytedance.sdk.component.utils.j.a("SSO use pic");
                     return file;
                 }
-                File file2 = new File(externalStorageDirectory, f30411a + File.separator + f30413c);
+                File file2 = new File(externalStorageDirectory, f30521a + File.separator + f30523c);
                 if (file2.exists()) {
                     com.bytedance.sdk.component.utils.j.a("SSO use dc");
                     return file2;
@@ -199,13 +200,13 @@ public class r {
         return (File) invokeV.objValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class b extends FileObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public a f30418a;
+        public a f30528a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(String str, int i2, a aVar) {
@@ -226,7 +227,7 @@ public class r {
                     return;
                 }
             }
-            this.f30418a = aVar;
+            this.f30528a = aVar;
         }
 
         public static b a(@NonNull File file, a aVar) {
@@ -248,7 +249,7 @@ public class r {
         public void onEvent(int i2, @Nullable String str) {
             a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) || (aVar = this.f30418a) == null) {
+            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) || (aVar = this.f30528a) == null) {
                 return;
             }
             aVar.a(str);
@@ -273,13 +274,13 @@ public class r {
                     return;
                 }
             }
-            this.f30418a = aVar;
+            this.f30528a = aVar;
         }
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && f30415e && !f30414d) {
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && f30525e && !f30524d) {
             b();
         }
     }

@@ -25,9 +25,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.api.core.ComponentDestroyer;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ResFragment extends DelegateFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +88,13 @@ public class ResFragment extends DelegateFragment {
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Wrapper.wrapContextIfNeed(super.getContext()) : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (super.getContext() == null) {
+                return null;
+            }
+            return Wrapper.wrapContextIfNeed(super.getContext());
+        }
+        return (Context) invokeV.objValue;
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -175,7 +180,6 @@ public class ResFragment extends DelegateFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onDestroy();
-            ComponentDestroyer.destroyFragment(this);
         }
     }
 

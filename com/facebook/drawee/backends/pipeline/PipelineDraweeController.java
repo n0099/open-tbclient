@@ -48,7 +48,7 @@ import java.util.Set;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PipelineDraweeController extends AbstractDraweeController<CloseableReference<CloseableImage>, ImageInfo> {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;
@@ -147,7 +147,7 @@ public class PipelineDraweeController extends AbstractDraweeController<Closeable
     private void maybeUpdateDebugOverlay(@Nullable CloseableImage closeableImage) {
         ScaleTypeDrawable activeScaleTypeDrawable;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65540, this, closeableImage) == null) && this.mDrawDebugOverlay) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, closeableImage) == null) && this.mDrawDebugOverlay) {
             if (getControllerOverlay() == null) {
                 DebugControllerOverlayDrawable debugControllerOverlayDrawable = new DebugControllerOverlayDrawable();
                 ImageLoadingTimeControllerListener imageLoadingTimeControllerListener = new ImageLoadingTimeControllerListener(debugControllerOverlayDrawable);

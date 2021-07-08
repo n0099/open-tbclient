@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -13,10 +13,10 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (!l.f44441a) {
+            if (!l.f41457a) {
                 l.y(context);
             }
-            return l.f44443c;
+            return l.f41459c;
         }
         return invokeL.intValue;
     }

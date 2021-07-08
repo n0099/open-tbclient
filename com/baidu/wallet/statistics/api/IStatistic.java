@@ -2,7 +2,7 @@ package com.baidu.wallet.statistics.api;
 
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface IStatistic {
     void onEvent(String str);
 

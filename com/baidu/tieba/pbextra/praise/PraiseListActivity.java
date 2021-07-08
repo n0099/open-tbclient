@@ -18,12 +18,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
-import d.a.r0.z0.v;
-import d.a.s0.i2.c.a;
-import d.a.s0.i2.c.d;
-import d.a.s0.i2.c.e;
+import d.a.o0.z0.v;
+import d.a.p0.i2.c.a;
+import d.a.p0.i2.c.d;
+import d.a.p0.i2.c.e;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PraiseListActivity extends BaseActivity<PraiseListActivity> implements d.b, View.OnClickListener, AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTENT_KEY_PRAISE_TOTAL = "KeyIntentPraiseId";
@@ -86,9 +86,9 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
                     return;
                 }
                 v.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.mZanListModel.k(), null, "praise_list"));
-            } else if (view != this.mZanListView.e() || this.mZanListView.h()) {
+            } else if (view != this.mZanListView.e() || this.mZanListView.g()) {
             } else {
-                this.mZanListView.l(true);
+                this.mZanListView.k(true);
                 this.mZanListModel.m(this.pageType);
             }
         }
@@ -119,7 +119,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
             this.mZanListModel.t(z);
             e eVar = new e(this, this.mZanListModel.i());
             this.mZanListView = eVar;
-            eVar.l(false);
+            eVar.k(false);
             this.mZanListModel.m(this.pageType);
         }
     }
@@ -143,23 +143,23 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         v.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), j2.c(), j2.b(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
     }
 
-    @Override // d.a.s0.i2.c.d.b
+    @Override // d.a.p0.i2.c.d.b
     public void onLoadFailed(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             if (k.isEmpty(str)) {
                 str = getResources().getString(R.string.neterror);
             }
-            this.mZanListView.m();
-            this.mZanListView.k(str, this.pageType);
+            this.mZanListView.l();
+            this.mZanListView.j(str, this.pageType);
         }
     }
 
-    @Override // d.a.s0.i2.c.d.b
+    @Override // d.a.p0.i2.c.d.b
     public void onLoadSuccessed(int i2, List<a> list, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), list, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            this.mZanListView.n(i2, list, i3, i4);
+            this.mZanListView.m(i2, list, i3, i4);
         }
     }
 
@@ -168,7 +168,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onResume();
-            this.mZanListView.i();
+            this.mZanListView.h();
         }
     }
 

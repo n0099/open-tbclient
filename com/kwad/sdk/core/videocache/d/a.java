@@ -16,13 +16,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.videocache.j;
 import com.kwad.sdk.core.videocache.n;
-import com.kwai.video.player.misc.IMediaFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a extends SQLiteOpenHelper implements b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f36675a;
+    public static final String[] f35023a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +37,7 @@ public class a extends SQLiteOpenHelper implements b {
                 return;
             }
         }
-        f36675a = new String[]{"_id", "url", CloudStabilityUBCUtils.KEY_LENGTH, IMediaFormat.KEY_MIME};
+        f35023a = new String[]{"_id", "url", CloudStabilityUBCUtils.KEY_LENGTH, "mime"};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -68,9 +67,9 @@ public class a extends SQLiteOpenHelper implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, nVar)) == null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("url", nVar.f36721a);
-            contentValues.put(CloudStabilityUBCUtils.KEY_LENGTH, Long.valueOf(nVar.f36722b));
-            contentValues.put(IMediaFormat.KEY_MIME, nVar.f36723c);
+            contentValues.put("url", nVar.f35069a);
+            contentValues.put(CloudStabilityUBCUtils.KEY_LENGTH, Long.valueOf(nVar.f35070b));
+            contentValues.put("mime", nVar.f35071c);
             return contentValues;
         }
         return (ContentValues) invokeL.objValue;
@@ -79,7 +78,7 @@ public class a extends SQLiteOpenHelper implements b {
     private n a(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, cursor)) == null) ? new n(cursor.getString(cursor.getColumnIndexOrThrow("url")), cursor.getLong(cursor.getColumnIndexOrThrow(CloudStabilityUBCUtils.KEY_LENGTH)), cursor.getString(cursor.getColumnIndexOrThrow(IMediaFormat.KEY_MIME))) : (n) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, cursor)) == null) ? new n(cursor.getString(cursor.getColumnIndexOrThrow("url")), cursor.getLong(cursor.getColumnIndexOrThrow(CloudStabilityUBCUtils.KEY_LENGTH)), cursor.getString(cursor.getColumnIndexOrThrow("mime"))) : (n) invokeL.objValue;
     }
 
     @Override // com.kwad.sdk.core.videocache.d.b
@@ -94,7 +93,7 @@ public class a extends SQLiteOpenHelper implements b {
         j.a(str);
         n nVar = null;
         try {
-            cursor = getReadableDatabase().query("SourceInfo", f36675a, "url=?", new String[]{str}, null, null, null);
+            cursor = getReadableDatabase().query("SourceInfo", f35023a, "url=?", new String[]{str}, null, null, null);
             if (cursor != null) {
                 try {
                     if (cursor.moveToFirst()) {

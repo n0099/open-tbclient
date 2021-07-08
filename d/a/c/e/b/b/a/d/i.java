@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class i implements h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Integer f44050a;
+    public Integer f41066a;
 
     public i(int i2) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class i implements h {
                 return;
             }
         }
-        this.f44050a = Integer.valueOf(i2);
+        this.f41066a = Integer.valueOf(i2);
     }
 
     @Override // d.a.c.e.b.b.a.d.h
@@ -46,16 +46,16 @@ public class i implements h {
                                 if (a2 != Double.class && a2 != Double.TYPE) {
                                     if (a2 != Character.class && a2 != Character.TYPE) {
                                         if (a2 == Boolean.class || a2 == Boolean.TYPE) {
-                                            return Boolean.valueOf(this.f44050a.byteValue() == 0);
+                                            return Boolean.valueOf(this.f41066a.byteValue() == 0);
                                         } else if (a2 == String.class) {
-                                            return String.valueOf(this.f44050a);
+                                            return String.valueOf(this.f41066a);
                                         } else {
                                             if (a2 == char[].class) {
-                                                return String.valueOf(this.f44050a).toCharArray();
+                                                return String.valueOf(this.f41066a).toCharArray();
                                             }
                                             if (a2 == byte[].class) {
                                                 try {
-                                                    return d.a.c.e.p.c.e(String.valueOf(this.f44050a), 0);
+                                                    return d.a.c.e.p.c.e(String.valueOf(this.f41066a), 0);
                                                 } catch (IOException e2) {
                                                     e2.printStackTrace();
                                                     return null;
@@ -64,19 +64,19 @@ public class i implements h {
                                             return null;
                                         }
                                     }
-                                    return Character.valueOf((char) this.f44050a.intValue());
+                                    return Character.valueOf((char) this.f41066a.intValue());
                                 }
-                                return Double.valueOf(this.f44050a.doubleValue());
+                                return Double.valueOf(this.f41066a.doubleValue());
                             }
-                            return Float.valueOf(this.f44050a.floatValue());
+                            return Float.valueOf(this.f41066a.floatValue());
                         }
-                        return Long.valueOf(this.f44050a.longValue());
+                        return Long.valueOf(this.f41066a.longValue());
                     }
-                    return Integer.valueOf(this.f44050a.intValue());
+                    return Integer.valueOf(this.f41066a.intValue());
                 }
-                return Short.valueOf(this.f44050a.shortValue());
+                return Short.valueOf(this.f41066a.shortValue());
             }
-            return Byte.valueOf(this.f44050a.byteValue());
+            return Byte.valueOf(this.f41066a.byteValue());
         }
         return invokeL.objValue;
     }

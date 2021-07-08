@@ -12,7 +12,7 @@ import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.cache.CacheKeyFactory;
 import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequest;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BitmapMemoryCacheKeyMultiplexProducer extends MultiplexProducer<Pair<CacheKey, ImageRequest.RequestLevel>, CloseableReference<CloseableImage>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

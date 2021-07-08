@@ -13,21 +13,21 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class TestScheduler extends g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f76281c;
+    public static long f73315c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Queue<c> f76282a;
+    public final Queue<c> f73316a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f76283b;
+    public long f73317b;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class a implements Comparator<c> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,13 +53,13 @@ public class TestScheduler extends g {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cVar, cVar2)) == null) {
-                long j = cVar.f76290a;
-                long j2 = cVar2.f76290a;
+                long j = cVar.f73324a;
+                long j2 = cVar2.f73324a;
                 if (j == j2) {
-                    if (cVar.f76293d < cVar2.f76293d) {
+                    if (cVar.f73327d < cVar2.f73327d) {
                         return -1;
                     }
-                    return cVar.f76293d > cVar2.f76293d ? 1 : 0;
+                    return cVar.f73327d > cVar2.f73327d ? 1 : 0;
                 } else if (j < j2) {
                     return -1;
                 } else {
@@ -70,27 +70,27 @@ public class TestScheduler extends g {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public final class b extends g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.u.a f76284e;
+        public final h.u.a f73318e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TestScheduler f76285f;
+        public final /* synthetic */ TestScheduler f73319f;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes9.dex */
         public class a implements h.n.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f76286e;
+            public final /* synthetic */ c f73320e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f76287f;
+            public final /* synthetic */ b f73321f;
 
             public a(b bVar, c cVar) {
                 Interceptable interceptable = $ic;
@@ -107,32 +107,32 @@ public class TestScheduler extends g {
                         return;
                     }
                 }
-                this.f76287f = bVar;
-                this.f76286e = cVar;
+                this.f73321f = bVar;
+                this.f73320e = cVar;
             }
 
             @Override // h.n.a
             public void call() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f76287f.f76285f.f76282a.remove(this.f76286e);
+                    this.f73321f.f73319f.f73316a.remove(this.f73320e);
                 }
             }
         }
 
         /* renamed from: rx.schedulers.TestScheduler$b$b  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
-        public class C2131b implements h.n.a {
+        /* loaded from: classes9.dex */
+        public class C2099b implements h.n.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f76288e;
+            public final /* synthetic */ c f73322e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f76289f;
+            public final /* synthetic */ b f73323f;
 
-            public C2131b(b bVar, c cVar) {
+            public C2099b(b bVar, c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -147,15 +147,15 @@ public class TestScheduler extends g {
                         return;
                     }
                 }
-                this.f76289f = bVar;
-                this.f76288e = cVar;
+                this.f73323f = bVar;
+                this.f73322e = cVar;
             }
 
             @Override // h.n.a
             public void call() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f76289f.f76285f.f76282a.remove(this.f76288e);
+                    this.f73323f.f73319f.f73316a.remove(this.f73322e);
                 }
             }
         }
@@ -175,15 +175,15 @@ public class TestScheduler extends g {
                     return;
                 }
             }
-            this.f76285f = testScheduler;
-            this.f76284e = new h.u.a();
+            this.f73319f = testScheduler;
+            this.f73318e = new h.u.a();
         }
 
         @Override // h.g.a
         public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76285f.now() : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73319f.now() : invokeV.longValue;
         }
 
         @Override // h.g.a
@@ -192,8 +192,8 @@ public class TestScheduler extends g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
                 c cVar = new c(this, 0L, aVar);
-                this.f76285f.f76282a.add(cVar);
-                return e.a(new C2131b(this, cVar));
+                this.f73319f.f73316a.add(cVar);
+                return e.a(new C2099b(this, cVar));
             }
             return (k) invokeL.objValue;
         }
@@ -203,8 +203,8 @@ public class TestScheduler extends g {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{aVar, Long.valueOf(j), timeUnit})) == null) {
-                c cVar = new c(this, this.f76285f.f76283b + timeUnit.toNanos(j), aVar);
-                this.f76285f.f76282a.add(cVar);
+                c cVar = new c(this, this.f73319f.f73317b + timeUnit.toNanos(j), aVar);
+                this.f73319f.f73316a.add(cVar);
                 return e.a(new a(this, cVar));
             }
             return (k) invokeCommon.objValue;
@@ -214,34 +214,34 @@ public class TestScheduler extends g {
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f76284e.isUnsubscribed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f73318e.isUnsubscribed() : invokeV.booleanValue;
         }
 
         @Override // h.k
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.f76284e.unsubscribe();
+                this.f73318e.unsubscribe();
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final long f76290a;
+        public final long f73324a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final h.n.a f76291b;
+        public final h.n.a f73325b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final g.a f76292c;
+        public final g.a f73326c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final long f76293d;
+        public final long f73327d;
 
         public c(g.a aVar, long j, h.n.a aVar2) {
             Interceptable interceptable = $ic;
@@ -258,18 +258,18 @@ public class TestScheduler extends g {
                     return;
                 }
             }
-            long j2 = TestScheduler.f76281c;
-            TestScheduler.f76281c = 1 + j2;
-            this.f76293d = j2;
-            this.f76290a = j;
-            this.f76291b = aVar2;
-            this.f76292c = aVar;
+            long j2 = TestScheduler.f73315c;
+            TestScheduler.f73315c = 1 + j2;
+            this.f73327d = j2;
+            this.f73324a = j;
+            this.f73325b = aVar2;
+            this.f73326c = aVar;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("TimedAction(time = %d, action = %s)", Long.valueOf(this.f76290a), this.f76291b.toString()) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("TimedAction(time = %d, action = %s)", Long.valueOf(this.f73324a), this.f73325b.toString()) : (String) invokeV.objValue;
         }
     }
 
@@ -286,35 +286,35 @@ public class TestScheduler extends g {
                 return;
             }
         }
-        this.f76282a = new PriorityQueue(11, new a());
+        this.f73316a = new PriorityQueue(11, new a());
     }
 
     public final void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            while (!this.f76282a.isEmpty()) {
-                c peek = this.f76282a.peek();
-                long j2 = peek.f76290a;
+            while (!this.f73316a.isEmpty()) {
+                c peek = this.f73316a.peek();
+                long j2 = peek.f73324a;
                 if (j2 > j) {
                     break;
                 }
                 if (j2 == 0) {
-                    j2 = this.f76283b;
+                    j2 = this.f73317b;
                 }
-                this.f76283b = j2;
-                this.f76282a.remove();
-                if (!peek.f76292c.isUnsubscribed()) {
-                    peek.f76291b.call();
+                this.f73317b = j2;
+                this.f73316a.remove();
+                if (!peek.f73326c.isUnsubscribed()) {
+                    peek.f73325b.call();
                 }
             }
-            this.f76283b = j;
+            this.f73317b = j;
         }
     }
 
     public void advanceTimeBy(long j, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, timeUnit) == null) {
-            advanceTimeTo(this.f76283b + timeUnit.toNanos(j), TimeUnit.NANOSECONDS);
+            advanceTimeTo(this.f73317b + timeUnit.toNanos(j), TimeUnit.NANOSECONDS);
         }
     }
 
@@ -336,13 +336,13 @@ public class TestScheduler extends g {
     public long now() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? TimeUnit.NANOSECONDS.toMillis(this.f76283b) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? TimeUnit.NANOSECONDS.toMillis(this.f73317b) : invokeV.longValue;
     }
 
     public void triggerActions() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            a(this.f76283b);
+            a(this.f73317b);
         }
     }
 }

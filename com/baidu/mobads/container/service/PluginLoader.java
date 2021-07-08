@@ -3,6 +3,7 @@ package com.baidu.mobads.container.service;
 import android.content.Context;
 import android.text.TextUtils;
 import android.webkit.SslErrorHandler;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.cid.DeviceId;
 import com.baidu.mobads.container.remote.location.LocationDexLoader;
 import com.baidu.mobads.container.remote.tdid.XSecurityDexLoader;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PluginLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PluginLoader";
@@ -77,7 +78,7 @@ public class PluginLoader {
     public static String getNCuidFrom27jar(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             if (TextUtils.isEmpty(mNcuid) && context != null) {
                 String trustChainCUID = DeviceId.getTrustChainCUID(context);
                 if (TextUtils.isEmpty(trustChainCUID)) {

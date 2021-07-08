@@ -7,19 +7,18 @@ import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.media.MediaMuxer;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.video.player.KsMediaMeta;
-import com.kwai.video.player.misc.IMediaFormat;
 import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import org.webrtc.HardwareVideoEncoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Mp4ComposerEngine {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long PROGRESS_INTERVAL_STEPS = 10;
@@ -30,7 +29,7 @@ public class Mp4ComposerEngine {
     public long mDurationUs;
     public ProgressCallback mProgressCallback;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface ProgressCallback {
         void onProgress(float f2);
     }
@@ -101,10 +100,10 @@ public class Mp4ComposerEngine {
     public static int selectVideoTrackIndex(MediaExtractor mediaExtractor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, mediaExtractor)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaExtractor)) == null) {
             int trackCount = mediaExtractor.getTrackCount();
             for (int i2 = 0; i2 < trackCount; i2++) {
-                if (mediaExtractor.getTrackFormat(i2).getString(IMediaFormat.KEY_MIME).startsWith(FileUtils.VIDEO_FILE_START)) {
+                if (mediaExtractor.getTrackFormat(i2).getString("mime").startsWith(FileUtils.VIDEO_FILE_START)) {
                     return i2;
                 }
             }
@@ -159,7 +158,7 @@ public class Mp4ComposerEngine {
             int selectVideoTrackIndex = selectVideoTrackIndex(mediaExtractor);
             if (selectVideoTrackIndex >= 0) {
                 MediaFormat trackFormat = mediaExtractor.getTrackFormat(selectVideoTrackIndex);
-                String string = trackFormat.getString(IMediaFormat.KEY_MIME);
+                String string = trackFormat.getString("mime");
                 int i2 = 25;
                 try {
                     i2 = trackFormat.getInteger("frame-rate");
@@ -169,7 +168,7 @@ public class Mp4ComposerEngine {
                 this.mDurationUs = mp4Info.getDurationUs();
                 MediaFormat createVideoFormat = MediaFormat.createVideoFormat(string, mp4Info.getWidth(), mp4Info.getHeight());
                 createVideoFormat.setInteger(HardwareVideoEncoder.KEY_BITRATE_MODE, 0);
-                createVideoFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, mp4Info.getBitrate() * 3);
+                createVideoFormat.setInteger("bitrate", mp4Info.getBitrate() * 3);
                 createVideoFormat.setInteger("frame-rate", i2);
                 createVideoFormat.setInteger("i-frame-interval", 0);
                 createVideoFormat.setInteger("color-format", 2130708361);

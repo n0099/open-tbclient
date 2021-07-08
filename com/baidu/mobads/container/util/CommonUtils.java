@@ -17,6 +17,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +26,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CommonUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIALOG_MESSAGE = "当前是移动网络,是否继续下载?";
@@ -38,7 +39,7 @@ public class CommonUtils {
     public static final String TAG = "CommonUtils";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface DialogOperation {
         void onClickButton(boolean z);
     }
@@ -104,7 +105,7 @@ public class CommonUtils {
     public static int dip2px(Context context, float f2) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65540, null, context, f2)) == null) ? (int) ((f2 * context.getResources().getDisplayMetrics().density) + 0.5f) : invokeLF.intValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TRACKBALL, null, context, f2)) == null) ? (int) ((f2 * context.getResources().getDisplayMetrics().density) + 0.5f) : invokeLF.intValue;
     }
 
     public static Bitmap getBitmapFromURL(String str) {

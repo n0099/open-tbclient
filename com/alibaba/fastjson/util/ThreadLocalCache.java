@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -89,7 +90,7 @@ public class ThreadLocalCache {
 
     public static void clearBytes() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             bytesBufLocal.set(null);
         }
     }

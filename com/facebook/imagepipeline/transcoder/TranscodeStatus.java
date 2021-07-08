@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.transcoder;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @Retention(RetentionPolicy.SOURCE)
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public @interface TranscodeStatus {
     public static final int TRANSCODING_ERROR = 2;
     public static final int TRANSCODING_NO_RESIZING = 1;

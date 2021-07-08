@@ -13,7 +13,7 @@ import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class ChunkOffsetBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;

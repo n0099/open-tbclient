@@ -3,6 +3,7 @@ package androidx.room.util;
 import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
+import androidx.core.view.InputDeviceCompat;
 import androidx.room.Room;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -91,7 +92,7 @@ public class StringUtil {
     public static StringBuilder newStringBuilder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? new StringBuilder() : (StringBuilder) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new StringBuilder() : (StringBuilder) invokeV.objValue;
     }
 
     @Nullable

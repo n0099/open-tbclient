@@ -151,7 +151,7 @@ public class RoundRectDrawableWithShadow extends Drawable {
     public static float calculateHorizontalPadding(float f2, float f3, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) ? z ? (float) (f2 + ((1.0d - COS_45) * f3)) : f2 : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) ? z ? (float) (f2 + ((1.0d - COS_45) * f3)) : f2 : invokeCommon.floatValue;
     }
 
     public static float calculateVerticalPadding(float f2, float f3, boolean z) {

@@ -1,6 +1,7 @@
 package com.baidubce.util;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static String LOG_TAG = "BOS";
@@ -127,7 +128,7 @@ public class BLog {
 
     public static void debug(String str, Object obj, Object obj2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65540, null, str, obj, obj2) == null) && enableLog) {
+        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, obj, obj2) == null) && enableLog) {
             String str2 = LOG_TAG;
             Log.d(str2, str + obj + obj2);
         }

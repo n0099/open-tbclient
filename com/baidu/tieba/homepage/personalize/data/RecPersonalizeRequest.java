@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
-import d.a.r0.r.q.f1;
-import d.a.r0.z0.w;
-import d.a.s0.w2.g0.a;
-import d.a.s0.w2.i0.b;
+import d.a.o0.r.q.f1;
+import d.a.o0.z0.w;
+import d.a.p0.w2.g0.a;
+import d.a.p0.w2.i0.b;
 import tbclient.Personalized.DataReq;
 import tbclient.Personalized.PersonalizedReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RecPersonalizeRequest extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOAD_TYPE_LOAD_MORE = 2;
@@ -86,10 +86,10 @@ public class RecPersonalizeRequest extends NetMessage {
             builder.app_pos = a.e().c();
             if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
                 f1 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
-                builder.from_tid = Long.valueOf(d.a.c.e.m.b.f(pbToHomeUpdateData.f55941a, 0L));
-                builder.query_eqid = pbToHomeUpdateData.f55942b;
-                builder.first_dir = pbToHomeUpdateData.f55943c;
-                builder.second_dir = pbToHomeUpdateData.f55944d;
+                builder.from_tid = Long.valueOf(d.a.c.e.m.b.f(pbToHomeUpdateData.f52656a, 0L));
+                builder.query_eqid = pbToHomeUpdateData.f52657b;
+                builder.first_dir = pbToHomeUpdateData.f52658c;
+                builder.second_dir = pbToHomeUpdateData.f52659d;
                 TbSingleton.getInstance().setPbToHomeUpdateData(null);
             }
             AdExtParam.a b2 = AdExtParam.a.b();

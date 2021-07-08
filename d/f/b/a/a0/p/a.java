@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.b.a.a0.p.b;
 import d.f.b.a.i0.v;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class a implements b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f72183a;
+    public final long f69286a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f72184b;
+    public final int f69287b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f72185c;
+    public final long f69288c;
 
     public a(long j, int i2, long j2) {
         Interceptable interceptable = $ic;
@@ -37,16 +37,16 @@ public final class a implements b.a {
                 return;
             }
         }
-        this.f72183a = j;
-        this.f72184b = i2;
-        this.f72185c = j2 == -1 ? -9223372036854775807L : g(j2);
+        this.f69286a = j;
+        this.f69287b = i2;
+        this.f69288c = j2 == -1 ? -9223372036854775807L : g(j2);
     }
 
     @Override // d.f.b.a.a0.l
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72185c != -9223372036854775807L : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69288c != -9223372036854775807L : invokeV.booleanValue;
     }
 
     @Override // d.f.b.a.a0.l
@@ -54,11 +54,11 @@ public final class a implements b.a {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            long j2 = this.f72185c;
+            long j2 = this.f69288c;
             if (j2 == -9223372036854775807L) {
                 return 0L;
             }
-            return this.f72183a + ((v.l(j, 0L, j2) * this.f72184b) / 8000000);
+            return this.f69286a + ((v.l(j, 0L, j2) * this.f69287b) / 8000000);
         }
         return invokeJ.longValue;
     }
@@ -67,13 +67,13 @@ public final class a implements b.a {
     public long g(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? ((Math.max(0L, j - this.f72183a) * 1000000) * 8) / this.f72184b : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? ((Math.max(0L, j - this.f69286a) * 1000000) * 8) / this.f69287b : invokeJ.longValue;
     }
 
     @Override // d.f.b.a.a0.l
     public long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f72185c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f69288c : invokeV.longValue;
     }
 }

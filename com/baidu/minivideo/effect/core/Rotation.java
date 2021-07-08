@@ -1,5 +1,6 @@
 package com.baidu.minivideo.effect.core;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class Rotation {
     public static final /* synthetic */ Rotation[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -18,12 +19,12 @@ public final class Rotation {
     public static final Rotation ROTATION_90;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f8160a;
+        public static final /* synthetic */ int[] f8177a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -40,21 +41,21 @@ public final class Rotation {
                 }
             }
             int[] iArr = new int[Rotation.values().length];
-            f8160a = iArr;
+            f8177a = iArr;
             try {
                 iArr[Rotation.NORMAL.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f8160a[Rotation.ROTATION_90.ordinal()] = 2;
+                f8177a[Rotation.ROTATION_90.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f8160a[Rotation.ROTATION_180.ordinal()] = 3;
+                f8177a[Rotation.ROTATION_180.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f8160a[Rotation.ROTATION_270.ordinal()] = 4;
+                f8177a[Rotation.ROTATION_270.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -133,14 +134,14 @@ public final class Rotation {
     public static Rotation[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (Rotation[]) $VALUES.clone() : (Rotation[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (Rotation[]) $VALUES.clone() : (Rotation[]) invokeV.objValue;
     }
 
     public int asInt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = a.f8160a[ordinal()];
+            int i2 = a.f8177a[ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {

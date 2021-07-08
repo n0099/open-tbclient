@@ -9,27 +9,27 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class y {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final y f42702a;
+    public static final y f39716a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final y f42703b;
+    public static final y f39717b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final y f42704c;
+    public static final y f39718c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final y f42705d;
+    public static final y f39719d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final y f42706e;
+    public static final y f39720e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final /* synthetic */ y[] f42707f;
+    public static final /* synthetic */ y[] f39721f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,13 +45,13 @@ public final class y {
                 return;
             }
         }
-        f42702a = new y("BANNER", 0);
-        f42703b = new y("INTERSTITIAL", 1);
-        f42704c = new y(Constant.TYPE_NATIVE, 2);
-        f42705d = new y("Video", 3);
+        f39716a = new y("BANNER", 0);
+        f39717b = new y("INTERSTITIAL", 1);
+        f39718c = new y(Constant.TYPE_NATIVE, 2);
+        f39719d = new y("Video", 3);
         y yVar = new y("SPLASH", 4);
-        f42706e = yVar;
-        f42707f = new y[]{f42702a, f42703b, f42704c, f42705d, yVar};
+        f39720e = yVar;
+        f39721f = new y[]{f39716a, f39717b, f39718c, f39719d, yVar};
     }
 
     public y(String str, int i2) {
@@ -82,6 +82,6 @@ public final class y {
     public static y[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (y[]) f42707f.clone() : (y[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (y[]) f39721f.clone() : (y[]) invokeV.objValue;
     }
 }

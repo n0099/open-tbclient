@@ -1,34 +1,42 @@
 package com.kwad.sdk.utils;
 
+import android.content.Context;
+import android.content.res.Resources;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Formatter;
-import java.util.Locale;
-/* loaded from: classes7.dex */
+import com.kwad.sdk.api.core.ResContext;
+/* loaded from: classes6.dex */
 public class ai {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(long j) {
-        InterceptResult invokeJ;
+    public static int a(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) {
-            if (j <= 0 || j >= 86400000) {
-                return "00:00";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            Resources a2 = a(context);
+            if (a2 == null) {
+                a2 = context.getResources();
             }
-            try {
-                long j2 = j / 1000;
-                long j3 = j2 % 60;
-                long j4 = (j2 / 60) % 60;
-                long j5 = j2 / 3600;
-                Formatter formatter = new Formatter(new StringBuilder(), Locale.getDefault());
-                return j5 > 0 ? formatter.format("%d:%02d:%02d", Long.valueOf(j5), Long.valueOf(j4), Long.valueOf(j3)).toString() : formatter.format("%02d:%02d", Long.valueOf(j4), Long.valueOf(j3)).toString();
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.a(e2);
-                return "";
-            }
+            return a2.getIdentifier(str, "drawable", context.getPackageName());
         }
-        return (String) invokeJ.objValue;
+        return invokeLL.intValue;
+    }
+
+    public static Resources a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            Context applicationContext = context.getApplicationContext();
+            if (applicationContext instanceof ResContext) {
+                applicationContext = ((ResContext) applicationContext).getDelegatedContext();
+            }
+            return applicationContext.getResources();
+        }
+        return (Resources) invokeL.objValue;
     }
 }

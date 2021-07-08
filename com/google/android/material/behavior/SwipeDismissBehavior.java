@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DEFAULT_ALPHA_END_DISTANCE = 0.5f;
@@ -44,14 +44,14 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
     public int swipeDirection;
     public ViewDragHelper viewDragHelper;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface OnDismissListener {
         void onDismiss(View view);
 
         void onDragStateChanged(int i2);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class SettleRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -329,7 +329,7 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
     public static float fraction(float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? (f4 - f2) / (f3 - f2) : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? (f4 - f2) / (f3 - f2) : invokeCommon.floatValue;
     }
 
     private void updateAccessibilityActions(View view) {

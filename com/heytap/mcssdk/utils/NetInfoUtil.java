@@ -6,6 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.apollon.statistics.g;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class NetInfoUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NETWORK_CLASS_2_G = 1;
@@ -144,7 +145,7 @@ public class NetInfoUtil {
                 e2.printStackTrace();
             }
             int networkClassByType = getNetworkClassByType(i2);
-            return networkClassByType != -101 ? (networkClassByType == -1 || networkClassByType == 0) ? RomUtils.UNKNOWN : networkClassByType != 1 ? networkClassByType != 2 ? networkClassByType != 3 ? RomUtils.UNKNOWN : "4G" : g.f3983b : "2G" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
+            return networkClassByType != -101 ? (networkClassByType == -1 || networkClassByType == 0) ? RomUtils.UNKNOWN : networkClassByType != 1 ? networkClassByType != 2 ? networkClassByType != 3 ? RomUtils.UNKNOWN : "4G" : g.f3986b : "2G" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
         }
         return (String) invokeL.objValue;
     }
@@ -152,7 +153,7 @@ public class NetInfoUtil {
     public static boolean is2GNetwork(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             try {
                 String netType = getNetType(context);
                 if (!netType.equals("UNINET") && !netType.equals("UNIWAP") && !netType.equals("CMNET") && !netType.equals("CMWAP") && !netType.equals("CTNET")) {

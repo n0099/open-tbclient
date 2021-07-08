@@ -17,7 +17,7 @@ import com.bytedance.sdk.openadsdk.core.dynamic.dynamicview.DynamicRootView;
 import com.bytedance.sdk.openadsdk.core.dynamic.dynamicview.DynamicTextView;
 import com.bytedance.sdk.openadsdk.core.dynamic.dynamicview.DynamicUnKnowView;
 import com.bytedance.sdk.openadsdk.core.dynamic.dynamicview.DynamicVideoView;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

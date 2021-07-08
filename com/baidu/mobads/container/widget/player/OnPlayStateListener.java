@@ -1,5 +1,5 @@
 package com.baidu.mobads.container.widget.player;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface OnPlayStateListener {
     void playStateChanged(int i2);
 }

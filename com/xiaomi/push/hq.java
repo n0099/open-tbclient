@@ -13,33 +13,33 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.BitSet;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class hq implements iq<hq, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f43296a;
+    public static final iy f40310a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final jg f510a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f43297b;
+    public static final iy f40311b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f43298c;
+    public static final iy f40312c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f43299d;
+    public static final iy f40313d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f43300e;
+    public static final iy f40314e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f43301f;
+    public static final iy f40315f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f43302g;
+    public static final iy f40316g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -80,13 +80,13 @@ public class hq implements iq<hq, Object>, Serializable, Cloneable {
             }
         }
         f510a = new jg("OnlineConfigItem");
-        f43296a = new iy("", (byte) 8, (short) 1);
-        f43297b = new iy("", (byte) 8, (short) 2);
-        f43298c = new iy("", (byte) 2, (short) 3);
-        f43299d = new iy("", (byte) 8, (short) 4);
-        f43300e = new iy("", (byte) 10, (short) 5);
-        f43301f = new iy("", (byte) 11, (short) 6);
-        f43302g = new iy("", (byte) 2, (short) 7);
+        f40310a = new iy("", (byte) 8, (short) 1);
+        f40311b = new iy("", (byte) 8, (short) 2);
+        f40312c = new iy("", (byte) 2, (short) 3);
+        f40313d = new iy("", (byte) 8, (short) 4);
+        f40314e = new iy("", (byte) 10, (short) 5);
+        f40315f = new iy("", (byte) 11, (short) 6);
+        f40316g = new iy("", (byte) 2, (short) 7);
     }
 
     public hq() {
@@ -212,7 +212,7 @@ public class hq implements iq<hq, Object>, Serializable, Cloneable {
         jbVar.m524a();
         while (true) {
             iy m520a = jbVar.m520a();
-            byte b2 = m520a.f43494a;
+            byte b2 = m520a.f40508a;
             if (b2 == 0) {
                 jbVar.f();
                 m394a();
@@ -355,37 +355,37 @@ public class hq implements iq<hq, Object>, Serializable, Cloneable {
             m394a();
             jbVar.a(f510a);
             if (m395a()) {
-                jbVar.a(f43296a);
+                jbVar.a(f40310a);
                 jbVar.a(this.f511a);
                 jbVar.b();
             }
             if (m397b()) {
-                jbVar.a(f43297b);
+                jbVar.a(f40311b);
                 jbVar.a(this.f516b);
                 jbVar.b();
             }
             if (m398c()) {
-                jbVar.a(f43298c);
+                jbVar.a(f40312c);
                 jbVar.a(this.f515a);
                 jbVar.b();
             }
             if (d()) {
-                jbVar.a(f43299d);
+                jbVar.a(f40313d);
                 jbVar.a(this.f518c);
                 jbVar.b();
             }
             if (e()) {
-                jbVar.a(f43300e);
+                jbVar.a(f40314e);
                 jbVar.a(this.f512a);
                 jbVar.b();
             }
             if (this.f513a != null && f()) {
-                jbVar.a(f43301f);
+                jbVar.a(f40315f);
                 jbVar.a(this.f513a);
                 jbVar.b();
             }
             if (h()) {
-                jbVar.a(f43302g);
+                jbVar.a(f40316g);
                 jbVar.a(this.f517b);
                 jbVar.b();
             }

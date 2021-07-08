@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface AudioProcessor {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ByteBuffer f32697a = ByteBuffer.allocateDirect(0).order(ByteOrder.nativeOrder());
+    public static final ByteBuffer f32807a = ByteBuffer.allocateDirect(0).order(ByteOrder.nativeOrder());
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class UnhandledFormatException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

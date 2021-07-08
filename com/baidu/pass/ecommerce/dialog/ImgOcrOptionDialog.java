@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ImgOcrOptionDialog extends BaseDialogFragment implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public class ImgOcrOptionDialog extends BaseDialogFragment implements View.OnCli
     public OptionOnClickListener optionOnClickListener;
     public TextView takePhotoTv;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface OptionOnClickListener {
         public static final int OPTION_CHOOSE_IMG_TYPE = 1002;
         public static final int OPTION_TAKE_PHOTO_TYPE = 1001;

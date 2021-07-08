@@ -1,6 +1,7 @@
 package com.yy.hiidostatis.inner;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +15,7 @@ import com.yy.hiidostatis.inner.util.ProcessUtil;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.Enumeration;
 import java.util.Hashtable;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class GeneralProxy {
     public static /* synthetic */ Interceptable $ic;
     public static Object OBJ_KEY;
@@ -194,7 +195,7 @@ public class GeneralProxy {
 
     public static void flushCache(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65540, null, context, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, z) == null) {
             if (!z) {
                 try {
                     if (ProcessUtil.isBackground(context)) {

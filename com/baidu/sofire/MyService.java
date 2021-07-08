@@ -19,16 +19,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.db.DelayTB;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MyService extends Service {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f10234b;
+    public static long f10251b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile int f10235a;
+    public volatile int f10252a;
 
     static {
         InterceptResult invokeClinit;
@@ -58,12 +58,12 @@ public class MyService extends Service {
                 return;
             }
         }
-        this.f10235a = 0;
+        this.f10252a = 0;
     }
 
     public static /* synthetic */ int a(MyService myService) {
-        int i2 = myService.f10235a;
-        myService.f10235a = i2 + 1;
+        int i2 = myService.f10252a;
+        myService.f10252a = i2 + 1;
         return i2;
     }
 
@@ -103,13 +103,13 @@ public class MyService extends Service {
             if (TextUtils.isEmpty(stringExtra) && TextUtils.isEmpty(intent.getAction())) {
                 a();
             } else {
-                long j = f10234b;
+                long j = f10251b;
                 if ("teac".equals(intent.getAction())) {
-                    f10234b = System.currentTimeMillis();
+                    f10251b = System.currentTimeMillis();
                     if (System.currentTimeMillis() - j < 3000) {
                         return super.onStartCommand(intent, i2, i3);
                     }
-                    if (com.baidu.sofire.utility.c.j != 0 && f10234b - com.baidu.sofire.utility.c.j > 5000) {
+                    if (com.baidu.sofire.utility.c.j != 0 && f10251b - com.baidu.sofire.utility.c.j > 5000) {
                         return super.onStartCommand(intent, i2, i3);
                     }
                 }
@@ -118,13 +118,13 @@ public class MyService extends Service {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f10236a;
+                    public final /* synthetic */ String f10253a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Intent f10237b;
+                    public final /* synthetic */ Intent f10254b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ MyService f10238c;
+                    public final /* synthetic */ MyService f10255c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -141,9 +141,9 @@ public class MyService extends Service {
                                 return;
                             }
                         }
-                        this.f10238c = this;
-                        this.f10236a = stringExtra;
-                        this.f10237b = intent;
+                        this.f10255c = this;
+                        this.f10253a = stringExtra;
+                        this.f10254b = intent;
                     }
 
                     @Override // java.lang.Runnable
@@ -151,36 +151,36 @@ public class MyService extends Service {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
-                                MyService.a(this.f10238c);
-                                if (this.f10238c.getPackageName().equals(this.f10236a)) {
-                                    MyService.a(this.f10238c, this.f10238c.getClassLoader(), this.f10237b);
-                                    this.f10238c.a();
-                                } else if ("teac".equals(this.f10237b.getAction())) {
-                                    int intExtra = this.f10237b.getIntExtra("plugin_id", 100041);
-                                    String stringExtra2 = this.f10237b.getStringExtra("target_method");
+                                MyService.a(this.f10255c);
+                                if (this.f10255c.getPackageName().equals(this.f10253a)) {
+                                    MyService.a(this.f10255c, this.f10255c.getClassLoader(), this.f10254b);
+                                    this.f10255c.a();
+                                } else if ("teac".equals(this.f10254b.getAction())) {
+                                    int intExtra = this.f10254b.getIntExtra("plugin_id", 100041);
+                                    String stringExtra2 = this.f10254b.getStringExtra("target_method");
                                     if (TextUtils.isEmpty(stringExtra2)) {
-                                        this.f10238c.a();
+                                        this.f10255c.a();
                                         return;
                                     }
-                                    com.baidu.sofire.core.d.a(intExtra, stringExtra2, (Callback) null, new Class[]{Intent.class}, this.f10237b);
-                                    this.f10238c.a();
+                                    com.baidu.sofire.core.d.a(intExtra, stringExtra2, (Callback) null, new Class[]{Intent.class}, this.f10254b);
+                                    this.f10255c.a();
                                 } else {
                                     f a2 = f.a();
                                     if (a2 == null) {
-                                        this.f10238c.a();
+                                        this.f10255c.a();
                                         return;
                                     }
-                                    ApkInfo d2 = a2.d(this.f10236a);
+                                    ApkInfo d2 = a2.d(this.f10253a);
                                     if (d2 == null) {
-                                        this.f10238c.a();
+                                        this.f10255c.a();
                                         return;
                                     }
-                                    MyService.a(this.f10238c, d2.classLoader, this.f10237b);
-                                    this.f10238c.a();
+                                    MyService.a(this.f10255c, d2.classLoader, this.f10254b);
+                                    this.f10255c.a();
                                 }
                             } catch (Throwable unused2) {
                                 com.baidu.sofire.utility.c.a();
-                                this.f10238c.a();
+                                this.f10255c.a();
                             }
                         }
                     }
@@ -196,9 +196,9 @@ public class MyService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             try {
-                this.f10235a--;
-                if (this.f10235a <= 0) {
-                    this.f10235a = 0;
+                this.f10252a--;
+                if (this.f10252a <= 0) {
+                    this.f10252a = 0;
                     stopSelf();
                 }
             } catch (Throwable unused) {

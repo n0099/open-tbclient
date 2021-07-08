@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.k.e.n;
-import d.a.r0.r.q.b2;
-import d.a.s0.v.e.b.c;
+import d.a.o0.r.q.b2;
+import d.a.p0.v.e.b.c;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                         c cVar = new c();
                         b2 b2Var = new b2();
                         b2Var.H2(optJSONObject2);
-                        cVar.f67889e = b2Var;
+                        cVar.f64671e = b2Var;
                         this.liveList.add(cVar);
                     }
                 }
@@ -79,7 +79,7 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                         c cVar2 = new c();
                         b2 b2Var2 = new b2();
                         b2Var2.H2(optJSONObject3);
-                        cVar2.f67889e = b2Var2;
+                        cVar2.f64671e = b2Var2;
                         this.recommandList.add(cVar2);
                     }
                 }

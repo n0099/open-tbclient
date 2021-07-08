@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.auth.BceCredentials;
 import com.baidubce.model.AbstractBceRequest;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ListBucketsRequest extends AbstractBceRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

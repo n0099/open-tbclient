@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.videocache.a;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,25 +10,24 @@ import java.io.File;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class e implements com.kwad.sdk.core.videocache.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ExecutorService f36660a;
+    public final ExecutorService f35008a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a implements Callable<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f36661a;
+        public final /* synthetic */ e f35009a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final File f36662b;
+        public final File f35010b;
 
         public a(e eVar, File file) {
             Interceptable interceptable = $ic;
@@ -44,8 +44,8 @@ public abstract class e implements com.kwad.sdk.core.videocache.a.a {
                     return;
                 }
             }
-            this.f36661a = eVar;
-            this.f36662b = file;
+            this.f35009a = eVar;
+            this.f35010b = file;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -55,7 +55,7 @@ public abstract class e implements com.kwad.sdk.core.videocache.a.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f36661a.b(this.f36662b);
+                this.f35009a.b(this.f35010b);
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -75,7 +75,7 @@ public abstract class e implements com.kwad.sdk.core.videocache.a.a {
                 return;
             }
         }
-        this.f36660a = Executors.newSingleThreadExecutor();
+        this.f35008a = com.kwad.sdk.core.i.b.b();
     }
 
     private void a(List<File> list) {
@@ -90,7 +90,7 @@ public abstract class e implements com.kwad.sdk.core.videocache.a.a {
                         size--;
                         b2 -= length;
                     } else {
-                        com.kwad.sdk.core.d.a.d("LruDiskUsage", "Error deleting file " + file + " for trimming cache");
+                        com.kwad.sdk.core.d.a.e("LruDiskUsage", "Error deleting file " + file + " for trimming cache");
                     }
                 }
             }
@@ -113,7 +113,7 @@ public abstract class e implements com.kwad.sdk.core.videocache.a.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, file) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, file) == null) {
             d.c(file);
             a(d.b(file.getParentFile()));
         }
@@ -123,7 +123,7 @@ public abstract class e implements com.kwad.sdk.core.videocache.a.a {
     public void a(File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
-            this.f36660a.submit(new a(this, file));
+            this.f35008a.submit(new a(this, file));
         }
     }
 

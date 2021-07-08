@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AlaInfoData;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class YYLiveUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SOURCE_BAIDU_LIVE_CARD_ = "baidu_live_zhibo_block_";
@@ -71,7 +72,7 @@ public class YYLiveUtil {
 
     public static void jumpYYLiveRoom(TbPageContext tbPageContext, AlaInfoData alaInfoData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65540, null, tbPageContext, alaInfoData) == null) && alaInfoData != null && alaInfoData.isLegalYYLiveData()) {
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, alaInfoData) == null) && alaInfoData != null && alaInfoData.isLegalYYLiveData()) {
             YyExtData yyExtData = alaInfoData.mYyExtData;
             String str = yyExtData.mSid;
             String str2 = yyExtData.mSsid;

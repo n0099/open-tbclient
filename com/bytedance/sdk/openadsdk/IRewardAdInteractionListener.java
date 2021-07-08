@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface IRewardAdInteractionListener extends IInterface {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Default implements IRewardAdInteractionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,21 +101,21 @@ public interface IRewardAdInteractionListener extends IInterface {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static abstract class Stub extends Binder implements IRewardAdInteractionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public static class a implements IRewardAdInteractionListener {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static IRewardAdInteractionListener f28904a;
+            public static IRewardAdInteractionListener f29014a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f28905b;
+            public IBinder f29015b;
 
             public a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -132,14 +132,14 @@ public interface IRewardAdInteractionListener extends IInterface {
                         return;
                     }
                 }
-                this.f28905b = iBinder;
+                this.f29015b = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28905b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29015b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.bytedance.sdk.openadsdk.IRewardAdInteractionListener
@@ -150,7 +150,7 @@ public interface IRewardAdInteractionListener extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IRewardAdInteractionListener");
-                        if (!this.f28905b.transact(4, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f29015b.transact(4, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onAdClose();
                         } else {
                             obtain2.readException();
@@ -170,7 +170,7 @@ public interface IRewardAdInteractionListener extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IRewardAdInteractionListener");
-                        if (!this.f28905b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f29015b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onAdShow();
                         } else {
                             obtain2.readException();
@@ -190,7 +190,7 @@ public interface IRewardAdInteractionListener extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IRewardAdInteractionListener");
-                        if (!this.f28905b.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f29015b.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onAdVideoBarClick();
                         } else {
                             obtain2.readException();
@@ -210,7 +210,7 @@ public interface IRewardAdInteractionListener extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IRewardAdInteractionListener");
-                        if (!this.f28905b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f29015b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onDestroy();
                         } else {
                             obtain2.readException();
@@ -235,7 +235,7 @@ public interface IRewardAdInteractionListener extends IInterface {
                         obtain.writeString(str);
                         obtain.writeInt(i3);
                         obtain.writeString(str2);
-                        if (!this.f28905b.transact(7, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f29015b.transact(7, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onRewardVerify(z, i2, str, i3, str2);
                         } else {
                             obtain2.readException();
@@ -255,7 +255,7 @@ public interface IRewardAdInteractionListener extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IRewardAdInteractionListener");
-                        if (!this.f28905b.transact(8, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f29015b.transact(8, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onSkippedVideo();
                         } else {
                             obtain2.readException();
@@ -275,7 +275,7 @@ public interface IRewardAdInteractionListener extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IRewardAdInteractionListener");
-                        if (!this.f28905b.transact(5, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f29015b.transact(5, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onVideoComplete();
                         } else {
                             obtain2.readException();
@@ -295,7 +295,7 @@ public interface IRewardAdInteractionListener extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IRewardAdInteractionListener");
-                        if (!this.f28905b.transact(6, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f29015b.transact(6, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onVideoError();
                         } else {
                             obtain2.readException();
@@ -343,17 +343,17 @@ public interface IRewardAdInteractionListener extends IInterface {
         public static IRewardAdInteractionListener getDefaultImpl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f28904a : (IRewardAdInteractionListener) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f29014a : (IRewardAdInteractionListener) invokeV.objValue;
         }
 
         public static boolean setDefaultImpl(IRewardAdInteractionListener iRewardAdInteractionListener) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iRewardAdInteractionListener)) == null) {
-                if (a.f28904a != null || iRewardAdInteractionListener == null) {
+                if (a.f29014a != null || iRewardAdInteractionListener == null) {
                     return false;
                 }
-                a.f28904a = iRewardAdInteractionListener;
+                a.f29014a = iRewardAdInteractionListener;
                 return true;
             }
             return invokeL.booleanValue;

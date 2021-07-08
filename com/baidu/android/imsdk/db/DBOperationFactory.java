@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.db;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
@@ -96,7 +97,7 @@ public class DBOperationFactory {
     public static DBOperation getNewDb(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             if (context == null) {
                 LogUtils.d(TAG, "pls call init method first!");
                 return null;

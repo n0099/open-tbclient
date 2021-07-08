@@ -28,7 +28,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import kotlin.UShort;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DTSTrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -147,7 +147,7 @@ public class DTSTrackImpl extends AbstractTrack {
         InterceptResult invokeIL;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65540, this, i2, byteBuffer)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, byteBuffer)) == null) {
             byteBuffer.get();
             short s = byteBuffer.getShort();
             this.maxSampleRate = (byteBuffer.get() << 16) | (byteBuffer.getShort() & UShort.MAX_VALUE);

@@ -1,6 +1,7 @@
 package com.kwad.sdk.core.imageloader.utils;
 
 import android.opengl.GLES10;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.imageloader.core.assist.ImageSize;
 import com.kwad.sdk.core.imageloader.core.assist.ViewScaleType;
 import com.kwad.sdk.core.imageloader.core.imageaware.ImageAware;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ImageSizeUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_MAX_BITMAP_DIMENSION = 2048;
@@ -20,7 +21,7 @@ public final class ImageSizeUtils {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.sdk.core.imageloader.utils.ImageSizeUtils$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$kwad$sdk$core$imageloader$core$assist$ViewScaleType;
         public static /* synthetic */ Interceptable $ic;
@@ -154,7 +155,7 @@ public final class ImageSizeUtils {
     public static int computeMinImageSampleSize(ImageSize imageSize) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, imageSize)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, imageSize)) == null) {
             return Math.max((int) Math.ceil(imageSize.getWidth() / maxBitmapSize.getWidth()), (int) Math.ceil(imageSize.getHeight() / maxBitmapSize.getHeight()));
         }
         return invokeL.intValue;

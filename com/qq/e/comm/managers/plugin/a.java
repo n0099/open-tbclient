@@ -19,25 +19,25 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40964a;
+    public String f37978a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final File f40965b;
+    public final File f37979b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final File f40966c;
+    public final File f37980c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f40967d;
+    public String f37981d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40968e;
+    public int f37982e;
 
     public a(File file, File file2) {
         Interceptable interceptable = $ic;
@@ -54,8 +54,8 @@ public class a {
                 return;
             }
         }
-        this.f40965b = file;
-        this.f40966c = file2;
+        this.f37979b = file;
+        this.f37980c = file2;
     }
 
     public static boolean a(Context context, File file, File file2) {
@@ -120,20 +120,20 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                if (this.f40966c.exists() && this.f40965b.exists()) {
-                    String readAll = StringUtil.readAll(this.f40966c);
-                    this.f40964a = readAll;
+                if (this.f37980c.exists() && this.f37979b.exists()) {
+                    String readAll = StringUtil.readAll(this.f37980c);
+                    this.f37978a = readAll;
                     String[] split = readAll.split("#####");
                     if (split.length == 2) {
                         String str = split[1];
                         int parseInteger = StringUtil.parseInteger(split[0], 0);
                         com.qq.e.comm.util.a a2 = com.qq.e.comm.util.a.a();
-                        File file = this.f40965b;
+                        File file = this.f37979b;
                         if (file != null && file.exists()) {
                             z = a2.b(str, Md5Util.encode(file));
                             if (z) {
-                                this.f40967d = str;
-                                this.f40968e = parseInteger;
+                                this.f37981d = str;
+                                this.f37982e = parseInteger;
                                 return true;
                             }
                         }
@@ -158,7 +158,7 @@ public class a {
             if (file == null || file2 == null) {
                 return false;
             }
-            return (file.equals(this.f40965b) || FileUtil.renameTo(this.f40965b, file)) && (file2.equals(this.f40966c) || FileUtil.renameTo(this.f40966c, file2));
+            return (file.equals(this.f37979b) || FileUtil.renameTo(this.f37979b, file)) && (file2.equals(this.f37980c) || FileUtil.renameTo(this.f37980c, file2));
         }
         return invokeLL.booleanValue;
     }
@@ -166,12 +166,12 @@ public class a {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40968e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37982e : invokeV.intValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f40967d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f37981d : (String) invokeV.objValue;
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.adp.framework;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -114,7 +115,7 @@ public class FrameHelper {
     public static TYPE e(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             if (i2 < 0 || i2 >= 1000000) {
                 if (i2 < 1000000 || i2 >= 2000000) {
                     if (i2 >= 2000000 && i2 < 3000000) {

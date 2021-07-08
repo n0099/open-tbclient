@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class d extends BaseException {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f41522a;
+    public final long f38536a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f41523b;
+    public final long f38537b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(long j, long j2) {
@@ -36,19 +36,19 @@ public class d extends BaseException {
                 return;
             }
         }
-        this.f41522a = j;
-        this.f41523b = j2;
+        this.f38536a = j;
+        this.f38537b = j2;
     }
 
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41522a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38536a : invokeV.longValue;
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41523b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38537b : invokeV.longValue;
     }
 }

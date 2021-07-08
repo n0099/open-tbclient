@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.AdSlot;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class m extends o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,10 +37,10 @@ public class m extends o {
     public void a(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, AdSlot adSlot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, context, mVar, adSlot) == null) {
-            this.f30340d = "draw_ad";
+            this.f30450d = "draw_ad";
             NativeExpressDrawVideoView nativeExpressDrawVideoView = new NativeExpressDrawVideoView(context, mVar, adSlot, "draw_ad");
-            this.f30337a = nativeExpressDrawVideoView;
-            a(nativeExpressDrawVideoView, this.f30339c);
+            this.f30447a = nativeExpressDrawVideoView;
+            a(nativeExpressDrawVideoView, this.f30449c);
         }
     }
 
@@ -48,7 +48,7 @@ public class m extends o {
     public void setCanInterruptVideoPlay(boolean z) {
         NativeExpressView nativeExpressView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (nativeExpressView = this.f30337a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (nativeExpressView = this.f30447a) == null) {
             return;
         }
         ((NativeExpressVideoView) nativeExpressView).setCanInterruptVideoPlay(z);

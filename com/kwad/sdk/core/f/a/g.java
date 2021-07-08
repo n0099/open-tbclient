@@ -13,19 +13,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.f.b.e;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f36099a;
+    public Context f34424a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f36100b;
+    public final LinkedBlockingQueue<IBinder> f34425b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f36101c;
+    public ServiceConnection f34426c;
 
     public g(Context context) {
         Interceptable interceptable = $ic;
@@ -42,13 +42,13 @@ public class g {
                 return;
             }
         }
-        this.f36100b = new LinkedBlockingQueue<>(1);
-        this.f36101c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.a.g.1
+        this.f34425b = new LinkedBlockingQueue<>(1);
+        this.f34426c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.a.g.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ g f36102a;
+            public final /* synthetic */ g f34427a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -65,7 +65,7 @@ public class g {
                         return;
                     }
                 }
-                this.f36102a = this;
+                this.f34427a = this;
             }
 
             @Override // android.content.ServiceConnection
@@ -73,7 +73,7 @@ public class g {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
                     try {
-                        this.f36102a.f36100b.put(iBinder);
+                        this.f34427a.f34425b.put(iBinder);
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.a(e2);
                     }
@@ -87,7 +87,7 @@ public class g {
                 }
             }
         };
-        this.f36099a = context;
+        this.f34424a = context;
     }
 
     public String a() {
@@ -100,21 +100,21 @@ public class g {
             try {
                 Intent intent = new Intent();
                 intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
-                if (this.f36099a.bindService(intent, this.f36101c, 1)) {
+                if (this.f34424a.bindService(intent, this.f34426c, 1)) {
                     try {
-                        str = new e.a(this.f36100b.take()).a();
-                        com.kwad.sdk.core.d.a.b("SamsungDeviceIDHelper", "getOAID oaid:" + str);
-                        context = this.f36099a;
-                        serviceConnection = this.f36101c;
+                        str = new e.a(this.f34425b.take()).a();
+                        com.kwad.sdk.core.d.a.c("SamsungDeviceIDHelper", "getOAID oaid:" + str);
+                        context = this.f34424a;
+                        serviceConnection = this.f34426c;
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.a(e2);
-                        context = this.f36099a;
-                        serviceConnection = this.f36101c;
+                        context = this.f34424a;
+                        serviceConnection = this.f34426c;
                     }
                     context.unbindService(serviceConnection);
                 }
             } catch (Exception e3) {
-                com.kwad.sdk.core.d.a.b("SamsungDeviceIDHelper", "getOAID service not found");
+                com.kwad.sdk.core.d.a.c("SamsungDeviceIDHelper", "getOAID service not found");
                 com.kwad.sdk.core.d.a.a(e3);
             }
             return str;

@@ -14,19 +14,19 @@ import com.baidu.wallet.base.controllers.PasswordController;
 import com.baidu.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ae extends PayBaseBean<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25855a;
+    public String f25965a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25856b;
+    public String f25966b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25857c;
+    public String f25967c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> ae(Context context) {
@@ -62,11 +62,11 @@ public class ae extends PayBaseBean<Object> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("new_passfree_status", this.f25856b));
-            arrayList.add(new RestNameValuePair("new_passfree_credit", this.f25857c));
-            if (!TextUtils.isEmpty(this.f25855a)) {
+            arrayList.add(new RestNameValuePair("new_passfree_status", this.f25966b));
+            arrayList.add(new RestNameValuePair("new_passfree_credit", this.f25967c));
+            if (!TextUtils.isEmpty(this.f25965a)) {
                 String seed = PasswordController.getSeed();
-                arrayList.add(new RestNameValuePair("mobile_pwd", PasswordController.handlePwd(this.f25855a, seed)));
+                arrayList.add(new RestNameValuePair("mobile_pwd", PasswordController.handlePwd(this.f25965a, seed)));
                 arrayList.add(new RestNameValuePair("pwd_seed", SafePay.getInstance().encryptProxy(seed)));
             }
             return arrayList;

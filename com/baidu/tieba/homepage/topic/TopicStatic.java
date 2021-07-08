@@ -1,5 +1,6 @@
 package com.baidu.tieba.homepage.topic;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -20,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.h3.d0.a;
-/* loaded from: classes5.dex */
+import d.a.p0.h3.d0.a;
+/* loaded from: classes4.dex */
 public class TopicStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +79,7 @@ public class TopicStatic {
 
     public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             a.h(309628, ResponseSocketGetTopicListMessage.class, false, false);
             a.c(309628, CmdConfigHttp.CMD_TOPIC_LIST, TbConfig.URL_GET_TAB_TOPIC_LIST, ResponseHttpGetTopicListMessage.class, false, false, true, false);
         }

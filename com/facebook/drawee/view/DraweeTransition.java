@@ -11,6 +11,7 @@ import android.transition.Transition;
 import android.transition.TransitionSet;
 import android.transition.TransitionValues;
 import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.drawable.ScalingUtils;
 import javax.annotation.Nullable;
 @TargetApi(19)
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DraweeTransition extends Transition {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PROPNAME_BOUNDS = "draweeTransition:bounds";
@@ -56,7 +57,7 @@ public class DraweeTransition extends Transition {
 
     private void captureValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65540, this, transitionValues) == null) && (transitionValues.view instanceof GenericDraweeView)) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, transitionValues) == null) && (transitionValues.view instanceof GenericDraweeView)) {
             transitionValues.values.put(PROPNAME_BOUNDS, new Rect(0, 0, transitionValues.view.getWidth(), transitionValues.view.getHeight()));
         }
     }

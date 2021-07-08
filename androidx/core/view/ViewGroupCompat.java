@@ -77,7 +77,7 @@ public final class ViewGroupCompat {
     public static boolean onRequestSendAccessibilityEvent(ViewGroup viewGroup, View view, AccessibilityEvent accessibilityEvent) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, viewGroup, view, accessibilityEvent)) == null) ? viewGroup.onRequestSendAccessibilityEvent(view, accessibilityEvent) : invokeLLL.booleanValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup, view, accessibilityEvent)) == null) ? viewGroup.onRequestSendAccessibilityEvent(view, accessibilityEvent) : invokeLLL.booleanValue;
     }
 
     public static void setLayoutMode(@NonNull ViewGroup viewGroup, int i2) {

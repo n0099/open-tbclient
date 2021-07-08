@@ -19,28 +19,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.SocialConstants;
-import d.a.r0.a0.d;
-import d.a.r0.l.c;
-import d.a.s0.p0.g;
+import d.a.o0.a0.d;
+import d.a.o0.l.c;
+import d.a.p0.p0.g;
 import java.util.HashSet;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class UserCollectModel extends FaceBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALL_DELETE = "all_delete";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f14992e;
+    public final HttpMessageListener f15031e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserCollectModel f14993e;
+        public final /* synthetic */ UserCollectModel f15032e;
 
         public a(UserCollectModel userCollectModel) {
             Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class UserCollectModel extends FaceBaseModel {
                     return;
                 }
             }
-            this.f14993e = userCollectModel;
+            this.f15032e = userCollectModel;
         }
 
         @Override // java.lang.Runnable
@@ -72,7 +72,7 @@ public class UserCollectModel extends FaceBaseModel {
                 JSONArray jSONArray = new JSONArray();
                 try {
                     for (CollectEmotionData collectEmotionData : n) {
-                        if (!d.f54733d.equals(collectEmotionData.sharpText) && !hashSet.contains(collectEmotionData.sharpText)) {
+                        if (!d.f51435d.equals(collectEmotionData.sharpText) && !hashSet.contains(collectEmotionData.sharpText)) {
                             jSONArray.put(collectEmotionData.toJSON());
                             hashSet.add(collectEmotionData.sharpText);
                         }
@@ -88,27 +88,27 @@ public class UserCollectModel extends FaceBaseModel {
                     httpMessage.addParam(SocialConstants.PARAM_IMAGE, UserCollectModel.ALL_DELETE);
                 }
                 httpMessage.addParam("pic_update_time", currentTimeMillis);
-                this.f14993e.sendMessage(httpMessage);
-                d.a.s0.c2.d.s(currentTimeMillis);
+                this.f15032e.sendMessage(httpMessage);
+                d.a.p0.c2.d.s(currentTimeMillis);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UserCollectModel f14994a;
+        public final /* synthetic */ UserCollectModel f15033a;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f14995e;
+            public final /* synthetic */ b f15034e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public class UserCollectModel extends FaceBaseModel {
                         return;
                     }
                 }
-                this.f14995e = bVar;
+                this.f15034e = bVar;
             }
 
             @Override // java.lang.Runnable
@@ -133,7 +133,7 @@ public class UserCollectModel extends FaceBaseModel {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     try {
-                        this.f14995e.f14994a.cancelLoadData();
+                        this.f15034e.f15033a.cancelLoadData();
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
@@ -159,7 +159,7 @@ public class UserCollectModel extends FaceBaseModel {
                     return;
                 }
             }
-            this.f14994a = userCollectModel;
+            this.f15033a = userCollectModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -186,12 +186,12 @@ public class UserCollectModel extends FaceBaseModel {
                 return;
             }
         }
-        this.f14992e = new b(this, CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
+        this.f15031e = new b(this, CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f14992e.setTag(getUniqueId());
-        this.f14992e.setSelfListener(true);
-        registerListener(this.f14992e);
+        this.f15031e.setTag(getUniqueId());
+        this.f15031e.setSelfListener(true);
+        registerListener(this.f15031e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -209,7 +209,7 @@ public class UserCollectModel extends FaceBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f14992e);
+            MessageManager.getInstance().unRegisterListener(this.f15031e);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
             return true;
         }

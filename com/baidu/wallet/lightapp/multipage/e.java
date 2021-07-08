@@ -3,6 +3,7 @@ package com.baidu.wallet.lightapp.multipage;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.utils.SharedPreferencesUtils;
@@ -22,30 +23,30 @@ import com.baidu.wallet.lightapp.multipage.h;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class e implements h.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONArray f25642a;
+    public JSONArray f25752a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Long f25643b;
+    public Long f25753b;
 
     /* renamed from: com.baidu.wallet.lightapp.multipage.e$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static e f25644a;
+        public static e f25754a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -61,7 +62,7 @@ public class e implements h.b {
                     return;
                 }
             }
-            f25644a = new e(null);
+            f25754a = new e(null);
         }
     }
 
@@ -72,7 +73,7 @@ public class e implements h.b {
     public static e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f25644a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f25754a : (e) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:10:0x001f  */
@@ -118,7 +119,7 @@ public class e implements h.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, context) == null) {
             JSONArray jSONArray = new JSONArray();
-            this.f25642a = jSONArray;
+            this.f25752a = jSONArray;
             SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_behaviour_book", jSONArray.toString());
         }
     }
@@ -145,7 +146,7 @@ public class e implements h.b {
             DXMSdkSAUtils.onEvent("#MW_BHM_ColdDown");
             PayStatisticsUtil.onEvent("#MW_BHM_ColdDown");
             Long valueOf = Long.valueOf(System.currentTimeMillis());
-            this.f25643b = valueOf;
+            this.f25753b = valueOf;
             SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", valueOf);
             h.a().b(context);
         }
@@ -164,7 +165,7 @@ public class e implements h.b {
                 return;
             }
         }
-        this.f25643b = -1L;
+        this.f25753b = -1L;
     }
 
     public void a(@NonNull Context context, int i2, @NonNull String str, List<String> list) {
@@ -194,10 +195,10 @@ public class e implements h.b {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, this, context, i2)) == null) {
-            if (this.f25643b.longValue() == -1) {
-                this.f25643b = (Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", 0L);
+            if (this.f25753b.longValue() == -1) {
+                this.f25753b = (Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", 0L);
             }
-            return System.currentTimeMillis() < this.f25643b.longValue() + ((long) (i2 * 1000));
+            return System.currentTimeMillis() < this.f25753b.longValue() + ((long) (i2 * 1000));
         }
         return invokeLI.booleanValue;
     }
@@ -223,17 +224,17 @@ public class e implements h.b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, context)) == null) {
-            if (this.f25642a == null) {
-                this.f25642a = b(context);
+            if (this.f25752a == null) {
+                this.f25752a = b(context);
             }
-            return this.f25642a;
+            return this.f25752a;
         }
         return (JSONArray) invokeL.objValue;
     }
 
     private void a(Context context, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65540, this, context, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, context, i2) == null) {
             JSONArray a2 = a(context);
             Long valueOf = Long.valueOf(System.currentTimeMillis());
             for (int i3 = 0; i3 < i2; i3++) {

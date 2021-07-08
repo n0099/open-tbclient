@@ -1,6 +1,7 @@
 package com.baidu.common.param;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.url.UrlUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -17,7 +18,7 @@ import d.a.m.c.d;
 import d.a.m.c.f;
 import d.a.m.c.h;
 import d.a.m.c.i;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class CommonUrlParamManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PARAM_APP_NAME = "appname";
@@ -94,7 +95,7 @@ public final class CommonUrlParamManager {
     public static CommonUrlParamManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (sCommonUrlParamManager == null) {
                 synchronized (CommonUrlParamManager.class) {
                     if (sCommonUrlParamManager == null) {

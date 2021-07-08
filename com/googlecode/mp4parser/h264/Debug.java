@@ -1,12 +1,13 @@
 package com.googlecode.mp4parser.h264;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ShortBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Debug {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean debug = false;
@@ -94,7 +95,7 @@ public class Debug {
 
     public static final void print8x8(ShortBuffer shortBuffer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, shortBuffer) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, shortBuffer) == null) {
             for (int i2 = 0; i2 < 8; i2++) {
                 for (int i3 = 0; i3 < 8; i3++) {
                     System.out.printf("%3d, ", Short.valueOf(shortBuffer.get()));

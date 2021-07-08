@@ -1,5 +1,6 @@
 package org.apache.http.client.utils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +11,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import org.apache.http.HttpHost;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class URIUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +71,7 @@ public class URIUtils {
     public static URI rewriteURI(URI uri, HttpHost httpHost) throws URISyntaxException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, uri, httpHost)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri, httpHost)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (URI) invokeLL.objValue;

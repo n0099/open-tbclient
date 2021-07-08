@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class Header {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f27830a;
+    public final String f27940a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f27831b;
+    public final String f27941b;
 
     public Header(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public final class Header {
                 return;
             }
         }
-        this.f27830a = str;
-        this.f27831b = str2;
+        this.f27940a = str;
+        this.f27941b = str2;
     }
 
     public boolean equals(Object obj) {
@@ -49,7 +49,7 @@ public final class Header {
                 return false;
             }
             Header header = (Header) obj;
-            return TextUtils.equals(this.f27830a, header.f27830a) && TextUtils.equals(this.f27831b, header.f27831b);
+            return TextUtils.equals(this.f27940a, header.f27940a) && TextUtils.equals(this.f27941b, header.f27941b);
         }
         return invokeL.booleanValue;
     }
@@ -57,26 +57,26 @@ public final class Header {
     public final String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27830a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27940a : (String) invokeV.objValue;
     }
 
     public final String getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27831b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27941b : (String) invokeV.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.f27830a.hashCode() * 31) + this.f27831b.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.f27940a.hashCode() * 31) + this.f27941b.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "Header[name=" + this.f27830a + ",value=" + this.f27831b + PreferencesUtil.RIGHT_MOUNT;
+            return "Header[name=" + this.f27940a + ",value=" + this.f27941b + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }

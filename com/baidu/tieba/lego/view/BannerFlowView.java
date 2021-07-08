@@ -16,39 +16,40 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.c.e.p.l;
 import d.a.c.k.e.n;
-import d.a.r0.r.f0.t.b;
-import d.a.s0.n1.o.l.l;
-import d.a.s0.n1.t.a;
+import d.a.o0.r.f0.u.b;
+import d.a.p0.n1.o.l.k;
+import d.a.p0.n1.t.a;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BannerFlowView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ListViewPager f18278e;
+    public ListViewPager f18318e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f18279f;
+    public View f18319f;
 
     /* renamed from: g  reason: collision with root package name */
-    public IndicatorView f18280g;
+    public IndicatorView f18320g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.s0.n1.t.b f18281h;
+    public d.a.p0.n1.t.b f18321h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.s0.n1.t.a f18282i;
+    public d.a.p0.n1.t.a f18322i;
     public c j;
 
-    /* loaded from: classes5.dex */
-    public class a implements l {
+    /* loaded from: classes4.dex */
+    public class a implements k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BannerFlowView f18283a;
+        public final /* synthetic */ BannerFlowView f18323a;
 
         public a(BannerFlowView bannerFlowView) {
             Interceptable interceptable = $ic;
@@ -65,35 +66,35 @@ public class BannerFlowView extends FrameLayout {
                     return;
                 }
             }
-            this.f18283a = bannerFlowView;
+            this.f18323a = bannerFlowView;
         }
 
-        @Override // d.a.s0.n1.o.l.l
+        @Override // d.a.p0.n1.o.l.k
         public void a(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f18283a.j == null) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f18323a.j == null) {
                 return;
             }
-            this.f18283a.j.a(i2);
+            this.f18323a.j.a(i2);
         }
 
-        @Override // d.a.s0.n1.o.l.l
+        @Override // d.a.p0.n1.o.l.k
         public void b(float f2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) || this.f18283a.j == null) {
+            if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) || this.f18323a.j == null) {
                 return;
             }
-            this.f18283a.j.b(f2);
+            this.f18323a.j.b(f2);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BannerFlowView f18284e;
+        public final /* synthetic */ BannerFlowView f18324e;
 
         public b(BannerFlowView bannerFlowView) {
             Interceptable interceptable = $ic;
@@ -110,7 +111,7 @@ public class BannerFlowView extends FrameLayout {
                     return;
                 }
             }
-            this.f18284e = bannerFlowView;
+            this.f18324e = bannerFlowView;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -130,15 +131,15 @@ public class BannerFlowView extends FrameLayout {
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f18284e.j == null) {
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f18324e.j == null) {
                 return;
             }
-            this.f18284e.j.onPageSelected(i2);
+            this.f18324e.j.onPageSelected(i2);
         }
     }
 
-    /* loaded from: classes5.dex */
-    public interface c extends l {
+    /* loaded from: classes4.dex */
+    public interface c extends k {
         void onPageSelected(int i2);
     }
 
@@ -166,49 +167,49 @@ public class BannerFlowView extends FrameLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setBackgroundResource(this.f18279f, R.drawable.bg_pic_shadow);
-            this.f18280g.setSelector(SkinManager.getDrawable(R.drawable.icon_diandian_white_s));
-            this.f18280g.setDrawable(SkinManager.getDrawable(R.drawable.icon_diandian_white_n));
+            SkinManager.setBackgroundResource(this.f18319f, R.drawable.bg_pic_shadow);
+            this.f18320g.setSelector(SkinManager.getDrawable(R.drawable.icon_diandian_white_s));
+            this.f18320g.setDrawable(SkinManager.getDrawable(R.drawable.icon_diandian_white_n));
         }
     }
 
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f18278e = new ListViewPager(context);
-            this.f18279f = new View(context);
+            this.f18318e = new ListViewPager(context);
+            this.f18319f = new View(context);
             IndicatorView indicatorView = new IndicatorView(context);
-            this.f18280g = indicatorView;
+            this.f18320g = indicatorView;
             indicatorView.setSpacing(0);
             b();
-            this.f18281h = new d.a.s0.n1.t.b(context, this.f18278e, this.f18280g, null);
-            this.f18282i = new d.a.s0.n1.t.a(context, d.a.r0.r.f0.t.d.a.f55737e);
-            this.f18281h.m(5000L);
-            this.f18281h.l(context, this.f18282i);
-            this.f18281h.q(new b(this));
-            addView(this.f18278e, new FrameLayout.LayoutParams(-1, -1));
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, d.a.c.e.p.l.g(context, R.dimen.ds80));
+            this.f18321h = new d.a.p0.n1.t.b(context, this.f18318e, this.f18320g, null);
+            this.f18322i = new d.a.p0.n1.t.a(context, d.a.o0.r.f0.u.d.a.f52443e);
+            this.f18321h.m(5000L);
+            this.f18321h.l(context, this.f18322i);
+            this.f18321h.q(new b(this));
+            addView(this.f18318e, new FrameLayout.LayoutParams(-1, -1));
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.g(context, R.dimen.ds80));
             layoutParams.gravity = 80;
-            addView(this.f18279f, layoutParams);
+            addView(this.f18319f, layoutParams);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
             layoutParams2.gravity = 85;
-            layoutParams2.setMargins(0, 0, d.a.c.e.p.l.g(context, R.dimen.ds20), d.a.c.e.p.l.g(context, R.dimen.ds16));
-            addView(this.f18280g, layoutParams2);
+            layoutParams2.setMargins(0, 0, l.g(context, R.dimen.ds20), l.g(context, R.dimen.ds16));
+            addView(this.f18320g, layoutParams2);
         }
     }
 
     public void setAutoScrollIntervalTime(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.f18281h.m(j);
+            this.f18321h.m(j);
         }
     }
 
     public void setData(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f18278e.removeAllViews();
-            this.f18281h.n(list);
+            this.f18318e.removeAllViews();
+            this.f18321h.n(list);
         }
     }
 
@@ -216,7 +217,7 @@ public class BannerFlowView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (z) {
-                View view = this.f18279f;
+                View view = this.f18319f;
                 if (view != null) {
                     if (z2) {
                         view.setVisibility(0);
@@ -224,28 +225,28 @@ public class BannerFlowView extends FrameLayout {
                         view.setVisibility(4);
                     }
                 }
-                this.f18281h.o(null);
+                this.f18321h.o(null);
                 return;
             }
-            View view2 = this.f18279f;
+            View view2 = this.f18319f;
             if (view2 != null) {
                 view2.setVisibility(8);
             }
-            this.f18281h.o(new a(this));
+            this.f18321h.o(new a(this));
         }
     }
 
     public void setDisableParentEvent(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f18278e.setDisableParentEvent(z);
+            this.f18318e.setDisableParentEvent(z);
         }
     }
 
     public void setIndicatorViewPosition(int i2) {
         IndicatorView indicatorView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (indicatorView = this.f18280g) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (indicatorView = this.f18320g) == null) {
             return;
         }
         if (i2 == 0) {
@@ -253,8 +254,8 @@ public class BannerFlowView extends FrameLayout {
         } else if (i2 == 1) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) indicatorView.getLayoutParams();
             layoutParams.gravity = 85;
-            this.f18280g.setLayoutParams(layoutParams);
-            this.f18280g.setVisibility(0);
+            this.f18320g.setLayoutParams(layoutParams);
+            this.f18320g.setVisibility(0);
         } else if (i2 != 2) {
             indicatorView.setVisibility(8);
         } else {
@@ -262,22 +263,22 @@ public class BannerFlowView extends FrameLayout {
             layoutParams2.gravity = 81;
             layoutParams2.rightMargin = 0;
             layoutParams2.rightMargin = 0;
-            this.f18280g.setLayoutParams(layoutParams2);
-            this.f18280g.setVisibility(0);
+            this.f18320g.setLayoutParams(layoutParams2);
+            this.f18320g.setVisibility(0);
         }
     }
 
     public void setMaxScrollCountLimit(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f18281h.p(i2);
+            this.f18321h.p(i2);
         }
     }
 
-    public void setOnItemClickListener(b.a<d.a.r0.r.f0.t.d.a, a.C1611a> aVar) {
-        d.a.s0.n1.t.a aVar2;
+    public void setOnItemClickListener(b.a<d.a.o0.r.f0.u.d.a, a.C1567a> aVar) {
+        d.a.p0.n1.t.a aVar2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) || (aVar2 = this.f18282i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) || (aVar2 = this.f18322i) == null) {
             return;
         }
         aVar2.f(aVar);
@@ -293,9 +294,9 @@ public class BannerFlowView extends FrameLayout {
     public void setSwipeControlInterface(SwipeBackLayout.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
-            this.f18278e.setSwipeControlInterface(cVar);
+            this.f18318e.setSwipeControlInterface(cVar);
             if (cVar != null) {
-                this.f18278e.setDisableParentEvent(false);
+                this.f18318e.setDisableParentEvent(false);
             }
         }
     }

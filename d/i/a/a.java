@@ -9,6 +9,7 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
 import android.os.RemoteException;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,33 +17,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f73928a;
+    public Handler f70980a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f73929b;
+    public Context f70981b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f73930c;
+    public c f70982c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ServiceConnection f73931d;
+    public ServiceConnection f70983d;
 
     /* renamed from: d.i.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public class ServiceConnectionC2038a implements ServiceConnection {
+    /* loaded from: classes8.dex */
+    public class ServiceConnectionC2006a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f73932e;
+        public final /* synthetic */ a f70984e;
 
-        public ServiceConnectionC2038a(a aVar) {
+        public ServiceConnectionC2006a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,7 +58,7 @@ public class a {
                     return;
                 }
             }
-            this.f73932e = aVar;
+            this.f70984e = aVar;
         }
 
         @Override // android.content.ServiceConnection
@@ -78,8 +79,8 @@ public class a {
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, componentName, iBinder) == null) {
-                this.f73932e.f73928a.obtainMessage(1, OpenDeviceIdentifierService.Stub.asInterface(iBinder)).sendToTarget();
-                this.f73932e.f73928a.removeMessages(2);
+                this.f70984e.f70980a.obtainMessage(1, OpenDeviceIdentifierService.Stub.asInterface(iBinder)).sendToTarget();
+                this.f70984e.f70980a.removeMessages(2);
             }
         }
 
@@ -91,13 +92,13 @@ public class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f73933a;
+        public final /* synthetic */ a f70985a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(a aVar, Looper looper) {
@@ -117,7 +118,7 @@ public class a {
                     return;
                 }
             }
-            this.f73933a = aVar;
+            this.f70985a = aVar;
         }
 
         @Override // android.os.Handler
@@ -126,34 +127,34 @@ public class a {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 int i2 = message.what;
                 if (i2 == 0) {
-                    this.f73933a.f73930c.a(-1, null);
+                    this.f70985a.f70982c.a(-1, null);
                 } else if (i2 != 1) {
                     if (i2 != 2) {
                         return;
                     }
-                    this.f73933a.f73930c.a(-2, null);
+                    this.f70985a.f70982c.a(-2, null);
                 } else {
                     OpenDeviceIdentifierService openDeviceIdentifierService = (OpenDeviceIdentifierService) message.obj;
                     try {
                         try {
-                            this.f73933a.f73930c.b(openDeviceIdentifierService.getOaid(), openDeviceIdentifierService.isOaidTrackLimited());
+                            this.f70985a.f70982c.b(openDeviceIdentifierService.getOaid(), openDeviceIdentifierService.isOaidTrackLimited());
                             try {
-                                this.f73933a.f73929b.unbindService(this.f73933a.f73931d);
+                                this.f70985a.f70981b.unbindService(this.f70985a.f70983d);
                             } catch (Exception e2) {
-                                this.f73933a.f73930c.a(-4, e2);
+                                this.f70985a.f70982c.a(-4, e2);
                             }
                         } catch (RemoteException e3) {
-                            this.f73933a.f73930c.a(-3, e3);
+                            this.f70985a.f70982c.a(-3, e3);
                             try {
-                                this.f73933a.f73929b.unbindService(this.f73933a.f73931d);
+                                this.f70985a.f70981b.unbindService(this.f70985a.f70983d);
                             } catch (Exception unused) {
                             }
                         }
                     } catch (Throwable th) {
                         try {
-                            this.f73933a.f73929b.unbindService(this.f73933a.f73931d);
+                            this.f70985a.f70981b.unbindService(this.f70985a.f70983d);
                         } catch (Exception e4) {
-                            this.f73933a.f73930c.a(-4, e4);
+                            this.f70985a.f70982c.a(-4, e4);
                         }
                         throw th;
                     }
@@ -162,7 +163,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface c {
         void a(int i2, Exception exc);
 
@@ -184,15 +185,15 @@ public class a {
                 return;
             }
         }
-        this.f73931d = new ServiceConnectionC2038a(this);
-        this.f73929b = context;
-        this.f73930c = cVar;
-        this.f73928a = new b(this, handler == null ? Looper.getMainLooper() : handler.getLooper());
+        this.f70983d = new ServiceConnectionC2006a(this);
+        this.f70981b = context;
+        this.f70982c = cVar;
+        this.f70980a = new b(this, handler == null ? Looper.getMainLooper() : handler.getLooper());
     }
 
     public static void d(Context context, c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, context, cVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, cVar) == null) {
             e(context, cVar, null);
         }
     }
@@ -209,12 +210,12 @@ public class a {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
             intent.setPackage("com.huawei.hwid");
-            if (this.f73929b.bindService(intent, this.f73931d, 1)) {
-                Handler handler = this.f73928a;
+            if (this.f70981b.bindService(intent, this.f70983d, 1)) {
+                Handler handler = this.f70980a;
                 handler.sendMessageDelayed(handler.obtainMessage(2), 10000L);
                 return;
             }
-            this.f73928a.sendEmptyMessage(0);
+            this.f70980a.sendEmptyMessage(0);
         }
     }
 }

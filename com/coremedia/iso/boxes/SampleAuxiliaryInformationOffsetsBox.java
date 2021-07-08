@@ -21,7 +21,7 @@ import java.util.LinkedList;
 import java.util.List;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SampleAuxiliaryInformationOffsetsBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "saio";

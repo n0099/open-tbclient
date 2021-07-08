@@ -167,7 +167,7 @@ public final class RatingCompat implements Parcelable {
     public static RatingCompat newPercentageRating(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65540, null, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TRACKBALL, null, f2)) == null) {
             if (f2 >= 0.0f && f2 <= 100.0f) {
                 return new RatingCompat(6, f2);
             }

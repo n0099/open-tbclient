@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bytedance.sdk.component.b.b.t;
 import com.bytedance.sdk.component.b.b.z;
 import java.net.Proxy;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

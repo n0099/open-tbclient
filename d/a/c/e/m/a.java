@@ -1,6 +1,7 @@
 package d.a.c.e.m;
 
 import android.database.Cursor;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +65,7 @@ public class a {
 
     public static void e(HttpURLConnection httpURLConnection) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, null, httpURLConnection) == null) || httpURLConnection == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, httpURLConnection) == null) || httpURLConnection == null) {
             return;
         }
         try {

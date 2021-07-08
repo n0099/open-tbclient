@@ -5,16 +5,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f28656a;
+    public boolean f28766a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f28657b;
+    public boolean f28767b;
 
     public b(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
@@ -31,8 +31,8 @@ public class b {
                 return;
             }
         }
-        this.f28656a = z;
-        this.f28657b = z2;
+        this.f28766a = z;
+        this.f28767b = z2;
     }
 
     public static b a() {

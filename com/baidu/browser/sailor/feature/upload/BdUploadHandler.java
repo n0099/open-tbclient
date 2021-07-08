@@ -29,7 +29,7 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import d.a.i.a.g;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BdUploadHandler implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUDIO_MIME_TYPE = "audio/*";
@@ -50,13 +50,13 @@ public class BdUploadHandler implements INoProGuard {
     public ValueCallback<Uri> mUploadMessage;
     public ValueCallback<Uri[]> mUploadMessage1;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class a implements ActivityCompat.OnRequestPermissionsResultCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdUploadHandler f4337e;
+        public final /* synthetic */ BdUploadHandler f4342e;
 
         public a(BdUploadHandler bdUploadHandler) {
             Interceptable interceptable = $ic;
@@ -73,7 +73,7 @@ public class BdUploadHandler implements INoProGuard {
                     return;
                 }
             }
-            this.f4337e = bdUploadHandler;
+            this.f4342e = bdUploadHandler;
         }
 
         @Override // com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
@@ -87,22 +87,22 @@ public class BdUploadHandler implements INoProGuard {
                     }
                 }
                 if (z) {
-                    Intent createCameraIntentAfterCheckPermission = this.f4337e.createCameraIntentAfterCheckPermission();
-                    this.f4337e.mCanHandleResult = true;
-                    this.f4337e.startActivityForResult(createCameraIntentAfterCheckPermission, 11);
+                    Intent createCameraIntentAfterCheckPermission = this.f4342e.createCameraIntentAfterCheckPermission();
+                    this.f4342e.mCanHandleResult = true;
+                    this.f4342e.startActivityForResult(createCameraIntentAfterCheckPermission, 11);
                 }
                 d.a.i.a.j.a.b().d(4099);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class b implements ActivityCompat.OnRequestPermissionsResultCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdUploadHandler f4338e;
+        public final /* synthetic */ BdUploadHandler f4343e;
 
         public b(BdUploadHandler bdUploadHandler) {
             Interceptable interceptable = $ic;
@@ -119,7 +119,7 @@ public class BdUploadHandler implements INoProGuard {
                     return;
                 }
             }
-            this.f4338e = bdUploadHandler;
+            this.f4343e = bdUploadHandler;
         }
 
         @Override // com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
@@ -133,8 +133,8 @@ public class BdUploadHandler implements INoProGuard {
                     }
                 }
                 if (z) {
-                    this.f4338e.mCanHandleResult = true;
-                    this.f4338e.mActivity.startActivityForResult(this.f4338e.createCamcorderIntent(), 11);
+                    this.f4343e.mCanHandleResult = true;
+                    this.f4343e.mActivity.startActivityForResult(this.f4343e.createCamcorderIntent(), 11);
                 }
                 d.a.i.a.j.a.b().d(4099);
             }

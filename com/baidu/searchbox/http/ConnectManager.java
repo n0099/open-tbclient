@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ConnectManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -181,7 +181,7 @@ public class ConnectManager {
     public static boolean checkVPN(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             if (connectivityManager == null || connectivityManager.getNetworkInfo(17) == null) {
                 return false;

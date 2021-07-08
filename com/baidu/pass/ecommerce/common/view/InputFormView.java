@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class InputFormView extends RelativeLayout implements View.OnClickListener, View.OnFocusChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_LENGTH = 1000;

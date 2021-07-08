@@ -39,7 +39,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DiskStorageCache implements FileCache, DiskTrimmable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long FILECACHE_SIZE_UPDATE_PERIOD_MS;
@@ -71,7 +71,7 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
     public final DiskStorage mStorage;
 
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class CacheStats {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -171,7 +171,7 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Params {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

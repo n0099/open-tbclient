@@ -19,11 +19,11 @@ import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUti
 import com.baidu.ugc.editvideo.sticker.OnChangeStickerListener;
 import com.baidu.ugc.editvideo.sticker.a;
 import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
-import d.a.y0.t.h;
+import d.a.v0.t.h;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnMediaPreviewTouchEventListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATUS_CLICK = 104;
@@ -276,7 +276,7 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
     private boolean isEditStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             int i2 = this.mSelectStatus;
             return 103 == i2 || 102 == i2 || 105 == i2;
         }

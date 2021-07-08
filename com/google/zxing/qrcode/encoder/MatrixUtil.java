@@ -1,5 +1,6 @@
 package com.google.zxing.qrcode.encoder;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
@@ -15,7 +16,7 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitArray;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import com.google.zxing.qrcode.decoder.Version;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MatrixUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[][] POSITION_ADJUSTMENT_PATTERN;
@@ -90,7 +91,7 @@ public final class MatrixUtil {
 
     public static void clearMatrix(ByteMatrix byteMatrix) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, byteMatrix) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, byteMatrix) == null) {
             byteMatrix.clear((byte) -1);
         }
     }

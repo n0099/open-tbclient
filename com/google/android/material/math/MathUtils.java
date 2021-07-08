@@ -1,12 +1,13 @@
 package com.google.android.material.math;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MathUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DEFAULT_EPSILON = 1.0E-4f;
@@ -73,7 +74,7 @@ public final class MathUtils {
     public static int floorMod(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65540, null, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3)) == null) {
             int i4 = i2 / i3;
             if ((i2 ^ i3) < 0 && i4 * i3 != i2) {
                 i4--;

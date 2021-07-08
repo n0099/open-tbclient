@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.core.e.m;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class e extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,15 +57,15 @@ public class e extends a {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
             cVar.a(8);
             cVar.b(8);
-            this.f29374i.c(false);
-            this.f29374i.d(false);
-            if (this.f29367b.d() == 2) {
-                this.f29374i.a(false);
-                this.f29374i.e(false);
+            this.f29484i.c(false);
+            this.f29484i.d(false);
+            if (this.f29477b.d() == 2) {
+                this.f29484i.a(false);
+                this.f29484i.e(false);
                 return;
             }
-            this.f29374i.a(this.f29367b.aM());
-            this.f29374i.e(true);
+            this.f29484i.a(this.f29477b.aM());
+            this.f29484i.e(true);
         }
     }
 

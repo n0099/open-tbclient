@@ -1,6 +1,7 @@
 package com.baidu.searchbox.cloudcontrol.router;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.cloudcontrol.CloudControlManager;
 import com.baidu.searchbox.cloudcontrol.ICloudControlUBCCallBack;
@@ -23,7 +24,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DataRouter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DataRouter";
@@ -48,7 +49,7 @@ public class DataRouter {
     /* JADX INFO: Access modifiers changed from: private */
     public void onError(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) {
             this.mErrorMsg += str;
         }
     }

@@ -19,38 +19,38 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class a implements k {
     public static /* synthetic */ Interceptable $ic;
     public static final AtomicLong m;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile com.bytedance.sdk.openadsdk.o.a.a f31515a;
+    public volatile com.bytedance.sdk.openadsdk.o.a.a f31625a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.o.b.c f31516b;
+    public final com.bytedance.sdk.openadsdk.o.b.c f31626b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AtomicInteger f31517c;
+    public final AtomicInteger f31627c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicLong f31518d;
+    public final AtomicLong f31628d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.o.d.a f31519e;
+    public com.bytedance.sdk.openadsdk.o.d.a f31629e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile List<i.b> f31520f;
+    public volatile List<i.b> f31630f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile String f31521g;
+    public volatile String f31631g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile String f31522h;
+    public volatile String f31632h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile i f31523i;
+    public volatile i f31633i;
     public volatile l j;
     public volatile boolean k;
     public final long l;
@@ -88,14 +88,14 @@ public abstract class a implements k {
                 return;
             }
         }
-        this.f31517c = new AtomicInteger();
-        this.f31518d = new AtomicLong();
+        this.f31627c = new AtomicInteger();
+        this.f31628d = new AtomicLong();
         this.k = false;
         this.l = m.incrementAndGet();
         this.n = new AtomicInteger(0);
         this.o = -1;
-        this.f31515a = aVar;
-        this.f31516b = cVar;
+        this.f31625a = aVar;
+        this.f31626b = cVar;
     }
 
     public void a(Boolean bool, String str, @NonNull Throwable th) {
@@ -134,10 +134,10 @@ public abstract class a implements k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f31523i != null) {
-                return this.f31523i.f31680c.f31681a;
+            if (this.f31633i != null) {
+                return this.f31633i.f31790c.f31791a;
             }
-            return this.f31515a instanceof com.bytedance.sdk.openadsdk.o.a.b ? 1 : 0;
+            return this.f31625a instanceof com.bytedance.sdk.openadsdk.o.a.b ? 1 : 0;
         }
         return invokeV.intValue;
     }
@@ -162,16 +162,16 @@ public abstract class a implements k {
             com.bytedance.sdk.openadsdk.o.e.b b2 = com.bytedance.sdk.openadsdk.o.e.c.a().b();
             com.bytedance.sdk.openadsdk.o.e.f fVar = new com.bytedance.sdk.openadsdk.o.e.f();
             HashMap hashMap = new HashMap();
-            fVar.f31609b = aVar.f31704a;
-            fVar.f31608a = 0;
+            fVar.f31719b = aVar.f31814a;
+            fVar.f31718a = 0;
             if ("HEAD".equalsIgnoreCase(str)) {
-                fVar.f31608a = 4;
+                fVar.f31718a = 4;
             }
-            List<i.b> list = this.f31520f;
+            List<i.b> list = this.f31630f;
             if (list != null && !list.isEmpty()) {
                 for (i.b bVar : list) {
-                    if (!"Range".equalsIgnoreCase(bVar.f31688a) && !HTTP.CONN_DIRECTIVE.equalsIgnoreCase(bVar.f31688a) && !"Proxy-Connection".equalsIgnoreCase(bVar.f31688a) && !"Host".equalsIgnoreCase(bVar.f31688a)) {
-                        hashMap.put(bVar.f31688a, bVar.f31689b);
+                    if (!"Range".equalsIgnoreCase(bVar.f31798a) && !HTTP.CONN_DIRECTIVE.equalsIgnoreCase(bVar.f31798a) && !"Proxy-Connection".equalsIgnoreCase(bVar.f31798a) && !"Host".equalsIgnoreCase(bVar.f31798a)) {
+                        hashMap.put(bVar.f31798a, bVar.f31799b);
                     }
                 }
             }
@@ -179,23 +179,23 @@ public abstract class a implements k {
             if (a2 != null) {
                 hashMap.put("Range", a2);
             }
-            if (e.f31600f) {
+            if (e.f31710f) {
                 hashMap.put("Cache-Control", "no-cache");
             }
             d c2 = d.c();
             f a3 = f.a();
-            boolean z = this.f31523i == null;
+            boolean z = this.f31633i == null;
             c a4 = z ? c2.a() : a3.b();
             c b3 = z ? c2.b() : a3.c();
             if (a4 != null || b3 != null) {
                 if (a4 != null) {
-                    fVar.f31610c = a4.a(aVar.f31705b);
+                    fVar.f31720c = a4.a(aVar.f31815b);
                 }
                 if (b3 != null) {
-                    fVar.f31611d = b3.a(aVar.f31705b);
+                    fVar.f31721d = b3.a(aVar.f31815b);
                 }
             }
-            fVar.f31612e = hashMap;
+            fVar.f31722e = hashMap;
             if (this.k) {
                 this.k = false;
                 return null;
@@ -210,7 +210,7 @@ public abstract class a implements k {
         if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) || i2 <= 0 || i3 < 0) {
             return;
         }
-        int i4 = e.f31601g;
+        int i4 = e.f31711g;
         int f2 = f();
         if (i4 == 1 || (i4 == 2 && f2 == 1)) {
             int i5 = (int) ((i3 / i2) * 100.0f);
@@ -227,7 +227,7 @@ public abstract class a implements k {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f31524a;
+                    public final /* synthetic */ a f31634a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -244,7 +244,7 @@ public abstract class a implements k {
                                 return;
                             }
                         }
-                        this.f31524a = this;
+                        this.f31634a = this;
                     }
 
                     @Override // java.lang.Runnable
@@ -252,10 +252,10 @@ public abstract class a implements k {
                         a aVar;
                         com.bytedance.sdk.openadsdk.o.d.a aVar2;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (aVar2 = (aVar = this.f31524a).f31519e) == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (aVar2 = (aVar = this.f31634a).f31629e) == null) {
                             return;
                         }
-                        aVar2.a(aVar.j, this.f31524a.o);
+                        aVar2.a(aVar.j, this.f31634a.o);
                     }
                 });
             }

@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class au {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f42845a;
+    public static volatile boolean f39859a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,11 +31,11 @@ public class au {
 
     public static void a(Class<?> cls, Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, cls, context) == null) || f42845a) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, cls, context) == null) || f39859a) {
             return;
         }
         try {
-            f42845a = true;
+            f39859a = true;
             cls.getDeclaredMethod("InitEntry", Context.class).invoke(cls, context);
         } catch (Throwable th) {
             com.xiaomi.channel.commonutils.logger.b.m70a("mdid:load lib error " + th);

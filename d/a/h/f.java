@@ -15,32 +15,32 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile f f45538a;
+    public static volatile f f42392a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(int i2, ArrayList<String> arrayList, ArrayList<String> arrayList2, long j, String str);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f45539e;
+        public String f42393e;
 
         /* renamed from: f  reason: collision with root package name */
-        public a f45540f;
+        public a f42394f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ f f45541g;
+        public final /* synthetic */ f f42395g;
 
         public b(f fVar, String str, a aVar) {
             Interceptable interceptable = $ic;
@@ -57,9 +57,9 @@ public final class f {
                     return;
                 }
             }
-            this.f45541g = fVar;
-            this.f45539e = str;
-            this.f45540f = aVar;
+            this.f42395g = fVar;
+            this.f42393e = str;
+            this.f42394f = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -68,7 +68,7 @@ public final class f {
             ArrayList<String> arrayList2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Map e2 = this.f45541g.e(this.f45539e);
+                Map e2 = this.f42395g.e(this.f42393e);
                 if (e2 != null) {
                     arrayList2 = (ArrayList) e2.get(HttpDnsCacheForHost.JSON_KEY_IPV6);
                     arrayList = (ArrayList) e2.get("ipv4");
@@ -76,7 +76,7 @@ public final class f {
                     arrayList = null;
                     arrayList2 = null;
                 }
-                this.f45540f.a(((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? -1 : 0, arrayList, arrayList2, 60L, this.f45539e);
+                this.f42394f.a(((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? -1 : 0, arrayList, arrayList2, 60L, this.f42393e);
             }
         }
     }
@@ -99,14 +99,14 @@ public final class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f45538a == null) {
+            if (f42392a == null) {
                 synchronized (f.class) {
-                    if (f45538a == null) {
-                        f45538a = new f();
+                    if (f42392a == null) {
+                        f42392a = new f();
                     }
                 }
             }
-            return f45538a;
+            return f42392a;
         }
         return (f) invokeV.objValue;
     }

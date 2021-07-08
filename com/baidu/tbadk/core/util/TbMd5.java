@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import android.content.pm.PackageInfo;
 import android.content.pm.Signature;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,7 +17,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.security.MessageDigest;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TbMd5 {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] HEX_DIGITS;
@@ -105,7 +106,7 @@ public class TbMd5 {
     public static String getAPKMd5(PackageInfo packageInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, packageInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, packageInfo)) == null) {
             if (packageInfo == null) {
                 return null;
             }

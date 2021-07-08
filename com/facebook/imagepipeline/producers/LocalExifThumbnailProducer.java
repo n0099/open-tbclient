@@ -4,6 +4,7 @@ import android.content.ContentResolver;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,7 +30,7 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LocalExifThumbnailProducer implements ThumbnailProducer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COMMON_EXIF_THUMBNAIL_MAX_DIMENSION = 512;
@@ -90,7 +91,7 @@ public class LocalExifThumbnailProducer implements ThumbnailProducer<EncodedImag
     private int getRotationAngle(ExifInterface exifInterface) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, this, exifInterface)) == null) ? JfifUtil.getAutoRotateAngleFromOrientation(Integer.parseInt(exifInterface.getAttribute("Orientation"))) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, exifInterface)) == null) ? JfifUtil.getAutoRotateAngleFromOrientation(Integer.parseInt(exifInterface.getAttribute("Orientation"))) : invokeL.intValue;
     }
 
     @Override // com.facebook.imagepipeline.producers.ThumbnailProducer

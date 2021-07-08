@@ -7,6 +7,7 @@ import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -19,18 +20,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.embedapplog.IOaidObserver;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class n0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f71708a;
+    public static final String f68811a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static j0<u0> f71709b;
+    public static j0<u0> f68812b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class a extends j0<u0> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,8 +73,8 @@ public final class n0 {
                 return;
             }
         }
-        f71708a = n0.class.getSimpleName() + "#";
-        f71709b = new a();
+        f68811a = n0.class.getSimpleName() + "#";
+        f68812b = new a();
     }
 
     public n0() {
@@ -97,7 +98,7 @@ public final class n0 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, sharedPreferences)) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             String a2 = l0.a(sharedPreferences);
-            o0.e("TrackerDr", f71708a + "getCdid takes " + (SystemClock.elapsedRealtime() - elapsedRealtime) + " ms");
+            o0.e("TrackerDr", f68811a + "getCdid takes " + (SystemClock.elapsedRealtime() - elapsedRealtime) + " ms");
             return a2;
         }
         return (String) invokeL.objValue;
@@ -122,10 +123,10 @@ public final class n0 {
     public static Map<String, String> c(@NonNull Context context, @NonNull SharedPreferences sharedPreferences) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, sharedPreferences)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, sharedPreferences)) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            Map<String, String> b2 = f71709b.b(context).b(100L);
-            o0.e("TrackerDr", f71708a + "getOaid takes " + (SystemClock.elapsedRealtime() - elapsedRealtime) + " ms");
+            Map<String, String> b2 = f68812b.b(context).b(100L);
+            o0.e("TrackerDr", f68811a + "getOaid takes " + (SystemClock.elapsedRealtime() - elapsedRealtime) + " ms");
             return b2;
         }
         return (Map) invokeLL.objValue;
@@ -135,7 +136,7 @@ public final class n0 {
     public static void d(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context) == null) {
-            f71709b.b(context).c();
+            f68812b.b(context).c();
         }
     }
 

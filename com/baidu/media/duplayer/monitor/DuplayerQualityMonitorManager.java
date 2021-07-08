@@ -18,33 +18,33 @@ import com.baidu.ugc.editvideo.record.RecordConstants;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DuplayerQualityMonitorManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static DuplayerQualityMonitorManager f8086c;
+    public static DuplayerQualityMonitorManager f8103c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int[] f8087d;
+    public static final int[] f8104d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap<String, Integer> f8088a;
+    public ConcurrentHashMap<String, Integer> f8105a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f8089b;
+    public int f8106b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8090e;
+        public final /* synthetic */ String f8107e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f8091f;
+        public final /* synthetic */ int f8108f;
 
         public a(String str, int i2) {
             Interceptable interceptable = $ic;
@@ -61,15 +61,15 @@ public class DuplayerQualityMonitorManager {
                     return;
                 }
             }
-            this.f8090e = str;
-            this.f8091f = i2;
+            this.f8107e = str;
+            this.f8108f = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                DuplayerQualityMonitorManager.getInstance().e(this.f8090e, this.f8091f);
+                DuplayerQualityMonitorManager.getInstance().e(this.f8107e, this.f8108f);
             }
         }
     }
@@ -87,7 +87,7 @@ public class DuplayerQualityMonitorManager {
                 return;
             }
         }
-        f8087d = new int[]{480, RecordConstants.DEFAULT_PREVIEW_WIDTH, 720, 1080};
+        f8104d = new int[]{480, RecordConstants.DEFAULT_PREVIEW_WIDTH, 720, 1080};
     }
 
     public DuplayerQualityMonitorManager() {
@@ -103,8 +103,8 @@ public class DuplayerQualityMonitorManager {
                 return;
             }
         }
-        this.f8088a = new ConcurrentHashMap<>();
-        this.f8089b = 100;
+        this.f8105a = new ConcurrentHashMap<>();
+        this.f8106b = 100;
     }
 
     public static synchronized DuplayerQualityMonitorManager getInstance() {
@@ -113,10 +113,10 @@ public class DuplayerQualityMonitorManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (DuplayerQualityMonitorManager.class) {
-                if (f8086c == null) {
-                    f8086c = new DuplayerQualityMonitorManager();
+                if (f8103c == null) {
+                    f8103c = new DuplayerQualityMonitorManager();
                 }
-                duplayerQualityMonitorManager = f8086c;
+                duplayerQualityMonitorManager = f8103c;
             }
             return duplayerQualityMonitorManager;
         }
@@ -155,13 +155,13 @@ public class DuplayerQualityMonitorManager {
             if (min <= 0) {
                 return RecordConstants.DEFAULT_PREVIEW_WIDTH;
             }
-            for (int length = f8087d.length - 1; length >= 0; length--) {
-                int[] iArr = f8087d;
+            for (int length = f8104d.length - 1; length >= 0; length--) {
+                int[] iArr = f8104d;
                 if (min >= iArr[length]) {
                     return iArr[length];
                 }
             }
-            return f8087d[0];
+            return f8104d[0];
         }
         return invokeII.intValue;
     }
@@ -188,7 +188,7 @@ public class DuplayerQualityMonitorManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, str, i2) == null) {
             CyberLog.i("DuplayerQualityMonitorManager", "onUpdateMonitorData key:" + str + " score:" + i2);
-            ConcurrentHashMap<String, Integer> concurrentHashMap = this.f8088a;
+            ConcurrentHashMap<String, Integer> concurrentHashMap = this.f8105a;
             if (concurrentHashMap != null) {
                 concurrentHashMap.put(str, Integer.valueOf(i2));
             }
@@ -200,9 +200,9 @@ public class DuplayerQualityMonitorManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), map})) == null) {
             String c2 = c(str, i2, i3, i4, map);
-            Integer num = this.f8088a.get(c2);
+            Integer num = this.f8105a.get(c2);
             CyberLog.i("DuplayerQualityMonitorManager", "getPlayQualityScore key:" + c2 + " score:" + num);
-            return num != null ? num.intValue() : this.f8089b;
+            return num != null ? num.intValue() : this.f8106b;
         }
         return invokeCommon.intValue;
     }
@@ -210,7 +210,7 @@ public class DuplayerQualityMonitorManager {
     public void init(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) {
-            this.f8089b = CyberCfgManager.getInstance().getCfgIntValue("default_play_quality_score", 100);
+            this.f8106b = CyberCfgManager.getInstance().getCfgIntValue("default_play_quality_score", 100);
             nativeInit(str, z);
         }
     }

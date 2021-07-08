@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.graphics.ColorSpace;
 import androidx.annotation.ColorInt;
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +34,7 @@ public final class ColorKt {
     public static final float component2(Color color) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, color)) == null) ? color.getComponent(1) : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, color)) == null) ? color.getComponent(1) : invokeL.floatValue;
     }
 
     public static final int component2(@ColorInt int i2) {

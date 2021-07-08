@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import android.os.Build;
 import android.util.TypedValue;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -28,7 +29,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HEADER_SIZE = 20;
@@ -94,7 +95,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     public static float getScaleFromOptions(BitmapFactory.Options options) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, options)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, options)) == null) {
             if (options != null) {
                 int i2 = options.inSampleSize;
                 float f2 = i2 > 1 ? 1.0f / i2 : 1.0f;

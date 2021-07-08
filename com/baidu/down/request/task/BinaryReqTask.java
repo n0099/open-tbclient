@@ -31,17 +31,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.video.player.KsMediaMeta;
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BinaryReqTask extends AbstractTask {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
     public static final String TAG = "BinaryReqTask";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class BinaryTaskHandler extends BinaryHttpResponseHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -217,7 +216,7 @@ public class BinaryReqTask extends AbstractTask {
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("status", Integer.valueOf(this.this$0.mStatus));
                     if (this.this$0.mTotalLength <= 0) {
-                        contentValues.put("total_bytes", Long.valueOf(j));
+                        contentValues.put(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES, Long.valueOf(j));
                     }
                     TaskFacade.getInstance(null).getBinaryTaskMng().getDatabaseMng().update(contentValues, "_id=?", new String[]{String.valueOf(this.this$0.mDownloadId)});
                 }
@@ -397,22 +396,19 @@ public class BinaryReqTask extends AbstractTask {
                 return 0L;
             }
             String lowerCase = str.toLowerCase();
-            if (lowerCase.contains("m")) {
-                String[] split = lowerCase.replace("m", "").split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                if (split != null && split.length > 0) {
-                    j = Long.parseLong(split[0]) * 1024 * 1024;
-                }
-                if (split == null || split.length <= 1 || TextUtils.isEmpty(split[1].substring(0, 1))) {
-                    return j;
-                }
-                long parseLong = Long.parseLong(split[1].substring(0, 1));
-                Long.signum(parseLong);
-                return j + (parseLong * 1024);
-            } else if (lowerCase.contains("g")) {
-                return KsMediaMeta.AV_CH_STEREO_RIGHT;
-            } else {
-                return 0L;
+            if (!lowerCase.contains("m")) {
+                return lowerCase.contains("g") ? 1073741824L : 0L;
             }
+            String[] split = lowerCase.replace("m", "").split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            if (split != null && split.length > 0) {
+                j = Long.parseLong(split[0]) * 1024 * 1024;
+            }
+            if (split == null || split.length <= 1 || TextUtils.isEmpty(split[1].substring(0, 1))) {
+                return j;
+            }
+            long parseLong = Long.parseLong(split[1].substring(0, 1));
+            Long.signum(parseLong);
+            return j + (parseLong * 1024);
         }
         return invokeL.longValue;
     }
@@ -441,7 +437,7 @@ public class BinaryReqTask extends AbstractTask {
         if (new File(this.mFilePath).exists()) {
             this.mProgressInfo.addSegment(0L, this.mTotalLength);
             this.mProgressInfo.updateProgress(0L, j);
-            this.mTotalLength = query.getLong(query.getColumnIndex("total_bytes"));
+            this.mTotalLength = query.getLong(query.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES));
         }
         query.close();
     }

@@ -12,37 +12,37 @@ import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f9288a = "Security";
+    public static final String f9305a = "Security";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.pass.common.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class C0135a {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f9289a = "UTF-8";
+        public static final String f9306a = "UTF-8";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f9290b = "AES/CBC/NoPadding";
+        public static final String f9307b = "AES/CBC/NoPadding";
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f9291c = "AES";
+        public static final String f9308c = "AES";
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f9292d;
+        public String f9309d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f9293e;
+        public String f9310e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f9294f;
+        public String f9311f;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public C0135a() {
@@ -69,9 +69,9 @@ public class a {
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
                 if (str != null && str.length() != 0) {
                     try {
-                        IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.f9292d));
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f9294f);
-                        Cipher cipher = Cipher.getInstance(this.f9293e);
+                        IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.f9309d));
+                        SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f9311f);
+                        Cipher cipher = Cipher.getInstance(this.f9310e);
                         cipher.init(1, secretKeySpec, ivParameterSpec);
                         return cipher.doFinal(a(str).getBytes());
                     } catch (NoSuchAlgorithmException e2) {
@@ -102,12 +102,12 @@ public class a {
                     return;
                 }
             }
-            this.f9292d = "UTF-8";
-            this.f9293e = "AES/CBC/NoPadding";
-            this.f9294f = "AES";
-            this.f9294f = str;
-            this.f9293e = str2;
-            this.f9292d = str3;
+            this.f9309d = "UTF-8";
+            this.f9310e = "AES/CBC/NoPadding";
+            this.f9311f = "AES";
+            this.f9311f = str;
+            this.f9310e = str2;
+            this.f9309d = str3;
         }
 
         public byte[] a(byte[] bArr, String str, String str2) throws Exception {
@@ -117,9 +117,9 @@ public class a {
                 if (bArr != null && bArr.length != 0) {
                     byte[] bArr2 = new byte[0];
                     try {
-                        IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.f9292d));
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f9294f);
-                        Cipher cipher = Cipher.getInstance(this.f9293e);
+                        IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.f9309d));
+                        SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f9311f);
+                        Cipher cipher = Cipher.getInstance(this.f9310e);
                         cipher.init(2, secretKeySpec, ivParameterSpec);
                         return cipher.doFinal(bArr);
                     } catch (Throwable th) {
@@ -194,7 +194,7 @@ public class a {
                     sb.append(str);
                 }
             } catch (Exception unused) {
-                Log.e(f9288a, "toHexString is error");
+                Log.e(f9305a, "toHexString is error");
             }
             return sb.toString();
         }

@@ -22,7 +22,7 @@ import com.baidu.wallet.paysdk.fingerprint.bean.FingerprintBeanFactory;
 import com.google.zxing.client.result.ExpandedProductParsedResult;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class EANManufacturerOrgSupport {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

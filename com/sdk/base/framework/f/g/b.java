@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b extends com.sdk.base.framework.f.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public class b extends com.sdk.base.framework.f.a {
                 return;
             }
         }
-        boolean z = com.sdk.base.framework.c.f.f41195b;
+        boolean z = com.sdk.base.framework.c.f.f38209b;
     }
 
     public b() {
@@ -48,7 +48,7 @@ public class b extends com.sdk.base.framework.f.a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, arrayList)) == null) {
-            c cVar = c.f41229c;
+            c cVar = c.f38243c;
             return a.a(context);
         }
         return (c) invokeLL.objValue;

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.util.TriState;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class QuickWebViewSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic;
     public static QuickWebViewSwitch mInstance;

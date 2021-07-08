@@ -1,5 +1,6 @@
 package com.xiaomi.push;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class hf {
     public static /* synthetic */ Interceptable $ic;
     public static final hf A;
@@ -24,34 +25,34 @@ public final class hf {
     public static final hf K;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final hf f43236a;
+    public static final hf f40250a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ hf[] f471a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hf f43237b;
+    public static final hf f40251b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hf f43238c;
+    public static final hf f40252c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hf f43239d;
+    public static final hf f40253d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final hf f43240e;
+    public static final hf f40254e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final hf f43241f;
+    public static final hf f40255f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final hf f43242g;
+    public static final hf f40256g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final hf f43243h;
+    public static final hf f40257h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final hf f43244i;
+    public static final hf f40258i;
     public static final hf j;
     public static final hf k;
     public static final hf l;
@@ -87,15 +88,15 @@ public final class hf {
                 return;
             }
         }
-        f43236a = new hf("Registration", 0, 1);
-        f43237b = new hf("UnRegistration", 1, 2);
-        f43238c = new hf("Subscription", 2, 3);
-        f43239d = new hf("UnSubscription", 3, 4);
-        f43240e = new hf("SendMessage", 4, 5);
-        f43241f = new hf("AckMessage", 5, 6);
-        f43242g = new hf("SetConfig", 6, 7);
-        f43243h = new hf("ReportFeedback", 7, 8);
-        f43244i = new hf("Notification", 8, 9);
+        f40250a = new hf("Registration", 0, 1);
+        f40251b = new hf("UnRegistration", 1, 2);
+        f40252c = new hf("Subscription", 2, 3);
+        f40253d = new hf("UnSubscription", 3, 4);
+        f40254e = new hf("SendMessage", 4, 5);
+        f40255f = new hf("AckMessage", 5, 6);
+        f40256g = new hf("SetConfig", 6, 7);
+        f40257h = new hf("ReportFeedback", 7, 8);
+        f40258i = new hf("Notification", 8, 9);
         j = new hf("Command", 9, 10);
         k = new hf("MultiConnectionBroadcast", 10, 11);
         l = new hf("MultiConnectionResult", 11, 12);
@@ -125,7 +126,7 @@ public final class hf {
         J = new hf("RevokeMessage", 35, 114);
         hf hfVar = new hf("SimulatorJob", 36, 200);
         K = hfVar;
-        f471a = new hf[]{f43236a, f43237b, f43238c, f43239d, f43240e, f43241f, f43242g, f43243h, f43244i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, hfVar};
+        f471a = new hf[]{f40250a, f40251b, f40252c, f40253d, f40254e, f40255f, f40256g, f40257h, f40258i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, hfVar};
     }
 
     public hf(String str, int i2, int i3) {
@@ -156,23 +157,23 @@ public final class hf {
             if (i2 != 200) {
                 switch (i2) {
                     case 1:
-                        return f43236a;
+                        return f40250a;
                     case 2:
-                        return f43237b;
+                        return f40251b;
                     case 3:
-                        return f43238c;
+                        return f40252c;
                     case 4:
-                        return f43239d;
+                        return f40253d;
                     case 5:
-                        return f43240e;
+                        return f40254e;
                     case 6:
-                        return f43241f;
+                        return f40255f;
                     case 7:
-                        return f43242g;
+                        return f40256g;
                     case 8:
-                        return f43243h;
+                        return f40257h;
                     case 9:
-                        return f43244i;
+                        return f40258i;
                     case 10:
                         return j;
                     case 11:
@@ -257,7 +258,7 @@ public final class hf {
     public static hf[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (hf[]) f471a.clone() : (hf[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hf[]) f471a.clone() : (hf[]) invokeV.objValue;
     }
 
     public int a() {

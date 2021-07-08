@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class bb extends ba {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static bb f8791c;
+    public static bb f8808c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f8792b;
+    public boolean f8809b;
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +32,7 @@ public class bb extends ba {
                 return;
             }
         }
-        f8791c = new bb();
+        f8808c = new bb();
     }
 
     public bb() {
@@ -52,7 +52,7 @@ public class bb extends ba {
     public static bb c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f8791c : (bb) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f8808c : (bb) invokeV.objValue;
     }
 
     @Override // com.baidu.mobstat.ba
@@ -66,6 +66,6 @@ public class bb extends ba {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f8792b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f8809b : invokeV.booleanValue;
     }
 }

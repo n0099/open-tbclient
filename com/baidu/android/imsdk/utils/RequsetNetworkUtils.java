@@ -5,6 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.statistics.g;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -101,7 +102,7 @@ public class RequsetNetworkUtils extends BaseUtils {
     public static String getMobileIp(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             String str = "nonMobileIp";
             try {
                 Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
@@ -148,7 +149,7 @@ public class RequsetNetworkUtils extends BaseUtils {
                     case 14:
                     case 15:
                     case 17:
-                        str = g.f3983b;
+                        str = g.f3986b;
                         break;
                     case 13:
                     case 18:

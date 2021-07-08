@@ -5,9 +5,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.j0.a.a;
-import d.a.s0.c3.o;
-/* loaded from: classes3.dex */
+import d.a.g0.a.a;
+import d.a.p0.c3.o;
+/* loaded from: classes2.dex */
 public class ILooperNeedContext_LooperRuntime_Provider implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class ILooperNeedContext_LooperRuntime_Provider implements a {
         }
     }
 
-    @Override // d.a.j0.a.a
+    @Override // d.a.g0.a.a
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

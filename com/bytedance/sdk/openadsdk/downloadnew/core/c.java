@@ -10,13 +10,13 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c implements TTAppDownloadListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<TTAppDownloadListener> f31070a;
+    public final List<TTAppDownloadListener> f31180a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class c implements TTAppDownloadListener {
                 return;
             }
         }
-        this.f31070a = Collections.synchronizedList(new LinkedList());
+        this.f31180a = Collections.synchronizedList(new LinkedList());
     }
 
     public void a(TTAppDownloadListener tTAppDownloadListener) {
@@ -39,13 +39,13 @@ public class c implements TTAppDownloadListener {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTAppDownloadListener) == null) || tTAppDownloadListener == null) {
             return;
         }
-        for (TTAppDownloadListener tTAppDownloadListener2 : this.f31070a) {
+        for (TTAppDownloadListener tTAppDownloadListener2 : this.f31180a) {
             if (tTAppDownloadListener2 != null && tTAppDownloadListener2 == tTAppDownloadListener) {
                 return;
             }
         }
-        synchronized (this.f31070a) {
-            this.f31070a.add(tTAppDownloadListener);
+        synchronized (this.f31180a) {
+            this.f31180a.add(tTAppDownloadListener);
         }
     }
 
@@ -53,8 +53,8 @@ public class c implements TTAppDownloadListener {
     public void onDownloadActive(long j, long j2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
-            synchronized (this.f31070a) {
-                Iterator<TTAppDownloadListener> it = this.f31070a.iterator();
+            synchronized (this.f31180a) {
+                Iterator<TTAppDownloadListener> it = this.f31180a.iterator();
                 while (it.hasNext()) {
                     TTAppDownloadListener next = it.next();
                     if (next == null) {
@@ -71,8 +71,8 @@ public class c implements TTAppDownloadListener {
     public void onDownloadFailed(long j, long j2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
-            synchronized (this.f31070a) {
-                Iterator<TTAppDownloadListener> it = this.f31070a.iterator();
+            synchronized (this.f31180a) {
+                Iterator<TTAppDownloadListener> it = this.f31180a.iterator();
                 while (it.hasNext()) {
                     TTAppDownloadListener next = it.next();
                     if (next == null) {
@@ -89,8 +89,8 @@ public class c implements TTAppDownloadListener {
     public void onDownloadFinished(long j, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
-            synchronized (this.f31070a) {
-                Iterator<TTAppDownloadListener> it = this.f31070a.iterator();
+            synchronized (this.f31180a) {
+                Iterator<TTAppDownloadListener> it = this.f31180a.iterator();
                 while (it.hasNext()) {
                     TTAppDownloadListener next = it.next();
                     if (next == null) {
@@ -107,8 +107,8 @@ public class c implements TTAppDownloadListener {
     public void onDownloadPaused(long j, long j2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
-            synchronized (this.f31070a) {
-                Iterator<TTAppDownloadListener> it = this.f31070a.iterator();
+            synchronized (this.f31180a) {
+                Iterator<TTAppDownloadListener> it = this.f31180a.iterator();
                 while (it.hasNext()) {
                     TTAppDownloadListener next = it.next();
                     if (next == null) {
@@ -125,8 +125,8 @@ public class c implements TTAppDownloadListener {
     public void onIdle() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            synchronized (this.f31070a) {
-                Iterator<TTAppDownloadListener> it = this.f31070a.iterator();
+            synchronized (this.f31180a) {
+                Iterator<TTAppDownloadListener> it = this.f31180a.iterator();
                 while (it.hasNext()) {
                     TTAppDownloadListener next = it.next();
                     if (next == null) {
@@ -143,8 +143,8 @@ public class c implements TTAppDownloadListener {
     public void onInstalled(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
-            synchronized (this.f31070a) {
-                Iterator<TTAppDownloadListener> it = this.f31070a.iterator();
+            synchronized (this.f31180a) {
+                Iterator<TTAppDownloadListener> it = this.f31180a.iterator();
                 while (it.hasNext()) {
                     TTAppDownloadListener next = it.next();
                     if (next == null) {
@@ -159,9 +159,9 @@ public class c implements TTAppDownloadListener {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f31070a.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f31180a.isEmpty()) {
             return;
         }
-        this.f31070a.clear();
+        this.f31180a.clear();
     }
 }

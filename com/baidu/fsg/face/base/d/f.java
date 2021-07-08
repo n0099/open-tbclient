@@ -6,13 +6,14 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.Window;
 import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +49,7 @@ public class f {
 
     public static void b(Activity activity, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65540, null, activity, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, i2) == null) {
             if (Build.VERSION.SDK_INT >= 19) {
                 Window window = activity.getWindow();
                 WindowManager.LayoutParams attributes = window.getAttributes();

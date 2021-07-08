@@ -17,27 +17,27 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FaceGroupMakeTitleBar extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f18856e;
+    public TextView f18896e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f18857f;
+    public TextView f18897f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f18858g;
+    public ImageView f18898g;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FaceGroupMakeTitleBar f18859e;
+        public final /* synthetic */ FaceGroupMakeTitleBar f18899e;
 
         public a(FaceGroupMakeTitleBar faceGroupMakeTitleBar) {
             Interceptable interceptable = $ic;
@@ -54,14 +54,14 @@ public class FaceGroupMakeTitleBar extends RelativeLayout {
                     return;
                 }
             }
-            this.f18859e = faceGroupMakeTitleBar;
+            this.f18899e = faceGroupMakeTitleBar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ((Activity) this.f18859e.getContext()).finish();
+                ((Activity) this.f18899e.getContext()).finish();
             }
         }
     }
@@ -91,20 +91,20 @@ public class FaceGroupMakeTitleBar extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.face_group_make_title_bar, (ViewGroup) this, true);
-            this.f18856e = (TextView) findViewById(R.id.tv_title);
-            this.f18857f = (TextView) findViewById(R.id.tv_right);
-            this.f18858g = (ImageView) findViewById(R.id.iv_close);
-            SkinManager.setViewTextColor(this.f18856e, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f18857f, R.color.common_color_10140);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f18858g, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0105, null);
-            this.f18858g.setOnClickListener(new a(this));
+            this.f18896e = (TextView) findViewById(R.id.tv_title);
+            this.f18897f = (TextView) findViewById(R.id.tv_right);
+            this.f18898g = (ImageView) findViewById(R.id.iv_close);
+            SkinManager.setViewTextColor(this.f18896e, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f18897f, R.color.common_color_10140);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f18898g, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0105, null);
+            this.f18898g.setOnClickListener(new a(this));
         }
     }
 
     public void setCloseListener(View.OnClickListener onClickListener) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) || (imageView = this.f18858g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) || (imageView = this.f18898g) == null) {
             return;
         }
         imageView.setOnClickListener(onClickListener);
@@ -113,21 +113,21 @@ public class FaceGroupMakeTitleBar extends RelativeLayout {
     public void setRightListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f18857f.setOnClickListener(onClickListener);
+            this.f18897f.setOnClickListener(onClickListener);
         }
     }
 
     public void setRightText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f18857f.setText(str);
+            this.f18897f.setText(str);
         }
     }
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f18856e.setText(str);
+            this.f18896e.setText(str);
         }
     }
 

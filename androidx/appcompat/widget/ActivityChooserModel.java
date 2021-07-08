@@ -480,7 +480,7 @@ public class ActivityChooserModel extends DataSetObservable {
         InterceptResult invokeLL;
         ActivityChooserModel activityChooserModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
             synchronized (sRegistryLock) {
                 activityChooserModel = sDataModelRegistry.get(str);
                 if (activityChooserModel == null) {

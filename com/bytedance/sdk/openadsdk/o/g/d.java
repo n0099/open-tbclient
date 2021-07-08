@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.bddownload.core.Util;
@@ -34,15 +35,15 @@ import java.util.Set;
 import java.util.regex.Pattern;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f31674a;
+    public static final Charset f31784a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Handler f31675b;
+    public static final Handler f31785b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -58,8 +59,8 @@ public final class d {
                 return;
             }
         }
-        f31675b = new Handler(Looper.getMainLooper());
-        f31674a = Charset.forName("UTF-8");
+        f31785b = new Handler(Looper.getMainLooper());
+        f31784a = Charset.forName("UTF-8");
     }
 
     public static void a(Closeable closeable) {
@@ -160,9 +161,9 @@ public final class d {
             for (int i2 = 0; i2 < size; i2++) {
                 i.b bVar = list.get(0);
                 if (bVar != null) {
-                    sb.append(bVar.f31688a);
+                    sb.append(bVar.f31798a);
                     sb.append(": ");
-                    sb.append(bVar.f31689b);
+                    sb.append(bVar.f31799b);
                     sb.append(Part.CRLF);
                 }
             }
@@ -202,7 +203,7 @@ public final class d {
             sb.append(' ');
             sb.append(aVar.f());
             sb.append(Part.CRLF);
-            if (e.f31597c) {
+            if (e.f31707c) {
                 Log.i("TAG_PROXY_headers", aVar.e().toUpperCase() + " " + aVar.a() + " " + aVar.f());
             }
             List<i.b> a3 = a(aVar.c());
@@ -212,8 +213,8 @@ public final class d {
                 for (int i3 = 0; i3 < size; i3++) {
                     i.b bVar = a3.get(i3);
                     if (bVar != null) {
-                        String str = bVar.f31688a;
-                        String str2 = bVar.f31689b;
+                        String str = bVar.f31798a;
+                        String str2 = bVar.f31799b;
                         sb.append(str);
                         sb.append(": ");
                         sb.append(str2);
@@ -237,7 +238,7 @@ public final class d {
             sb.append(Part.CRLF);
             sb.append(Part.CRLF);
             String sb2 = sb.toString();
-            if (e.f31597c) {
+            if (e.f31707c) {
                 Log.i("TAG_PROXY_WRITE_TO_MP", sb2);
             }
             return sb2;
@@ -313,29 +314,29 @@ public final class d {
             sb.append("Accept-Ranges: bytes");
             sb.append(Part.CRLF);
             sb.append(Part.CONTENT_TYPE);
-            sb.append(aVar.f31555b);
+            sb.append(aVar.f31665b);
             sb.append(Part.CRLF);
             if (i2 <= 0) {
                 sb.append("Content-Length: ");
-                sb.append(aVar.f31556c);
+                sb.append(aVar.f31666c);
                 sb.append(Part.CRLF);
             } else {
                 sb.append("Content-Range: bytes ");
                 sb.append(i2);
                 sb.append("-");
-                sb.append(aVar.f31556c - 1);
+                sb.append(aVar.f31666c - 1);
                 sb.append("/");
-                sb.append(aVar.f31556c);
+                sb.append(aVar.f31666c);
                 sb.append(Part.CRLF);
                 sb.append("Content-Length: ");
-                sb.append(aVar.f31556c - i2);
+                sb.append(aVar.f31666c - i2);
                 sb.append(Part.CRLF);
             }
             sb.append("Connection: close");
             sb.append(Part.CRLF);
             sb.append(Part.CRLF);
             String sb2 = sb.toString();
-            if (e.f31597c) {
+            if (e.f31707c) {
                 Log.i("TAG_PROXY_WRITE_TO_MP", sb2);
             }
             return sb2;
@@ -358,7 +359,7 @@ public final class d {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public Pattern f31676a;
+                    public Pattern f31786a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -373,14 +374,14 @@ public final class d {
                                 return;
                             }
                         }
-                        this.f31676a = Pattern.compile("^cpu[0-9]+$");
+                        this.f31786a = Pattern.compile("^cpu[0-9]+$");
                     }
 
                     @Override // java.io.FilenameFilter
                     public boolean accept(File file2, String str) {
                         InterceptResult invokeLL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, file2, str)) == null) ? this.f31676a.matcher(str).matches() : invokeLL.booleanValue;
+                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, file2, str)) == null) ? this.f31786a.matcher(str).matches() : invokeLL.booleanValue;
                     }
                 })) == null) {
                     return 1;
@@ -421,36 +422,36 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{aVar, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             if (aVar == null) {
-                if (e.f31597c) {
+                if (e.f31707c) {
                     Log.e("TAG_PROXY_Response", "response null");
                 }
                 return "response null";
             } else if (!aVar.b()) {
-                if (e.f31597c) {
+                if (e.f31707c) {
                     Log.e("TAG_PROXY_Response", "response code: " + aVar.a());
                 }
                 return "response code: " + aVar.a();
             } else {
                 String a3 = aVar.a("Content-Type", null);
                 if (!c(a3)) {
-                    if (e.f31597c) {
+                    if (e.f31707c) {
                         Log.e("TAG_PROXY_Response", Part.CONTENT_TYPE + a3);
                     }
                     return Part.CONTENT_TYPE + a3;
                 }
                 int a4 = a(aVar);
                 if (a4 <= 0) {
-                    if (e.f31597c) {
+                    if (e.f31707c) {
                         Log.e("TAG_PROXY_Response", "Content-Length: " + a4);
                     }
                     return "Content-Length: " + a4;
                 } else if (z && ((a2 = aVar.a(Util.ACCEPT_RANGES, null)) == null || !a2.contains("bytes"))) {
-                    if (e.f31597c) {
+                    if (e.f31707c) {
                         Log.e("TAG_PROXY_Response", "Accept-Ranges: " + a2);
                     }
                     return "Accept-Ranges: " + a2;
                 } else if (z2 && aVar.d() == null) {
-                    if (e.f31597c) {
+                    if (e.f31707c) {
                         Log.e("TAG_PROXY_Response", "response body null");
                     }
                     return "response body null";
@@ -469,14 +470,14 @@ public final class d {
         }
         if (b()) {
             com.bytedance.sdk.component.e.e.a(gVar);
-            if (e.f31597c) {
+            if (e.f31707c) {
                 Log.e("TAG_PROXY_UTIL", "invoke in pool thread");
                 return;
             }
             return;
         }
         gVar.run();
-        if (e.f31597c) {
+        if (e.f31707c) {
             Log.e("TAG_PROXY_UTIL", "invoke calling thread");
         }
     }
@@ -489,7 +490,7 @@ public final class d {
         if (b()) {
             runnable.run();
         } else {
-            f31675b.post(runnable);
+            f31785b.post(runnable);
         }
     }
 
@@ -500,28 +501,28 @@ public final class d {
             if (list == null || list.size() == 0) {
                 return null;
             }
-            if (e.f31597c) {
+            if (e.f31707c) {
                 int size = list.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     i.b bVar = list.get(i2);
                     if (bVar != null) {
-                        Log.i("TAG_PROXY_PRE_FILTER", bVar.f31688a + ": " + bVar.f31688a);
+                        Log.i("TAG_PROXY_PRE_FILTER", bVar.f31798a + ": " + bVar.f31798a);
                     }
                 }
             }
             ArrayList arrayList = new ArrayList();
             for (i.b bVar2 : list) {
-                if ("Host".equals(bVar2.f31688a) || HTTP.CONN_KEEP_ALIVE.equals(bVar2.f31688a) || HTTP.CONN_DIRECTIVE.equals(bVar2.f31688a) || "Proxy-Connection".equals(bVar2.f31688a)) {
+                if ("Host".equals(bVar2.f31798a) || HTTP.CONN_KEEP_ALIVE.equals(bVar2.f31798a) || HTTP.CONN_DIRECTIVE.equals(bVar2.f31798a) || "Proxy-Connection".equals(bVar2.f31798a)) {
                     arrayList.add(bVar2);
                 }
             }
             list.removeAll(arrayList);
-            if (e.f31597c) {
+            if (e.f31707c) {
                 int size2 = list.size();
                 for (int i3 = 0; i3 < size2; i3++) {
                     i.b bVar3 = list.get(i3);
                     if (bVar3 != null) {
-                        Log.i("TAG_PROXY_POST_FILTER", bVar3.f31688a + ": " + bVar3.f31689b);
+                        Log.i("TAG_PROXY_POST_FILTER", bVar3.f31798a + ": " + bVar3.f31799b);
                     }
                 }
             }
@@ -557,7 +558,7 @@ public final class d {
         String str3;
         String str4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65540, null, aVar, cVar, str, i2)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar, cVar, str, i2)) == null) {
             com.bytedance.sdk.openadsdk.o.b.a a2 = cVar.a(str, i2);
             if (a2 == null) {
                 int a3 = a(aVar);
@@ -567,8 +568,8 @@ public final class d {
                 }
                 f g2 = aVar.g();
                 if (g2 != null) {
-                    str3 = g2.f31609b;
-                    str2 = b(g2.f31612e);
+                    str3 = g2.f31719b;
+                    str2 = b(g2.f31722e);
                 } else {
                     str2 = "";
                     str3 = str2;

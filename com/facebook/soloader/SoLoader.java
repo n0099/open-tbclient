@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.StrictMode;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -38,7 +39,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SoLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -76,7 +77,7 @@ public class SoLoader {
 
     @DoNotOptimize
     @TargetApi(14)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Api14Utils {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +114,7 @@ public class SoLoader {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class WrongAbiError extends UnsatisfiedLinkError {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -232,7 +233,7 @@ public class SoLoader {
 
     public static void deinitForTest() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             setSoSources(null);
         }
     }

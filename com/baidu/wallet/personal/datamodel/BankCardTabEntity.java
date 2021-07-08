@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import com.baidu.wallet.paysdk.ui.widget.tablayout.callback.ICustomTabEntity;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BankCardTabEntity implements NoProguard, ICustomTabEntity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f26976a;
+    public int f27086a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26977b;
+    public String f27087b;
 
     public BankCardTabEntity(int i2, String str) {
         Interceptable interceptable = $ic;
@@ -34,35 +34,35 @@ public class BankCardTabEntity implements NoProguard, ICustomTabEntity {
                 return;
             }
         }
-        this.f26976a = i2;
-        this.f26977b = str;
+        this.f27086a = i2;
+        this.f27087b = str;
     }
 
     @Override // com.baidu.wallet.paysdk.ui.widget.tablayout.callback.ICustomTabEntity
     public int getIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26976a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27086a : invokeV.intValue;
     }
 
     @Override // com.baidu.wallet.paysdk.ui.widget.tablayout.callback.ICustomTabEntity
     public String getTabTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26977b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27087b : (String) invokeV.objValue;
     }
 
     public void setIndex(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f26976a = i2;
+            this.f27086a = i2;
         }
     }
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f26977b = str;
+            this.f27087b = str;
         }
     }
 }

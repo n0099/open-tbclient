@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.d.l;
-import d.a.r0.r.q.g1;
-import d.a.r0.r.r.a;
+import d.a.o0.r.q.g1;
+import d.a.o0.r.r.a;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CACHETIME = 604800000;

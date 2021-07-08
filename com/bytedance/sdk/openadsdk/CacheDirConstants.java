@@ -3,6 +3,7 @@ package com.bytedance.sdk.openadsdk;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +17,7 @@ import com.bytedance.sdk.openadsdk.core.o;
 import com.bytedance.sdk.openadsdk.multipro.b;
 import java.io.File;
 import java.util.HashSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CacheDirConstants {
     public static /* synthetic */ Interceptable $ic;
     public static String ROOT_DIR;
@@ -70,13 +71,13 @@ public class CacheDirConstants {
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             HashSet hashSet = new HashSet();
             if (Build.VERSION.SDK_INT >= 23) {
-                for (a aVar : a.f28807a.values()) {
+                for (a aVar : a.f28917a.values()) {
                     if (aVar != null && aVar.a() != null) {
                         com.bytedance.sdk.component.video.b.a a2 = aVar.a();
                         hashSet.add(com.bytedance.sdk.component.video.d.b.a(a2.d(), a2.c()).getAbsolutePath());
                     }
                 }
-                for (com.bytedance.sdk.component.video.a.c.a aVar2 : com.bytedance.sdk.component.video.a.b.a.f28822a.values()) {
+                for (com.bytedance.sdk.component.video.a.c.a aVar2 : com.bytedance.sdk.component.video.a.b.a.f28932a.values()) {
                     if (aVar2 != null && aVar2.a() != null) {
                         com.bytedance.sdk.component.video.b.a a3 = aVar2.a();
                         hashSet.add(com.bytedance.sdk.component.video.d.b.a(a3.d(), a3.c()).getAbsolutePath());
@@ -100,7 +101,7 @@ public class CacheDirConstants {
     public static String getFeedCacheDir() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             return a() + File.separator + "video_feed";
         }
         return (String) invokeV.objValue;

@@ -18,37 +18,37 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f44325a;
+    public c f41341a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f44326b;
+    public String f41342b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f44327c;
+    public String f41343c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f44328d;
+    public String f41344d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f44329e;
+    public String f41345e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f44330f;
+    public String f41346f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f44331g;
+    public String f41347g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f44332h;
+    public String f41348h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Map<String, String> f44333i;
+    public Map<String, String> f41349i;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -67,15 +67,15 @@ public class g {
     public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? j.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : j.t() ? "2G" : j.u() ? com.baidu.apollon.statistics.g.f3983b : (j.v() || j.z()) ? "4G" : "NONE" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? j.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : j.t() ? "2G" : j.u() ? com.baidu.apollon.statistics.g.f3986b : (j.v() || j.z()) ? "4G" : "NONE" : (String) invokeV.objValue;
     }
 
     public void a(String str) {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (this.f44333i == null) {
-                this.f44333i = new HashMap();
+            if (this.f41349i == null) {
+                this.f41349i = new HashMap();
             }
             String[] split2 = str.split("&");
             if (split2 == null || split2.length == 0) {
@@ -84,7 +84,7 @@ public class g {
             for (String str2 : split2) {
                 if (!TextUtils.isEmpty(str2) && (split = str2.split("=")) != null && split.length == 2) {
                     try {
-                        this.f44333i.put(split[0], URLDecoder.decode(split[1], "utf-8"));
+                        this.f41349i.put(split[0], URLDecoder.decode(split[1], "utf-8"));
                     } catch (UnsupportedEncodingException e2) {
                         BdLog.e(e2);
                     }
@@ -96,10 +96,10 @@ public class g {
     public void b(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            if (this.f44333i == null) {
-                this.f44333i = new HashMap();
+            if (this.f41349i == null) {
+                this.f41349i = new HashMap();
             }
-            this.f44333i.put(str, str2);
+            this.f41349i.put(str, str2);
         }
     }
 
@@ -110,13 +110,13 @@ public class g {
             JSONObject jSONObject = new JSONObject();
             try {
                 JSONObject jSONObject2 = new JSONObject();
-                if (this.f44325a != null) {
-                    jSONObject2.put("app_version", this.f44325a.f44302c);
+                if (this.f41341a != null) {
+                    jSONObject2.put("app_version", this.f41341a.f41318c);
                     jSONObject2.put("client_timestamp", Long.toString(System.currentTimeMillis()));
-                    jSONObject2.put("cuid", this.f44325a.f44306g);
-                    jSONObject2.put("shoubai_cuid", this.f44325a.f44307h);
-                    jSONObject2.put("from", this.f44325a.f44303d);
-                    jSONObject2.put("uid", this.f44325a.l);
+                    jSONObject2.put("cuid", this.f41341a.f41322g);
+                    jSONObject2.put("shoubai_cuid", this.f41341a.f41323h);
+                    jSONObject2.put("from", this.f41341a.f41319d);
+                    jSONObject2.put("uid", this.f41341a.l);
                 }
                 jSONObject2.put("client_ip", f.b());
                 jSONObject2.put("network", d());
@@ -128,21 +128,21 @@ public class g {
                 jSONObject2.put("mission_id", f.c());
                 jSONObject.put("base_info", jSONObject2);
                 JSONObject jSONObject3 = new JSONObject();
-                if (this.f44326b != null) {
-                    jSONObject3.put("module", this.f44326b);
+                if (this.f41342b != null) {
+                    jSONObject3.put("module", this.f41342b);
                 }
-                if (this.f44327c != null) {
-                    jSONObject3.put("action", this.f44327c);
+                if (this.f41343c != null) {
+                    jSONObject3.put("action", this.f41343c);
                 }
-                if (this.f44328d != null) {
-                    jSONObject3.put("error_code", this.f44328d);
+                if (this.f41344d != null) {
+                    jSONObject3.put("error_code", this.f41344d);
                 }
-                if (this.f44329e != null) {
-                    jSONObject3.put("error_message", this.f44329e);
+                if (this.f41345e != null) {
+                    jSONObject3.put("error_message", this.f41345e);
                 }
-                if (this.f44333i != null) {
+                if (this.f41349i != null) {
                     StringBuilder sb = new StringBuilder();
-                    for (Map.Entry<String, String> entry : this.f44333i.entrySet()) {
+                    for (Map.Entry<String, String> entry : this.f41349i.entrySet()) {
                         sb.append(entry.getKey());
                         sb.append(":");
                         sb.append(entry.getValue());
@@ -153,14 +153,14 @@ public class g {
                     }
                     jSONObject3.put("ext1", sb);
                 }
-                if (this.f44330f != null) {
-                    jSONObject3.put("id", this.f44330f);
+                if (this.f41346f != null) {
+                    jSONObject3.put("id", this.f41346f);
                 }
-                if (this.f44331g != null) {
-                    jSONObject3.put("title", this.f44331g);
+                if (this.f41347g != null) {
+                    jSONObject3.put("title", this.f41347g);
                 }
-                if (this.f44332h != null) {
-                    jSONObject3.put("abstract", this.f44332h);
+                if (this.f41348h != null) {
+                    jSONObject3.put("abstract", this.f41348h);
                 }
                 jSONObject.put("debug_info", jSONObject3);
                 jSONObject.put("kpi", new JSONObject());
@@ -175,35 +175,35 @@ public class g {
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f44327c = str;
+            this.f41343c = str;
         }
     }
 
     public void f(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f44325a = cVar;
+            this.f41341a = cVar;
         }
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f44328d = str;
+            this.f41344d = str;
         }
     }
 
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f44329e = str;
+            this.f41345e = str;
         }
     }
 
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f44326b = str;
+            this.f41342b = str;
         }
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.auth.AuthInfo;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BaseWebViewRequestData implements Parcelable, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<BaseWebViewRequestData> CREATOR;

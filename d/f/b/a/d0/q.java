@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Random;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public interface q {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class a implements q {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int[] f72738a;
+        public final int[] f69841a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int[] f72739b;
+        public final int[] f69842b;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public a(int i2) {
@@ -65,9 +65,9 @@ public interface q {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                int i3 = this.f72739b[i2] - 1;
+                int i3 = this.f69842b[i2] - 1;
                 if (i3 >= 0) {
-                    return this.f72738a[i3];
+                    return this.f69841a[i3];
                 }
                 return -1;
             }
@@ -79,8 +79,8 @@ public interface q {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                int i3 = this.f72739b[i2] + 1;
-                int[] iArr = this.f72738a;
+                int i3 = this.f69842b[i2] + 1;
+                int[] iArr = this.f69841a;
                 if (i3 < iArr.length) {
                     return iArr[i3];
                 }
@@ -94,7 +94,7 @@ public interface q {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                int[] iArr = this.f72738a;
+                int[] iArr = this.f69841a;
                 if (iArr.length > 0) {
                     return iArr[iArr.length - 1];
                 }
@@ -108,7 +108,7 @@ public interface q {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                int[] iArr = this.f72738a;
+                int[] iArr = this.f69841a;
                 if (iArr.length > 0) {
                     return iArr[0];
                 }
@@ -121,7 +121,7 @@ public interface q {
         public int getLength() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f72738a.length : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f69841a.length : invokeV.intValue;
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -160,10 +160,10 @@ public interface q {
                     return;
                 }
             }
-            this.f72738a = iArr;
-            this.f72739b = new int[iArr.length];
+            this.f69841a = iArr;
+            this.f69842b = new int[iArr.length];
             for (int i4 = 0; i4 < iArr.length; i4++) {
-                this.f72739b[iArr[i4]] = i4;
+                this.f69842b[iArr[i4]] = i4;
             }
         }
     }

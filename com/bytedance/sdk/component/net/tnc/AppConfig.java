@@ -31,7 +31,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AppConfig implements WeakHandler.IHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_LAST_REFRESH_TIME = "last_refresh_time";
@@ -85,7 +85,7 @@ public class AppConfig implements WeakHandler.IHandler {
     private void addTncExecutorParams(GetExecutor getExecutor) {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, this, getExecutor) == null) || getExecutor == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, getExecutor) == null) || getExecutor == null) {
             return;
         }
         Address locationAdress = TNCManager.getInstance().getITTAdNetDepend() != null ? TNCManager.getInstance().getITTAdNetDepend().getLocationAdress(this.mContext) : null;

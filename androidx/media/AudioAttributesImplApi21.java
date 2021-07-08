@@ -57,7 +57,7 @@ public class AudioAttributesImplApi21 implements AudioAttributesImpl {
     public static Method getAudioAttributesToLegacyStreamTypeMethod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             try {
                 if (sAudioAttributesToLegacyStreamType == null) {
                     sAudioAttributesToLegacyStreamType = AudioAttributes.class.getMethod("toLegacyStreamType", AudioAttributes.class);

@@ -2,6 +2,7 @@ package com.baidu.searchbox.dns;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.dns.c.a;
 import com.baidu.searchbox.dns.util.DnsUtil;
@@ -13,12 +14,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static List<String> f10182i;
+    public static List<String> f10199i;
     public static boolean j;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -139,8 +140,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
             synchronized (b.class) {
-                if (f10182i != null && f10182i.size() > 0) {
-                    for (String str : f10182i) {
+                if (f10199i != null && f10199i.size() > 0) {
+                    for (String str : f10199i) {
                         b(str);
                     }
                 }
@@ -166,11 +167,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
             synchronized (b.class) {
-                if (f10182i == null) {
-                    f10182i = new ArrayList(4);
+                if (f10199i == null) {
+                    f10199i = new ArrayList(4);
                 }
-                if (!f10182i.contains(str)) {
-                    f10182i.add(str);
+                if (!f10199i.contains(str)) {
+                    f10199i.add(str);
                 }
             }
         }
@@ -228,6 +229,6 @@ public class b {
     public static List<String> a(com.baidu.searchbox.dns.d.a.a aVar, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65540, null, aVar, z)) == null) ? aVar.getIpList() : (List) invokeLZ.objValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar, z)) == null) ? aVar.getIpList() : (List) invokeLZ.objValue;
     }
 }

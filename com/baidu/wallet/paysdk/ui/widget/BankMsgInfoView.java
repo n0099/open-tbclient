@@ -17,22 +17,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.BorderTipTextView;
 @SuppressLint({"NewApi"})
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BankMsgInfoView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f26750a;
+    public NetImageView f26860a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f26751b;
+    public TextView f26861b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BorderTipTextView f26752c;
+    public BorderTipTextView f26862c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f26753d;
+    public ViewGroup f26863d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BankMsgInfoView(Context context) {
@@ -59,17 +59,17 @@ public class BankMsgInfoView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_cashdesk_bind_card_bankinfo_view"), this);
-            this.f26753d = (ViewGroup) findViewById(ResUtils.id(getContext(), "layout_entity"));
-            this.f26750a = (NetImageView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_logo"));
-            this.f26751b = (TextView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_txt"));
-            this.f26752c = (BorderTipTextView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_coupon_txt"));
+            this.f26863d = (ViewGroup) findViewById(ResUtils.id(getContext(), "layout_entity"));
+            this.f26860a = (NetImageView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_logo"));
+            this.f26861b = (TextView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_txt"));
+            this.f26862c = (BorderTipTextView) findViewById(ResUtils.id(getContext(), "bindcard_bankinfo_coupon_txt"));
         }
     }
 
     public void hideCouponView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f26752c.setVisibility(8);
+            this.f26862c.setVisibility(8);
         }
     }
 
@@ -77,11 +77,11 @@ public class BankMsgInfoView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, charSequence) == null) {
             if (!TextUtils.isEmpty(str)) {
-                this.f26750a.setImageResource(ResUtils.drawable(getContext(), "wallet_base_banklogo_defult"));
-                this.f26750a.setImageUrl(str);
-                this.f26750a.setVisibility(0);
+                this.f26860a.setImageResource(ResUtils.drawable(getContext(), "wallet_base_banklogo_defult"));
+                this.f26860a.setImageUrl(str);
+                this.f26860a.setVisibility(0);
             }
-            this.f26751b.setText(charSequence);
+            this.f26861b.setText(charSequence);
         }
     }
 
@@ -89,11 +89,11 @@ public class BankMsgInfoView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence) == null) {
             if (!TextUtils.isEmpty(charSequence)) {
-                this.f26752c.setVisibility(0);
-                this.f26752c.setText(charSequence, true);
+                this.f26862c.setVisibility(0);
+                this.f26862c.setText(charSequence, true);
                 return;
             }
-            this.f26752c.setVisibility(8);
+            this.f26862c.setVisibility(8);
         }
     }
 
@@ -103,10 +103,10 @@ public class BankMsgInfoView extends LinearLayout {
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             if (i2 == 0) {
                 super.setVisibility(0);
-                this.f26753d.setVisibility(0);
+                this.f26863d.setVisibility(0);
                 return;
             }
-            this.f26753d.setVisibility(4);
+            this.f26863d.setVisibility(4);
         }
     }
 

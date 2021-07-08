@@ -1,5 +1,6 @@
 package org.apache.commons.codec.binary4util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +11,7 @@ import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import org.apache.commons.base.Charsets;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class CodecStringUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +69,7 @@ public class CodecStringUtils {
     public static byte[] getBytes(String str, Charset charset) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, charset)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, charset)) == null) {
             if (str == null) {
                 return null;
             }

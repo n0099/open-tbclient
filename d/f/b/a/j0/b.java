@@ -10,16 +10,16 @@ import d.f.b.a.i0.j;
 import d.f.b.a.i0.l;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<byte[]> f73446a;
+    public final List<byte[]> f70549a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f73447b;
+    public final int f70550b;
 
     public b(List<byte[]> list, int i2) {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public final class b {
                 return;
             }
         }
-        this.f73446a = list;
-        this.f73447b = i2;
+        this.f70549a = list;
+        this.f70550b = i2;
     }
 
     public static b a(l lVar) throws ParserException {
@@ -67,9 +67,9 @@ public final class b {
                     int D3 = lVar.D();
                     for (int i7 = 0; i7 < D3; i7++) {
                         int D4 = lVar.D();
-                        System.arraycopy(j.f73366a, 0, bArr, i5, j.f73366a.length);
-                        int length = i5 + j.f73366a.length;
-                        System.arraycopy(lVar.f73386a, lVar.c(), bArr, length, D4);
+                        System.arraycopy(j.f70469a, 0, bArr, i5, j.f70469a.length);
+                        int length = i5 + j.f70469a.length;
+                        System.arraycopy(lVar.f70489a, lVar.c(), bArr, length, D4);
                         i5 = length + D4;
                         lVar.K(D4);
                     }

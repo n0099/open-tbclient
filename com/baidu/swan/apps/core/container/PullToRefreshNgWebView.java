@@ -7,9 +7,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a.z1.a.d.a;
+import d.a.n0.a.z1.a.d.a;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PullToRefreshNgWebView extends PullToRefreshBaseWebView<NgWebView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

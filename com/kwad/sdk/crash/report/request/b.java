@@ -12,7 +12,7 @@ import com.kwad.sdk.core.network.j;
 import com.kwad.sdk.crash.report.ReportEvent;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,10 +41,10 @@ public class b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ List f36984a;
+            public final /* synthetic */ List f35354a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f36985b;
+            public final /* synthetic */ b f35355b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -61,8 +61,8 @@ public class b {
                         return;
                     }
                 }
-                this.f36985b = this;
-                this.f36984a = list;
+                this.f35355b = this;
+                this.f35354a = list;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -84,21 +84,31 @@ public class b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.a
             @NonNull
-            /* renamed from: c */
+            /* renamed from: a */
             public a b() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) ? new a(this.f36984a) : (a) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this.f35354a) : (a) invokeV.objValue;
+            }
+
+            @Override // com.kwad.sdk.core.network.i
+            public boolean c() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048580, this)) == null) {
+                    return false;
+                }
+                return invokeV.booleanValue;
             }
         }.a(new j<a, CrashReportResult>(this, list) { // from class: com.kwad.sdk.crash.report.request.b.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ List f36986a;
+            public final /* synthetic */ List f35356a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f36987b;
+            public final /* synthetic */ b f35357b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -115,8 +125,8 @@ public class b {
                         return;
                     }
                 }
-                this.f36987b = this;
-                this.f36986a = list;
+                this.f35357b = this;
+                this.f35356a = list;
             }
 
             /* JADX DEBUG: Method merged with bridge method */

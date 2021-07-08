@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.b;
 import d.a.c.e.p.k;
-import d.a.s0.i1.w.c;
+import d.a.p0.i1.w.c;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ImMessageCenterPojo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DELETEED = 1;

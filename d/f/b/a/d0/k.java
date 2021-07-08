@@ -2,10 +2,10 @@ package d.f.b.a.d0;
 
 import d.f.b.a.d0.p;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public interface k extends p {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface a extends p.a<k> {
         void l(k kVar);
     }

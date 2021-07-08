@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.NoSuchElementException;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class g<T> extends o1<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public T f73756e;
+    public T f70859e;
 
     public g(T t) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public abstract class g<T> extends o1<T> {
                 return;
             }
         }
-        this.f73756e = t;
+        this.f70859e = t;
     }
 
     public abstract T a(T t);
@@ -39,7 +39,7 @@ public abstract class g<T> extends o1<T> {
     public final boolean hasNext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73756e != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70859e != null : invokeV.booleanValue;
     }
 
     @Override // java.util.Iterator
@@ -49,9 +49,9 @@ public abstract class g<T> extends o1<T> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (hasNext()) {
                 try {
-                    return this.f73756e;
+                    return this.f70859e;
                 } finally {
-                    this.f73756e = a(this.f73756e);
+                    this.f70859e = a(this.f70859e);
                 }
             }
             throw new NoSuchElementException();

@@ -49,11 +49,11 @@ import com.baidu.ugc.editvideo.record.source.multimedia.OnPreRunnableTask;
 import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
 import com.baidu.ugc.editvideo.sticker.OnChangeStickerListener;
 import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
-import d.a.c0.b.a.e;
-import d.a.c0.b.a.j;
-import d.a.y0.b;
-import d.a.y0.t.c;
-import d.a.y0.t.h;
+import d.a.v0.b;
+import d.a.v0.t.c;
+import d.a.v0.t.h;
+import d.a.z.b.a.e;
+import d.a.z.b.a.j;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -61,7 +61,7 @@ import java.util.List;
 import java.util.Map;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEventListener, EffectChangeObserver, MediaTrackChangeObserver, IMultiMediaDataSourceView, OnDrawUpdateTextureListener, OnPreRunnableTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     public OnMultiMediaDataTextureListener onMultiMediaDataTextureListener;
     public int reDrawCount;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnMultiMediaDataTextureListener {
         void onFrameAvailable(SurfaceTexture surfaceTexture);
     }

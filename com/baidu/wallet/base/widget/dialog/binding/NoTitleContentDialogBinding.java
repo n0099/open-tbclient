@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.dialog.model.BaseDialogModel;
 import com.baidu.wallet.base.widget.dialog.model.ContentDialogModel;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class NoTitleContentDialogBinding extends BaseBinding<BaseDialogModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f24385a;
+    public TextView f24495a;
     public View btnLayouts;
     public View btnLine;
     public Button negativeButton;
@@ -47,7 +47,7 @@ public class NoTitleContentDialogBinding extends BaseBinding<BaseDialogModel> {
         this.rootView = view;
         Context context = view.getContext();
         this.context = context;
-        this.f24385a = (TextView) view.findViewById(ResUtils.id(context, "dialog_text_content"));
+        this.f24495a = (TextView) view.findViewById(ResUtils.id(context, "dialog_text_content"));
         this.negativeButton = (Button) view.findViewById(ResUtils.id(this.context, "negative_btn"));
         this.positiveButton = (Button) view.findViewById(ResUtils.id(this.context, "positive_btn"));
         this.btnLayouts = view.findViewById(ResUtils.id(this.context, "dialog_btns"));
@@ -61,27 +61,27 @@ public class NoTitleContentDialogBinding extends BaseBinding<BaseDialogModel> {
             ContentDialogModel contentDialogModel = (ContentDialogModel) getViewModel();
             int i2 = 8;
             if (contentDialogModel.hideMessage) {
-                this.f24385a.setVisibility(8);
+                this.f24495a.setVisibility(8);
                 return;
             }
             int i3 = contentDialogModel.messageId;
             if (i3 != 0) {
-                this.f24385a.setText(i3);
+                this.f24495a.setText(i3);
             } else if (!TextUtils.isEmpty(contentDialogModel.message)) {
-                this.f24385a.setText(contentDialogModel.message);
+                this.f24495a.setText(contentDialogModel.message);
             }
-            this.f24385a.setMovementMethod(LinkMovementMethod.getInstance());
+            this.f24495a.setMovementMethod(LinkMovementMethod.getInstance());
             int i4 = contentDialogModel.messageColor;
             if (i4 != 0) {
-                this.f24385a.setTextColor(i4);
+                this.f24495a.setTextColor(i4);
             }
             int i5 = contentDialogModel.backgroundColor;
             if (i5 != 0) {
-                this.f24385a.setBackgroundColor(i5);
+                this.f24495a.setBackgroundColor(i5);
             }
             int i6 = contentDialogModel.messageSize;
             if (i6 != 0) {
-                this.f24385a.setTextSize(i6);
+                this.f24495a.setTextSize(i6);
             }
             int i7 = contentDialogModel.dialogBackgound;
             if (i7 != 0) {

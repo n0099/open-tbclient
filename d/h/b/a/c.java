@@ -5,19 +5,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f73917a;
+    public String f70969a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f73918b;
+    public int f70970b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f73919c;
+    public long f70971c;
 
     public c(String str, int i2) {
         Interceptable interceptable = $ic;
@@ -34,16 +34,16 @@ public class c {
                 return;
             }
         }
-        this.f73917a = str;
-        this.f73918b = i2;
-        this.f73919c = System.currentTimeMillis() + 86400000;
+        this.f70969a = str;
+        this.f70970b = i2;
+        this.f70971c = System.currentTimeMillis() + 86400000;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "ValueData{value='" + this.f73917a + "', code=" + this.f73918b + ", expired=" + this.f73919c + '}';
+            return "ValueData{value='" + this.f70969a + "', code=" + this.f70970b + ", expired=" + this.f70971c + '}';
         }
         return (String) invokeV.objValue;
     }

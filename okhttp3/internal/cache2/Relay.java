@@ -1,5 +1,6 @@
 package okhttp3.internal.cache2;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,7 +18,7 @@ import okio.Buffer;
 import okio.ByteString;
 import okio.Source;
 import okio.Timeout;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class Relay {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long FILE_HEADER_SIZE = 32;
@@ -37,7 +38,7 @@ public final class Relay {
     public long upstreamPos;
     public Thread upstreamReader;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class RelaySource implements Source {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -309,7 +310,7 @@ public final class Relay {
 
     private void writeHeader(ByteString byteString, long j, long j2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, this, new Object[]{byteString, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{byteString, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             Buffer buffer = new Buffer();
             buffer.write(byteString);
             buffer.writeLong(j);

@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -9,9 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.b.d;
-import d.a.r0.r.q.s0;
-/* loaded from: classes4.dex */
+import d.a.o0.b.d;
+import d.a.o0.r.q.s0;
+/* loaded from: classes3.dex */
 public class DialogLoginHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIALOG_TYPE_ONE_KEY = "yijiandenglu";
@@ -71,7 +72,7 @@ public class DialogLoginHelper {
     public static String getOneKeyLoginActivityLocate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? d.k() ? "new_start_1" : d.l() ? "new_start_2" : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d.u() ? "new_start_1" : d.v() ? "new_start_2" : "" : (String) invokeV.objValue;
     }
 
     public static void skipToLoginDialogActivity(s0 s0Var) {

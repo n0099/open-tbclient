@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CustomLinearLayoutManager extends LinearLayoutManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f22395a;
+    public boolean f22454a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomLinearLayoutManager(Context context, int i2, boolean z) {
@@ -36,13 +36,13 @@ public class CustomLinearLayoutManager extends LinearLayoutManager {
                 return;
             }
         }
-        this.f22395a = false;
+        this.f22454a = false;
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f22395a = z;
+            this.f22454a = z;
         }
     }
 
@@ -50,7 +50,7 @@ public class CustomLinearLayoutManager extends LinearLayoutManager {
     public boolean canScrollHorizontally() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22395a && super.canScrollHorizontally() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22454a && super.canScrollHorizontally() : invokeV.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -72,6 +72,6 @@ public class CustomLinearLayoutManager extends LinearLayoutManager {
                 return;
             }
         }
-        this.f22395a = false;
+        this.f22454a = false;
     }
 }

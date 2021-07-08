@@ -13,23 +13,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.audio.AudioProcessor;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class f implements u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f73202a;
+    public final Context f70305a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.f.b.a.z.a<d.f.b.a.z.c> f73203b;
+    public final d.f.b.a.z.a<d.f.b.a.z.c> f70306b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f73204c;
+    public final int f70307c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f73205d;
+    public final long f70308d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public f(Context context, @Nullable d.f.b.a.z.a<d.f.b.a.z.c> aVar) {
@@ -58,11 +58,11 @@ public class f implements u {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, handler, eVar, dVar, jVar, dVar2)) == null) {
             ArrayList<r> arrayList = new ArrayList<>();
-            g(this.f73202a, this.f73203b, this.f73205d, handler, eVar, this.f73204c, arrayList);
-            c(this.f73202a, this.f73203b, b(), handler, dVar, this.f73204c, arrayList);
-            f(this.f73202a, jVar, handler.getLooper(), this.f73204c, arrayList);
-            d(this.f73202a, dVar2, handler.getLooper(), this.f73204c, arrayList);
-            e(this.f73202a, handler, this.f73204c, arrayList);
+            g(this.f70305a, this.f70306b, this.f70308d, handler, eVar, this.f70307c, arrayList);
+            c(this.f70305a, this.f70306b, b(), handler, dVar, this.f70307c, arrayList);
+            f(this.f70305a, jVar, handler.getLooper(), this.f70307c, arrayList);
+            d(this.f70305a, dVar2, handler.getLooper(), this.f70307c, arrayList);
+            e(this.f70305a, handler, this.f70307c, arrayList);
             return (r[]) arrayList.toArray(new r[arrayList.size()]);
         }
         return (r[]) invokeLLLLL.objValue;
@@ -81,7 +81,7 @@ public class f implements u {
         if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, aVar, audioProcessorArr, handler, dVar, Integer.valueOf(i2), arrayList}) != null) {
             return;
         }
-        arrayList.add(new d.f.b.a.x.g(d.f.b.a.b0.b.f72611a, aVar, true, handler, dVar, d.f.b.a.x.c.a(context), audioProcessorArr));
+        arrayList.add(new d.f.b.a.x.g(d.f.b.a.b0.b.f69714a, aVar, true, handler, dVar, d.f.b.a.x.c.a(context), audioProcessorArr));
         if (i2 == 0) {
             return;
         }
@@ -160,7 +160,7 @@ public class f implements u {
         if (interceptable != null && interceptable.invokeCommon(1048582, this, new Object[]{context, aVar, Long.valueOf(j), handler, eVar, Integer.valueOf(i2), arrayList}) != null) {
             return;
         }
-        arrayList.add(new d.f.b.a.j0.c(context, d.f.b.a.b0.b.f72611a, j, aVar, false, handler, eVar, 50));
+        arrayList.add(new d.f.b.a.j0.c(context, d.f.b.a.b0.b.f69714a, j, aVar, false, handler, eVar, 50));
         if (i2 == 0) {
             return;
         }
@@ -213,9 +213,9 @@ public class f implements u {
                 return;
             }
         }
-        this.f73202a = context;
-        this.f73203b = aVar;
-        this.f73204c = i2;
-        this.f73205d = j;
+        this.f70305a = context;
+        this.f70306b = aVar;
+        this.f70307c = i2;
+        this.f70308d = j;
     }
 }

@@ -82,6 +82,13 @@ public class c extends a.a.a.a.c<KsFullScreenVideoAd> {
                 this.f1254b.b(0, "NoFill");
             }
         }
+
+        @Override // com.kwad.sdk.api.KsLoadManager.FullScreenVideoAdListener
+        public void onRequestResult(int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

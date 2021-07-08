@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static h f44294b;
+    public static h f41310b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ThreadPoolExecutor f44295a;
+    public final ThreadPoolExecutor f41311a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class h {
                 return;
             }
         }
-        f44294b = new h();
+        f41310b = new h();
     }
 
     public h() {
@@ -50,24 +50,24 @@ public class h {
                 return;
             }
         }
-        this.f44295a = new ScheduledThreadPoolExecutor(1);
+        this.f41311a = new ScheduledThreadPoolExecutor(1);
     }
 
     public static h a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f44294b : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f41310b : (h) invokeV.objValue;
     }
 
     public void b(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            if (this.f44295a.getTaskCount() >= 1) {
+            if (this.f41311a.getTaskCount() >= 1) {
                 new Thread(runnable).start();
                 return;
             }
             try {
-                this.f44295a.submit(runnable);
+                this.f41311a.submit(runnable);
             } catch (Throwable unused) {
             }
         }
@@ -77,7 +77,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
             try {
-                this.f44295a.submit(runnable);
+                this.f41311a.submit(runnable);
             } catch (Throwable unused) {
             }
         }

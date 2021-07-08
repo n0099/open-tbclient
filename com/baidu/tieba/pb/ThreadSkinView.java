@@ -19,9 +19,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.b;
 import d.a.c.e.p.l;
-import d.a.s0.h3.j0.a;
+import d.a.p0.h3.j0.a;
 import tbclient.SkinInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ThreadSkinView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

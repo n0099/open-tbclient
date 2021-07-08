@@ -3,6 +3,7 @@ package com.baidu.mobads.container.util;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PermissionUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PERMISSION_APP_LIST = "permission_app_list";
@@ -92,7 +93,7 @@ public class PermissionUtils {
 
     public static void setPermissionInfo(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, null, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) == null) || jSONObject == null) {
             return;
         }
         String optString = jSONObject.optString("permission_location");

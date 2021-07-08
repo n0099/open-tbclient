@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.inputmethod.EditorInfo;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -101,7 +102,7 @@ public final class EditorInfoCompat {
 
     public static void setContentMimeTypes(@NonNull EditorInfo editorInfo, @Nullable String[] strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, editorInfo, strArr) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, editorInfo, strArr) == null) {
             if (Build.VERSION.SDK_INT >= 25) {
                 editorInfo.contentMimeTypes = strArr;
                 return;

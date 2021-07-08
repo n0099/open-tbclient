@@ -1,5 +1,6 @@
 package com.google.zxing.oned;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,7 +18,7 @@ import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import java.util.EnumMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class UPCEANExtension5Support {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] CHECK_DIGIT_ENCODINGS;
@@ -111,7 +112,7 @@ public final class UPCEANExtension5Support {
     public static int extensionChecksum(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, charSequence)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, charSequence)) == null) {
             int length = charSequence.length();
             int i2 = 0;
             for (int i3 = length - 2; i3 >= 0; i3 -= 2) {

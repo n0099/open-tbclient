@@ -1,5 +1,5 @@
 package d.a.k.d.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface i {
     int a(int i2);
 

@@ -12,24 +12,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class VMsg {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f8018a = "VMsg";
+    public static final String f8035a = "VMsg";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f8019b;
+    public static Handler f8036b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HandlerThread f8020c;
+    public static HandlerThread f8037c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static VMsg f8021d;
+    public static VMsg f8038d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public class VMsg {
                 return;
             }
         }
-        f8021d = new VMsg();
+        f8038d = new VMsg();
     }
 
     public VMsg() {
@@ -101,33 +101,33 @@ public class VMsg {
     public static void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
-            f8020c.quit();
-            f8020c = null;
-            f8019b.removeCallbacksAndMessages(null);
-            f8019b = null;
+            f8037c.quit();
+            f8037c = null;
+            f8036b.removeCallbacksAndMessages(null);
+            f8036b = null;
         }
     }
 
     public static VMsg getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f8021d : (VMsg) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f8038d : (VMsg) invokeV.objValue;
     }
 
     public static void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
             HandlerThread handlerThread = new HandlerThread("VIMsgThread");
-            f8020c = handlerThread;
+            f8037c = handlerThread;
             handlerThread.start();
-            f8019b = new a(f8020c.getLooper());
+            f8036b = new a(f8037c.getLooper());
         }
     }
 
     public static void postMessage(int i2, int i3, int i4, long j) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j)}) == null) || (handler = f8019b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j)}) == null) || (handler = f8036b) == null) {
             return;
         }
         Message.obtain(handler, i2, i3, i4, j == 0 ? null : Long.valueOf(j)).sendToTarget();

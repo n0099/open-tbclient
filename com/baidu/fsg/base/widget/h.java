@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class h implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SafeKeyBoardPopupWindow f5526a;
+    public final /* synthetic */ SafeKeyBoardPopupWindow f5543a;
 
     public h(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow) {
         Interceptable interceptable = $ic;
@@ -28,16 +28,16 @@ public class h implements Runnable {
                 return;
             }
         }
-        this.f5526a = safeKeyBoardPopupWindow;
+        this.f5543a = safeKeyBoardPopupWindow;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int selectionStart = this.f5526a.mySafeEditText.getSelectionStart();
-            int selectionEnd = this.f5526a.mySafeEditText.getSelectionEnd();
-            Editable text = this.f5526a.mySafeEditText.getText();
+            int selectionStart = this.f5543a.mySafeEditText.getSelectionStart();
+            int selectionEnd = this.f5543a.mySafeEditText.getSelectionEnd();
+            Editable text = this.f5543a.mySafeEditText.getText();
             if (selectionStart >= 0) {
                 if (selectionStart < selectionEnd) {
                     text.replace(selectionStart, selectionEnd, "", 0, 0);

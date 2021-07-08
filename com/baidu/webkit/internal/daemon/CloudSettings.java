@@ -33,7 +33,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CloudSettings implements INoProGuard, INetListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLOUD_SETTING_URL = "https://browserkernel.baidu.com/config/t5config?cmd=1&";
@@ -51,22 +51,22 @@ public class CloudSettings implements INoProGuard, INetListener {
     public int mNetres;
     public long mStartTime;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f27325a;
+        public long f27435a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f27326b;
+        public int f27436b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f27327c;
+        public boolean f27437c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ CloudSettings f27328d;
+        public final /* synthetic */ CloudSettings f27438d;
 
         public a(CloudSettings cloudSettings) {
             Interceptable interceptable = $ic;
@@ -83,15 +83,15 @@ public class CloudSettings implements INoProGuard, INetListener {
                     return;
                 }
             }
-            this.f27328d = cloudSettings;
-            this.f27326b = -1;
+            this.f27438d = cloudSettings;
+            this.f27436b = -1;
         }
 
         public final void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 Log.w(CloudSettings.LOG_TAG, "setNetRes ".concat(String.valueOf(i2)));
-                this.f27326b = i2;
+                this.f27436b = i2;
             }
         }
 
@@ -99,7 +99,7 @@ public class CloudSettings implements INoProGuard, INetListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
                 Log.w(CloudSettings.LOG_TAG, "setNetTime ".concat(String.valueOf(j)));
-                this.f27325a = j;
+                this.f27435a = j;
             }
         }
 
@@ -107,7 +107,7 @@ public class CloudSettings implements INoProGuard, INetListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
                 Log.w(CloudSettings.LOG_TAG, "mCronet ".concat(String.valueOf(z)));
-                this.f27327c = z;
+                this.f27437c = z;
             }
         }
     }
@@ -171,7 +171,7 @@ public class CloudSettings implements INoProGuard, INetListener {
 
     public static void addRawLogItem(StringBuilder sb, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65540, null, sb, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, sb, str, z) == null) {
             if (sb.length() > 0) {
                 sb.append("&");
             }

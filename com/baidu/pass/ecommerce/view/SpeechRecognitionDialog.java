@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SpeechRecognitionDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ELLIPSIS_NORMAL = "…";
@@ -61,12 +61,12 @@ public class SpeechRecognitionDialog extends Dialog {
     public RelativeLayout voiceParentLayout;
     public VoiceSinWaveView voiceSinWaveView;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface ResetCallback {
         void onReset();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface StopSpeechLister {
         void onStopSpeech();
     }
@@ -117,7 +117,7 @@ public class SpeechRecognitionDialog extends Dialog {
     private List<Point> getLineStartAndEnd(TextPaint textPaint, CharSequence charSequence, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65540, this, textPaint, charSequence, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, this, textPaint, charSequence, i2)) == null) {
             StaticLayout staticLayout = new StaticLayout(charSequence, textPaint, i2, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, true);
             int lineCount = staticLayout.getLineCount();
             ArrayList arrayList = new ArrayList();

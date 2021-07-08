@@ -43,7 +43,7 @@ import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.IYYPayAmountView;
 import tv.athena.revenue.payui.view.banner.PluginCenterTopBanner;
 import tv.athena.revenue.payui.widget.NoScrollGridView;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,19 +51,19 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
     public int B;
 
     /* renamed from: e  reason: collision with root package name */
-    public Activity f76706e;
+    public Activity f73740e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f76707f;
+    public Button f73741f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f76708g;
+    public TextView f73742g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f76709h;
+    public View f73743h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f76710i;
+    public ImageView f73744i;
     public i.a.a.e.k.a j;
     public NoScrollGridView k;
     public PluginCenterTopBanner l;
@@ -82,13 +82,13 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
     public volatile boolean y;
     public volatile boolean z;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class a implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ YYPayAmountView f76711e;
+        public final /* synthetic */ YYPayAmountView f73745e;
 
         public a(YYPayAmountView yYPayAmountView) {
             Interceptable interceptable = $ic;
@@ -105,34 +105,34 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
                     return;
                 }
             }
-            this.f76711e = yYPayAmountView;
+            this.f73745e = yYPayAmountView;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-                i.a.a.e.l.a item = this.f76711e.m.getItem(i2);
-                if (item.f75850c) {
-                    this.f76711e.D();
+                i.a.a.e.l.a item = this.f73745e.m.getItem(i2);
+                if (item.f72884c) {
+                    this.f73745e.D();
                     return;
                 }
-                this.f76711e.u = item;
-                this.f76711e.m.d(i2);
-                this.f76711e.m.notifyDataSetChanged();
-                this.f76711e.H(item);
-                i.a.a.e.m.a.d(this.f76711e.A, this.f76711e.B, "3", "", "", String.valueOf((this.f76711e.u == null || this.f76711e.u.f75848a == null) ? 0 : this.f76711e.u.f75848a.cid));
+                this.f73745e.u = item;
+                this.f73745e.m.d(i2);
+                this.f73745e.m.notifyDataSetChanged();
+                this.f73745e.H(item);
+                i.a.a.e.m.a.d(this.f73745e.A, this.f73745e.B, "3", "", "", String.valueOf((this.f73745e.u == null || this.f73745e.u.f72882a == null) ? 0 : this.f73745e.u.f72882a.cid));
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ YYPayAmountView f76712e;
+        public final /* synthetic */ YYPayAmountView f73746e;
 
         public b(YYPayAmountView yYPayAmountView) {
             Interceptable interceptable = $ic;
@@ -149,26 +149,26 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
                     return;
                 }
             }
-            this.f76712e = yYPayAmountView;
+            this.f73746e = yYPayAmountView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f76712e.v();
-                i.a.a.e.m.a.d(this.f76712e.A, this.f76712e.B, "2", "", "", String.valueOf((this.f76712e.u == null || this.f76712e.u.f75848a == null) ? 0 : this.f76712e.u.f75848a.cid));
+                this.f73746e.v();
+                i.a.a.e.m.a.d(this.f73746e.A, this.f73746e.B, "2", "", "", String.valueOf((this.f73746e.u == null || this.f73746e.u.f72882a == null) ? 0 : this.f73746e.u.f72882a.cid));
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class c implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ YYPayAmountView f76713e;
+        public final /* synthetic */ YYPayAmountView f73747e;
 
         public c(YYPayAmountView yYPayAmountView) {
             Interceptable interceptable = $ic;
@@ -185,31 +185,31 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
                     return;
                 }
             }
-            this.f76713e = yYPayAmountView;
+            this.f73747e = yYPayAmountView;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || i2 < 0 || i2 >= this.f76713e.q.size()) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || i2 < 0 || i2 >= this.f73747e.q.size()) {
                 return;
             }
-            BannerConfigItem.BannerInfo bannerInfo = (BannerConfigItem.BannerInfo) this.f76713e.q.get(i2);
+            BannerConfigItem.BannerInfo bannerInfo = (BannerConfigItem.BannerInfo) this.f73747e.q.get(i2);
             RLog.debug("YYPayAmountView", "updateBanner: click=" + bannerInfo.jumpData);
-            if (this.f76713e.r == null || this.f76713e.r.viewEventListener == null) {
+            if (this.f73747e.r == null || this.f73747e.r.viewEventListener == null) {
                 return;
             }
-            this.f76713e.r.viewEventListener.onBannerClick(bannerInfo);
+            this.f73747e.r.viewEventListener.onBannerClick(bannerInfo);
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class d implements IResult<ProductListResult> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ YYPayAmountView f76714a;
+        public final /* synthetic */ YYPayAmountView f73748a;
 
         public d(YYPayAmountView yYPayAmountView) {
             Interceptable interceptable = $ic;
@@ -226,7 +226,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
                     return;
                 }
             }
-            this.f76714a = yYPayAmountView;
+            this.f73748a = yYPayAmountView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -235,9 +235,9 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         public void onSuccess(ProductListResult productListResult, PayCallBackBean payCallBackBean) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, productListResult, payCallBackBean) == null) {
-                this.f76714a.y = false;
-                this.f76714a.F(productListResult);
-                this.f76714a.z();
+                this.f73748a.y = false;
+                this.f73748a.F(productListResult);
+                this.f73748a.z();
             }
         }
 
@@ -245,30 +245,30 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, payCallBackBean) == null) {
-                this.f76714a.y = false;
+                this.f73748a.y = false;
                 RLog.error("YYPayAmountView", "queryProductList onFail code:" + i2 + " failReason:" + str, new Object[0]);
-                if (h.f75864a.a(this.f76714a.f76706e)) {
+                if (h.f72898a.a(this.f73748a.f73740e)) {
                     String str2 = "请求服务失败 code:" + i2 + " failReason:" + str;
                     if (i2 == -500) {
                         str2 = "网络不给力，请稍后重试";
                     }
-                    Toast.makeText(this.f76714a.f76706e, str2, 1).show();
+                    Toast.makeText(this.f73748a.f73740e, str2, 1).show();
                 }
-                if (this.f76714a.w != null) {
-                    this.f76714a.w.onRefreshViewFail(i2, str);
+                if (this.f73748a.w != null) {
+                    this.f73748a.w.onRefreshViewFail(i2, str);
                 }
-                this.f76714a.z();
+                this.f73748a.z();
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class e implements IResult<MyBalanceResult> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ YYPayAmountView f76715a;
+        public final /* synthetic */ YYPayAmountView f73749a;
 
         public e(YYPayAmountView yYPayAmountView) {
             Interceptable interceptable = $ic;
@@ -285,7 +285,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
                     return;
                 }
             }
-            this.f76715a = yYPayAmountView;
+            this.f73749a = yYPayAmountView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -294,17 +294,17 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         public void onSuccess(MyBalanceResult myBalanceResult, PayCallBackBean payCallBackBean) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, myBalanceResult, payCallBackBean) == null) {
-                this.f76715a.z = false;
+                this.f73749a.z = false;
                 RLog.info("YYPayAmountView", "queryMyBalance result:" + myBalanceResult);
                 if (myBalanceResult != null) {
-                    PayUIKitConfig payUIKitConfig = this.f76715a.o.getPayUIKitConfig();
+                    PayUIKitConfig payUIKitConfig = this.f73749a.o.getPayUIKitConfig();
                     MiddleRevenueConfig middleRevenueConfig = payUIKitConfig != null ? payUIKitConfig.revenueConfig : null;
                     MyBalanceInfo.Account myBalance = middleRevenueConfig != null ? myBalanceResult.getMyBalance(middleRevenueConfig.getCurrencyType()) : null;
                     if (myBalance != null) {
-                        this.f76715a.s = myBalance;
-                        this.f76715a.I();
+                        this.f73749a.s = myBalance;
+                        this.f73749a.I();
                         RLog.info("YYPayAmountView", "queryMyBalance result yCoinsAccount:" + myBalance);
-                        this.f76715a.z();
+                        this.f73749a.z();
                         return;
                     }
                     RLog.error("YYPayAmountView", "queryMyBalance() error yCoinsAccount null", new Object[0]);
@@ -318,20 +318,20 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, payCallBackBean) == null) {
-                this.f76715a.z = false;
+                this.f73749a.z = false;
                 RLog.error("YYPayAmountView", "queryMyBalance onFail code:" + i2 + " failReason:" + str, new Object[0]);
-                this.f76715a.z();
+                this.f73749a.z();
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class f implements IResult<BannerConfigResult> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ YYPayAmountView f76716a;
+        public final /* synthetic */ YYPayAmountView f73750a;
 
         public f(YYPayAmountView yYPayAmountView) {
             Interceptable interceptable = $ic;
@@ -348,7 +348,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
                     return;
                 }
             }
-            this.f76716a = yYPayAmountView;
+            this.f73750a = yYPayAmountView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -359,19 +359,19 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, bannerConfigResult, payCallBackBean) == null) {
                 RLog.info("YYPayAmountView", "queryBannerConfig() onSuccess:" + bannerConfigResult);
-                this.f76716a.q.clear();
+                this.f73750a.q.clear();
                 if (bannerConfigResult.getBannerConfigItemList() == null || bannerConfigResult.getBannerConfigItemList().size() <= 0) {
                     list = null;
                 } else {
                     BannerConfigItem bannerConfigItem = bannerConfigResult.getBannerConfigItemList().get(0);
                     list = bannerConfigItem.bannerInfoList;
-                    this.f76716a.v = bannerConfigItem.autoPlayTime;
+                    this.f73750a.v = bannerConfigItem.autoPlayTime;
                 }
                 if (list == null || list.size() <= 0) {
                     return;
                 }
-                this.f76716a.q.addAll(list);
-                this.f76716a.G();
+                this.f73750a.q.addAll(list);
+                this.f73750a.G();
             }
         }
 
@@ -405,7 +405,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         this.p = new ArrayList();
         this.q = new ArrayList();
         this.x = "Y币";
-        this.f76706e = activity;
+        this.f73740e = activity;
         this.j = aVar;
         this.o = bVar;
         this.r = viewParams;
@@ -463,7 +463,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
             }
             IYYPayAmountView.Callback callback = this.w;
             if (callback != null) {
-                callback.showInputNumberDialog(this.f76706e, list);
+                callback.showInputNumberDialog(this.f73740e, list);
             }
         }
     }
@@ -471,7 +471,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
     public final void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            i.a.a.e.n.d.b(this.f76709h, this.f76710i);
+            i.a.a.e.n.d.b(this.f73743h, this.f73744i);
         }
     }
 
@@ -512,7 +512,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
                     this.m.d(i2);
                     this.m.notifyDataSetChanged();
                     H(this.m.b());
-                    i.a.a.e.l.b.f75851a = productListResult.getPaysSettingInfo();
+                    i.a.a.e.l.b.f72885a = productListResult.getPaysSettingInfo();
                     return;
                 }
                 RLog.error("YYPayAmountView", "productInfoList null", new Object[0]);
@@ -541,12 +541,12 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
     public final void H(i.a.a.e.l.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            if (this.f76707f == null) {
+            if (this.f73741f == null) {
                 RLog.error("YYPayAmountView", "updateConfirmButton null mBtnConfirmRecharge", new Object[0]);
             } else if (aVar == null) {
                 RLog.info("YYPayAmountView", "updateConfirmButton null payAmount");
             } else {
-                this.f76707f.setText("立即充值" + i.a.a.e.n.f.a(aVar.b().doubleValue()) + "元");
+                this.f73741f.setText("立即充值" + i.a.a.e.n.f.a(aVar.b().doubleValue()) + "元");
             }
         }
     }
@@ -558,7 +558,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (this.s == null) {
                 RLog.warn("YYPayAmountView", "updateMyBalanceUI: get balance account null");
-            } else if (this.f76708g != null && (activity = this.f76706e) != null && !activity.isFinishing()) {
+            } else if (this.f73742g != null && (activity = this.f73740e) != null && !activity.isFinishing()) {
                 String str = null;
                 MyBalanceInfo.Account account = this.s;
                 int i2 = account.currencyType;
@@ -571,21 +571,21 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
                         str = i.a.a.e.n.f.a((i3 - j) / 100.0d);
                     }
                 }
-                this.f76708g.setVisibility(0);
+                this.f73742g.setVisibility(0);
                 if (str == null) {
                     if (i2 == 4) {
-                        this.f76708g.setText(String.format(this.f76706e.getString(i.a.a.e.f.pay_ui_str_wallet_amount), a2));
+                        this.f73742g.setText(String.format(this.f73740e.getString(i.a.a.e.f.pay_ui_str_wallet_amount), a2));
                         return;
                     } else {
-                        this.f76708g.setText(String.format(this.f76706e.getString(i.a.a.e.f.pay_ui_str_wallet_amount_other), a2));
+                        this.f73742g.setText(String.format(this.f73740e.getString(i.a.a.e.f.pay_ui_str_wallet_amount_other), a2));
                         return;
                     }
                 }
-                this.f76708g.setTextColor(this.f76706e.getResources().getColor(i.a.a.e.a.pay_ui_color_FF3355));
+                this.f73742g.setTextColor(this.f73740e.getResources().getColor(i.a.a.e.a.pay_ui_color_FF3355));
                 if (i2 == 4) {
-                    this.f76708g.setText(String.format(this.f76706e.getString(i.a.a.e.f.pay_ui_str_wallet_amount_not_enough), a2, str));
+                    this.f73742g.setText(String.format(this.f73740e.getString(i.a.a.e.f.pay_ui_str_wallet_amount_not_enough), a2, str));
                 } else {
-                    this.f76708g.setText(String.format(this.f76706e.getString(i.a.a.e.f.pay_ui_str_wallet_amount_not_enough_other), a2, str));
+                    this.f73742g.setText(String.format(this.f73740e.getString(i.a.a.e.f.pay_ui_str_wallet_amount_not_enough_other), a2, str));
                 }
             } else {
                 RLog.warn("YYPayAmountView", "updateMyBalanceUI: ignore");
@@ -645,7 +645,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
     public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            i.a.a.e.n.d.a(this.f76709h, this.f76710i);
+            i.a.a.e.n.d.a(this.f73743h, this.f73744i);
         }
     }
 
@@ -654,9 +654,9 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         if (interceptable == null || interceptable.invokeL(1048591, this, activity) == null) {
             i.a.a.e.k.b bVar = this.o;
             PayUIKitConfig payUIKitConfig = bVar != null ? bVar.getPayUIKitConfig() : null;
-            LayoutInflater.from(new ContextThemeWrapper(activity, g.f75863a.a(payUIKitConfig))).inflate(i.a.a.e.e.pay_ui_layout_pay_amount_view, (ViewGroup) this, true);
-            this.f76708g = (TextView) findViewById(i.a.a.e.d.tv_amount);
-            i.a.a.e.o.b.a aVar = new i.a.a.e.o.b.a(this.f76706e, this.p, payUIKitConfig);
+            LayoutInflater.from(new ContextThemeWrapper(activity, g.f72897a.a(payUIKitConfig))).inflate(i.a.a.e.e.pay_ui_layout_pay_amount_view, (ViewGroup) this, true);
+            this.f73742g = (TextView) findViewById(i.a.a.e.d.tv_amount);
+            i.a.a.e.o.b.a aVar = new i.a.a.e.o.b.a(this.f73740e, this.p, payUIKitConfig);
             this.m = aVar;
             aVar.c(this.x);
             NoScrollGridView noScrollGridView = (NoScrollGridView) findViewById(i.a.a.e.d.grid_recharge_amount);
@@ -665,7 +665,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
             this.k.setAdapter((ListAdapter) this.m);
             this.k.setOnItemClickListener(new a(this));
             Button button = (Button) findViewById(i.a.a.e.d.btn_confirm_recharge);
-            this.f76707f = button;
+            this.f73741f = button;
             button.setOnClickListener(new b(this));
             H(this.m.b());
             this.l = (PluginCenterTopBanner) findViewById(i.a.a.e.d.banner);
@@ -673,8 +673,8 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
             if (bVar2 != null && bVar2.getPayUIKitConfig() != null) {
                 this.l.setImageLoaderSupplier(this.o.getPayUIKitConfig().imageLoaderSupplier);
             }
-            this.f76709h = findViewById(i.a.a.e.d.root_loading);
-            this.f76710i = (ImageView) findViewById(i.a.a.e.d.iv_loading_circle);
+            this.f73743h = findViewById(i.a.a.e.d.root_loading);
+            this.f73744i = (ImageView) findViewById(i.a.a.e.d.iv_loading_circle);
             i.a.a.e.m.a.d(this.A, this.B, "1", "", "", "");
         }
     }

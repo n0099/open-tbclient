@@ -1,5 +1,6 @@
 package com.google.zxing.pdf417.decoder;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,7 +17,7 @@ import java.io.ByteArrayOutputStream;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DecodedBitStreamParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AL = 28;
@@ -46,7 +47,7 @@ public final class DecodedBitStreamParser {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.zxing.pdf417.decoder.DecodedBitStreamParser$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$pdf417$decoder$DecodedBitStreamParser$Mode;
         public static /* synthetic */ Interceptable $ic;
@@ -95,7 +96,7 @@ public final class DecodedBitStreamParser {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Mode {
         public static final /* synthetic */ Mode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -387,7 +388,7 @@ public final class DecodedBitStreamParser {
     public static String decodeBase900toBase10(int[] iArr, int i2) throws FormatException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, iArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, iArr, i2)) == null) {
             BigInteger bigInteger = BigInteger.ZERO;
             for (int i3 = 0; i3 < i2; i3++) {
                 bigInteger = bigInteger.add(EXP900[(i2 - i3) - 1].multiply(BigInteger.valueOf(iArr[i3])));

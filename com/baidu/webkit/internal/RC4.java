@@ -1,5 +1,6 @@
 package com.baidu.webkit.internal;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class RC4 implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOGTAG = "RC4";
@@ -25,7 +26,7 @@ public class RC4 implements INoProGuard {
     public int x;
     public int y;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a extends GZIPOutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,7 +146,7 @@ public class RC4 implements INoProGuard {
 
     private void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             setKey(this.workingKey);
         }
     }

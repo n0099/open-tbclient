@@ -21,7 +21,7 @@ import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 import org.webrtc.EglBase;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class EglBase10 implements EglBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EGL_CONTEXT_CLIENT_VERSION = 12440;
@@ -33,7 +33,7 @@ public class EglBase10 implements EglBase {
     public EGLDisplay eglDisplay;
     public EGLSurface eglSurface;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class Context implements EglBase.Context {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -143,7 +143,7 @@ public class EglBase10 implements EglBase {
     private EGLConfig getEglConfig(EGLDisplay eGLDisplay, int[] iArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, eGLDisplay, iArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, eGLDisplay, iArr)) == null) {
             EGLConfig[] eGLConfigArr = new EGLConfig[1];
             int[] iArr2 = new int[1];
             if (!this.egl.eglChooseConfig(eGLDisplay, iArr, eGLConfigArr, 1, iArr2)) {

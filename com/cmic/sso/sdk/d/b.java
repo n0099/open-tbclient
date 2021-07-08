@@ -6,6 +6,7 @@ import android.security.KeyPairGeneratorSpec;
 import android.security.keystore.KeyGenParameterSpec;
 import android.text.TextUtils;
 import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +21,7 @@ import java.security.SecureRandom;
 import java.util.Calendar;
 import javax.crypto.Cipher;
 import javax.security.auth.x500.X500Principal;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -147,7 +148,7 @@ public class b {
     public static byte[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             byte[] bArr = new byte[16];
             new SecureRandom().nextBytes(bArr);
             return bArr;

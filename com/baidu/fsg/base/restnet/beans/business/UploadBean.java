@@ -39,7 +39,7 @@ import java.util.List;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class UploadBean extends NetworkBean {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COMET_BEAN = 1;
@@ -53,7 +53,7 @@ public abstract class UploadBean extends NetworkBean {
     public String mTskKey;
     public Class<?> rspClass;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class UploadFileModel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -132,7 +132,7 @@ public abstract class UploadBean extends NetworkBean {
     private <T> T extractRealResponse(String str, Class<T> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, str, cls)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, cls)) == null) {
             try {
                 return (T) JsonUtils.fromJson(str, cls);
             } catch (JSONException e2) {

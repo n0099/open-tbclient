@@ -10,41 +10,41 @@ import com.bytedance.sdk.component.adnet.core.Header;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface a {
 
     /* renamed from: com.bytedance.sdk.component.adnet.face.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class C0316a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f27956a;
+        public int f28066a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f27957b;
+        public byte[] f28067b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f27958c;
+        public String f28068c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f27959d;
+        public long f28069d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f27960e;
+        public long f28070e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f27961f;
+        public long f28071f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f27962g;
+        public long f28072g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Map<String, String> f27963h;
+        public Map<String, String> f28073h;
 
         /* renamed from: i  reason: collision with root package name */
-        public List<Header> f27964i;
+        public List<Header> f28074i;
 
         public C0316a() {
             Interceptable interceptable = $ic;
@@ -59,19 +59,19 @@ public interface a {
                     return;
                 }
             }
-            this.f27963h = Collections.emptyMap();
+            this.f28073h = Collections.emptyMap();
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27961f < System.currentTimeMillis() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28071f < System.currentTimeMillis() : invokeV.booleanValue;
         }
 
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27962g < System.currentTimeMillis() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28072g < System.currentTimeMillis() : invokeV.booleanValue;
         }
     }
 

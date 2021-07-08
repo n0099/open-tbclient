@@ -3,11 +3,12 @@ package com.baidu.mobstat;
 import android.app.Activity;
 import android.view.KeyEvent;
 import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.MtjConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +62,7 @@ public class ar {
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, null, str) == null) || at.a().b()) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) || at.a().b()) {
             return;
         }
         at.a().a(str);

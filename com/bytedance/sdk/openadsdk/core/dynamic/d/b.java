@@ -5,7 +5,7 @@ import com.bytedance.sdk.openadsdk.core.nativeexpress.j;
 import com.bytedance.sdk.openadsdk.core.widget.webview.SSWebView;
 import com.bytedance.sdk.openadsdk.e.p;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface b {
     b a(int i2);
 

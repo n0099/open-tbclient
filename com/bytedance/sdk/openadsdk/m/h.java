@@ -4,18 +4,19 @@ import android.content.Context;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Vibrator;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SensorManager f31409a;
+    public static SensorManager f31519a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public h() {
@@ -46,7 +47,7 @@ public class h {
 
     public static void a(Context context, SensorEventListener sensorEventListener, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65540, null, context, sensorEventListener, i2) == null) || sensorEventListener == null || context == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, sensorEventListener, i2) == null) || sensorEventListener == null || context == null) {
             return;
         }
         try {
@@ -61,14 +62,14 @@ public class h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-            if (f31409a == null) {
+            if (f31519a == null) {
                 synchronized (h.class) {
-                    if (f31409a == null) {
-                        f31409a = (SensorManager) context.getSystemService("sensor");
+                    if (f31519a == null) {
+                        f31519a = (SensorManager) context.getSystemService("sensor");
                     }
                 }
             }
-            return f31409a;
+            return f31519a;
         }
         return (SensorManager) invokeL.objValue;
     }

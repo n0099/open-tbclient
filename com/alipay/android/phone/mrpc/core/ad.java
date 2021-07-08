@@ -18,7 +18,7 @@ public class ad implements HttpRequestRetryHandler {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1625a = "ad";
+    public static final String f1626a = "ad";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

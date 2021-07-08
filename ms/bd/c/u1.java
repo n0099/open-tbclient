@@ -7,21 +7,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.frameworks.baselib.network.http.NetworkParams;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class u1 extends t1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f76109a;
+    public long f73143a;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class a implements NetworkParams.AddSecurityFactorProcessCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ u1 f76110a;
+        public final /* synthetic */ u1 f73144a;
 
         public a(u1 u1Var) {
             Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public final class u1 extends t1 {
                     return;
                 }
             }
-            this.f76110a = u1Var;
+            this.f73144a = u1Var;
         }
     }
 
@@ -61,7 +61,7 @@ public final class u1 extends t1 {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            this.f76109a = j;
+            this.f73143a = j;
             d(new a(this));
             return Boolean.TRUE;
         }
@@ -80,8 +80,8 @@ public final class u1 extends t1 {
     public void finalize() throws Throwable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b.a(50331650, this.f76109a);
-            this.f76109a = -1L;
+            b.a(50331650, this.f73143a);
+            this.f73143a = -1L;
             super.finalize();
         }
     }

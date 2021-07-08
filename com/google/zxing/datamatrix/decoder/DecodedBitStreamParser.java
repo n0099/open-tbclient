@@ -1,5 +1,6 @@
 package com.google.zxing.datamatrix.decoder;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.IStringUtil;
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import kotlin.text.Typography;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DecodedBitStreamParser {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] C40_BASIC_SET_CHARS;
@@ -33,7 +34,7 @@ public final class DecodedBitStreamParser {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.zxing.datamatrix.decoder.DecodedBitStreamParser$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$datamatrix$decoder$DecodedBitStreamParser$Mode;
         public static /* synthetic */ Interceptable $ic;
@@ -78,7 +79,7 @@ public final class DecodedBitStreamParser {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Mode {
         public static final /* synthetic */ Mode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -161,7 +162,7 @@ public final class DecodedBitStreamParser {
             }
         }
         C40_BASIC_SET_CHARS = new char[]{'*', '*', '*', ' ', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-        char[] cArr = {'!', Typography.quote, '#', '$', '%', Typography.amp, '\'', '(', ')', '*', '+', ',', SignatureImpl.SEP, IStringUtil.EXTENSION_SEPARATOR, '/', ':', ';', Typography.less, a.f1889h, Typography.greater, '?', '@', '[', '\\', ']', '^', '_'};
+        char[] cArr = {'!', Typography.quote, '#', '$', '%', Typography.amp, '\'', '(', ')', '*', '+', ',', SignatureImpl.SEP, IStringUtil.EXTENSION_SEPARATOR, '/', ':', ';', Typography.less, a.f1890h, Typography.greater, '?', '@', '[', '\\', ']', '^', '_'};
         C40_SHIFT2_SET_CHARS = cArr;
         TEXT_BASIC_SET_CHARS = new char[]{'*', '*', '*', ' ', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
         TEXT_SHIFT2_SET_CHARS = cArr;
@@ -262,7 +263,7 @@ public final class DecodedBitStreamParser {
     public static Mode decodeAsciiSegment(BitSource bitSource, StringBuilder sb, StringBuilder sb2) throws FormatException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, bitSource, sb, sb2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bitSource, sb, sb2)) == null) {
             boolean z = false;
             do {
                 int readBits = bitSource.readBits(8);

@@ -3,6 +3,7 @@ package org.webrtc;
 import android.media.MediaCodecInfo;
 import android.media.MediaCodecList;
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MediaCodecVideoDecoderFactory";
@@ -99,7 +100,7 @@ public class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
     private boolean isSupportedCodec(MediaCodecInfo mediaCodecInfo, VideoCodecType videoCodecType) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, mediaCodecInfo, videoCodecType)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, mediaCodecInfo, videoCodecType)) == null) {
             String name = mediaCodecInfo.getName();
             return MediaCodecUtils.codecSupportsType(mediaCodecInfo, videoCodecType) && MediaCodecUtils.selectColorFormat(MediaCodecUtils.DECODER_COLOR_FORMATS, mediaCodecInfo.getCapabilitiesForType(videoCodecType.mimeType())) != null && isWhitelisted(name) && !isBlacklisted(name);
         }

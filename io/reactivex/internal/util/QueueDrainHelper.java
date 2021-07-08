@@ -1,5 +1,6 @@
 package io.reactivex.internal.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,7 +20,7 @@ import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class QueueDrainHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long COMPLETED_MASK = Long.MIN_VALUE;
@@ -94,7 +95,7 @@ public final class QueueDrainHelper {
 
     public static <T, U> void drainLoop(SimplePlainQueue<T> simplePlainQueue, Observer<? super U> observer, boolean z, Disposable disposable, ObservableQueueDrain<T, U> observableQueueDrain) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{simplePlainQueue, observer, Boolean.valueOf(z), disposable, observableQueueDrain}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{simplePlainQueue, observer, Boolean.valueOf(z), disposable, observableQueueDrain}) == null) {
             int i2 = 1;
             while (!checkTerminated(observableQueueDrain.done(), simplePlainQueue.isEmpty(), observer, z, simplePlainQueue, disposable, observableQueueDrain)) {
                 while (true) {

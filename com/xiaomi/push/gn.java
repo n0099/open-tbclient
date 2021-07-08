@@ -1,5 +1,6 @@
 package com.xiaomi.push;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -7,30 +8,30 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.Random;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class gn {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Random f43203a;
+    public static Random f40217a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final char[] f439a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f43204b;
+    public static final char[] f40218b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final char[] f43205c;
+    public static final char[] f40219c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final char[] f43206d;
+    public static final char[] f40220d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final char[] f43207e;
+    public static final char[] f40221e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static char[] f43208f;
+    public static char[] f40222f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,12 +48,12 @@ public class gn {
             }
         }
         f439a = "&quot;".toCharArray();
-        f43204b = "&apos;".toCharArray();
-        f43205c = "&amp;".toCharArray();
-        f43206d = "&lt;".toCharArray();
-        f43207e = "&gt;".toCharArray();
-        f43203a = new Random();
-        f43208f = "0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+        f40218b = "&apos;".toCharArray();
+        f40219c = "&amp;".toCharArray();
+        f40220d = "&lt;".toCharArray();
+        f40221e = "&gt;".toCharArray();
+        f40217a = new Random();
+        f40222f = "0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     }
 
     public static String a(int i2) {
@@ -64,7 +65,7 @@ public class gn {
             }
             char[] cArr = new char[i2];
             for (int i3 = 0; i3 < i2; i3++) {
-                cArr[i3] = f43208f[f43203a.nextInt(71)];
+                cArr[i3] = f40222f[f40217a.nextInt(71)];
             }
             return new String(cArr);
         }
@@ -91,13 +92,13 @@ public class gn {
                             sb.append(charArray, i3, i2 - i3);
                         }
                         i3 = i2 + 1;
-                        sb.append(f43206d);
+                        sb.append(f40220d);
                     } else if (c2 == '>') {
                         if (i2 > i3) {
                             sb.append(charArray, i3, i2 - i3);
                         }
                         i3 = i2 + 1;
-                        sb.append(f43207e);
+                        sb.append(f40221e);
                     } else if (c2 == '&') {
                         if (i2 > i3) {
                             sb.append(charArray, i3, i2 - i3);
@@ -105,7 +106,7 @@ public class gn {
                         int i4 = i2 + 5;
                         if (length <= i4 || charArray[i2 + 1] != '#' || !Character.isDigit(charArray[i2 + 2]) || !Character.isDigit(charArray[i2 + 3]) || !Character.isDigit(charArray[i2 + 4]) || charArray[i4] != ';') {
                             i3 = i2 + 1;
-                            sb.append(f43205c);
+                            sb.append(f40219c);
                         }
                     } else if (c2 == '\"') {
                         if (i2 > i3) {
@@ -118,7 +119,7 @@ public class gn {
                             sb.append(charArray, i3, i2 - i3);
                         }
                         i3 = i2 + 1;
-                        sb.append(f43204b);
+                        sb.append(f40218b);
                     }
                 }
                 i2++;
@@ -169,7 +170,7 @@ public class gn {
     public static String a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, bArr)) == null) ? String.valueOf(bj.a(bArr)) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) ? String.valueOf(bj.a(bArr)) : (String) invokeL.objValue;
     }
 
     public static final String b(String str) {

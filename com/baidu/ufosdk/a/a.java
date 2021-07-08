@@ -10,31 +10,31 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.UfoSDK;
 import com.baidu.ufosdk.b.d;
 import com.baidu.ufosdk.f.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class a extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f23159a;
+    public Context f23269a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f23160b;
+    public String f23270b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f23161c;
+    public String f23271c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f23162d;
+    public boolean f23272d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f23163e;
+    public boolean f23273e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f23164f;
+    public boolean f23274f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final long f23165g;
+    public final long f23275g;
 
     public a(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
@@ -51,35 +51,35 @@ public final class a extends Thread {
                 return;
             }
         }
-        this.f23160b = "";
-        this.f23161c = "";
-        this.f23162d = false;
-        this.f23163e = false;
-        this.f23164f = false;
-        this.f23165g = 300L;
-        this.f23159a = context;
-        this.f23160b = str;
-        this.f23161c = str2;
+        this.f23270b = "";
+        this.f23271c = "";
+        this.f23272d = false;
+        this.f23273e = false;
+        this.f23274f = false;
+        this.f23275g = 300L;
+        this.f23269a = context;
+        this.f23270b = str;
+        this.f23271c = str2;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f23162d = true;
+            this.f23272d = true;
         }
     }
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f23160b = str;
+            this.f23270b = str;
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f23162d = false;
+            this.f23272d = false;
         }
     }
 
@@ -90,25 +90,25 @@ public final class a extends Thread {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || UfoSDK.clientid.length() == 0) {
             return;
         }
-        while (!this.f23162d) {
+        while (!this.f23272d) {
             c.b("###################");
             try {
                 Thread.sleep(300L);
             } catch (InterruptedException e2) {
                 c.a("Interrupted!", e2);
             }
-            if (!this.f23163e && (str = this.f23160b) != null && !str.equals("newMessage")) {
-                if (d.c(this.f23159a)) {
-                    Context context = this.f23159a;
+            if (!this.f23273e && (str = this.f23270b) != null && !str.equals("newMessage")) {
+                if (d.c(this.f23269a)) {
+                    Context context = this.f23269a;
                     String str2 = UfoSDK.clientid;
-                    com.baidu.ufosdk.e.a.a(context, this.f23160b, this.f23161c);
+                    com.baidu.ufosdk.e.a.a(context, this.f23270b, this.f23271c);
                 } else {
-                    this.f23159a.sendBroadcast(new Intent("com.baidu.ufosdk.reload"));
-                    this.f23159a.sendBroadcast(new Intent("com.baidu.ufosdk.deletemsg_dialogdismiss"));
+                    this.f23269a.sendBroadcast(new Intent("com.baidu.ufosdk.reload"));
+                    this.f23269a.sendBroadcast(new Intent("com.baidu.ufosdk.deletemsg_dialogdismiss"));
                 }
             }
             try {
-                if (!this.f23164f) {
+                if (!this.f23274f) {
                     Thread.sleep(com.baidu.ufosdk.b.ah * 1000);
                 }
             } catch (InterruptedException unused) {

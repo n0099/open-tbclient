@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.download;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface d {
     String a();
 
@@ -7,25 +7,25 @@ public interface d {
 
     void a(String str, int i2, int i3, int i4);
 
-    void a(String str, int i2, f fVar);
+    void a(String str, int i2, g gVar);
 
-    void a(String str, int i2, String str2, f fVar);
+    void a(String str, int i2, String str2, g gVar);
 
-    void a(String str, f fVar);
+    void a(String str, g gVar);
 
-    void a(String str, String str2, f fVar);
+    void a(String str, String str2, g gVar);
 
     String b();
 
     void b(String str);
 
-    void b(String str, f fVar);
+    void b(String str, g gVar);
 
-    void c(String str, f fVar);
+    void c(String str, g gVar);
 
-    void d(String str, f fVar);
+    void d(String str, g gVar);
 
-    void e(String str, f fVar);
+    void e(String str, g gVar);
 
-    void f(String str, f fVar);
+    void f(String str, g gVar);
 }

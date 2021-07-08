@@ -2,6 +2,7 @@ package com.sina.weibo.sdk.sso;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,14 +16,14 @@ import com.weibo.ssosdk.WeiboSsoSdk;
 import d.m.a.a;
 import d.m.a.b;
 import d.m.a.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class WeiboSsoManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "WeiboSsoManager";
     public transient /* synthetic */ FieldHolder $fh;
     public String aid;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Instance {
         public static /* synthetic */ Interceptable $ic;
         public static final WeiboSsoManager instance;
@@ -74,7 +75,7 @@ public final class WeiboSsoManager {
 
     private void initAid() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             try {
                 WeiboSsoSdk.i().m(new b(this) { // from class: com.sina.weibo.sdk.sso.WeiboSsoManager.1
                     public static /* synthetic */ Interceptable $ic;

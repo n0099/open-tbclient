@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.core.i.b;
 import com.kwad.sdk.core.imageloader.core.imageaware.ImageAware;
 import java.io.File;
 import java.util.Collections;
@@ -18,7 +19,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ImageLoaderEngine {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,13 +58,13 @@ public class ImageLoaderEngine {
         this.configuration = imageLoaderConfiguration;
         this.taskExecutor = imageLoaderConfiguration.taskExecutor;
         this.taskExecutorForCachedImages = imageLoaderConfiguration.taskExecutorForCachedImages;
-        this.taskDistributor = DefaultConfigurationFactory.createTaskDistributor();
+        this.taskDistributor = b.e();
     }
 
     private Executor createTaskExecutor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             ImageLoaderConfiguration imageLoaderConfiguration = this.configuration;
             return DefaultConfigurationFactory.createExecutor(imageLoaderConfiguration.threadPoolSize, imageLoaderConfiguration.threadPriority, imageLoaderConfiguration.tasksProcessingType);
         }

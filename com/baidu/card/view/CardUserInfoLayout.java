@@ -51,10 +51,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.j;
 import d.a.c.e.p.l;
 import d.a.j.q;
-import d.a.r0.r.q.b2;
+import d.a.o0.r.q.b2;
 import java.util.ArrayList;
 import tbclient.AppPosInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class CardUserInfoLayout extends LinearLayout implements q {
     public static /* synthetic */ Interceptable $ic;
     public static final int I;
@@ -69,19 +69,19 @@ public class CardUserInfoLayout extends LinearLayout implements q {
     public View.OnClickListener H;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f4410e;
+    public Context f4415e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f4411f;
+    public int f4416f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HeadPendantClickableView f4412g;
+    public HeadPendantClickableView f4417g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TBLottieAnimationView f4413h;
+    public TBLottieAnimationView f4418h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f4414i;
+    public TextView f4419i;
     public TextView j;
     public UserIconBox k;
     public UserIconBox l;
@@ -100,210 +100,15 @@ public class CardUserInfoLayout extends LinearLayout implements q {
     public View.OnClickListener y;
     public View z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardUserInfoLayout f4415e;
-
-        public a(CardUserInfoLayout cardUserInfoLayout) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cardUserInfoLayout};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f4415e = cardUserInfoLayout;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f4415e.f();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardUserInfoLayout f4416e;
-
-        public b(CardUserInfoLayout cardUserInfoLayout) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cardUserInfoLayout};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f4416e = cardUserInfoLayout;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            String url;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || !ViewHelper.checkUpIsLogin(this.f4416e.f4410e) || this.f4416e.B == null || this.f4416e.B.H() == null || this.f4416e.B.H().getTShowInfoNew() == null || ListUtils.getItem(this.f4416e.B.H().getTShowInfoNew(), 0) == null || (url = this.f4416e.B.H().getTShowInfoNew().get(0).getUrl()) == null || !(j.a(this.f4416e.f4410e) instanceof TbPageContext)) {
-                return;
-            }
-            UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f4416e.f4410e), new String[]{url});
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardUserInfoLayout f4417e;
-
-        public c(CardUserInfoLayout cardUserInfoLayout) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cardUserInfoLayout};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f4417e = cardUserInfoLayout;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4417e.B == null || this.f4417e.B.H() == null || StringUtils.isNull(this.f4417e.B.H().getName_show()) || StringUtils.isNull(this.f4417e.B.H().getUserId()) || this.f4417e.B.W() == null) {
-                return;
-            }
-            if (view.getTag(R.id.tag_nick_name_activity) != null && (view.getTag(R.id.tag_nick_name_activity) instanceof String)) {
-                String str = (String) view.getTag(R.id.tag_nick_name_activity);
-                if (!TextUtils.isEmpty(str) && ViewHelper.checkUpIsLogin(this.f4417e.getContext())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(view.getContext(), null, str, true)));
-                    return;
-                }
-            }
-            PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.f4417e.f4410e, this.f4417e.B.H().getUserId(), this.f4417e.B.H().getName_show(), this.f4417e.B.W(), AddFriendActivityConfig.TYPE_FRS_HEAD);
-            personInfoActivityConfig.setSourceTid(this.f4417e.B.n1());
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, personInfoActivityConfig));
-            if (this.f4417e.x != null) {
-                this.f4417e.x.onClick(view);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardUserInfoLayout f4418e;
-
-        public d(CardUserInfoLayout cardUserInfoLayout) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cardUserInfoLayout};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f4418e = cardUserInfoLayout;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4418e.B == null || this.f4418e.B.H() == null) {
-                return;
-            }
-            d.a.r0.l.a.o(this.f4418e.f4410e.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.user_icon_web_view_title), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.f4418e.B.H().getUserId(), true, true, true);
-            if (this.f4418e.y != null) {
-                this.f4418e.x.onClick(view);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class e implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardUserInfoLayout f4419e;
-
-        public e(CardUserInfoLayout cardUserInfoLayout) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cardUserInfoLayout};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f4419e = cardUserInfoLayout;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4419e.x == null) {
-                return;
-            }
-            this.f4419e.x.onClick(view);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ CardUserInfoLayout f4420e;
 
-        public f(CardUserInfoLayout cardUserInfoLayout) {
+        public a(CardUserInfoLayout cardUserInfoLayout) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -325,7 +130,202 @@ public class CardUserInfoLayout extends LinearLayout implements q {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f4420e.f4413h.playAnimation();
+                this.f4420e.f();
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ CardUserInfoLayout f4421e;
+
+        public b(CardUserInfoLayout cardUserInfoLayout) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cardUserInfoLayout};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f4421e = cardUserInfoLayout;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            String url;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || !ViewHelper.checkUpIsLogin(this.f4421e.f4415e) || this.f4421e.B == null || this.f4421e.B.H() == null || this.f4421e.B.H().getTShowInfoNew() == null || ListUtils.getItem(this.f4421e.B.H().getTShowInfoNew(), 0) == null || (url = this.f4421e.B.H().getTShowInfoNew().get(0).getUrl()) == null || !(j.a(this.f4421e.f4415e) instanceof TbPageContext)) {
+                return;
+            }
+            UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f4421e.f4415e), new String[]{url});
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ CardUserInfoLayout f4422e;
+
+        public c(CardUserInfoLayout cardUserInfoLayout) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cardUserInfoLayout};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f4422e = cardUserInfoLayout;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4422e.B == null || this.f4422e.B.H() == null || StringUtils.isNull(this.f4422e.B.H().getName_show()) || StringUtils.isNull(this.f4422e.B.H().getUserId()) || this.f4422e.B.W() == null) {
+                return;
+            }
+            if (view.getTag(R.id.tag_nick_name_activity) != null && (view.getTag(R.id.tag_nick_name_activity) instanceof String)) {
+                String str = (String) view.getTag(R.id.tag_nick_name_activity);
+                if (!TextUtils.isEmpty(str) && ViewHelper.checkUpIsLogin(this.f4422e.getContext())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(view.getContext(), null, str, true)));
+                    return;
+                }
+            }
+            PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.f4422e.f4415e, this.f4422e.B.H().getUserId(), this.f4422e.B.H().getName_show(), this.f4422e.B.W(), AddFriendActivityConfig.TYPE_FRS_HEAD);
+            personInfoActivityConfig.setSourceTid(this.f4422e.B.n1());
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, personInfoActivityConfig));
+            if (this.f4422e.x != null) {
+                this.f4422e.x.onClick(view);
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ CardUserInfoLayout f4423e;
+
+        public d(CardUserInfoLayout cardUserInfoLayout) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cardUserInfoLayout};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f4423e = cardUserInfoLayout;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4423e.B == null || this.f4423e.B.H() == null) {
+                return;
+            }
+            d.a.o0.l.a.o(this.f4423e.f4415e.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.user_icon_web_view_title), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.f4423e.B.H().getUserId(), true, true, true);
+            if (this.f4423e.y != null) {
+                this.f4423e.x.onClick(view);
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class e implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ CardUserInfoLayout f4424e;
+
+        public e(CardUserInfoLayout cardUserInfoLayout) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cardUserInfoLayout};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f4424e = cardUserInfoLayout;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4424e.x == null) {
+                return;
+            }
+            this.f4424e.x.onClick(view);
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class f implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ CardUserInfoLayout f4425e;
+
+        public f(CardUserInfoLayout cardUserInfoLayout) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cardUserInfoLayout};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f4425e = cardUserInfoLayout;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f4425e.f4418h.playAnimation();
             }
         }
     }
@@ -374,30 +374,30 @@ public class CardUserInfoLayout extends LinearLayout implements q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (k(512)) {
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, this.f4414i.getMeasuredHeight());
-                layoutParams.setMargins(l.g(this.f4410e, R.dimen.tbds10), l.g(this.f4410e, R.dimen.tbds_5), 0, 0);
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, this.f4419i.getMeasuredHeight());
+                layoutParams.setMargins(l.g(this.f4415e, R.dimen.tbds10), l.g(this.f4415e, R.dimen.tbds_5), 0, 0);
                 this.p.setLayoutParams(layoutParams);
             }
-            TextPaint paint = this.f4414i.getPaint();
-            int i4 = l.p(this.f4410e)[0];
-            if (i4 > 0 && (width = (getWidth() - ((i4 * 31) / 108)) - l.g(this.f4410e, R.dimen.tbds107)) > 0) {
-                int t = l.t(paint, l(this.B.H().getName_show(), 12)) + this.f4414i.getPaddingLeft() + this.f4414i.getPaddingRight();
-                int t2 = l.t(paint, l(this.B.H().getName_show(), 10)) + this.f4414i.getPaddingLeft() + this.f4414i.getPaddingRight();
+            TextPaint paint = this.f4419i.getPaint();
+            int i4 = l.p(this.f4415e)[0];
+            if (i4 > 0 && (width = (getWidth() - ((i4 * 31) / 108)) - l.g(this.f4415e, R.dimen.tbds107)) > 0) {
+                int t = l.t(paint, l(this.B.H().getName_show(), 12)) + this.f4419i.getPaddingLeft() + this.f4419i.getPaddingRight();
+                int t2 = l.t(paint, l(this.B.H().getName_show(), 10)) + this.f4419i.getPaddingLeft() + this.f4419i.getPaddingRight();
                 int measuredWidth = this.l.getMeasuredWidth();
-                int measuredWidth2 = this.f4414i.getMeasuredWidth();
+                int measuredWidth2 = this.f4419i.getMeasuredWidth();
                 int measuredWidth3 = this.p.getMeasuredWidth();
                 int measuredWidth4 = this.j.getMeasuredWidth();
                 int measuredWidth5 = this.k.getMeasuredWidth();
                 if (width < measuredWidth2 + measuredWidth + measuredWidth3 + measuredWidth4 + measuredWidth5) {
-                    String charSequence = this.f4414i.getText().toString();
+                    String charSequence = this.f4419i.getText().toString();
                     int i5 = measuredWidth + measuredWidth3;
                     int i6 = measuredWidth4 + i5;
                     int i7 = measuredWidth5 + i6;
                     int i8 = t + i7;
                     if (width > i8) {
-                        this.f4414i.setText(l(charSequence, 12));
+                        this.f4419i.setText(l(charSequence, 12));
                     } else if (width < i8) {
-                        this.f4414i.setText(l(charSequence, 10));
+                        this.f4419i.setText(l(charSequence, 10));
                     }
                     if (width < i7 + t2) {
                         this.k.setVisibility(8);
@@ -437,7 +437,7 @@ public class CardUserInfoLayout extends LinearLayout implements q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.l.setVisibility(k(1) ? 0 : 8);
-            this.f4414i.setVisibility(k(4) ? 0 : 8);
+            this.f4419i.setVisibility(k(4) ? 0 : 8);
             this.j.setVisibility(k(16) ? 0 : 8);
             this.p.setVisibility(k(8) ? 0 : 8);
             this.k.setVisibility(k(32) ? 0 : 8);
@@ -455,7 +455,7 @@ public class CardUserInfoLayout extends LinearLayout implements q {
     public HeadPendantClickableView getAvatar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4412g : (HeadPendantClickableView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4417g : (HeadPendantClickableView) invokeV.objValue;
     }
 
     public RelativeLayout getSuffixContainer() {
@@ -467,27 +467,27 @@ public class CardUserInfoLayout extends LinearLayout implements q {
     public View getUserName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f4414i : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f4419i : (View) invokeV.objValue;
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) findViewById(R.id.user_avatar);
-            this.f4412g = headPendantClickableView;
+            this.f4417g = headPendantClickableView;
             headPendantClickableView.setHasPendantStyle();
-            this.f4412g.getHeadView().setIsRound(true);
-            this.f4412g.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f4412g.getHeadView().setDefaultResource(17170445);
-            this.f4412g.getHeadView().setPlaceHolder(1);
-            this.f4412g.setAfterClickListener(new e(this));
-            this.f4413h = (TBLottieAnimationView) findViewById(R.id.user_living_lottie);
+            this.f4417g.getHeadView().setIsRound(true);
+            this.f4417g.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f4417g.getHeadView().setDefaultResource(17170445);
+            this.f4417g.getHeadView().setPlaceHolder(1);
+            this.f4417g.setAfterClickListener(new e(this));
+            this.f4418h = (TBLottieAnimationView) findViewById(R.id.user_living_lottie);
             this.C = (ImageView) findViewById(R.id.img_official_v);
             UserIconBox userIconBox = (UserIconBox) findViewById(R.id.user_tshow_icon);
             this.l = userIconBox;
             userIconBox.setOnClickListener(this.F);
             TextView textView = (TextView) findViewById(R.id.user_name);
-            this.f4414i = textView;
+            this.f4419i = textView;
             textView.setOnClickListener(this.G);
             this.j = (TextView) findViewById(R.id.identity_view);
             this.p = (TextView) findViewById(R.id.thread_share_intro);
@@ -511,7 +511,7 @@ public class CardUserInfoLayout extends LinearLayout implements q {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f4410e = getContext();
+            this.f4415e = getContext();
             setClipChildren(false);
             setClipToPadding(false);
             setOrientation(0);
@@ -519,19 +519,19 @@ public class CardUserInfoLayout extends LinearLayout implements q {
             setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
             LayoutInflater.from(getContext()).inflate(R.layout.user_info_layout, (ViewGroup) this, true);
             h();
-            l.g(this.f4410e, R.dimen.tbds40);
-            this.s = l.g(this.f4410e, R.dimen.tbds164);
-            this.t = l.g(this.f4410e, R.dimen.tbds156);
-            this.u = l.g(this.f4410e, R.dimen.tbds148);
-            this.v = l.g(this.f4410e, R.dimen.tbds118);
-            this.w = l.g(this.f4410e, R.dimen.tbds580);
+            l.g(this.f4415e, R.dimen.tbds40);
+            this.s = l.g(this.f4415e, R.dimen.tbds164);
+            this.t = l.g(this.f4415e, R.dimen.tbds156);
+            this.u = l.g(this.f4415e, R.dimen.tbds148);
+            this.v = l.g(this.f4415e, R.dimen.tbds118);
+            this.w = l.g(this.f4415e, R.dimen.tbds580);
         }
     }
 
     public final boolean j(b2 b2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, b2Var)) == null) ? (b2Var == null || b2Var.H() == null || !b2Var.X1 || !d.a.r0.b.d.h() || b2Var.H().hadConcerned() || ThreadCardUtils.isSelf(b2Var)) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, b2Var)) == null) ? (b2Var == null || b2Var.H() == null || !b2Var.X1 || !d.a.o0.b.d.h() || b2Var.H().hadConcerned() || ThreadCardUtils.isSelf(b2Var)) ? false : true : invokeL.booleanValue;
     }
 
     public final boolean k(int i2) {
@@ -554,13 +554,13 @@ public class CardUserInfoLayout extends LinearLayout implements q {
         }
         b2 b2Var2 = this.B;
         if (b2Var2.s1 > 0 && b2Var2.t1 == 0) {
-            SkinManager.setViewTextColor(this.f4414i, R.color.CAM_X0106);
-            d.a.r0.b.g.b.e(this.f4414i);
+            SkinManager.setViewTextColor(this.f4419i, R.color.CAM_X0106);
+            d.a.o0.b.g.b.g(this.f4419i);
         } else if (ListUtils.isEmpty(this.B.H().getTShowInfoNew()) && !this.B.d2()) {
-            SkinManager.setViewTextColor(this.f4414i, R.color.CAM_X0106);
-            d.a.r0.b.g.b.e(this.f4414i);
+            SkinManager.setViewTextColor(this.f4419i, R.color.CAM_X0106);
+            d.a.o0.b.g.b.g(this.f4419i);
         } else {
-            SkinManager.setViewTextColor(this.f4414i, R.color.CAM_X0301);
+            SkinManager.setViewTextColor(this.f4419i, R.color.CAM_X0301);
         }
     }
 
@@ -568,34 +568,34 @@ public class CardUserInfoLayout extends LinearLayout implements q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, b2Var) == null) {
             if (!k(32768)) {
-                this.f4413h.setVisibility(8);
-                if (this.f4413h.isAnimating()) {
-                    this.f4413h.cancelAnimation();
+                this.f4418h.setVisibility(8);
+                if (this.f4418h.isAnimating()) {
+                    this.f4418h.cancelAnimation();
                 }
-                this.f4412g.setIsclearmode(false);
+                this.f4417g.setIsclearmode(false);
                 this.C.setVisibility(8);
                 return;
             }
             boolean z = (b2Var == null || b2Var.H() == null || b2Var.H().getAlaUserData() == null || b2Var.H().getAlaUserData().live_status != 1) ? false : true;
             boolean z2 = (b2Var == null || b2Var.g1() == null || b2Var.g1().friendRoomStatus != 2) ? false : true;
             if (!z && !z2) {
-                this.f4413h.setVisibility(8);
-                this.f4413h.cancelAnimation();
-                this.f4412g.setIsclearmode(false);
+                this.f4418h.setVisibility(8);
+                this.f4418h.cancelAnimation();
+                this.f4417g.setIsclearmode(false);
                 this.C.setVisibility(8);
                 return;
             }
-            this.f4412g.setIsclearmode(true);
+            this.f4417g.setIsclearmode(true);
             if (b2Var != null && b2Var.H() != null && b2Var.H().isOfficial()) {
                 this.C.setVisibility(0);
                 SkinManager.setImageResource(this.C, R.drawable.ic_icon_mask_shang22_n);
             }
             this.D &= -257;
             x(b2Var);
-            this.f4413h.setSpeed(0.8f);
-            this.f4413h.setVisibility(0);
-            this.f4413h.loop(true);
-            this.f4413h.post(new f(this));
+            this.f4418h.setSpeed(0.8f);
+            this.f4418h.setVisibility(0);
+            this.f4418h.loop(true);
+            this.f4418h.post(new f(this));
         }
     }
 
@@ -616,12 +616,12 @@ public class CardUserInfoLayout extends LinearLayout implements q {
     @Override // d.a.j.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048589, this, tbPageContext, i2) == null) || i2 == this.f4411f) {
+        if (!(interceptable == null || interceptable.invokeLI(1048589, this, tbPageContext, i2) == null) || i2 == this.f4416f) {
             return;
         }
-        this.f4411f = i2;
-        this.f4412g.getHeadView().setPlaceHolder(1);
-        TBLottieAnimationView tBLottieAnimationView = this.f4413h;
+        this.f4416f = i2;
+        this.f4417g.getHeadView().setPlaceHolder(1);
+        TBLottieAnimationView tBLottieAnimationView = this.f4418h;
         if (tBLottieAnimationView != null) {
             SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.card_live_header_bg);
         }
@@ -647,7 +647,7 @@ public class CardUserInfoLayout extends LinearLayout implements q {
             boolean z2 = UtilHelper.isDecimal(r0) && UtilHelper.isDecimal(x0);
             boolean isSystemLocationProviderEnabled = UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst());
             if (z2 && isSystemLocationProviderEnabled) {
-                AppPosInfo c2 = d.a.s0.w2.g0.a.e().c();
+                AppPosInfo c2 = d.a.p0.w2.g0.a.e().c();
                 String str2 = c2.latitude;
                 String str3 = c2.longitude;
                 if ((UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3)) ? false : false) {
@@ -675,7 +675,7 @@ public class CardUserInfoLayout extends LinearLayout implements q {
         } else {
             this.D &= -4097;
         }
-        if (!b2Var.h2() && !(b2Var instanceof AdvertAppInfo) && ((b2Var.W1 && !b2Var.p2() && !b2Var.d2() && b2Var.getType() != b2.m3 && b2Var.getType() != b2.p3) || (b2Var.W1 && d.a.r0.b.d.V() && b2Var.getType() != b2.m3 && b2Var.getType() != b2.p3))) {
+        if (!b2Var.h2() && !(b2Var instanceof AdvertAppInfo) && ((b2Var.W1 && !b2Var.p2() && !b2Var.d2() && b2Var.getType() != b2.m3 && b2Var.getType() != b2.p3) || (b2Var.W1 && d.a.o0.b.d.f0() && b2Var.getType() != b2.m3 && b2Var.getType() != b2.p3))) {
             this.D &= -129;
         } else {
             this.D |= 128;
@@ -706,19 +706,19 @@ public class CardUserInfoLayout extends LinearLayout implements q {
 
     public final void s(b2 b2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, b2Var) == null) || this.f4412g == null || b2Var == null || this.B.H() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, b2Var) == null) || this.f4417g == null || b2Var == null || this.B.H() == null) {
             return;
         }
-        this.f4412g.setBigVDimenSize(R.dimen.tbds32);
-        if (UtilHelper.showHeadBjhBigVIcon(this.f4412g, this.B.H(), 0)) {
+        this.f4417g.setBigVDimenSize(R.dimen.tbds32);
+        if (UtilHelper.showHeadBjhBigVIcon(this.f4417g, this.B.H(), 0)) {
             return;
         }
-        this.f4412g.setIsHomePage(b2Var.W1);
+        this.f4417g.setIsHomePage(b2Var.W1);
         b2 b2Var2 = this.B;
         if (b2Var2.s1 > 0 && b2Var2.t1 == 0) {
-            this.f4412g.g(false);
+            this.f4417g.g(false);
         } else {
-            this.f4412g.i(this.B.H(), 0);
+            this.f4417g.i(this.B.H(), 0);
         }
     }
 
@@ -761,7 +761,7 @@ public class CardUserInfoLayout extends LinearLayout implements q {
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         HeadPendantClickableView headPendantClickableView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, bdUniqueId) == null) || (headPendantClickableView = this.f4412g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048596, this, bdUniqueId) == null) || (headPendantClickableView = this.f4417g) == null) {
             return;
         }
         headPendantClickableView.setPageId(bdUniqueId);
@@ -813,7 +813,7 @@ public class CardUserInfoLayout extends LinearLayout implements q {
         }
         this.j.setOnClickListener(null);
         if (H.getIs_bawu() == 1) {
-            d.a.r0.r.u.c d2 = d.a.r0.r.u.c.d(this.j);
+            d.a.o0.r.u.c d2 = d.a.o0.r.u.c.d(this.j);
             d2.t(R.color.CAM_X0101);
             d2.e(R.string.A_X04);
             d2.n(R.string.J_X04);
@@ -890,7 +890,7 @@ public class CardUserInfoLayout extends LinearLayout implements q {
         ArrayList<IconData> tShowInfoNew = b2Var.H().getTShowInfoNew();
         if (ListUtils.getCount(tShowInfoNew) != 0) {
             this.l.setVisibility(0);
-            this.l.h(tShowInfoNew, 2, this.f4410e.getResources().getDimensionPixelSize(R.dimen.tbds48), this.f4410e.getResources().getDimensionPixelSize(R.dimen.tbds48), this.f4410e.getResources().getDimensionPixelSize(R.dimen.ds8), true);
+            this.l.h(tShowInfoNew, 2, this.f4415e.getResources().getDimensionPixelSize(R.dimen.tbds48), this.f4415e.getResources().getDimensionPixelSize(R.dimen.tbds48), this.f4415e.getResources().getDimensionPixelSize(R.dimen.ds8), true);
             return;
         }
         this.l.setVisibility(8);
@@ -900,14 +900,14 @@ public class CardUserInfoLayout extends LinearLayout implements q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, b2Var) == null) {
             if (b2Var.H() == null) {
-                this.f4412g.setVisibility(8);
+                this.f4417g.setVisibility(8);
                 return;
             }
             MetaData H = b2Var.H();
             if (!k(256)) {
                 H.setPendantData(null);
             }
-            this.f4412g.setData(b2Var);
+            this.f4417g.setData(b2Var);
         }
     }
 
@@ -922,7 +922,7 @@ public class CardUserInfoLayout extends LinearLayout implements q {
             ArrayList<IconData> iconInfo = b2Var.H().getIconInfo();
             if (ListUtils.getCount(iconInfo) != 0) {
                 this.k.setVisibility(0);
-                this.k.h(iconInfo, 4, this.f4410e.getResources().getDimensionPixelSize(R.dimen.tbds40), this.f4410e.getResources().getDimensionPixelSize(R.dimen.tbds40), this.f4410e.getResources().getDimensionPixelSize(R.dimen.tbds10), true);
+                this.k.h(iconInfo, 4, this.f4415e.getResources().getDimensionPixelSize(R.dimen.tbds40), this.f4415e.getResources().getDimensionPixelSize(R.dimen.tbds40), this.f4415e.getResources().getDimensionPixelSize(R.dimen.tbds10), true);
                 return;
             }
             this.k.setVisibility(8);
@@ -933,14 +933,14 @@ public class CardUserInfoLayout extends LinearLayout implements q {
 
     public final void z(b2 b2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048606, this, b2Var) == null) || this.f4414i == null || b2Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048606, this, b2Var) == null) || this.f4419i == null || b2Var == null) {
             return;
         }
         if (!b2Var.W1 && !b2Var.O1()) {
             if (b2Var.H() != null && !StringUtils.isNull(b2Var.H().getName_show())) {
-                this.f4414i.setText(StringHelper.cutChineseAndEnglishWithEmoji(b2Var.H().getName_show(), 12, StringHelper.STRING_MORE));
+                this.f4419i.setText(StringHelper.cutChineseAndEnglishWithEmoji(b2Var.H().getName_show(), 12, StringHelper.STRING_MORE));
             } else {
-                this.f4414i.setText(R.string.user_name_default_txt);
+                this.f4419i.setText(R.string.user_name_default_txt);
             }
         } else {
             ViewGroup.LayoutParams layoutParams = this.z.getLayoutParams();
@@ -949,17 +949,17 @@ public class CardUserInfoLayout extends LinearLayout implements q {
             ViewGroup.LayoutParams layoutParams2 = this.A.getLayoutParams();
             layoutParams2.width = -1;
             this.A.setLayoutParams(layoutParams2);
-            ViewGroup.LayoutParams layoutParams3 = this.f4414i.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams3 = this.f4419i.getLayoutParams();
             layoutParams3.width = -1;
-            this.f4414i.setLayoutParams(layoutParams3);
-            this.f4414i.setEllipsize(TextUtils.TruncateAt.END);
+            this.f4419i.setLayoutParams(layoutParams3);
+            this.f4419i.setEllipsize(TextUtils.TruncateAt.END);
             if (b2Var.H() != null && !StringUtils.isNull(b2Var.H().getName_show())) {
-                this.f4414i.setText(b2Var.H().getName_show());
+                this.f4419i.setText(b2Var.H().getName_show());
             } else {
-                this.f4414i.setText(R.string.user_name_default_txt);
+                this.f4419i.setText(R.string.user_name_default_txt);
             }
         }
-        d.a.r0.b.g.b.d(this.f4414i);
+        d.a.o0.b.g.b.f(this.f4419i);
         m();
     }
 
@@ -982,7 +982,7 @@ public class CardUserInfoLayout extends LinearLayout implements q {
                 return;
             }
         }
-        this.f4411f = 3;
+        this.f4416f = 3;
         this.D = 34053;
         this.E = new a(this);
         this.F = new b(this);

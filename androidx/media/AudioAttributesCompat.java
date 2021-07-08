@@ -169,7 +169,7 @@ public class AudioAttributesCompat implements VersionedParcelable {
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static void setForceLegacyBehavior(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65540, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
             sForceLegacyBehavior = z;
         }
     }

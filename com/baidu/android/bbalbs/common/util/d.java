@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Process;
 import android.provider.Settings;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -113,7 +114,7 @@ public final class d {
     public static boolean a(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, context, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2)) == null) {
             try {
                 return Settings.System.putString(context.getContentResolver(), str, str2);
             } catch (Exception e2) {

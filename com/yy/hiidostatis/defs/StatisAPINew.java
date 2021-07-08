@@ -53,7 +53,7 @@ import java.util.Date;
 import java.util.Map;
 import java.util.UUID;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class StatisAPINew implements IStatisApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_EVENT_FIELD_BYTES = 256;
@@ -135,7 +135,7 @@ public class StatisAPINew implements IStatisApi {
     private boolean reportStatisticContentAll(String str, StatisContent statisContent, boolean z, boolean z2, boolean z3, Packer.OnSavedListener onSavedListener) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, this, new Object[]{str, statisContent, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), onSavedListener})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, statisContent, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), onSavedListener})) == null) {
             if (this.mContext != null && !Util.empty(str) && !Util.empty(statisContent)) {
                 statisContent.setAct(str);
                 statisContent.setCover(z3);

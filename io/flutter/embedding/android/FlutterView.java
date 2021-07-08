@@ -45,7 +45,7 @@ import io.flutter.view.AccessibilityBridge;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class FlutterView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterView";
@@ -75,7 +75,7 @@ public class FlutterView extends FrameLayout {
     public final FlutterRenderer.ViewportMetrics viewportMetrics;
 
     @VisibleForTesting
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface FlutterEngineAttachmentListener {
         void onFlutterEngineAttachedToFlutterView(@NonNull FlutterEngine flutterEngine);
 
@@ -84,7 +84,7 @@ public class FlutterView extends FrameLayout {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Deprecated
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class RenderMode {
         public static final /* synthetic */ RenderMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -145,7 +145,7 @@ public class FlutterView extends FrameLayout {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Deprecated
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class TransparencyMode {
         public static final /* synthetic */ TransparencyMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -754,14 +754,14 @@ public class FlutterView extends FrameLayout {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, flutterSurfaceView};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], (FlutterSurfaceView) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }

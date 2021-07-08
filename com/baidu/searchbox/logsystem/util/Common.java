@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.util.JsonReader;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.android.util.io.Closeables;
@@ -19,7 +20,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Common {
     public static /* synthetic */ Interceptable $ic;
     public static AppExtraCall sAppExtraCall;
@@ -27,12 +28,12 @@ public class Common {
     public static volatile Version sCommonVersion;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface AppExtraCall {
         JSONObject getAppExtraInfo();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Device {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +66,7 @@ public class Common {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Version {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String SDK_VERSION = "sdkversion";
@@ -196,7 +197,7 @@ public class Common {
 
     public static void setAppExtraCall(AppExtraCall appExtraCall) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, appExtraCall) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, appExtraCall) == null) {
             sAppExtraCall = appExtraCall;
         }
     }

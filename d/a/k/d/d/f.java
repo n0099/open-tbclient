@@ -22,34 +22,34 @@ import java.util.Map;
 import javax.crypto.BadPaddingException;
 import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Map<String, byte[]> f45951h;
+    public static final Map<String, byte[]> f42834h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f45952a;
+    public final int f42835a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f45953b;
+    public final int f42836b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SecureRandom f45954c;
+    public SecureRandom f42837c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f45955d;
+    public final int f42838d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MessageDigest f45956e;
+    public MessageDigest f42839e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MessageDigest f45957f;
+    public MessageDigest f42840f;
 
     /* renamed from: g  reason: collision with root package name */
-    public byte[] f45958g;
+    public byte[] f42841g;
 
     static {
         InterceptResult invokeClinit;
@@ -64,7 +64,7 @@ public final class f {
                 return;
             }
         }
-        f45951h = Collections.synchronizedMap(new HashMap());
+        f42834h = Collections.synchronizedMap(new HashMap());
     }
 
     public f(int i2, int i3, SecureRandom secureRandom, OAEPParameterSpec oAEPParameterSpec) {
@@ -83,9 +83,9 @@ public final class f {
                 return;
             }
         }
-        this.f45952a = i2;
-        this.f45953b = i3;
-        this.f45954c = secureRandom;
+        this.f42835a = i2;
+        this.f42836b = i3;
+        this.f42837c = secureRandom;
         if (i3 < 64) {
             throw new InvalidKeyException("Padded size must be at least 64");
         }
@@ -119,18 +119,18 @@ public final class f {
             } else {
                 str = "SHA-1";
             }
-            this.f45956e = MessageDigest.getInstance(str2);
-            this.f45957f = MessageDigest.getInstance(str);
-            byte[] e3 = e(this.f45956e, bArr);
-            this.f45958g = e3;
+            this.f42839e = MessageDigest.getInstance(str2);
+            this.f42840f = MessageDigest.getInstance(str);
+            byte[] e3 = e(this.f42839e, bArr);
+            this.f42841g = e3;
             int length = (i3 - 2) - (e3.length * 2);
-            this.f45955d = length;
+            this.f42838d = length;
             if (length > 0) {
                 return;
             }
             throw new InvalidKeyException("Key is too short for encryption using OAEPPadding with " + str2 + " and MGF1" + str);
         }
-        this.f45955d = i3;
+        this.f42838d = i3;
     }
 
     public static f b(int i2, int i3, SecureRandom secureRandom) {
@@ -148,13 +148,13 @@ public final class f {
     public static byte[] e(MessageDigest messageDigest, byte[] bArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, messageDigest, bArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, messageDigest, bArr)) == null) {
             if (bArr == null || bArr.length == 0) {
                 String algorithm = messageDigest.getAlgorithm();
-                byte[] bArr2 = f45951h.get(algorithm);
+                byte[] bArr2 = f42834h.get(algorithm);
                 if (bArr2 == null) {
                     byte[] digest = messageDigest.digest();
-                    f45951h.put(algorithm, digest);
+                    f42834h.put(algorithm, digest);
                     return digest;
                 }
                 return bArr2;
@@ -167,7 +167,7 @@ public final class f {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f45955d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42838d : invokeV.intValue;
     }
 
     public final void d(byte[] bArr, int i2, int i3, byte[] bArr2, int i4, int i5) {
@@ -177,10 +177,10 @@ public final class f {
             byte[] bArr3 = new byte[4];
             byte[] bArr4 = new byte[20];
             while (i5 > 0) {
-                this.f45957f.update(bArr, i2, i3);
-                this.f45957f.update(bArr3);
+                this.f42840f.update(bArr, i2, i3);
+                this.f42840f.update(bArr3);
                 try {
-                    this.f45957f.digest(bArr4, 0, 20);
+                    this.f42840f.digest(bArr4, 0, 20);
                     for (int i7 = 0; i7 < 20 && i5 > 0; i7++) {
                         bArr2[i4] = (byte) (bArr4[i7] ^ bArr2[i4]);
                         i5--;
@@ -204,10 +204,10 @@ public final class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
-            if (bArr.length > this.f45955d) {
-                throw new BadPaddingException("Data must be shorter than " + (this.f45955d + 1) + " bytes");
+            if (bArr.length > this.f42838d) {
+                throw new BadPaddingException("Data must be shorter than " + (this.f42838d + 1) + " bytes");
             }
-            int i2 = this.f45952a;
+            int i2 = this.f42835a;
             if (i2 == 1 || i2 == 2) {
                 return i(bArr);
             }
@@ -232,10 +232,10 @@ public final class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bArr)) == null) {
-            if (bArr.length != this.f45953b) {
-                throw new BadPaddingException("Padded length must be " + this.f45953b);
+            if (bArr.length != this.f42836b) {
+                throw new BadPaddingException("Padded length must be " + this.f42836b);
             }
-            int i2 = this.f45952a;
+            int i2 = this.f42835a;
             if (i2 == 1 || i2 == 2) {
                 return j(bArr);
             }
@@ -256,18 +256,18 @@ public final class f {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) {
-            int i4 = this.f45953b;
+            int i4 = this.f42836b;
             byte[] bArr2 = new byte[i4];
             System.arraycopy(bArr, 0, bArr2, i4 - bArr.length, bArr.length);
-            int length = (this.f45953b - 3) - bArr.length;
+            int length = (this.f42836b - 3) - bArr.length;
             bArr2[0] = 0;
-            int i5 = this.f45952a;
+            int i5 = this.f42835a;
             bArr2[1] = (byte) i5;
             int i6 = -1;
             int i7 = 2;
             if (i5 != 1) {
-                if (this.f45954c == null) {
-                    this.f45954c = b.f45941a;
+                if (this.f42837c == null) {
+                    this.f42837c = b.f42824a;
                 }
                 byte[] bArr3 = new byte[64];
                 while (true) {
@@ -277,7 +277,7 @@ public final class f {
                     }
                     while (true) {
                         if (i6 < 0) {
-                            this.f45954c.nextBytes(bArr3);
+                            this.f42837c.nextBytes(bArr3);
                             i6 = 63;
                         }
                         i2 = i6 - 1;
@@ -318,7 +318,7 @@ public final class f {
             throw new BadPaddingException("Data must start with zero");
         }
         int i2 = 2;
-        if (bArr[1] != this.f45952a) {
+        if (bArr[1] != this.f42835a) {
             throw new BadPaddingException("Blocktype mismatch: " + ((int) bArr[1]));
         }
         while (true) {
@@ -326,7 +326,7 @@ public final class f {
             int i4 = bArr[i2] & 255;
             if (i4 == 0) {
                 int length = bArr.length - i3;
-                if (length <= this.f45955d) {
+                if (length <= this.f42838d) {
                     byte[] bArr2 = new byte[length];
                     System.arraycopy(bArr, bArr.length - length, bArr2, 0, length);
                     return bArr2;
@@ -335,7 +335,7 @@ public final class f {
             } else if (i3 == bArr.length) {
                 throw new BadPaddingException("Padding string not terminated");
             } else {
-                if (this.f45952a == 1 && i4 != 255) {
+                if (this.f42835a == 1 && i4 != 255) {
                     throw new BadPaddingException("Padding byte not 0xff: " + i4);
                 }
                 i2 = i3;
@@ -347,19 +347,19 @@ public final class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bArr)) == null) {
-            if (this.f45954c == null) {
-                this.f45954c = b.f45941a;
+            if (this.f42837c == null) {
+                this.f42837c = b.f42824a;
             }
-            int length = this.f45958g.length;
+            int length = this.f42841g.length;
             byte[] bArr2 = new byte[length];
-            this.f45954c.nextBytes(bArr2);
-            int i2 = this.f45953b;
+            this.f42837c.nextBytes(bArr2);
+            int i2 = this.f42836b;
             byte[] bArr3 = new byte[i2];
             System.arraycopy(bArr2, 0, bArr3, 1, length);
             int i3 = length + 1;
             int i4 = i2 - i3;
-            int length2 = this.f45953b - bArr.length;
-            System.arraycopy(this.f45958g, 0, bArr3, i3, length);
+            int length2 = this.f42836b - bArr.length;
+            System.arraycopy(this.f42841g, 0, bArr3, i3, length);
             bArr3[length2 - 1] = 1;
             System.arraycopy(bArr, 0, bArr3, length2, bArr.length);
             d(bArr3, 1, length, bArr3, i3, i4);
@@ -373,14 +373,14 @@ public final class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr)) == null) {
-            int length = this.f45958g.length;
+            int length = this.f42841g.length;
             if (bArr[0] == 0) {
                 int i2 = length + 1;
                 int length2 = bArr.length - i2;
                 d(bArr, i2, length2, bArr, 1, length);
                 d(bArr, 1, length, bArr, i2, length2);
                 for (int i3 = 0; i3 < length; i3++) {
-                    if (this.f45958g[i3] != bArr[i2 + i3]) {
+                    if (this.f42841g[i3] != bArr[i2 + i3]) {
                         throw new BadPaddingException("lHash mismatch");
                     }
                 }

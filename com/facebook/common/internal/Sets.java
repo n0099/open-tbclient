@@ -1,5 +1,6 @@
 package com.facebook.common.internal;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +16,7 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class Sets {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +91,7 @@ public final class Sets {
     public static <E> HashSet<E> newHashSet(Iterator<? extends E> it) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, it)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, it)) == null) {
             HashSet<E> newHashSet = newHashSet();
             while (it.hasNext()) {
                 newHashSet.add(it.next());

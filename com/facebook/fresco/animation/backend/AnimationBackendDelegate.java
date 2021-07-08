@@ -14,14 +14,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.fresco.animation.backend.AnimationBackend;
-import com.kwai.video.player.KsMediaMeta;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AnimationBackendDelegate<T extends AnimationBackend> implements AnimationBackend {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALPHA_UNSET = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    @IntRange(from = -1, to = KsMediaMeta.AV_CH_LAYOUT_7POINT1_WIDE_BACK)
+    @IntRange(from = -1, to = 255)
     public int mAlpha;
     @Nullable
     public T mAnimationBackend;

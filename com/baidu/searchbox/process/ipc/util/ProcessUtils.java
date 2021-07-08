@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.process.ipc.IPCLibConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,7 +19,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class ProcessUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AI_APPS_PROCESS_SUFFIX = ":swan";
@@ -89,7 +90,7 @@ public final class ProcessUtils {
     public static String getMainProcessName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? sMainProcessName : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? sMainProcessName : (String) invokeV.objValue;
     }
 
     public static String getProcessNameFromAm(Context context) {

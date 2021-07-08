@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.authoring.adaptivestreaming;
 
+import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentActivity;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -44,14 +45,15 @@ import javax.xml.transform.stream.StreamResult;
 import kotlin.jvm.internal.ByteCompanionObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-/* loaded from: classes7.dex */
+import org.webrtc.MediaStreamTrack;
+/* loaded from: classes6.dex */
 public class FlatManifestWriterImpl extends AbstractManifestWriter {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
     public static final Logger LOG;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class DependentSubstreamMask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -187,7 +189,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
     private AudioQuality getAudioQuality(Track track, AudioSampleEntry audioSampleEntry) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, track, audioSampleEntry)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, track, audioSampleEntry)) == null) {
             if (getFormat(audioSampleEntry).equals(AudioSampleEntry.TYPE3)) {
                 return getAacAudioQuality(track, audioSampleEntry);
             }
@@ -677,7 +679,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 }
                 if (this.audioFragmentsDurations != null) {
                     Element createElement5 = newDocument.createElement(str8);
-                    createElement5.setAttribute(str9, "audio");
+                    createElement5.setAttribute(str9, MediaStreamTrack.AUDIO_TRACK_KIND);
                     createElement5.setAttribute(str10, Long.toString(j2));
                     createElement5.setAttribute(str11, Integer.toString(this.audioFragmentsDurations.length));
                     createElement5.setAttribute(str12, "audio/{bitrate}/{start time}");

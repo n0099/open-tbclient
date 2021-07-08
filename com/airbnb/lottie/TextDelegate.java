@@ -2,6 +2,7 @@ package com.airbnb.lottie;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -49,7 +50,7 @@ public class TextDelegate {
 
     private void invalidate() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             LottieAnimationView lottieAnimationView = this.animationView;
             if (lottieAnimationView != null) {
                 lottieAnimationView.invalidate();

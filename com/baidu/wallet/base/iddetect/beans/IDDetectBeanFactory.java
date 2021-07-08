@@ -12,25 +12,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.beans.BaseBean;
 import com.baidu.wallet.core.beans.BeanManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class IDDetectBeanFactory implements IBeanFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BEAN_ID_ID_DETECT = 57345;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.base.iddetect.beans.IDDetectBeanFactory$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static IDDetectBeanFactory f23961a;
+        public static IDDetectBeanFactory f24071a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -46,7 +46,7 @@ public final class IDDetectBeanFactory implements IBeanFactory {
                     return;
                 }
             }
-            f23961a = new IDDetectBeanFactory(null);
+            f24071a = new IDDetectBeanFactory(null);
         }
     }
 
@@ -57,7 +57,7 @@ public final class IDDetectBeanFactory implements IBeanFactory {
     public static IDDetectBeanFactory getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f23961a : (IDDetectBeanFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f24071a : (IDDetectBeanFactory) invokeV.objValue;
     }
 
     public IDDetectBeanFactory() {

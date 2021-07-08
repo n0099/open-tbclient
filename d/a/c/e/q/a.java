@@ -11,33 +11,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f44462a;
+    public static int f41478a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f44463b;
+    public static b f41479b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f44464c;
+    public static String f41480c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f44465d;
+    public static c f41481d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Handler f44466e;
+    public static Handler f41482e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d.a.c.e.q.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0593a implements Handler.Callback {
+    /* loaded from: classes7.dex */
+    public static class C0554a implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0593a() {
+        public C0554a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,23 +60,23 @@ public class a {
                 if (i2 != 0) {
                     if (i2 != 1) {
                         if (i2 != 6) {
-                            if (a.f44465d != null) {
-                                a.f44465d.error(message.what, h.a(R.string.voice_err_play));
+                            if (a.f41481d != null) {
+                                a.f41481d.error(message.what, h.a(R.string.voice_err_play));
                             }
                         } else {
-                            if (a.f44465d != null) {
-                                a.f44465d.d(message.arg1);
+                            if (a.f41481d != null) {
+                                a.f41481d.d(message.arg1);
                             }
                             return true;
                         }
-                    } else if (a.f44465d != null) {
-                        a.f44465d.error(message.what, h.a(R.string.voice_err_no_file));
+                    } else if (a.f41481d != null) {
+                        a.f41481d.error(message.what, h.a(R.string.voice_err_no_file));
                     }
-                } else if (a.f44465d != null) {
-                    a.f44465d.c(a.f44464c, message.arg1);
+                } else if (a.f41481d != null) {
+                    a.f41481d.c(a.f41480c, message.arg1);
                 }
-                int unused = a.f44462a = 0;
-                c unused2 = a.f44465d = null;
+                int unused = a.f41478a = 0;
+                c unused2 = a.f41481d = null;
                 return false;
             }
             return invokeL.booleanValue;
@@ -96,25 +96,25 @@ public class a {
                 return;
             }
         }
-        f44466e = new Handler(new C0593a());
+        f41482e = new Handler(new C0554a());
     }
 
     public static boolean e(String str, c cVar, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(AdIconUtil.AD_TEXT_ID, null, str, cVar, i2)) == null) {
-            if (f44462a == 0) {
-                b bVar = f44463b;
+            if (f41478a == 0) {
+                b bVar = f41479b;
                 if (bVar == null) {
-                    f44463b = new b(f44466e, i2);
+                    f41479b = new b(f41482e, i2);
                 } else {
                     bVar.k(i2);
                 }
-                f44464c = str;
-                f44465d = cVar;
-                f44463b.j(str);
-                f44462a = 2;
-                new Thread(f44463b).start();
+                f41480c = str;
+                f41481d = cVar;
+                f41479b.j(str);
+                f41478a = 2;
+                new Thread(f41479b).start();
                 return true;
             }
             return false;
@@ -125,11 +125,11 @@ public class a {
     public static void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
-            b bVar = f44463b;
+            b bVar = f41479b;
             if (bVar != null) {
                 bVar.l();
             } else {
-                f44462a = 0;
+                f41478a = 0;
             }
         }
     }

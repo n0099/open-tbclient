@@ -1,5 +1,6 @@
 package org.webrtc;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,7 +10,7 @@ import javax.microedition.khronos.egl.EGLContext;
 import org.webrtc.EglBase;
 import org.webrtc.EglBase10;
 import org.webrtc.EglBase14;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final /* synthetic */ class EglBase_CC {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +42,7 @@ public final /* synthetic */ class EglBase_CC {
     public static EglBase createEgl10(int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, iArr)) == null) ? new EglBase10(null, iArr) : (EglBase) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, iArr)) == null) ? new EglBase10(null, iArr) : (EglBase) invokeL.objValue;
     }
 
     public static EglBase createEgl14(android.opengl.EGLContext eGLContext, int[] iArr) {

@@ -60,7 +60,7 @@ import com.facebook.imagepipeline.producers.ThumbnailBranchProducer;
 import com.facebook.imagepipeline.producers.ThumbnailProducer;
 import com.facebook.imagepipeline.producers.WebpTranscodeProducer;
 import com.facebook.imagepipeline.transcoder.ImageTranscoderFactory;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ProducerFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SIMULTANEOUS_REQUESTS = 5;
@@ -148,7 +148,7 @@ public class ProducerFactory {
     public static <T> SwallowResultProducer<T> newSwallowResultProducer(Producer<T> producer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, producer)) == null) ? new SwallowResultProducer<>(producer) : (SwallowResultProducer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, producer)) == null) ? new SwallowResultProducer<>(producer) : (SwallowResultProducer) invokeL.objValue;
     }
 
     public <T> ThreadHandoffProducer<T> newBackgroundThreadHandoffProducer(Producer<T> producer, ThreadHandoffProducerQueue threadHandoffProducerQueue) {

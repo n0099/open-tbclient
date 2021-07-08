@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class f implements PBNativeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PBNative f42561a;
+    public final /* synthetic */ PBNative f39575a;
 
     public f(PBNative pBNative) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public class f implements PBNativeListener {
                 return;
             }
         }
-        this.f42561a = pBNative;
+        this.f39575a = pBNative;
     }
 
     @Override // com.win.opensdk.PBListener
     public void onClicked() {
         PBNativeListener pBNativeListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (pBNativeListener = this.f42561a.f42427b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (pBNativeListener = this.f39575a.f39441b) == null) {
             return;
         }
         pBNativeListener.onClicked();
@@ -45,7 +45,7 @@ public class f implements PBNativeListener {
     public void onDisplayed() {
         PBNativeListener pBNativeListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (pBNativeListener = this.f42561a.f42427b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (pBNativeListener = this.f39575a.f39441b) == null) {
             return;
         }
         pBNativeListener.onDisplayed();
@@ -55,7 +55,7 @@ public class f implements PBNativeListener {
     public void onFail(PBError pBError) {
         PBNativeListener pBNativeListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (pBNativeListener = this.f42561a.f42427b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (pBNativeListener = this.f39575a.f39441b) == null) {
             return;
         }
         pBNativeListener.onFail(pBError);
@@ -65,7 +65,7 @@ public class f implements PBNativeListener {
     public void onLoaded() {
         PBNativeListener pBNativeListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (pBNativeListener = this.f42561a.f42427b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (pBNativeListener = this.f39575a.f39441b) == null) {
             return;
         }
         pBNativeListener.onLoaded();

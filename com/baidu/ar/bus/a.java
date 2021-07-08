@@ -1,6 +1,7 @@
 package com.baidu.ar.bus;
 
 import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -154,7 +155,7 @@ public class a {
         InterceptResult invokeLL;
         CopyOnWriteArrayList<g> copyOnWriteArrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, obj, cls)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, obj, cls)) == null) {
             synchronized (this) {
                 copyOnWriteArrayList = this.kr.get(cls);
             }

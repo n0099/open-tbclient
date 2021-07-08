@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.StatusCode;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CameraClipFrameRect {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FRAGMENT_SHADER_EXT = "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nvoid main() {\n    gl_FragColor = vec4(texture2D(sTexture, vTextureCoord).rgb, 1.0);\n}\n";

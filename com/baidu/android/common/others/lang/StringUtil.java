@@ -1,6 +1,7 @@
 package com.baidu.android.common.others.lang;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -107,7 +108,7 @@ public final class StringUtil implements IStringUtil {
     public static String arrayToCommaDelimitedString(Object[] objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, objArr)) == null) ? arrayToDelimitedString(objArr, ",") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, objArr)) == null) ? arrayToDelimitedString(objArr, ",") : (String) invokeL.objValue;
     }
 
     @Deprecated

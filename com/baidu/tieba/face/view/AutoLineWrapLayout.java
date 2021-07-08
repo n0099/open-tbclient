@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AutoLineWrapLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14813e;
+    public int f14852e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AutoLineWrapLayout(Context context) {
@@ -43,7 +43,7 @@ public class AutoLineWrapLayout extends ViewGroup {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f14813e = l.g(getContext(), R.dimen.ds20);
+            this.f14852e = l.g(getContext(), R.dimen.ds20);
         }
     }
 
@@ -59,8 +59,8 @@ public class AutoLineWrapLayout extends ViewGroup {
                 View childAt = getChildAt(i6);
                 int measuredWidth = childAt.getMeasuredWidth();
                 int measuredHeight = childAt.getMeasuredHeight();
-                i7 = i6 == 0 ? i7 + measuredWidth : i7 + this.f14813e + measuredWidth;
-                int i9 = this.f14813e;
+                i7 = i6 == 0 ? i7 + measuredWidth : i7 + this.f14852e + measuredWidth;
+                int i9 = this.f14852e;
                 int i10 = ((measuredHeight + i9) * i8) + i9 + measuredHeight + i3;
                 if (i7 > i4) {
                     i7 = measuredWidth + i2;

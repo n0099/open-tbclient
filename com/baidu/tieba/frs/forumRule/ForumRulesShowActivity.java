@@ -24,26 +24,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.b1.m.f;
-import d.a.s0.u0.p1.f.c;
+import d.a.o0.b1.m.f;
+import d.a.p0.u0.p1.f.c;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity> implements Object {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d.a.s0.u0.p1.b.a callback;
+    public d.a.p0.u0.p1.b.a callback;
     public String mFrom;
     public ForumRulesShowModel mModel;
     public c mView;
     public CustomMessageListener richTextIntentClickListener;
 
-    /* loaded from: classes5.dex */
-    public class a implements d.a.s0.u0.p1.b.a {
+    /* loaded from: classes4.dex */
+    public class a implements d.a.p0.u0.p1.b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumRulesShowActivity f15581a;
+        public final /* synthetic */ ForumRulesShowActivity f15620a;
 
         public a(ForumRulesShowActivity forumRulesShowActivity) {
             Interceptable interceptable = $ic;
@@ -60,91 +60,91 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
                     return;
                 }
             }
-            this.f15581a = forumRulesShowActivity;
+            this.f15620a = forumRulesShowActivity;
         }
 
-        @Override // d.a.s0.u0.p1.b.a
+        @Override // d.a.p0.u0.p1.b.a
         public void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f15581a.mView == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f15620a.mView == null) {
                 return;
             }
-            this.f15581a.mView.m();
-            this.f15581a.mView.x();
-            ForumRulesShowActivity forumRulesShowActivity = this.f15581a;
+            this.f15620a.mView.m();
+            this.f15620a.mView.x();
+            ForumRulesShowActivity forumRulesShowActivity = this.f15620a;
             forumRulesShowActivity.showNetRefreshView(forumRulesShowActivity.mView.k(), "");
         }
 
-        @Override // d.a.s0.u0.p1.b.a
-        public void b(d.a.s0.u0.p1.c.a aVar) {
+        @Override // d.a.p0.u0.p1.b.a
+        public void b(d.a.p0.u0.p1.c.a aVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || this.f15581a.mView == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || this.f15620a.mView == null) {
                 return;
             }
-            this.f15581a.mView.f(aVar);
+            this.f15620a.mView.f(aVar);
         }
 
-        @Override // d.a.s0.u0.p1.b.a
-        public void c(List<d.a.s0.u0.p1.c.c> list) {
+        @Override // d.a.p0.u0.p1.b.a
+        public void c(List<d.a.p0.u0.p1.c.c> list) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || this.f15581a.mView == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || this.f15620a.mView == null) {
                 return;
             }
-            this.f15581a.mView.g(list);
+            this.f15620a.mView.g(list);
         }
 
-        @Override // d.a.s0.u0.p1.b.a
+        @Override // d.a.p0.u0.p1.b.a
         public void d(boolean z, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZL(1048579, this, z, str) == null) || this.f15581a.mView == null) {
+            if (!(interceptable == null || interceptable.invokeZL(1048579, this, z, str) == null) || this.f15620a.mView == null) {
                 return;
             }
             if (z) {
-                this.f15581a.mView.z(str);
+                this.f15620a.mView.z(str);
             } else {
-                this.f15581a.mView.p();
+                this.f15620a.mView.p();
             }
         }
 
-        @Override // d.a.s0.u0.p1.b.a
-        public void e(d.a.s0.u0.p1.c.b bVar) {
+        @Override // d.a.p0.u0.p1.b.a
+        public void e(d.a.p0.u0.p1.c.b bVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) || this.f15581a.mView == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) || this.f15620a.mView == null) {
                 return;
             }
-            this.f15581a.mView.e(bVar);
+            this.f15620a.mView.e(bVar);
         }
 
-        @Override // d.a.s0.u0.p1.b.a
+        @Override // d.a.p0.u0.p1.b.a
         public void f(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f15581a.mView == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f15620a.mView == null) {
                 return;
             }
-            this.f15581a.mView.h(str);
+            this.f15620a.mView.h(str);
         }
 
-        @Override // d.a.s0.u0.p1.b.a
+        @Override // d.a.p0.u0.p1.b.a
         public void finish() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f15581a.mView == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f15620a.mView == null) {
                 return;
             }
-            ForumRulesShowActivity forumRulesShowActivity = this.f15581a;
+            ForumRulesShowActivity forumRulesShowActivity = this.f15620a;
             forumRulesShowActivity.hideNetRefreshView(forumRulesShowActivity.mView.k());
-            this.f15581a.mView.n();
-            this.f15581a.mView.w();
-            this.f15581a.mView.t();
+            this.f15620a.mView.n();
+            this.f15620a.mView.w();
+            this.f15620a.mView.t();
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumRulesShowActivity f15582a;
+        public final /* synthetic */ ForumRulesShowActivity f15621a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(ForumRulesShowActivity forumRulesShowActivity, int i2) {
@@ -164,7 +164,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
                     return;
                 }
             }
-            this.f15582a = forumRulesShowActivity;
+            this.f15621a = forumRulesShowActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -173,7 +173,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof f.a)) {
                 f.a aVar = (f.a) customResponsedMessage.getData();
-                f.b(this.f15582a.getPageContext(), aVar.f55046a, aVar.f55047b, aVar.f55048c);
+                f.b(this.f15621a.getPageContext(), aVar.f51751a, aVar.f51752b, aVar.f51753c);
             }
         }
     }
@@ -217,7 +217,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
 
     private void setModelCallback() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             this.mModel.I(this.callback);
         }
     }
@@ -360,7 +360,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             }
             c cVar = this.mView;
             if (cVar != null) {
-                cVar.i();
+                cVar.j();
             }
         }
     }

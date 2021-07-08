@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class bt {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile bt f42890a;
+    public static volatile bt f39904a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -41,14 +41,14 @@ public class bt {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f42890a == null) {
+            if (f39904a == null) {
                 synchronized (bt.class) {
-                    if (f42890a == null) {
-                        f42890a = new bt(context);
+                    if (f39904a == null) {
+                        f39904a = new bt(context);
                     }
                 }
             }
-            return f42890a;
+            return f39904a;
         }
         return (bt) invokeL.objValue;
     }

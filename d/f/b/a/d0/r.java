@@ -9,35 +9,35 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.b.a.w;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class r extends w {
     public static /* synthetic */ Interceptable $ic;
     public static final Object j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f72740b;
+    public final long f69843b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f72741c;
+    public final long f69844c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f72742d;
+    public final long f69845d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f72743e;
+    public final long f69846e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f72744f;
+    public final long f69847f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final long f72745g;
+    public final long f69848g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final boolean f72746h;
+    public final boolean f69849h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final boolean f72747i;
+    public final boolean f69850i;
 
     static {
         InterceptResult invokeClinit;
@@ -90,7 +90,7 @@ public final class r extends w {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), bVar, Boolean.valueOf(z)})) == null) {
             d.f.b.a.i0.a.c(i2, 0, 1);
             Object obj = z ? j : null;
-            bVar.n(obj, obj, 0, this.f72742d, -this.f72744f);
+            bVar.n(obj, obj, 0, this.f69845d, -this.f69847f);
             return bVar;
         }
         return (w.b) invokeCommon.objValue;
@@ -113,14 +113,14 @@ public final class r extends w {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), cVar, Boolean.valueOf(z), Long.valueOf(j2)})) == null) {
             d.f.b.a.i0.a.c(i2, 0, 1);
             Object obj = z ? j : null;
-            long j3 = this.f72745g;
-            if (this.f72747i) {
+            long j3 = this.f69848g;
+            if (this.f69850i) {
                 j3 += j2;
-                if (j3 > this.f72743e) {
+                if (j3 > this.f69846e) {
                     j3 = -9223372036854775807L;
                 }
             }
-            cVar.d(obj, this.f72740b, this.f72741c, this.f72746h, this.f72747i, j3, this.f72743e, 0, 0, this.f72744f);
+            cVar.d(obj, this.f69843b, this.f69844c, this.f69849h, this.f69850i, j3, this.f69846e, 0, 0, this.f69847f);
             return cVar;
         }
         return (w.c) invokeCommon.objValue;
@@ -172,13 +172,13 @@ public final class r extends w {
                 return;
             }
         }
-        this.f72740b = j2;
-        this.f72741c = j3;
-        this.f72742d = j4;
-        this.f72743e = j5;
-        this.f72744f = j6;
-        this.f72745g = j7;
-        this.f72746h = z;
-        this.f72747i = z2;
+        this.f69843b = j2;
+        this.f69844c = j3;
+        this.f69845d = j4;
+        this.f69846e = j5;
+        this.f69847f = j6;
+        this.f69848g = j7;
+        this.f69849h = z;
+        this.f69850i = z2;
     }
 }

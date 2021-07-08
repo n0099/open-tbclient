@@ -22,7 +22,7 @@ import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BindFastRequest extends BeanRequestBase implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BIND_FROM_BIND = 1;
@@ -638,6 +638,6 @@ public class BindFastRequest extends BeanRequestBase implements Serializable {
     public static String getCardRequestType(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) ? i2 == 1 ? "11" : i2 == 0 ? "2" : i2 == 2 ? "3" : (i2 == 3 || i2 == 4) ? PayRequestCache.getInstance().isPaying() ? "5" : "4" : i2 == 5 ? "6" : i2 == 6 ? "8" : (i2 == 7 || i2 == 8) ? "9" : "" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? i2 == 1 ? "11" : i2 == 0 ? "2" : i2 == 2 ? "3" : (i2 == 3 || i2 == 4) ? PayRequestCache.getInstance().isPaying() ? "5" : "4" : i2 == 5 ? "6" : i2 == 6 ? "8" : (i2 == 7 || i2 == 8) ? "9" : "" : (String) invokeI.objValue;
     }
 }

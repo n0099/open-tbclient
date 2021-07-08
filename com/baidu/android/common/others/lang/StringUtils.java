@@ -1,6 +1,7 @@
 package com.baidu.android.common.others.lang;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -87,7 +88,7 @@ public final class StringUtils {
         InterceptResult invokeL;
         int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, charSequence)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, charSequence)) == null) {
             if (charSequence != null && (length = charSequence.length()) != 0) {
                 for (int i2 = 0; i2 < length; i2++) {
                     if (!Character.isWhitespace(charSequence.charAt(i2))) {

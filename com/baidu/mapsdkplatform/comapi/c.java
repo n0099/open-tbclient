@@ -10,17 +10,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f7599a;
+    public static boolean f7616a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(Context context, boolean z, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{context, Boolean.valueOf(z), str, str2, str3}) == null) || f7599a) {
+        if (!(interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{context, Boolean.valueOf(z), str, str2, str3}) == null) || f7616a) {
             return;
         }
         if (context == null) {
@@ -40,7 +40,7 @@ public class c {
         }
         EnvironmentUtilities.initAppDirectory(context);
         com.baidu.mapsdkplatform.comapi.b.a.c.a().a(context);
-        f7599a = true;
+        f7616a = true;
     }
 
     public static boolean a(String str) {

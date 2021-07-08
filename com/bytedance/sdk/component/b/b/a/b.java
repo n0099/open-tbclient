@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class b implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f28074b;
+    public final String f28184b;
 
     public b(String str, Object... objArr) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public abstract class b implements Runnable {
                 return;
             }
         }
-        this.f28074b = c.a(str, objArr);
+        this.f28184b = c.a(str, objArr);
     }
 
     public abstract void c();
@@ -39,7 +39,7 @@ public abstract class b implements Runnable {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             String name = Thread.currentThread().getName();
             Thread currentThread = Thread.currentThread();
-            currentThread.setName("tt_pangle_thread_" + this.f28074b);
+            currentThread.setName("tt_pangle_thread_" + this.f28184b);
             try {
                 c();
             } finally {

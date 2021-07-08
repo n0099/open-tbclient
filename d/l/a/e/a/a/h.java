@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class h extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,8 +39,8 @@ public class h extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Intent intent = new Intent(d.l.a.e.b.d.c.f74686c + ".intent.action.OPEN_FILEMANAGER");
-            intent.putExtra("CurrentDir", this.f74518c);
+            Intent intent = new Intent(d.l.a.e.b.d.c.f71738c + ".intent.action.OPEN_FILEMANAGER");
+            intent.putExtra("CurrentDir", this.f71570c);
             intent.putExtra("first_position", 1);
             intent.putExtra("CurrentMode", 1);
             intent.putExtra("com.iqoo.secure", true);

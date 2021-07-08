@@ -1,5 +1,6 @@
 package com.google.thirdparty.publicsuffix;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class PublicSuffixType {
     public static final /* synthetic */ PublicSuffixType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -85,7 +86,7 @@ public final class PublicSuffixType {
     public static PublicSuffixType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (PublicSuffixType) Enum.valueOf(PublicSuffixType.class, str) : (PublicSuffixType) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (PublicSuffixType) Enum.valueOf(PublicSuffixType.class, str) : (PublicSuffixType) invokeL.objValue;
     }
 
     public static PublicSuffixType[] values() {

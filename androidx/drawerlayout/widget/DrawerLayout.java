@@ -617,7 +617,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
     private boolean dispatchTransformedGenericPointerEvent(MotionEvent motionEvent, View view) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, motionEvent, view)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, motionEvent, view)) == null) {
             if (!view.getMatrix().isIdentity()) {
                 MotionEvent transformedMotionEvent = getTransformedMotionEvent(motionEvent, view);
                 boolean dispatchGenericMotionEvent = view.dispatchGenericMotionEvent(transformedMotionEvent);
@@ -2312,13 +2312,13 @@ public class DrawerLayout extends ViewGroup implements Openable {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {marginLayoutParams};
-                interceptable.invokeUnInit(65540, newInitContext);
+                interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     super((ViewGroup.MarginLayoutParams) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65540, newInitContext);
+                    interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                     return;
                 }
             }

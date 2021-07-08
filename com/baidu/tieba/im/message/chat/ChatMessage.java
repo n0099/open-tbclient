@@ -26,7 +26,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class ChatMessage extends TbSocketMessage implements a, n {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId TYPE_MSG_GROUP_ACTIVITY;

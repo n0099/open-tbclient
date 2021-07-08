@@ -3,6 +3,7 @@ package com.tencent.open.a;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,43 +15,43 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a extends i implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f41862a;
+    public b f38876a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FileWriter f41863b;
+    public FileWriter f38877b;
 
     /* renamed from: c  reason: collision with root package name */
-    public File f41864c;
+    public File f38878c;
 
     /* renamed from: d  reason: collision with root package name */
-    public char[] f41865d;
+    public char[] f38879d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile g f41866e;
+    public volatile g f38880e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile g f41867f;
+    public volatile g f38881f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile g f41868g;
+    public volatile g f38882g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile g f41869h;
+    public volatile g f38883h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile boolean f41870i;
+    public volatile boolean f38884i;
     public HandlerThread j;
     public Handler k;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(b bVar) {
-        this(c.f41884b, true, h.f41902a, bVar);
+        this(c.f38898b, true, h.f38916a, bVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,18 +72,18 @@ public class a extends i implements Handler.Callback {
 
     private void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && Thread.currentThread() == this.j && !this.f41870i) {
-            this.f41870i = true;
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && Thread.currentThread() == this.j && !this.f38884i) {
+            this.f38884i = true;
             i();
             try {
-                this.f41869h.a(g(), this.f41865d);
+                this.f38883h.a(g(), this.f38879d);
             } catch (IOException unused) {
             } catch (Throwable th) {
-                this.f41869h.b();
+                this.f38883h.b();
                 throw th;
             }
-            this.f41869h.b();
-            this.f41870i = false;
+            this.f38883h.b();
+            this.f38884i = false;
         }
     }
 
@@ -91,27 +92,27 @@ public class a extends i implements Handler.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             File a2 = c().a();
-            if ((a2 != null && !a2.equals(this.f41864c)) || (this.f41863b == null && a2 != null)) {
-                this.f41864c = a2;
+            if ((a2 != null && !a2.equals(this.f38878c)) || (this.f38877b == null && a2 != null)) {
+                this.f38878c = a2;
                 h();
                 try {
-                    this.f41863b = new FileWriter(this.f41864c, true);
+                    this.f38877b = new FileWriter(this.f38878c, true);
                 } catch (IOException unused) {
                     return null;
                 }
             }
-            return this.f41863b;
+            return this.f38877b;
         }
         return (Writer) invokeV.objValue;
     }
 
     private void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             try {
-                if (this.f41863b != null) {
-                    this.f41863b.flush();
-                    this.f41863b.close();
+                if (this.f38877b != null) {
+                    this.f38877b.flush();
+                    this.f38877b.close();
                 }
             } catch (IOException e2) {
                 e2.printStackTrace();
@@ -123,12 +124,12 @@ public class a extends i implements Handler.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
             synchronized (this) {
-                if (this.f41868g == this.f41866e) {
-                    this.f41868g = this.f41867f;
-                    this.f41869h = this.f41866e;
+                if (this.f38882g == this.f38880e) {
+                    this.f38882g = this.f38881f;
+                    this.f38883h = this.f38880e;
                 } else {
-                    this.f41868g = this.f41866e;
-                    this.f41869h = this.f41867f;
+                    this.f38882g = this.f38880e;
+                    this.f38883h = this.f38881f;
                 }
             }
         }
@@ -155,7 +156,7 @@ public class a extends i implements Handler.Callback {
     public b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f41862a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f38876a : (b) invokeV.objValue;
     }
 
     @Override // android.os.Handler.Callback
@@ -191,13 +192,13 @@ public class a extends i implements Handler.Callback {
                 return;
             }
         }
-        this.f41870i = false;
+        this.f38884i = false;
         a(bVar);
-        this.f41866e = new g();
-        this.f41867f = new g();
-        this.f41868g = this.f41866e;
-        this.f41869h = this.f41867f;
-        this.f41865d = new char[bVar.d()];
+        this.f38880e = new g();
+        this.f38881f = new g();
+        this.f38882g = this.f38880e;
+        this.f38883h = this.f38881f;
+        this.f38879d = new char[bVar.d()];
         g();
         HandlerThread handlerThread = new HandlerThread(bVar.c(), bVar.f());
         this.j = handlerThread;
@@ -221,8 +222,8 @@ public class a extends i implements Handler.Callback {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f41868g.a(str);
-            if (this.f41868g.a() >= c().d()) {
+            this.f38882g.a(str);
+            if (this.f38882g.a() >= c().d()) {
                 a();
             }
         }
@@ -231,7 +232,7 @@ public class a extends i implements Handler.Callback {
     public void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f41862a = bVar;
+            this.f38876a = bVar;
         }
     }
 }

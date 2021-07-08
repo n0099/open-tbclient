@@ -14,7 +14,7 @@ import org.apache.http.entity.BasicHttpEntity;
 import org.apache.http.entity.ContentLengthStrategy;
 import org.apache.http.io.SessionInputBuffer;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class EntityDeserializer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

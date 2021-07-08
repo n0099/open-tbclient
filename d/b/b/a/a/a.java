@@ -31,14 +31,14 @@ import kotlin.jvm.internal.ByteCompanionObject;
 import ms.bd.c.h;
 import ms.bd.c.j;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class a extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d.b.b.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC1991a {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC1960a {
         @POST
         @Streaming
         Call<TypedInput> a(@Url String str, @HeaderList List<Header> list, @Body TypedByteArray typedByteArray);
@@ -126,8 +126,8 @@ public final class a extends b {
                 arrayList.add(new Header((String) h.a(16777217, 0, 0L, "3e8714", new byte[]{3, 100, 72, 70, 30, 55}), (String) h.a(16777217, 0, 0L, "e727ec", new byte[]{62, 122, 11})));
                 arrayList.add(new Header((String) h.a(16777217, 0, 0L, "3ecd4d", new byte[]{23, 116, 21, 2, 70, 82, 55, 65, 60, 32}), (String) h.a(16777217, 0, 0L, "bc9622", new byte[]{81, 120, 94, 71, 41, 36, 111, 65, 109, 43, 94, 82, 121, 102, 38})));
                 arrayList.add(new Header((String) h.a(16777217, 0, 0L, "63d015", new byte[]{4, 62, 25, 80, 11, 44, PublicSuffixDatabase.EXCEPTION_MARKER, 95, 1, 121, 55, 52}), (String) h.a(16777217, 0, 0L, "a7ec76", new byte[]{113, 37, 6, 27, 1, 34, 99, 2, 61, 60, 126, 122, 25, 20, 28, 36, 118, 91, 39, 39, 98, 48, 23, 26})));
-                InterfaceC1991a interfaceC1991a = (InterfaceC1991a) RetrofitUtils.getSsRetrofit(str).create(InterfaceC1991a.class);
-                call = z ? interfaceC1991a.a(str, arrayList, new TypedByteArray((String) h.a(16777217, 0, 0L, "32151b", new byte[]{Base64.INTERNAL_PADDING, 32, 82, 77, 7, 118, 49, 7, 105, 106, 44, ByteCompanionObject.MAX_VALUE, 77, 66, 26, 112, 36, 94, 115, 113, 48, 53, 67, 76}), bArr, new String[0])) : interfaceC1991a.b(str, arrayList);
+                InterfaceC1960a interfaceC1960a = (InterfaceC1960a) RetrofitUtils.getSsRetrofit(str).create(InterfaceC1960a.class);
+                call = z ? interfaceC1960a.a(str, arrayList, new TypedByteArray((String) h.a(16777217, 0, 0L, "32151b", new byte[]{Base64.INTERNAL_PADDING, 32, 82, 77, 7, 118, 49, 7, 105, 106, 44, ByteCompanionObject.MAX_VALUE, 77, 66, 26, 112, 36, 94, 115, 113, 48, 53, 67, 76}), bArr, new String[0])) : interfaceC1960a.b(str, arrayList);
                 try {
                     aVar.a(str);
                     ssResponse = call.execute();

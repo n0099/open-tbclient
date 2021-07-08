@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
@@ -172,7 +173,7 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
 
     private void notifyFailed(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65540, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
             try {
                 if (this.mListener != null) {
                     this.mListener.onFailed(i2, this.mType, this.mFilePath);

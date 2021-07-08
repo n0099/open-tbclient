@@ -201,7 +201,7 @@ public class StateListDrawable extends DrawableContainer {
 
     private void updateStateFromTypedArray(TypedArray typedArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, typedArray) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, typedArray) == null) {
             StateListState stateListState = this.mStateListState;
             if (Build.VERSION.SDK_INT >= 21) {
                 stateListState.mChangingConfigurations |= typedArray.getChangingConfigurations();

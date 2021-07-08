@@ -33,7 +33,7 @@ import com.baidu.wallet.paysdk.ui.widget.tablayout.callback.ICustomTabEntity;
 import com.baidu.wallet.paysdk.ui.widget.tablayout.callback.OnTabSelectListener;
 import com.baidu.wallet.paysdk.ui.widget.tablayout.utils.ResUtils;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CommonTabLayout extends FrameLayout implements ValueAnimator.AnimatorUpdateListener, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,31 +58,31 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     public OnTabSelectListener S;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f26934a;
+    public Context f27044a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<ICustomTabEntity> f26935b;
+    public ArrayList<ICustomTabEntity> f27045b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f26936c;
+    public LinearLayout f27046c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f26937d;
+    public int f27047d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f26938e;
+    public int f27048e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f26939f;
+    public int f27049f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Rect f26940g;
+    public Rect f27050g;
 
     /* renamed from: h  reason: collision with root package name */
-    public GradientDrawable f26941h;
+    public GradientDrawable f27051h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f26942i;
+    public Paint f27052i;
     public Paint j;
     public Paint k;
     public Path l;
@@ -101,19 +101,19 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     public long y;
     public boolean z;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public float f26943a;
+        public float f27053a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f26944b;
+        public float f27054b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CommonTabLayout f26945c;
+        public final /* synthetic */ CommonTabLayout f27055c;
 
         public a(CommonTabLayout commonTabLayout) {
             Interceptable interceptable = $ic;
@@ -130,17 +130,17 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
                     return;
                 }
             }
-            this.f26945c = commonTabLayout;
+            this.f27055c = commonTabLayout;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b implements TypeEvaluator<a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonTabLayout f26946a;
+        public final /* synthetic */ CommonTabLayout f27056a;
 
         public b(CommonTabLayout commonTabLayout) {
             Interceptable interceptable = $ic;
@@ -157,7 +157,7 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
                     return;
                 }
             }
-            this.f26946a = commonTabLayout;
+            this.f27056a = commonTabLayout;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -167,12 +167,12 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), aVar, aVar2})) == null) {
-                float f3 = aVar.f26943a;
-                float f4 = aVar.f26944b;
-                float f5 = f4 + (f2 * (aVar2.f26944b - f4));
-                a aVar3 = new a(this.f26946a);
-                aVar3.f26943a = f3 + ((aVar2.f26943a - f3) * f2);
-                aVar3.f26944b = f5;
+                float f3 = aVar.f27053a;
+                float f4 = aVar.f27054b;
+                float f5 = f4 + (f2 * (aVar2.f27054b - f4));
+                a aVar3 = new a(this.f27056a);
+                aVar3.f27053a = f3 + ((aVar2.f27053a - f3) * f2);
+                aVar3.f27054b = f5;
                 return aVar3;
             }
             return (a) invokeCommon.objValue;
@@ -247,12 +247,12 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
             int i2 = 0;
-            while (i2 < this.f26939f) {
-                View childAt = this.f26936c.getChildAt(i2);
+            while (i2 < this.f27049f) {
+                View childAt = this.f27046c.getChildAt(i2);
                 float f2 = this.n;
                 childAt.setPadding((int) f2, 0, (int) f2, 0);
-                TextView textView = (TextView) childAt.findViewById(com.baidu.apollon.utils.ResUtils.id(this.f26934a, "tv_tab_title"));
-                textView.setTextColor(i2 == this.f26937d ? this.J : this.K);
+                TextView textView = (TextView) childAt.findViewById(com.baidu.apollon.utils.ResUtils.id(this.f27044a, "tv_tab_title"));
+                textView.setTextColor(i2 == this.f27047d ? this.J : this.K);
                 textView.setTextSize(0, this.I);
                 if (this.M) {
                     textView.setText(textView.getText().toString().toUpperCase());
@@ -271,16 +271,16 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            View childAt = this.f26936c.getChildAt(this.f26937d);
-            this.P.f26943a = childAt.getLeft();
-            this.P.f26944b = childAt.getRight();
-            View childAt2 = this.f26936c.getChildAt(this.f26938e);
-            this.Q.f26943a = childAt2.getLeft();
-            this.Q.f26944b = childAt2.getRight();
+            View childAt = this.f27046c.getChildAt(this.f27047d);
+            this.P.f27053a = childAt.getLeft();
+            this.P.f27054b = childAt.getRight();
+            View childAt2 = this.f27046c.getChildAt(this.f27048e);
+            this.Q.f27053a = childAt2.getLeft();
+            this.Q.f27054b = childAt2.getRight();
             a aVar = this.Q;
-            float f2 = aVar.f26943a;
+            float f2 = aVar.f27053a;
             a aVar2 = this.P;
-            if (f2 == aVar2.f26943a && aVar.f26944b == aVar2.f26944b) {
+            if (f2 == aVar2.f27053a && aVar.f27054b == aVar2.f27054b) {
                 invalidate();
                 return;
             }
@@ -299,14 +299,14 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            View childAt = this.f26936c.getChildAt(this.f26937d);
-            Rect rect = this.f26940g;
+            View childAt = this.f27046c.getChildAt(this.f27047d);
+            Rect rect = this.f27050g;
             rect.left = childAt.getLeft();
             rect.right = childAt.getRight();
             if (this.s >= 0.0f) {
                 float f2 = this.s;
                 float left = childAt.getLeft() + ((childAt.getWidth() - f2) / 2.0f);
-                Rect rect2 = this.f26940g;
+                Rect rect2 = this.f27050g;
                 int i2 = (int) left;
                 rect2.left = i2;
                 rect2.right = (int) (i2 + f2);
@@ -317,8 +317,8 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     private void setCurrentTab(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65548, this, i2) == null) {
-            this.f26938e = this.f26937d;
-            this.f26937d = i2;
+            this.f27048e = this.f27047d;
+            this.f27047d = i2;
             a(i2);
             if (this.z) {
                 c();
@@ -331,7 +331,7 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     public int getCurrentTab() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26937d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27047d : invokeV.intValue;
     }
 
     public int getDividerColor() {
@@ -415,7 +415,7 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     public int getTabCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f26939f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f27049f : invokeV.intValue;
     }
 
     public float getTabPadding() {
@@ -457,7 +457,7 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     public TextView getTitleView(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) ? (TextView) this.f26936c.getChildAt(i2).findViewById(com.baidu.apollon.utils.ResUtils.id(this.f26934a, "tv_tab_title")) : (TextView) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) ? (TextView) this.f27046c.getChildAt(i2).findViewById(com.baidu.apollon.utils.ResUtils.id(this.f27044a, "tv_tab_title")) : (TextView) invokeI.objValue;
     }
 
     public int getUnderlineColor() {
@@ -487,7 +487,7 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     public boolean isMsgTipsShowing(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) ? ((TextView) this.f26936c.getChildAt(i2).findViewById(com.baidu.apollon.utils.ResUtils.id(this.f26934a, "tv_msg_tips"))).getVisibility() == 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) ? ((TextView) this.f27046c.getChildAt(i2).findViewById(com.baidu.apollon.utils.ResUtils.id(this.f27044a, "tv_msg_tips"))).getVisibility() == 0 : invokeI.booleanValue;
     }
 
     public boolean isTabSpaceEqual() {
@@ -506,16 +506,16 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     public void onAnimationUpdate(ValueAnimator valueAnimator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, valueAnimator) == null) {
-            View childAt = this.f26936c.getChildAt(this.f26937d);
+            View childAt = this.f27046c.getChildAt(this.f27047d);
             a aVar = (a) valueAnimator.getAnimatedValue();
-            Rect rect = this.f26940g;
-            float f2 = aVar.f26943a;
+            Rect rect = this.f27050g;
+            float f2 = aVar.f27053a;
             rect.left = (int) f2;
-            rect.right = (int) aVar.f26944b;
+            rect.right = (int) aVar.f27054b;
             if (this.s >= 0.0f) {
                 float f3 = this.s;
                 float width = f2 + ((childAt.getWidth() - f3) / 2.0f);
-                Rect rect2 = this.f26940g;
+                Rect rect2 = this.f27050g;
                 int i2 = (int) width;
                 rect2.left = i2;
                 rect2.right = (int) (i2 + f3);
@@ -528,7 +528,7 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     public void onClick(View view) {
         int intValue;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048606, this, view) == null) || this.f26937d == (intValue = ((Integer) view.getTag()).intValue())) {
+        if (!(interceptable == null || interceptable.invokeL(1048606, this, view) == null) || this.f27047d == (intValue = ((Integer) view.getTag()).intValue())) {
             return;
         }
         setCurrentTab(intValue);
@@ -544,7 +544,7 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, canvas) == null) {
             super.onDraw(canvas);
-            if (isInEditMode() || this.f26939f <= 0) {
+            if (isInEditMode() || this.f27049f <= 0) {
                 return;
             }
             int height = getHeight();
@@ -553,18 +553,18 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
             if (f2 > 0.0f) {
                 this.j.setStrokeWidth(f2);
                 this.j.setColor(this.F);
-                for (int i2 = 0; i2 < this.f26939f - 1; i2++) {
-                    View childAt = this.f26936c.getChildAt(i2);
+                for (int i2 = 0; i2 < this.f27049f - 1; i2++) {
+                    View childAt = this.f27046c.getChildAt(i2);
                     canvas.drawLine(childAt.getRight() + paddingLeft, this.H, childAt.getRight() + paddingLeft, height - this.H, this.j);
                 }
             }
             if (this.D > 0.0f) {
-                this.f26942i.setColor(this.C);
+                this.f27052i.setColor(this.C);
                 if (this.E == 80) {
                     float f3 = height;
-                    canvas.drawRect(paddingLeft, f3 - this.D, this.f26936c.getWidth() + paddingLeft, f3, this.f26942i);
+                    canvas.drawRect(paddingLeft, f3 - this.D, this.f27046c.getWidth() + paddingLeft, f3, this.f27052i);
                 } else {
-                    canvas.drawRect(paddingLeft, 0.0f, this.f26936c.getWidth() + paddingLeft, this.D, this.f26942i);
+                    canvas.drawRect(paddingLeft, 0.0f, this.f27046c.getWidth() + paddingLeft, this.D, this.f27052i);
                 }
             }
             if (this.z) {
@@ -581,11 +581,11 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
                     this.k.setColor(this.q);
                     this.l.reset();
                     float f4 = height;
-                    this.l.moveTo(this.f26940g.left + paddingLeft, f4);
+                    this.l.moveTo(this.f27050g.left + paddingLeft, f4);
                     Path path = this.l;
-                    Rect rect2 = this.f26940g;
+                    Rect rect2 = this.f27050g;
                     path.lineTo((rect2.left >> 1) + paddingLeft + (rect2.right >> 1), f4 - this.r);
-                    this.l.lineTo(paddingLeft + this.f26940g.right, f4);
+                    this.l.lineTo(paddingLeft + this.f27050g.right, f4);
                     this.l.close();
                     canvas.drawPath(this.l, this.k);
                 }
@@ -599,30 +599,30 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
                     if (f6 < 0.0f || f6 > f5 / 2.0f) {
                         this.t = this.r / 2.0f;
                     }
-                    this.f26941h.setColor(this.q);
-                    GradientDrawable gradientDrawable = this.f26941h;
-                    int i4 = ((int) this.u) + paddingLeft + this.f26940g.left;
+                    this.f27051h.setColor(this.q);
+                    GradientDrawable gradientDrawable = this.f27051h;
+                    int i4 = ((int) this.u) + paddingLeft + this.f27050g.left;
                     float f7 = this.v;
                     gradientDrawable.setBounds(i4, (int) f7, (int) ((paddingLeft + rect.right) - this.w), (int) (f7 + this.r));
-                    this.f26941h.setCornerRadius(this.t);
-                    this.f26941h.draw(canvas);
+                    this.f27051h.setCornerRadius(this.t);
+                    this.f27051h.draw(canvas);
                 }
             } else if (this.r > 0.0f) {
-                this.f26941h.setColor(this.q);
+                this.f27051h.setColor(this.q);
                 if (this.B == 80) {
-                    GradientDrawable gradientDrawable2 = this.f26941h;
-                    Rect rect3 = this.f26940g;
+                    GradientDrawable gradientDrawable2 = this.f27051h;
+                    Rect rect3 = this.f27050g;
                     float f8 = this.x;
                     gradientDrawable2.setBounds(((int) this.u) + paddingLeft + rect3.left, (height - ((int) this.r)) - ((int) f8), (paddingLeft + rect3.right) - ((int) this.w), height - ((int) f8));
                 } else {
-                    GradientDrawable gradientDrawable3 = this.f26941h;
-                    Rect rect4 = this.f26940g;
+                    GradientDrawable gradientDrawable3 = this.f27051h;
+                    Rect rect4 = this.f27050g;
                     int i5 = ((int) this.u) + paddingLeft + rect4.left;
                     float f9 = this.v;
                     gradientDrawable3.setBounds(i5, (int) f9, (paddingLeft + rect4.right) - ((int) this.w), ((int) this.r) + ((int) f9));
                 }
-                this.f26941h.setCornerRadius(this.t);
-                this.f26941h.draw(canvas);
+                this.f27051h.setCornerRadius(this.t);
+                this.f27051h.draw(canvas);
             }
         }
     }
@@ -633,10 +633,10 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
         if (interceptable == null || interceptable.invokeL(1048608, this, parcelable) == null) {
             if (parcelable instanceof Bundle) {
                 Bundle bundle = (Bundle) parcelable;
-                this.f26937d = bundle.getInt("mCurrentTab");
+                this.f27047d = bundle.getInt("mCurrentTab");
                 parcelable = bundle.getParcelable("instanceState");
-                if (this.f26937d != 0 && this.f26936c.getChildCount() > 0) {
-                    a(this.f26937d);
+                if (this.f27047d != 0 && this.f27046c.getChildCount() > 0) {
+                    a(this.f27047d);
                 }
             }
             super.onRestoreInstanceState(parcelable);
@@ -650,7 +650,7 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
         if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
             Bundle bundle = new Bundle();
             bundle.putParcelable("instanceState", super.onSaveInstanceState());
-            bundle.putInt("mCurrentTab", this.f26937d);
+            bundle.putInt("mCurrentTab", this.f27047d);
             return bundle;
         }
         return (Parcelable) invokeV.objValue;
@@ -778,8 +778,8 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048625, this, arrayList) == null) {
             if (arrayList != null && arrayList.size() != 0) {
-                this.f26935b.clear();
-                this.f26935b.addAll(arrayList);
+                this.f27045b.clear();
+                this.f27045b.addAll(arrayList);
                 a();
                 return;
             }
@@ -806,12 +806,12 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     public void setTabTitleTipMsg(int i2, boolean z, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048628, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), str}) == null) {
-            TextView textView = (TextView) this.f26936c.getChildAt(i2).findViewById(com.baidu.apollon.utils.ResUtils.id(this.f26934a, "tv_msg_tips"));
+            TextView textView = (TextView) this.f27046c.getChildAt(i2).findViewById(com.baidu.apollon.utils.ResUtils.id(this.f27044a, "tv_msg_tips"));
             if (!TextUtils.isEmpty(str)) {
                 textView.setText(str);
             }
             if (z) {
-                ((RelativeLayout.LayoutParams) textView.getLayoutParams()).leftMargin = (DisplayUtils.getDisplayWidth(this.f26934a) / this.f26939f) / 2;
+                ((RelativeLayout.LayoutParams) textView.getLayoutParams()).leftMargin = (DisplayUtils.getDisplayWidth(this.f27044a) / this.f27049f) / 2;
                 textView.setVisibility(0);
                 return;
             }
@@ -931,10 +931,10 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
                 return;
             }
         }
-        this.f26935b = new ArrayList<>();
-        this.f26940g = new Rect();
-        this.f26941h = new GradientDrawable();
-        this.f26942i = new Paint(1);
+        this.f27045b = new ArrayList<>();
+        this.f27050g = new Rect();
+        this.f27051h = new GradientDrawable();
+        this.f27052i = new Paint(1);
         this.j = new Paint(1);
         this.k = new Paint(1);
         this.l = new Path();
@@ -946,9 +946,9 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
         setWillNotDraw(false);
         setClipChildren(false);
         setClipToPadding(false);
-        this.f26934a = context;
+        this.f27044a = context;
         LinearLayout linearLayout = new LinearLayout(context);
-        this.f26936c = linearLayout;
+        this.f27046c = linearLayout;
         addView(linearLayout);
         a(context, attributeSet);
         ValueAnimator ofObject = ValueAnimator.ofObject(new b(this), this.Q, this.P);
@@ -959,16 +959,16 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     private int b(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65544, this, f2)) == null) ? (int) ((f2 * this.f26934a.getResources().getDisplayMetrics().scaledDensity) + 0.5f) : invokeF.intValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65544, this, f2)) == null) ? (int) ((f2 * this.f27044a.getResources().getDisplayMetrics().scaledDensity) + 0.5f) : invokeF.intValue;
     }
 
     private void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
-            this.f26936c.removeAllViews();
-            this.f26939f = this.f26935b.size();
-            for (int i2 = 0; i2 < this.f26939f; i2++) {
-                Context context = this.f26934a;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            this.f27046c.removeAllViews();
+            this.f27049f = this.f27045b.size();
+            for (int i2 = 0; i2 < this.f27049f; i2++) {
+                Context context = this.f27044a;
                 View inflate = View.inflate(context, com.baidu.apollon.utils.ResUtils.layout(context, "wallet_custom_tab_layout"), null);
                 inflate.setTag(Integer.valueOf(i2));
                 a(i2, inflate);
@@ -980,14 +980,14 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     private void a(int i2, View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(AdIconUtil.BAIDU_LOGO_ID, this, i2, view) == null) {
-            ((TextView) view.findViewById(com.baidu.apollon.utils.ResUtils.id(this.f26934a, "tv_tab_title"))).setText(this.f26935b.get(i2).getTabTitle());
-            ((TextView) view.findViewById(com.baidu.apollon.utils.ResUtils.id(this.f26934a, "tv_msg_tips"))).setVisibility(8);
+            ((TextView) view.findViewById(com.baidu.apollon.utils.ResUtils.id(this.f27044a, "tv_tab_title"))).setText(this.f27045b.get(i2).getTabTitle());
+            ((TextView) view.findViewById(com.baidu.apollon.utils.ResUtils.id(this.f27044a, "tv_msg_tips"))).setVisibility(8);
             view.setOnClickListener(this);
             LinearLayout.LayoutParams layoutParams = this.o ? new LinearLayout.LayoutParams(0, -1, 1.0f) : new LinearLayout.LayoutParams(-2, -1);
             if (this.p > 0.0f) {
                 layoutParams = new LinearLayout.LayoutParams((int) this.p, -1);
             }
-            this.f26936c.addView(view, i2, layoutParams);
+            this.f27046c.addView(view, i2, layoutParams);
         }
     }
 
@@ -995,10 +995,10 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2) == null) {
             int i3 = 0;
-            while (i3 < this.f26939f) {
-                View childAt = this.f26936c.getChildAt(i3);
+            while (i3 < this.f27049f) {
+                View childAt = this.f27046c.getChildAt(i3);
                 boolean z = i3 == i2;
-                TextView textView = (TextView) childAt.findViewById(com.baidu.apollon.utils.ResUtils.id(this.f26934a, "tv_tab_title"));
+                TextView textView = (TextView) childAt.findViewById(com.baidu.apollon.utils.ResUtils.id(this.f27044a, "tv_tab_title"));
                 textView.setTextColor(z ? this.J : this.K);
                 if (this.L == 1) {
                     textView.getPaint().setFakeBoldText(z);
@@ -1011,6 +1011,6 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     private int a(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65539, this, f2)) == null) ? (int) ((f2 * this.f26934a.getResources().getDisplayMetrics().density) + 0.5f) : invokeF.intValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65539, this, f2)) == null) ? (int) ((f2 * this.f27044a.getResources().getDisplayMetrics().density) + 0.5f) : invokeF.intValue;
     }
 }

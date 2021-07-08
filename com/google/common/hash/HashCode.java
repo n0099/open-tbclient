@@ -1,5 +1,6 @@
 package com.google.common.hash;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,13 +14,13 @@ import com.google.common.primitives.Ints;
 import com.google.common.primitives.UnsignedInts;
 import d.f.d.a.n;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class HashCode {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] hexDigits;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class BytesHashCode extends HashCode implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -134,7 +135,7 @@ public abstract class HashCode {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class IntHashCode extends HashCode implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -222,7 +223,7 @@ public abstract class HashCode {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class LongHashCode extends HashCode implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -365,7 +366,7 @@ public abstract class HashCode {
     public static HashCode fromBytesNoCopy(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, bArr)) == null) ? new BytesHashCode(bArr) : (HashCode) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) ? new BytesHashCode(bArr) : (HashCode) invokeL.objValue;
     }
 
     public static HashCode fromInt(int i2) {

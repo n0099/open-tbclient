@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.InstallActivity;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class k extends AnimatorListenerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ InstallActivity f73689e;
+    public final /* synthetic */ InstallActivity f70792e;
 
     public k(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
@@ -30,14 +30,14 @@ public final class k extends AnimatorListenerAdapter {
                 return;
             }
         }
-        this.f73689e = installActivity;
+        this.f70792e = installActivity;
     }
 
     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
     public final void onAnimationEnd(Animator animator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            this.f73689e.showSpinner();
+            this.f70792e.showSpinner();
         }
     }
 }

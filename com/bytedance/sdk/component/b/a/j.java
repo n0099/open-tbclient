@@ -1,5 +1,6 @@
 package com.bytedance.sdk.component.b.a;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,25 +11,25 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.util.zip.CRC32;
 import java.util.zip.Inflater;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class j implements s {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f27989a;
+    public int f28099a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f27990b;
+    public final e f28100b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Inflater f27991c;
+    public final Inflater f28101c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final k f27992d;
+    public final k f28102d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final CRC32 f27993e;
+    public final CRC32 f28103e;
 
     public j(s sVar) {
         Interceptable interceptable = $ic;
@@ -45,13 +46,13 @@ public final class j implements s {
                 return;
             }
         }
-        this.f27989a = 0;
-        this.f27993e = new CRC32();
+        this.f28099a = 0;
+        this.f28103e = new CRC32();
         if (sVar != null) {
-            this.f27991c = new Inflater(true);
+            this.f28101c = new Inflater(true);
             e a2 = l.a(sVar);
-            this.f27990b = a2;
-            this.f27992d = new k(a2, this.f27991c);
+            this.f28100b = a2;
+            this.f28102d = new k(a2, this.f28101c);
             return;
         }
         throw new IllegalArgumentException("source == null");
@@ -60,60 +61,60 @@ public final class j implements s {
     private void b() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f27990b.a(10L);
-            byte b2 = this.f27990b.c().b(3L);
+            this.f28100b.a(10L);
+            byte b2 = this.f28100b.c().b(3L);
             boolean z = ((b2 >> 1) & 1) == 1;
             if (z) {
-                a(this.f27990b.c(), 0L, 10L);
+                a(this.f28100b.c(), 0L, 10L);
             }
-            a("ID1ID2", 8075, this.f27990b.i());
-            this.f27990b.h(8L);
+            a("ID1ID2", 8075, this.f28100b.i());
+            this.f28100b.h(8L);
             if (((b2 >> 2) & 1) == 1) {
-                this.f27990b.a(2L);
+                this.f28100b.a(2L);
                 if (z) {
-                    a(this.f27990b.c(), 0L, 2L);
+                    a(this.f28100b.c(), 0L, 2L);
                 }
-                long k = this.f27990b.c().k();
-                this.f27990b.a(k);
+                long k = this.f28100b.c().k();
+                this.f28100b.a(k);
                 if (z) {
-                    a(this.f27990b.c(), 0L, k);
+                    a(this.f28100b.c(), 0L, k);
                 }
-                this.f27990b.h(k);
+                this.f28100b.h(k);
             }
             if (((b2 >> 3) & 1) == 1) {
-                long a2 = this.f27990b.a((byte) 0);
+                long a2 = this.f28100b.a((byte) 0);
                 if (a2 != -1) {
                     if (z) {
-                        a(this.f27990b.c(), 0L, a2 + 1);
+                        a(this.f28100b.c(), 0L, a2 + 1);
                     }
-                    this.f27990b.h(a2 + 1);
+                    this.f28100b.h(a2 + 1);
                 } else {
                     throw new EOFException();
                 }
             }
             if (((b2 >> 4) & 1) == 1) {
-                long a3 = this.f27990b.a((byte) 0);
+                long a3 = this.f28100b.a((byte) 0);
                 if (a3 != -1) {
                     if (z) {
-                        a(this.f27990b.c(), 0L, a3 + 1);
+                        a(this.f28100b.c(), 0L, a3 + 1);
                     }
-                    this.f27990b.h(a3 + 1);
+                    this.f28100b.h(a3 + 1);
                 } else {
                     throw new EOFException();
                 }
             }
             if (z) {
-                a("FHCRC", this.f27990b.k(), (short) this.f27993e.getValue());
-                this.f27993e.reset();
+                a("FHCRC", this.f28100b.k(), (short) this.f28103e.getValue());
+                this.f28103e.reset();
             }
         }
     }
 
     private void c() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
-            a("CRC", this.f27990b.l(), (int) this.f27993e.getValue());
-            a("ISIZE", this.f27990b.l(), (int) this.f27991c.getBytesWritten());
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            a("CRC", this.f28100b.l(), (int) this.f28103e.getValue());
+            a("ISIZE", this.f28100b.l(), (int) this.f28101c.getBytesWritten());
         }
     }
 
@@ -128,23 +129,23 @@ public final class j implements s {
             } else if (i2 == 0) {
                 return 0L;
             } else {
-                if (this.f27989a == 0) {
+                if (this.f28099a == 0) {
                     b();
-                    this.f27989a = 1;
+                    this.f28099a = 1;
                 }
-                if (this.f27989a == 1) {
-                    long j2 = cVar.f27979b;
-                    long a2 = this.f27992d.a(cVar, j);
+                if (this.f28099a == 1) {
+                    long j2 = cVar.f28089b;
+                    long a2 = this.f28102d.a(cVar, j);
                     if (a2 != -1) {
                         a(cVar, j2, a2);
                         return a2;
                     }
-                    this.f27989a = 2;
+                    this.f28099a = 2;
                 }
-                if (this.f27989a == 2) {
+                if (this.f28099a == 2) {
                     c();
-                    this.f27989a = 3;
-                    if (!this.f27990b.e()) {
+                    this.f28099a = 3;
+                    if (!this.f28100b.e()) {
                         throw new IOException("gzip finished without exhausting source");
                     }
                 }
@@ -158,7 +159,7 @@ public final class j implements s {
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f27992d.close();
+            this.f28102d.close();
         }
     }
 
@@ -166,28 +167,28 @@ public final class j implements s {
     public t a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27990b.a() : (t) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28100b.a() : (t) invokeV.objValue;
     }
 
     private void a(c cVar, long j, long j2) {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{cVar, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            o oVar = cVar.f27978a;
+            o oVar = cVar.f28088a;
             while (true) {
-                int i3 = oVar.f28013c;
-                int i4 = oVar.f28012b;
+                int i3 = oVar.f28123c;
+                int i4 = oVar.f28122b;
                 if (j < i3 - i4) {
                     break;
                 }
                 j -= i3 - i4;
-                oVar = oVar.f28016f;
+                oVar = oVar.f28126f;
             }
             while (j2 > 0) {
-                int min = (int) Math.min(oVar.f28013c - i2, j2);
-                this.f27993e.update(oVar.f28011a, (int) (oVar.f28012b + j), min);
+                int min = (int) Math.min(oVar.f28123c - i2, j2);
+                this.f28103e.update(oVar.f28121a, (int) (oVar.f28122b + j), min);
                 j2 -= min;
-                oVar = oVar.f28016f;
+                oVar = oVar.f28126f;
                 j = 0;
             }
         }

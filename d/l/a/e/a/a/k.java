@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class k extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public class k extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Intent intent = new Intent("com.android.filemanager.OPEN_FOLDER");
-            intent.putExtra("com.android.filemanager.OPEN_FOLDER", this.f74518c);
+            intent.putExtra("com.android.filemanager.OPEN_FOLDER", this.f71570c);
             intent.putExtra("com.iqoo.secure", true);
             intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             intent.addFlags(32768);

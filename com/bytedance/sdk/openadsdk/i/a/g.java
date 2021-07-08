@@ -14,16 +14,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.a.q;
 import com.bytedance.sdk.openadsdk.core.w;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class g extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f31235a;
+    public String f31345a;
 
     /* renamed from: b  reason: collision with root package name */
-    public w f31236b;
+    public w f31346b;
 
     public g(String str, w wVar) {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class g extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
                 return;
             }
         }
-        this.f31236b = wVar;
-        this.f31235a = str;
+        this.f31346b = wVar;
+        this.f31345a = str;
     }
 
     public static void a(q qVar, w wVar) {
@@ -87,10 +87,10 @@ public class g extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, fVar)) == null) {
             w.a aVar = new w.a();
-            aVar.f30634a = NotificationCompat.CATEGORY_CALL;
-            aVar.f30636c = this.f31235a;
-            aVar.f30637d = jSONObject;
-            JSONObject a2 = this.f31236b.a(aVar, 3);
+            aVar.f30744a = NotificationCompat.CATEGORY_CALL;
+            aVar.f30746c = this.f31345a;
+            aVar.f30747d = jSONObject;
+            JSONObject a2 = this.f31346b.a(aVar, 3);
             if (com.bytedance.sdk.openadsdk.core.h.d().x()) {
                 Log.d("OldBridgeSyncMethod", "[JSB-RSP] version: 3 data=" + a2.toString());
             }

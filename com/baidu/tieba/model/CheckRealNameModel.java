@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CheckRealNameModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_APP_FIRST_START = "app_first_start";
@@ -24,18 +24,18 @@ public class CheckRealNameModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f18636e;
+    public b f18676e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.c.c.g.a f18637f;
+    public d.a.c.c.g.a f18677f;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends d.a.c.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CheckRealNameModel f18638a;
+        public final /* synthetic */ CheckRealNameModel f18678a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(CheckRealNameModel checkRealNameModel, int i2, int i3) {
@@ -56,7 +56,7 @@ public class CheckRealNameModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f18638a = checkRealNameModel;
+            this.f18678a = checkRealNameModel;
         }
 
         @Override // d.a.c.c.g.a
@@ -67,14 +67,14 @@ public class CheckRealNameModel extends BdBaseModel {
             }
             if (((responsedMessage instanceof CheckRealNameHttpResponseMessage) || (responsedMessage instanceof CheckRealNameSocketResponseMessage)) && (responsedMessage.getOrginalMessage().getExtra() instanceof CheckRealNameRequestNetMessage)) {
                 CheckRealNameRequestNetMessage checkRealNameRequestNetMessage = (CheckRealNameRequestNetMessage) responsedMessage.getOrginalMessage().getExtra();
-                if (this.f18638a.f18636e != null) {
-                    this.f18638a.f18636e.a(responsedMessage.getError(), responsedMessage.getErrorString(), checkRealNameRequestNetMessage.getObjSource(), checkRealNameRequestNetMessage.getObjTag());
+                if (this.f18678a.f18676e != null) {
+                    this.f18678a.f18676e.a(responsedMessage.getError(), responsedMessage.getErrorString(), checkRealNameRequestNetMessage.getObjSource(), checkRealNameRequestNetMessage.getObjTag());
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(int i2, String str, String str2, Object obj);
     }
@@ -97,15 +97,15 @@ public class CheckRealNameModel extends BdBaseModel {
                 return;
             }
         }
-        this.f18637f = new a(this, CmdConfigHttp.CMD_CHECK_REAL_NAME, 309456);
+        this.f18677f = new a(this, CmdConfigHttp.CMD_CHECK_REAL_NAME, 309456);
         z();
-        registerListener(this.f18637f);
+        registerListener(this.f18677f);
     }
 
     public void A(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f18636e = bVar;
+            this.f18676e = bVar;
         }
     }
 
@@ -151,8 +151,8 @@ public class CheckRealNameModel extends BdBaseModel {
     public final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            d.a.s0.h3.d0.a.h(309456, CheckRealNameSocketResponseMessage.class, false, false);
-            d.a.s0.h3.d0.a.c(309456, CmdConfigHttp.CMD_CHECK_REAL_NAME, TbConfig.URL_CHECK_REAL_NAME, CheckRealNameHttpResponseMessage.class, false, false, false, false);
+            d.a.p0.h3.d0.a.h(309456, CheckRealNameSocketResponseMessage.class, false, false);
+            d.a.p0.h3.d0.a.c(309456, CmdConfigHttp.CMD_CHECK_REAL_NAME, TbConfig.URL_CHECK_REAL_NAME, CheckRealNameHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

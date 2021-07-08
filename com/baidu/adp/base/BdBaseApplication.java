@@ -50,7 +50,7 @@ public class BdBaseApplication extends Application {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdBaseApplication f2136a;
+        public final /* synthetic */ BdBaseApplication f2137a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BdBaseApplication bdBaseApplication, Looper looper) {
@@ -70,14 +70,14 @@ public class BdBaseApplication extends Application {
                     return;
                 }
             }
-            this.f2136a = bdBaseApplication;
+            this.f2137a = bdBaseApplication;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                this.f2136a.handleInitMessage(message);
+                this.f2137a.handleInitMessage(message);
             }
         }
     }
@@ -125,7 +125,7 @@ public class BdBaseApplication extends Application {
 
     private void initBdBaseApp(Application application) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, application) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, application) == null) {
             this.mContext = application;
             initWorkMode();
             initBitmapHelper();

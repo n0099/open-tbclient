@@ -3,6 +3,7 @@ package com.baidu.searchbox.player;
 import android.content.Context;
 import android.util.DisplayMetrics;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -21,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BDPlayerConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static int DEFAULT_INSTALL_TYPE = 31;
@@ -88,7 +89,7 @@ public class BDPlayerConfig {
     public static IMessengerFactory getMessengerFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (sMessengerFactory == null) {
                 sMessengerFactory = new MessengerFactory();
             }

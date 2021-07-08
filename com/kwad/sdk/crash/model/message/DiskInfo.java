@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.b;
-import com.kwad.sdk.utils.o;
+import com.kwad.sdk.utils.q;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DiskInfo implements b, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -154725647775465930L;
@@ -35,6 +35,7 @@ public class DiskInfo implements b, Serializable {
         }
     }
 
+    @Override // com.kwad.sdk.core.b
     public void parseJson(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
@@ -52,10 +53,10 @@ public class DiskInfo implements b, Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, "mDataTotalGB", this.mDataTotalGB);
-            o.a(jSONObject, "mDataAvailableGB", this.mDataAvailableGB);
-            o.a(jSONObject, "mExternalStorageTotalGB", this.mExternalStorageTotalGB);
-            o.a(jSONObject, "mExternalStorageAvailableGB", this.mExternalStorageAvailableGB);
+            q.a(jSONObject, "mDataTotalGB", this.mDataTotalGB);
+            q.a(jSONObject, "mDataAvailableGB", this.mDataAvailableGB);
+            q.a(jSONObject, "mExternalStorageTotalGB", this.mExternalStorageTotalGB);
+            q.a(jSONObject, "mExternalStorageAvailableGB", this.mExternalStorageAvailableGB);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

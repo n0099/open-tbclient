@@ -112,7 +112,7 @@ public final class LocaleListCompat {
         InterceptResult invokeL;
         Locale forLanguageTagCompat;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (str != null && !str.isEmpty()) {
                 String[] split = str.split(",", -1);
                 int length = split.length;

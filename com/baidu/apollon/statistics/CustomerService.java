@@ -27,13 +27,13 @@ public class CustomerService extends MyDb {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte[] f3931a;
+    public final byte[] f3934a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f3932b;
+    public long f3935b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f3933c;
+    public int f3936c;
 
     /* renamed from: com.baidu.apollon.statistics.CustomerService$1  reason: invalid class name */
     /* loaded from: classes.dex */
@@ -47,13 +47,13 @@ public class CustomerService extends MyDb {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f3934a = 2;
+        public static int f3937a = 2;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f3935b = "customerservice.db";
+        public static final String f3938b = "customerservice.db";
 
         /* renamed from: c  reason: collision with root package name */
-        public static final CustomerService f3936c;
+        public static final CustomerService f3939c;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -69,7 +69,7 @@ public class CustomerService extends MyDb {
                     return;
                 }
             }
-            f3936c = new CustomerService(PayStatisticsUtil.c(), f3935b, f3934a, null);
+            f3939c = new CustomerService(PayStatisticsUtil.c(), f3938b, f3937a, null);
         }
 
         public a() {
@@ -115,13 +115,13 @@ public class CustomerService extends MyDb {
                     int i2 = 0;
                     while (rawQuery.moveToNext()) {
                         e eVar = new e();
-                        eVar.f3978h = rawQuery.getString(0);
-                        eVar.f3979i = rawQuery.getLong(1);
+                        eVar.f3981h = rawQuery.getString(0);
+                        eVar.f3982i = rawQuery.getLong(1);
                         eVar.j = rawQuery.getString(2);
                         eVar.k = rawQuery.getString(3);
                         eVar.l = rawQuery.getString(4);
                         eVar.m = rawQuery.getLong(5);
-                        if (1 < a.f3934a) {
+                        if (1 < a.f3937a) {
                             eVar.n = rawQuery.getString(6);
                         }
                         int i3 = i2 + 1;
@@ -153,7 +153,7 @@ public class CustomerService extends MyDb {
     public static CustomerService getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f3936c : (CustomerService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f3939c : (CustomerService) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:51:0x015b  */
@@ -167,14 +167,14 @@ public class CustomerService extends MyDb {
     public void enqueEvent(e eVar) {
         Cursor cursor;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) || eVar == null || TextUtils.isEmpty(eVar.f3978h)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) || eVar == null || TextUtils.isEmpty(eVar.f3981h)) {
             return;
         }
         if (this.mDb != null) {
             StringBuilder sb = new StringBuilder();
             ContentValues contentValues = new ContentValues();
-            contentValues.put("en", eVar.f3978h);
-            contentValues.put("et", Long.valueOf(eVar.f3979i));
+            contentValues.put("en", eVar.f3981h);
+            contentValues.put("et", Long.valueOf(eVar.f3982i));
             contentValues.put("ev", eVar.j);
             contentValues.put("eg", eVar.k);
             contentValues.put("lk", eVar.l);
@@ -191,16 +191,16 @@ public class CustomerService extends MyDb {
                     if (rawQuery != null) {
                         try {
                             if (rawQuery.moveToFirst()) {
-                                if (this.f3933c < rawQuery.getLong(0)) {
+                                if (this.f3936c < rawQuery.getLong(0)) {
                                     sb.delete(0, sb.length());
-                                    if (0 < this.f3932b) {
+                                    if (0 < this.f3935b) {
                                         sb.append("select min(rowid), max(rowid) from stat_event where ");
                                         sb.append("rowid <= ");
-                                        sb.append(insert - this.f3933c);
+                                        sb.append(insert - this.f3936c);
                                         sb.append(" and et < ");
-                                        sb.append(eVar.f3979i);
+                                        sb.append(eVar.f3982i);
                                         sb.append(" - ");
-                                        sb.append(this.f3932b);
+                                        sb.append(this.f3935b);
                                         cursor2 = this.mDb.rawQuery(sb.toString(), null);
                                         if (cursor2 != null && cursor2.moveToFirst()) {
                                             sb.delete(0, sb.length());
@@ -214,7 +214,7 @@ public class CustomerService extends MyDb {
                                         }
                                     } else {
                                         sb.append("delete from stat_event where rowid < ");
-                                        sb.append(insert - this.f3933c);
+                                        sb.append(insert - this.f3936c);
                                         this.mDb.execSQL(sb.toString());
                                     }
                                 }
@@ -297,7 +297,7 @@ public class CustomerService extends MyDb {
             if (a2.length == 0) {
                 return null;
             }
-            synchronized (this.f3931a) {
+            synchronized (this.f3934a) {
                 try {
                     StatisticsSettings a3 = PayStatisticsUtil.getInstance().a();
                     jSONObject = a3 != null ? new JSONObject(a3.getCommonHeader()) : null;
@@ -325,7 +325,7 @@ public class CustomerService extends MyDb {
     public boolean isEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3933c > 0 || 0 < this.f3932b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3936c > 0 || 0 < this.f3935b : invokeV.booleanValue;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
@@ -359,8 +359,8 @@ public class CustomerService extends MyDb {
     public void setConfig(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
-            this.f3932b = i2;
-            this.f3933c = i3;
+            this.f3935b = i2;
+            this.f3936c = i3;
         }
     }
 
@@ -383,9 +383,9 @@ public class CustomerService extends MyDb {
                 return;
             }
         }
-        this.f3931a = new byte[0];
-        this.f3932b = 0L;
-        this.f3933c = 200;
+        this.f3934a = new byte[0];
+        this.f3935b = 0L;
+        this.f3936c = 200;
         if (this.mDb == null) {
             PayStatisticsUtil.onEvent(CS_OPEN_DB_ERROR);
         }
@@ -397,11 +397,11 @@ public class CustomerService extends MyDb {
             return;
         }
         e eVar = new e();
-        eVar.f3978h = str;
+        eVar.f3981h = str;
         eVar.j = str2;
         eVar.k = str3;
         eVar.l = com.baidu.apollon.statistics.a.a();
-        eVar.f3979i = System.currentTimeMillis();
+        eVar.f3982i = System.currentTimeMillis();
         eVar.m = f.a();
         eVar.n = str4;
         enqueEvent(eVar);

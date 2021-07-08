@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class i<T> implements k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.o.d.h f75382e;
+    public final h.o.d.h f72416e;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -26,13 +26,13 @@ public abstract class i<T> implements k {
                 return;
             }
         }
-        this.f75382e = new h.o.d.h();
+        this.f72416e = new h.o.d.h();
     }
 
     public final void a(k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, kVar) == null) {
-            this.f75382e.a(kVar);
+            this.f72416e.a(kVar);
         }
     }
 
@@ -44,14 +44,14 @@ public abstract class i<T> implements k {
     public final boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f75382e.isUnsubscribed() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f72416e.isUnsubscribed() : invokeV.booleanValue;
     }
 
     @Override // h.k
     public final void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f75382e.unsubscribe();
+            this.f72416e.unsubscribe();
         }
     }
 }

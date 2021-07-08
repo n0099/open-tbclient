@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class bv extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f43645a;
+    public final /* synthetic */ XMPushService f40659a;
 
     public bv(XMPushService xMPushService) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class bv extends Handler {
                 return;
             }
         }
-        this.f43645a = xMPushService;
+        this.f40659a = xMPushService;
     }
 
     @Override // android.os.Handler
@@ -48,13 +48,13 @@ public class bv extends Handler {
                             Message obtain = Message.obtain((Handler) null, 0);
                             obtain.what = 18;
                             Bundle bundle = new Bundle();
-                            str = this.f43645a.f853a;
+                            str = this.f40659a.f853a;
                             bundle.putString("xmsf_region", str);
                             obtain.setData(bundle);
                             message.replyTo.send(obtain);
                         }
                     } else if (message.obj != null) {
-                        this.f43645a.onStart((Intent) message.obj, 1);
+                        this.f40659a.onStart((Intent) message.obj, 1);
                     }
                 } catch (Throwable unused) {
                 }

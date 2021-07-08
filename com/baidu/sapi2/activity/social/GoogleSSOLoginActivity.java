@@ -3,6 +3,7 @@ package com.baidu.sapi2.activity.social;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.utils.Log;
@@ -19,7 +20,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String n = "GoogleSSOLoginActivity";
@@ -49,7 +50,7 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
                 int statusCode = e2.getStatusCode();
                 String message = e2.getMessage();
                 Log.d(n, "handleSignInResult exception code=" + statusCode + " msg=" + message);
-                a(((BaseSSOLoginActivity) this).f9883g, statusCode, message);
+                a(((BaseSSOLoginActivity) this).f9900g, statusCode, message);
             }
         }
     }
@@ -62,7 +63,7 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
             HashMap hashMap = new HashMap();
             hashMap.put("supportGuestAccount", "1");
             hashMap.put("id_token", str);
-            a(ParamsUtil.addExtras(urlBind, hashMap), getString(d.a.e0.a.j.a.sapi_sdk_google_loging));
+            a(ParamsUtil.addExtras(urlBind, hashMap), getString(d.a.b0.a.j.a.sapi_sdk_google_loging));
         }
     }
 
@@ -82,7 +83,7 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
     private GoogleSignInOptions e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) ? new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(this.configuration.googleClientId).build() : (GoogleSignInOptions) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(this.configuration.googleClientId).build() : (GoogleSignInOptions) invokeV.objValue;
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
@@ -110,7 +111,7 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.setupViews();
-            setTitleText(d.a.e0.a.j.a.sapi_sdk_title_login_google);
+            setTitleText(d.a.b0.a.j.a.sapi_sdk_title_login_google);
             d();
         }
     }

@@ -1,5 +1,6 @@
 package io.reactivex.internal.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class ArrayListSupplier implements Callable<List<Object>>, Function<Object, List<Object>> {
     public static final /* synthetic */ ArrayListSupplier[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -73,7 +74,7 @@ public final class ArrayListSupplier implements Callable<List<Object>>, Function
     public static ArrayListSupplier valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (ArrayListSupplier) Enum.valueOf(ArrayListSupplier.class, str) : (ArrayListSupplier) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (ArrayListSupplier) Enum.valueOf(ArrayListSupplier.class, str) : (ArrayListSupplier) invokeL.objValue;
     }
 
     public static ArrayListSupplier[] values() {

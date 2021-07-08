@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.idlefish.flutterboost.XPlatformPlugin;
 import io.flutter.embedding.engine.systemchannels.PlatformChannel;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BoostViewUtils {
     public static /* synthetic */ Interceptable $ic;
     public static volatile XPlatformPlugin mInstance;

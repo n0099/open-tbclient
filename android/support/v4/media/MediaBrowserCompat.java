@@ -2845,7 +2845,7 @@ public final class MediaBrowserCompat {
         public static List<MediaItem> fromMediaItemList(List<?> list) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, list)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
                 if (list == null || Build.VERSION.SDK_INT < 21) {
                     return null;
                 }

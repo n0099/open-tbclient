@@ -2,6 +2,7 @@ package com.baidu.android.util.io;
 
 import android.text.TextUtils;
 import android.util.Xml;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -105,7 +106,7 @@ public class StreamUtils {
     public static byte[] streamToBytes(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65540, null, inputStream)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream)) != null) {
             return (byte[]) invokeL.objValue;
         }
         if (inputStream == null) {

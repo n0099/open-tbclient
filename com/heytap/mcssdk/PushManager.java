@@ -28,7 +28,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PushManager implements b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String APP_PACKAGE = "appPackage";
@@ -134,7 +134,7 @@ public class PushManager implements b {
 
     private synchronized void addParser(com.heytap.mcssdk.a.d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, dVar) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, dVar) == null) {
             synchronized (this) {
                 if (dVar != null) {
                     this.mParsers.add(dVar);
@@ -280,7 +280,7 @@ public class PushManager implements b {
     public static String getSDKVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? a.f33463f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? a.f33573f : (String) invokeV.objValue;
     }
 
     public static boolean isSupportPush(Context context) {

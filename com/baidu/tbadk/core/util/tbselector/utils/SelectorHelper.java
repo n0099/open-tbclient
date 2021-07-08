@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.ColorRes;
 import androidx.annotation.DimenRes;
 import androidx.annotation.DrawableRes;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -16,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.h3.c;
-/* loaded from: classes4.dex */
+import d.a.p0.h3.c;
+/* loaded from: classes3.dex */
 public class SelectorHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +52,7 @@ public class SelectorHelper {
     public static Drawable getColorDrawable(@ColorRes int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) ? new ColorDrawable(getColor(i2)) : (Drawable) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? new ColorDrawable(getColor(i2)) : (Drawable) invokeI.objValue;
     }
 
     public static Context getContext() {

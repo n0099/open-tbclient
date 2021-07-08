@@ -1,5 +1,6 @@
 package com.xiaomi.push;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.WireInput;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class d extends IOException {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +55,7 @@ public class d extends IOException {
     public static d d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? new d(WireInput.PROTOCOL_MESSAGE_CONTAINED_AN_INVALID_TAG_ZERO) : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new d(WireInput.PROTOCOL_MESSAGE_CONTAINED_AN_INVALID_TAG_ZERO) : (d) invokeV.objValue;
     }
 
     public static d e() {

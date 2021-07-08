@@ -9,10 +9,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.b;
-import d.a.r0.z0.w;
+import d.a.o0.z0.w;
 import tbclient.QueryBlockAndAppealInfo.DataReq;
 import tbclient.QueryBlockAndAppealInfo.QueryBlockAndAppealInfoReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class UEGCancelRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

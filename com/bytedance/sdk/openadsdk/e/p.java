@@ -12,37 +12,37 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f31153a;
+    public String f31263a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.e.m f31154b;
+    public com.bytedance.sdk.openadsdk.core.e.m f31264b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Boolean f31155c;
+    public Boolean f31265c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Boolean f31156d;
+    public Boolean f31266d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Boolean f31157e;
+    public Boolean f31267e;
 
     /* renamed from: f  reason: collision with root package name */
-    public JSONObject f31158f;
+    public JSONObject f31268f;
 
     /* renamed from: g  reason: collision with root package name */
-    public JSONArray f31159g;
+    public JSONArray f31269g;
 
     /* renamed from: h  reason: collision with root package name */
-    public JSONArray f31160h;
+    public JSONArray f31270h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f31161i;
+    public boolean f31271i;
     public final Object j;
 
     public p(int i2, String str, com.bytedance.sdk.openadsdk.core.e.m mVar) {
@@ -60,26 +60,26 @@ public class p {
                 return;
             }
         }
-        this.f31153a = "embeded_ad";
+        this.f31263a = "embeded_ad";
         Boolean bool = Boolean.FALSE;
-        this.f31155c = bool;
-        this.f31156d = bool;
-        this.f31157e = bool;
-        this.f31161i = false;
+        this.f31265c = bool;
+        this.f31266d = bool;
+        this.f31267e = bool;
+        this.f31271i = false;
         this.j = new Object();
-        this.f31153a = str;
-        this.f31154b = mVar;
-        this.f31158f = new JSONObject();
-        this.f31159g = new JSONArray();
-        this.f31160h = new JSONArray();
-        a(this.f31158f, "webview_source", Integer.valueOf(i2));
+        this.f31263a = str;
+        this.f31264b = mVar;
+        this.f31268f = new JSONObject();
+        this.f31269g = new JSONArray();
+        this.f31270h = new JSONArray();
+        a(this.f31268f, "webview_source", Integer.valueOf(i2));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) ? this.f31157e.booleanValue() || (this.f31156d.booleanValue() && this.f31155c.booleanValue()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) ? this.f31267e.booleanValue() || (this.f31266d.booleanValue() && this.f31265c.booleanValue()) : invokeV.booleanValue;
     }
 
     public void i() {
@@ -90,7 +90,7 @@ public class p {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ p f31194a;
+                public final /* synthetic */ p f31304a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -110,18 +110,18 @@ public class p {
                             return;
                         }
                     }
-                    this.f31194a = this;
+                    this.f31304a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.f31194a.j) {
+                        synchronized (this.f31304a.j) {
                             long currentTimeMillis = System.currentTimeMillis();
                             JSONObject jSONObject = new JSONObject();
-                            this.f31194a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                            this.f31194a.a(this.f31194a.f31158f, "webview_load_start", (Object) jSONObject, false);
+                            this.f31304a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                            this.f31304a.a(this.f31304a.f31268f, "webview_load_start", (Object) jSONObject, false);
                         }
                     }
                 }
@@ -137,7 +137,7 @@ public class p {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ p f31195a;
+                public final /* synthetic */ p f31305a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -157,18 +157,18 @@ public class p {
                             return;
                         }
                     }
-                    this.f31195a = this;
+                    this.f31305a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.f31195a.j) {
+                        synchronized (this.f31305a.j) {
                             long currentTimeMillis = System.currentTimeMillis();
                             JSONObject jSONObject = new JSONObject();
-                            this.f31195a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                            this.f31195a.a(this.f31195a.f31158f, "webview_load_success", jSONObject);
+                            this.f31305a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                            this.f31305a.a(this.f31305a.f31268f, "webview_load_success", jSONObject);
                         }
                     }
                 }
@@ -191,7 +191,7 @@ public class p {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ p f31198a;
+                public final /* synthetic */ p f31308a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -211,18 +211,18 @@ public class p {
                             return;
                         }
                     }
-                    this.f31198a = this;
+                    this.f31308a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.f31198a.j) {
+                        synchronized (this.f31308a.j) {
                             long currentTimeMillis = System.currentTimeMillis();
                             JSONObject jSONObject = new JSONObject();
-                            this.f31198a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                            this.f31198a.a(this.f31198a.f31158f, "native_endcard_show", jSONObject);
+                            this.f31308a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                            this.f31308a.a(this.f31308a.f31268f, "native_endcard_show", jSONObject);
                         }
                     }
                 }
@@ -238,7 +238,7 @@ public class p {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ p f31199a;
+                public final /* synthetic */ p f31309a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -258,18 +258,18 @@ public class p {
                             return;
                         }
                     }
-                    this.f31199a = this;
+                    this.f31309a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.f31199a.j) {
+                        synchronized (this.f31309a.j) {
                             long currentTimeMillis = System.currentTimeMillis();
                             JSONObject jSONObject = new JSONObject();
-                            this.f31199a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                            this.f31199a.a(this.f31199a.f31158f, "native_endcard_close", jSONObject);
+                            this.f31309a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                            this.f31309a.a(this.f31309a.f31268f, "native_endcard_close", jSONObject);
                         }
                     }
                 }
@@ -285,7 +285,7 @@ public class p {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ p f31200a;
+                public final /* synthetic */ p f31310a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -305,19 +305,19 @@ public class p {
                             return;
                         }
                     }
-                    this.f31200a = this;
+                    this.f31310a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.f31200a.j) {
+                        synchronized (this.f31310a.j) {
                             long currentTimeMillis = System.currentTimeMillis();
                             JSONObject jSONObject = new JSONObject();
-                            this.f31200a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                            this.f31200a.a(jSONObject, "type", "native_enterBackground");
-                            this.f31200a.a(this.f31200a.f31159g, jSONObject);
+                            this.f31310a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                            this.f31310a.a(jSONObject, "type", "native_enterBackground");
+                            this.f31310a.a(this.f31310a.f31269g, jSONObject);
                         }
                     }
                 }
@@ -333,7 +333,7 @@ public class p {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ p f31201a;
+                public final /* synthetic */ p f31311a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -353,19 +353,19 @@ public class p {
                             return;
                         }
                     }
-                    this.f31201a = this;
+                    this.f31311a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.f31201a.j) {
+                        synchronized (this.f31311a.j) {
                             long currentTimeMillis = System.currentTimeMillis();
                             JSONObject jSONObject = new JSONObject();
-                            this.f31201a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                            this.f31201a.a(jSONObject, "type", "native_enterForeground");
-                            this.f31201a.a(this.f31201a.f31159g, jSONObject);
+                            this.f31311a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                            this.f31311a.a(jSONObject, "type", "native_enterForeground");
+                            this.f31311a.a(this.f31311a.f31269g, jSONObject);
                         }
                     }
                 }
@@ -381,7 +381,7 @@ public class p {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ p f31178a;
+                public final /* synthetic */ p f31288a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -401,18 +401,18 @@ public class p {
                             return;
                         }
                     }
-                    this.f31178a = this;
+                    this.f31288a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.f31178a.j) {
+                        synchronized (this.f31288a.j) {
                             long currentTimeMillis = System.currentTimeMillis();
                             JSONObject jSONObject = new JSONObject();
-                            this.f31178a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                            this.f31178a.a(this.f31178a.f31158f, "no_native_render", jSONObject);
+                            this.f31288a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                            this.f31288a.a(this.f31288a.f31268f, "no_native_render", jSONObject);
                         }
                     }
                 }
@@ -428,7 +428,7 @@ public class p {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ p f31179a;
+                public final /* synthetic */ p f31289a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -448,18 +448,18 @@ public class p {
                             return;
                         }
                     }
-                    this.f31179a = this;
+                    this.f31289a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.f31179a.j) {
+                        synchronized (this.f31289a.j) {
                             long currentTimeMillis = System.currentTimeMillis();
                             JSONObject jSONObject = new JSONObject();
-                            this.f31179a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                            this.f31179a.a(this.f31179a.f31158f, "render_failed", jSONObject);
+                            this.f31289a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                            this.f31289a.a(this.f31289a.f31268f, "render_failed", jSONObject);
                         }
                     }
                 }
@@ -470,7 +470,7 @@ public class p {
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            this.f31155c = Boolean.TRUE;
+            this.f31265c = Boolean.TRUE;
         }
     }
 
@@ -482,7 +482,7 @@ public class p {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ p f31182a;
+                public final /* synthetic */ p f31292a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -502,37 +502,37 @@ public class p {
                             return;
                         }
                     }
-                    this.f31182a = this;
+                    this.f31292a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.f31182a.j) {
-                            if (this.f31182a.t()) {
-                                if (this.f31182a.f31161i) {
+                        synchronized (this.f31292a.j) {
+                            if (this.f31292a.t()) {
+                                if (this.f31292a.f31271i) {
                                     return;
                                 }
-                                if (this.f31182a.f31159g != null && this.f31182a.f31159g.length() != 0) {
+                                if (this.f31292a.f31269g != null && this.f31292a.f31269g.length() != 0) {
                                     try {
-                                        this.f31182a.f31158f.put("native_switchBackgroundAndForeground", this.f31182a.f31159g);
+                                        this.f31292a.f31268f.put("native_switchBackgroundAndForeground", this.f31292a.f31269g);
                                     } catch (Exception unused) {
                                     }
                                 }
-                                if (this.f31182a.f31160h != null && this.f31182a.f31160h.length() != 0) {
+                                if (this.f31292a.f31270h != null && this.f31292a.f31270h.length() != 0) {
                                     try {
-                                        this.f31182a.f31158f.put("intercept_source", this.f31182a.f31160h);
+                                        this.f31292a.f31268f.put("intercept_source", this.f31292a.f31270h);
                                     } catch (Exception unused2) {
                                     }
                                 }
                                 HashMap hashMap = new HashMap();
-                                hashMap.put("webview_time_track", this.f31182a.f31158f);
-                                if (com.bytedance.sdk.openadsdk.core.h.d().x() && this.f31182a.f31158f != null) {
-                                    com.bytedance.sdk.component.utils.j.b("WebviewTimeTrack", this.f31182a.f31158f.toString());
+                                hashMap.put("webview_time_track", this.f31292a.f31268f);
+                                if (com.bytedance.sdk.openadsdk.core.h.d().x() && this.f31292a.f31268f != null) {
+                                    com.bytedance.sdk.component.utils.j.b("WebviewTimeTrack", this.f31292a.f31268f.toString());
                                 }
-                                d.h(com.bytedance.sdk.openadsdk.core.o.a(), this.f31182a.f31154b, this.f31182a.f31153a, "webview_time_track", hashMap);
-                                this.f31182a.f31161i = true;
+                                d.h(com.bytedance.sdk.openadsdk.core.o.a(), this.f31292a.f31264b, this.f31292a.f31263a, "webview_time_track", hashMap);
+                                this.f31292a.f31271i = true;
                             }
                         }
                     }
@@ -549,7 +549,7 @@ public class p {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ p f31173a;
+                public final /* synthetic */ p f31283a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -569,18 +569,18 @@ public class p {
                             return;
                         }
                     }
-                    this.f31173a = this;
+                    this.f31283a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.f31173a.j) {
+                        synchronized (this.f31283a.j) {
                             long currentTimeMillis = System.currentTimeMillis();
                             JSONObject jSONObject = new JSONObject();
-                            this.f31173a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                            this.f31173a.a(this.f31173a.f31158f, "render_success", jSONObject);
+                            this.f31283a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                            this.f31283a.a(this.f31283a.f31268f, "render_success", jSONObject);
                         }
                     }
                 }
@@ -596,7 +596,7 @@ public class p {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ p f31189a;
+                public final /* synthetic */ p f31299a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -616,18 +616,18 @@ public class p {
                             return;
                         }
                     }
-                    this.f31189a = this;
+                    this.f31299a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.f31189a.j) {
+                        synchronized (this.f31299a.j) {
                             long currentTimeMillis = System.currentTimeMillis();
                             JSONObject jSONObject = new JSONObject();
-                            this.f31189a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                            this.f31189a.a(this.f31189a.f31158f, "native_render_start", jSONObject);
+                            this.f31299a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                            this.f31299a.a(this.f31299a.f31268f, "native_render_start", jSONObject);
                         }
                     }
                 }
@@ -643,7 +643,7 @@ public class p {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ p f31190a;
+                public final /* synthetic */ p f31300a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -663,18 +663,18 @@ public class p {
                             return;
                         }
                     }
-                    this.f31190a = this;
+                    this.f31300a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.f31190a.j) {
+                        synchronized (this.f31300a.j) {
                             long currentTimeMillis = System.currentTimeMillis();
                             JSONObject jSONObject = new JSONObject();
-                            this.f31190a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                            this.f31190a.a(this.f31190a.f31158f, "dynamic_render_start", jSONObject);
+                            this.f31300a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                            this.f31300a.a(this.f31300a.f31268f, "dynamic_render_start", jSONObject);
                         }
                     }
                 }
@@ -690,7 +690,7 @@ public class p {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ p f31191a;
+                public final /* synthetic */ p f31301a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -710,18 +710,18 @@ public class p {
                             return;
                         }
                     }
-                    this.f31191a = this;
+                    this.f31301a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.f31191a.j) {
+                        synchronized (this.f31301a.j) {
                             long currentTimeMillis = System.currentTimeMillis();
                             JSONObject jSONObject = new JSONObject();
-                            this.f31191a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                            this.f31191a.a(this.f31191a.f31158f, "dynamic_render_success", jSONObject);
+                            this.f31301a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                            this.f31301a.a(this.f31301a.f31268f, "dynamic_render_success", jSONObject);
                         }
                     }
                 }
@@ -737,7 +737,7 @@ public class p {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ p f31192a;
+                public final /* synthetic */ p f31302a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -757,18 +757,18 @@ public class p {
                             return;
                         }
                     }
-                    this.f31192a = this;
+                    this.f31302a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.f31192a.j) {
+                        synchronized (this.f31302a.j) {
                             long currentTimeMillis = System.currentTimeMillis();
                             JSONObject jSONObject = new JSONObject();
-                            this.f31192a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                            this.f31192a.a(this.f31192a.f31158f, "dynamic_render_error", jSONObject);
+                            this.f31302a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                            this.f31302a.a(this.f31302a.f31268f, "dynamic_render_error", jSONObject);
                         }
                     }
                 }
@@ -784,7 +784,7 @@ public class p {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ p f31193a;
+                public final /* synthetic */ p f31303a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -804,18 +804,18 @@ public class p {
                             return;
                         }
                     }
-                    this.f31193a = this;
+                    this.f31303a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.f31193a.j) {
+                        synchronized (this.f31303a.j) {
                             long currentTimeMillis = System.currentTimeMillis();
                             JSONObject jSONObject = new JSONObject();
-                            this.f31193a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                            this.f31193a.a(this.f31193a.f31158f, "before_webview_request", jSONObject);
+                            this.f31303a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                            this.f31303a.a(this.f31303a.f31268f, "before_webview_request", jSONObject);
                         }
                     }
                 }
@@ -831,7 +831,7 @@ public class p {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ p f31185a;
+                public final /* synthetic */ p f31295a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -851,18 +851,18 @@ public class p {
                             return;
                         }
                     }
-                    this.f31185a = this;
+                    this.f31295a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.f31185a.j) {
+                        synchronized (this.f31295a.j) {
                             long currentTimeMillis = System.currentTimeMillis();
                             JSONObject jSONObject = new JSONObject();
-                            this.f31185a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                            this.f31185a.a(this.f31185a.f31158f, "native_render_end", jSONObject);
+                            this.f31295a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                            this.f31295a.a(this.f31295a.f31268f, "native_render_end", jSONObject);
                         }
                     }
                 }
@@ -878,19 +878,19 @@ public class p {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f31168a;
+                public final /* synthetic */ String f31278a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ long f31169b;
+                public final /* synthetic */ long f31279b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ long f31170c;
+                public final /* synthetic */ long f31280c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ int f31171d;
+                public final /* synthetic */ int f31281d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ p f31172e;
+                public final /* synthetic */ p f31282e;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -910,27 +910,27 @@ public class p {
                             return;
                         }
                     }
-                    this.f31172e = this;
-                    this.f31168a = str;
-                    this.f31169b = j2;
-                    this.f31170c = j;
-                    this.f31171d = i2;
+                    this.f31282e = this;
+                    this.f31278a = str;
+                    this.f31279b = j2;
+                    this.f31280c = j;
+                    this.f31281d = i2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.f31172e.j) {
-                            if (!TextUtils.isEmpty(this.f31168a) && this.f31169b >= this.f31170c) {
+                        synchronized (this.f31282e.j) {
+                            if (!TextUtils.isEmpty(this.f31278a) && this.f31279b >= this.f31280c) {
                                 JSONObject jSONObject = new JSONObject();
-                                this.f31172e.a(jSONObject, "start_ts", Long.valueOf(this.f31170c));
-                                this.f31172e.a(jSONObject, "end_ts", Long.valueOf(this.f31169b));
-                                this.f31172e.a(jSONObject, "intercept_type", Integer.valueOf(this.f31171d));
-                                this.f31172e.a(jSONObject, "type", "intercept_js");
-                                this.f31172e.a(jSONObject, "url", this.f31168a);
-                                this.f31172e.a(jSONObject, "duration", Long.valueOf(this.f31169b - this.f31170c));
-                                this.f31172e.a(this.f31172e.f31160h, jSONObject);
+                                this.f31282e.a(jSONObject, "start_ts", Long.valueOf(this.f31280c));
+                                this.f31282e.a(jSONObject, "end_ts", Long.valueOf(this.f31279b));
+                                this.f31282e.a(jSONObject, "intercept_type", Integer.valueOf(this.f31281d));
+                                this.f31282e.a(jSONObject, "type", "intercept_js");
+                                this.f31282e.a(jSONObject, "url", this.f31278a);
+                                this.f31282e.a(jSONObject, "duration", Long.valueOf(this.f31279b - this.f31280c));
+                                this.f31282e.a(this.f31282e.f31270h, jSONObject);
                             }
                         }
                     }
@@ -947,10 +947,10 @@ public class p {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f31176a;
+                public final /* synthetic */ String f31286a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ p f31177b;
+                public final /* synthetic */ p f31287b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -970,23 +970,23 @@ public class p {
                             return;
                         }
                     }
-                    this.f31177b = this;
-                    this.f31176a = str;
+                    this.f31287b = this;
+                    this.f31286a = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.f31177b.j) {
-                            if (TextUtils.isEmpty(this.f31176a)) {
+                        synchronized (this.f31287b.j) {
+                            if (TextUtils.isEmpty(this.f31286a)) {
                                 return;
                             }
                             long currentTimeMillis = System.currentTimeMillis();
                             JSONObject jSONObject = new JSONObject();
-                            this.f31177b.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                            this.f31177b.a(jSONObject, "jsb", this.f31176a);
-                            this.f31177b.a(this.f31177b.f31158f, "webview_jsb_end", jSONObject);
+                            this.f31287b.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                            this.f31287b.a(jSONObject, "jsb", this.f31286a);
+                            this.f31287b.a(this.f31287b.f31268f, "webview_jsb_end", jSONObject);
                         }
                     }
                 }
@@ -1002,10 +1002,10 @@ public class p {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ JSONObject f31180a;
+                public final /* synthetic */ JSONObject f31290a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ p f31181b;
+                public final /* synthetic */ p f31291b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -1025,23 +1025,23 @@ public class p {
                             return;
                         }
                     }
-                    this.f31181b = this;
-                    this.f31180a = jSONObject;
+                    this.f31291b = this;
+                    this.f31290a = jSONObject;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.f31181b.j) {
-                            if (this.f31181b.f31158f != null && this.f31180a != null) {
-                                Iterator<String> keys = this.f31180a.keys();
+                        synchronized (this.f31291b.j) {
+                            if (this.f31291b.f31268f != null && this.f31290a != null) {
+                                Iterator<String> keys = this.f31290a.keys();
                                 while (keys.hasNext()) {
                                     String next = keys.next();
-                                    this.f31181b.a(this.f31181b.f31158f, next, this.f31180a.opt(next));
+                                    this.f31291b.a(this.f31291b.f31268f, next, this.f31290a.opt(next));
                                 }
-                                this.f31181b.f31156d = Boolean.TRUE;
-                                this.f31181b.s();
+                                this.f31291b.f31266d = Boolean.TRUE;
+                                this.f31291b.s();
                             }
                         }
                     }
@@ -1058,7 +1058,7 @@ public class p {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ p f31162a;
+                public final /* synthetic */ p f31272a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -1078,20 +1078,20 @@ public class p {
                             return;
                         }
                     }
-                    this.f31162a = this;
+                    this.f31272a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.f31162a.j) {
+                        synchronized (this.f31272a.j) {
                             long currentTimeMillis = System.currentTimeMillis();
                             JSONObject jSONObject = new JSONObject();
-                            this.f31162a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                            this.f31162a.a(jSONObject, "webview_count", Integer.valueOf(com.bytedance.sdk.openadsdk.core.widget.webview.d.a().f()));
-                            this.f31162a.a(jSONObject, "available_cache_count", Integer.valueOf(com.bytedance.sdk.openadsdk.core.widget.webview.d.a().e()));
-                            this.f31162a.a(this.f31162a.f31158f, "render_start", jSONObject);
+                            this.f31272a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                            this.f31272a.a(jSONObject, "webview_count", Integer.valueOf(com.bytedance.sdk.openadsdk.core.widget.webview.d.a().f()));
+                            this.f31272a.a(jSONObject, "available_cache_count", Integer.valueOf(com.bytedance.sdk.openadsdk.core.widget.webview.d.a().e()));
+                            this.f31272a.a(this.f31272a.f31268f, "render_start", jSONObject);
                         }
                     }
                 }
@@ -1107,10 +1107,10 @@ public class p {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f31183a;
+                public final /* synthetic */ int f31293a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ p f31184b;
+                public final /* synthetic */ p f31294b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -1130,16 +1130,16 @@ public class p {
                             return;
                         }
                     }
-                    this.f31184b = this;
-                    this.f31183a = i2;
+                    this.f31294b = this;
+                    this.f31293a = i2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.f31184b.j) {
-                            this.f31184b.a(this.f31183a, (String) null);
+                        synchronized (this.f31294b.j) {
+                            this.f31294b.a(this.f31293a, (String) null);
                         }
                     }
                 }
@@ -1155,13 +1155,13 @@ public class p {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f31186a;
+                public final /* synthetic */ int f31296a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f31187b;
+                public final /* synthetic */ String f31297b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ p f31188c;
+                public final /* synthetic */ p f31298c;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -1181,24 +1181,24 @@ public class p {
                             return;
                         }
                     }
-                    this.f31188c = this;
-                    this.f31186a = i2;
-                    this.f31187b = str;
+                    this.f31298c = this;
+                    this.f31296a = i2;
+                    this.f31297b = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.f31188c.j) {
+                        synchronized (this.f31298c.j) {
                             long currentTimeMillis = System.currentTimeMillis();
                             JSONObject jSONObject = new JSONObject();
-                            this.f31188c.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                            this.f31188c.a(jSONObject, "code", Integer.valueOf(this.f31186a));
-                            if (this.f31187b != null) {
-                                this.f31188c.a(jSONObject, "msg", this.f31187b);
+                            this.f31298c.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                            this.f31298c.a(jSONObject, "code", Integer.valueOf(this.f31296a));
+                            if (this.f31297b != null) {
+                                this.f31298c.a(jSONObject, "msg", this.f31297b);
                             }
-                            this.f31188c.a(this.f31188c.f31158f, "render_error", jSONObject);
+                            this.f31298c.a(this.f31298c.f31268f, "render_error", jSONObject);
                         }
                     }
                 }
@@ -1214,10 +1214,10 @@ public class p {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ JSONObject f31196a;
+                public final /* synthetic */ JSONObject f31306a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ p f31197b;
+                public final /* synthetic */ p f31307b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -1237,21 +1237,21 @@ public class p {
                             return;
                         }
                     }
-                    this.f31197b = this;
-                    this.f31196a = jSONObject;
+                    this.f31307b = this;
+                    this.f31306a = jSONObject;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.f31197b.j) {
-                            JSONObject jSONObject2 = this.f31196a;
+                        synchronized (this.f31307b.j) {
+                            JSONObject jSONObject2 = this.f31306a;
                             if (jSONObject2 == null) {
                                 jSONObject2 = new JSONObject();
                             }
-                            this.f31197b.a(jSONObject2, "ts", Long.valueOf(System.currentTimeMillis()));
-                            this.f31197b.a(this.f31197b.f31158f, "webview_load_error", jSONObject2);
+                            this.f31307b.a(jSONObject2, "ts", Long.valueOf(System.currentTimeMillis()));
+                            this.f31307b.a(this.f31307b.f31268f, "webview_load_error", jSONObject2);
                         }
                     }
                 }
@@ -1267,19 +1267,19 @@ public class p {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f31163a;
+                public final /* synthetic */ String f31273a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ long f31164b;
+                public final /* synthetic */ long f31274b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ long f31165c;
+                public final /* synthetic */ long f31275c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ int f31166d;
+                public final /* synthetic */ int f31276d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ p f31167e;
+                public final /* synthetic */ p f31277e;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -1299,27 +1299,27 @@ public class p {
                             return;
                         }
                     }
-                    this.f31167e = this;
-                    this.f31163a = str;
-                    this.f31164b = j2;
-                    this.f31165c = j;
-                    this.f31166d = i2;
+                    this.f31277e = this;
+                    this.f31273a = str;
+                    this.f31274b = j2;
+                    this.f31275c = j;
+                    this.f31276d = i2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.f31167e.j) {
-                            if (!TextUtils.isEmpty(this.f31163a) && this.f31164b >= this.f31165c) {
+                        synchronized (this.f31277e.j) {
+                            if (!TextUtils.isEmpty(this.f31273a) && this.f31274b >= this.f31275c) {
                                 JSONObject jSONObject = new JSONObject();
-                                this.f31167e.a(jSONObject, "start_ts", Long.valueOf(this.f31165c));
-                                this.f31167e.a(jSONObject, "end_ts", Long.valueOf(this.f31164b));
-                                this.f31167e.a(jSONObject, "intercept_type", Integer.valueOf(this.f31166d));
-                                this.f31167e.a(jSONObject, "type", "intercept_html");
-                                this.f31167e.a(jSONObject, "url", this.f31163a);
-                                this.f31167e.a(jSONObject, "duration", Long.valueOf(this.f31164b - this.f31165c));
-                                this.f31167e.a(this.f31167e.f31160h, jSONObject);
+                                this.f31277e.a(jSONObject, "start_ts", Long.valueOf(this.f31275c));
+                                this.f31277e.a(jSONObject, "end_ts", Long.valueOf(this.f31274b));
+                                this.f31277e.a(jSONObject, "intercept_type", Integer.valueOf(this.f31276d));
+                                this.f31277e.a(jSONObject, "type", "intercept_html");
+                                this.f31277e.a(jSONObject, "url", this.f31273a);
+                                this.f31277e.a(jSONObject, "duration", Long.valueOf(this.f31274b - this.f31275c));
+                                this.f31277e.a(this.f31277e.f31270h, jSONObject);
                             }
                         }
                     }
@@ -1336,10 +1336,10 @@ public class p {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f31174a;
+                public final /* synthetic */ String f31284a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ p f31175b;
+                public final /* synthetic */ p f31285b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -1359,23 +1359,23 @@ public class p {
                             return;
                         }
                     }
-                    this.f31175b = this;
-                    this.f31174a = str;
+                    this.f31285b = this;
+                    this.f31284a = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.f31175b.j) {
-                            if (TextUtils.isEmpty(this.f31174a)) {
+                        synchronized (this.f31285b.j) {
+                            if (TextUtils.isEmpty(this.f31284a)) {
                                 return;
                             }
                             long currentTimeMillis = System.currentTimeMillis();
                             JSONObject jSONObject = new JSONObject();
-                            this.f31175b.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                            this.f31175b.a(jSONObject, "jsb", this.f31174a);
-                            this.f31175b.a(this.f31175b.f31158f, "webview_jsb_start", jSONObject);
+                            this.f31285b.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                            this.f31285b.a(jSONObject, "jsb", this.f31284a);
+                            this.f31285b.a(this.f31285b.f31268f, "webview_jsb_start", jSONObject);
                         }
                     }
                 }
@@ -1386,7 +1386,7 @@ public class p {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f31157e = Boolean.valueOf(z);
+            this.f31267e = Boolean.valueOf(z);
         }
     }
 
@@ -1403,12 +1403,12 @@ public class p {
                 return;
             }
         }
-        this.f31153a = "embeded_ad";
+        this.f31263a = "embeded_ad";
         Boolean bool = Boolean.FALSE;
-        this.f31155c = bool;
-        this.f31156d = bool;
-        this.f31157e = bool;
-        this.f31161i = false;
+        this.f31265c = bool;
+        this.f31266d = bool;
+        this.f31267e = bool;
+        this.f31271i = false;
         this.j = new Object();
     }
 

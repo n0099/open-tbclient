@@ -102,7 +102,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class Glide implements ComponentCallbacks2 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_DISK_CACHE_DIR = "image_manager_disk_cache";
@@ -234,7 +234,7 @@ public class Glide implements ComponentCallbacks2 {
     public static File getPhotoCacheDir(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) ? getPhotoCacheDir(context, "image_manager_disk_cache") : (File) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? getPhotoCacheDir(context, "image_manager_disk_cache") : (File) invokeL.objValue;
     }
 
     @NonNull

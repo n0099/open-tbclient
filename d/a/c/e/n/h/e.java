@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Comparator;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e implements Comparator<d> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class e implements Comparator<d> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, dVar, dVar2)) == null) {
-            int i2 = (dVar.f44345c > dVar2.f44345c ? 1 : (dVar.f44345c == dVar2.f44345c ? 0 : -1));
+            int i2 = (dVar.f41361c > dVar2.f41361c ? 1 : (dVar.f41361c == dVar2.f41361c ? 0 : -1));
             if (i2 > 0) {
                 return 1;
             }

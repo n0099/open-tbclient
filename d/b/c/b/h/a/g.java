@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.b.c.b.l;
 import d.b.c.b.m;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class g extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(Context context, b bVar, d dVar) {
-        super(com.bytedance.tea.crash.c.f32269b, context, bVar, dVar);
+        super(com.bytedance.tea.crash.c.f32379b, context, bVar, dVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,12 +43,12 @@ public class g extends c {
             a2.k("app_count", 1);
             a2.k("magic_tag", "ss_app_log");
             e(a2);
-            d.b.c.b.e.b a3 = d.b.c.b.e.b.a(this.f71870b);
+            d.b.c.b.e.b a3 = d.b.c.b.e.b.a(this.f68973b);
             a3.d(m.a().a());
             a3.c(m.d().a());
-            a3.g(this.f71871c.c());
+            a3.g(this.f68974c.c());
             a2.d(a3);
-            l.C1997l.b(a2, a3, this.f71869a);
+            l.C1966l.b(a2, a3, this.f68972a);
             return a2;
         }
         return (d.b.c.b.e.a) invokeL.objValue;

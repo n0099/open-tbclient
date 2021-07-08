@@ -10,19 +10,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class a extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f23198a;
+    public final String f23308a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f23199b;
+    public b f23309b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f23200c;
+    public boolean f23310c;
 
     public a(String str, Class cls) {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public final class a extends WebChromeClient {
                 return;
             }
         }
-        this.f23198a = "InjectedChromeClient";
-        this.f23199b = new b(str, cls);
+        this.f23308a = "InjectedChromeClient";
+        this.f23309b = new b(str, cls);
     }
 
     @Override // android.webkit.WebChromeClient
@@ -59,7 +59,7 @@ public final class a extends WebChromeClient {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            jsPromptResult.confirm(this.f23199b.a(webView, str2));
+            jsPromptResult.confirm(this.f23309b.a(webView, str2));
             return true;
         }
         return invokeLLLLL.booleanValue;
@@ -70,10 +70,10 @@ public final class a extends WebChromeClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, webView, i2) == null) {
             if (i2 <= 25) {
-                this.f23200c = false;
-            } else if (!this.f23200c) {
-                webView.loadUrl(this.f23199b.a());
-                this.f23200c = true;
+                this.f23310c = false;
+            } else if (!this.f23310c) {
+                webView.loadUrl(this.f23309b.a());
+                this.f23310c = true;
                 com.baidu.ufosdk.f.c.a("InjectedChromeClient --> inject js interface completely on progress " + i2);
             }
             super.onProgressChanged(webView, i2);

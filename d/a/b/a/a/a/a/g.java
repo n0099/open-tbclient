@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f43782a;
+    public int f40860a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f43783b;
+    public byte[] f40861b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f43784c;
+    public int f40862c;
 
     public g() {
         int i2;
@@ -35,25 +35,25 @@ public class g {
                 return;
             }
         }
-        i2 = c.f43775d;
-        this.f43782a = i2;
-        this.f43783b = new byte[i2];
+        i2 = c.f40853d;
+        this.f40860a = i2;
+        this.f40861b = new byte[i2];
     }
 
     public f a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new f(Arrays.copyOf(this.f43783b, this.f43784c)) : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new f(Arrays.copyOf(this.f40861b, this.f40862c)) : (f) invokeV.objValue;
     }
 
     public g b(byte b2) {
         InterceptResult invokeB;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeB = interceptable.invokeB(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b2)) == null) {
-            c(this.f43784c + 1);
-            byte[] bArr = this.f43783b;
-            int i2 = this.f43784c;
-            this.f43784c = i2 + 1;
+            c(this.f40862c + 1);
+            byte[] bArr = this.f40861b;
+            int i2 = this.f40862c;
+            this.f40862c = i2 + 1;
             bArr[i2] = b2;
             return this;
         }
@@ -63,14 +63,14 @@ public class g {
     public final void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            byte[] bArr = this.f43783b;
+            byte[] bArr = this.f40861b;
             if (i2 - bArr.length > 0) {
                 int length = bArr.length;
                 int i3 = length + (length >> 1);
                 if (i3 - i2 >= 0) {
                     i2 = i3;
                 }
-                this.f43783b = Arrays.copyOf(this.f43783b, i2);
+                this.f40861b = Arrays.copyOf(this.f40861b, i2);
             }
         }
     }

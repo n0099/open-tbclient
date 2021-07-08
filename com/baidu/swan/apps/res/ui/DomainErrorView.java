@@ -8,36 +8,36 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a.a2.e;
-import d.a.q0.a.g1.f;
-import d.a.q0.a.h;
-import d.a.q0.a.j2.k;
-import d.a.q0.a.j2.p.d;
-import d.a.q0.a.m2.b;
-import d.a.q0.a.v2.n0;
-import d.a.q0.a.v2.o0;
-import d.a.q0.a.v2.q0;
-/* loaded from: classes4.dex */
+import d.a.n0.a.a2.e;
+import d.a.n0.a.g1.f;
+import d.a.n0.a.h;
+import d.a.n0.a.j2.k;
+import d.a.n0.a.j2.p.d;
+import d.a.n0.a.m2.b;
+import d.a.n0.a.v2.n0;
+import d.a.n0.a.v2.o0;
+import d.a.n0.a.v2.q0;
+/* loaded from: classes3.dex */
 public class DomainErrorView extends CommonEmptyView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f11297e;
+        public final /* synthetic */ String f11314e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f11298f;
+        public final /* synthetic */ String f11315f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f11299g;
+        public final /* synthetic */ e f11316g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ DomainErrorView f11300h;
+        public final /* synthetic */ DomainErrorView f11317h;
 
         public a(DomainErrorView domainErrorView, String str, String str2, e eVar) {
             Interceptable interceptable = $ic;
@@ -54,17 +54,17 @@ public class DomainErrorView extends CommonEmptyView {
                     return;
                 }
             }
-            this.f11300h = domainErrorView;
-            this.f11297e = str;
-            this.f11298f = str2;
-            this.f11299g = eVar;
+            this.f11317h = domainErrorView;
+            this.f11314e = str;
+            this.f11315f = str2;
+            this.f11316g = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                d.a.q0.a.c1.a.t().b(this.f11299g.x(), this.f11299g.D(), this.f11299g.O(), o0.u(this.f11297e, this.f11298f));
+                d.a.n0.a.c1.a.t().b(this.f11316g.x(), this.f11316g.D(), this.f11316g.O(), o0.u(this.f11314e, this.f11315f));
             }
         }
     }
@@ -95,9 +95,9 @@ public class DomainErrorView extends CommonEmptyView {
             StringBuffer stringBuffer = new StringBuffer();
             boolean d2 = o0.d(str, stringBuffer);
             String stringBuffer2 = stringBuffer.toString();
-            setIcon(d.a.q0.a.e.aiapps_empty_icon_error);
+            setIcon(d.a.n0.a.e.aiapps_empty_icon_error);
             setTitle(h.aiapps_emptyview_domain_error_title);
-            d.a.q0.a.q2.a aVar = new d.a.q0.a.q2.a();
+            d.a.n0.a.q2.a aVar = new d.a.n0.a.q2.a();
             aVar.j(5L);
             aVar.h(41L);
             aVar.e("domain not in white list--" + stringBuffer2);
@@ -112,8 +112,8 @@ public class DomainErrorView extends CommonEmptyView {
                 this.k.setVisibility(0);
                 this.k.setOnClickListener(new a(this, format, stringBuffer2, Q));
             }
-            this.f11286f.setText(getResources().getText(h.swanapp_domain_error));
-            this.f11287g.setPadding(n0.g(70.0f), 0, n0.g(70.0f), 0);
+            this.f11303f.setText(getResources().getText(h.swanapp_domain_error));
+            this.f11304g.setPadding(n0.g(70.0f), 0, n0.g(70.0f), 0);
             String h2 = q0.n().h();
             String d3 = q0.v().d();
             d dVar = new d();

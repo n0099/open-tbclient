@@ -8,6 +8,7 @@ import android.os.IBinder;
 import android.text.TextUtils;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -26,21 +27,21 @@ import d.l.a.e.b.g.e;
 import d.l.a.e.b.l.f;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DownloadHandlerService extends Service {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f41340a;
+    public static final String f38354a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadHandlerService f41341e;
+        public final /* synthetic */ DownloadHandlerService f38355e;
 
         public a(DownloadHandlerService downloadHandlerService) {
             Interceptable interceptable = $ic;
@@ -57,7 +58,7 @@ public class DownloadHandlerService extends Service {
                     return;
                 }
             }
-            this.f41341e = downloadHandlerService;
+            this.f38355e = downloadHandlerService;
         }
 
         @Override // java.lang.Runnable
@@ -76,19 +77,19 @@ public class DownloadHandlerService extends Service {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f41342e;
+        public final /* synthetic */ DownloadInfo f38356e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.f f41343f;
+        public final /* synthetic */ d.f f38357f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.l.a.e.b.f.d f41344g;
+        public final /* synthetic */ d.l.a.e.b.f.d f38358g;
 
         public b(DownloadInfo downloadInfo, d.f fVar, d.l.a.e.b.f.d dVar) {
             Interceptable interceptable = $ic;
@@ -105,9 +106,9 @@ public class DownloadHandlerService extends Service {
                     return;
                 }
             }
-            this.f41342e = downloadInfo;
-            this.f41343f = fVar;
-            this.f41344g = dVar;
+            this.f38356e = downloadInfo;
+            this.f38357f = fVar;
+            this.f38358g = dVar;
         }
 
         @Override // java.lang.Runnable
@@ -116,15 +117,15 @@ public class DownloadHandlerService extends Service {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    File file = new File(this.f41342e.getSavePath(), this.f41342e.getName());
+                    File file = new File(this.f38356e.getSavePath(), this.f38356e.getName());
                     if (file.exists()) {
                         try {
-                            String str = (e.n() == null || (i2 = d.i(this.f41342e, file)) == null) ? "" : i2.packageName;
-                            if (this.f41343f != null) {
-                                this.f41343f.b(this.f41342e.getId(), 3, str, -3, this.f41342e.getDownloadTime());
+                            String str = (e.n() == null || (i2 = d.i(this.f38356e, file)) == null) ? "" : i2.packageName;
+                            if (this.f38357f != null) {
+                                this.f38357f.b(this.f38356e.getId(), 3, str, -3, this.f38356e.getDownloadTime());
                             }
-                            if (this.f41344g != null) {
-                                this.f41344g.a(3, this.f41342e, str, "");
+                            if (this.f38358g != null) {
+                                this.f38358g.a(3, this.f38356e, str, "");
                             }
                         } catch (Exception e2) {
                             e2.printStackTrace();
@@ -150,7 +151,7 @@ public class DownloadHandlerService extends Service {
                 return;
             }
         }
-        f41340a = DownloadHandlerService.class.getSimpleName();
+        f38354a = DownloadHandlerService.class.getSimpleName();
     }
 
     public DownloadHandlerService() {
@@ -263,7 +264,7 @@ public class DownloadHandlerService extends Service {
         if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, intent, i2, i3)) == null) {
             super.onStartCommand(intent, i2, i3);
             if (d.l.a.e.b.c.a.e()) {
-                d.l.a.e.b.c.a.g(f41340a, "onStartCommand");
+                d.l.a.e.b.c.a.g(f38354a, "onStartCommand");
             }
             a(intent);
             stopSelf();
@@ -364,7 +365,7 @@ public class DownloadHandlerService extends Service {
     public static void a(Context context, DownloadInfo downloadInfo, d.f fVar, d.l.a.e.b.f.d dVar) {
         d.l.a.e.b.p.a l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65540, null, context, downloadInfo, fVar, dVar) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, downloadInfo, fVar, dVar) == null) {
             int id = downloadInfo.getId();
             i I = d.l.a.e.b.g.f.c().I(id);
             if ("application/vnd.android.package-archive".equals(downloadInfo.getMimeType()) && I != null && d.v(context, downloadInfo) && I.c(downloadInfo)) {

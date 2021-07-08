@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.module.PushChannelRegion;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class PushConfiguration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,7 +19,7 @@ public class PushConfiguration {
     public boolean mOpenHmsPush;
     public PushChannelRegion mRegion;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class PushConfigurationBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

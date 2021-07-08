@@ -1,6 +1,7 @@
 package com.yy.hiidostatis.message.storage;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +25,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class MessageSupplierProxy implements MessageSupplier {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BLACK_LIST_CAPACITY = 200;
@@ -169,7 +170,7 @@ public class MessageSupplierProxy implements MessageSupplier {
     private Message trans(List<TaskData> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, list)) == null) {
             try {
                 long wallTimeMillis = Util.wallTimeMillis();
                 StringBuilder sb = new StringBuilder();

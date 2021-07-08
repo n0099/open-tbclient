@@ -6,6 +6,7 @@ import android.util.Log;
 import android.util.LongSparseArray;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -119,7 +120,7 @@ public class ResourcesFlusher {
     public static void flushNougats(@NonNull Resources resources) {
         Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, resources) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, resources) == null) {
             if (!sResourcesImplFieldFetched) {
                 try {
                     Field declaredField = Resources.class.getDeclaredField("mResourcesImpl");

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class RequestLoggingListener implements RequestListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RequestLoggingListener";

@@ -10,15 +10,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.z0.w;
+import d.a.o0.z0.w;
 import tbclient.CommonReq;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RequestGetStickerMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f22822common;
+    public CommonReq f22882common;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RequestGetStickerMessage() {
@@ -45,7 +45,7 @@ public class RequestGetStickerMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f996common = this.f22822common;
+            builder.f996common = this.f22882common;
             if (z) {
                 w.a(builder, true);
             }
@@ -59,7 +59,7 @@ public class RequestGetStickerMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, commonReq) == null) {
-            this.f22822common = commonReq;
+            this.f22882common = commonReq;
         }
     }
 }

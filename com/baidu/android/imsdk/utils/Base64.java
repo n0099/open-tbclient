@@ -1,5 +1,6 @@
 package com.baidu.android.imsdk.utils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -123,7 +124,7 @@ public class Base64 {
     public static byte[] decode(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             try {
                 decode(str, byteArrayOutputStream);

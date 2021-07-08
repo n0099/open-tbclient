@@ -22,25 +22,25 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f4724g;
+    public static boolean f4741g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f4725h;
+    public static final String f4742h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static a f4726i;
+    public static a f4743i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f4727e;
+    public Thread.UncaughtExceptionHandler f4744e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f4728f;
+    public Context f4745f;
 
     static {
         InterceptResult invokeClinit;
@@ -55,8 +55,8 @@ public final class a implements Thread.UncaughtExceptionHandler {
                 return;
             }
         }
-        f4725h = Environment.getExternalStorageDirectory().getPath() + File.separator + n.c() + File.separator + "oom_lite" + File.separator;
-        f4726i = new a();
+        f4742h = Environment.getExternalStorageDirectory().getPath() + File.separator + n.c() + File.separator + "oom_lite" + File.separator;
+        f4743i = new a();
     }
 
     public a() {
@@ -72,8 +72,8 @@ public final class a implements Thread.UncaughtExceptionHandler {
                 return;
             }
         }
-        this.f4727e = null;
-        this.f4728f = null;
+        this.f4744e = null;
+        this.f4745f = null;
     }
 
     public static boolean a(Throwable th) {
@@ -94,18 +94,18 @@ public final class a implements Thread.UncaughtExceptionHandler {
     public static a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f4726i : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f4743i : (a) invokeV.objValue;
     }
 
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            if (this.f4727e == null) {
-                this.f4727e = Thread.getDefaultUncaughtExceptionHandler();
+            if (this.f4744e == null) {
+                this.f4744e = Thread.getDefaultUncaughtExceptionHandler();
                 Thread.setDefaultUncaughtExceptionHandler(this);
             }
-            if (this.f4728f == null) {
-                this.f4728f = context.getApplicationContext();
+            if (this.f4745f == null) {
+                this.f4745f = context.getApplicationContext();
             }
         }
     }
@@ -184,7 +184,7 @@ public final class a implements Thread.UncaughtExceptionHandler {
             java.lang.String r1 = android.util.Log.getStackTraceString(r10)
             r2 = 0
             if (r1 == 0) goto L39
-            java.util.HashMap<java.lang.String, java.util.HashMap<java.lang.String, java.lang.Object>> r3 = com.baidu.crabsdk.lite.a.f4688a
+            java.util.HashMap<java.lang.String, java.util.HashMap<java.lang.String, java.lang.Object>> r3 = com.baidu.crabsdk.lite.a.f4705a
             java.util.Set r3 = r3.keySet()
             if (r3 == 0) goto L39
             boolean r4 = r3.isEmpty()
@@ -202,10 +202,10 @@ public final class a implements Thread.UncaughtExceptionHandler {
             r2 = r4
         L39:
             if (r2 != 0) goto L48
-            java.lang.Thread$UncaughtExceptionHandler r1 = r8.f4727e
+            java.lang.Thread$UncaughtExceptionHandler r1 = r8.f4744e
             boolean r1 = r1.equals(r8)
             if (r1 != 0) goto L48
-            java.lang.Thread$UncaughtExceptionHandler r1 = r8.f4727e
+            java.lang.Thread$UncaughtExceptionHandler r1 = r8.f4744e
             r1.uncaughtException(r9, r10)
         L48:
             java.lang.StringBuilder r1 = new java.lang.StringBuilder
@@ -257,7 +257,7 @@ public final class a implements Thread.UncaughtExceptionHandler {
             java.lang.String r0 = r1.trim()
             boolean r0 = r0.equals(r4)
             if (r0 != 0) goto L1b2
-            java.util.HashMap<java.lang.String, java.util.HashMap<java.lang.String, java.lang.Object>> r0 = com.baidu.crabsdk.lite.a.f4688a
+            java.util.HashMap<java.lang.String, java.util.HashMap<java.lang.String, java.lang.Object>> r0 = com.baidu.crabsdk.lite.a.f4705a
             java.lang.Object r0 = r0.get(r2)
             java.util.HashMap r0 = (java.util.HashMap) r0
             if (r0 == 0) goto Lc8
@@ -273,7 +273,7 @@ public final class a implements Thread.UncaughtExceptionHandler {
             if (r0 == 0) goto L149
             boolean r0 = a(r10)
             if (r0 == 0) goto L149
-            java.lang.String r0 = com.baidu.crabsdk.lite.sender.a.f4725h     // Catch: java.lang.Throwable -> L133
+            java.lang.String r0 = com.baidu.crabsdk.lite.sender.a.f4742h     // Catch: java.lang.Throwable -> L133
             java.io.File r1 = new java.io.File     // Catch: java.lang.Throwable -> L133
             r1.<init>(r0)     // Catch: java.lang.Throwable -> L133
             boolean r4 = r1.exists()     // Catch: java.lang.Throwable -> L133
@@ -328,8 +328,8 @@ public final class a implements Thread.UncaughtExceptionHandler {
             if (r0 == 0) goto L1b2
             boolean r0 = com.baidu.crabsdk.lite.sender.c.h(r2, r10)
             if (r0 == 0) goto L1b2
-            com.baidu.crabsdk.lite.sender.a.f4724g = r3
-            android.content.Context r0 = r8.f4728f
+            com.baidu.crabsdk.lite.sender.a.f4741g = r3
+            android.content.Context r0 = r8.f4745f
             if (r0 == 0) goto L180
             if (r9 == 0) goto L180
             if (r10 != 0) goto L166
@@ -338,17 +338,17 @@ public final class a implements Thread.UncaughtExceptionHandler {
             java.util.Map r0 = com.baidu.crabsdk.lite.sender.b.b(r2, r0, r10)
             if (r0 == 0) goto L180
             java.lang.String r0 = com.baidu.crabsdk.lite.sender.d.b(r2, r0)
-            android.content.Context r1 = r8.f4728f
+            android.content.Context r1 = r8.f4745f
             com.baidu.crabsdk.lite.sender.d.e(r2, r1, r0)
             com.baidu.crabsdk.lite.sender.c.k(r2, r10)
             com.baidu.crabsdk.lite.sender.c.c(r2)
-            android.content.Context r0 = r8.f4728f
+            android.content.Context r0 = r8.f4745f
             com.baidu.crabsdk.lite.sender.e.c(r2, r0)
         L180:
             long r0 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Exception -> L1ae
         L184:
             long r3 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Exception -> L1ae
-            boolean r5 = com.baidu.crabsdk.lite.sender.a.f4724g     // Catch: java.lang.Exception -> L1ae
+            boolean r5 = com.baidu.crabsdk.lite.sender.a.f4741g     // Catch: java.lang.Exception -> L1ae
             if (r5 == 0) goto L1a4
             java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: java.lang.Exception -> L1ae
             java.lang.String r6 = "^^ upload finished()! --> cost : "
@@ -372,10 +372,10 @@ public final class a implements Thread.UncaughtExceptionHandler {
             r0 = move-exception
             r0.printStackTrace()
         L1b2:
-            java.lang.Thread$UncaughtExceptionHandler r0 = r8.f4727e
+            java.lang.Thread$UncaughtExceptionHandler r0 = r8.f4744e
             boolean r0 = r0.equals(r8)
             if (r0 != 0) goto L1bf
-            java.lang.Thread$UncaughtExceptionHandler r0 = r8.f4727e
+            java.lang.Thread$UncaughtExceptionHandler r0 = r8.f4744e
             r0.uncaughtException(r9, r10)
         L1bf:
             return

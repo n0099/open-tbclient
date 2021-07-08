@@ -17,6 +17,7 @@ import android.telephony.PhoneNumberUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import android.webkit.MimeTypeMap;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -29,15 +30,15 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class VDeviceAPI {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static PowerManager.WakeLock f8016a;
+    public static PowerManager.WakeLock f8033a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static BroadcastReceiver f8017b;
+    public static BroadcastReceiver f8034b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -96,7 +97,7 @@ public class VDeviceAPI {
     public static String getCachePath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? Environment.getDataDirectory().getAbsolutePath() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Environment.getDataDirectory().getAbsolutePath() : (String) invokeV.objValue;
     }
 
     public static int getCurrentNetworkType() {
@@ -389,8 +390,8 @@ public class VDeviceAPI {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65562, null) == null) {
             unsetNetworkChangedCallback();
-            f8017b = new a();
-            b.a().registerReceiver(f8017b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+            f8034b = new a();
+            b.a().registerReceiver(f8034b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
         }
     }
 
@@ -398,18 +399,18 @@ public class VDeviceAPI {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65563, null, z) == null) {
             if (z) {
-                if (f8016a == null) {
-                    f8016a = ((PowerManager) b.a().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
+                if (f8033a == null) {
+                    f8033a = ((PowerManager) b.a().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
                 }
-                f8016a.acquire();
+                f8033a.acquire();
                 return;
             }
-            PowerManager.WakeLock wakeLock = f8016a;
+            PowerManager.WakeLock wakeLock = f8033a;
             if (wakeLock == null || !wakeLock.isHeld()) {
                 return;
             }
-            f8016a.release();
-            f8016a = null;
+            f8033a.release();
+            f8033a = null;
         }
     }
 
@@ -424,10 +425,10 @@ public class VDeviceAPI {
 
     public static void unsetNetworkChangedCallback() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65565, null) == null) || f8017b == null) {
+        if (!(interceptable == null || interceptable.invokeV(65565, null) == null) || f8034b == null) {
             return;
         }
-        b.a().unregisterReceiver(f8017b);
-        f8017b = null;
+        b.a().unregisterReceiver(f8034b);
+        f8034b = null;
     }
 }

@@ -1,47 +1,69 @@
 package d.a.o0.q;
 
-import android.database.ContentObserver;
-import android.os.Handler;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public class a extends ContentObserver {
+import d.a.o0.e0.b;
+import java.util.ArrayList;
+import java.util.Iterator;
+/* loaded from: classes7.dex */
+public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f46468a;
+    public ArrayList<b> f52256a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(c cVar) {
-        super(null);
+    /* renamed from: b  reason: collision with root package name */
+    public Context f52257b;
+
+    public a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cVar};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super((Handler) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f46468a = cVar;
+        this.f52256a = new ArrayList<>();
+        this.f52257b = context;
     }
 
-    @Override // android.database.ContentObserver
-    public void onChange(boolean z) {
-        c cVar;
+    public void a(b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (cVar = this.f46468a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null || bVar.getFragmentTabStructure() == null) {
             return;
         }
-        cVar.f46471b = cVar.f46470a.a(0, null);
+        Iterator<b> it = this.f52256a.iterator();
+        while (it.hasNext()) {
+            b next = it.next();
+            if (next != null && next.getFragmentTabStructure() != null && next.getFragmentTabStructure().f51960e == bVar.getFragmentTabStructure().f51960e) {
+                return;
+            }
+        }
+        this.f52256a.add(bVar);
+    }
+
+    public Context b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52257b : (Context) invokeV.objValue;
+    }
+
+    public ArrayList<b> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f52256a : (ArrayList) invokeV.objValue;
     }
 }

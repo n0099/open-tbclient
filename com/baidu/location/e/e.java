@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Proxy;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -17,26 +18,26 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ConectivityUtils;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f6777a;
+    public static String f6794a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f6778b;
+    public static int f6795b;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f6779g;
+    public static int f6796g;
     public static int p;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f6780h;
+    public String f6797h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f6781i;
+    public int f6798i;
     public String j;
     public Map<String, Object> k;
     public String l;
@@ -57,9 +58,9 @@ public abstract class e {
                 return;
             }
         }
-        f6779g = a.f6746g;
-        f6777a = "10.0.0.172";
-        f6778b = 80;
+        f6796g = a.f6763g;
+        f6794a = "10.0.0.172";
+        f6795b = 80;
         p = 0;
     }
 
@@ -76,8 +77,8 @@ public abstract class e {
                 return;
             }
         }
-        this.f6780h = null;
-        this.f6781i = 1;
+        this.f6797h = null;
+        this.f6798i = 1;
         this.j = null;
         this.k = null;
         this.l = null;
@@ -105,27 +106,27 @@ public abstract class e {
                     if (defaultHost != null && !defaultHost.equals("") && !defaultHost.equals(StringUtil.NULL_STRING)) {
                         str2 = defaultHost;
                     }
-                    f6777a = str2;
-                    return a.f6743d;
+                    f6794a = str2;
+                    return a.f6760d;
                 } else if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
                     String defaultHost2 = Proxy.getDefaultHost();
                     if (defaultHost2 != null && !defaultHost2.equals("") && !defaultHost2.equals(StringUtil.NULL_STRING)) {
                         str = defaultHost2;
                     }
-                    f6777a = str;
-                    return a.f6743d;
+                    f6794a = str;
+                    return a.f6760d;
                 } else if (lowerCase.startsWith(ConectivityUtils.APN_CMNET) || lowerCase.startsWith(ConectivityUtils.APN_UNINET) || lowerCase.startsWith(ConectivityUtils.APN_CTNET) || lowerCase.startsWith(ConectivityUtils.APN_3GNET)) {
-                    return a.f6744e;
+                    return a.f6761e;
                 }
             }
             String defaultHost3 = Proxy.getDefaultHost();
             if (defaultHost3 != null && defaultHost3.length() > 0) {
                 if (!"10.0.0.172".equals(defaultHost3.trim())) {
                 }
-                f6777a = str2;
-                return a.f6743d;
+                f6794a = str2;
+                return a.f6760d;
             }
-            return a.f6744e;
+            return a.f6761e;
         }
         return invokeLL.intValue;
     }
@@ -133,8 +134,8 @@ public abstract class e {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
-            f6779g = c();
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            f6796g = c();
         }
     }
 
@@ -146,19 +147,19 @@ public abstract class e {
             try {
                 ConnectivityManager connectivityManager = (ConnectivityManager) serviceContext.getSystemService("connectivity");
                 if (connectivityManager == null) {
-                    return a.f6746g;
+                    return a.f6763g;
                 }
                 NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
                 if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
                     if (activeNetworkInfo.getType() == 1) {
                         String defaultHost = Proxy.getDefaultHost();
-                        return (defaultHost == null || defaultHost.length() <= 0) ? a.f6745f : a.f6747h;
+                        return (defaultHost == null || defaultHost.length() <= 0) ? a.f6762f : a.f6764h;
                     }
                     return a(serviceContext, activeNetworkInfo);
                 }
-                return a.f6746g;
+                return a.f6763g;
             } catch (Exception unused) {
-                return a.f6746g;
+                return a.f6763g;
             }
         }
         return invokeV.intValue;

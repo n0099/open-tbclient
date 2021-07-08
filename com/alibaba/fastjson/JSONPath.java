@@ -1760,7 +1760,7 @@ public class JSONPath implements JSONAware {
                     }
                 } else if (c2 == '!') {
                     next();
-                    accept(a.f1889h);
+                    accept(a.f1890h);
                     operator = Operator.NE;
                 } else if (c2 == '<') {
                     next();
@@ -3485,7 +3485,7 @@ public class JSONPath implements JSONAware {
         Object d2;
         Object f2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, obj, obj2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, obj2)) == null) {
             if (obj.getClass() == obj2.getClass()) {
                 return ((Comparable) obj).compareTo(obj2);
             }

@@ -4,6 +4,7 @@ import android.media.session.MediaController;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -56,7 +57,7 @@ public class MediaControllerCompatApi24 {
 
         public static void prepareFromUri(Object obj, Uri uri, Bundle bundle) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(65540, null, obj, uri, bundle) == null) {
+            if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, uri, bundle) == null) {
                 ((MediaController.TransportControls) obj).prepareFromUri(uri, bundle);
             }
         }

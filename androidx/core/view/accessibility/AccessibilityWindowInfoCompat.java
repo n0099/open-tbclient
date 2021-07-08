@@ -62,7 +62,7 @@ public class AccessibilityWindowInfoCompat {
     public static AccessibilityWindowInfoCompat wrapNonNullInstance(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) {
             if (obj != null) {
                 return new AccessibilityWindowInfoCompat(obj);
             }

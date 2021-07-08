@@ -4,39 +4,39 @@ import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.Format;
 import d.f.b.a.g;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public interface r extends g.a {
     boolean b();
 
-    boolean e();
+    int e();
 
-    void f(t tVar, Format[] formatArr, d.f.b.a.d0.o oVar, long j, boolean z, long j2) throws ExoPlaybackException;
+    boolean f();
+
+    void g(t tVar, Format[] formatArr, d.f.b.a.d0.o oVar, long j, boolean z, long j2) throws ExoPlaybackException;
 
     int getState();
 
     d.f.b.a.d0.o getStream();
 
-    int getTrackType();
-
-    void h();
-
-    boolean i();
+    void i();
 
     boolean isReady();
 
-    void j(long j, long j2) throws ExoPlaybackException;
+    boolean j();
 
-    void k(long j) throws ExoPlaybackException;
+    void k(long j, long j2) throws ExoPlaybackException;
 
-    d.f.b.a.i0.h l();
+    void l(long j) throws ExoPlaybackException;
 
-    void m();
+    d.f.b.a.i0.h m();
 
-    void n() throws IOException;
+    void n();
 
-    s o();
+    void o() throws IOException;
 
-    void r(Format[] formatArr, d.f.b.a.d0.o oVar, long j) throws ExoPlaybackException;
+    s p();
+
+    void s(Format[] formatArr, d.f.b.a.d0.o oVar, long j) throws ExoPlaybackException;
 
     void setIndex(int i2);
 

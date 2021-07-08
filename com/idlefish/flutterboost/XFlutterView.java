@@ -44,7 +44,7 @@ import io.flutter.view.AccessibilityBridge;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class XFlutterView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public class XFlutterView extends FrameLayout {
     public final FlutterRenderer.ViewportMetrics viewportMetrics;
 
     /* renamed from: com.idlefish.flutterboost.XFlutterView$3  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$io$flutter$embedding$android$FlutterView$RenderMode;
         public static /* synthetic */ Interceptable $ic;

@@ -15,7 +15,7 @@ import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.IYYPayAmountView;
 import tv.athena.revenue.payui.view.IYYPayResultView;
 import tv.athena.revenue.payui.view.IYYPayWayView;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public interface b {
     void a(Activity activity, i.a.a.e.l.c cVar, i.a.a.e.l.a aVar, AppCustomExpand appCustomExpand, IPayCallback iPayCallback, String str);
 

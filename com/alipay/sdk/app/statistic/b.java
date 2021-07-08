@@ -15,10 +15,10 @@ public final class b implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f1820a;
+    public final /* synthetic */ Context f1821a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f1821b;
+    public final /* synthetic */ String f1822b;
 
     public b(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public final class b implements Runnable {
                 return;
             }
         }
-        this.f1820a = context;
-        this.f1821b = str;
+        this.f1821a = context;
+        this.f1822b = str;
     }
 
     @Override // java.lang.Runnable
@@ -45,19 +45,19 @@ public final class b implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             d dVar = new d();
             try {
-                String b2 = j.b(this.f1820a, a.f1818a, null);
-                if (!TextUtils.isEmpty(b2) && dVar.a(this.f1820a, b2) != null) {
-                    j.b(this.f1820a, a.f1818a);
+                String b2 = j.b(this.f1821a, a.f1819a, null);
+                if (!TextUtils.isEmpty(b2) && dVar.a(this.f1821a, b2) != null) {
+                    j.b(this.f1821a, a.f1819a);
                 }
             } catch (Throwable unused) {
             }
             try {
-                if (TextUtils.isEmpty(this.f1821b)) {
+                if (TextUtils.isEmpty(this.f1822b)) {
                     return;
                 }
-                dVar.a(this.f1820a, this.f1821b);
+                dVar.a(this.f1821a, this.f1822b);
             } catch (IOException unused2) {
-                j.a(this.f1820a, a.f1818a, this.f1821b);
+                j.a(this.f1821a, a.f1819a, this.f1822b);
             } catch (Throwable unused3) {
             }
         }

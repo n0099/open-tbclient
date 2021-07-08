@@ -1,0 +1,88 @@
+package d.a.n0.r;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class h {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public final String f51017a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final int f51018b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final int f51019c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public long f51020d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f51021e;
+
+    public h(String str, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f51017a = str;
+        this.f51018b = i2;
+        this.f51019c = i3;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51017a : (String) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.f51018b != 0 && this.f51019c != 0) {
+                long currentTimeMillis = System.currentTimeMillis();
+                long j = this.f51020d;
+                if (j != 0 && (currentTimeMillis - j) / 1000 <= this.f51018b && this.f51021e >= this.f51019c) {
+                    return true;
+                }
+                long j2 = this.f51020d;
+                if (j2 == 0) {
+                    this.f51020d = currentTimeMillis;
+                } else if ((currentTimeMillis - j2) / 1000 > this.f51018b) {
+                    this.f51020d = currentTimeMillis;
+                    this.f51021e = 0;
+                }
+                this.f51021e++;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i2 = this.f51021e;
+            return i2 != 0 && i2 == this.f51019c;
+        }
+        return invokeV.booleanValue;
+    }
+}

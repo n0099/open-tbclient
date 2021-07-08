@@ -11,21 +11,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f42734a;
+    public a f39748a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<BaseService> f42735a;
+        public WeakReference<BaseService> f39749a;
 
         public a(WeakReference<BaseService> weakReference) {
             Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public abstract class BaseService extends Service {
                     return;
                 }
             }
-            this.f42735a = weakReference;
+            this.f39749a = weakReference;
         }
 
         public void a() {
@@ -60,7 +60,7 @@ public abstract class BaseService extends Service {
             WeakReference<BaseService> weakReference;
             BaseService baseService;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) || message.what != 1001 || (weakReference = this.f42735a) == null || (baseService = weakReference.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) || message.what != 1001 || (weakReference = this.f39749a) == null || (baseService = weakReference.get()) == null) {
                 return;
             }
             com.xiaomi.channel.commonutils.logger.b.c("TimeoutHandler" + baseService.toString() + "  kill self");
@@ -105,10 +105,10 @@ public abstract class BaseService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, intent, i2) == null) {
             super.onStart(intent, i2);
-            if (this.f42734a == null) {
-                this.f42734a = new a(new WeakReference(this));
+            if (this.f39748a == null) {
+                this.f39748a = new a(new WeakReference(this));
             }
-            this.f42734a.a();
+            this.f39748a.a();
         }
     }
 }

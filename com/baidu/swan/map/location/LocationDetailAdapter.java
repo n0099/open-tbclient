@@ -12,32 +12,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.j.f;
-import d.a.q0.j.o.b;
-import d.a.q0.j.o.c;
+import d.a.n0.j.f;
+import d.a.n0.j.o.b;
+import d.a.n0.j.o.c;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f11979a;
+    public Context f11996a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RecyclerView f11980b;
+    public RecyclerView f11997b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<c> f11981c;
+    public List<c> f11998c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f11982d;
+    public b f11999d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f11983e;
+    public boolean f12000e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f11984f;
+    public String f12001f;
 
     public LocationDetailAdapter(Context context, RecyclerView recyclerView, b bVar, boolean z) {
         Interceptable interceptable = $ic;
@@ -54,22 +54,57 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                 return;
             }
         }
-        this.f11980b = recyclerView;
-        this.f11979a = context;
-        this.f11982d = bVar;
-        this.f11983e = z;
+        this.f11997b = recyclerView;
+        this.f11996a = context;
+        this.f11999d = bVar;
+        this.f12000e = z;
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.f12001f) : invokeV.booleanValue;
+    }
+
+    public final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            RecyclerView recyclerView = this.f11997b;
+            return recyclerView != null && recyclerView.computeVerticalScrollOffset() > 0;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            for (c cVar : this.f11998c) {
+                cVar.f50520b = false;
+            }
+        }
+    }
+
+    public void g(List<c> list, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, list, str) == null) || list == null) {
+            return;
+        }
+        this.f11998c = list;
+        this.f12001f = str;
+        notifyDataSetChanged();
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<c> list = this.f11981c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            List<c> list = this.f11998c;
             if (list == null) {
                 return 0;
             }
-            return list.size() + (this.f11983e ? 1 : 0);
+            return list.size() + (this.f12000e ? 1 : 0);
         }
         return invokeV.intValue;
     }
@@ -78,42 +113,17 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     public int getItemViewType(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (!this.f11983e || i2 < getItemCount() + (-1)) ? 100 : 101 : invokeI.intValue;
-    }
-
-    public final boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !TextUtils.isEmpty(this.f11984f) : invokeV.booleanValue;
-    }
-
-    public final boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RecyclerView recyclerView = this.f11980b;
-            return recyclerView != null && recyclerView.computeVerticalScrollOffset() > 0;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            for (c cVar : this.f11981c) {
-                cVar.f53822b = false;
-            }
-        }
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? (!this.f12000e || i2 < getItemCount() + (-1)) ? 100 : 101 : invokeI.intValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, viewHolder, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048582, this, viewHolder, i2) == null) {
             if (viewHolder.getItemViewType() != 101) {
-                ((LocationDetailViewHolder) viewHolder).c(this.f11981c.get(i2), this.f11984f, m());
+                ((LocationDetailViewHolder) viewHolder).c(this.f11998c.get(i2), this.f12001f, d());
             } else {
-                ((LocationFooterViewHolder) viewHolder).b(n());
+                ((LocationFooterViewHolder) viewHolder).b(e());
             }
         }
     }
@@ -122,29 +132,19 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i2)) == null) {
             if (i2 != 101) {
-                return new LocationDetailViewHolder(LayoutInflater.from(this.f11979a).inflate(f.ai_apps_location_item, viewGroup, false), this, this.f11982d);
+                return new LocationDetailViewHolder(LayoutInflater.from(this.f11996a).inflate(f.ai_apps_location_item, viewGroup, false), this, this.f11999d);
             }
-            return new LocationFooterViewHolder(LayoutInflater.from(this.f11979a).inflate(f.ai_apps_location_footer, viewGroup, false));
+            return new LocationFooterViewHolder(LayoutInflater.from(this.f11996a).inflate(f.ai_apps_location_footer, viewGroup, false));
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
-    }
-
-    public void p(List<c> list, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048583, this, list, str) == null) || list == null) {
-            return;
-        }
-        this.f11981c = list;
-        this.f11984f = str;
-        notifyDataSetChanged();
     }
 
     public void setData(List<c> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
-            p(list, null);
+            g(list, null);
         }
     }
 

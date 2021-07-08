@@ -14,22 +14,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class RimLivenessBaseDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f6207a;
+    public TextView f6224a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f6208b;
+    public LinearLayout f6225b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Button f6209c;
+    public Button f6226c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Button f6210d;
+    public Button f6227d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RimLivenessBaseDialog(Context context) {
@@ -57,10 +57,10 @@ public class RimLivenessBaseDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             setContentView(R.layout.rim_liveness_alert_dialog_base);
-            this.f6207a = (TextView) findViewById(R.id.dialog_title);
-            this.f6208b = (LinearLayout) findViewById(R.id.dialog_content);
-            this.f6209c = (Button) findViewById(R.id.positive_btn);
-            this.f6210d = (Button) findViewById(R.id.negative_btn);
+            this.f6224a = (TextView) findViewById(R.id.dialog_title);
+            this.f6225b = (LinearLayout) findViewById(R.id.dialog_content);
+            this.f6226c = (Button) findViewById(R.id.positive_btn);
+            this.f6227d = (Button) findViewById(R.id.negative_btn);
             setCancelable(false);
         }
     }
@@ -68,7 +68,7 @@ public class RimLivenessBaseDialog extends Dialog {
     public void addContentView(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            LayoutInflater.from(getContext()).inflate(i2, (ViewGroup) this.f6208b, true);
+            LayoutInflater.from(getContext()).inflate(i2, (ViewGroup) this.f6225b, true);
         }
     }
 
@@ -76,17 +76,17 @@ public class RimLivenessBaseDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, onClickListener) == null) {
             findViewById(R.id.btn_line).setVisibility(0);
-            this.f6210d.setVisibility(0);
-            this.f6210d.setText(charSequence);
-            this.f6210d.setOnClickListener(onClickListener);
+            this.f6227d.setVisibility(0);
+            this.f6227d.setText(charSequence);
+            this.f6227d.setOnClickListener(onClickListener);
         }
     }
 
     public void setPositiveBtnClickListener(CharSequence charSequence, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, charSequence, onClickListener) == null) {
-            this.f6209c.setText(charSequence);
-            this.f6209c.setOnClickListener(onClickListener);
+            this.f6226c.setText(charSequence);
+            this.f6226c.setOnClickListener(onClickListener);
         }
     }
 
@@ -102,7 +102,7 @@ public class RimLivenessBaseDialog extends Dialog {
             int dimension = (int) getContext().getResources().getDimension(R.dimen.rim_dimen_20dp);
             textView.setPadding(dimension, dimension, dimension, dimension);
             textView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            this.f6208b.addView(textView);
+            this.f6225b.addView(textView);
         }
     }
 
@@ -110,7 +110,7 @@ public class RimLivenessBaseDialog extends Dialog {
     public void setTitle(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, charSequence) == null) {
-            this.f6207a.setText(charSequence);
+            this.f6224a.setText(charSequence);
         }
     }
 

@@ -1,5 +1,6 @@
 package com.google.gson;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -24,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SIMPLE_NAME = "DefaultDateTypeAdapter";
@@ -151,12 +152,12 @@ public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {cls, str};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }

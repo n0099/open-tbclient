@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
 import androidx.annotation.Keep;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -44,7 +45,7 @@ import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class WebKitFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARCH_ARM = "armv";
@@ -104,7 +105,7 @@ public final class WebKitFactory {
     public static boolean sZeusSupportedLoaded;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class DelayedInitTask extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -297,7 +298,7 @@ public final class WebKitFactory {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface IForceInitZeusListener {
         @Keep
         void onForceInitZeusFinish(boolean z);
@@ -307,7 +308,7 @@ public final class WebKitFactory {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class SwitchState {
         public static final /* synthetic */ SwitchState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -368,7 +369,7 @@ public final class WebKitFactory {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface WebkitInstallListener {
         public static final int RET_CANCELED = 3;
         public static final int RET_FAILED_ALREADY_RUNNING = 8;
@@ -460,7 +461,7 @@ public final class WebKitFactory {
     public static void RecordUrl(String str) {
         WebViewFactoryProvider provider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, null, str) == null) || (provider = WebViewFactory.getProvider()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) || (provider = WebViewFactory.getProvider()) == null) {
             return;
         }
         provider.RecordUrl(str);

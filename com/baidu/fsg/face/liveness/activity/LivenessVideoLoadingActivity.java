@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.restnet.beans.BeanManager;
@@ -26,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_VIDEOGETPORTRAITMODEL = "VideoGetPortraitModel";
@@ -34,7 +35,7 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LoadingDialog f5892a;
+    public LoadingDialog f5909a;
 
     public LivenessVideoLoadingActivity() {
         Interceptable interceptable = $ic;
@@ -60,19 +61,19 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
 
     private void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.f5892a == null) {
+        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.f5909a == null) {
             return;
         }
-        if (isFinishing() && this.f5892a.isShowing()) {
+        if (isFinishing() && this.f5909a.isShowing()) {
             return;
         }
-        this.f5892a.dismiss();
+        this.f5909a.dismiss();
         finish();
     }
 
     private void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             o oVar = (o) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 9, TAG);
             oVar.setResponseCallback(this);
             oVar.execBean();
@@ -91,7 +92,7 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(this.livenessRecogDTO.getSpno() + "");
                 arrayList.add(TextUtils.isEmpty(this.livenessRecogDTO.processid) ? "" : this.livenessRecogDTO.processid);
-                RimStatisticsUtil.onEventEndWithValues(d.f6006e, i3, arrayList);
+                RimStatisticsUtil.onEventEndWithValues(d.f6023e, i3, arrayList);
             }
             b();
             LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
@@ -176,16 +177,16 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
         LoadingDialog loadingDialog;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
-            if (this.f5892a == null) {
+            if (this.f5909a == null) {
                 LoadingDialog loadingDialog2 = new LoadingDialog(context);
-                this.f5892a = loadingDialog2;
+                this.f5909a = loadingDialog2;
                 loadingDialog2.setMessage(context.getString(R.string.sapi_liveness_recog_loading));
-                this.f5892a.setCancelable(false);
+                this.f5909a.setCancelable(false);
             }
-            if (((Activity) context).isFinishing() || (loadingDialog = this.f5892a) == null || loadingDialog.isShowing()) {
+            if (((Activity) context).isFinishing() || (loadingDialog = this.f5909a) == null || loadingDialog.isShowing()) {
                 return;
             }
-            this.f5892a.show();
+            this.f5909a.show();
         }
     }
 }

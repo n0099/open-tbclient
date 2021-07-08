@@ -1,5 +1,5 @@
 package com.kwai.filedownloader.e;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface a {
     void a();
 

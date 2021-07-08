@@ -3,6 +3,7 @@ package com.baidu.ar.auth;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.auth.k;
 import com.baidu.ar.bean.ARConfig;
@@ -64,7 +65,7 @@ public class c implements k {
     private JSONObject k(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 o.g(jSONObject);

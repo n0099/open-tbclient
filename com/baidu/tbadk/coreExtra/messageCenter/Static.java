@@ -14,19 +14,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.r0.s.d.b;
-/* loaded from: classes4.dex */
+import d.a.o0.s.d.b;
+/* loaded from: classes3.dex */
 public class Static {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements CustomMessageTask.CustomRunnable<AccountData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.tbadk.coreExtra.messageCenter.Static$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class RunnableC0185a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

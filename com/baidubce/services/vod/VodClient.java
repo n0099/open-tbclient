@@ -1,5 +1,6 @@
 package com.baidubce.services.vod;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -28,7 +29,7 @@ import com.baidubce.util.CheckUtils;
 import com.baidubce.util.HttpUtils;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class VodClient extends AbstractBceClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SOURCE_EXTENSION_LENGTH = 10;
@@ -119,7 +120,7 @@ public class VodClient extends AbstractBceClient {
     private String getFileExtension(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
             if (str != null && str.lastIndexOf(".") != -1) {
                 String substring = str.substring(str.lastIndexOf(".") + 1);
                 if (substring.length() <= 0 || substring.length() > 10 || !substring.matches(VALID_EXTENSION_PATTERN)) {

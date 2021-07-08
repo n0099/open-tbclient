@@ -1,5 +1,6 @@
 package com.facebook.soloader;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,7 +15,7 @@ import java.nio.ByteOrder;
 import java.nio.channels.FileChannel;
 import kotlin.UShort;
 import okhttp3.internal.ws.WebSocketProtocol;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class MinElf {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DT_NEEDED = 1;
@@ -26,7 +27,7 @@ public final class MinElf {
     public static final int PT_LOAD = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ElfError extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -93,7 +94,7 @@ public final class MinElf {
     public static String getSz(FileChannel fileChannel, ByteBuffer byteBuffer, long j) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{fileChannel, byteBuffer, Long.valueOf(j)})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{fileChannel, byteBuffer, Long.valueOf(j)})) != null) {
             return (String) invokeCommon.objValue;
         }
         StringBuilder sb = new StringBuilder();

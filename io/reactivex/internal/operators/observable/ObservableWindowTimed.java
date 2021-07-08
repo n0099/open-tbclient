@@ -25,7 +25,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstream<T, Observable<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
     public final long timespan;
     public final TimeUnit unit;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class WindowExactBoundedObserver<T> extends QueueDrainObserver<T, Object, Observable<T>> implements Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
         public UnicastSubject<T> window;
         public final Scheduler.Worker worker;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes9.dex */
         public static final class ConsumerIndexHolder implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -325,7 +325,7 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class WindowExactUnboundedObserver<T> extends QueueDrainObserver<T, Object, Observable<T>> implements Observer<T>, Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic;
         public static final Object NEXT;
@@ -545,7 +545,7 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class WindowSkipObserver<T> extends QueueDrainObserver<T, Object, Observable<T>> implements Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -558,7 +558,7 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
         public final List<UnicastSubject<T>> windows;
         public final Scheduler.Worker worker;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes9.dex */
         public final class CompletionTask implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -593,7 +593,7 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes9.dex */
         public static final class SubjectWork<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

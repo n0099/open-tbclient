@@ -45,7 +45,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ImagePipeline {
     public static /* synthetic */ Interceptable $ic;
     public static final CancellationException PREFETCH_EXCEPTION;
@@ -64,7 +64,7 @@ public class ImagePipeline {
     public final ThreadHandoffProducerQueue mThreadHandoffProducerQueue;
 
     /* renamed from: com.facebook.imagepipeline.core.ImagePipeline$8  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass8 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$imagepipeline$request$ImageRequest$CacheChoice;
         public static /* synthetic */ Interceptable $ic;
@@ -188,7 +188,7 @@ public class ImagePipeline {
         InterceptResult invokeLLLLL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65540, this, producer, imageRequest, requestLevel, obj, requestListener)) == null) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, producer, imageRequest, requestLevel, obj, requestListener)) == null) {
             if (FrescoSystrace.isTracing()) {
                 FrescoSystrace.beginSection("ImagePipeline#submitFetchRequest");
             }

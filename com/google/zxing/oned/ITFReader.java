@@ -1,5 +1,6 @@
 package com.google.zxing.oned;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,7 +17,7 @@ import com.google.zxing.Result;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ITFReader extends OneDReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] DEFAULT_ALLOWED_LENGTHS;
@@ -108,7 +109,7 @@ public final class ITFReader extends OneDReader {
 
     public static void decodeMiddle(BitArray bitArray, int i2, int i3, StringBuilder sb) throws NotFoundException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{bitArray, Integer.valueOf(i2), Integer.valueOf(i3), sb}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bitArray, Integer.valueOf(i2), Integer.valueOf(i3), sb}) == null) {
             int[] iArr = new int[10];
             int[] iArr2 = new int[5];
             int[] iArr3 = new int[5];

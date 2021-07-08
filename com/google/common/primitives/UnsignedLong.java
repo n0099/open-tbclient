@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.d.a.n;
 import java.io.Serializable;
 import java.math.BigInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class UnsignedLong extends Number implements Comparable<UnsignedLong>, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final UnsignedLong MAX_VALUE;
@@ -228,7 +228,7 @@ public final class UnsignedLong extends Number implements Comparable<UnsignedLon
     public static UnsignedLong valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? valueOf(str, 10) : (UnsignedLong) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? valueOf(str, 10) : (UnsignedLong) invokeL.objValue;
     }
 
     public static UnsignedLong valueOf(String str, int i2) {

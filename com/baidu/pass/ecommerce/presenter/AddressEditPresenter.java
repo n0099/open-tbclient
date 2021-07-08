@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AddressEditPresenter extends BasePresenter<IBaseView> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CREATE_ADDR_CODE = 1004;

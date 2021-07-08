@@ -12,7 +12,7 @@ import com.bytedance.sdk.component.utils.r;
 import com.bytedance.sdk.openadsdk.core.o;
 import com.bytedance.sdk.openadsdk.core.video.nativevideo.c;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TTRewardExpressVideoActivity extends TTRewardVideoActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,11 +37,11 @@ public class TTRewardExpressVideoActivity extends TTRewardVideoActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) {
             j.b("TTRewardExpressVideoActivity", "bindVideoAd execute");
-            this.n.a(this.p.b(), this.f28974c, this.f28972a, x());
+            this.n.a(this.p.b(), this.f29084c, this.f29082a, x());
             HashMap hashMap = new HashMap();
             hashMap.put("dynamic_show_type", Integer.valueOf(this.p.h() ? 1 : 0));
-            if (!TextUtils.isEmpty(this.f28977f)) {
-                hashMap.put("rit_scene", this.f28977f);
+            if (!TextUtils.isEmpty(this.f29087f)) {
+                hashMap.put("rit_scene", this.f29087f);
             }
             this.n.a(hashMap);
             this.n.a(new c.a(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTRewardExpressVideoActivity.1
@@ -49,7 +49,7 @@ public class TTRewardExpressVideoActivity extends TTRewardVideoActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTRewardExpressVideoActivity f29075a;
+                public final /* synthetic */ TTRewardExpressVideoActivity f29185a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -66,20 +66,20 @@ public class TTRewardExpressVideoActivity extends TTRewardVideoActivity {
                             return;
                         }
                     }
-                    this.f29075a = this;
+                    this.f29185a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.a
                 public void a(long j2, int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-                        this.f29075a.w.removeMessages(300);
-                        this.f29075a.s();
-                        this.f29075a.p.b(true);
-                        this.f29075a.n();
-                        this.f29075a.c(false);
-                        ((TTRewardVideoActivity) this.f29075a).E = (int) (System.currentTimeMillis() / 1000);
-                        this.f29075a.C();
+                        this.f29185a.w.removeMessages(300);
+                        this.f29185a.s();
+                        this.f29185a.p.b(true);
+                        this.f29185a.n();
+                        this.f29185a.c(false);
+                        ((TTRewardVideoActivity) this.f29185a).E = (int) (System.currentTimeMillis() / 1000);
+                        this.f29185a.C();
                     }
                 }
 
@@ -87,20 +87,20 @@ public class TTRewardExpressVideoActivity extends TTRewardVideoActivity {
                 public void b(long j2, int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-                        this.f29075a.w.removeMessages(300);
-                        this.f29075a.b("onVideoError");
-                        this.f29075a.r();
-                        if (this.f29075a.n.a()) {
+                        this.f29185a.w.removeMessages(300);
+                        this.f29185a.b("onVideoError");
+                        this.f29185a.r();
+                        if (this.f29185a.n.a()) {
                             return;
                         }
-                        this.f29075a.s();
-                        this.f29075a.n.j();
-                        this.f29075a.C();
-                        if (this.f29075a.t()) {
-                            this.f29075a.n.a(1);
+                        this.f29185a.s();
+                        this.f29185a.n.j();
+                        this.f29185a.C();
+                        if (this.f29185a.t()) {
+                            this.f29185a.n.a(1);
                         }
-                        this.f29075a.p.a(true);
-                        this.f29075a.c(false);
+                        this.f29185a.p.a(true);
+                        this.f29185a.c(false);
                     }
                 }
 
@@ -108,51 +108,51 @@ public class TTRewardExpressVideoActivity extends TTRewardVideoActivity {
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f29075a.w.removeMessages(300);
-                        this.f29075a.s();
-                        this.f29075a.c(false);
-                        this.f29075a.n.a(0);
-                        this.f29075a.n.j();
+                        this.f29185a.w.removeMessages(300);
+                        this.f29185a.s();
+                        this.f29185a.c(false);
+                        this.f29185a.n.a(0);
+                        this.f29185a.n.j();
                     }
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.a
                 public void a(long j2, long j3) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || this.f29075a.q.get()) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || this.f29185a.q.get()) {
                         return;
                     }
-                    this.f29075a.w.removeMessages(300);
-                    if (j2 != this.f29075a.n.A()) {
-                        this.f29075a.s();
+                    this.f29185a.w.removeMessages(300);
+                    if (j2 != this.f29185a.n.A()) {
+                        this.f29185a.s();
                     }
-                    if (this.f29075a.n.a()) {
-                        this.f29075a.n.b(j2);
-                        int g2 = o.h().g(String.valueOf(this.f29075a.f28975d));
-                        boolean z2 = this.f29075a.p.h() && g2 >= 0;
-                        TTRewardExpressVideoActivity tTRewardExpressVideoActivity = this.f29075a;
+                    if (this.f29185a.n.a()) {
+                        this.f29185a.n.b(j2);
+                        int g2 = o.h().g(String.valueOf(this.f29185a.f29085d));
+                        boolean z2 = this.f29185a.p.h() && g2 >= 0;
+                        TTRewardExpressVideoActivity tTRewardExpressVideoActivity = this.f29185a;
                         long j4 = j2 / 1000;
                         tTRewardExpressVideoActivity.v = (int) (tTRewardExpressVideoActivity.n.z() - j4);
                         int i2 = (int) j4;
-                        if (this.f29075a.s.get() || this.f29075a.u()) {
-                            this.f29075a.n.r();
+                        if (this.f29185a.s.get() || this.f29185a.u()) {
+                            this.f29185a.n.r();
                         }
-                        this.f29075a.f28980i.c(i2);
-                        this.f29075a.a(j2, j3);
-                        TTRewardExpressVideoActivity tTRewardExpressVideoActivity2 = this.f29075a;
+                        this.f29185a.f29090i.c(i2);
+                        this.f29185a.a(j2, j3);
+                        TTRewardExpressVideoActivity tTRewardExpressVideoActivity2 = this.f29185a;
                         if (tTRewardExpressVideoActivity2.v <= 0) {
                             tTRewardExpressVideoActivity2.c(false);
                         } else if (z2 && i2 >= g2) {
                             tTRewardExpressVideoActivity2.r.getAndSet(true);
-                            this.f29075a.k.d(true);
-                            TTRewardExpressVideoActivity tTRewardExpressVideoActivity3 = this.f29075a;
+                            this.f29185a.k.d(true);
+                            TTRewardExpressVideoActivity tTRewardExpressVideoActivity3 = this.f29185a;
                             com.bytedance.sdk.openadsdk.component.reward.b.c cVar = tTRewardExpressVideoActivity3.k;
                             String valueOf = String.valueOf(tTRewardExpressVideoActivity3.v);
-                            TTRewardExpressVideoActivity tTRewardExpressVideoActivity4 = this.f29075a;
-                            cVar.a(valueOf, tTRewardExpressVideoActivity4.getString(r.b(tTRewardExpressVideoActivity4.f28973b, "tt_reward_screen_skip_tx")));
-                            this.f29075a.k.f(true);
+                            TTRewardExpressVideoActivity tTRewardExpressVideoActivity4 = this.f29185a;
+                            cVar.a(valueOf, tTRewardExpressVideoActivity4.getString(r.b(tTRewardExpressVideoActivity4.f29083b, "tt_reward_screen_skip_tx")));
+                            this.f29185a.k.f(true);
                         } else {
-                            TTRewardExpressVideoActivity tTRewardExpressVideoActivity5 = this.f29075a;
+                            TTRewardExpressVideoActivity tTRewardExpressVideoActivity5 = this.f29185a;
                             tTRewardExpressVideoActivity5.k.a(String.valueOf(tTRewardExpressVideoActivity5.v), null);
                         }
                     }

@@ -10,19 +10,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class EditorInfoView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21074e;
+    public int f21120e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21075f;
+    public int f21121f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21076g;
+    public int f21122g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public EditorInfoView(Context context) {
@@ -47,11 +47,11 @@ public class EditorInfoView extends TextView {
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || i2 == this.f21074e) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || i2 == this.f21120e) {
             return;
         }
         SkinManager.setViewTextColor(this, R.color.CAM_X0106);
-        this.f21074e = i2;
+        this.f21120e = i2;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -103,11 +103,11 @@ public class EditorInfoView extends TextView {
                 return;
             }
         }
-        this.f21074e = 3;
-        this.f21075f = (int) context.getResources().getDimension(R.dimen.ds18);
+        this.f21120e = 3;
+        this.f21121f = (int) context.getResources().getDimension(R.dimen.ds18);
         int dimension = (int) context.getResources().getDimension(R.dimen.ds6);
-        this.f21076g = dimension;
-        int i5 = this.f21075f;
+        this.f21122g = dimension;
+        int i5 = this.f21121f;
         setPadding(i5, dimension, i5, dimension);
         setGravity(16);
         setSingleLine(true);

@@ -16,36 +16,36 @@ import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IvParameterSpec f6593a;
+    public IvParameterSpec f6610a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SecretKeySpec f6594b;
+    public SecretKeySpec f6611b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Cipher f6595c;
+    public Cipher f6612c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f6596d;
+    public boolean f6613d;
 
     /* renamed from: com.baidu.location.b.j$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static j f6597a;
+        public static j f6614a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -61,7 +61,7 @@ public class j {
                     return;
                 }
             }
-            f6597a = new j(null);
+            f6614a = new j(null);
         }
     }
 
@@ -78,17 +78,17 @@ public class j {
                 return;
             }
         }
-        this.f6596d = false;
+        this.f6613d = false;
         try {
             String str = Jni.getldkaiv();
             if (str == null || !str.contains("|")) {
                 return;
             }
             String[] split = str.split("\\|");
-            this.f6593a = new IvParameterSpec(split[1].getBytes("UTF-8"));
-            this.f6594b = new SecretKeySpec(split[0].getBytes("UTF-8"), "AES");
-            this.f6595c = Cipher.getInstance("AES/CBC/PKCS5PADDING");
-            this.f6596d = true;
+            this.f6610a = new IvParameterSpec(split[1].getBytes("UTF-8"));
+            this.f6611b = new SecretKeySpec(split[0].getBytes("UTF-8"), "AES");
+            this.f6612c = Cipher.getInstance("AES/CBC/PKCS5PADDING");
+            this.f6613d = true;
         } catch (UnsupportedEncodingException e2) {
             e2.printStackTrace();
         } catch (NoSuchAlgorithmException e3) {
@@ -105,17 +105,17 @@ public class j {
     public static j a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f6597a : (j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f6614a : (j) invokeV.objValue;
     }
 
     public String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.f6596d) {
+            if (this.f6613d) {
                 try {
-                    this.f6595c.init(2, this.f6594b, this.f6593a);
-                    return new String(this.f6595c.doFinal(Base64.decode(str, 0)), "UTF-8");
+                    this.f6612c.init(2, this.f6611b, this.f6610a);
+                    return new String(this.f6612c.doFinal(Base64.decode(str, 0)), "UTF-8");
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     return null;
@@ -129,6 +129,6 @@ public class j {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6596d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6613d : invokeV.booleanValue;
     }
 }

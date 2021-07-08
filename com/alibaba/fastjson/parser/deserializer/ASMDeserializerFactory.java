@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.parser.deserializer;
 
+import androidx.core.view.InputDeviceCompat;
 import androidx.transition.Transition;
 import com.alibaba.fastjson.asm.ClassWriter;
 import com.alibaba.fastjson.asm.FieldWriter;
@@ -2030,7 +2031,7 @@ public class ASMDeserializerFactory implements Opcodes {
 
     private void _createInstance(ClassWriter classWriter, Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65540, this, classWriter, context) == null) && Modifier.isPublic(context.beanInfo.defaultConstructor.getModifiers())) {
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, classWriter, context) == null) && Modifier.isPublic(context.beanInfo.defaultConstructor.getModifiers())) {
             MethodWriter methodWriter = new MethodWriter(classWriter, 1, "createInstance", "(L" + DefaultJSONParser + ";Ljava/lang/reflect/Type;)Ljava/lang/Object;", null, null);
             methodWriter.visitTypeInsn(Opcodes.NEW, ASMUtils.type(context.getInstClass()));
             methodWriter.visitInsn(89);

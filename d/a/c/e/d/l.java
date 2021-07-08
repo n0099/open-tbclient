@@ -4,27 +4,27 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public interface l<T> {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public interface a<T> {
         void a(String str, T t);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class b<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f44106a;
+        public String f41122a;
 
         /* renamed from: b  reason: collision with root package name */
-        public T f44107b;
+        public T f41123b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f44108c;
+        public long f41124c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public interface l<T> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public interface c<T> extends l<T> {
         void b();
 

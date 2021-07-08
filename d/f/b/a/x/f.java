@@ -1,5 +1,6 @@
 package d.f.b.a.x;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.face.platform.utils.FileUtils;
 import com.baidu.rtc.record.MediaEncodeParams;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,18 +14,18 @@ import com.google.android.exoplayer2.drm.DrmInitData;
 import com.googlecode.mp4parser.authoring.tracks.MP3TrackImpl;
 import java.nio.ByteBuffer;
 import org.apache.commons.codec.digest4util.PureJavaCrc32C;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int[] f73595a;
+    public static final int[] f70698a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f73596b;
+    public static final int[] f70699b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int[] f73597c;
+    public static final int[] f70700c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,9 +41,9 @@ public final class f {
                 return;
             }
         }
-        f73595a = new int[]{1, 2, 2, 2, 2, 3, 3, 4, 4, 5, 6, 6, 6, 7, 8, 8};
-        f73596b = new int[]{-1, 8000, 16000, 32000, -1, -1, 11025, 22050, 44100, -1, -1, 12000, 24000, MediaEncodeParams.AUDIO_SAMPLE_RATE, -1, -1};
-        f73597c = new int[]{64, 112, 128, 192, 224, 256, 384, FileUtils.S_IRWXU, 512, 640, 768, 896, 1024, MP3TrackImpl.SAMPLES_PER_FRAME, 1280, PureJavaCrc32C.T8_6_start, 1920, 2048, 2304, QRCodeScannerBeanFactory.QRCODE_WHITE_LIST, 2688, 2816, 2823, 2944, 3072, 3840, 4096, 6144, 7680};
+        f70698a = new int[]{1, 2, 2, 2, 2, 3, 3, 4, 4, 5, 6, 6, 6, 7, 8, 8};
+        f70699b = new int[]{-1, 8000, 16000, 32000, -1, -1, 11025, 22050, 44100, -1, -1, 12000, 24000, MediaEncodeParams.AUDIO_SAMPLE_RATE, -1, -1};
+        f70700c = new int[]{64, 112, 128, 192, 224, 256, 384, FileUtils.S_IRWXU, 512, 640, 768, 896, 1024, MP3TrackImpl.SAMPLES_PER_FRAME, 1280, PureJavaCrc32C.T8_6_start, 1920, 2048, 2304, QRCodeScannerBeanFactory.QRCODE_WHITE_LIST, 2688, 2816, 2823, 2944, 3072, 3840, 4096, 6144, 7680};
     }
 
     public static int a(byte[] bArr) {
@@ -70,13 +71,13 @@ public final class f {
     public static Format d(byte[] bArr, String str, String str2, DrmInitData drmInitData) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65540, null, bArr, str, str2, drmInitData)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, str, str2, drmInitData)) == null) {
             d.f.b.a.i0.k kVar = new d.f.b.a.i0.k(bArr);
             kVar.n(60);
-            int i2 = f73595a[kVar.g(6)];
-            int i3 = f73596b[kVar.g(4)];
+            int i2 = f70698a[kVar.g(6)];
+            int i3 = f70699b[kVar.g(4)];
             int g2 = kVar.g(5);
-            int[] iArr = f73597c;
+            int[] iArr = f70700c;
             int i4 = g2 >= iArr.length ? -1 : (iArr[g2] * 1000) / 2;
             kVar.n(10);
             return Format.createAudioSampleFormat(str, "audio/vnd.dts", null, i4, -1, i2 + (kVar.g(2) > 0 ? 1 : 0), i3, null, drmInitData, 0, str2);

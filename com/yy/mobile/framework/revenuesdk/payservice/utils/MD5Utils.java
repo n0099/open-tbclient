@@ -1,6 +1,7 @@
 package com.yy.mobile.framework.revenuesdk.payservice.utils;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +14,7 @@ import java.io.IOException;
 import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class MD5Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MD5Utils";
@@ -48,7 +49,7 @@ public class MD5Utils {
     public static String fileMd5(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return "";
             }

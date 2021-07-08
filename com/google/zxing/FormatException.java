@@ -1,5 +1,6 @@
 package com.google.zxing;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class FormatException extends ReaderException {
     public static /* synthetic */ Interceptable $ic;
     public static final FormatException INSTANCE;
@@ -74,6 +75,6 @@ public final class FormatException extends ReaderException {
     public static FormatException getFormatInstance(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, th)) == null) ? ReaderException.isStackTrace ? new FormatException(th) : INSTANCE : (FormatException) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th)) == null) ? ReaderException.isStackTrace ? new FormatException(th) : INSTANCE : (FormatException) invokeL.objValue;
     }
 }

@@ -3,6 +3,7 @@ package com.baidu.android.bbalbs.common.util;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.JsonReader;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,20 +21,20 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f2553e;
+    public static final String f2556e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2554a;
+    public String f2557a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2555b;
+    public String f2558b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f2556c;
+    public int f2559c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f2557d;
+    public int f2560d;
 
     static {
         InterceptResult invokeClinit;
@@ -50,7 +51,7 @@ public final class a {
         }
         String str = new String(com.baidu.android.bbalbs.common.a.b.a(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
         String str2 = new String(com.baidu.android.bbalbs.common.a.b.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
-        f2553e = str + str2;
+        f2556e = str + str2;
     }
 
     public a() {
@@ -66,8 +67,8 @@ public final class a {
                 return;
             }
         }
-        this.f2556c = 0;
-        this.f2557d = 2;
+        this.f2559c = 0;
+        this.f2560d = 2;
     }
 
     public static boolean a(Context context) {
@@ -92,7 +93,7 @@ public final class a {
     public static boolean b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) ? i2 >= 14 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? i2 >= 14 : invokeI.booleanValue;
     }
 
     public static a c(String str) {
@@ -199,7 +200,7 @@ public final class a {
                 return null;
             }
             try {
-                return new String(com.baidu.android.bbalbs.common.a.a.b(f2553e, f2553e, com.baidu.android.bbalbs.common.a.b.a(str.getBytes())));
+                return new String(com.baidu.android.bbalbs.common.a.a.b(f2556e, f2556e, com.baidu.android.bbalbs.common.a.b.a(str.getBytes())));
             } catch (Exception e2) {
                 d.a(e2);
                 return "";
@@ -217,33 +218,33 @@ public final class a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2554a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2557a : (String) invokeV.objValue;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f2556c = i2;
+            this.f2559c = i2;
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f2554a = str;
+            this.f2557a = str;
         }
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2555b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2558b : (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f2555b = str;
+            this.f2558b = str;
         }
     }
 
@@ -259,7 +260,7 @@ public final class a {
             } else {
                 str = "0";
             }
-            this.f2555b = str;
+            this.f2558b = str;
             return true;
         }
         return invokeV.booleanValue;
@@ -268,12 +269,12 @@ public final class a {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? b(this.f2556c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? b(this.f2559c) : invokeV.booleanValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? e(this.f2555b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? e(this.f2558b) : invokeV.booleanValue;
     }
 }

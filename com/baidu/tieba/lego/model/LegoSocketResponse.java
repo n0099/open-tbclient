@@ -11,7 +11,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.Lego.DataRes;
 import tbclient.Lego.LegoResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class LegoSocketResponse extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -5,6 +5,7 @@ import android.content.pm.PackageInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -26,7 +27,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Stack;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class BdZeusUtil implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARCH_ARM = "armv";
@@ -97,7 +98,7 @@ public final class BdZeusUtil implements INoProGuard {
     public static String dealWithEmulatorResult(float f2, List<Integer> list) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{Float.valueOf(f2), list})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f2), list})) == null) {
             float f3 = (f2 / 6.0f) * 100.0f;
             try {
                 JSONObject jSONObject = new JSONObject();

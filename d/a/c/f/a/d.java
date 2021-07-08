@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BitmapDrawable f44583a;
+    public BitmapDrawable f41599a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.c.k.d.a f44584b;
+    public d.a.c.k.d.a f41600b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f44585c;
+    public volatile boolean f41601c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class d {
                 return;
             }
         }
-        this.f44585c = true;
+        this.f41601c = true;
     }
 
     public int a() {
@@ -42,10 +42,10 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (e()) {
-                return this.f44583a.getIntrinsicHeight();
+                return this.f41599a.getIntrinsicHeight();
             }
             if (d()) {
-                return this.f44584b.m();
+                return this.f41600b.m();
             }
             return 0;
         }
@@ -57,10 +57,10 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (e()) {
-                return this.f44583a.getIntrinsicWidth();
+                return this.f41599a.getIntrinsicWidth();
             }
             if (d()) {
-                return this.f44584b.r();
+                return this.f41600b.r();
             }
             return 0;
         }
@@ -77,7 +77,7 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            d.a.c.k.d.a aVar = this.f44584b;
+            d.a.c.k.d.a aVar = this.f41600b;
             return aVar != null && aVar.w();
         }
         return invokeV.booleanValue;
@@ -87,8 +87,8 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            BitmapDrawable bitmapDrawable = this.f44583a;
-            return (bitmapDrawable == null || bitmapDrawable.getBitmap() == null || this.f44583a.getBitmap().isRecycled()) ? false : true;
+            BitmapDrawable bitmapDrawable = this.f41599a;
+            return (bitmapDrawable == null || bitmapDrawable.getBitmap() == null || this.f41599a.getBitmap().isRecycled()) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -96,8 +96,8 @@ public class d {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f44584b = null;
-            this.f44583a = null;
+            this.f41600b = null;
+            this.f41599a = null;
         }
     }
 }

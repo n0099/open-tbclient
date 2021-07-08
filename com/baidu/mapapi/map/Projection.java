@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class Projection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comapi.map.e f7064a;
+    public com.baidu.mapsdkplatform.comapi.map.e f7081a;
 
     public Projection(com.baidu.mapsdkplatform.comapi.map.e eVar) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public final class Projection {
                 return;
             }
         }
-        this.f7064a = eVar;
+        this.f7081a = eVar;
     }
 
     public LatLng fromScreenLocation(Point point) {
@@ -43,7 +43,7 @@ public final class Projection {
         com.baidu.mapsdkplatform.comapi.map.e eVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, point)) == null) {
-            if (point == null || (eVar = this.f7064a) == null) {
+            if (point == null || (eVar = this.f7081a) == null) {
                 return null;
             }
             return CoordUtil.mc2ll(eVar.b(point.x, point.y));
@@ -58,7 +58,7 @@ public final class Projection {
             if (f2 <= 0.0f) {
                 return 0.0f;
             }
-            return (float) (f2 / this.f7064a.K());
+            return (float) (f2 / this.f7081a.K());
         }
         return invokeF.floatValue;
     }
@@ -71,8 +71,8 @@ public final class Projection {
                 return null;
             }
             GeoPoint ll2mc = CoordUtil.ll2mc(latLng);
-            ab abVar = mapStatus.f6967a;
-            return new PointF((float) (ll2mc.getLongitudeE6() - abVar.f7647d), (float) (ll2mc.getLatitudeE6() - abVar.f7648e));
+            ab abVar = mapStatus.f6984a;
+            return new PointF((float) (ll2mc.getLongitudeE6() - abVar.f7664d), (float) (ll2mc.getLatitudeE6() - abVar.f7665e));
         }
         return (PointF) invokeLL.objValue;
     }
@@ -85,8 +85,8 @@ public final class Projection {
                 return null;
             }
             GeoPoint ll2mc = CoordUtil.ll2mc(latLng);
-            ab.a aVar = mapStatus.f6967a.k;
-            return new PointF((float) ((((ll2mc.getLongitudeE6() - aVar.f7653a) * 2.0d) / Math.abs(aVar.f7654b - aVar.f7653a)) - 1.0d), (float) ((((ll2mc.getLatitudeE6() - aVar.f7656d) * 2.0d) / Math.abs(aVar.f7655c - aVar.f7656d)) - 1.0d));
+            ab.a aVar = mapStatus.f6984a.k;
+            return new PointF((float) ((((ll2mc.getLongitudeE6() - aVar.f7670a) * 2.0d) / Math.abs(aVar.f7671b - aVar.f7670a)) - 1.0d), (float) ((((ll2mc.getLatitudeE6() - aVar.f7673d) * 2.0d) / Math.abs(aVar.f7672c - aVar.f7673d)) - 1.0d));
         }
         return (PointF) invokeLL.objValue;
     }
@@ -95,10 +95,10 @@ public final class Projection {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, latLng)) == null) {
-            if (latLng == null || this.f7064a == null) {
+            if (latLng == null || this.f7081a == null) {
                 return null;
             }
-            return this.f7064a.a(CoordUtil.ll2mc(latLng));
+            return this.f7081a.a(CoordUtil.ll2mc(latLng));
         }
         return (Point) invokeL.objValue;
     }

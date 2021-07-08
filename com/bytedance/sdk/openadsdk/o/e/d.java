@@ -9,13 +9,13 @@ import com.bytedance.sdk.component.adnet.core.j;
 import com.bytedance.sdk.component.adnet.err.VAdError;
 import com.bytedance.sdk.component.adnet.face.IHttpStack;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IHttpStack f31607a;
+    public IHttpStack f31717a;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -31,9 +31,9 @@ public class d implements b {
             }
         }
         IHttpStack a2 = com.bytedance.sdk.openadsdk.l.e.a();
-        this.f31607a = a2;
+        this.f31717a = a2;
         if (a2 == null) {
-            this.f31607a = new j();
+            this.f31717a = new j();
         }
     }
 
@@ -42,11 +42,11 @@ public class d implements b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) {
-            e eVar = new e(fVar.f31608a, fVar.f31609b);
-            if (fVar.f31610c != -1) {
-                eVar.setRetryPolicy(new com.bytedance.sdk.component.adnet.core.e().a((int) fVar.f31610c));
+            e eVar = new e(fVar.f31718a, fVar.f31719b);
+            if (fVar.f31720c != -1) {
+                eVar.setRetryPolicy(new com.bytedance.sdk.component.adnet.core.e().a((int) fVar.f31720c));
             }
-            return new g(this.f31607a.performRequest(eVar, fVar.f31612e), fVar);
+            return new g(this.f31717a.performRequest(eVar, fVar.f31722e), fVar);
         }
         return (a) invokeL.objValue;
     }

@@ -1,5 +1,6 @@
 package com.baidu.platform.core.d;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.search.core.RouteNode;
 import com.baidu.mapapi.search.core.SearchResult;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class m extends k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -132,7 +133,7 @@ public class m extends k {
         RouteNode routeNode2;
         SearchResult.ERRORNO errorno;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, str, transitRouteResult)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, transitRouteResult)) == null) {
             int i2 = 0;
             if (str == null || str.length() <= 0) {
                 return false;

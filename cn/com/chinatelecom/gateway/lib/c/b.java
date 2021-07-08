@@ -3,6 +3,7 @@ package cn.com.chinatelecom.gateway.lib.c;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,7 +62,7 @@ public final class b {
     public static String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) ? "ct_account_api_sdk" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? "ct_account_api_sdk" : (String) invokeL.objValue;
     }
 
     public static String b(Context context, String str, String str2) {

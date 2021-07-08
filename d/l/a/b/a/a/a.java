@@ -7,50 +7,50 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class a implements d.l.a.a.a.d.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f74087a;
+    public int f71139a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f74088b;
+    public int f71140b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f74089c;
+    public boolean f71141c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f74090d;
+    public boolean f71142d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f74091e;
+    public boolean f71143e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f74092f;
+    public boolean f71144f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f74093g;
+    public boolean f71145g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f74094h;
+    public boolean f71146h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f74095i;
+    public boolean f71147i;
     public boolean j;
     public Object k;
 
     /* renamed from: d.l.a.b.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static final class C2045a {
+    /* loaded from: classes8.dex */
+    public static final class C2013a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public a f74096a;
+        public a f71148a;
 
-        public C2045a() {
+        public C2013a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,111 +63,111 @@ public class a implements d.l.a.a.a.d.b {
                     return;
                 }
             }
-            this.f74096a = new a();
+            this.f71148a = new a();
         }
 
-        public C2045a a(int i2) {
+        public C2013a a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                this.f74096a.f74087a = i2;
+                this.f71148a.f71139a = i2;
                 return this;
             }
-            return (C2045a) invokeI.objValue;
+            return (C2013a) invokeI.objValue;
         }
 
         @Deprecated
-        public C2045a b(Object obj) {
+        public C2013a b(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-                this.f74096a.k = obj;
+                this.f71148a.k = obj;
                 return this;
             }
-            return (C2045a) invokeL.objValue;
+            return (C2013a) invokeL.objValue;
         }
 
-        public C2045a c(boolean z) {
+        public C2013a c(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.f74096a.f74089c = z;
+                this.f71148a.f71141c = z;
                 return this;
             }
-            return (C2045a) invokeZ.objValue;
+            return (C2013a) invokeZ.objValue;
         }
 
         public a d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f74096a : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f71148a : (a) invokeV.objValue;
         }
 
-        public C2045a e(int i2) {
+        public C2013a e(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-                this.f74096a.f74088b = i2;
+                this.f71148a.f71140b = i2;
                 return this;
             }
-            return (C2045a) invokeI.objValue;
+            return (C2013a) invokeI.objValue;
         }
 
-        public C2045a f(boolean z) {
+        public C2013a f(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                this.f74096a.f74090d = z;
+                this.f71148a.f71142d = z;
                 return this;
             }
-            return (C2045a) invokeZ.objValue;
+            return (C2013a) invokeZ.objValue;
         }
 
         @Deprecated
-        public C2045a g(boolean z) {
+        public C2013a g(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) ? this : (C2045a) invokeZ.objValue;
+            return (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) ? this : (C2013a) invokeZ.objValue;
         }
 
-        public C2045a h(boolean z) {
+        public C2013a h(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-                this.f74096a.f74091e = z;
+                this.f71148a.f71143e = z;
                 return this;
             }
-            return (C2045a) invokeZ.objValue;
+            return (C2013a) invokeZ.objValue;
         }
 
-        public C2045a i(boolean z) {
+        public C2013a i(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-                this.f74096a.f74092f = z;
+                this.f71148a.f71144f = z;
                 return this;
             }
-            return (C2045a) invokeZ.objValue;
+            return (C2013a) invokeZ.objValue;
         }
 
-        public C2045a j(boolean z) {
+        public C2013a j(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-                this.f74096a.f74095i = z;
+                this.f71148a.f71147i = z;
                 return this;
             }
-            return (C2045a) invokeZ.objValue;
+            return (C2013a) invokeZ.objValue;
         }
 
-        public C2045a k(boolean z) {
+        public C2013a k(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
-                this.f74096a.j = z;
+                this.f71148a.j = z;
                 return this;
             }
-            return (C2045a) invokeZ.objValue;
+            return (C2013a) invokeZ.objValue;
         }
     }
 
@@ -184,9 +184,9 @@ public class a implements d.l.a.a.a.d.b {
                 return;
             }
         }
-        this.f74092f = true;
-        this.f74094h = true;
-        this.f74095i = true;
+        this.f71144f = true;
+        this.f71146h = true;
+        this.f71147i = true;
         this.j = true;
     }
 
@@ -194,56 +194,56 @@ public class a implements d.l.a.a.a.d.b {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f74087a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71139a : invokeV.intValue;
     }
 
     @Override // d.l.a.a.a.d.b
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f74088b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f71140b : invokeV.intValue;
     }
 
     @Override // d.l.a.a.a.d.b
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f74089c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f71141c : invokeV.booleanValue;
     }
 
     @Override // d.l.a.a.a.d.b
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f74090d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f71142d : invokeV.booleanValue;
     }
 
     @Override // d.l.a.a.a.d.b
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f74092f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f71144f : invokeV.booleanValue;
     }
 
     @Override // d.l.a.a.a.d.b
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f74093g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f71145g : invokeV.booleanValue;
     }
 
     @Override // d.l.a.a.a.d.b
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f74094h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f71146h : invokeV.booleanValue;
     }
 
     @Override // d.l.a.a.a.d.b
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f74095i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f71147i : invokeV.booleanValue;
     }
 
     @Override // d.l.a.a.a.d.b
@@ -257,7 +257,7 @@ public class a implements d.l.a.a.a.d.b {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f74088b = i2;
+            this.f71140b = i2;
         }
     }
 
@@ -265,7 +265,7 @@ public class a implements d.l.a.a.a.d.b {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f74087a = i2;
+            this.f71139a = i2;
         }
     }
 
@@ -273,7 +273,7 @@ public class a implements d.l.a.a.a.d.b {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f74094h = z;
+            this.f71146h = z;
         }
     }
 }

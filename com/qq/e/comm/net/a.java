@@ -5,6 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobstat.Config;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +21,7 @@ import com.qq.e.comm.util.StringUtil;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +88,7 @@ public final class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, aPPStatus)) == null) {
             JSONObject jSONObject = new JSONObject();
             if (aPPStatus != null) {
-                jSONObject.putOpt(com.alipay.sdk.sys.a.f1936i, aPPStatus.getAPPName());
+                jSONObject.putOpt(com.alipay.sdk.sys.a.f1937i, aPPStatus.getAPPName());
                 jSONObject.putOpt("appkey", aPPStatus.getAPPID());
                 jSONObject.putOpt("appv", aPPStatus.getAPPVersion());
                 jSONObject.putOpt("appn", aPPStatus.getAPPRealName());
@@ -100,7 +101,7 @@ public final class a {
     public static JSONObject a(DeviceStatus deviceStatus) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, deviceStatus)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, deviceStatus)) == null) {
             JSONObject jSONObject = new JSONObject();
             if (deviceStatus != null) {
                 jSONObject.putOpt("so", deviceStatus.getScreenOrientation());

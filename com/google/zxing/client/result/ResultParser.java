@@ -1,5 +1,6 @@
 package com.google.zxing.client.result;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class ResultParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern AMPERSAND;
@@ -87,7 +88,7 @@ public abstract class ResultParser {
     public static String getMassagedText(Result result) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, result)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, result)) == null) {
             String text = result.getText();
             return text.startsWith(BYTE_ORDER_MARK) ? text.substring(1) : text;
         }

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.process.ipc.delegate.DelegateDef;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DelegateResult implements DelegateDef.ResultCode {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +52,7 @@ public class DelegateResult implements DelegateDef.ResultCode {
 
     public static void putAll(@Nullable Bundle bundle, @NonNull Bundle bundle2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65540, null, bundle, bundle2) == null) || bundle == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle, bundle2) == null) || bundle == null) {
             return;
         }
         bundle2.putAll(bundle);

@@ -9,6 +9,7 @@ import android.os.Looper;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.process.ipc.agent.activity.ProcessDelegateBaseActivity;
 import com.baidu.searchbox.process.ipc.agent.provider.MainProcessDelegateProvider;
@@ -26,7 +27,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.d;
 import h.j;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class DelegateUtils implements DelegateDef {
     public static /* synthetic */ Interceptable $ic;
     public static Handler sMainHandler;
@@ -64,7 +65,7 @@ public final class DelegateUtils implements DelegateDef {
 
     public static void callOnMainWithActivity(@NonNull Activity activity, @NonNull Class<? extends ProcessDelegateBaseActivity> cls, @NonNull Class<? extends ActivityDelegation> cls2, @NonNull DelegateListener delegateListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65540, null, activity, cls, cls2, delegateListener) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, cls, cls2, delegateListener) == null) {
             callOnMainWithActivity(activity, cls, cls2, null, delegateListener);
         }
     }

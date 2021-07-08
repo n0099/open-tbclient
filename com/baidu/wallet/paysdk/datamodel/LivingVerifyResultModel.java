@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LivingVerifyResultModel implements NoProguard, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static int ERRORCODECANCEL = -204;
@@ -17,7 +17,7 @@ public class LivingVerifyResultModel implements NoProguard, Serializable {
     public Cnt cnt;
     public int result;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Cnt implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public class LivingVerifyResultModel implements NoProguard, Serializable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Data implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public class LivingVerifyResultModel implements NoProguard, Serializable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Result implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

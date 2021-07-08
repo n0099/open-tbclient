@@ -51,7 +51,7 @@ public final class JSONScanner extends JSONLexerBase {
     public static boolean charArrayCompare(String str, int i2, char[] cArr) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65540, null, str, i2, cArr)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2, cArr)) == null) {
             int length = cArr.length;
             if (length + i2 > str.length()) {
                 return false;

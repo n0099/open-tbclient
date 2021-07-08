@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class l extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f72788i;
+    public final int f69891i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(d.f.b.a.h0.e eVar, d.f.b.a.h0.g gVar, Format format, int i2, Object obj, long j, long j2, int i3) {
@@ -34,13 +34,13 @@ public abstract class l extends c {
             }
         }
         d.f.b.a.i0.a.e(format);
-        this.f72788i = i3;
+        this.f69891i = i3;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72788i + 1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69891i + 1 : invokeV.intValue;
     }
 
     public abstract boolean g();

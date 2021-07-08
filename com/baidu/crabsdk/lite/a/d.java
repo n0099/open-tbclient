@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -14,7 +14,7 @@ public final class d {
         Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4688a.get(str);
+            HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4705a.get(str);
             return (hashMap == null || (obj = hashMap.get("sdk_channel")) == null) ? "N/A" : (String) obj;
         }
         return (String) invokeL.objValue;

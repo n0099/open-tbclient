@@ -1,11 +1,12 @@
 package com.baidu.nps.utils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Constant {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALLOW_SILENCE_CODE = 1;
@@ -13,7 +14,7 @@ public class Constant {
     public static final int ALLOW_WIFIONLY_CODE = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class ABI {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ABI_32 = 1;
@@ -36,12 +37,12 @@ public class Constant {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class AUTHORIZATION {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public static class RESULT {
             public static /* synthetic */ Interceptable $ic = null;
             public static final int CANCEL = 2;
@@ -63,7 +64,7 @@ public class Constant {
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public static class TYPE {
             public static /* synthetic */ Interceptable $ic = null;
             public static final int UPDATE_MOBILE_CONFIRM = 1;
@@ -99,12 +100,12 @@ public class Constant {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class BUNDLE {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public static class TYPE {
             public static /* synthetic */ Interceptable $ic = null;
             public static final int BUNDLE_TYPE_DOWNLOADED = 2;
@@ -142,7 +143,7 @@ public class Constant {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class CODE {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int RET_AMBIGUOUS_PKG_NAME = 9;
@@ -199,7 +200,7 @@ public class Constant {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class DOWNLOAD {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DOWNLOAD_NORMAL = 48;
@@ -221,12 +222,12 @@ public class Constant {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class EXCEPTION {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public static class ID {
             public static /* synthetic */ Interceptable $ic = null;
             public static final int LOAD_COMPONENT_CLASS = 2;
@@ -263,12 +264,12 @@ public class Constant {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class FILE {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public static class SUFFIX {
             public static /* synthetic */ Interceptable $ic = null;
             public static final String APK_LIB_SUFFIX = ".so";
@@ -305,7 +306,7 @@ public class Constant {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class FLAG {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FORCE_UPDATE_ALERT = 16;
@@ -327,7 +328,7 @@ public class Constant {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class MSG {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -373,11 +374,11 @@ public class Constant {
         public static String retMsgSuccess() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? "successful invoke" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? "successful invoke" : (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class PLUGIN {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALLOW_BACKGROUND_CODE = 0;
@@ -399,7 +400,7 @@ public class Constant {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class STATUS {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int PKG_AVAILABLE = 43;
@@ -426,7 +427,7 @@ public class Constant {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class TAG {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String PARAM_DOWNLOAD_TYPE = "param_download_type";

@@ -1,85 +1,160 @@
 package com.kwad.sdk.utils;
 
-import android.content.Context;
-import android.net.wifi.ScanResult;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.core.content.ContextCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kwad.sdk.api.SdkConfig;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes7.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class at {
-    public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static boolean f39380a = true;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(408734607, "Lcom/kwad/sdk/utils/at;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(408734607, "Lcom/kwad/sdk/utils/at;");
-        }
-    }
-
-    public static List<com.kwad.sdk.core.g.a.a> a(Context context, int i2) {
-        InterceptResult invokeLI;
-        WifiManager wifiManager;
+    public static ValueAnimator a(View view, int i2, int i3) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i2)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (context != null && f39380a) {
-                try {
-                    if ((Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_FINE_LOCATION") == -1 && ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_COARSE_LOCATION") == -1) || (wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi")) == null) {
-                        return arrayList;
-                    }
-                    WifiInfo connectionInfo = wifiManager.getConnectionInfo();
-                    List<ScanResult> scanResults = wifiManager.getScanResults();
-                    if (scanResults != null) {
-                        for (ScanResult scanResult : scanResults) {
-                            com.kwad.sdk.core.g.a.a aVar = new com.kwad.sdk.core.g.a.a();
-                            aVar.f36117b = scanResult.SSID;
-                            aVar.f36118c = scanResult.BSSID;
-                            aVar.f36116a = scanResult.level;
-                            if (connectionInfo.getBSSID() == null || scanResult.BSSID == null || !TextUtils.equals(connectionInfo.getBSSID().replace("\"", ""), scanResult.BSSID.replace("\"", "")) || connectionInfo.getSSID() == null || scanResult.SSID == null || !TextUtils.equals(connectionInfo.getSSID().replace("\"", ""), scanResult.SSID.replace("\"", ""))) {
-                                arrayList.add(aVar);
-                            } else {
-                                arrayList.add(0, aVar);
-                            }
-                            if (arrayList.size() >= i2) {
-                                return arrayList;
-                            }
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, view, i2, i3)) == null) {
+            b(view, i2);
+            ValueAnimator ofInt = ValueAnimator.ofInt(i2, i3);
+            ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(view) { // from class: com.kwad.sdk.utils.at.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ View f36527a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {view};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i4 = newInitContext.flag;
+                        if ((i4 & 1) != 0) {
+                            int i5 = i4 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
                         }
                     }
-                } catch (Exception e2) {
-                    com.kwad.sdk.core.d.a.a(e2);
+                    this.f36527a = view;
                 }
-            }
-            return arrayList;
+
+                @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+                public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
+                        at.b(this.f36527a, ((Integer) valueAnimator.getAnimatedValue()).intValue());
+                    }
+                }
+            });
+            ofInt.addListener(new AnimatorListenerAdapter(view, i3) { // from class: com.kwad.sdk.utils.at.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ View f36528a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ int f36529b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {view, Integer.valueOf(i3)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i4 = newInitContext.flag;
+                        if ((i4 & 1) != 0) {
+                            int i5 = i4 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f36528a = view;
+                    this.f36529b = i3;
+                }
+
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public void onAnimationCancel(Animator animator) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
+                        at.b(this.f36528a, this.f36529b);
+                    }
+                }
+
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public void onAnimationEnd(Animator animator) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+                        at.b(this.f36528a, this.f36529b);
+                    }
+                }
+            });
+            return ofInt;
         }
-        return (List) invokeLI.objValue;
+        return (ValueAnimator) invokeLII.objValue;
     }
 
-    public static void a(SdkConfig sdkConfig) {
+    public static ValueAnimator b(View view, int i2, int i3) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, sdkConfig) == null) {
-            f39380a = sdkConfig.canReadNearbyWifiList();
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, view, i2, i3)) == null) {
+            ValueAnimator ofInt = ObjectAnimator.ofInt(i2, i3);
+            ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(view) { // from class: com.kwad.sdk.utils.at.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ View f36530a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {view};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i4 = newInitContext.flag;
+                        if ((i4 & 1) != 0) {
+                            int i5 = i4 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f36530a = view;
+                }
+
+                @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+                public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
+                        this.f36530a.setTranslationY(((Integer) valueAnimator.getAnimatedValue()).intValue());
+                    }
+                }
+            });
+            return ofInt;
+        }
+        return (ValueAnimator) invokeLII.objValue;
+    }
+
+    public static void b(View view, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65539, null, view, i2) == null) {
+            ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+            layoutParams.height = i2;
+            view.setLayoutParams(layoutParams);
         }
     }
 }

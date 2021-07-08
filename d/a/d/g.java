@@ -10,27 +10,27 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class g implements j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f45184a;
+    public d f41986a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f45185b;
+    public boolean f41987b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HttpMessageListener f45186c;
+    public final HttpMessageListener f41988c;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f45187a;
+        public final /* synthetic */ g f41989a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(g gVar, int i2) {
@@ -50,7 +50,7 @@ public class g implements j {
                     return;
                 }
             }
-            this.f45187a = gVar;
+            this.f41989a = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -59,11 +59,11 @@ public class g implements j {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003397 && (httpResponsedMessage instanceof AfdSyncResponseMessage)) {
                 e eVar = ((AfdSyncResponseMessage) httpResponsedMessage).adModel;
-                this.f45187a.f45184a.p(eVar);
-                if (!eVar.f45180a || eVar.f45183d == null) {
+                this.f41989a.f41986a.p(eVar);
+                if (!eVar.f41982a || eVar.f41985d == null) {
                     return;
                 }
-                d.a.s0.w2.i0.e.b().d(d.a.s0.w2.i0.g.o(this.f45187a.f45184a, eVar.f45183d));
+                d.a.p0.w2.i0.e.b().d(d.a.p0.w2.i0.g.o(this.f41989a.f41986a, eVar.f41985d));
             }
         }
     }
@@ -84,22 +84,22 @@ public class g implements j {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_AFD_REQUEST_ASYNC);
-        this.f45186c = aVar;
-        this.f45184a = dVar;
+        this.f41988c = aVar;
+        this.f41986a = dVar;
         aVar.setSelfListener(true);
-        this.f45186c.setTag(dVar.j());
-        MessageManager.getInstance().registerListener(this.f45186c);
+        this.f41988c.setTag(dVar.j());
+        MessageManager.getInstance().registerListener(this.f41988c);
     }
 
     @Override // d.a.d.j
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f45185b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f41987b) {
             return;
         }
-        this.f45185b = true;
-        AfdSyncRequestMessage afdSyncRequestMessage = new AfdSyncRequestMessage(this.f45184a.f45177g);
-        afdSyncRequestMessage.setTag(this.f45184a.j());
+        this.f41987b = true;
+        AfdSyncRequestMessage afdSyncRequestMessage = new AfdSyncRequestMessage(this.f41986a.f41979g);
+        afdSyncRequestMessage.setTag(this.f41986a.j());
         MessageManager.getInstance().sendMessage(afdSyncRequestMessage);
     }
 }

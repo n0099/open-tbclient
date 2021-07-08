@@ -18,7 +18,7 @@ import d.f.d.a.n;
 import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractService implements Service {
     public static /* synthetic */ Interceptable $ic;
     public static final ListenerCallQueue.Event<Service.Listener> RUNNING_EVENT;
@@ -39,7 +39,7 @@ public abstract class AbstractService implements Service {
     public volatile StateSnapshot snapshot;
 
     /* renamed from: com.google.common.util.concurrent.AbstractService$6  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass6 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$common$util$concurrent$Service$State;
         public static /* synthetic */ Interceptable $ic;
@@ -87,7 +87,7 @@ public abstract class AbstractService implements Service {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class HasReachedRunningGuard extends Monitor.Guard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,7 +122,7 @@ public abstract class AbstractService implements Service {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class IsStartableGuard extends Monitor.Guard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -157,7 +157,7 @@ public abstract class AbstractService implements Service {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class IsStoppableGuard extends Monitor.Guard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -192,7 +192,7 @@ public abstract class AbstractService implements Service {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class IsStoppedGuard extends Monitor.Guard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -227,7 +227,7 @@ public abstract class AbstractService implements Service {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class StateSnapshot {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -424,7 +424,7 @@ public abstract class AbstractService implements Service {
 
     private void dispatchListenerEvents() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65540, this) == null) || this.monitor.isOccupiedByCurrentThread()) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.monitor.isOccupiedByCurrentThread()) {
             return;
         }
         this.listeners.dispatch();

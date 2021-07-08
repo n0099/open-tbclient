@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.e0.a.e;
-import d.a.e0.a.f;
-/* loaded from: classes3.dex */
+import d.a.b0.a.e;
+import d.a.b0.a.f;
+/* loaded from: classes2.dex */
 public class SocialLoginBase extends BaseActivity implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public static WXInvokeCallback t;

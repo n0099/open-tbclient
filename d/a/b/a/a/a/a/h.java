@@ -11,19 +11,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 import java.nio.charset.Charset;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Method f43785a;
+    public Method f40863a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Method f43786b;
+    public Method f40864b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Class f43787c;
+    public Class f40865c;
 
     public h(Context context) {
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
             try {
-                return ((Integer) this.f43785a.invoke(obj, obj2)).intValue();
+                return ((Integer) this.f40863a.invoke(obj, obj2)).intValue();
             } catch (Exception unused) {
                 throw new q("gces error");
             }
@@ -65,7 +65,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             try {
-                return this.f43786b.invoke(context, new Object[0]);
+                return this.f40864b.invoke(context, new Object[0]);
             } catch (Exception unused) {
                 throw new q("gpm error");
             }
@@ -77,16 +77,16 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             Method d2 = k.d(Context.class, k.c(j.c()), null);
-            this.f43786b = d2;
+            this.f40864b = d2;
             Object invoke = d2.invoke(context, new Object[0]);
             Intent intent = new Intent();
             intent.setClassName(context.getPackageName(), "");
-            this.f43787c = k.d(intent.getClass(), k.c(j.d()), null).invoke(intent, new Object[0]).getClass();
+            this.f40865c = k.d(intent.getClass(), k.c(j.d()), null).invoke(intent, new Object[0]).getClass();
             String c2 = k.c(j.a());
             Class<?> cls = invoke.getClass();
             Class cls2 = Integer.TYPE;
-            k.d(cls, c2, new Class[]{this.f43787c, cls2, cls2});
-            this.f43785a = k.d(invoke.getClass(), k.c(j.b()), new Class[]{this.f43787c});
+            k.d(cls, c2, new Class[]{this.f40865c, cls2, cls2});
+            this.f40863a = k.d(invoke.getClass(), k.c(j.b()), new Class[]{this.f40865c});
         }
     }
 }

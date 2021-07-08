@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -16,16 +17,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BdListViewHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f13179a;
+    public static final int f13196a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class HeadType {
         public static final /* synthetic */ HeadType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -88,12 +89,12 @@ public class BdListViewHelper {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f13180a;
+        public static final /* synthetic */ int[] f13197a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -110,21 +111,21 @@ public class BdListViewHelper {
                 }
             }
             int[] iArr = new int[HeadType.values().length];
-            f13180a = iArr;
+            f13197a = iArr;
             try {
                 iArr[HeadType.DEFAULT.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f13180a[HeadType.HASTAB.ordinal()] = 2;
+                f13197a[HeadType.HASTAB.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f13180a[HeadType.HAS_NO_NETWORK_BAR.ordinal()] = 3;
+                f13197a[HeadType.HAS_NO_NETWORK_BAR.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f13180a[HeadType.TIP.ordinal()] = 4;
+                f13197a[HeadType.TIP.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -143,7 +144,7 @@ public class BdListViewHelper {
                 return;
             }
         }
-        f13179a = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320);
+        f13196a = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320);
     }
 
     public static int a(HeadType headType) {
@@ -151,7 +152,7 @@ public class BdListViewHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, headType)) == null) {
             Context context = TbadkCoreApplication.getInst().getContext();
-            int i2 = a.f13180a[headType.ordinal()];
+            int i2 = a.f13197a[headType.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
@@ -211,7 +212,7 @@ public class BdListViewHelper {
     public static View d(Context context, BdListView bdListView, HeadType headType) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, context, bdListView, headType)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, bdListView, headType)) == null) {
             TextView textView = new TextView(context);
             textView.setLayoutParams(new AbsListView.LayoutParams(-1, a(headType)));
             bdListView.x(textView, 0);

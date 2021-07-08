@@ -24,6 +24,7 @@ import android.telephony.gsm.GsmCellLocation;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.apollon.statusbar.ImmersiveOSUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -55,21 +56,21 @@ import java.util.Locale;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class bw {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f8861a;
+    public static String f8878a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f8862b;
+    public static String f8879b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f8863c;
+    public static String f8880c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f8864d;
+    public static final Pattern f8881d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -85,7 +86,7 @@ public class bw {
                 return;
             }
         }
-        f8864d = Pattern.compile("\\s*|\t|\r|\n");
+        f8881d = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public static String a(Context context, String str) {
@@ -541,7 +542,7 @@ public class bw {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, context)) == null) {
-            String str = f8862b;
+            String str = f8879b;
             if (str == null) {
                 String y = y(context);
                 String b2 = b(context, y);
@@ -549,7 +550,7 @@ public class bw {
                     b2 = c(context, y);
                 }
                 str = b2 == null ? "" : b2;
-                f8862b = str;
+                f8879b = str;
             }
             return str;
         }
@@ -646,7 +647,7 @@ public class bw {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, context)) == null) {
-            String str = f8861a;
+            String str = f8878a;
             if (str == null) {
                 try {
                     List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
@@ -666,7 +667,7 @@ public class bw {
                 if (str == null) {
                     str = "";
                 }
-                f8861a = str;
+                f8878a = str;
             }
             return str;
         }
@@ -836,7 +837,7 @@ public class bw {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String str2 = f8863c;
+            String str2 = f8880c;
             if (str2 != null) {
                 return str2;
             }
@@ -857,7 +858,7 @@ public class bw {
                     str = ImmersiveOSUtils.FLYME;
                 }
             }
-            f8863c = str;
+            f8880c = str;
             return str;
         }
         return (String) invokeV.objValue;
@@ -883,7 +884,7 @@ public class bw {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) ? f8864d.matcher(bx.a(context)).replaceAll("") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? f8881d.matcher(bx.a(context)).replaceAll("") : (String) invokeL.objValue;
     }
 
     public static Boolean c() {

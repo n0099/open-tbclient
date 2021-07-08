@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -160,7 +161,7 @@ public class GhostViewPort extends ViewGroup implements GhostView {
     public static GhostViewPort getGhostView(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, view)) == null) ? (GhostViewPort) view.getTag(R.id.ghost_view) : (GhostViewPort) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view)) == null) ? (GhostViewPort) view.getTag(R.id.ghost_view) : (GhostViewPort) invokeL.objValue;
     }
 
     public static void removeGhost(View view) {

@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSourceTimerManager;
 import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
-import d.a.y0.i.c;
-import d.a.y0.i.f.b;
-/* loaded from: classes6.dex */
+import d.a.v0.i.c;
+import d.a.v0.i.f.b;
+/* loaded from: classes5.dex */
 public class VLogSimplePlayer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_ERROR = -1;
@@ -59,7 +59,7 @@ public class VLogSimplePlayer {
     public float mVolumeBackUp;
     public Runnable mVolumeRunnable;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class SeekRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

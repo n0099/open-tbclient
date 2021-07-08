@@ -21,51 +21,51 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
-import d.a.r0.r.u.c;
+import d.a.o0.r.u.c;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<ForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f21826a;
+    public Context f21873a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<VideoItemData> f21827b;
+    public List<VideoItemData> f21874b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f21828c;
+    public View f21875c;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ForumViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f21829a;
+        public View f21876a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f21830b;
+        public TbImageView f21877b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TbImageView f21831c;
+        public TbImageView f21878c;
 
         /* renamed from: d  reason: collision with root package name */
-        public EMTextView f21832d;
+        public EMTextView f21879d;
 
         /* renamed from: e  reason: collision with root package name */
-        public EMTextView f21833e;
+        public EMTextView f21880e;
 
         /* renamed from: f  reason: collision with root package name */
-        public EMTextView f21834f;
+        public EMTextView f21881f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TbImageView f21835g;
+        public TbImageView f21882g;
 
         /* renamed from: h  reason: collision with root package name */
-        public View f21836h;
+        public View f21883h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ForumViewHolder(View view) {
@@ -85,17 +85,17 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
                     return;
                 }
             }
-            this.f21829a = view;
-            this.f21830b = (TbImageView) view.findViewById(R.id.img_video_cover);
-            this.f21831c = (TbImageView) view.findViewById(R.id.play_item);
-            this.f21832d = (EMTextView) view.findViewById(R.id.play_time);
-            this.f21833e = (EMTextView) view.findViewById(R.id.text_play_number);
-            this.f21834f = (EMTextView) view.findViewById(R.id.text_title);
-            this.f21835g = (TbImageView) view.findViewById(R.id.img_play_number);
-            this.f21836h = view.findViewById(R.id.img_mask);
-            this.f21830b.setRadiusById(R.string.J_X05);
-            this.f21830b.setConrers(3);
-            c.d(this.f21836h).r(R.array.Mask_X003);
+            this.f21876a = view;
+            this.f21877b = (TbImageView) view.findViewById(R.id.img_video_cover);
+            this.f21878c = (TbImageView) view.findViewById(R.id.play_item);
+            this.f21879d = (EMTextView) view.findViewById(R.id.play_time);
+            this.f21880e = (EMTextView) view.findViewById(R.id.text_play_number);
+            this.f21881f = (EMTextView) view.findViewById(R.id.text_title);
+            this.f21882g = (TbImageView) view.findViewById(R.id.img_play_number);
+            this.f21883h = view.findViewById(R.id.img_mask);
+            this.f21877b.setRadiusById(R.string.J_X05);
+            this.f21877b.setConrers(3);
+            c.d(this.f21883h).r(R.array.Mask_X003);
             c d2 = c.d(view);
             d2.n(R.string.J_X05);
             d2.f(R.color.CAM_X0613);
@@ -104,23 +104,23 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         public void a(View.OnClickListener onClickListener) {
             View view;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) || (view = this.f21829a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) || (view = this.f21876a) == null) {
                 return;
             }
             view.setOnClickListener(onClickListener);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f21837e;
+        public final /* synthetic */ int f21884e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ VideoAttentionReccomendListAdapter f21838f;
+        public final /* synthetic */ VideoAttentionReccomendListAdapter f21885f;
 
         public a(VideoAttentionReccomendListAdapter videoAttentionReccomendListAdapter, int i2) {
             Interceptable interceptable = $ic;
@@ -137,16 +137,16 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
                     return;
                 }
             }
-            this.f21838f = videoAttentionReccomendListAdapter;
-            this.f21837e = i2;
+            this.f21885f = videoAttentionReccomendListAdapter;
+            this.f21884e = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.f21838f.f21826a, this.f21838f.f21827b, 0, null, VideoPlayActivityConfig.FROM_VIDEO_ACCOUNT_ATTENTION_TAB, "", "", "");
-                videoPlayActivityConfig.setVideoShowIndex(this.f21837e);
+                VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.f21885f.f21873a, this.f21885f.f21874b, 0, null, VideoPlayActivityConfig.FROM_VIDEO_ACCOUNT_ATTENTION_TAB, "", "", "");
+                videoPlayActivityConfig.setVideoShowIndex(this.f21884e);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
             }
         }
@@ -167,8 +167,8 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
                 return;
             }
         }
-        this.f21827b = new ArrayList();
-        this.f21826a = context;
+        this.f21874b = new ArrayList();
+        this.f21873a = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -178,7 +178,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         List<VideoItemData> list;
         VideoItemData videoItemData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, forumViewHolder, i2) == null) || forumViewHolder == null || (list = this.f21827b) == null || (videoItemData = list.get(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, forumViewHolder, i2) == null) || forumViewHolder == null || (list = this.f21874b) == null || (videoItemData = list.get(i2)) == null) {
             return;
         }
         k(videoItemData, forumViewHolder);
@@ -195,8 +195,8 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i2)) == null) {
-            this.f21828c = LayoutInflater.from(this.f21826a).inflate(R.layout.video_attention_list_cover_view, viewGroup, false);
-            return new ForumViewHolder(this.f21828c);
+            this.f21875c = LayoutInflater.from(this.f21873a).inflate(R.layout.video_attention_list_cover_view, viewGroup, false);
+            return new ForumViewHolder(this.f21875c);
         }
         return (ForumViewHolder) invokeLI.objValue;
     }
@@ -206,7 +206,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<VideoItemData> list = this.f21827b;
+            List<VideoItemData> list = this.f21874b;
             if (list == null) {
                 return 0;
             }
@@ -220,8 +220,8 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, videoItemData, forumViewHolder) == null) || videoItemData == null || forumViewHolder == null) {
             return;
         }
-        forumViewHolder.f21833e.setText(StringHelper.numberUniformFormatExtra(videoItemData.play_count));
-        c d2 = c.d(forumViewHolder.f21833e);
+        forumViewHolder.f21880e.setText(StringHelper.numberUniformFormatExtra(videoItemData.play_count));
+        c d2 = c.d(forumViewHolder.f21880e);
         d2.x(R.dimen.T_X09);
         d2.t(R.color.CAM_X0101);
     }
@@ -261,10 +261,10 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         } else {
             sb.append("00");
         }
-        c d2 = c.d(forumViewHolder.f21832d);
+        c d2 = c.d(forumViewHolder.f21879d);
         d2.x(R.dimen.T_X09);
         d2.t(R.color.CAM_X0101);
-        forumViewHolder.f21832d.setText(sb.toString());
+        forumViewHolder.f21879d.setText(sb.toString());
     }
 
     public final void j(VideoItemData videoItemData, ForumViewHolder forumViewHolder) {
@@ -273,11 +273,11 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
             return;
         }
         if (!k.isEmpty(videoItemData.title)) {
-            forumViewHolder.f21834f.setText(videoItemData.title);
+            forumViewHolder.f21881f.setText(videoItemData.title);
         } else if (!k.isEmpty(videoItemData.abstext)) {
-            forumViewHolder.f21834f.setText(videoItemData.abstext);
+            forumViewHolder.f21881f.setText(videoItemData.abstext);
         } else {
-            forumViewHolder.f21834f.setText(TbadkCoreApplication.getInst().getString(R.string.original_recommend_video_attention_txt));
+            forumViewHolder.f21881f.setText(TbadkCoreApplication.getInst().getString(R.string.original_recommend_video_attention_txt));
         }
     }
 
@@ -286,14 +286,14 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         if (!(interceptable == null || interceptable.invokeLL(1048582, this, videoItemData, forumViewHolder) == null) || videoItemData == null || forumViewHolder == null) {
             return;
         }
-        forumViewHolder.f21830b.M(videoItemData.thumbnail_url, 10, false);
+        forumViewHolder.f21877b.M(videoItemData.thumbnail_url, 10, false);
     }
 
     public void setData(List<VideoItemData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
-            this.f21827b.clear();
-            this.f21827b.addAll(list);
+            this.f21874b.clear();
+            this.f21874b.addAll(list);
             notifyDataSetChanged();
         }
     }

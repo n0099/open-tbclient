@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.b.d;
 import com.kwad.sdk.core.network.BaseResultData;
-import com.kwad.sdk.utils.o;
+import com.kwad.sdk.utils.q;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class CommentResponse extends BaseResultData implements com.kwad.sdk.core.b, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 7438022026198734874L;
@@ -50,7 +50,7 @@ public class CommentResponse extends BaseResultData implements com.kwad.sdk.core
         return invokeV.booleanValue;
     }
 
-    @Override // com.kwad.sdk.core.network.BaseResultData
+    @Override // com.kwad.sdk.core.network.BaseResultData, com.kwad.sdk.core.b
     public void parseJson(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
@@ -84,8 +84,8 @@ public class CommentResponse extends BaseResultData implements com.kwad.sdk.core
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, "commentCount", this.commentCount);
-            o.a(jSONObject, "rootComments", this.rootComments);
+            q.a(jSONObject, "commentCount", this.commentCount);
+            q.a(jSONObject, "rootComments", this.rootComments);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

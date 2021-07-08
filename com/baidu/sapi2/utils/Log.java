@@ -1,5 +1,6 @@
 package com.baidu.sapi2.utils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class Log implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SAPI";
@@ -128,7 +129,7 @@ public final class Log implements NoProguard {
 
     public static void d(Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, objArr) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, objArr) == null) {
             d(TAG, objArr);
         }
     }

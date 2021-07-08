@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f45932a;
+    public b f42815a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -27,18 +27,18 @@ public class c {
                 return;
             }
         }
-        this.f45932a = new b(32);
+        this.f42815a = new b(32);
     }
 
     public byte[] a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) ? this.f45932a.j(bArr) : (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) ? this.f42815a.j(bArr) : (byte[]) invokeL.objValue;
     }
 
     public byte[] b(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) ? this.f45932a.m(bArr) : (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) ? this.f42815a.m(bArr) : (byte[]) invokeL.objValue;
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.wallet.core.BaseActivity;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.paysdk.api.BaiduPay;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -26,40 +26,40 @@ import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.json.JSONObject;
 @Keep
 @JProtect
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class o1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f76083a;
+    public static final String f73117a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f76084b;
+    public static final String f73118b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f76085c;
+    public static final String f73119c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f76086d;
+    public static final String f73120d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f76087e;
+    public static final String f73121e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f76088f;
+    public static final String f73122f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f76089g;
+    public static final String f73123g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f76090h;
+    public static final String f73124h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f76091i;
+    public static final String f73125i;
     public static final FileFilter j;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,15 +99,15 @@ public class o1 {
                 return;
             }
         }
-        f76083a = (String) h.a(16777217, 0, 0L, "27887c", new byte[]{19, 39, 68, 79, 13, 103, 34, 25, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_2});
-        f76084b = (String) h.a(16777217, 0, 0L, "fa7e14", new byte[]{95, 98, 86, 21, 25, 34, 119, 69});
-        f76085c = (String) h.a(16777217, 0, 0L, "c4836c", new byte[]{84, 51, 74, 83, 28, 102, Constants.SHORT_PING_CMD_TYPE, 6});
-        f76086d = (String) h.a(16777217, 0, 0L, "e24a88", new byte[]{100, 51});
-        f76087e = (String) h.a(16777217, 0, 0L, "e94488", new byte[]{124, 44});
-        f76088f = (String) h.a(16777217, 0, 0L, "74bb76", new byte[]{32, 34});
-        f76089g = (String) h.a(16777217, 0, 0L, "4b9153", new byte[]{40, 97, 82});
-        f76090h = (String) h.a(16777217, 0, 0L, "15bfea", new byte[]{UtilsBlink.VER_TYPE_SEPARATOR, 62, 31});
-        f76091i = (String) h.a(16777217, 0, 0L, "2906a3", new byte[]{32, 52, 81, 71});
+        f73117a = (String) h.a(16777217, 0, 0L, "27887c", new byte[]{19, 39, 68, 79, 13, 103, 34, 25, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_2});
+        f73118b = (String) h.a(16777217, 0, 0L, "fa7e14", new byte[]{95, 98, 86, 21, 25, 34, 119, 69});
+        f73119c = (String) h.a(16777217, 0, 0L, "c4836c", new byte[]{84, 51, 74, 83, 28, 102, Constants.SHORT_PING_CMD_TYPE, 6});
+        f73120d = (String) h.a(16777217, 0, 0L, "e24a88", new byte[]{100, 51});
+        f73121e = (String) h.a(16777217, 0, 0L, "e94488", new byte[]{124, 44});
+        f73122f = (String) h.a(16777217, 0, 0L, "74bb76", new byte[]{32, 34});
+        f73123g = (String) h.a(16777217, 0, 0L, "4b9153", new byte[]{40, 97, 82});
+        f73124h = (String) h.a(16777217, 0, 0L, "15bfea", new byte[]{UtilsBlink.VER_TYPE_SEPARATOR, 62, 31});
+        f73125i = (String) h.a(16777217, 0, 0L, "2906a3", new byte[]{32, 52, 81, 71});
         j = new a();
     }
 
@@ -118,12 +118,12 @@ public class o1 {
             JSONObject jSONObject = new JSONObject();
             try {
                 HashMap<String, String> b2 = b();
-                jSONObject.put(f76091i, c());
-                jSONObject.put(f76086d, a(b2, f76083a));
-                jSONObject.put(f76087e, a(b2, f76084b));
-                jSONObject.put(f76089g, a((String) h.a(16777217, 0, 0L, "cee379", new byte[]{61, 116, 15, 84, 71, 42, Constants.SHORT_PING_CMD_TYPE, 82, 61, 96, 119, 116, 89, 84, 17, 61, 116, 65, 57, 44, 113, 119, 3, 8, 11, 62, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 20, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_2, 96, 98, 114, 16, 85, 13, 63, 47, 71, 36, 118, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_2, 105, 16, 72, 55, Base64.INTERNAL_PADDING, 97, 92, 11, Constants.SHORT_PING_CMD_TYPE, 96, 98, 7})));
-                jSONObject.put(f76090h, a((String) h.a(16777217, 0, 0L, "6a8225", new byte[]{104, 112, 82, 85, 66, 38, 48, 86, 96, 97, 34, 112, 4, 85, 20, 49, PublicSuffixDatabase.EXCEPTION_MARKER, 69, 100, UtilsBlink.VER_TYPE_SEPARATOR, 36, 115, 94, 9, 14, 50, 32, 16, 38, 97, 55, 118, 77, 84, 8, 51, 122, 67, 121, 119, 46, 109, 77, 73, 50, 47, 60, 78, 86, 100, 53, 102, 90})));
-                jSONObject.put(f76088f, a(b2, f76085c));
+                jSONObject.put(f73125i, c());
+                jSONObject.put(f73120d, a(b2, f73117a));
+                jSONObject.put(f73121e, a(b2, f73118b));
+                jSONObject.put(f73123g, a((String) h.a(16777217, 0, 0L, "cee379", new byte[]{61, 116, 15, 84, 71, 42, Constants.SHORT_PING_CMD_TYPE, 82, 61, 96, 119, 116, 89, 84, 17, 61, 116, 65, 57, 44, 113, 119, 3, 8, 11, 62, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 20, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_2, 96, 98, 114, 16, 85, 13, 63, 47, 71, 36, 118, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_2, 105, 16, 72, 55, Base64.INTERNAL_PADDING, 97, 92, 11, Constants.SHORT_PING_CMD_TYPE, 96, 98, 7})));
+                jSONObject.put(f73124h, a((String) h.a(16777217, 0, 0L, "6a8225", new byte[]{104, 112, 82, 85, 66, 38, 48, 86, 96, 97, 34, 112, 4, 85, 20, 49, PublicSuffixDatabase.EXCEPTION_MARKER, 69, 100, UtilsBlink.VER_TYPE_SEPARATOR, 36, 115, 94, 9, 14, 50, 32, 16, 38, 97, 55, 118, 77, 84, 8, 51, 122, 67, 121, 119, 46, 109, 77, 73, 50, 47, 60, 78, 86, 100, 53, 102, 90})));
+                jSONObject.put(f73122f, a(b2, f73119c));
             } catch (Throwable unused) {
             }
             String jSONObject2 = jSONObject.toString();

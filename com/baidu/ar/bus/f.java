@@ -1,5 +1,6 @@
 package com.baidu.ar.bus;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -206,7 +207,7 @@ public class f {
         Method[] methods;
         CallBack callBack;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, aVar) == null) {
             try {
                 try {
                     methods = aVar.kT.getDeclaredMethods();

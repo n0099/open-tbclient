@@ -10,12 +10,12 @@ import com.google.common.collect.Sets;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class t<K, V> extends s<K, V> implements w<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class a extends s<K, V>.c implements Set<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +104,7 @@ public final class t<K, V> extends s<K, V> implements w<K, V> {
     public e1<K, V> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (e1) this.f73799e : (e1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (e1) this.f70902e : (e1) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.x.b.f;
-/* loaded from: classes5.dex */
+import d.a.p0.x.b.f;
+/* loaded from: classes4.dex */
 public class VoteViewHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public VoteCandidateCard f14340a;
+    public VoteCandidateCard f14379a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VoteViewHolder(View view) {
@@ -35,14 +35,14 @@ public class VoteViewHolder extends RecyclerView.ViewHolder {
             }
         }
         if (view instanceof VoteCandidateCard) {
-            this.f14340a = (VoteCandidateCard) view;
+            this.f14379a = (VoteCandidateCard) view;
         }
     }
 
     public void a(int i2, f fVar) {
         VoteCandidateCard voteCandidateCard;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, fVar) == null) || (voteCandidateCard = this.f14340a) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, fVar) == null) || (voteCandidateCard = this.f14379a) == null) {
             return;
         }
         voteCandidateCard.setData(i2, fVar);

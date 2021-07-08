@@ -5,6 +5,7 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.container.util.network.NetworkInfoUtils;
 import com.baidu.mobstat.Config;
@@ -20,7 +21,7 @@ import java.net.NetworkInterface;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SapiDeviceUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +135,7 @@ public class SapiDeviceUtils {
     public static String getMac(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             try {
             } catch (Exception e2) {
                 Log.e(e2);

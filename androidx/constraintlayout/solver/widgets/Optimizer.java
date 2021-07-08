@@ -3,6 +3,7 @@ package androidx.constraintlayout.solver.widgets;
 import androidx.constraintlayout.solver.LinearSystem;
 import androidx.constraintlayout.solver.Metrics;
 import androidx.constraintlayout.solver.widgets.ConstraintWidget;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -537,7 +538,7 @@ public class Optimizer {
 
     public static void checkMatchParent(ConstraintWidgetContainer constraintWidgetContainer, LinearSystem linearSystem, ConstraintWidget constraintWidget) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, null, constraintWidgetContainer, linearSystem, constraintWidget) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, constraintWidgetContainer, linearSystem, constraintWidget) == null) {
             if (constraintWidgetContainer.mListDimensionBehaviors[0] != ConstraintWidget.DimensionBehaviour.WRAP_CONTENT && constraintWidget.mListDimensionBehaviors[0] == ConstraintWidget.DimensionBehaviour.MATCH_PARENT) {
                 int i2 = constraintWidget.mLeft.mMargin;
                 int width = constraintWidgetContainer.getWidth() - constraintWidget.mRight.mMargin;

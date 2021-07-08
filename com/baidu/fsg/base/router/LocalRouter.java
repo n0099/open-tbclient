@@ -1,6 +1,7 @@
 package com.baidu.fsg.base.router;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,22 +12,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LocalRouter {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5246a = "LocalRouter";
+    public static final String f5263a = "LocalRouter";
 
     /* renamed from: b  reason: collision with root package name */
-    public static LocalRouter f5247b;
+    public static LocalRouter f5264b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, RouterProvider> f5248c;
+    public HashMap<String, RouterProvider> f5265c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f5249d;
+    public Context f5266d;
 
     static {
         InterceptResult invokeClinit;
@@ -58,9 +59,9 @@ public class LocalRouter {
                 return;
             }
         }
-        this.f5248c = null;
-        this.f5249d = context;
-        this.f5248c = new HashMap<>();
+        this.f5265c = null;
+        this.f5266d = context;
+        this.f5265c = new HashMap<>();
     }
 
     public static synchronized LocalRouter getInstance() {
@@ -69,8 +70,8 @@ public class LocalRouter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (LocalRouter.class) {
-                if (f5247b != null) {
-                    localRouter = f5247b;
+                if (f5264b != null) {
+                    localRouter = f5264b;
                 } else {
                     throw new RuntimeException("Local Router must be init first");
                 }
@@ -84,12 +85,12 @@ public class LocalRouter {
         InterceptResult invokeL;
         LocalRouter localRouter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             synchronized (LocalRouter.class) {
-                if (f5247b == null) {
-                    f5247b = new LocalRouter(context);
+                if (f5264b == null) {
+                    f5264b = new LocalRouter(context);
                 }
-                localRouter = f5247b;
+                localRouter = f5264b;
             }
             return localRouter;
         }
@@ -99,7 +100,7 @@ public class LocalRouter {
     public void a(String str, RouterProvider routerProvider) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, routerProvider) == null) {
-            this.f5248c.put(str, routerProvider);
+            this.f5265c.put(str, routerProvider);
         }
     }
 
@@ -126,10 +127,10 @@ public class LocalRouter {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, routerRequest)) == null) {
-            RouterProvider routerProvider = this.f5248c.get(routerRequest.getProvider());
+            RouterProvider routerProvider = this.f5265c.get(routerRequest.getProvider());
             ErrorAction errorAction = new ErrorAction();
             if (routerProvider == null) {
-                for (RouterProvider routerProvider2 : this.f5248c.values()) {
+                for (RouterProvider routerProvider2 : this.f5265c.values()) {
                     RouterAction findAction = routerProvider2.findAction(routerRequest.getAction());
                     if (findAction != null) {
                         return findAction;

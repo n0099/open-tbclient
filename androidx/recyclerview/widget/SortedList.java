@@ -221,7 +221,7 @@ public class SortedList<T> {
 
     private void addToData(int i2, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65540, this, i2, t) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, t) == null) {
             int i3 = this.mSize;
             if (i2 <= i3) {
                 T[] tArr = this.mData;

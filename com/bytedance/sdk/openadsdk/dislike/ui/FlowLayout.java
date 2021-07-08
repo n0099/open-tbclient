@@ -13,16 +13,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FlowLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<List<View>> f30926a;
+    public List<List<View>> f31036a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<Integer> f30927b;
+    public List<Integer> f31037b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FlowLayout(Context context, AttributeSet attributeSet, int i2) {
@@ -43,8 +43,8 @@ public class FlowLayout extends ViewGroup {
                 return;
             }
         }
-        this.f30926a = new ArrayList();
-        this.f30927b = new ArrayList();
+        this.f31036a = new ArrayList();
+        this.f31037b = new ArrayList();
     }
 
     @Override // android.view.ViewGroup
@@ -59,8 +59,8 @@ public class FlowLayout extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             Log.e("TAG", "onLayout");
-            this.f30926a.clear();
-            this.f30927b.clear();
+            this.f31036a.clear();
+            this.f31037b.clear();
             int width = getWidth();
             ArrayList arrayList = new ArrayList();
             int childCount = getChildCount();
@@ -73,8 +73,8 @@ public class FlowLayout extends ViewGroup {
                 int measuredWidth = childAt.getMeasuredWidth();
                 int measuredHeight = childAt.getMeasuredHeight();
                 if ((measuredWidth * i7) + ((marginLayoutParams.leftMargin + marginLayoutParams.rightMargin) * (i7 - 1)) > (width - getPaddingLeft()) - getPaddingRight()) {
-                    this.f30927b.add(Integer.valueOf(i6));
-                    this.f30926a.add(arrayList);
+                    this.f31037b.add(Integer.valueOf(i6));
+                    this.f31036a.add(arrayList);
                     i6 = marginLayoutParams.bottomMargin + marginLayoutParams.topMargin + measuredHeight;
                     arrayList = new ArrayList();
                     i7 = 0;
@@ -84,14 +84,14 @@ public class FlowLayout extends ViewGroup {
                 i6 = Math.max(i6, measuredHeight + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin);
                 arrayList.add(childAt);
             }
-            this.f30927b.add(Integer.valueOf(i6));
-            this.f30926a.add(arrayList);
+            this.f31037b.add(Integer.valueOf(i6));
+            this.f31036a.add(arrayList);
             int paddingLeft = getPaddingLeft();
             int paddingTop = getPaddingTop();
-            int size = this.f30926a.size();
+            int size = this.f31036a.size();
             for (int i11 = 0; i11 < size; i11++) {
-                List<View> list = this.f30926a.get(i11);
-                int intValue = this.f30927b.get(i11).intValue();
+                List<View> list = this.f31036a.get(i11);
+                int intValue = this.f31037b.get(i11).intValue();
                 for (int i12 = 0; i12 < list.size(); i12++) {
                     View view = list.get(i12);
                     if (view.getVisibility() != 8) {

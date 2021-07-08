@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.OnGetOaidListener;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class p1 implements OnGetOaidListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ q1 f42618a;
+    public final /* synthetic */ q1 f39632a;
 
     public p1(q1 q1Var) {
         Interceptable interceptable = $ic;
@@ -30,17 +30,17 @@ public class p1 implements OnGetOaidListener {
                 return;
             }
         }
-        this.f42618a = q1Var;
+        this.f39632a = q1Var;
     }
 
     @Override // com.fun.openid.sdk.OnGetOaidListener
     public void onGetOaid(String str) {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || !TextUtils.isEmpty(q1.f42631c) || TextUtils.isEmpty(str) || (context = this.f42618a.f42634a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || !TextUtils.isEmpty(q1.f39645c) || TextUtils.isEmpty(str) || (context = this.f39632a.f39648a) == null) {
             return;
         }
-        q1.f42631c = str;
+        q1.f39645c = str;
         s1.g(context, str);
     }
 }

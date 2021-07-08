@@ -6,6 +6,7 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,7 +19,7 @@ import java.lang.ref.WeakReference;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ViewVisibilityUtil implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INTERVAL_MILLIS = 500;
@@ -35,7 +36,7 @@ public class ViewVisibilityUtil implements Handler.Callback {
     public ConcurrentHashMap<WeakReference<View>, Integer> mViewStateHashMap;
     public Handler mVisibleMonitor;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface OnViewVisibleChangedListener {
         void onViewVisibleChange(boolean z);
     }
@@ -132,7 +133,7 @@ public class ViewVisibilityUtil implements Handler.Callback {
 
     private void initMonitor() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             if (this.mVisibleMonitor == null) {
                 if (!mHandlerThread.isAlive()) {
                     mHandlerThread.start();

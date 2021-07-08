@@ -127,13 +127,13 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
         this.hd = new com.baidu.ar.arplay.core.engine.a(Looper.getMainLooper());
         com.baidu.ar.f.c cVar = new com.baidu.ar.f.c(context);
         this.hf = cVar;
-        cVar.b(this.f4202f);
+        cVar.b(this.f4205f);
         com.baidu.ar.lua.a aVar = new com.baidu.ar.lua.a();
         this.hh = aVar;
-        aVar.b(this.f4202f);
+        aVar.b(this.f4205f);
         com.baidu.ar.steploading.d dVar = new com.baidu.ar.steploading.d(context);
         this.hg = dVar;
-        dVar.b(this.f4202f);
+        dVar.b(this.f4205f);
         this.hi = new ConcurrentHashMap<>();
         boolean A = com.baidu.ar.h.p.A(this.mContext);
         this.hl = A;
@@ -212,7 +212,7 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
     private void b(DuMixInput duMixInput, DuMixOutput duMixOutput) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, this, duMixInput, duMixOutput) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, duMixInput, duMixOutput) == null) {
             Watermark watermark = duMixOutput.getWatermark();
             if (watermark.getRenderRect() != null || watermark.getStartPoint() == null) {
                 return;

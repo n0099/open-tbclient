@@ -1,5 +1,6 @@
 package com.google.common.collect;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +18,7 @@ import java.lang.Enum;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class EnumBiMap<K extends Enum<K>, V extends Enum<V>> extends AbstractBiMap<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -73,7 +74,7 @@ public final class EnumBiMap<K extends Enum<K>, V extends Enum<V>> extends Abstr
     public static <V extends Enum<V>> Class<V> inferValueType(Map<?, V> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, map)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map)) == null) {
             if (map instanceof EnumBiMap) {
                 return ((EnumBiMap) map).valueType;
             }

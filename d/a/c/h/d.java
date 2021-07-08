@@ -10,27 +10,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile d f44636b;
+    public static volatile d f41652b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, a> f44637a;
+    public Map<String, a> f41653a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ServiceProxy f44638a;
+        public ServiceProxy f41654a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Intent f44639b;
+        public Intent f41655b;
 
         public a(ServiceProxy serviceProxy, Intent intent) {
             Interceptable interceptable = $ic;
@@ -47,8 +47,8 @@ public class d {
                     return;
                 }
             }
-            this.f44638a = serviceProxy;
-            this.f44639b = intent;
+            this.f41654a = serviceProxy;
+            this.f41655b = intent;
         }
     }
 
@@ -65,22 +65,22 @@ public class d {
                 return;
             }
         }
-        this.f44637a = null;
-        this.f44637a = new HashMap();
+        this.f41653a = null;
+        this.f41653a = new HashMap();
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f44636b == null) {
+            if (f41652b == null) {
                 synchronized (d.class) {
-                    if (f44636b == null) {
-                        f44636b = new d();
+                    if (f41652b == null) {
+                        f41652b = new d();
                     }
                 }
             }
-            return f44636b;
+            return f41652b;
         }
         return (d) invokeV.objValue;
     }
@@ -88,7 +88,7 @@ public class d {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44637a.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41653a.size() : invokeV.intValue;
     }
 
     public synchronized a c(String str) {
@@ -97,7 +97,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             synchronized (this) {
-                aVar = this.f44637a.get(str);
+                aVar = this.f41653a.get(str);
             }
             return aVar;
         }
@@ -108,7 +108,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, aVar) == null) {
             synchronized (this) {
-                this.f44637a.put(str, aVar);
+                this.f41653a.put(str, aVar);
             }
         }
     }
@@ -117,7 +117,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             synchronized (this) {
-                this.f44637a.remove(str);
+                this.f41653a.remove(str);
             }
         }
     }

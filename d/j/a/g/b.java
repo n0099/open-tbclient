@@ -12,16 +12,16 @@ import java.util.StringTokenizer;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
 import kotlin.text.StringsKt__StringsKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f73974a;
+    public final String f71026a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Path f73975b;
+    public Path f71027b;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -38,26 +38,26 @@ public final class b {
                 return;
             }
         }
-        this.f73974a = StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? StringsKt__StringsJVMKt.replace$default(str, ",", " ", false, 4, (Object) null) : str;
+        this.f71026a = StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? StringsKt__StringsJVMKt.replace$default(str, ",", " ", false, 4, (Object) null) : str;
     }
 
     public final void a(Path path) {
         Set set;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, path) == null) {
-            Path path2 = this.f73975b;
+            Path path2 = this.f71027b;
             if (path2 != null) {
                 path.set(path2);
                 return;
             }
             Path path3 = new Path();
-            StringTokenizer stringTokenizer = new StringTokenizer(this.f73974a, "MLHVCSQRAZmlhvcsqraz", true);
+            StringTokenizer stringTokenizer = new StringTokenizer(this.f71026a, "MLHVCSQRAZmlhvcsqraz", true);
             String str = "";
             while (stringTokenizer.hasMoreTokens()) {
                 String segment = stringTokenizer.nextToken();
                 Intrinsics.checkExpressionValueIsNotNull(segment, "segment");
                 if (!(segment.length() == 0)) {
-                    set = c.f73976a;
+                    set = c.f71028a;
                     if (set.contains(segment)) {
                         if (Intrinsics.areEqual(segment, "Z") || Intrinsics.areEqual(segment, "z")) {
                             b(path3, segment, new StringTokenizer("", ""));
@@ -68,7 +68,7 @@ public final class b {
                     }
                 }
             }
-            this.f73975b = path3;
+            this.f71027b = path3;
             path.set(path3);
         }
     }

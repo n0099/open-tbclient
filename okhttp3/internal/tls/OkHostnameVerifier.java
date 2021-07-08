@@ -1,5 +1,6 @@
 package okhttp3.internal.tls;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -22,7 +23,7 @@ import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 import okhttp3.CertificatePinner;
 import okhttp3.internal.Util;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class OkHostnameVerifier implements HostnameVerifier {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALT_DNS_NAME = 2;
@@ -102,7 +103,7 @@ public final class OkHostnameVerifier implements HostnameVerifier {
     private boolean verifyHostname(String str, X509Certificate x509Certificate) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, str, x509Certificate)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, x509Certificate)) == null) {
             String lowerCase = str.toLowerCase(Locale.US);
             for (String str2 : getSubjectAltNames(x509Certificate, 2)) {
                 if (verifyHostname(lowerCase, str2)) {

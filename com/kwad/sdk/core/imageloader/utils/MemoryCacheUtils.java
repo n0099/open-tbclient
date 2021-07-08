@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.imageloader.utils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +14,7 @@ import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MemoryCacheUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String URI_AND_SIZE_SEPARATOR = "_";
@@ -98,7 +99,7 @@ public final class MemoryCacheUtils {
     public static String generateKey(String str, ImageSize imageSize) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, imageSize)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, imageSize)) == null) {
             return str + "_" + imageSize.getWidth() + "x" + imageSize.getHeight();
         }
         return (String) invokeLL.objValue;

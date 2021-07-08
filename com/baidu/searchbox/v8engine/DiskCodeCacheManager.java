@@ -3,6 +3,7 @@ package com.baidu.searchbox.v8engine;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import com.baidu.smallgame.sdk.Log;
@@ -16,7 +17,7 @@ import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DiskCodeCacheManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DISK_CODE_CACHE_DIR_NAME_PREFIX = "v8_codecache_";
@@ -158,7 +159,7 @@ public class DiskCodeCacheManager {
         InterceptResult invokeLL;
         File file;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
             if (context == null) {
                 Log.w(TAG, "[CodeCache] Invoke createDiskCodeCacheDirectory failed. Context or ApplicationInfo is null.");
                 return null;

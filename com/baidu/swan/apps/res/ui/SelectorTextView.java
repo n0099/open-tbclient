@@ -14,18 +14,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a.k;
+import d.a.n0.a.k;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SelectorTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f11322f;
+    public static final boolean f11339f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f11323e;
+    public boolean f11340e;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +40,7 @@ public class SelectorTextView extends TextView {
                 return;
             }
         }
-        f11322f = k.f49133a;
+        f11339f = k.f45831a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -61,7 +61,7 @@ public class SelectorTextView extends TextView {
                 return;
             }
         }
-        this.f11323e = false;
+        this.f11340e = false;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -72,16 +72,16 @@ public class SelectorTextView extends TextView {
             if (isEnabled()) {
                 int action = motionEvent.getAction();
                 if (action == 0) {
-                    if (f11322f) {
+                    if (f11339f) {
                         Log.d("ACTION_DOWN", "ACTION_DOWN");
                     }
-                    if (this.f11323e) {
+                    if (this.f11340e) {
                         setAlpha(0.5f);
                     } else {
                         setAlpha(0.4f);
                     }
                 } else if (action == 1 || action == 3) {
-                    if (f11322f) {
+                    if (f11339f) {
                         Log.d("ACTION_UP", "ACTION_UP");
                     }
                     setAlpha(1.0f);
@@ -95,7 +95,7 @@ public class SelectorTextView extends TextView {
     public void setMode(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f11323e = z;
+            this.f11340e = z;
         }
     }
 
@@ -118,7 +118,7 @@ public class SelectorTextView extends TextView {
                 return;
             }
         }
-        this.f11323e = false;
+        this.f11340e = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -140,6 +140,6 @@ public class SelectorTextView extends TextView {
                 return;
             }
         }
-        this.f11323e = false;
+        this.f11340e = false;
     }
 }

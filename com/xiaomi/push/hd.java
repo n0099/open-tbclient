@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class hd {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile hd f43235a;
+    public static volatile hd f40249a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -51,14 +51,14 @@ public class hd {
                 com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]:mContext is null, TinyDataManager.getInstance(Context) failed.");
                 return null;
             }
-            if (f43235a == null) {
+            if (f40249a == null) {
                 synchronized (hd.class) {
-                    if (f43235a == null) {
-                        f43235a = new hd(context);
+                    if (f40249a == null) {
+                        f40249a = new hd(context);
                     }
                 }
             }
-            return f43235a;
+            return f40249a;
         }
         return (hd) invokeL.objValue;
     }

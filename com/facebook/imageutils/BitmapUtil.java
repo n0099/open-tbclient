@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.util.Pair;
 import androidx.core.util.Pools;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,7 +21,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class BitmapUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALPHA_8_BYTES_PER_PIXEL = 1;
@@ -35,7 +36,7 @@ public final class BitmapUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.imageutils.BitmapUtil$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config;
         public static /* synthetic */ Interceptable $ic;
@@ -113,7 +114,7 @@ public final class BitmapUtil {
     public static Pair<Integer, Integer> decodeDimensions(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, bArr)) == null) ? decodeDimensions(new ByteArrayInputStream(bArr)) : (Pair) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) ? decodeDimensions(new ByteArrayInputStream(bArr)) : (Pair) invokeL.objValue;
     }
 
     public static ImageMetaData decodeDimensionsAndColorSpace(InputStream inputStream) {

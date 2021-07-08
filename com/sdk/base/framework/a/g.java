@@ -9,27 +9,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: $VALUES field not found */
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f41142a;
+    public static final g f38156a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f41143b;
+    public static final g f38157b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final g f41144c;
+    public static final g f38158c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final g f41145d;
+    public static final g f38159d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final g f41146e;
+    public static final g f38160e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final g f41147f;
+    public static final g f38161f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,12 +45,12 @@ public final class g {
                 return;
             }
         }
-        f41142a = new g("WAITING", 0, 0);
-        f41143b = new g("STARTED", 1, 1);
-        f41144c = new g("LOADING", 2, 2);
-        f41145d = new g("FAILURE", 3, 3);
-        f41146e = new g("CANCELLED", 4, 4);
-        f41147f = new g(com.alipay.security.mobile.module.http.model.c.f2102g, 5, 5);
+        f38156a = new g("WAITING", 0, 0);
+        f38157b = new g("STARTED", 1, 1);
+        f38158c = new g("LOADING", 2, 2);
+        f38159d = new g("FAILURE", 3, 3);
+        f38160e = new g("CANCELLED", 4, 4);
+        f38161f = new g(com.alipay.security.mobile.module.http.model.c.f2103g, 5, 5);
     }
 
     public g(String str, int i2, int i3) {

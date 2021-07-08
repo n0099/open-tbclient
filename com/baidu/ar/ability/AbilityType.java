@@ -1,5 +1,6 @@
 package com.baidu.ar.ability;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -123,7 +124,7 @@ public final class AbilityType {
     public static AbilityType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (AbilityType[]) $VALUES.clone() : (AbilityType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (AbilityType[]) $VALUES.clone() : (AbilityType[]) invokeV.objValue;
     }
 
     public String getTypeValue() {

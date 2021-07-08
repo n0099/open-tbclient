@@ -11,13 +11,13 @@ import java.lang.reflect.Type;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class k implements h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f44052a;
+    public JSONObject f41068a;
 
     public k(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class k implements h {
                 return;
             }
         }
-        this.f44052a = jSONObject;
+        this.f41068a = jSONObject;
     }
 
     @Override // d.a.c.e.b.b.a.d.h
@@ -45,14 +45,14 @@ public class k implements h {
             Class<?> a2 = cVar.a();
             Type[] b2 = cVar.b();
             if (d.a.c.e.b.a.a.e(a2, Map.class)) {
-                Map<String, Object> b3 = d.a.c.e.b.b.a.e.a.b(cVar, this.f44052a.length());
+                Map<String, Object> b3 = d.a.c.e.b.b.a.e.a.b(cVar, this.f41068a.length());
                 if (b3 != null) {
-                    Iterator<String> keys = this.f44052a.keys();
+                    Iterator<String> keys = this.f41068a.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
                         if (next instanceof String) {
                             String str = next;
-                            Object a3 = d.a.c.e.b.b.a.e.g.a(this.f44052a.opt(str)).a(new d.a.c.e.b.b.a.e.c(b2[1]));
+                            Object a3 = d.a.c.e.b.b.a.e.g.a(this.f41068a.opt(str)).a(new d.a.c.e.b.b.a.e.c(b2[1]));
                             if (a3 != null) {
                                 b3.put(str, a3);
                             }
@@ -61,15 +61,15 @@ public class k implements h {
                 }
                 return b3;
             } else if (a2 == SparseArray.class) {
-                SparseArray sparseArray = new SparseArray(this.f44052a.length());
-                Iterator<String> keys2 = this.f44052a.keys();
+                SparseArray sparseArray = new SparseArray(this.f41068a.length());
+                Iterator<String> keys2 = this.f41068a.keys();
                 while (keys2.hasNext()) {
                     String next2 = keys2.next();
                     if (next2 instanceof String) {
                         String str2 = next2;
                         try {
                             int parseInt = Integer.parseInt(str2);
-                            Object a4 = d.a.c.e.b.b.a.e.g.a(this.f44052a.opt(String.valueOf(str2))).a(new d.a.c.e.b.b.a.e.c(b2[0]));
+                            Object a4 = d.a.c.e.b.b.a.e.g.a(this.f41068a.opt(String.valueOf(str2))).a(new d.a.c.e.b.b.a.e.c(b2[0]));
                             if (a4 != null) {
                                 sparseArray.put(parseInt, a4);
                             }
@@ -80,7 +80,7 @@ public class k implements h {
                 }
                 return sparseArray;
             } else if (d.a.c.e.b.a.a.e(a2, d.a.c.e.b.b.a.a.a.class)) {
-                return OrmObject.objectWithJson(this.f44052a, a2);
+                return OrmObject.objectWithJson(this.f41068a, a2);
             } else {
                 return null;
             }

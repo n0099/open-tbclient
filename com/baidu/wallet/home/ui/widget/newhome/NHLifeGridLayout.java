@@ -17,19 +17,19 @@ import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.HomeLayoutOneTipView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class NHLifeGridLayout extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public GridLayout f25111a;
+    public GridLayout f25221a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HomeLayoutOneTipView f25112b;
+    public HomeLayoutOneTipView f25222b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<BaseItemView> f25113c;
+    public List<BaseItemView> f25223c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NHLifeGridLayout(Context context) {
@@ -49,7 +49,7 @@ public class NHLifeGridLayout extends BaseItemLayout {
                 return;
             }
         }
-        this.f25113c = new ArrayList();
+        this.f25223c = new ArrayList();
     }
 
     private void a(GridLayout gridLayout) {
@@ -63,7 +63,7 @@ public class NHLifeGridLayout extends BaseItemLayout {
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25113c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25223c : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -72,9 +72,9 @@ public class NHLifeGridLayout extends BaseItemLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_life_layout_finance"), this);
             GridLayout gridLayout = (GridLayout) findViewById(ResUtils.id(getContext(), "grid_layout"));
-            this.f25111a = gridLayout;
+            this.f25221a = gridLayout;
             gridLayout.setBackgroundColor(ResUtils.getColor(getContext(), "wallet_base_whiteColor"));
-            this.f25112b = (HomeLayoutOneTipView) findViewById(ResUtils.id(getContext(), "tip_view"));
+            this.f25222b = (HomeLayoutOneTipView) findViewById(ResUtils.id(getContext(), "tip_view"));
         }
     }
 
@@ -94,18 +94,18 @@ public class NHLifeGridLayout extends BaseItemLayout {
     public void refreshData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f25112b.setData(this.mConfigData, getWalletInterface());
+            this.f25222b.setData(this.mConfigData, getWalletInterface());
             HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
-            this.f25111a.setColumnCount(4);
-            this.f25111a.setHorizontalSpacing(0);
-            this.f25111a.setVerticalSpacing(0);
-            this.f25111a.setPadding(20, 20, 20, 30);
-            a(this.f25111a);
+            this.f25221a.setColumnCount(4);
+            this.f25221a.setHorizontalSpacing(0);
+            this.f25221a.setVerticalSpacing(0);
+            this.f25221a.setPadding(20, 20, 20, 30);
+            a(this.f25221a);
             for (HomeCfgResponse.DataItem dataItem : dataItemArr) {
                 NHLifeGridItem nHLifeGridItem = new NHLifeGridItem(getContext());
                 nHLifeGridItem.setData(dataItem, getWalletInterface());
-                this.f25111a.addView(nHLifeGridItem);
-                this.f25113c.add(nHLifeGridItem);
+                this.f25221a.addView(nHLifeGridItem);
+                this.f25223c.add(nHLifeGridItem);
             }
         }
     }
@@ -129,6 +129,6 @@ public class NHLifeGridLayout extends BaseItemLayout {
                 return;
             }
         }
-        this.f25113c = new ArrayList();
+        this.f25223c = new ArrayList();
     }
 }

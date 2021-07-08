@@ -1,189 +1,104 @@
 package com.kwad.sdk.utils;
 
-import androidx.annotation.Nullable;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
+import android.webkit.WebView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.Reader;
-import java.io.StringWriter;
-import java.io.Writer;
-import java.nio.charset.Charset;
-/* loaded from: classes7.dex */
+import java.lang.reflect.Field;
+/* loaded from: classes6.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(Reader reader, Writer writer) {
-        InterceptResult invokeLL;
+    public static void a(Context context, View view) {
+        InputMethodManager inputMethodManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, reader, writer)) == null) {
-            long b2 = b(reader, writer);
-            if (b2 > 2147483647L) {
-                return -1;
-            }
-            return (int) b2;
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, context, view) == null) || context == null || view == null || (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) == null) {
+            return;
         }
-        return invokeLL.intValue;
-    }
-
-    public static long a(Reader reader, Writer writer, char[] cArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65537, null, reader, writer, cArr)) != null) {
-            return invokeLLL.longValue;
-        }
-        long j = 0;
-        while (true) {
-            int read = reader.read(cArr);
-            if (-1 == read) {
-                return j;
-            }
-            writer.write(cArr, 0, read);
-            j += read;
-        }
-    }
-
-    public static FileInputStream a(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
-            if (file.exists() && !file.isDirectory() && file.canRead()) {
-                return new FileInputStream(file);
-            }
-            return null;
-        }
-        return (FileInputStream) invokeL.objValue;
-    }
-
-    @Nullable
-    public static FileOutputStream a(File file, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, file, z)) == null) {
-            if (!file.exists()) {
-                File parentFile = file.getParentFile();
-                if (parentFile != null && !parentFile.mkdirs() && !parentFile.isDirectory()) {
-                    return null;
-                }
-            } else if (file.isDirectory() || !file.canWrite()) {
-                return null;
-            }
-            return new FileOutputStream(file, z);
-        }
-        return (FileOutputStream) invokeLZ.objValue;
-    }
-
-    @Nullable
-    public static String a(File file, Charset charset) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65540, null, file, charset)) != null) {
-            return (String) invokeLL.objValue;
-        }
-        FileInputStream fileInputStream = null;
-        try {
-            FileInputStream a2 = a(file);
-            if (a2 == null) {
-                a(a2);
-                return null;
-            }
+        String[] strArr = {"mCurRootView", "mServedView", "mNextServedView"};
+        for (int i2 = 0; i2 < 3; i2++) {
             try {
-                String a3 = a(a2, a(charset));
-                a(a2);
-                return a3;
+                Field declaredField = inputMethodManager.getClass().getDeclaredField(strArr[i2]);
+                if (!declaredField.isAccessible()) {
+                    declaredField.setAccessible(true);
+                }
+                Object obj = declaredField.get(inputMethodManager);
+                if (!(obj instanceof View)) {
+                    continue;
+                } else if (!context.equals(((View) obj).getContext())) {
+                    return;
+                } else {
+                    declaredField.set(inputMethodManager, null);
+                }
             } catch (Throwable th) {
-                th = th;
-                fileInputStream = a2;
-                a(fileInputStream);
-                throw th;
+                th.printStackTrace();
             }
-        } catch (Throwable th2) {
-            th = th2;
         }
     }
 
-    @Nullable
-    public static String a(InputStream inputStream, Charset charset) {
-        InterceptResult invokeLL;
+    public static void a(Context context, Window window) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, inputStream, charset)) == null) {
-            if (inputStream == null) {
-                return null;
-            }
-            StringWriter stringWriter = new StringWriter();
-            a(inputStream, stringWriter, charset);
-            return stringWriter.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static Charset a(Charset charset) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, charset)) == null) ? charset == null ? Charset.defaultCharset() : charset : (Charset) invokeL.objValue;
-    }
-
-    public static void a(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, closeable) == null) || closeable == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, window) == null) || window == null) {
             return;
         }
-        try {
-            closeable.close();
-        } catch (Exception unused) {
-        }
+        View decorView = window.getDecorView();
+        a(decorView);
+        a(context, decorView);
     }
 
-    public static void a(File file, String str, Charset charset, boolean z) {
-        FileOutputStream fileOutputStream;
+    public static synchronized void a(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(65544, null, new Object[]{file, str, charset, Boolean.valueOf(z)}) != null) {
-            return;
-        }
-        try {
-            fileOutputStream = a(file, z);
-            if (fileOutputStream != null) {
-                try {
-                    a(str, fileOutputStream, charset);
-                } catch (Throwable th) {
-                    th = th;
-                    a(fileOutputStream);
-                    throw th;
+        if (interceptable == null || interceptable.invokeL(65538, null, view) == null) {
+            synchronized (k.class) {
+                if (view == null) {
+                    return;
+                }
+                if (view instanceof WebView) {
+                    try {
+                        ((WebView) view).destroy();
+                    } catch (Throwable unused) {
+                    }
+                } else if (view instanceof ViewGroup) {
+                    ViewGroup viewGroup = (ViewGroup) view;
+                    int childCount = viewGroup.getChildCount();
+                    for (int i2 = 0; i2 < childCount; i2++) {
+                        a(viewGroup.getChildAt(i2));
+                    }
                 }
             }
-            a(fileOutputStream);
-        } catch (Throwable th2) {
-            th = th2;
-            fileOutputStream = null;
         }
     }
 
-    public static void a(InputStream inputStream, Writer writer, Charset charset) {
+    public static void a(com.kwad.sdk.c.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, inputStream, writer, charset) == null) {
-            a(new InputStreamReader(inputStream, a(charset)), writer);
-        }
-    }
-
-    public static void a(String str, OutputStream outputStream, Charset charset) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65546, null, str, outputStream, charset) == null) || outputStream == null || str == null) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, aVar) == null) || aVar == null) {
             return;
         }
-        outputStream.write(str.getBytes(a(charset)));
+        a(aVar.getActivity(), aVar.getWindow());
     }
 
-    public static long b(Reader reader, Writer writer) {
-        InterceptResult invokeLL;
+    public static void a(com.kwad.sdk.c.b bVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, reader, writer)) == null) ? a(reader, writer, new char[4096]) : invokeLL.longValue;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bVar) == null) || bVar == null) {
+            return;
+        }
+        a(bVar.getActivity(), bVar.getWindow());
+    }
+
+    public static void a(com.kwad.sdk.c.d dVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, dVar) == null) || dVar == null) {
+            return;
+        }
+        View view = dVar.getView();
+        a(dVar.getView());
+        a(dVar.getContext(), view);
     }
 }

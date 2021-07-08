@@ -63,7 +63,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"NewApi"})
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class BaseHtmlBridgeHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DL_STATUS_NONE = "NONE";
@@ -86,7 +86,7 @@ public abstract class BaseHtmlBridgeHandler {
     public WebView mWebView;
 
     /* renamed from: com.baidu.mobads.container.bridge.BaseHtmlBridgeHandler$14  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass14 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$mobads$container$bridge$CommandType;
         public static /* synthetic */ Interceptable $ic;
@@ -307,7 +307,7 @@ public abstract class BaseHtmlBridgeHandler {
 
     private void fire(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, str2) == null) {
             TaskScheduler.getInstance().submit(new BaseTask(this, str, str2) { // from class: com.baidu.mobads.container.bridge.BaseHtmlBridgeHandler.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

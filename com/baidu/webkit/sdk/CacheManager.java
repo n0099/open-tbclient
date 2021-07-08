@@ -16,14 +16,14 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Map;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CacheManager {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Deprecated
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class CacheResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -210,7 +210,7 @@ public class CacheManager {
     public static CacheResult getCacheFile(String str, Map<String, String> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, map)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, map)) == null) {
             return null;
         }
         return (CacheResult) invokeLL.objValue;

@@ -6,9 +6,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.ad;
+import com.kwad.sdk.utils.al;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class StorageUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTERNAL_STORAGE_PERMISSION = "android.permission.WRITE_EXTERNAL_STORAGE";
@@ -39,7 +39,7 @@ public final class StorageUtils {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            File b2 = ad.b(context);
+            File b2 = al.b(context);
             File file = new File(b2, str);
             return (file.exists() || file.mkdir()) ? file : b2;
         }

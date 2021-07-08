@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import d.a.c.e.p.j;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class d {
                     sb.append("_NET_");
                 }
                 if (j.u()) {
-                    sb.append(com.baidu.apollon.statistics.g.f3983b);
+                    sb.append(com.baidu.apollon.statistics.g.f3986b);
                 } else if (j.v()) {
                     sb.append("4G");
                 } else if (j.t()) {

@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f73364a;
+    public int f70467a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long[] f73365b;
+    public long[] f70468b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public g() {
@@ -39,14 +39,14 @@ public final class g {
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            int i2 = this.f73364a;
-            long[] jArr = this.f73365b;
+            int i2 = this.f70467a;
+            long[] jArr = this.f70468b;
             if (i2 == jArr.length) {
-                this.f73365b = Arrays.copyOf(jArr, i2 * 2);
+                this.f70468b = Arrays.copyOf(jArr, i2 * 2);
             }
-            long[] jArr2 = this.f73365b;
-            int i3 = this.f73364a;
-            this.f73364a = i3 + 1;
+            long[] jArr2 = this.f70468b;
+            int i3 = this.f70467a;
+            this.f70467a = i3 + 1;
             jArr2[i3] = j;
         }
     }
@@ -55,10 +55,10 @@ public final class g {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (i2 >= 0 && i2 < this.f73364a) {
-                return this.f73365b[i2];
+            if (i2 >= 0 && i2 < this.f70467a) {
+                return this.f70468b[i2];
             }
-            throw new IndexOutOfBoundsException("Invalid index " + i2 + ", size is " + this.f73364a);
+            throw new IndexOutOfBoundsException("Invalid index " + i2 + ", size is " + this.f70467a);
         }
         return invokeI.longValue;
     }
@@ -66,13 +66,13 @@ public final class g {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f73364a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f70467a : invokeV.intValue;
     }
 
     public long[] d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Arrays.copyOf(this.f73365b, this.f73364a) : (long[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Arrays.copyOf(this.f70468b, this.f70467a) : (long[]) invokeV.objValue;
     }
 
     public g(int i2) {
@@ -90,6 +90,6 @@ public final class g {
                 return;
             }
         }
-        this.f73365b = new long[i2];
+        this.f70468b = new long[i2];
     }
 }

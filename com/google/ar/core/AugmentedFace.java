@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AugmentedFace extends TrackableBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class RegionType {
         public static final /* synthetic */ RegionType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -115,10 +115,10 @@ public class AugmentedFace extends TrackableBase {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Session.a(nativeGetMeshVerticesByteBuffer(this.f32879b.f32855a, this.f32878a)).asFloatBuffer().asReadOnlyBuffer();
-            Session.a(nativeGetMeshNormalsByteBuffer(this.f32879b.f32855a, this.f32878a)).asFloatBuffer().asReadOnlyBuffer();
-            Session.a(nativeGetMeshTextureCoordinatesByteBuffer(this.f32879b.f32855a, this.f32878a)).asFloatBuffer().asReadOnlyBuffer();
-            Session.a(nativeGetMeshTriangleIndicesByteBuffer(this.f32879b.f32855a, this.f32878a)).asCharBuffer().asReadOnlyBuffer();
+            Session.a(nativeGetMeshVerticesByteBuffer(this.f32989b.f32965a, this.f32988a)).asFloatBuffer().asReadOnlyBuffer();
+            Session.a(nativeGetMeshNormalsByteBuffer(this.f32989b.f32965a, this.f32988a)).asFloatBuffer().asReadOnlyBuffer();
+            Session.a(nativeGetMeshTextureCoordinatesByteBuffer(this.f32989b.f32965a, this.f32988a)).asFloatBuffer().asReadOnlyBuffer();
+            Session.a(nativeGetMeshTriangleIndicesByteBuffer(this.f32989b.f32965a, this.f32988a)).asCharBuffer().asReadOnlyBuffer();
         }
     }
 

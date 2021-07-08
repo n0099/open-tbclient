@@ -27,7 +27,7 @@ import java.io.FileNotFoundException;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class MaterialLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IMAGE_CACHE_PATH = "img_download/";
@@ -45,7 +45,7 @@ public class MaterialLoader {
     public MaterialLoadingListener emptyListener;
     public Context mContext;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class FlushedInputStream extends FilterInputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class by extends ContentObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f43648a;
+    public final /* synthetic */ XMPushService f40662a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public by(XMPushService xMPushService, Handler handler) {
@@ -33,7 +33,7 @@ public class by extends ContentObserver {
                 return;
             }
         }
-        this.f43648a = xMPushService;
+        this.f40662a = xMPushService;
     }
 
     @Override // android.database.ContentObserver
@@ -42,13 +42,13 @@ public class by extends ContentObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             super.onChange(z);
-            m556f = this.f43648a.m556f();
+            m556f = this.f40662a.m556f();
             com.xiaomi.channel.commonutils.logger.b.m70a("ExtremePowerMode:" + m556f);
             if (!m556f) {
-                this.f43648a.a(true);
+                this.f40662a.a(true);
                 return;
             }
-            XMPushService xMPushService = this.f43648a;
+            XMPushService xMPushService = this.f40662a;
             xMPushService.a(new XMPushService.f(xMPushService, 23, null));
         }
     }

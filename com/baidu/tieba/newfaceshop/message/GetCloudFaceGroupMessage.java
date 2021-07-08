@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.q;
-import d.a.r0.a0.d;
+import d.a.o0.a0.d;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +104,7 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
                     collectEmotionData.thumbnail = jSONObject.optString("thumbnail");
                     collectEmotionData.uid = TbadkCoreApplication.getCurrentAccount();
                     collectEmotionData.pkgId = jSONObject.optString("pck_id");
-                    StringBuilder sb = new StringBuilder(d.f54735f);
+                    StringBuilder sb = new StringBuilder(d.f51437f);
                     if (TextUtils.isEmpty(collectEmotionData.pkgId)) {
                         sb.append(collectEmotionData.pkgId);
                         sb.append(",");
@@ -134,11 +134,11 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
             return;
         }
         this.mCollectUpdateTime = jSONObject.optLong("pic_update_time");
-        if (d.a.s0.c2.d.k() < this.mCollectUpdateTime) {
+        if (d.a.p0.c2.d.k() < this.mCollectUpdateTime) {
             parseCollectData(jSONObject.optJSONArray("pic_ids"));
         }
         this.mFaceGroupUpdateTime = jSONObject.optLong("pkg_update_time");
-        if (d.a.s0.c2.d.l() < this.mFaceGroupUpdateTime) {
+        if (d.a.p0.c2.d.l() < this.mFaceGroupUpdateTime) {
             parseFaceGroupData(jSONObject.optString("package_ids"));
         }
     }

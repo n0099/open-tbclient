@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.Random;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f10360a = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    public static String f10377a = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public final class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            char[] charArray = f10360a.toCharArray();
+            char[] charArray = f10377a.toCharArray();
             char[] cArr = new char[16];
             for (int i2 = 0; i2 < 16; i2++) {
                 cArr[i2] = charArray[new Random().nextInt(62)];

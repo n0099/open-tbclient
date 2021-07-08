@@ -505,7 +505,7 @@ public class Toolbar extends ViewGroup {
     private void addSystemView(View view, boolean z) {
         LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65540, this, view, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, view, z) == null) {
             ViewGroup.LayoutParams layoutParams2 = view.getLayoutParams();
             if (layoutParams2 == null) {
                 layoutParams = generateDefaultLayoutParams();
@@ -2243,13 +2243,13 @@ public class Toolbar extends ViewGroup {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {layoutParams};
-                interceptable.invokeUnInit(65540, newInitContext);
+                interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     super((ViewGroup.LayoutParams) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65540, newInitContext);
+                    interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                     return;
                 }
             }

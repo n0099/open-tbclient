@@ -5,19 +5,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ long f5167a;
+    public final /* synthetic */ long f5184a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a.c f5168b;
+    public final /* synthetic */ a.c f5185b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ a f5169c;
+    public final /* synthetic */ a f5186c;
 
     public d(a aVar, long j, a.c cVar) {
         Interceptable interceptable = $ic;
@@ -34,9 +34,9 @@ public class d implements Runnable {
                 return;
             }
         }
-        this.f5169c = aVar;
-        this.f5167a = j;
-        this.f5168b = cVar;
+        this.f5186c = aVar;
+        this.f5184a = j;
+        this.f5185b = cVar;
     }
 
     @Override // java.lang.Runnable
@@ -44,11 +44,11 @@ public class d implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                Thread.sleep(this.f5167a);
+                Thread.sleep(this.f5184a);
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
-            this.f5169c.d(this.f5168b);
+            this.f5186c.d(this.f5185b);
         }
     }
 }

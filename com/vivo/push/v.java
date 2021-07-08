@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class v implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f42277a;
+    public Context f39291a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f42278b;
+    public int f39292b;
 
     /* renamed from: c  reason: collision with root package name */
-    public y f42279c;
+    public y f39293c;
 
     public v(y yVar) {
         Interceptable interceptable = $ic;
@@ -37,12 +37,12 @@ public abstract class v implements Runnable {
                 return;
             }
         }
-        this.f42278b = -1;
-        this.f42279c = yVar;
+        this.f39292b = -1;
+        this.f39293c = yVar;
         int b2 = yVar.b();
-        this.f42278b = b2;
+        this.f39292b = b2;
         if (b2 >= 0) {
-            this.f42277a = p.a().h();
+            this.f39291a = p.a().h();
             return;
         }
         throw new IllegalArgumentException("PushTask need a > 0 task id.");
@@ -51,7 +51,7 @@ public abstract class v implements Runnable {
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42278b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39292b : invokeV.intValue;
     }
 
     public abstract void a(y yVar);
@@ -60,11 +60,11 @@ public abstract class v implements Runnable {
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Context context = this.f42277a;
-            if (context != null && !(this.f42279c instanceof com.vivo.push.b.p)) {
-                com.vivo.push.util.p.a(context, "[执行指令]" + this.f42279c);
+            Context context = this.f39291a;
+            if (context != null && !(this.f39293c instanceof com.vivo.push.b.p)) {
+                com.vivo.push.util.p.a(context, "[执行指令]" + this.f39293c);
             }
-            a(this.f42279c);
+            a(this.f39293c);
         }
     }
 
@@ -75,7 +75,7 @@ public abstract class v implements Runnable {
             StringBuilder sb = new StringBuilder();
             sb.append(getClass().getSimpleName());
             sb.append(StringUtil.ARRAY_START);
-            y yVar = this.f42279c;
+            y yVar = this.f39293c;
             sb.append(yVar == null ? "[null]" : yVar.toString());
             sb.append("}");
             return sb.toString();

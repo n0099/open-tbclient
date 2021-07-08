@@ -1,6 +1,7 @@
 package android.net.http;
 
 import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -107,7 +108,7 @@ public class SslCertificate {
     public static Bundle saveState(SslCertificate sslCertificate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, sslCertificate)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, sslCertificate)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (Bundle) invokeL.objValue;

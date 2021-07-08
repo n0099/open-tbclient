@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

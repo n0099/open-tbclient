@@ -10,6 +10,7 @@ import androidx.annotation.FloatRange;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.core.graphics.ColorUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.resources.MaterialAttributes;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MaterialColors {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float ALPHA_DISABLED = 0.38f;
@@ -52,7 +53,7 @@ public class MaterialColors {
     public static int getColor(@NonNull View view, @AttrRes int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, view, i2)) == null) ? MaterialAttributes.resolveOrThrow(view, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, view, i2)) == null) ? MaterialAttributes.resolveOrThrow(view, i2) : invokeLI.intValue;
     }
 
     @ColorInt

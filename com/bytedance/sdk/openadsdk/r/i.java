@@ -13,15 +13,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.embedapplog.AppLog;
 import com.bytedance.embedapplog.IOaidObserver;
 import com.bytedance.sdk.openadsdk.TTCustomController;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f32217a = "";
+    public static volatile String f32327a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f32218b;
+    public static volatile boolean f32328b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,10 +39,10 @@ public class i {
         }
         String str = "";
         try {
-            if (TextUtils.isEmpty(f32217a)) {
-                f32217a = com.bytedance.sdk.openadsdk.core.c.a(com.bytedance.sdk.openadsdk.core.o.a()).b("oaid", "");
-                if (f32217a != null) {
-                    str = f32217a;
+            if (TextUtils.isEmpty(f32327a)) {
+                f32327a = com.bytedance.sdk.openadsdk.core.c.a(com.bytedance.sdk.openadsdk.core.o.a()).b("oaid", "");
+                if (f32327a != null) {
+                    str = f32327a;
                 }
                 com.bytedance.sdk.openadsdk.p.a.a(7, str);
             }
@@ -52,10 +52,10 @@ public class i {
 
     public static void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65543, null) == null) || TextUtils.isEmpty(f32217a)) {
+        if (!(interceptable == null || interceptable.invokeV(65543, null) == null) || TextUtils.isEmpty(f32327a)) {
             return;
         }
-        com.bytedance.sdk.openadsdk.core.h.a("sdk_app_log_oaid", f32217a);
+        com.bytedance.sdk.openadsdk.core.h.a("sdk_app_log_oaid", f32327a);
     }
 
     public static void a(Context context) {
@@ -88,9 +88,9 @@ public class i {
                                 if (TextUtils.isEmpty(oaid.id)) {
                                     return;
                                 }
-                                boolean unused = i.f32218b = true;
-                                String unused2 = i.f32217a = oaid.id;
-                                com.bytedance.sdk.openadsdk.p.a.a(7, i.f32217a == null ? "" : i.f32217a);
+                                boolean unused = i.f32328b = true;
+                                String unused2 = i.f32327a = oaid.id;
+                                com.bytedance.sdk.openadsdk.p.a.a(7, i.f32327a == null ? "" : i.f32327a);
                                 i.d();
                             } catch (Throwable unused3) {
                             }
@@ -106,19 +106,19 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (TextUtils.isEmpty(f32217a)) {
-                f32217a = com.bytedance.sdk.openadsdk.core.h.a("sdk_app_log_oaid", 86400000L);
-                com.bytedance.sdk.openadsdk.p.a.a(7, f32217a == null ? "" : f32217a);
+            if (TextUtils.isEmpty(f32327a)) {
+                f32327a = com.bytedance.sdk.openadsdk.core.h.a("sdk_app_log_oaid", 86400000L);
+                com.bytedance.sdk.openadsdk.p.a.a(7, f32327a == null ? "" : f32327a);
             }
-            if (TextUtils.isEmpty(f32217a) && !f32218b) {
+            if (TextUtils.isEmpty(f32327a) && !f32328b) {
                 TTCustomController f2 = com.bytedance.sdk.openadsdk.core.h.d().f();
                 if (f2 != null && !TextUtils.isEmpty(f2.getDevOaid())) {
-                    f32217a = f2.getDevOaid();
+                    f32327a = f2.getDevOaid();
                     d();
                 }
-                com.bytedance.sdk.openadsdk.p.a.a(7, f32217a == null ? "" : f32217a);
+                com.bytedance.sdk.openadsdk.p.a.a(7, f32327a == null ? "" : f32327a);
             }
-            return f32217a == null ? "" : f32217a;
+            return f32327a == null ? "" : f32327a;
         }
         return (String) invokeV.objValue;
     }

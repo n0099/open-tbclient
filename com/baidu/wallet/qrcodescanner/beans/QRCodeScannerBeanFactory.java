@@ -12,29 +12,29 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.beans.BaseBean;
 import com.baidu.wallet.core.beans.BeanManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class QRCodeScannerBeanFactory implements IBeanFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int QRCODE_SHORT_URL = 2561;
     public static final int QRCODE_WHITE_LIST = 2560;
 
     /* renamed from: a  reason: collision with root package name */
-    public static QRCodeScannerBeanFactory f27159a;
+    public static QRCodeScannerBeanFactory f27269a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.qrcodescanner.beans.QRCodeScannerBeanFactory$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static QRCodeScannerBeanFactory f27160a;
+        public static QRCodeScannerBeanFactory f27270a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -50,7 +50,7 @@ public final class QRCodeScannerBeanFactory implements IBeanFactory {
                     return;
                 }
             }
-            f27160a = new QRCodeScannerBeanFactory(null);
+            f27270a = new QRCodeScannerBeanFactory(null);
         }
     }
 
@@ -76,7 +76,7 @@ public final class QRCodeScannerBeanFactory implements IBeanFactory {
     public static QRCodeScannerBeanFactory getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f27160a : (QRCodeScannerBeanFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f27270a : (QRCodeScannerBeanFactory) invokeV.objValue;
     }
 
     public QRCodeScannerBeanFactory() {

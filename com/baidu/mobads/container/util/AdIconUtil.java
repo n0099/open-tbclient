@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AdIconUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AD_TEXT_ID = 65541;
@@ -20,7 +20,7 @@ public class AdIconUtil {
     public int mRight;
     public Context mViewContext;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class AdLogoParameter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,6 +1,7 @@
 package com.bytedance.sdk.openadsdk.g;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -25,13 +26,13 @@ import com.bytedance.sdk.component.utils.j;
 import com.bytedance.sdk.openadsdk.core.o;
 import com.bytedance.sdk.openadsdk.r.n;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.bytedance.sdk.openadsdk.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class C0351a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +61,7 @@ public class a {
 
         public static void a(Context context) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65540, null, context) == null) {
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
                 l.a(context, new o.a().a(com.bytedance.sdk.component.e.e.a()).a(new c() { // from class: com.bytedance.sdk.openadsdk.g.a.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -155,25 +156,25 @@ public class a {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class b implements k {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f31208a;
+        public static int f31318a;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f31209b;
+        public long f31319b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f31210c;
+        public long f31320c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f31211d;
+        public boolean f31321d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f31212e;
+        public String f31322e;
 
         static {
             InterceptResult invokeClinit;
@@ -203,9 +204,9 @@ public class a {
                     return;
                 }
             }
-            this.f31209b = 0L;
-            f31208a++;
-            this.f31212e = "image_request_" + f31208a;
+            this.f31319b = 0L;
+            f31318a++;
+            this.f31322e = "image_request_" + f31318a;
         }
 
         private String c(String str, com.bytedance.sdk.component.d.c.a aVar) {
@@ -240,7 +241,7 @@ public class a {
                             }
                             break;
                         case -1281977283:
-                            if (str.equals(com.alipay.sdk.util.e.f1966a)) {
+                            if (str.equals(com.alipay.sdk.util.e.f1967a)) {
                                 c2 = '\t';
                                 break;
                             }
@@ -310,12 +311,12 @@ public class a {
         public void a(String str, com.bytedance.sdk.component.d.c.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
-                if (!this.f31211d) {
-                    j.b("ImageLoaderWrapper", "start " + this.f31212e + " request:" + aVar.a() + ", width:" + aVar.h() + ",height:" + aVar.i());
-                    this.f31211d = true;
+                if (!this.f31321d) {
+                    j.b("ImageLoaderWrapper", "start " + this.f31322e + " request:" + aVar.a() + ", width:" + aVar.h() + ",height:" + aVar.i());
+                    this.f31321d = true;
                 }
-                this.f31209b = System.currentTimeMillis();
-                j.b("ImageLoaderWrapper", this.f31212e + " 开始:" + c(str, aVar));
+                this.f31319b = System.currentTimeMillis();
+                j.b("ImageLoaderWrapper", this.f31322e + " 开始:" + c(str, aVar));
             }
         }
 
@@ -323,9 +324,9 @@ public class a {
         public void b(String str, com.bytedance.sdk.component.d.c.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, aVar) == null) {
-                long currentTimeMillis = System.currentTimeMillis() - this.f31209b;
-                this.f31210c += currentTimeMillis;
-                j.b("ImageLoaderWrapper", this.f31212e + " 结束:" + c(str, aVar) + ",耗时：" + currentTimeMillis + " ms， 总计：" + this.f31210c + " ms. url" + Part.CRLF);
+                long currentTimeMillis = System.currentTimeMillis() - this.f31319b;
+                this.f31320c += currentTimeMillis;
+                j.b("ImageLoaderWrapper", this.f31322e + " 结束:" + c(str, aVar) + ",耗时：" + currentTimeMillis + " ms， 总计：" + this.f31320c + " ms. url" + Part.CRLF);
             }
         }
     }

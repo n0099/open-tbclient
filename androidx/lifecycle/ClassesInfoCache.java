@@ -1,6 +1,7 @@
 package androidx.lifecycle;
 
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -258,7 +259,7 @@ public class ClassesInfoCache {
 
     private void verifyAndPutHandler(Map<MethodReference, Lifecycle.Event> map, MethodReference methodReference, Lifecycle.Event event, Class<?> cls) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65540, this, map, methodReference, event, cls) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, map, methodReference, event, cls) == null) {
             Lifecycle.Event event2 = map.get(methodReference);
             if (event2 == null || event == event2) {
                 if (event2 == null) {

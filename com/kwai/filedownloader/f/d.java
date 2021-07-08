@@ -1,18 +1,19 @@
 package com.kwai.filedownloader.f;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f39637a;
+    public static boolean f36845a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -52,7 +53,7 @@ public class d {
     public static void a(int i2, Object obj, Throwable th, String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), obj, th, str, objArr}) == null) {
-            if ((i2 >= 5) || f39637a) {
+            if ((i2 >= 5) || f36845a) {
                 Log.println(i2, a(obj), f.a(str, objArr));
                 if (th != null) {
                     th.printStackTrace();
@@ -63,7 +64,7 @@ public class d {
 
     public static void a(Object obj, String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, null, obj, str, objArr) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str, objArr) == null) {
             a(6, obj, str, objArr);
         }
     }

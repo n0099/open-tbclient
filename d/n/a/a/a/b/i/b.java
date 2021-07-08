@@ -9,15 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.n.a.a.a.a.a;
 import d.n.a.a.c.b.c;
-/* loaded from: classes10.dex */
+import d.n.a.a.c.b.d;
+/* loaded from: classes8.dex */
 public final class b implements d.n.a.a.a.b.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f75114e;
+    public Context f72152e;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -34,22 +34,22 @@ public final class b implements d.n.a.a.a.b.b {
                 return;
             }
         }
-        this.f75114e = context;
+        this.f72152e = context;
     }
 
     @Override // d.n.a.a.a.b.b
-    public final void a(a aVar) {
+    public final void a(d.n.a.a.a.a.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             try {
                 if (Build.VERSION.SDK_INT < 28) {
-                    aVar.a(false, new c());
+                    aVar.a(false, new d());
                 }
                 if (aVar != null) {
                     aVar.a(c(), this);
                 }
             } catch (Throwable th) {
-                d.n.a.a.c.b.b.c(th);
+                c.c(th);
             }
         }
     }
@@ -69,8 +69,8 @@ public final class b implements d.n.a.a.a.b.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String g2 = d.n.a.a.a.b.i.a.b.a(this.f75114e).g();
-            return TextUtils.isEmpty(g2) ? "" : g2;
+            String f2 = a.a(this.f72152e).f();
+            return TextUtils.isEmpty(f2) ? "" : f2;
         }
         return (String) invokeV.objValue;
     }
@@ -85,7 +85,7 @@ public final class b implements d.n.a.a.a.b.b {
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? d.n.a.a.a.b.i.a.b.a(this.f75114e).f() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? a.a(this.f72152e).e() : invokeV.booleanValue;
     }
 
     @Override // d.n.a.a.a.b.b

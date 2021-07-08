@@ -12,6 +12,7 @@ import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -224,7 +225,7 @@ public class TransitionUtils {
     public static Animator mergeAnimators(Animator animator, Animator animator2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, animator, animator2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, animator, animator2)) == null) {
             if (animator == null) {
                 return animator2;
             }

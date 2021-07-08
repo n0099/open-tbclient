@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.BdBaseImageView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,15 +16,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SelectorImageView extends BdBaseImageView {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f11655g = 255;
+    public static int f11672g = 255;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +109,7 @@ public class SelectorImageView extends BdBaseImageView {
     public static View.OnTouchListener getStaticOnTouchListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? new a() : (View.OnTouchListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new a() : (View.OnTouchListener) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -123,7 +124,7 @@ public class SelectorImageView extends BdBaseImageView {
                     setImageAlpha(76);
                 } else if (action == 1 || action == 3) {
                     Log.d("ACTION_UP", "ACTION_UP");
-                    setImageAlpha(f11655g);
+                    setImageAlpha(f11672g);
                 }
             }
             return super.onTouchEvent(motionEvent);
@@ -140,7 +141,7 @@ public class SelectorImageView extends BdBaseImageView {
             if (!z) {
                 setImageAlpha(255);
             } else {
-                setImageAlpha(f11655g);
+                setImageAlpha(f11672g);
             }
         }
     }

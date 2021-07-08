@@ -14,6 +14,7 @@ import android.view.Display;
 import android.view.WindowManager;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.fsg.base.router.RouterCallback;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -39,7 +40,7 @@ import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +54,7 @@ public class z {
     public static String a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
             try {
                 return a(context) + File.separator + "win" + File.separator + e(str);
             } catch (Exception e2) {
@@ -123,7 +124,7 @@ public class z {
             }
             hashMap.put("Accept-Encoding", Collections.singletonList("application/gzip"));
             hashMap.put("Content-Encoding", Collections.singletonList("application/gzip"));
-            hashMap.put("User-Agent", Collections.singletonList(x1.f42701a));
+            hashMap.put("User-Agent", Collections.singletonList(x1.f39715a));
             return hashMap;
         }
         return (HashMap) invokeL.objValue;
@@ -234,7 +235,7 @@ public class z {
             sb4.append("o7my");
             d1 d1Var = new d1(sb3, sb4.toString());
             Cipher cipher = Cipher.getInstance("DES/CBC/NoPadding");
-            cipher.init(2, d1Var.f42552b, d1Var.f42551a);
+            cipher.init(2, d1Var.f39566b, d1Var.f39565a);
             int length = str.length() / 2;
             byte[] bArr = new byte[length];
             for (int i2 = 0; i2 < length; i2++) {
@@ -523,7 +524,7 @@ public class z {
             if (a2.getFlags() > 0) {
                 w0 a3 = x0.a(context);
                 try {
-                    a3.f42683b = x0.a("wist", new y0(info));
+                    a3.f39697b = x0.a("wist", new y0(info));
                     a3.a("msg", x0.a(str));
                 } catch (JSONException unused) {
                 }
@@ -548,7 +549,7 @@ public class z {
                 if (a3 == 200) {
                     r0Var.a(r0);
                 } else {
-                    r0Var.a(a3, r0.f42454b);
+                    r0Var.a(a3, r0.f39468b);
                 }
             } catch (JSONException e2) {
                 message = e2.getMessage();
@@ -603,7 +604,7 @@ public class z {
                 if (info != null) {
                     w0 a2 = x0.a(context);
                     try {
-                        a2.f42683b = x0.a("wiin", new y0(info));
+                        a2.f39697b = x0.a("wiin", new y0(info));
                         a2.a("msg", x0.a(str));
                     } catch (JSONException unused) {
                     }
@@ -662,11 +663,11 @@ public class z {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, t0Var, r0)) == null) {
-            byte[] bArr = t0Var.f42648b;
-            int i2 = t0Var.f42647a;
+            byte[] bArr = t0Var.f39662b;
+            int i2 = t0Var.f39661a;
             if (i2 == 200) {
                 r0.a(new String(bArr, "UTF-8"));
-                return r0.f42453a;
+                return r0.f39467a;
             }
             return i2;
         }

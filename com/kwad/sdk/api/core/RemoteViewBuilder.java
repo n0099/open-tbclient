@@ -1,12 +1,16 @@
 package com.kwad.sdk.api.core;
 
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.widget.RemoteViews;
 import androidx.annotation.Keep;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,22 +18,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.api.R;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RemoteViewBuilder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.sdk.api.core.RemoteViewBuilder$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class CompletedRemoteViewImpl implements ICompletedRemoteView {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +57,7 @@ public class RemoteViewBuilder {
             }
             this.mContext = context;
             this.mOriginContext = context instanceof ResContext ? ((ResContext) context).getDelegatedContext() : context;
-            this.mRemoteViews = new RemoteViews(this.mOriginContext.getPackageName(), R.layout.ksad_notification_download_completed);
+            this.mRemoteViews = new RemoteViews(this.mOriginContext.getPackageName(), ResUtil.getLayoutId(this.mOriginContext, "ksad_notification_download_completed"));
         }
 
         public /* synthetic */ CompletedRemoteViewImpl(Context context, AnonymousClass1 anonymousClass1) {
@@ -80,7 +83,7 @@ public class RemoteViewBuilder {
         public void setIcon(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
-                this.mRemoteViews.setImageViewBitmap(R.id.ksad_download_icon, bitmap);
+                this.mRemoteViews.setImageViewBitmap(ResUtil.getId(this.mOriginContext, "ksad_download_icon"), bitmap);
             }
         }
 
@@ -88,7 +91,7 @@ public class RemoteViewBuilder {
         public void setInstallText(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                this.mRemoteViews.setTextViewText(R.id.ksad_download_install, str);
+                this.mRemoteViews.setTextViewText(ResUtil.getId(this.mOriginContext, "ksad_download_install"), str);
             }
         }
 
@@ -96,7 +99,7 @@ public class RemoteViewBuilder {
         public void setName(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.mRemoteViews.setTextViewText(R.id.ksad_download_name, str);
+                this.mRemoteViews.setTextViewText(ResUtil.getId(this.mOriginContext, "ksad_download_name"), str);
             }
         }
 
@@ -104,7 +107,7 @@ public class RemoteViewBuilder {
         public void setSize(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-                this.mRemoteViews.setTextViewText(R.id.ksad_download_size, str);
+                this.mRemoteViews.setTextViewText(ResUtil.getId(this.mOriginContext, "ksad_download_size"), str);
             }
         }
 
@@ -112,41 +115,68 @@ public class RemoteViewBuilder {
         public void setStatus(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-                this.mRemoteViews.setTextViewText(R.id.ksad_download_status, str);
+                this.mRemoteViews.setTextViewText(ResUtil.getId(this.mOriginContext, "ksad_download_status"), str);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ProgressRemoteViewImpl implements IProgressRemoteView {
-        public static /* synthetic */ Interceptable $ic;
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final String ACTION_CLICK_CONTROL_BTN = "com.ksad.action.ACTION_NOTIFICATION_CLICK_CONTROL_BTN";
+        public static final String KEY_TASKID = "taskId";
         public transient /* synthetic */ FieldHolder $fh;
+        public int btnControlId;
+        public int btnTextColorChecked;
+        public int btnTextColorUnchecked;
+        public int downloadTaskId;
         public final Context mContext;
         public final Context mOriginContext;
         public final RemoteViews mRemoteViews;
 
-        public ProgressRemoteViewImpl(Context context) {
+        public ProgressRemoteViewImpl(Context context, int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context};
+                Object[] objArr = {context, Integer.valueOf(i2), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.btnControlId = -1;
+            this.btnTextColorChecked = Color.parseColor("#FFFFFFFF");
+            this.btnTextColorUnchecked = Color.parseColor("#FF222222");
+            this.downloadTaskId = 0;
             this.mContext = context;
-            this.mOriginContext = context instanceof ResContext ? ((ResContext) context).getDelegatedContext() : context;
-            this.mRemoteViews = new RemoteViews(this.mOriginContext.getPackageName(), R.layout.ksad_notification_download_progress);
+            this.downloadTaskId = i2;
+            if (context instanceof ResContext) {
+                this.mOriginContext = ((ResContext) context).getDelegatedContext();
+            } else {
+                this.mOriginContext = context;
+            }
+            this.mRemoteViews = new RemoteViews(this.mOriginContext.getPackageName(), ResUtil.getLayoutId(this.mOriginContext, z ? "ksad_notification_download_progress_with_control" : "ksad_notification_download_progress_without_control"));
+            this.btnControlId = ResUtil.getId(context, "ksad_download_control_btn");
+            initViews();
+            setControlBtnPaused(false);
         }
 
-        public /* synthetic */ ProgressRemoteViewImpl(Context context, AnonymousClass1 anonymousClass1) {
-            this(context);
+        public /* synthetic */ ProgressRemoteViewImpl(Context context, int i2, boolean z, AnonymousClass1 anonymousClass1) {
+            this(context, i2, z);
+        }
+
+        private void initViews() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+                Intent intent = new Intent(ACTION_CLICK_CONTROL_BTN);
+                intent.putExtra(KEY_TASKID, this.downloadTaskId);
+                this.mRemoteViews.setOnClickPendingIntent(this.btnControlId, PendingIntent.getBroadcast(this.mContext, this.downloadTaskId, intent, 0));
+            }
         }
 
         @Override // com.kwad.sdk.api.core.IProgressRemoteView
@@ -157,9 +187,29 @@ public class RemoteViewBuilder {
         }
 
         @Override // com.kwad.sdk.api.core.IProgressRemoteView
+        public void setControlBtnPaused(boolean z) {
+            Context context;
+            String str;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.mRemoteViews == null) {
+                return;
+            }
+            this.mRemoteViews.setTextViewText(this.btnControlId, z ? "继续" : "暂停");
+            this.mRemoteViews.setTextColor(this.btnControlId, z ? this.btnTextColorChecked : this.btnTextColorUnchecked);
+            if (z) {
+                context = this.mContext;
+                str = "ksad_notification_control_btn_bg_checked";
+            } else {
+                context = this.mContext;
+                str = "ksad_notification_control_btn_bg_unchecked";
+            }
+            this.mRemoteViews.setImageViewResource(ResUtil.getId(this.mContext, "ksad_download_control_bg_image"), ResUtil.getDrawableId(context, str));
+        }
+
+        @Override // com.kwad.sdk.api.core.IProgressRemoteView
         public void setIcon(int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
                 setIcon(RemoteViewBuilder.getBitmap(this.mContext, i2));
             }
         }
@@ -167,48 +217,48 @@ public class RemoteViewBuilder {
         @Override // com.kwad.sdk.api.core.IProgressRemoteView
         public void setIcon(Bitmap bitmap) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
-                this.mRemoteViews.setImageViewBitmap(R.id.ksad_download_icon, bitmap);
+            if (interceptable == null || interceptable.invokeL(1048579, this, bitmap) == null) {
+                this.mRemoteViews.setImageViewBitmap(ResUtil.getId(this.mOriginContext, "ksad_download_icon"), bitmap);
             }
         }
 
         @Override // com.kwad.sdk.api.core.IProgressRemoteView
         public void setName(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                this.mRemoteViews.setTextViewText(R.id.ksad_download_name, str);
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                this.mRemoteViews.setTextViewText(ResUtil.getId(this.mOriginContext, "ksad_download_name"), str);
             }
         }
 
         @Override // com.kwad.sdk.api.core.IProgressRemoteView
         public void setPercentNum(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.mRemoteViews.setTextViewText(R.id.ksad_download_percent_num, str);
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+                this.mRemoteViews.setTextViewText(ResUtil.getId(this.mOriginContext, "ksad_download_percent_num"), str);
             }
         }
 
         @Override // com.kwad.sdk.api.core.IProgressRemoteView
         public void setProgress(int i2, int i3, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
-                this.mRemoteViews.setProgressBar(R.id.ksad_download_progress, i2, i3, z);
+            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
+                this.mRemoteViews.setProgressBar(ResUtil.getId(this.mOriginContext, "ksad_download_progress"), i2, i3, z);
             }
         }
 
         @Override // com.kwad.sdk.api.core.IProgressRemoteView
         public void setSize(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-                this.mRemoteViews.setTextViewText(R.id.ksad_download_size, str);
+            if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+                this.mRemoteViews.setTextViewText(ResUtil.getId(this.mOriginContext, "ksad_download_size"), str);
             }
         }
 
         @Override // com.kwad.sdk.api.core.IProgressRemoteView
         public void setStatus(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-                this.mRemoteViews.setTextViewText(R.id.ksad_download_status, str);
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+                this.mRemoteViews.setTextViewText(ResUtil.getId(this.mOriginContext, "ksad_download_status"), str);
             }
         }
     }
@@ -237,16 +287,25 @@ public class RemoteViewBuilder {
 
     @KsAdSdkDynamicApi
     @Keep
+    @Deprecated
     public static IProgressRemoteView createProgressView(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? new ProgressRemoteViewImpl(context, null) : (IProgressRemoteView) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? new ProgressRemoteViewImpl(context, 0, false, null) : (IProgressRemoteView) invokeL.objValue;
+    }
+
+    @KsAdSdkDynamicApi
+    @Keep
+    public static IProgressRemoteView createProgressView(Context context, int i2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? new ProgressRemoteViewImpl(context, i2, z, null) : (IProgressRemoteView) invokeCommon.objValue;
     }
 
     public static Bitmap drawableToBitmap(Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, drawable)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, drawable)) == null) {
             if (drawable instanceof BitmapDrawable) {
                 return ((BitmapDrawable) drawable).getBitmap();
             }
@@ -270,6 +329,6 @@ public class RemoteViewBuilder {
     public static Bitmap getBitmap(Context context, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, context, i2)) == null) ? drawableToBitmap(context.getResources().getDrawable(i2)) : (Bitmap) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, context, i2)) == null) ? drawableToBitmap(context.getResources().getDrawable(i2)) : (Bitmap) invokeLI.objValue;
     }
 }

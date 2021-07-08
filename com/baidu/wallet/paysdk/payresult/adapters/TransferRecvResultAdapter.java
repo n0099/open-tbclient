@@ -15,13 +15,13 @@ import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.baidu.wallet.personal.datamodel.TransfRecvRequest;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TransferRecvResultAdapter extends BasePayResultAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public TransfRecvRequest f26041d;
+    public TransfRecvRequest f26151d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TransferRecvResultAdapter(BaseActivity baseActivity) {
@@ -49,16 +49,16 @@ public class TransferRecvResultAdapter extends BasePayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             this.contents.clear();
-            TransfRecvRequest transfRecvRequest = this.f26041d;
+            TransfRecvRequest transfRecvRequest = this.f26151d;
             if (transfRecvRequest == null) {
                 return null;
             }
             if (transfRecvRequest.isGatheringSuccess) {
                 this.contents.put("mainTip", "ebpay_pay_success");
-                this.contents.put("mainTipExt", this.f26041d.recvAmount);
+                this.contents.put("mainTipExt", this.f26151d.recvAmount);
                 this.contents.put("statusDrawableName", "wallet_base_result_main_success");
                 this.contents.put("okBtnText", "ebpay_confirm");
-                this.contents.put("payDetailInfo", this.f26038c.pay_detail_info);
+                this.contents.put("payDetailInfo", this.f26148c.pay_detail_info);
             }
             return this.contents;
         }
@@ -71,16 +71,16 @@ public class TransferRecvResultAdapter extends BasePayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             this.contents.clear();
-            if (this.f26041d == null || this.f26037b == null) {
+            if (this.f26151d == null || this.f26147b == null) {
                 return null;
             }
-            if (!this.f26038c.isPaySuccess) {
+            if (!this.f26148c.isPaySuccess) {
                 this.contents.put("statusDrawableName", "wallet_base_result_paying");
                 this.contents.put("mainTip", "bd_wallet_gathering_failed");
-                this.contents.put("errorMsg", this.f26038c.mErrorMsg);
-                TransfRecvRequest transfRecvRequest = this.f26041d;
+                this.contents.put("errorMsg", this.f26148c.mErrorMsg);
+                TransfRecvRequest transfRecvRequest = this.f26151d;
                 if (transfRecvRequest != null && !TextUtils.isEmpty(transfRecvRequest.errMsg)) {
-                    this.contents.put("payDetailInfo", this.f26038c.mErrorMsg);
+                    this.contents.put("payDetailInfo", this.f26148c.mErrorMsg);
                 }
                 this.contents.put("okBtnText", "ebpay_know");
             }
@@ -93,7 +93,7 @@ public class TransferRecvResultAdapter extends BasePayResultAdapter {
     public void handleOKBtnOnclick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            PayCallBackManager.callBackClientSuccess(this.f26036a.get().getActivity(), "");
+            PayCallBackManager.callBackClientSuccess(this.f26146a.get().getActivity(), "");
             a(BeanConstants.EV_RECEIVE_MONEY_EXIT);
         }
     }
@@ -103,7 +103,7 @@ public class TransferRecvResultAdapter extends BasePayResultAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            TransfRecvRequest transfRecvRequest = this.f26041d;
+            TransfRecvRequest transfRecvRequest = this.f26151d;
             return transfRecvRequest != null && transfRecvRequest.isGatheringSuccess;
         }
         return invokeV.booleanValue;
@@ -124,7 +124,7 @@ public class TransferRecvResultAdapter extends BasePayResultAdapter {
             if (beanRequestFromCache == null || !(beanRequestFromCache instanceof TransfRecvRequest)) {
                 return false;
             }
-            this.f26041d = (TransfRecvRequest) beanRequestFromCache;
+            this.f26151d = (TransfRecvRequest) beanRequestFromCache;
             return true;
         }
         return invokeL.booleanValue;
@@ -135,7 +135,7 @@ public class TransferRecvResultAdapter extends BasePayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
-            TransfRecvRequest transfRecvRequest = this.f26041d;
+            TransfRecvRequest transfRecvRequest = this.f26151d;
             if (transfRecvRequest != null) {
                 bundle.putSerializable("mTransferRecvRequest", transfRecvRequest);
             }

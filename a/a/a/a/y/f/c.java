@@ -18,6 +18,7 @@ import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.common.param.CommonUrlParamManager;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -210,7 +211,7 @@ public class c {
                     }
                     FunOpenIDSdk.getOaid(appContext, new a());
                     if (FunAdSdk.isLogEnabled()) {
-                        a.a.a.a.y.d.a("HostAppInfo:>>>>\nw\t:%s\nh\t:%s\nmodel\t:%s\nmanu\t:%s\nsysv\t:%s\nlocale\t:%s\nopcode\t:%s\nnet\t:%s\nsdkvn\t:%s\nsdkv\t:%d\nappv\t:%s\nappvn\t:%s\nanid\t:%s\nlic\t:%s\napp\t:%s\nplat\t:%s\noaid\t:%s\ntk\t:%s\nuserId:\t:%s\nimei:\t%s\nimeiNew:\t%s\ncfgv:\t%d\n", f1382h, f1383i, f1380f, f1379e, f1381g, o, j, f1378d, "3.5.0.5-TB", 3505, f1377c, f1376b, l, p, f1375a, "a", m, k, q, r, s, Long.valueOf(t));
+                        a.a.a.a.y.d.a("HostAppInfo:>>>>\nw\t:%s\nh\t:%s\nmodel\t:%s\nmanu\t:%s\nsysv\t:%s\nlocale\t:%s\nopcode\t:%s\nnet\t:%s\nsdkvn\t:%s\nsdkv\t:%d\nappv\t:%s\nappvn\t:%s\nanid\t:%s\nlic\t:%s\napp\t:%s\nplat\t:%s\noaid\t:%s\ntk\t:%s\nuserId:\t:%s\nimei:\t%s\nimeiNew:\t%s\ncfgv:\t%d\n", f1382h, f1383i, f1380f, f1379e, f1381g, o, j, f1378d, "3.5.0.8-TB", 3508, f1377c, f1376b, l, p, f1375a, "a", m, k, q, r, s, Long.valueOf(t));
                     }
                 }
             }
@@ -226,8 +227,8 @@ public class c {
             jSONObject.put("locale", o);
             jSONObject.put("opcode", j);
             jSONObject.put("tk", k);
-            jSONObject.put("sdkvn", "3.5.0.5-TB");
-            jSONObject.put("sdkv", 3505);
+            jSONObject.put("sdkvn", "3.5.0.8-TB");
+            jSONObject.put("sdkv", 3508);
             jSONObject.put("anid", l);
             jSONObject.put("lic", p);
             jSONObject.put("plat", "a");
@@ -241,7 +242,7 @@ public class c {
 
     public static void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) == null) {
             a(jSONObject);
             long currentTimeMillis = System.currentTimeMillis();
             String str = k + f1375a + f1376b + o + currentTimeMillis + "c643144089d135c383c4c87f1df87a9d4ccc1c0f70cee0a5f78fd32d475f1a49";

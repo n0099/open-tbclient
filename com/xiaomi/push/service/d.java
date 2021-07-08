@@ -4,23 +4,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.ie;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f43655a;
+    public static a f40669a;
 
     /* renamed from: a  reason: collision with other field name */
     public static b f949a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         boolean a(ie ieVar);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public interface b {
     }
 
@@ -36,10 +36,10 @@ public class d {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ieVar)) == null) {
-            if (f43655a == null || ieVar == null) {
+            if (f40669a == null || ieVar == null) {
                 str = "rc params is null, not cpra";
             } else if (com.xiaomi.push.l.m536a(com.xiaomi.push.t.m636a())) {
-                return f43655a.a(ieVar);
+                return f40669a.a(ieVar);
             } else {
                 str = "rc app not permission to cpra";
             }

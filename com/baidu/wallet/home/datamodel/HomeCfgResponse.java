@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import com.baidu.wallet.home.storage.HomeDataCacheManager;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class HomeCfgResponse implements IBeanResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class HomeCfgResponse implements IBeanResponse {
     public TitleConfig layout_title;
     public String version;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class AllConfig implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6644260416559855999L;
@@ -51,7 +51,7 @@ public class HomeCfgResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ConfigData implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String GROUP_LAYOUR_GAP = "100";
@@ -187,7 +187,7 @@ public class HomeCfgResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class DataButton implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -214,7 +214,7 @@ public class HomeCfgResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class DataIcon implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -236,7 +236,7 @@ public class HomeCfgResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class DataItem extends WalletBannerItem implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8579386834036716930L;
@@ -374,7 +374,7 @@ public class HomeCfgResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class DataRepay implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -400,7 +400,7 @@ public class HomeCfgResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class FooterConfig implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -423,7 +423,7 @@ public class HomeCfgResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class FooterItemDate implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -455,7 +455,7 @@ public class HomeCfgResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Stat implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -482,7 +482,7 @@ public class HomeCfgResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class TitleConfig implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 740046545863062188L;
@@ -515,7 +515,7 @@ public class HomeCfgResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class TitleItem implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -710174975362084934L;
@@ -550,7 +550,7 @@ public class HomeCfgResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class TitleItemData extends WalletBannerItem implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1114980926835567633L;
@@ -713,13 +713,13 @@ public class HomeCfgResponse implements IBeanResponse {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f24878a;
+                public final /* synthetic */ Context f24988a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f24879b;
+                public final /* synthetic */ String f24989b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ HomeCfgResponse f24880c;
+                public final /* synthetic */ HomeCfgResponse f24990c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -736,16 +736,16 @@ public class HomeCfgResponse implements IBeanResponse {
                             return;
                         }
                     }
-                    this.f24880c = this;
-                    this.f24878a = context;
-                    this.f24879b = str;
+                    this.f24990c = this;
+                    this.f24988a = context;
+                    this.f24989b = str;
                 }
 
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        HomeDataCacheManager.getInstance().saveResponseDataToCache(this.f24878a.getApplicationContext(), this.f24880c, this.f24879b);
+                        HomeDataCacheManager.getInstance().saveResponseDataToCache(this.f24988a.getApplicationContext(), this.f24990c, this.f24989b);
                     }
                 }
             }.start();

@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.math.BigInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class q extends l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Object f31954a;
+    public final Object f32064a;
 
     public q(Boolean bool) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class q extends l {
                 return;
             }
         }
-        this.f31954a = com.bytedance.sdk.openadsdk.preload.a.b.a.a(bool);
+        this.f32064a = com.bytedance.sdk.openadsdk.preload.a.b.a.a(bool);
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
@@ -39,8 +39,8 @@ public final class q extends l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Object obj = this.f31954a;
-            return obj instanceof String ? new com.bytedance.sdk.openadsdk.preload.a.b.g((String) this.f31954a) : (Number) obj;
+            Object obj = this.f32064a;
+            return obj instanceof String ? new com.bytedance.sdk.openadsdk.preload.a.b.g((String) this.f32064a) : (Number) obj;
         }
         return (Number) invokeV.objValue;
     }
@@ -54,9 +54,9 @@ public final class q extends l {
                 return a().toString();
             }
             if (n()) {
-                return ((Boolean) this.f31954a).toString();
+                return ((Boolean) this.f32064a).toString();
             }
-            return (String) this.f31954a;
+            return (String) this.f32064a;
         }
         return (String) invokeV.objValue;
     }
@@ -93,11 +93,11 @@ public final class q extends l {
                 return false;
             }
             q qVar = (q) obj;
-            if (this.f31954a == null) {
-                return qVar.f31954a == null;
+            if (this.f32064a == null) {
+                return qVar.f32064a == null;
             } else if (a(this) && a(qVar)) {
                 return a().longValue() == qVar.a().longValue();
-            } else if ((this.f31954a instanceof Number) && (qVar.f31954a instanceof Number)) {
+            } else if ((this.f32064a instanceof Number) && (qVar.f32064a instanceof Number)) {
                 double doubleValue = a().doubleValue();
                 double doubleValue2 = qVar.a().doubleValue();
                 if (doubleValue != doubleValue2) {
@@ -105,7 +105,7 @@ public final class q extends l {
                 }
                 return true;
             } else {
-                return this.f31954a.equals(qVar.f31954a);
+                return this.f32064a.equals(qVar.f32064a);
             }
         }
         return invokeL.booleanValue;
@@ -117,7 +117,7 @@ public final class q extends l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (n()) {
-                return ((Boolean) this.f31954a).booleanValue();
+                return ((Boolean) this.f32064a).booleanValue();
             }
             return Boolean.parseBoolean(b());
         }
@@ -129,13 +129,13 @@ public final class q extends l {
         long doubleToLongBits;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f31954a == null) {
+            if (this.f32064a == null) {
                 return 31;
             }
             if (a(this)) {
                 doubleToLongBits = a().longValue();
             } else {
-                Object obj = this.f31954a;
+                Object obj = this.f32064a;
                 if (obj instanceof Number) {
                     doubleToLongBits = Double.doubleToLongBits(a().doubleValue());
                 } else {
@@ -150,26 +150,26 @@ public final class q extends l {
     public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f31954a instanceof Boolean : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f32064a instanceof Boolean : invokeV.booleanValue;
     }
 
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f31954a instanceof Number : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f32064a instanceof Number : invokeV.booleanValue;
     }
 
     public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f31954a instanceof String : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f32064a instanceof String : invokeV.booleanValue;
     }
 
     public static boolean a(q qVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, qVar)) == null) {
-            Object obj = qVar.f31954a;
+            Object obj = qVar.f32064a;
             if (obj instanceof Number) {
                 Number number = (Number) obj;
                 return (number instanceof BigInteger) || (number instanceof Long) || (number instanceof Integer) || (number instanceof Short) || (number instanceof Byte);
@@ -194,7 +194,7 @@ public final class q extends l {
                 return;
             }
         }
-        this.f31954a = com.bytedance.sdk.openadsdk.preload.a.b.a.a(number);
+        this.f32064a = com.bytedance.sdk.openadsdk.preload.a.b.a.a(number);
     }
 
     public q(String str) {
@@ -212,6 +212,6 @@ public final class q extends l {
                 return;
             }
         }
-        this.f31954a = com.bytedance.sdk.openadsdk.preload.a.b.a.a(str);
+        this.f32064a = com.bytedance.sdk.openadsdk.preload.a.b.a.a(str);
     }
 }

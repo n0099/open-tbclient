@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class e extends RuntimeException {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Method f28089a;
+    public static final Method f28199a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public IOException f28090b;
+    public IOException f28200b;
 
     static {
         Method method;
@@ -41,7 +41,7 @@ public final class e extends RuntimeException {
         } catch (Exception unused) {
             method = null;
         }
-        f28089a = method;
+        f28199a = method;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -62,27 +62,27 @@ public final class e extends RuntimeException {
                 return;
             }
         }
-        this.f28090b = iOException;
+        this.f28200b = iOException;
     }
 
     public IOException a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28090b : (IOException) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28200b : (IOException) invokeV.objValue;
     }
 
     public void a(IOException iOException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException) == null) {
-            a(iOException, this.f28090b);
-            this.f28090b = iOException;
+            a(iOException, this.f28200b);
+            this.f28200b = iOException;
         }
     }
 
     private void a(IOException iOException, IOException iOException2) {
         Method method;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, this, iOException, iOException2) == null) || (method = f28089a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65538, this, iOException, iOException2) == null) || (method = f28199a) == null) {
             return;
         }
         try {

@@ -9,6 +9,7 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,7 +53,7 @@ public class PluginSettingIOService extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PluginSettingIOService f2248a;
+        public final /* synthetic */ PluginSettingIOService f2249a;
 
         public a(PluginSettingIOService pluginSettingIOService) {
             Interceptable interceptable = $ic;
@@ -69,7 +70,7 @@ public class PluginSettingIOService extends Service {
                     return;
                 }
             }
-            this.f2248a = pluginSettingIOService;
+            this.f2249a = pluginSettingIOService;
         }
 
         @Override // android.os.Handler
@@ -86,10 +87,10 @@ public class PluginSettingIOService extends Service {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 switch (message.what) {
                     case 1:
-                        this.f2248a.mClients.add(message.replyTo);
+                        this.f2249a.mClients.add(message.replyTo);
                         return;
                     case 2:
-                        this.f2248a.mClients.remove(message.replyTo);
+                        this.f2249a.mClients.remove(message.replyTo);
                         return;
                     case 3:
                     case 5:
@@ -101,8 +102,8 @@ public class PluginSettingIOService extends Service {
                             return;
                         }
                         PluginSettings pluginSettings = (PluginSettings) data8.getSerializable("plugin_settings");
-                        this.f2248a.save(pluginSettings, null);
-                        this.f2248a.sendUpdateMsg(pluginSettings);
+                        this.f2249a.save(pluginSettings, null);
+                        this.f2249a.sendUpdateMsg(pluginSettings);
                         return;
                     case 6:
                         if (c.b().d() == null || (data = message.getData()) == null) {
@@ -112,8 +113,8 @@ public class PluginSettingIOService extends Service {
                         PluginSetting findPluginSetting = c.b().d().findPluginSetting(data.getString(PluginSettingIOService.KEY_SETTING_NAME));
                         if (findPluginSetting != null) {
                             findPluginSetting.forbidden = z;
-                            this.f2248a.save(c.b().d(), null);
-                            this.f2248a.sendUpdateMsg(6, data);
+                            this.f2249a.save(c.b().d(), null);
+                            this.f2249a.sendUpdateMsg(6, data);
                             return;
                         }
                         return;
@@ -122,16 +123,16 @@ public class PluginSettingIOService extends Service {
                             return;
                         }
                         c.b().d().removePluginSetting(data2.getString(PluginSettingIOService.KEY_SETTING_NAME));
-                        this.f2248a.save(c.b().d(), null);
-                        this.f2248a.sendUpdateMsg(7, data2);
+                        this.f2249a.save(c.b().d(), null);
+                        this.f2249a.sendUpdateMsg(7, data2);
                         return;
                     case 8:
                         if (c.b().d() == null || (data3 = message.getData()) == null) {
                             return;
                         }
                         c.b().d().setAllPluginEnable(data3.getBoolean(PluginSettingIOService.KEY_ENABLE));
-                        this.f2248a.save(c.b().d(), null);
-                        this.f2248a.sendUpdateMsg(8, data3);
+                        this.f2249a.save(c.b().d(), null);
+                        this.f2249a.sendUpdateMsg(8, data3);
                         return;
                     case 9:
                         if (c.b().d() == null || (data4 = message.getData()) == null) {
@@ -141,8 +142,8 @@ public class PluginSettingIOService extends Service {
                         PluginSetting findPluginSetting2 = c.b().d().findPluginSetting(data4.getString(PluginSettingIOService.KEY_SETTING_NAME));
                         if (findPluginSetting2 != null) {
                             findPluginSetting2.enable = z2;
-                            this.f2248a.save(c.b().d(), null);
-                            this.f2248a.sendUpdateMsg(9, data4);
+                            this.f2249a.save(c.b().d(), null);
+                            this.f2249a.sendUpdateMsg(9, data4);
                             return;
                         }
                         return;
@@ -151,8 +152,8 @@ public class PluginSettingIOService extends Service {
                             return;
                         }
                         c.b().d().setContainerSetting(data5.getString("key_version"));
-                        this.f2248a.save(c.b().d(), null);
-                        this.f2248a.sendUpdateMsg(10, data5);
+                        this.f2249a.save(c.b().d(), null);
+                        this.f2249a.sendUpdateMsg(10, data5);
                         return;
                     case 11:
                         if (c.b().d() == null || (data6 = message.getData()) == null) {
@@ -162,8 +163,8 @@ public class PluginSettingIOService extends Service {
                         PluginSetting findPluginSetting3 = c.b().d().findPluginSetting(data6.getString(PluginSettingIOService.KEY_SETTING_NAME));
                         if (findPluginSetting3 != null) {
                             findPluginSetting3.installStatus = i2;
-                            this.f2248a.save(c.b().d(), null);
-                            this.f2248a.sendUpdateMsg(11, data6);
+                            this.f2249a.save(c.b().d(), null);
+                            this.f2249a.sendUpdateMsg(11, data6);
                             return;
                         }
                         return;
@@ -172,8 +173,8 @@ public class PluginSettingIOService extends Service {
                             return;
                         }
                         c.b().d().setForbiddenFeatures(data7.getString(PluginSettingIOService.KEY_FORBIDDEN_FEATURE));
-                        this.f2248a.save(c.b().d(), null);
-                        this.f2248a.sendUpdateMsg(12, data7);
+                        this.f2249a.save(c.b().d(), null);
+                        this.f2249a.sendUpdateMsg(12, data7);
                         return;
                 }
             }
@@ -200,7 +201,7 @@ public class PluginSettingIOService extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     public void save(PluginSettings pluginSettings, e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, this, pluginSettings, eVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, pluginSettings, eVar) == null) {
             c.b().h(pluginSettings, eVar);
         }
     }

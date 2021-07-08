@@ -9,22 +9,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.b.a.i0.v;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f72861a;
+    public final String f69964a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f72862b;
+    public final String f69965b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f72863c;
+    public final String f69966c;
 
     public d(@NonNull String str, @Nullable String str2, @Nullable String str3) {
         Interceptable interceptable = $ic;
@@ -41,9 +41,9 @@ public final class d {
                 return;
             }
         }
-        this.f72861a = str;
-        this.f72862b = str2;
-        this.f72863c = str3;
+        this.f69964a = str;
+        this.f69965b = str2;
+        this.f69966c = str3;
     }
 
     public boolean equals(Object obj) {
@@ -57,7 +57,7 @@ public final class d {
                 return false;
             }
             d dVar = (d) obj;
-            return v.a(this.f72861a, dVar.f72861a) && v.a(this.f72862b, dVar.f72862b) && v.a(this.f72863c, dVar.f72863c);
+            return v.a(this.f69964a, dVar.f69964a) && v.a(this.f69965b, dVar.f69965b) && v.a(this.f69966c, dVar.f69966c);
         }
         return invokeL.booleanValue;
     }
@@ -66,11 +66,11 @@ public final class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String str = this.f72861a;
+            String str = this.f69964a;
             int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            String str2 = this.f72862b;
+            String str2 = this.f69965b;
             int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
-            String str3 = this.f72863c;
+            String str3 = this.f69966c;
             return hashCode2 + (str3 != null ? str3.hashCode() : 0);
         }
         return invokeV.intValue;

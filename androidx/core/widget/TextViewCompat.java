@@ -32,6 +32,7 @@ import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleRes;
 import androidx.core.text.PrecomputedTextCompat;
 import androidx.core.util.Preconditions;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -140,7 +141,7 @@ public final class TextViewCompat {
         private boolean isEditable(TextView textView) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65540, this, textView)) == null) ? (textView instanceof Editable) && textView.onCheckIsTextEditor() && textView.isEnabled() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, textView)) == null) ? (textView instanceof Editable) && textView.onCheckIsTextEditor() && textView.isEnabled() : invokeL.booleanValue;
         }
 
         private boolean isSupportedActivity(ResolveInfo resolveInfo, Context context) {
@@ -298,7 +299,7 @@ public final class TextViewCompat {
     public static int[] getAutoSizeTextAvailableSizes(@NonNull TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, textView)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, textView)) == null) {
             if (Build.VERSION.SDK_INT >= 27) {
                 return textView.getAutoSizeTextAvailableSizes();
             }

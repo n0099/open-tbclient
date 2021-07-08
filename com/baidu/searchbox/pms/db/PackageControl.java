@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PackageControl {
     public static /* synthetic */ Interceptable $ic;
     public static volatile PackageControl sInstance;
@@ -178,7 +178,7 @@ public class PackageControl {
         int i17;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65540, this, cursor)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, cursor)) != null) {
             return (List) invokeL.objValue;
         }
         Cursor cursor2 = cursor;

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class Overlay {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public abstract class Overlay {
     public String y;
     public int z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a(Overlay overlay);
 

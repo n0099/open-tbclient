@@ -12,13 +12,13 @@ import com.bytedance.sdk.component.a.q;
 import com.bytedance.sdk.openadsdk.core.w;
 import java.lang.ref.WeakReference;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class h extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<w> f31237a;
+    public WeakReference<w> f31347a;
 
     public h(w wVar) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class h extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
                 return;
             }
         }
-        this.f31237a = new WeakReference<>(wVar);
+        this.f31347a = new WeakReference<>(wVar);
     }
 
     public static void a(q qVar, w wVar) {
@@ -54,8 +54,8 @@ public class h extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, fVar)) == null) {
             JSONObject jSONObject2 = new JSONObject();
-            WeakReference<w> weakReference = this.f31237a;
-            if (weakReference == null || weakReference.get() == null || (wVar = this.f31237a.get()) == null) {
+            WeakReference<w> weakReference = this.f31347a;
+            if (weakReference == null || weakReference.get() == null || (wVar = this.f31347a.get()) == null) {
                 return jSONObject2;
             }
             wVar.h();

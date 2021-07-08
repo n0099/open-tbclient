@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.beans.BeanManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PrecashierBeanFactory implements IBeanFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BEAN_ID_PRECASHIER_GET_DEFAULT_PAY_TYPE = 1;
@@ -19,18 +19,18 @@ public class PrecashierBeanFactory implements IBeanFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.paysdk.precashier.beans.PrecashierBeanFactory$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static PrecashierBeanFactory f26088a;
+        public static PrecashierBeanFactory f26198a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -46,7 +46,7 @@ public class PrecashierBeanFactory implements IBeanFactory {
                     return;
                 }
             }
-            f26088a = new PrecashierBeanFactory(null);
+            f26198a = new PrecashierBeanFactory(null);
         }
     }
 
@@ -57,7 +57,7 @@ public class PrecashierBeanFactory implements IBeanFactory {
     public static PrecashierBeanFactory getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f26088a : (PrecashierBeanFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f26198a : (PrecashierBeanFactory) invokeV.objValue;
     }
 
     @Override // com.baidu.apollon.beans.IBeanFactory

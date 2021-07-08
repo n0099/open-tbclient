@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.util.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.CashierDataNew;
@@ -98,7 +99,7 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
     /* JADX INFO: Access modifiers changed from: private */
     public void handleFailure(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65540, this, i2, i3, str) == null) {
+        if (interceptable == null || interceptable.invokeIIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, i3, str) == null) {
             if (i2 == 2) {
                 LBSPayAli.getInstance().clearChannelPay();
                 this.mChannelPay = null;
@@ -241,7 +242,7 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
                 iChannelPay2.payCancel();
             }
         } else {
-            string.equalsIgnoreCase(e.f1966a);
+            string.equalsIgnoreCase(e.f1967a);
         }
     }
 
@@ -257,16 +258,16 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ int f2680a;
+            public final /* synthetic */ int f2683a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ int f2681b;
+            public final /* synthetic */ int f2684b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f2682c;
+            public final /* synthetic */ String f2685c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ PayChannelController f2683d;
+            public final /* synthetic */ PayChannelController f2686d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -283,17 +284,17 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
                         return;
                     }
                 }
-                this.f2683d = this;
-                this.f2680a = i2;
-                this.f2681b = i3;
-                this.f2682c = str;
+                this.f2686d = this;
+                this.f2683a = i2;
+                this.f2684b = i3;
+                this.f2685c = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f2683d.handleFailure(this.f2680a, this.f2681b, this.f2682c);
+                    this.f2686d.handleFailure(this.f2683a, this.f2684b, this.f2685c);
                 }
             }
         });
@@ -311,16 +312,16 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ int f2676a;
+            public final /* synthetic */ int f2679a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Object f2677b;
+            public final /* synthetic */ Object f2680b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f2678c;
+            public final /* synthetic */ String f2681c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ PayChannelController f2679d;
+            public final /* synthetic */ PayChannelController f2682d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -337,17 +338,17 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
                         return;
                     }
                 }
-                this.f2679d = this;
-                this.f2676a = i2;
-                this.f2677b = obj;
-                this.f2678c = str;
+                this.f2682d = this;
+                this.f2679a = i2;
+                this.f2680b = obj;
+                this.f2681c = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f2679d.handlerResponse(this.f2676a, this.f2677b, this.f2678c);
+                    this.f2682d.handlerResponse(this.f2679a, this.f2680b, this.f2681c);
                 }
             }
         });

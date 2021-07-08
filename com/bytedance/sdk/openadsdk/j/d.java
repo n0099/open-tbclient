@@ -1,5 +1,5 @@
 package com.bytedance.sdk.openadsdk.j;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface d {
     void a();
 

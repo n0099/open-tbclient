@@ -11,27 +11,27 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16302e;
+    public int f16341e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f16303f;
+    public b f16342f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.c.c.g.a f16304g;
+    public d.a.c.c.g.a f16343g;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends d.a.c.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FreeGiftChanceModel f16305a;
+        public final /* synthetic */ FreeGiftChanceModel f16344a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(FreeGiftChanceModel freeGiftChanceModel, int i2, int i3) {
@@ -52,7 +52,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
                     return;
                 }
             }
-            this.f16305a = freeGiftChanceModel;
+            this.f16344a = freeGiftChanceModel;
         }
 
         @Override // d.a.c.c.g.a
@@ -64,18 +64,18 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
             boolean z = responsedMessage instanceof FreeGiftChanceHttpResponseMessage;
             if (z || (responsedMessage instanceof FreeGiftChanceSocketResponseMessage)) {
                 if (z) {
-                    this.f16305a.f16302e = ((FreeGiftChanceHttpResponseMessage) responsedMessage).getFreeChance();
+                    this.f16344a.f16341e = ((FreeGiftChanceHttpResponseMessage) responsedMessage).getFreeChance();
                 } else if (responsedMessage instanceof FreeGiftChanceSocketResponseMessage) {
-                    this.f16305a.f16302e = ((FreeGiftChanceSocketResponseMessage) responsedMessage).getFreeChance();
+                    this.f16344a.f16341e = ((FreeGiftChanceSocketResponseMessage) responsedMessage).getFreeChance();
                 }
-                if (this.f16305a.f16303f != null) {
-                    this.f16305a.f16303f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f16305a.f16302e);
+                if (this.f16344a.f16342f != null) {
+                    this.f16344a.f16342f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f16344a.f16341e);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(int i2, String str, int i3);
     }
@@ -98,7 +98,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
                 return;
             }
         }
-        this.f16304g = new a(this, CmdConfigHttp.CMD_USER_FREE_CHANCE, 309060);
+        this.f16343g = new a(this, CmdConfigHttp.CMD_USER_FREE_CHANCE, 309060);
         registerListener();
         registerTask();
     }
@@ -106,7 +106,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public void A(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f16303f = bVar;
+            this.f16342f = bVar;
         }
     }
 
@@ -133,15 +133,15 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public final void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            registerListener(this.f16304g);
+            registerListener(this.f16343g);
         }
     }
 
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            d.a.s0.h3.d0.a.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
-            d.a.s0.h3.d0.a.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
+            d.a.p0.h3.d0.a.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
+            d.a.p0.h3.d0.a.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
         }
     }
 

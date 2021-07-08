@@ -6,6 +6,7 @@ import android.app.Application;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.crabsdk.lite.b.b;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,30 +18,30 @@ import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Activity f4697a;
+    public static Activity f4714a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b<List> f4698b;
+    public static b<List> f4715b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f4699c;
+    public static boolean f4716c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f4700d;
+    public static long f4717d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f4701e;
+    public static int f4718e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f4702f;
+    public static int f4719f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f4703g;
+    public static int f4720g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -56,21 +57,21 @@ public final class a {
                 return;
             }
         }
-        f4698b = new b<>(com.baidu.crabsdk.lite.a.f4690c);
-        f4699c = true;
-        f4701e = 0;
-        f4702f = 0;
-        f4703g = 0;
+        f4715b = new b<>(com.baidu.crabsdk.lite.a.f4707c);
+        f4716c = true;
+        f4718e = 0;
+        f4719f = 0;
+        f4720g = 0;
     }
 
     public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f4700d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f4717d : invokeV.longValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:9:0x0060, code lost:
-        if ((((java.util.Date) com.baidu.crabsdk.lite.a.a.f4698b.get(r5 - 1).get(1)).getTime() - ((java.util.Date) r3.get(2)).getTime()) > com.baidu.crabsdk.lite.a.f4693f) goto L12;
+        if ((((java.util.Date) com.baidu.crabsdk.lite.a.a.f4715b.get(r5 - 1).get(1)).getTime() - ((java.util.Date) r3.get(2)).getTime()) > com.baidu.crabsdk.lite.a.f4710f) goto L12;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -78,29 +79,29 @@ public final class a {
     public static void b(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, activity) == null) {
-            f4697a = activity;
+            f4714a = activity;
             ArrayList arrayList = new ArrayList(3);
             arrayList.add(activity.getClass().getName());
             arrayList.add(new Date());
-            f4698b.add(arrayList);
-            int size = f4698b.size();
+            f4715b.add(arrayList);
+            int size = f4715b.size();
             if (size >= 2) {
-                List list = f4698b.get(size - 2);
+                List list = f4715b.get(size - 2);
                 if (list.size() == 3) {
                 }
-                f4702f = (f4702f + 1) % 100;
+                f4719f = (f4719f + 1) % 100;
             }
-            f4701e++;
-            f4702f = (f4702f + 1) % 100;
+            f4718e++;
+            f4719f = (f4719f + 1) % 100;
         }
     }
 
     @SuppressLint({"NewApi"})
     public static void c(String str, Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, context) == null) && f4699c) {
-            f4699c = false;
-            f4700d = System.currentTimeMillis();
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, context) == null) && f4716c) {
+            f4716c = false;
+            f4717d = System.currentTimeMillis();
             if (com.baidu.crabsdk.lite.b.c.g() >= 14) {
                 if (!(context instanceof Application)) {
                     com.baidu.crabsdk.lite.b.a.g(str, "传入的不是一个Application对象!");
@@ -116,11 +117,11 @@ public final class a {
         InterceptResult invokeV;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             StringBuilder sb = new StringBuilder();
-            int size = f4698b.size();
+            int size = f4715b.size();
             for (int i2 = 0; i2 < size; i2++) {
-                List list = f4698b.get((size - i2) - 1);
+                List list = f4715b.get((size - i2) - 1);
                 if (list.size() == 3) {
                     sb.append((String) list.get(0));
                     sb.append(" from ");
@@ -142,29 +143,29 @@ public final class a {
     }
 
     public static /* synthetic */ void e(Activity activity) {
-        Activity activity2 = f4697a;
+        Activity activity2 = f4714a;
         if (activity2 != null && activity != null && activity2.hashCode() == activity.hashCode()) {
-            f4697a = null;
+            f4714a = null;
         }
-        int i2 = f4702f - f4703g;
-        int size = f4698b.size();
+        int i2 = f4719f - f4720g;
+        int size = f4715b.size();
         if (i2 < 0) {
             i2 += 100;
         }
         if (i2 > 0 && size >= i2) {
-            List list = f4698b.get(size - i2);
+            List list = f4715b.get(size - i2);
             if (list.size() == 2) {
                 list.add(new Date());
             }
         }
-        f4703g = (f4703g + 1) % 100;
+        f4720g = (f4720g + 1) % 100;
     }
 
     public static String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            Activity activity = f4697a;
+            Activity activity = f4714a;
             return activity == null ? "N/A" : activity.getClass().getName();
         }
         return (String) invokeV.objValue;
@@ -174,22 +175,22 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (f4697a == null) {
+            if (f4714a == null) {
                 return new byte[0];
             }
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                View decorView = f4697a.getWindow().getDecorView();
+                View decorView = f4714a.getWindow().getDecorView();
                 decorView.setDrawingCacheEnabled(true);
                 Bitmap drawingCache = decorView.getDrawingCache();
                 if (drawingCache != null) {
                     drawingCache.compress(Bitmap.CompressFormat.JPEG, 30, byteArrayOutputStream);
                 } else {
-                    com.baidu.crabsdk.lite.b.a.f(str, "getScreenshot failed, curActivity " + f4697a.getClass().getName());
+                    com.baidu.crabsdk.lite.b.a.f(str, "getScreenshot failed, curActivity " + f4714a.getClass().getName());
                 }
                 decorView.setDrawingCacheEnabled(false);
             } catch (RuntimeException e2) {
-                com.baidu.crabsdk.lite.b.a.e(str, "getScreenshot failed, curActivity " + f4697a.getClass().getName(), e2);
+                com.baidu.crabsdk.lite.b.a.e(str, "getScreenshot failed, curActivity " + f4714a.getClass().getName(), e2);
             }
             return byteArrayOutputStream.toByteArray();
         }

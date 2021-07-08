@@ -8,46 +8,46 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f35991a;
+    public Context f34268a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f35992b;
+    public int f34269b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f35993c;
+    public long f34270c;
 
     /* renamed from: d  reason: collision with root package name */
-    public File f35994d;
+    public File f34271d;
 
     /* renamed from: com.kwad.sdk.core.diskcache.b.b$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f35995a;
+        public Context f34272a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f35996b;
+        public int f34273b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f35997c;
+        public long f34274c;
 
         /* renamed from: d  reason: collision with root package name */
-        public File f35998d;
+        public File f34275d;
 
         public a(Context context) {
             Interceptable interceptable = $ic;
@@ -64,9 +64,9 @@ public class b {
                     return;
                 }
             }
-            this.f35996b = 1;
-            this.f35997c = 100L;
-            this.f35995a = context.getApplicationContext();
+            this.f34273b = 1;
+            this.f34274c = 100L;
+            this.f34272a = context.getApplicationContext();
         }
 
         public a a(int i2) {
@@ -74,7 +74,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
                 if (i2 > 0) {
-                    this.f35996b = i2;
+                    this.f34273b = i2;
                     return this;
                 }
                 throw new IllegalArgumentException("appVersion <= 0");
@@ -87,7 +87,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
                 if (j > 0) {
-                    this.f35997c = j;
+                    this.f34274c = j;
                     return this;
                 }
                 throw new IllegalArgumentException("maxSize <= 0");
@@ -100,7 +100,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
                 d.a(file, "directory is not allow null");
-                this.f35998d = file;
+                this.f34275d = file;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -111,10 +111,10 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 b bVar = new b(null);
-                bVar.f35991a = this.f35995a;
-                bVar.f35992b = this.f35996b;
-                bVar.f35993c = this.f35997c;
-                bVar.f35994d = this.f35998d;
+                bVar.f34268a = this.f34272a;
+                bVar.f34269b = this.f34273b;
+                bVar.f34270c = this.f34274c;
+                bVar.f34271d = this.f34275d;
                 return bVar;
             }
             return (b) invokeV.objValue;

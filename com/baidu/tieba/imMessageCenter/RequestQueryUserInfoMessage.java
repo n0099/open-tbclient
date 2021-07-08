@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.QueryUserInfos.DataReq;
 import protobuf.QueryUserInfos.QueryUserInfosReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RequestQueryUserInfoMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -30,36 +30,36 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TimeZone;
 import kotlin.text.Typography;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a implements b<String, String> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5212a = "Host";
+    public static final String f5229a = "Host";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5213b = "Accept";
+    public static final String f5230b = "Accept";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5214c = "Accept-Charset";
+    public static final String f5231c = "Accept-Charset";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5215d = "Accept-Encoding";
+    public static final String f5232d = "Accept-Encoding";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5216e = "Accept-Language";
+    public static final String f5233e = "Accept-Language";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f5217f = "Allow";
+    public static final String f5234f = "Allow";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5218g = "Cache-Control";
+    public static final String f5235g = "Cache-Control";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5219h = "Content-Disposition";
+    public static final String f5236h = "Content-Disposition";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f5220i = "Content-Encoding";
+    public static final String f5237i = "Content-Encoding";
     public static final String j = "Content-Length";
     public static final String k = "Content-Type";
     public static final String l = "Date";
@@ -498,7 +498,7 @@ public class a implements b<String, String> {
     public static String a(Collection<?> collection, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65540, null, collection, str, str2, str3)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, collection, str, str2, str3)) == null) {
             if (collection == null || collection.isEmpty()) {
                 return "";
             }

@@ -1,6 +1,7 @@
 package com.yy.hiidostatis.inner.util.http;
 
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -29,13 +30,13 @@ import java.net.URL;
 import java.util.Map;
 import java.util.regex.Pattern;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class HttpUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern ipv4Pattern;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class HttpResp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -158,7 +159,7 @@ public class HttpUtil {
         InterceptResult invokeLL;
         InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             HttpResp httpResp = new HttpResp();
             HttpURLConnection httpURLConnection = null;
             InputStream inputStream2 = null;

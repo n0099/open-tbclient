@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.pushservice.b.d;
@@ -33,10 +34,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f3101a;
+    public static b f3104a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f3102b;
+    public static volatile c f3105b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public c() {
@@ -73,14 +74,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f3102b == null) {
+            if (f3105b == null) {
                 synchronized (c.class) {
-                    if (f3102b == null) {
-                        f3102b = new c();
+                    if (f3105b == null) {
+                        f3105b = new c();
                     }
                 }
             }
-            return f3102b;
+            return f3105b;
         }
         return (c) invokeV.objValue;
     }
@@ -88,7 +89,7 @@ public class c {
     private String a(String str, String str2, HashMap<String, String> hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, this, str, str2, hashMap)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, str2, hashMap)) == null) {
             TreeSet<String> treeSet = new TreeSet(hashMap.keySet());
             StringBuilder sb = new StringBuilder();
             for (String str3 : treeSet) {
@@ -110,7 +111,7 @@ public class c {
             hashMap.put(TableDefine.ZhiDaColumns.COLUMN_APIKEY, i.a(context, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE"));
             long currentTimeMillis = System.currentTimeMillis() / 1000;
             hashMap.put("timestamp", currentTimeMillis + "");
-            hashMap.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, f3101a.a() + "");
+            hashMap.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, f3104a.a() + "");
             JSONArray jSONArray = new JSONArray();
             jSONArray.put(DeviceId.getCUID(context));
             hashMap.put("cuids", jSONArray.toString());
@@ -138,19 +139,19 @@ public class c {
         if (!(interceptable == null || interceptable.invokeLI(65543, this, context, i2) == null) || context == null) {
             return;
         }
-        if (f3101a == null) {
+        if (f3104a == null) {
             b(context);
         }
-        if (f3101a == null || (launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName())) == null) {
+        if (f3104a == null || (launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName())) == null) {
             return;
         }
-        f3101a.a(context, launchIntentForPackage.getComponent(), i2);
+        f3104a.a(context, launchIntentForPackage.getComponent(), i2);
     }
 
     private void b(Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65544, this, context) == null) && Build.VERSION.SDK_INT >= 26 && d.l(context)) {
-            f3101a = new a();
+            f3104a = new a();
         }
     }
 
@@ -163,13 +164,13 @@ public class c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f3103a;
+                public final /* synthetic */ Context f3106a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f3104b;
+                public final /* synthetic */ String f3107b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ c f3105c;
+                public final /* synthetic */ c f3108c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -186,23 +187,23 @@ public class c {
                             return;
                         }
                     }
-                    this.f3105c = this;
-                    this.f3103a = context;
-                    this.f3104b = r8;
+                    this.f3108c = this;
+                    this.f3106a = context;
+                    this.f3107b = r8;
                 }
 
                 @Override // com.baidu.android.pushservice.h.c
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        HashMap a3 = this.f3105c.a(this.f3103a, "POST", this.f3104b);
+                        HashMap a3 = this.f3108c.a(this.f3106a, "POST", this.f3107b);
                         int i2 = 2;
                         do {
-                            com.baidu.android.pushservice.e.b b2 = com.baidu.android.pushservice.e.c.b(this.f3103a, this.f3104b, "POST", a3, "BCCS_SDK/3.0", h.c());
+                            com.baidu.android.pushservice.e.b b2 = com.baidu.android.pushservice.e.c.b(this.f3106a, this.f3107b, "POST", a3, "BCCS_SDK/3.0", h.c());
                             if (b2 != null) {
                                 int b3 = b2.b();
-                                String a4 = m.a(this.f3103a, b2.a());
-                                if (b3 == 200 && this.f3105c.a(a4) == 0) {
+                                String a4 = m.a(this.f3106a, b2.a());
+                                if (b3 == 200 && this.f3108c.a(a4) == 0) {
                                     return;
                                 }
                             }

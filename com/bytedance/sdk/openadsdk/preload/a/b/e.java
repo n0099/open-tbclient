@@ -1,17 +1,18 @@
 package com.bytedance.sdk.openadsdk.preload.a.b;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f31854a;
+    public static final int f31964a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,7 +28,7 @@ public final class e {
                 return;
             }
         }
-        f31854a = c();
+        f31964a = c();
     }
 
     public static int a(String str) {
@@ -70,7 +71,7 @@ public final class e {
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f31854a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f31964a : invokeV.intValue;
     }
 
     public static int c(String str) {
@@ -97,6 +98,6 @@ public final class e {
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? f31854a >= 9 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f31964a >= 9 : invokeV.booleanValue;
     }
 }

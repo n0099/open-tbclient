@@ -19,12 +19,12 @@ import java.io.BufferedOutputStream;
 import java.io.Closeable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class bi {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static bi f43632a;
+    public static bi f40646a;
 
     /* renamed from: a  reason: collision with other field name */
     public static String f929a;
@@ -39,7 +39,7 @@ public class bi {
     /* renamed from: a  reason: collision with other field name */
     public List<a> f932a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +84,7 @@ public class bi {
                 return;
             }
         }
-        f43632a = new bi();
+        f40646a = new bi();
     }
 
     public bi() {
@@ -106,7 +106,7 @@ public class bi {
     public static bi a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f43632a : (bi) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f40646a : (bi) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */

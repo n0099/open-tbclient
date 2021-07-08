@@ -2,6 +2,7 @@ package com.yy.hiidostatis.inner.util.hdid;
 
 import android.app.Application;
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.log.L;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ClientIdProxy {
     public static /* synthetic */ Interceptable $ic;
     public static volatile boolean isInit;
@@ -137,7 +138,7 @@ public class ClientIdProxy {
 
     public static void test(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             L.debug("DeviceProxy", "ClientIdProxyTest:%d==>%s,%d", Long.valueOf(Thread.currentThread().getId()), getClientId(context), Long.valueOf(System.currentTimeMillis() - System.currentTimeMillis()));
         }
     }

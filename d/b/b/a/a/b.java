@@ -15,7 +15,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import ms.bd.c.b;
 import ms.bd.c.h;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class b extends b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

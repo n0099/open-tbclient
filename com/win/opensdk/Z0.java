@@ -8,16 +8,16 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Z0 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ byte[] f42515a;
+    public final /* synthetic */ byte[] f39529a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f42516b;
+    public final /* synthetic */ String f39530b;
 
     public Z0(byte[] bArr, String str) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public final class Z0 implements Runnable {
                 return;
             }
         }
-        this.f42515a = bArr;
-        this.f42516b = str;
+        this.f39529a = bArr;
+        this.f39530b = str;
     }
 
     @Override // java.lang.Runnable
@@ -43,8 +43,8 @@ public final class Z0 implements Runnable {
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            byte[] bArr = this.f42515a;
-            String str = this.f42516b;
+            byte[] bArr = this.f39529a;
+            String str = this.f39530b;
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
             File file = new File(str);
             String substring = str.substring(0, str.lastIndexOf("/"));

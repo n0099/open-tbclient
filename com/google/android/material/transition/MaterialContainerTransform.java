@@ -53,7 +53,7 @@ import com.google.android.material.shape.Shapeable;
 import com.google.android.material.transition.TransitionUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MaterialContainerTransform extends Transition {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ProgressThresholdsGroup DEFAULT_ENTER_THRESHOLDS;
@@ -117,17 +117,17 @@ public final class MaterialContainerTransform extends Transition {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface FadeMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface FitMode {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ProgressThresholds {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -170,7 +170,7 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ProgressThresholdsGroup {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -207,11 +207,11 @@ public final class MaterialContainerTransform extends Transition {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface TransitionDirection {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class TransitionDrawable extends Drawable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int COMPAT_SHADOW_COLOR = -7829368;
@@ -679,7 +679,7 @@ public final class MaterialContainerTransform extends Transition {
     public static RectF calculateDrawableBounds(View view, @Nullable View view2, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{view, view2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view, view2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
             if (view2 != null) {
                 RectF locationOnScreen = TransitionUtils.getLocationOnScreen(view2);
                 locationOnScreen.offset(f2, f3);

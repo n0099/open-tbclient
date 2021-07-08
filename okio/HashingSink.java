@@ -1,5 +1,6 @@
 package okio;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,7 @@ import java.security.NoSuchAlgorithmException;
 import javax.annotation.Nullable;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class HashingSink extends ForwardingSink {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +65,7 @@ public final class HashingSink extends ForwardingSink {
     public static HashingSink hmacSha512(Sink sink, ByteString byteString) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, sink, byteString)) == null) ? new HashingSink(sink, byteString, "HmacSHA512") : (HashingSink) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, sink, byteString)) == null) ? new HashingSink(sink, byteString, "HmacSHA512") : (HashingSink) invokeLL.objValue;
     }
 
     public static HashingSink md5(Sink sink) {

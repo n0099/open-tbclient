@@ -38,7 +38,7 @@ import com.google.android.material.color.MaterialColors;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.textfield.TextInputLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DropdownMenuEndIconDelegate extends EndIconDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANIMATION_FADE_IN_DURATION = 67;

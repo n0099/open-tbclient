@@ -13,21 +13,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.BitSet;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class hn implements iq<hn, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f43281a;
+    public static final iy f40295a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final jg f498a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f43282b;
+    public static final iy f40296b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f43283c;
+    public static final iy f40297c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -56,9 +56,9 @@ public class hn implements iq<hn, Object>, Serializable, Cloneable {
             }
         }
         f498a = new jg("DataCollectionItem");
-        f43281a = new iy("", (byte) 10, (short) 1);
-        f43282b = new iy("", (byte) 8, (short) 2);
-        f43283c = new iy("", (byte) 11, (short) 3);
+        f40295a = new iy("", (byte) 10, (short) 1);
+        f40296b = new iy("", (byte) 8, (short) 2);
+        f40297c = new iy("", (byte) 11, (short) 3);
     }
 
     public hn() {
@@ -173,7 +173,7 @@ public class hn implements iq<hn, Object>, Serializable, Cloneable {
             jbVar.m524a();
             while (true) {
                 iy m520a = jbVar.m520a();
-                byte b2 = m520a.f43494a;
+                byte b2 = m520a.f40508a;
                 if (b2 == 0) {
                     break;
                 }
@@ -254,16 +254,16 @@ public class hn implements iq<hn, Object>, Serializable, Cloneable {
         if (interceptable == null || interceptable.invokeL(1048586, this, jbVar) == null) {
             m385a();
             jbVar.a(f498a);
-            jbVar.a(f43281a);
+            jbVar.a(f40295a);
             jbVar.a(this.f499a);
             jbVar.b();
             if (this.f500a != null) {
-                jbVar.a(f43282b);
+                jbVar.a(f40296b);
                 jbVar.a(this.f500a.a());
                 jbVar.b();
             }
             if (this.f501a != null) {
-                jbVar.a(f43283c);
+                jbVar.a(f40297c);
                 jbVar.a(this.f501a);
                 jbVar.b();
             }

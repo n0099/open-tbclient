@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Observer;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface IDownloader {
     public static final String TEMP_SUFFIX = ".tmp";
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class DownloadStatus {
         public static final /* synthetic */ DownloadStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

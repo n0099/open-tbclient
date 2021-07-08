@@ -3,6 +3,7 @@ package com.bytedance.sdk.openadsdk.e;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.config.AppConfig;
@@ -19,68 +20,68 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class g<T extends i> extends HandlerThread implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f31104a = "AdEventThread";
+    public static String f31214a = "AdEventThread";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f31105b = "ttad_bk";
+    public static String f31215b = "ttad_bk";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final e<T> f31106c;
+    public final e<T> f31216c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.p<T> f31107d;
+    public com.bytedance.sdk.openadsdk.core.p<T> f31217d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<T> f31108e;
+    public final List<T> f31218e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f31109f;
+    public long f31219f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f31110g;
+    public boolean f31220g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f31111h;
+    public int f31221h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f31112i;
+    public Handler f31222i;
     public final a j;
     public final b k;
     public boolean l;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         boolean a();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f31113a;
+        public final int f31223a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f31114b;
+        public final long f31224b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f31115c;
+        public final long f31225c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f31116d;
+        public final int f31226d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final long f31117e;
+        public final long f31227e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final long f31118f;
+        public final long f31228f;
 
         public b(int i2, long j, long j2, int i3, long j3, long j4) {
             Interceptable interceptable = $ic;
@@ -97,12 +98,12 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
                     return;
                 }
             }
-            this.f31113a = i2;
-            this.f31114b = j;
-            this.f31115c = j2;
-            this.f31116d = i3;
-            this.f31117e = j3;
-            this.f31118f = j4;
+            this.f31223a = i2;
+            this.f31224b = j;
+            this.f31225c = j2;
+            this.f31226d = i3;
+            this.f31227e = j3;
+            this.f31228f = j4;
         }
 
         public static b a() {
@@ -135,7 +136,7 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(e<T> eVar, com.bytedance.sdk.openadsdk.core.p<T> pVar, b bVar, a aVar) {
-        super("tt_pangle_thread__" + f31105b);
+        super("tt_pangle_thread__" + f31215b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -153,28 +154,28 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
         }
         this.k = bVar;
         this.j = aVar;
-        this.f31106c = eVar;
-        this.f31107d = pVar;
-        this.f31108e = Collections.synchronizedList(new LinkedList());
+        this.f31216c = eVar;
+        this.f31217d = pVar;
+        this.f31218e = Collections.synchronizedList(new LinkedList());
         this.l = false;
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            e<T> eVar = this.f31106c;
+            e<T> eVar = this.f31216c;
             b bVar = this.k;
-            eVar.a(bVar.f31116d, bVar.f31117e);
-            this.f31110g = this.f31106c.a();
-            this.f31111h = this.f31106c.b();
-            if (this.f31110g) {
-                a("onHandleInitEvent serverBusy, retryCount = " + this.f31111h);
+            eVar.a(bVar.f31226d, bVar.f31227e);
+            this.f31220g = this.f31216c.a();
+            this.f31221h = this.f31216c.b();
+            if (this.f31220g) {
+                a("onHandleInitEvent serverBusy, retryCount = " + this.f31221h);
                 h();
                 return;
             }
-            b(this.f31106c.a(100, "_id"));
+            b(this.f31216c.a(100, "_id"));
             a("onHandleInitEvent,mCloseSaveAndRetry is false, read db event data");
-            a("onHandleInitEvent cacheData count = " + this.f31108e.size());
+            a("onHandleInitEvent cacheData count = " + this.f31218e.size());
             e();
         }
     }
@@ -186,12 +187,12 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
                 try {
                     if (list.size() != 0) {
                         HashSet hashSet = new HashSet();
-                        for (T t : this.f31108e) {
+                        for (T t : this.f31218e) {
                             hashSet.add(t.b());
                         }
                         for (T t2 : list) {
                             if (!hashSet.contains(t2.b())) {
-                                this.f31108e.add(t2);
+                                this.f31218e.add(t2);
                             }
                         }
                         return;
@@ -206,7 +207,7 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
 
     private void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || this.f31110g) {
+        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || this.f31220g) {
             return;
         }
         a("onHandleRoutineRetryEvent");
@@ -215,7 +216,7 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
 
     private void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || this.f31110g) {
+        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || this.f31220g) {
             return;
         }
         a("onHandleRoutineUploadEvent");
@@ -225,18 +226,18 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            this.f31112i.removeMessages(3);
-            this.f31112i.removeMessages(2);
-            if (com.bytedance.sdk.component.utils.h.a(this.f31108e)) {
-                this.f31109f = System.currentTimeMillis();
+            this.f31222i.removeMessages(3);
+            this.f31222i.removeMessages(2);
+            if (com.bytedance.sdk.component.utils.h.a(this.f31218e)) {
+                this.f31219f = System.currentTimeMillis();
                 j();
             } else if (!this.j.a()) {
                 a("doRoutineUpload no net, wait retry");
                 i();
             } else {
-                h a2 = a(this.f31108e);
+                h a2 = a(this.f31218e);
                 if (a2 != null) {
-                    if (a2.f31119a) {
+                    if (a2.f31229a) {
                         a("doRoutineUpload success");
                         g();
                         f();
@@ -246,7 +247,7 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
                     } else if (b(a2)) {
                         g();
                         f();
-                    } else if (this.f31110g) {
+                    } else if (this.f31220g) {
                     } else {
                         if (!this.l) {
                             i();
@@ -263,7 +264,7 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     private void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, this) == null) {
-            this.f31109f = System.currentTimeMillis();
+            this.f31219f = System.currentTimeMillis();
             o();
             j();
         }
@@ -273,8 +274,8 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
             a("clearCacheList, delete event from cache and db");
-            this.f31106c.a(this.f31108e);
-            this.f31108e.clear();
+            this.f31216c.a(this.f31218e);
+            this.f31218e.clear();
         }
     }
 
@@ -288,25 +289,25 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     private void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, this) == null) {
-            a(3, this.k.f31115c);
+            a(3, this.k.f31225c);
         }
     }
 
     private void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65555, this) == null) {
-            a(2, this.k.f31114b);
+            a(2, this.k.f31224b);
         }
     }
 
     private void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65556, this) == null) {
-            this.f31110g = true;
-            this.f31106c.a(true);
-            this.f31108e.clear();
-            this.f31112i.removeMessages(3);
-            this.f31112i.removeMessages(2);
+            this.f31220g = true;
+            this.f31216c.a(true);
+            this.f31218e.clear();
+            this.f31222i.removeMessages(3);
+            this.f31222i.removeMessages(2);
             h();
         }
     }
@@ -314,11 +315,11 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     private void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65557, this) == null) {
-            this.f31110g = true;
-            this.f31106c.a(true);
-            this.f31108e.clear();
-            this.f31112i.removeMessages(3);
-            this.f31112i.removeMessages(2);
+            this.f31220g = true;
+            this.f31216c.a(true);
+            this.f31218e.clear();
+            this.f31222i.removeMessages(3);
+            this.f31222i.removeMessages(2);
             h();
         }
     }
@@ -326,23 +327,23 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     private long m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65558, this)) == null) ? ((this.f31111h % 3) + 1) * this.k.f31118f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65558, this)) == null) ? ((this.f31221h % 3) + 1) * this.k.f31228f : invokeV.longValue;
     }
 
     private boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65559, this)) == null) ? !this.f31110g && (this.f31108e.size() >= this.k.f31113a || System.currentTimeMillis() - this.f31109f >= this.k.f31114b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65559, this)) == null) ? !this.f31220g && (this.f31218e.size() >= this.k.f31223a || System.currentTimeMillis() - this.f31219f >= this.k.f31224b) : invokeV.booleanValue;
     }
 
     private void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65560, this) == null) {
-            this.f31110g = false;
-            this.f31106c.a(false);
-            this.f31111h = 0;
-            this.f31106c.a(0);
-            this.f31112i.removeMessages(4);
+            this.f31220g = false;
+            this.f31216c.a(false);
+            this.f31221h = 0;
+            this.f31216c.a(0);
+            this.f31222i.removeMessages(4);
         }
     }
 
@@ -374,8 +375,8 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     public void onLooperPrepared() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f31109f = System.currentTimeMillis();
-            this.f31112i = new Handler(getLooper(), this);
+            this.f31219f = System.currentTimeMillis();
+            this.f31222i = new Handler(getLooper(), this);
         }
     }
 
@@ -393,7 +394,7 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
                 arrayList.add(list.get(i2));
             }
             list.removeAll(arrayList);
-            this.f31106c.a(arrayList);
+            this.f31216c.a(arrayList);
             a("end checkAndDeleteEvent local size:" + list.size());
         }
     }
@@ -416,12 +417,12 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
                 return;
             }
         }
-        f31104a = str2;
+        f31214a = str2;
         this.k = bVar;
         this.j = aVar;
-        this.f31106c = eVar;
-        this.f31107d = pVar;
-        this.f31108e = Collections.synchronizedList(new LinkedList());
+        this.f31216c = eVar;
+        this.f31217d = pVar;
+        this.f31218e = Collections.synchronizedList(new LinkedList());
         this.l = false;
     }
 
@@ -429,11 +430,11 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
             if (!this.j.a()) {
-                a(4, this.k.f31115c);
+                a(4, this.k.f31225c);
                 a("onHandleServerBusyRetryEvent, no net");
                 return;
             }
-            List<T> a2 = this.f31106c.a(100, "_id");
+            List<T> a2 = this.f31216c.a(100, "_id");
             c(a2);
             if (com.bytedance.sdk.component.utils.h.a(a2)) {
                 a("onHandleServerBusyRetryEvent, empty list start routine");
@@ -443,19 +444,19 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
             }
             h a3 = a(a2);
             if (a3 != null) {
-                if (a3.f31119a) {
+                if (a3.f31229a) {
                     a("onHandleServerBusyRetryEvent, success");
                     g();
                     f();
                 } else if (a(a3)) {
-                    int i2 = this.f31111h + 1;
-                    this.f31111h = i2;
-                    this.f31106c.a(i2);
-                    e<T> eVar = this.f31106c;
+                    int i2 = this.f31221h + 1;
+                    this.f31221h = i2;
+                    this.f31216c.a(i2);
+                    e<T> eVar = this.f31216c;
                     b bVar = this.k;
-                    eVar.a(a2, bVar.f31116d, bVar.f31117e);
+                    eVar.a(a2, bVar.f31226d, bVar.f31227e);
                     h();
-                    a("onHandleServerBusyRetryEvent, serverbusy, count = " + this.f31111h);
+                    a("onHandleServerBusyRetryEvent, serverbusy, count = " + this.f31221h);
                 } else if (b(a3)) {
                     g();
                     f();
@@ -463,12 +464,12 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
                     i();
                     a("onHandleServerBusyRetryEvent, net fail");
                 } else {
-                    int i3 = this.f31111h + 1;
-                    this.f31111h = i3;
-                    this.f31106c.a(i3);
-                    e<T> eVar2 = this.f31106c;
+                    int i3 = this.f31221h + 1;
+                    this.f31221h = i3;
+                    this.f31216c.a(i3);
+                    e<T> eVar2 = this.f31216c;
                     b bVar2 = this.k;
-                    eVar2.a(a2, bVar2.f31116d, bVar2.f31117e);
+                    eVar2.a(a2, bVar2.f31226d, bVar2.f31227e);
                     l();
                 }
             }
@@ -479,10 +480,10 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            if (this.f31107d == null) {
+            if (this.f31217d == null) {
                 com.bytedance.sdk.openadsdk.core.o.f();
             }
-            com.bytedance.sdk.openadsdk.core.p<T> pVar = this.f31107d;
+            com.bytedance.sdk.openadsdk.core.p<T> pVar = this.f31217d;
             if (pVar == null) {
                 return null;
             }
@@ -494,14 +495,14 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     private void a(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, t) == null) {
-            c(this.f31108e);
-            this.f31106c.a((e<T>) t);
+            c(this.f31218e);
+            this.f31216c.a((e<T>) t);
             a("onHandleReceivedAdEvent mCloseSaveAndRetry is false, save event into db");
-            if (this.f31110g) {
+            if (this.f31220g) {
                 return;
             }
             a("onHandleReceivedAdEvent");
-            this.f31108e.add(t);
+            this.f31218e.add(t);
             if (n()) {
                 a("onHandleReceivedAdEvent upload");
                 e();
@@ -511,29 +512,29 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
 
     private void a(int i2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            Message obtainMessage = this.f31112i.obtainMessage();
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            Message obtainMessage = this.f31222i.obtainMessage();
             obtainMessage.what = i2;
-            this.f31112i.sendMessageDelayed(obtainMessage, j);
+            this.f31222i.sendMessageDelayed(obtainMessage, j);
         }
     }
 
     public static boolean a(h hVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, hVar)) == null) ? hVar.f31120b == 509 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, hVar)) == null) ? hVar.f31230b == 509 : invokeL.booleanValue;
     }
 
     private void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str) == null) {
-            com.bytedance.sdk.component.utils.j.b(f31104a, str);
+            com.bytedance.sdk.component.utils.j.b(f31214a, str);
         }
     }
 
     public static boolean b(h hVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, hVar)) == null) ? hVar.f31122d : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, hVar)) == null) ? hVar.f31232d : invokeL.booleanValue;
     }
 }

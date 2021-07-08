@@ -1,6 +1,7 @@
 package androidx.core.util;
 
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -74,7 +75,7 @@ public final class AtomicFileKt {
     @RequiresApi(17)
     public static final void writeBytes(android.util.AtomicFile atomicFile, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, atomicFile, bArr) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, atomicFile, bArr) == null) {
             FileOutputStream stream = atomicFile.startWrite();
             try {
                 Intrinsics.checkExpressionValueIsNotNull(stream, "stream");

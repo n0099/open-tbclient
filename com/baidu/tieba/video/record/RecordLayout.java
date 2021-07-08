@@ -14,28 +14,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RecordLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public VelocityTracker f21613e;
+    public VelocityTracker f21659e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21614f;
+    public int f21660f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21615g;
+    public int f21661g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f21616h;
+    public int f21662h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f21617i;
+    public float f21663i;
     public a j;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void onTouchToLeft();
 
@@ -66,9 +66,9 @@ public class RecordLayout extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f21615g = ViewConfiguration.getMaximumFlingVelocity();
-            this.f21614f = ViewConfiguration.getMinimumFlingVelocity();
-            this.f21616h = l.g(getContext(), R.dimen.ds150);
+            this.f21661g = ViewConfiguration.getMaximumFlingVelocity();
+            this.f21660f = ViewConfiguration.getMinimumFlingVelocity();
+            this.f21662h = l.g(getContext(), R.dimen.ds150);
         }
     }
 
@@ -77,17 +77,17 @@ public class RecordLayout extends RelativeLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            if (this.f21613e == null) {
-                this.f21613e = VelocityTracker.obtain();
+            if (this.f21659e == null) {
+                this.f21659e = VelocityTracker.obtain();
             }
-            this.f21613e.addMovement(motionEvent);
+            this.f21659e.addMovement(motionEvent);
             int action = motionEvent.getAction();
             if (action != 0) {
                 if ((action == 1 || action == 3) && this.j != null) {
-                    this.f21613e.computeCurrentVelocity(1000, this.f21615g);
-                    float xVelocity = this.f21613e.getXVelocity();
-                    int rawX = (int) (motionEvent.getRawX() - this.f21617i);
-                    if (Math.abs(xVelocity) <= this.f21614f || Math.abs(rawX) <= this.f21616h) {
+                    this.f21659e.computeCurrentVelocity(1000, this.f21661g);
+                    float xVelocity = this.f21659e.getXVelocity();
+                    int rawX = (int) (motionEvent.getRawX() - this.f21663i);
+                    if (Math.abs(xVelocity) <= this.f21660f || Math.abs(rawX) <= this.f21662h) {
                         if (Math.abs(rawX) > l.k(getContext()) * 0.5d) {
                             if (rawX > 0) {
                                 this.j.onTouchToRight();
@@ -100,12 +100,12 @@ public class RecordLayout extends RelativeLayout {
                     } else {
                         this.j.onTouchToLeft();
                     }
-                    this.f21613e.clear();
-                    this.f21613e.recycle();
-                    this.f21613e = null;
+                    this.f21659e.clear();
+                    this.f21659e.recycle();
+                    this.f21659e = null;
                 }
             } else {
-                this.f21617i = motionEvent.getRawX();
+                this.f21663i = motionEvent.getRawX();
             }
             return super.onInterceptTouchEvent(motionEvent);
         }

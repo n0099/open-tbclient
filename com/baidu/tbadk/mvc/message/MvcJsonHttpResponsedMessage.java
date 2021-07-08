@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.d.l;
 import d.a.c.e.j.a.e;
-import d.a.r0.g0.b.d;
-import d.a.r0.g0.b.h;
-import d.a.r0.r.r.a;
+import d.a.o0.g0.b.d;
+import d.a.o0.g0.b.h;
+import d.a.o0.r.r.a;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMessage<D> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -124,7 +124,7 @@ public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMe
                             return;
                         }
                         e2.g(cacheKey, bArr);
-                    } else if (!(mvcHttpMessage.getRequestData() instanceof d.a.r0.g0.b.e) || (h2 = a.f().h(v, currentAccount)) == null) {
+                    } else if (!(mvcHttpMessage.getRequestData() instanceof d.a.o0.g0.b.e) || (h2 = a.f().h(v, currentAccount)) == null) {
                     } else {
                         try {
                             h2.g(cacheKey, new String(bArr, "UTF-8"));

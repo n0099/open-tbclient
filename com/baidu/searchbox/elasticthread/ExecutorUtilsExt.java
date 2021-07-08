@@ -3,6 +3,7 @@ package com.baidu.searchbox.elasticthread;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.elasticthread.scheduler.ElasticTaskScheduler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executor;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ExecutorUtilsExt {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -95,7 +96,7 @@ public class ExecutorUtilsExt {
     public static Executor getImmediateExecutor(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (ElasticConfig.elasticExecutorDisabled()) {
                 return BackupExecutors.getInstance().getThreadPoolExecutor();
             }

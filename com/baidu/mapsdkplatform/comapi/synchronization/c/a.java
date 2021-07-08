@@ -11,22 +11,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7815a;
+    public int f7832a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f7816b;
+    public int f7833b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ExecutorService f7817c;
+    public ExecutorService f7834c;
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.synchronization.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static abstract class AbstractRunnableC0119a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,9 +91,9 @@ public class a {
                 return;
             }
         }
-        this.f7815a = 4000;
-        this.f7816b = 4000;
-        this.f7817c = Executors.newCachedThreadPool();
+        this.f7832a = 4000;
+        this.f7833b = 4000;
+        this.f7834c = Executors.newCachedThreadPool();
     }
 
     public void a(String str, e eVar) {
@@ -102,7 +102,7 @@ public class a {
             if (str == null || str.isEmpty()) {
                 throw new IllegalArgumentException("Request URL cannot be null");
             }
-            this.f7817c.submit(new b(this, eVar, str));
+            this.f7834c.submit(new b(this, eVar, str));
         }
     }
 }

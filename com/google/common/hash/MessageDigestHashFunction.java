@@ -13,7 +13,7 @@ import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MessageDigestHashFunction extends d.f.d.d.b implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,7 +22,7 @@ public final class MessageDigestHashFunction extends d.f.d.d.b implements Serial
     public final boolean supportsClone;
     public final String toString;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class SerializedForm implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -62,25 +62,25 @@ public final class MessageDigestHashFunction extends d.f.d.d.b implements Serial
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class b extends d.f.d.d.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final MessageDigest f33396b;
+        public final MessageDigest f33506b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f33397c;
+        public final int f33507c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f33398d;
+        public boolean f33508d;
 
         public /* synthetic */ b(MessageDigest messageDigest, int i2, a aVar) {
             this(messageDigest, i2);
@@ -92,11 +92,11 @@ public final class MessageDigestHashFunction extends d.f.d.d.b implements Serial
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 q();
-                this.f33398d = true;
-                if (this.f33397c == this.f33396b.getDigestLength()) {
-                    return HashCode.fromBytesNoCopy(this.f33396b.digest());
+                this.f33508d = true;
+                if (this.f33507c == this.f33506b.getDigestLength()) {
+                    return HashCode.fromBytesNoCopy(this.f33506b.digest());
                 }
-                return HashCode.fromBytesNoCopy(Arrays.copyOf(this.f33396b.digest(), this.f33397c));
+                return HashCode.fromBytesNoCopy(Arrays.copyOf(this.f33506b.digest(), this.f33507c));
             }
             return (HashCode) invokeV.objValue;
         }
@@ -106,7 +106,7 @@ public final class MessageDigestHashFunction extends d.f.d.d.b implements Serial
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeB(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b2) == null) {
                 q();
-                this.f33396b.update(b2);
+                this.f33506b.update(b2);
             }
         }
 
@@ -115,7 +115,7 @@ public final class MessageDigestHashFunction extends d.f.d.d.b implements Serial
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) {
                 q();
-                this.f33396b.update(byteBuffer);
+                this.f33506b.update(byteBuffer);
             }
         }
 
@@ -124,14 +124,14 @@ public final class MessageDigestHashFunction extends d.f.d.d.b implements Serial
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048579, this, bArr, i2, i3) == null) {
                 q();
-                this.f33396b.update(bArr, i2, i3);
+                this.f33506b.update(bArr, i2, i3);
             }
         }
 
         public final void q() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                n.x(!this.f33398d, "Cannot re-use a Hasher after calling hash() on it");
+                n.x(!this.f33508d, "Cannot re-use a Hasher after calling hash() on it");
             }
         }
 
@@ -150,8 +150,8 @@ public final class MessageDigestHashFunction extends d.f.d.d.b implements Serial
                     return;
                 }
             }
-            this.f33396b = messageDigest;
-            this.f33397c = i2;
+            this.f33506b = messageDigest;
+            this.f33507c = i2;
         }
     }
 

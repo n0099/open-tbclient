@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executor;
 @Service
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e implements IThreadManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Executor f44610a;
+    public Executor f41626a;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -30,14 +30,14 @@ public class e implements IThreadManager {
                 return;
             }
         }
-        this.f44610a = ExecutorUtilsExt.getElasticExecutor("NPS", 3);
+        this.f41626a = ExecutorUtilsExt.getElasticExecutor("NPS", 3);
     }
 
     @Override // com.baidu.nps.interfa.IThreadManager
     public void run(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            this.f44610a.execute(runnable);
+            this.f41626a.execute(runnable);
         }
     }
 }

@@ -1,21 +1,22 @@
 package d.b.a;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class h0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f71676a;
+    public static boolean f68779a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f71677b;
+    public static boolean f68780b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +36,7 @@ public class h0 {
 
     public static void a(String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, str, th) == null) && f71677b) {
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, th) == null) && f68780b) {
             Log.d("TeaLog", str, th);
         }
     }
@@ -56,7 +57,7 @@ public class h0 {
 
     public static void d(String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, str, th) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, th) == null) {
             Log.e("TeaLog", str, th);
         }
     }

@@ -4,6 +4,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.LruCache;
 import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.clientupdate.download.DownloadManager;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -22,40 +23,40 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.WeakHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f31287a;
+    public static String f31397a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f31288b;
+    public static String f31398b;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile a f31289g;
+    public static volatile a f31399g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakHashMap<String, String> f31290c;
+    public WeakHashMap<String, String> f31400c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.d.a f31291d;
+    public final com.bytedance.sdk.openadsdk.d.a f31401d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.d.a f31292e;
+    public final com.bytedance.sdk.openadsdk.d.a f31402e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final LruCache<String, C0353a> f31293f;
+    public final LruCache<String, C0353a> f31403f;
 
     /* renamed from: com.bytedance.sdk.openadsdk.l.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class C0353a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public byte[] f31295a;
+        public byte[] f31405a;
 
         public C0353a(byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -72,7 +73,7 @@ public class a {
                     return;
                 }
             }
-            this.f31295a = bArr;
+            this.f31405a = bArr;
         }
     }
 
@@ -89,13 +90,13 @@ public class a {
                 return;
             }
         }
-        this.f31290c = new WeakHashMap<>();
-        this.f31293f = new LruCache<String, C0353a>(this, 5242880) { // from class: com.bytedance.sdk.openadsdk.l.a.a.1
+        this.f31400c = new WeakHashMap<>();
+        this.f31403f = new LruCache<String, C0353a>(this, 5242880) { // from class: com.bytedance.sdk.openadsdk.l.a.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f31294a;
+            public final /* synthetic */ a f31404a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -115,7 +116,7 @@ public class a {
                         return;
                     }
                 }
-                this.f31294a = this;
+                this.f31404a = this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -125,7 +126,7 @@ public class a {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str, c0353a)) == null) {
-                    byte[] bArr = c0353a.f31295a;
+                    byte[] bArr = c0353a.f31405a;
                     int length = bArr != null ? 0 + bArr.length : 0;
                     return length == 0 ? super.sizeOf(str, c0353a) : length;
                 }
@@ -142,26 +143,26 @@ public class a {
                     if (!z || c0353a == null) {
                         return;
                     }
-                    c0353a.f31295a = null;
+                    c0353a.f31405a = null;
                 }
             }
         };
-        this.f31291d = new com.bytedance.sdk.openadsdk.d.d();
-        this.f31292e = new com.bytedance.sdk.openadsdk.d.d(DownloadManager.MIN_LEFT_SIZE, true);
+        this.f31401d = new com.bytedance.sdk.openadsdk.d.d();
+        this.f31402e = new com.bytedance.sdk.openadsdk.d.d(DownloadManager.MIN_LEFT_SIZE, true);
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f31289g == null) {
+            if (f31399g == null) {
                 synchronized (a.class) {
-                    if (f31289g == null) {
-                        f31289g = new a();
+                    if (f31399g == null) {
+                        f31399g = new a();
                     }
                 }
             }
-            return f31289g;
+            return f31399g;
         }
         return (a) invokeV.objValue;
     }
@@ -173,7 +174,7 @@ public class a {
                 j.f("splashLoadAd", " GifCache put 将图片素材保存到本地 key " + str);
                 if (!TextUtils.isEmpty(str) && bArr != null) {
                     if (!a(bArr)) {
-                        this.f31293f.put(str, new C0353a(bArr));
+                        this.f31403f.put(str, new C0353a(bArr));
                     }
                     File file = new File(c(), str);
                     if (file.exists() && file.isFile() && file.length() > 0) {
@@ -196,7 +197,7 @@ public class a {
                                     }
                                     file2.renameTo(file);
                                 }
-                                this.f31291d.a(file);
+                                this.f31401d.a(file);
                                 fileOutputStream2.close();
                             } catch (Throwable unused) {
                                 fileOutputStream = fileOutputStream2;
@@ -222,7 +223,7 @@ public class a {
             synchronized (this) {
                 if (!TextUtils.isEmpty(str) && bArr != null) {
                     if (!a(bArr)) {
-                        this.f31293f.put(str, new C0353a(bArr));
+                        this.f31403f.put(str, new C0353a(bArr));
                     }
                     j.f("splashLoadAd", " GifCache put 保存到本地图片的素材路径 getCacheDir() " + b());
                     File file = new File(b(), str);
@@ -248,8 +249,8 @@ public class a {
                                 }
                                 file2.renameTo(file);
                             }
-                            if (this.f31292e != null) {
-                                this.f31292e.a(file);
+                            if (this.f31402e != null) {
+                                this.f31402e.a(file);
                             }
                             fileOutputStream.close();
                         } catch (Throwable unused2) {
@@ -271,8 +272,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, bArr) == null) {
             synchronized (this) {
-                j.f("splashLoadAd", " put GifLoader.mIsSpalsh " + b.f31297b);
-                if (b.f31297b) {
+                j.f("splashLoadAd", " put GifLoader.mIsSpalsh " + b.f31407b);
+                if (b.f31407b) {
                     c(str, bArr);
                 } else {
                     b(str, bArr);
@@ -321,7 +322,7 @@ public class a {
                 if (TextUtils.isEmpty(str)) {
                     return null;
                 }
-                C0353a c0353a = this.f31293f.get(str);
+                C0353a c0353a = this.f31403f.get(str);
                 if (c0353a != null) {
                     return c0353a;
                 }
@@ -370,7 +371,7 @@ public class a {
                 if (TextUtils.isEmpty(str)) {
                     return null;
                 }
-                C0353a c0353a = this.f31293f.get(str);
+                C0353a c0353a = this.f31403f.get(str);
                 if (c0353a != null) {
                     return c0353a;
                 }
@@ -420,11 +421,11 @@ public class a {
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
-            if (TextUtils.isEmpty(f31287a)) {
-                f31287a = c("diskGif");
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (TextUtils.isEmpty(f31397a)) {
+                f31397a = c("diskGif");
             }
-            return f31287a;
+            return f31397a;
         }
         return (String) invokeV.objValue;
     }
@@ -478,10 +479,10 @@ public class a {
                 if (str.startsWith("https")) {
                     str = str.replaceFirst("https", "http");
                 }
-                String str2 = this.f31290c.get(str);
+                String str2 = this.f31400c.get(str);
                 if (TextUtils.isEmpty(str2)) {
                     String a2 = e.a(str);
-                    this.f31290c.put(str, a2);
+                    this.f31400c.put(str, a2);
                     return a2;
                 }
                 return str2;
@@ -494,10 +495,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (TextUtils.isEmpty(f31288b)) {
-                f31288b = c("splash_image");
+            if (TextUtils.isEmpty(f31398b)) {
+                f31398b = c("splash_image");
             }
-            return f31288b;
+            return f31398b;
         }
         return (String) invokeV.objValue;
     }

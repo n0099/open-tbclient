@@ -2,6 +2,7 @@ package d.a.c.b.a;
 
 import android.annotation.SuppressLint;
 import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -24,12 +25,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f43875a;
+    public static int f40891a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -191,9 +192,9 @@ public class a {
                 stringBuffer.append(str + " = {\n");
                 while (cls != null && g(cls)) {
                     if (cls.getSimpleName().equals("Object")) {
-                        f43875a++;
+                        f40891a++;
                         i(cls.getDeclaredFields(), obj, stringBuffer, list);
-                        f43875a--;
+                        f40891a--;
                     }
                     cls = cls.getSuperclass();
                 }
@@ -227,9 +228,9 @@ public class a {
     public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             StringBuffer stringBuffer = new StringBuffer("");
-            for (int i2 = 0; i2 < f43875a; i2++) {
+            for (int i2 = 0; i2 < f40891a; i2++) {
                 stringBuffer.append("    ");
             }
             return stringBuffer.toString();
@@ -270,7 +271,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, str, obj) == null) {
             StringBuffer stringBuffer = new StringBuffer("");
-            if (c.f43877a) {
+            if (c.f40893a) {
                 stringBuffer.append("Message_Type: " + str + "\n");
                 stringBuffer.append(j("", obj));
                 stringBuffer.append("----------------------------------------------------------\n");

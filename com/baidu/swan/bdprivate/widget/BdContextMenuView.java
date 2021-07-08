@@ -17,31 +17,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a.k;
-import d.a.q0.a.z1.b.e.a;
-import d.a.q0.b.c;
-import d.a.q0.b.d;
-/* loaded from: classes4.dex */
+import d.a.n0.a.k;
+import d.a.n0.a.z1.b.e.a;
+import d.a.n0.b.c;
+import d.a.n0.b.d;
+/* loaded from: classes3.dex */
 public class BdContextMenuView extends FrameLayout implements a.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f11646e;
+    public b f11663e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f11647f;
+    public Context f11664f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ListView f11648g;
+    public ListView f11665g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdContextMenuView f11649e;
+        public final /* synthetic */ BdContextMenuView f11666e;
 
         public a(BdContextMenuView bdContextMenuView) {
             Interceptable interceptable = $ic;
@@ -58,19 +58,19 @@ public class BdContextMenuView extends FrameLayout implements a.g {
                     return;
                 }
             }
-            this.f11649e = bdContextMenuView;
+            this.f11666e = bdContextMenuView;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-                this.f11649e.f11646e.a(i2);
+                this.f11666e.f11663e.a(i2);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +91,7 @@ public class BdContextMenuView extends FrameLayout implements a.g {
                 return;
             }
         }
-        boolean z = k.f49133a;
+        boolean z = k.f45831a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -114,7 +114,7 @@ public class BdContextMenuView extends FrameLayout implements a.g {
                 return;
             }
         }
-        this.f11647f = context;
+        this.f11664f = context;
         b();
     }
 
@@ -122,15 +122,15 @@ public class BdContextMenuView extends FrameLayout implements a.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-            setBackground(this.f11647f.getResources().getDrawable(d.aiapps_context_menu_bg));
-            ListView listView = new ListView(this.f11647f);
-            this.f11648g = listView;
+            setBackground(this.f11664f.getResources().getDrawable(d.aiapps_context_menu_bg));
+            ListView listView = new ListView(this.f11664f);
+            this.f11665g = listView;
             listView.setCacheColorHint(0);
-            this.f11648g.setDivider(getResources().getDrawable(c.aiapps_context_menu_divider_color));
-            this.f11648g.setDividerHeight(1);
-            this.f11648g.setSelector(new ColorDrawable(0));
-            addView(this.f11648g, new FrameLayout.LayoutParams(-1, -1));
-            this.f11648g.setOnItemClickListener(new a(this));
+            this.f11665g.setDivider(getResources().getDrawable(c.aiapps_context_menu_divider_color));
+            this.f11665g.setDividerHeight(1);
+            this.f11665g.setSelector(new ColorDrawable(0));
+            addView(this.f11665g, new FrameLayout.LayoutParams(-1, -1));
+            this.f11665g.setOnItemClickListener(new a(this));
         }
     }
 
@@ -159,7 +159,7 @@ public class BdContextMenuView extends FrameLayout implements a.g {
                 return;
             }
         }
-        this.f11647f = context;
+        this.f11664f = context;
         b();
     }
 
@@ -181,7 +181,7 @@ public class BdContextMenuView extends FrameLayout implements a.g {
                 return;
             }
         }
-        this.f11647f = context;
+        this.f11664f = context;
         b();
     }
 }

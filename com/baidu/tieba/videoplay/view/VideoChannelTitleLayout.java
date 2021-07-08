@@ -16,19 +16,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class VideoChannelTitleLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21930e;
+    public int f21987e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21931f;
+    public int f21988f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f21932g;
+    public boolean f21989g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoChannelTitleLayout(Context context) {
@@ -48,7 +48,7 @@ public class VideoChannelTitleLayout extends ViewGroup {
                 return;
             }
         }
-        this.f21932g = false;
+        this.f21989g = false;
     }
 
     public final void a(int i2) {
@@ -66,20 +66,20 @@ public class VideoChannelTitleLayout extends ViewGroup {
                 int i3 = lineCount - 1;
                 StaticLayout staticLayout3 = new StaticLayout(text.subSequence(staticLayout2.getLineStart(i3), staticLayout2.getLineEnd(i3)), expandableTextView.getContentView().getPaint(), i2, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
                 if (staticLayout3.getLineRight(staticLayout3.getLineCount() - 1) + g3 + childAt.getMeasuredWidth() <= i2) {
-                    this.f21930e = staticLayout2.getLineTop(i3) + (i3 * g2);
-                    this.f21931f = ((int) staticLayout2.getLineRight(i3)) + g3;
+                    this.f21987e = staticLayout2.getLineTop(i3) + (i3 * g2);
+                    this.f21988f = ((int) staticLayout2.getLineRight(i3)) + g3;
                     return;
                 }
-                this.f21930e = staticLayout2.getHeight() + ((lineCount + 1) * g2);
-                this.f21931f = 0;
+                this.f21987e = staticLayout2.getHeight() + ((lineCount + 1) * g2);
+                this.f21988f = 0;
                 return;
             }
             if (lineCount == 3) {
                 int i4 = lineCount - 1;
                 StaticLayout staticLayout4 = new StaticLayout(text.subSequence(staticLayout2.getLineStart(i4), staticLayout2.getLineEnd(i4)), expandableTextView.getContentView().getPaint(), i2, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
                 if (staticLayout4.getLineRight(staticLayout4.getLineCount() - 1) + g3 + childAt.getMeasuredWidth() <= i2) {
-                    this.f21930e = staticLayout2.getLineTop(i4) + (lineCount * g2);
-                    this.f21931f = (int) staticLayout2.getLineRight(i4);
+                    this.f21987e = staticLayout2.getLineTop(i4) + (lineCount * g2);
+                    this.f21988f = (int) staticLayout2.getLineRight(i4);
                     return;
                 }
                 staticLayout = staticLayout2;
@@ -93,8 +93,8 @@ public class VideoChannelTitleLayout extends ViewGroup {
             spannableStringBuilder.append((CharSequence) StringHelper.STRING_MORE);
             expandableTextView.getContentView().setText(spannableStringBuilder);
             StaticLayout staticLayout6 = new StaticLayout(spannableStringBuilder, expandableTextView.getContentView().getPaint(), i2, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
-            this.f21931f = staticLayout6.getLineStart(staticLayout6.getLineCount() - 1);
-            this.f21930e = staticLayout.getLineEnd(staticLayout6.getLineCount() - 1) + (staticLayout6.getLineCount() * g2);
+            this.f21988f = staticLayout6.getLineStart(staticLayout6.getLineCount() - 1);
+            this.f21987e = staticLayout.getLineEnd(staticLayout6.getLineCount() - 1) + (staticLayout6.getLineCount() * g2);
         }
     }
 
@@ -105,12 +105,12 @@ public class VideoChannelTitleLayout extends ViewGroup {
             ExpandableTextView expandableTextView = (ExpandableTextView) getChildAt(0);
             View childAt = getChildAt(1);
             expandableTextView.layout(0, 0, expandableTextView.getMeasuredWidth(), expandableTextView.getMeasuredHeight());
-            if (!this.f21932g) {
+            if (!this.f21989g) {
                 childAt.layout(0, 0, childAt.getMeasuredWidth(), childAt.getMeasuredHeight());
                 return;
             }
-            int i6 = this.f21931f;
-            childAt.layout(i6, this.f21930e, childAt.getMeasuredWidth() + i6, this.f21930e + childAt.getMeasuredHeight());
+            int i6 = this.f21988f;
+            childAt.layout(i6, this.f21987e, childAt.getMeasuredWidth() + i6, this.f21987e + childAt.getMeasuredHeight());
         }
     }
 
@@ -123,14 +123,14 @@ public class VideoChannelTitleLayout extends ViewGroup {
             a(size);
             ExpandableTextView expandableTextView = (ExpandableTextView) getChildAt(0);
             View childAt = getChildAt(1);
-            this.f21932g = childAt.getVisibility() == 0;
+            this.f21989g = childAt.getVisibility() == 0;
             measureChildren(i2, i3);
-            if (!this.f21932g) {
+            if (!this.f21989g) {
                 setMeasuredDimension(expandableTextView.getMeasuredWidth(), expandableTextView.getMeasuredHeight());
                 return;
             }
             a(size);
-            setMeasuredDimension(size, this.f21930e + childAt.getMeasuredHeight());
+            setMeasuredDimension(size, this.f21987e + childAt.getMeasuredHeight());
         }
     }
 
@@ -153,7 +153,7 @@ public class VideoChannelTitleLayout extends ViewGroup {
                 return;
             }
         }
-        this.f21932g = false;
+        this.f21989g = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -175,6 +175,6 @@ public class VideoChannelTitleLayout extends ViewGroup {
                 return;
             }
         }
-        this.f21932g = false;
+        this.f21989g = false;
     }
 }

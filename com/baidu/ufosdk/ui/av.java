@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Timer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class av extends WebViewClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackFacePageActivity f23348a;
+    public final /* synthetic */ FeedbackFacePageActivity f23458a;
 
     public av(FeedbackFacePageActivity feedbackFacePageActivity) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public final class av extends WebViewClient {
                 return;
             }
         }
-        this.f23348a = feedbackFacePageActivity;
+        this.f23458a = feedbackFacePageActivity;
     }
 
     public /* synthetic */ av(FeedbackFacePageActivity feedbackFacePageActivity, byte b2) {
@@ -50,7 +50,7 @@ public final class av extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
             StringBuilder sb = new StringBuilder("UfoWebViewClient --> onLoadResource : ");
-            webView2 = this.f23348a.o;
+            webView2 = this.f23458a.o;
             sb.append(webView2.getProgress());
             com.baidu.ufosdk.f.c.c(sb.toString());
             super.onLoadResource(webView, str);
@@ -66,13 +66,13 @@ public final class av extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
             super.onPageFinished(webView, str);
-            view = this.f23348a.n;
+            view = this.f23458a.n;
             view.setVisibility(8);
-            timer = this.f23348a.p;
+            timer = this.f23458a.p;
             if (timer != null) {
-                timer2 = this.f23348a.p;
+                timer2 = this.f23458a.p;
                 timer2.cancel();
-                timer3 = this.f23348a.p;
+                timer3 = this.f23458a.p;
                 timer3.purge();
             }
         }
@@ -86,11 +86,11 @@ public final class av extends WebViewClient {
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
             com.baidu.ufosdk.f.c.c("UfoWebViewClient --> onPageStarted");
             super.onPageStarted(webView, str, bitmap);
-            view = this.f23348a.n;
+            view = this.f23458a.n;
             view.setVisibility(0);
-            this.f23348a.p = new Timer();
+            this.f23458a.p = new Timer();
             aw awVar = new aw(this);
-            timer = this.f23348a.p;
+            timer = this.f23458a.p;
             timer.schedule(awVar, 20000L);
         }
     }
@@ -105,14 +105,14 @@ public final class av extends WebViewClient {
         if (interceptable == null || interceptable.invokeLILL(1048579, this, webView, i2, str, str2) == null) {
             com.baidu.ufosdk.f.c.c("onReceivedError --> errorCode:" + i2 + ",description:" + str + ",failingUrl:" + str2);
             super.onReceivedError(webView, i2, str, str2);
-            Context applicationContext = this.f23348a.getApplicationContext();
-            textView = this.f23348a.q;
+            Context applicationContext = this.f23458a.getApplicationContext();
+            textView = this.f23458a.q;
             com.baidu.ufosdk.f.i.a(applicationContext, textView);
-            linearLayout = this.f23348a.f23276g;
+            linearLayout = this.f23458a.f23386g;
             linearLayout.setVisibility(0);
-            webView2 = this.f23348a.o;
+            webView2 = this.f23458a.o;
             webView2.setVisibility(8);
-            view = this.f23348a.n;
+            view = this.f23458a.n;
             view.setVisibility(8);
         }
     }

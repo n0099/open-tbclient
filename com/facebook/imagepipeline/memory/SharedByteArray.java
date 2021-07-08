@@ -18,7 +18,7 @@ import com.facebook.common.references.ResourceReleaser;
 import java.util.concurrent.Semaphore;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SharedByteArray implements MemoryTrimmable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.views.CloseParentView;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class L1 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ CloseParentView f42400a;
+    public final /* synthetic */ CloseParentView f39414a;
 
     public L1(CloseParentView closeParentView) {
         Interceptable interceptable = $ic;
@@ -30,26 +30,26 @@ public class L1 extends Handler {
                 return;
             }
         }
-        this.f42400a = closeParentView;
+        this.f39414a = closeParentView;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 10) {
-            CloseParentView closeParentView = this.f42400a;
-            closeParentView.f42670a.setText(String.valueOf(closeParentView.f42677h));
-            CloseParentView closeParentView2 = this.f42400a;
-            if (closeParentView2.f42677h <= 0) {
-                closeParentView2.f42670a.setVisibility(8);
-                this.f42400a.f42670a.setClickable(false);
-                this.f42400a.f42678i.removeMessages(10);
+            CloseParentView closeParentView = this.f39414a;
+            closeParentView.f39684a.setText(String.valueOf(closeParentView.f39691h));
+            CloseParentView closeParentView2 = this.f39414a;
+            if (closeParentView2.f39691h <= 0) {
+                closeParentView2.f39684a.setVisibility(8);
+                this.f39414a.f39684a.setClickable(false);
+                this.f39414a.f39692i.removeMessages(10);
             } else {
-                closeParentView2.f42670a.setVisibility(0);
-                this.f42400a.f42670a.setClickable(true);
+                closeParentView2.f39684a.setVisibility(0);
+                this.f39414a.f39684a.setClickable(true);
             }
-            this.f42400a.f42678i.sendEmptyMessageDelayed(10, 1000L);
-            this.f42400a.f42677h--;
+            this.f39414a.f39692i.sendEmptyMessageDelayed(10, 1000L);
+            this.f39414a.f39691h--;
         }
     }
 }

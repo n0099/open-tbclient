@@ -13,36 +13,36 @@ import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpTrace;
 /* JADX WARN: $VALUES field not found */
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final j f41154a;
+    public static final j f38168a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final j f41155b;
+    public static final j f38169b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static j f41156c;
+    public static j f38170c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static j f41157d;
+    public static j f38171d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static j f41158e;
+    public static j f38172e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static j f41159f;
+    public static j f38173f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static j f41160g;
+    public static j f38174g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static j f41161h;
+    public static j f38175h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static j f41162i;
+    public static j f38176i;
     public static j j;
     public transient /* synthetic */ FieldHolder $fh;
     public final String k;
@@ -60,15 +60,15 @@ public final class j {
                 return;
             }
         }
-        f41154a = new j("GET", 0, "GET");
-        f41155b = new j("POST", 1, "POST");
-        f41156c = new j(HttpPut.METHOD_NAME, 2, HttpPut.METHOD_NAME);
-        f41157d = new j("HEAD", 3, "HEAD");
-        f41158e = new j("MOVE", 4, "MOVE");
-        f41159f = new j("COPY", 5, "COPY");
-        f41160g = new j(HttpDelete.METHOD_NAME, 6, HttpDelete.METHOD_NAME);
-        f41161h = new j(HttpOptions.METHOD_NAME, 7, HttpOptions.METHOD_NAME);
-        f41162i = new j(HttpTrace.METHOD_NAME, 8, HttpTrace.METHOD_NAME);
+        f38168a = new j("GET", 0, "GET");
+        f38169b = new j("POST", 1, "POST");
+        f38170c = new j(HttpPut.METHOD_NAME, 2, HttpPut.METHOD_NAME);
+        f38171d = new j("HEAD", 3, "HEAD");
+        f38172e = new j("MOVE", 4, "MOVE");
+        f38173f = new j("COPY", 5, "COPY");
+        f38174g = new j(HttpDelete.METHOD_NAME, 6, HttpDelete.METHOD_NAME);
+        f38175h = new j(HttpOptions.METHOD_NAME, 7, HttpOptions.METHOD_NAME);
+        f38176i = new j(HttpTrace.METHOD_NAME, 8, HttpTrace.METHOD_NAME);
         j = new j("CONNECT", 9, "CONNECT");
     }
 

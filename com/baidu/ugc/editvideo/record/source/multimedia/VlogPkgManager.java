@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.entity.TemplateInfo;
 import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
 import com.baidu.ugc.utils.FileUtils;
-import d.a.y0.t.w;
+import d.a.v0.t.w;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class VlogPkgManager {
     public static /* synthetic */ Interceptable $ic;
     public static VlogPkgManager mManager;

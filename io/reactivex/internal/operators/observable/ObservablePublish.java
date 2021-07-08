@@ -20,7 +20,7 @@ import io.reactivex.observables.ConnectableObservable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class ObservablePublish<T> extends ConnectableObservable<T> implements HasUpstreamObservableSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public final class ObservablePublish<T> extends ConnectableObservable<T> impleme
     public final ObservableSource<T> onSubscribe;
     public final ObservableSource<T> source;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class InnerDisposable<T> extends AtomicReference<Object> implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1100270633763673112L;
@@ -79,7 +79,7 @@ public final class ObservablePublish<T> extends ConnectableObservable<T> impleme
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class PublishObserver<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public static final InnerDisposable[] EMPTY;
@@ -252,7 +252,7 @@ public final class ObservablePublish<T> extends ConnectableObservable<T> impleme
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class PublishSource<T> implements ObservableSource<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

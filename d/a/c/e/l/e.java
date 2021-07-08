@@ -1,7 +1,7 @@
 package d.a.c.e.l;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface e<T> {
     BdAsyncTaskParallel getAsyncTaskParallel();
 

@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +18,7 @@ import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import com.facebook.infer.annotation.ReturnsOwnership;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class GenericDraweeHierarchyInflater {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +100,7 @@ public class GenericDraweeHierarchyInflater {
     public static GenericDraweeHierarchyBuilder inflateBuilder(Context context, @Nullable AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, attributeSet)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, attributeSet)) == null) {
             if (FrescoSystrace.isTracing()) {
                 FrescoSystrace.beginSection("GenericDraweeHierarchyBuilder#inflateBuilder");
             }

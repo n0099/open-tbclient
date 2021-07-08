@@ -3,6 +3,7 @@ package com.xiaomi.mipush.sdk;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,12 +14,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class HWPushHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f42738a;
+    public static boolean f39752a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -66,13 +67,13 @@ public class HWPushHelper {
     public static boolean isHmsTokenSynced(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
-            String a2 = i.a(e.f42787a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            String a2 = i.a(e.f39801a);
             if (TextUtils.isEmpty(a2)) {
                 return false;
             }
             String a3 = i.a(context, a2);
-            String a4 = ae.a(context).a(at.f42773c);
+            String a4 = ae.a(context).a(at.f39787c);
             return (TextUtils.isEmpty(a3) || TextUtils.isEmpty(a4) || !"synced".equals(a4)) ? false : true;
         }
         return invokeL.booleanValue;
@@ -87,7 +88,7 @@ public class HWPushHelper {
     public static boolean needConnect() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f42738a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f39752a : invokeV.booleanValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x002e, code lost:
@@ -155,7 +156,7 @@ public class HWPushHelper {
     public static void registerHuaWeiAssemblePush(Context context) {
         AbstractPushManager a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65545, null, context) == null) || (a2 = f.a(context).a(e.f42787a)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65545, null, context) == null) || (a2 = f.a(context).a(e.f39801a)) == null) {
             return;
         }
         a2.register();
@@ -189,7 +190,7 @@ public class HWPushHelper {
     public static void setNeedConnect(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65549, null, z) == null) {
-            f42738a = z;
+            f39752a = z;
         }
     }
 
@@ -222,7 +223,7 @@ public class HWPushHelper {
     public static void uploadToken(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65552, null, context, str) == null) {
-            i.a(context, e.f42787a, str);
+            i.a(context, e.f39801a, str);
         }
     }
 }

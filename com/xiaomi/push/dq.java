@@ -3,6 +3,7 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,13 +17,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public abstract class dq extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f42971a;
+    public int f39985a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f241a;
@@ -42,7 +43,7 @@ public abstract class dq extends ai.a {
                 return;
             }
         }
-        this.f42971a = i2;
+        this.f39985a = i2;
         this.f241a = context;
     }
 
@@ -67,7 +68,7 @@ public abstract class dq extends ai.a {
         if (!(interceptable == null || interceptable.invokeLLL(65538, null, context, hnVar, str) == null) || (b2 = dl.b(str, ip.a(hnVar))) == null || b2.length == 0) {
             return;
         }
-        synchronized (dm.f42966a) {
+        synchronized (dm.f39980a) {
             FileLock fileLock = null;
             try {
                 try {
@@ -166,7 +167,7 @@ public abstract class dq extends ai.a {
     private String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             return "dc_job_result_" + mo184a();
         }
         return (String) invokeV.objValue;
@@ -181,7 +182,7 @@ public abstract class dq extends ai.a {
     public boolean mo184a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? dl.a(this.f241a, String.valueOf(mo184a()), this.f42971a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? dl.a(this.f241a, String.valueOf(mo184a()), this.f39985a) : invokeV.booleanValue;
     }
 
     public abstract String b();
@@ -226,7 +227,7 @@ public abstract class dq extends ai.a {
                     if (bm.a(b2).equals(sharedPreferences.getString(d(), null))) {
                         long j = sharedPreferences.getLong(c(), 0L);
                         int a3 = com.xiaomi.push.service.aq.a(this.f241a).a(hk.ba.a(), 604800);
-                        if ((System.currentTimeMillis() - j) / 1000 < this.f42971a) {
+                        if ((System.currentTimeMillis() - j) / 1000 < this.f39985a) {
                             return;
                         }
                         if ((System.currentTimeMillis() - j) / 1000 < a3) {

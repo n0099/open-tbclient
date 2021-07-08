@@ -1,5 +1,6 @@
 package okhttp3.internal.http2;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,7 +23,7 @@ import okio.BufferedSource;
 import okio.ByteString;
 import okio.Source;
 import okio.Timeout;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class Http2Reader implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger logger;
@@ -32,7 +33,7 @@ public final class Http2Reader implements Closeable {
     public final Hpack.Reader hpackReader;
     public final BufferedSource source;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class ContinuationSource implements Source {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,7 +127,7 @@ public final class Http2Reader implements Closeable {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface Handler {
         void ackSettings();
 
@@ -223,7 +224,7 @@ public final class Http2Reader implements Closeable {
 
     private void readGoAway(Handler handler, int i2, byte b2, int i3) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, this, new Object[]{handler, Integer.valueOf(i2), Byte.valueOf(b2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{handler, Integer.valueOf(i2), Byte.valueOf(b2), Integer.valueOf(i3)}) == null) {
             if (i2 < 8) {
                 throw Http2.ioException("TYPE_GOAWAY length < 8: %s", Integer.valueOf(i2));
             }

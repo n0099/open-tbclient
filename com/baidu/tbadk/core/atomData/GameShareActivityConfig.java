@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class GameShareActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_GAME_SHARE_DATA = "key_share_Data";

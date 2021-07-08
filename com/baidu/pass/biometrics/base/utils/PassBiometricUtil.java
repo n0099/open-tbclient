@@ -9,6 +9,7 @@ import android.graphics.Point;
 import android.graphics.Rect;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.biometrics.base.PassBiometricDefaultFactory;
 import com.baidu.pass.biometrics.base.debug.Log;
@@ -19,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.UUID;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PassBiometricUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CPU_TYPE_ARM64_V8A = "arm64-v8a";
@@ -28,31 +29,31 @@ public class PassBiometricUtil {
     public static final String CPU_TYPE_X86 = "x86";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f9114a = "PassBiometricUtil";
+    public static final String f9131a = "PassBiometricUtil";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f9115b = 480;
+    public static final int f9132b = 480;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f9116c = 480;
+    public static final int f9133c = 480;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f9117d = 192;
+    public static final int f9134d = 192;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f9118e = 480;
+    public static final int f9135e = 480;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f9119f = 620;
+    public static final int f9136f = 620;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f9120g = 250;
+    public static final int f9137g = 250;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f9121h = 250;
+    public static final int f9138h = 250;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f9122i = 728;
+    public static final int f9139i = 728;
     public static final int j = 194;
     public static final int k = 750;
     public static final int l = 1335;
@@ -132,7 +133,7 @@ public class PassBiometricUtil {
     public static String getAppName(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             try {
                 PackageManager packageManager = context.getPackageManager();
                 return packageManager.getPackageInfo(context.getPackageName(), 0).applicationInfo.loadLabel(packageManager).toString();

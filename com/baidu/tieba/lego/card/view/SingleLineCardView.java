@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbPageContext;
@@ -24,13 +25,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.s0.h3.v;
-import d.a.s0.n1.i;
-import d.a.s0.n1.o.f;
-import d.a.s0.n1.o.j.c;
-import d.a.s0.n1.o.k.b;
+import d.a.p0.h3.v;
+import d.a.p0.n1.i;
+import d.a.p0.n1.o.f;
+import d.a.p0.n1.o.j.c;
+import d.a.p0.n1.o.k.b;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SingleLineCardView extends BaseCardView<SingleLineCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,16 +43,16 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
     public MoreButton w;
     public ImageView x;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SingleLineCard f18245e;
+        public final /* synthetic */ SingleLineCard f18285e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SingleLineCardView f18246f;
+        public final /* synthetic */ SingleLineCardView f18286f;
 
         public a(SingleLineCardView singleLineCardView, SingleLineCard singleLineCard) {
             Interceptable interceptable = $ic;
@@ -68,16 +69,16 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
                     return;
                 }
             }
-            this.f18246f = singleLineCardView;
-            this.f18245e = singleLineCard;
+            this.f18286f = singleLineCardView;
+            this.f18285e = singleLineCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                i.e(this.f18245e).d(TiebaStatic.Params.OBJ_URL, this.f18245e.getScheme()).b("obj_locate", this.f18246f.getStatPosition()).a(this.f18245e);
-                v.c(this.f18246f.m, this.f18245e.getScheme());
+                i.e(this.f18285e).d(TiebaStatic.Params.OBJ_URL, this.f18285e.getScheme()).b("obj_locate", this.f18286f.getStatPosition()).a(this.f18285e);
+                v.c(this.f18286f.m, this.f18285e.getScheme());
             }
         }
     }
@@ -161,7 +162,7 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
 
     private void setPrefixTitleColor(SingleLineCard singleLineCard) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, this, singleLineCard) == null) || singleLineCard == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, singleLineCard) == null) || singleLineCard == null) {
             return;
         }
         A(this.v, singleLineCard.getIconTitleColor(), singleLineCard.getIconTitleColorNight(), R.color.CAM_X0302);
@@ -187,7 +188,7 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
     public void v(SingleLineCard singleLineCard, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleLineCard, i2) == null) {
-            d.a.r0.s0.a.a(this.m, getRootView());
+            d.a.o0.s0.a.a(this.m, getRootView());
             SkinManager.setBackgroundColor(this.s, R.color.CAM_X0308);
             if (singleLineCard != null) {
                 setBgColor(singleLineCard);

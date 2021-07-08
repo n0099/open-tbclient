@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +17,7 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class bq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -181,7 +182,7 @@ public class bq {
 
     public static void a(Context context, List<String> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65540, null, context, list) == null) || list == null || list.size() <= 0 || !m185a(context)) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, list) == null) || list == null || list.size() <= 0 || !m185a(context)) {
             return;
         }
         for (String str : list) {

@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.UpdatePackage;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class f extends com.bytedance.sdk.openadsdk.preload.b.g<UpdatePackage> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

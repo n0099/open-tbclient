@@ -3,6 +3,7 @@ package com.xiaomi.push;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.pose.PoseAR;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class dv {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +60,7 @@ public class dv {
     public static String b(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, hashMap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, hashMap)) == null) {
             HashMap hashMap2 = new HashMap();
             if (hashMap != null) {
                 hashMap2.put(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, hashMap.get(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY) + "");

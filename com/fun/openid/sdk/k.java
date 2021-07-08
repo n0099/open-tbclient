@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.c;
 import com.fun.openid.sdk.e;
 import com.fun.openid.sdk.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class k implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class k implements f {
         if (r1.versionCode >= 1) goto L13;
      */
     /* JADX WARN: Code restructure failed: missing block: B:50:0x00a5, code lost:
-        if (r0.f32652a == null) goto L44;
+        if (r0.f32762a == null) goto L44;
      */
     /* JADX WARN: Removed duplicated region for block: B:22:0x0041  */
     /* JADX WARN: Removed duplicated region for block: B:27:0x0055  */
@@ -55,7 +55,7 @@ public class k implements f {
         if (interceptable != null && interceptable.invokeLL(1048576, this, context, aVar) != null) {
             return;
         }
-        c cVar = c.b.f32658a;
+        c cVar = c.b.f32768a;
         Context applicationContext = context.getApplicationContext();
         cVar.getClass();
         try {
@@ -66,27 +66,27 @@ public class k implements f {
         if (Build.VERSION.SDK_INT >= 28) {
             if (packageInfo != null && packageInfo.getLongVersionCode() >= 1) {
                 z = true;
-                b.f32651b = z;
-                b.f32650a = true;
-                if (!b.f32651b) {
+                b.f32761b = z;
+                b.f32760a = true;
+                if (!b.f32761b) {
                     if (FunOpenIDSdk.isLogEnabled()) {
                         Log.e(FunOpenIDSdk.TAG, "===========当前设备不支持获取OAID");
                     }
                     ((e.a) aVar).a(false, null);
                     return;
-                } else if (b.f32650a) {
-                    c cVar2 = c.b.f32658a;
+                } else if (b.f32760a) {
+                    c cVar2 = c.b.f32768a;
                     Context applicationContext2 = context.getApplicationContext();
                     synchronized (cVar2) {
                         if (Looper.myLooper() != Looper.getMainLooper()) {
-                            if (cVar2.f32652a == null) {
+                            if (cVar2.f32762a == null) {
                                 Intent intent = new Intent();
                                 intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
                                 intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-                                if (applicationContext2.bindService(intent, cVar2.f32656e, 1)) {
-                                    synchronized (cVar2.f32655d) {
+                                if (applicationContext2.bindService(intent, cVar2.f32766e, 1)) {
+                                    synchronized (cVar2.f32765d) {
                                         try {
-                                            cVar2.f32655d.wait(3000L);
+                                            cVar2.f32765d.wait(3000L);
                                         } catch (InterruptedException e3) {
                                             e3.printStackTrace();
                                         }
@@ -112,17 +112,17 @@ public class k implements f {
                 }
             }
             z = false;
-            b.f32651b = z;
-            b.f32650a = true;
-            if (!b.f32651b) {
+            b.f32761b = z;
+            b.f32760a = true;
+            if (!b.f32761b) {
             }
         } else {
             if (packageInfo != null) {
             }
             z = false;
-            b.f32651b = z;
-            b.f32650a = true;
-            if (!b.f32651b) {
+            b.f32761b = z;
+            b.f32760a = true;
+            if (!b.f32761b) {
             }
         }
     }

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class RtpTransceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,7 +22,7 @@ public class RtpTransceiver {
     public long nativeRtpTransceiver;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class RtpTransceiverDirection {
         public static final /* synthetic */ RtpTransceiverDirection[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -100,7 +100,7 @@ public class RtpTransceiver {
         public static RtpTransceiverDirection[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (RtpTransceiverDirection[]) $VALUES.clone() : (RtpTransceiverDirection[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (RtpTransceiverDirection[]) $VALUES.clone() : (RtpTransceiverDirection[]) invokeV.objValue;
         }
 
         @CalledByNative("RtpTransceiverDirection")
@@ -111,7 +111,7 @@ public class RtpTransceiver {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class RtpTransceiverInit {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,5 +1,6 @@
 package com.facebook.common.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.infer.annotation.Functional;
 import javax.annotation.Nullable;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class TriState {
     public static final /* synthetic */ TriState[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -22,7 +23,7 @@ public final class TriState {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.common.util.TriState$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$common$util$TriState;
         public static /* synthetic */ Interceptable $ic;
@@ -116,7 +117,7 @@ public final class TriState {
     public static TriState valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (TriState) Enum.valueOf(TriState.class, str) : (TriState) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (TriState) Enum.valueOf(TriState.class, str) : (TriState) invokeL.objValue;
     }
 
     public static TriState[] values() {

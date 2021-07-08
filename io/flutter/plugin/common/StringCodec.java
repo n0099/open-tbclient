@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.common.StringUtils;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class StringCodec implements MessageCodec<String> {
     public static /* synthetic */ Interceptable $ic;
     public static final StringCodec INSTANCE;

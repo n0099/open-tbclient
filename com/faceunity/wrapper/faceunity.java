@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class faceunity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FU_ADM_FLAG_ENABLE_READBACK = 2;
@@ -38,13 +38,13 @@ public class faceunity {
     public static int[] ret_wh;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class FUImage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f32573h;
+        public int f32683h;
         public byte[] nv21_data;
         public int tex;
         public int w;

@@ -10,7 +10,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.JanusConnection;
 import com.baidu.rtc.PeerConnectionClient;
-import com.baidu.rtc.internal.BaiduRtcRoomImp;
+import com.baidu.rtc.config.Constraints;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,7 +21,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.mode.CommandMessage;
-import com.kwai.video.player.KsMediaMeta;
 import java.lang.ref.WeakReference;
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -33,14 +32,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.webrtc.Logging;
 import org.webrtc.StatsReport;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class RtcReportHandle {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COMMUNICATION_REPORT_INTERVAL = 2000;
     public static final int DEVICEINFO_REPORT_INTERVAL = 300000;
+    public static final int INTERNAL_STATES_INTERVAL = 200;
     public static final int SLI_REPORT_INTERVAL = 5000;
     public static final String TAG = "RtcReportHandle";
     public static RtcReportHandle instance = null;
+    public static boolean mIsEnableInternalStatesMonitor = true;
     public static boolean mIsEnablePullQualityMonitor = true;
     public static boolean mIsEnablePushQualityMonitor;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +62,7 @@ public class RtcReportHandle {
     public long mUserId;
     public Runnable reportDeviceInfoRun;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class AudioStuckEvent implements SLIReportInterface {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,7 +99,7 @@ public class RtcReportHandle {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class VideoStuckEvent implements SLIReportInterface {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -214,17 +215,12 @@ public class RtcReportHandle {
         this.mRtcLogReport = RtcLogReport.getInstance();
     }
 
-    public static void enablePullQualityMonitor(boolean z) {
+    public static void enableMonitor(boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
-            mIsEnablePullQualityMonitor = z;
-        }
-    }
-
-    public static void enablePushQualityMonitor(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
-            mIsEnablePushQualityMonitor = z;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            mIsEnableInternalStatesMonitor = z;
+            mIsEnablePullQualityMonitor = z2;
+            mIsEnablePushQualityMonitor = z3;
         }
     }
 
@@ -232,7 +228,7 @@ public class RtcReportHandle {
         InterceptResult invokeL;
         RtcReportHandle rtcReportHandle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
             synchronized (RtcReportHandle.class) {
                 if (instance == null) {
                     instance = new RtcReportHandle(context);
@@ -248,7 +244,7 @@ public class RtcReportHandle {
         boolean z;
         HUDStatistics hUDStatistics;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
             HashMap hashMap = new HashMap();
             HUDStatistics hUDStatistics2 = this.mHUDStatisticsMap.get(this.mPublisherHandle);
             if (hUDStatistics2 == null) {
@@ -273,7 +269,7 @@ public class RtcReportHandle {
                 if (mIsEnablePushQualityMonitor) {
                     JSONObject jSONObject4 = new JSONObject();
                     if (z) {
-                        jSONObject4.put(KsMediaMeta.KSM_KEY_BITRATE, hashMap.get("bitrate_s"));
+                        jSONObject4.put("bitrate", hashMap.get("bitrate_s"));
                         jSONObject4.put("packetloss", hashMap.get("packetloss_s"));
                         jSONObject4.put("cfps", hashMap.get("fps_s"));
                         jSONObject4.put("fps", hashMap.get("fps_i"));
@@ -282,7 +278,7 @@ public class RtcReportHandle {
                             jSONObject2.put("senderQualityInfo", jSONObject4);
                         }
                     } else {
-                        jSONObject4.put(KsMediaMeta.KSM_KEY_BITRATE, 0);
+                        jSONObject4.put("bitrate", 0);
                         jSONObject4.put("packetloss", 0);
                         jSONObject4.put("fps", 0);
                     }
@@ -298,7 +294,7 @@ public class RtcReportHandle {
                             if (hashMap2.size() != 0) {
                                 JSONObject jSONObject5 = new JSONObject();
                                 jSONObject5.put("feedId", this.mFeedId);
-                                jSONObject5.put(KsMediaMeta.KSM_KEY_BITRATE, hashMap2.get("bitrate_r"));
+                                jSONObject5.put("bitrate", hashMap2.get("bitrate_r"));
                                 jSONObject5.put("packetloss", hashMap2.get("packetloss_r"));
                                 jSONObject5.put("fps", hashMap2.get("fps_r"));
                                 jSONObject5.put("resolution", hUDStatistics.getRecvResolution());
@@ -326,7 +322,7 @@ public class RtcReportHandle {
     private void reportData(String str, int i2) {
         RtcLogReport rtcLogReport;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65550, this, str, i2) == null) || (rtcLogReport = this.mRtcLogReport) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65549, this, str, i2) == null) || (rtcLogReport = this.mRtcLogReport) == null) {
             return;
         }
         rtcLogReport.report(str, i2);
@@ -335,11 +331,11 @@ public class RtcReportHandle {
     /* JADX INFO: Access modifiers changed from: private */
     public void reportDeviceInfo() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65551, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put(CommandMessage.SDK_VERSION, BaiduRtcRoomImp.BRTC_SDK_VERSION_PREFIX + BaiduRtcRoomImp.version());
+                jSONObject2.put(CommandMessage.SDK_VERSION, Constraints.sdkVersion());
                 jSONObject2.put("networkType", RtcLogReport.getNetworkType(this.mContext.get()));
                 jSONObject2.put("device", RtcLogReport.getDeviceModel());
                 JSONObject jSONObject3 = new JSONObject();
@@ -360,7 +356,7 @@ public class RtcReportHandle {
     private void reportSLIStuckInfo() {
         HUDStatistics hUDStatistics;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65552, this) == null) && mIsEnablePullQualityMonitor) {
+        if ((interceptable == null || interceptable.invokeV(65551, this) == null) && mIsEnablePullQualityMonitor) {
             for (BigInteger bigInteger : this.mHUDStatisticsMap.keySet()) {
                 if (bigInteger != this.mPublisherHandle && (hUDStatistics = this.mHUDStatisticsMap.get(bigInteger)) != null) {
                     JSONObject jSONObject = new JSONObject();
@@ -423,18 +419,41 @@ public class RtcReportHandle {
         return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bigInteger, i2)) == null) ? (bigInteger == null || (hUDStatistics = this.mHUDStatisticsMap.get(bigInteger)) == null) ? StringUtil.NULL_STRING : hUDStatistics.statsString(i2) : (String) invokeLI.objValue;
     }
 
+    public HUDStatistics getStreamingStats(BigInteger bigInteger) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bigInteger)) == null) {
+            if (bigInteger == null) {
+                return null;
+            }
+            return this.mHUDStatisticsMap.get(bigInteger);
+        }
+        return (HUDStatistics) invokeL.objValue;
+    }
+
     public void onFfDelayChange(JanusConnection janusConnection) {
         HUDStatistics hUDStatistics;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, janusConnection) == null) && mIsEnablePullQualityMonitor && (hUDStatistics = this.mHUDStatisticsMap.get(janusConnection.handleId)) != null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, janusConnection) == null) && mIsEnablePullQualityMonitor && (hUDStatistics = this.mHUDStatisticsMap.get(janusConnection.handleId)) != null) {
             hUDStatistics.setFirstFrameTime(System.currentTimeMillis());
             reportSLIFfDelay(this.mUserId, hUDStatistics.getFirstFrameTime() - hUDStatistics.getRequestSubscribeTime());
         }
     }
 
+    public void onPeerStatisticsReport(PeerConnectionClient.StatsEventsType statsEventsType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, statsEventsType) == null) {
+            if ((mIsEnablePushQualityMonitor || mIsEnablePullQualityMonitor) && statsEventsType == PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT) {
+                reportCommunicationQualityInfo();
+            } else if ((mIsEnablePushQualityMonitor || mIsEnablePullQualityMonitor) && statsEventsType == PeerConnectionClient.StatsEventsType.GET_SLI_EVENT) {
+                reportSLIStuckInfo();
+            }
+        }
+    }
+
     public void onPeerStatisticsReport(StatsReport[] statsReportArr, BigInteger bigInteger, PeerConnectionClient.StatsEventsType statsEventsType) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, statsReportArr, bigInteger, statsEventsType) == null) || bigInteger == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048580, this, statsReportArr, bigInteger, statsEventsType) == null) || bigInteger == null) {
             return;
         }
         HUDStatistics hUDStatistics = this.mHUDStatisticsMap.get(bigInteger);
@@ -443,15 +462,14 @@ public class RtcReportHandle {
         }
         if ((mIsEnablePushQualityMonitor || mIsEnablePullQualityMonitor) && statsEventsType == PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT) {
             reportCommunicationQualityInfo();
-        }
-        if ((mIsEnablePushQualityMonitor || mIsEnablePullQualityMonitor) && statsEventsType == PeerConnectionClient.StatsEventsType.GET_SLI_EVENT) {
+        } else if ((mIsEnablePushQualityMonitor || mIsEnablePullQualityMonitor) && statsEventsType == PeerConnectionClient.StatsEventsType.GET_SLI_EVENT) {
             reportSLIStuckInfo();
         }
     }
 
     public void release() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             HandlerThread handlerThread = this.mHandlerThread;
             if (handlerThread != null) {
                 handlerThread.quit();
@@ -466,7 +484,7 @@ public class RtcReportHandle {
 
     public void reportSLIFfDelay(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 JSONObject jSONObject2 = new JSONObject();
@@ -492,7 +510,7 @@ public class RtcReportHandle {
     public void startDeviceInfoReport() {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (handler = this.mHandler) == null || this.mIsDeviceInfoReporting) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (handler = this.mHandler) == null || this.mIsDeviceInfoReporting) {
             return;
         }
         this.mIsDeviceInfoReporting = true;
@@ -501,16 +519,21 @@ public class RtcReportHandle {
 
     public void startPeerPullReport(BigInteger bigInteger, PeerConnectionClient peerConnectionClient) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, bigInteger, peerConnectionClient) == null) || !mIsEnablePullQualityMonitor || peerConnectionClient == null || bigInteger == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bigInteger, peerConnectionClient) == null) || peerConnectionClient == null || bigInteger == null) {
             return;
         }
-        if (this.mHUDStatisticsMap.get(bigInteger) != null) {
-            peerConnectionClient.enableStatsEvents(false, 0, bigInteger, PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT);
-            peerConnectionClient.enableStatsEvents(false, 0, bigInteger, PeerConnectionClient.StatsEventsType.GET_SLI_EVENT);
-            this.mHUDStatisticsMap.remove(bigInteger);
+        if (mIsEnablePullQualityMonitor) {
+            if (this.mHUDStatisticsMap.get(bigInteger) != null) {
+                peerConnectionClient.enableStatsEvents(false, 0, bigInteger, PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT);
+                peerConnectionClient.enableStatsEvents(false, 0, bigInteger, PeerConnectionClient.StatsEventsType.GET_SLI_EVENT);
+                this.mHUDStatisticsMap.remove(bigInteger);
+            }
+            peerConnectionClient.enableStatsEvents(mIsEnablePullQualityMonitor, 2000, bigInteger, PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT);
+            peerConnectionClient.enableStatsEvents(mIsEnablePullQualityMonitor, 5000, bigInteger, PeerConnectionClient.StatsEventsType.GET_SLI_EVENT);
         }
-        peerConnectionClient.enableStatsEvents(mIsEnablePullQualityMonitor, 2000, bigInteger, PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT);
-        peerConnectionClient.enableStatsEvents(mIsEnablePullQualityMonitor, 5000, bigInteger, PeerConnectionClient.StatsEventsType.GET_SLI_EVENT);
+        if (mIsEnableInternalStatesMonitor) {
+            peerConnectionClient.enableStatsEvents(true, 200, bigInteger, PeerConnectionClient.StatsEventsType.GET_AUDIOLEVEL_EVENT);
+        }
         HUDStatistics hUDStatistics = new HUDStatistics();
         this.mHUDStatisticsMap.put(bigInteger, hUDStatistics);
         hUDStatistics.setRequestSubscribeTime(System.currentTimeMillis());
@@ -518,20 +541,25 @@ public class RtcReportHandle {
 
     public void stopPeerReport(BigInteger bigInteger, PeerConnectionClient peerConnectionClient) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048583, this, bigInteger, peerConnectionClient) == null) || peerConnectionClient == null || bigInteger == null || this.mHUDStatisticsMap.get(bigInteger) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, bigInteger, peerConnectionClient) == null) || peerConnectionClient == null || bigInteger == null || this.mHUDStatisticsMap.get(bigInteger) == null) {
             return;
         }
         this.mHUDStatisticsMap.remove(bigInteger);
         if (peerConnectionClient != null) {
-            peerConnectionClient.enableStatsEvents(false, 0, bigInteger, PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT);
-            peerConnectionClient.enableStatsEvents(false, 0, bigInteger, PeerConnectionClient.StatsEventsType.GET_SLI_EVENT);
+            if (mIsEnablePullQualityMonitor) {
+                peerConnectionClient.enableStatsEvents(false, 0, bigInteger, PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT);
+                peerConnectionClient.enableStatsEvents(false, 0, bigInteger, PeerConnectionClient.StatsEventsType.GET_SLI_EVENT);
+            }
+            if (mIsEnableInternalStatesMonitor) {
+                peerConnectionClient.enableStatsEvents(true, 200, bigInteger, PeerConnectionClient.StatsEventsType.GET_AUDIOLEVEL_EVENT);
+            }
         }
     }
 
     public boolean streamingValidityDetect(BigInteger bigInteger) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bigInteger)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, bigInteger)) == null) {
             if (bigInteger == null) {
                 return false;
             }
@@ -550,7 +578,7 @@ public class RtcReportHandle {
 
     public void updateRoomInfo(String str, String str2, String str3, String str4, String str5, String str6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, str2, str3, str4, str5, str6}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, str2, str3, str4, str5, str6}) == null) {
             this.mAppId = str;
             this.mRoomId = str2;
             if (!TextUtils.isEmpty(str3)) {
@@ -566,5 +594,21 @@ public class RtcReportHandle {
             this.mSessionId = str6;
             Logging.d(TAG, "update room info : userId = " + this.mUserId + " handleId =" + this.mHandleId);
         }
+    }
+
+    public HUDStatistics updateStatsData(StatsReport[] statsReportArr, BigInteger bigInteger) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, statsReportArr, bigInteger)) == null) {
+            if (bigInteger == null) {
+                return null;
+            }
+            HUDStatistics hUDStatistics = this.mHUDStatisticsMap.get(bigInteger);
+            if (hUDStatistics != null) {
+                hUDStatistics.updateEncoderStatistics(statsReportArr);
+            }
+            return hUDStatistics;
+        }
+        return (HUDStatistics) invokeLL.objValue;
     }
 }

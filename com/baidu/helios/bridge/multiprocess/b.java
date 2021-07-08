@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<b> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IBinder f6240a;
+    public IBinder f6257a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Parcelable.Creator<b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +89,7 @@ public class b implements Parcelable {
                 return;
             }
         }
-        this.f6240a = iBinder;
+        this.f6257a = iBinder;
     }
 
     public b(Parcel parcel) {
@@ -107,13 +107,13 @@ public class b implements Parcelable {
                 return;
             }
         }
-        this.f6240a = parcel.readStrongBinder();
+        this.f6257a = parcel.readStrongBinder();
     }
 
     public IBinder a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6240a : (IBinder) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6257a : (IBinder) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
@@ -130,7 +130,7 @@ public class b implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i2) == null) {
-            parcel.writeStrongBinder(this.f6240a);
+            parcel.writeStrongBinder(this.f6257a);
         }
     }
 }

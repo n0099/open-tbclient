@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class W0 implements V1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Y0 f42495a;
+    public final /* synthetic */ Y0 f39509a;
 
     public W0(Y0 y0) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class W0 implements V1 {
                 return;
             }
         }
-        this.f42495a = y0;
+        this.f39509a = y0;
     }
 
     @Override // com.win.opensdk.V1
@@ -44,17 +44,17 @@ public class W0 implements V1 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            Y0 y0 = this.f42495a;
-            if (o1.a(y0.f42508c, y0.f42513h)) {
-                this.f42495a.f42513h = System.currentTimeMillis();
-                Y0 y02 = this.f42495a;
-                o1.a(y02.f42506a, str, y02.f42508c, y02.f42512g, str2);
-                x0.a(this.f42495a.f42506a).a(new y0(this.f42495a.f42508c), str).a("desc", str2).a();
-                r rVar = this.f42495a.f42511f;
+            Y0 y0 = this.f39509a;
+            if (o1.a(y0.f39522c, y0.f39527h)) {
+                this.f39509a.f39527h = System.currentTimeMillis();
+                Y0 y02 = this.f39509a;
+                o1.a(y02.f39520a, str, y02.f39522c, y02.f39526g, str2);
+                x0.a(this.f39509a.f39520a).a(new y0(this.f39509a.f39522c), str).a("desc", str2).a();
+                r rVar = this.f39509a.f39525f;
                 if (rVar != null) {
                     rVar.onClicked();
                 }
-                z.a(this.f42495a.f42508c, str2);
+                z.a(this.f39509a.f39522c, str2);
                 return true;
             }
             return true;

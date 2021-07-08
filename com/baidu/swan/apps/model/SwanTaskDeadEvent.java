@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.util.SparseArray;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SwanTaskDeadEvent implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<SwanTaskDeadEvent> CREATOR;
@@ -28,7 +29,7 @@ public class SwanTaskDeadEvent implements Parcelable {
     public ArrayList<Integer> stackList;
     public int taskId;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<SwanTaskDeadEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,7 +130,7 @@ public class SwanTaskDeadEvent implements Parcelable {
     private String[] transformToArray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             StringBuilder sb = new StringBuilder();
             ArrayList<Integer> arrayList = this.stackList;
             if (arrayList != null) {

@@ -4,72 +4,72 @@ import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.c.a.c;
 import com.meizu.cloud.pushsdk.c.c.a;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b extends com.meizu.cloud.pushsdk.c.c.a {
 
     /* renamed from: d  reason: collision with root package name */
-    public String f40380d;
+    public String f37394d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f40381e;
+    public String f37395e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f40382f;
+    public String f37396f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f40383g;
+    public String f37397g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f40384h;
+    public String f37398h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f40385i;
+    public String f37399i;
     public String j;
     public String k;
     public int l;
 
-    /* loaded from: classes7.dex */
-    public static abstract class a<T extends a<T>> extends a.AbstractC0503a<T> {
+    /* loaded from: classes6.dex */
+    public static abstract class a<T extends a<T>> extends a.AbstractC0464a<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f40386a;
+        public String f37400a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f40387b;
+        public String f37401b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f40388c;
+        public String f37402c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f40389d;
+        public String f37403d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f40390e;
+        public String f37404e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f40391f;
+        public String f37405f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f40392g;
+        public String f37406g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f40393h;
+        public String f37407h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f40394i = 0;
+        public int f37408i = 0;
 
         public T a(int i2) {
-            this.f40394i = i2;
+            this.f37408i = i2;
             return (T) a();
         }
 
         public T a(String str) {
-            this.f40386a = str;
+            this.f37400a = str;
             return (T) a();
         }
 
         public T b(String str) {
-            this.f40387b = str;
+            this.f37401b = str;
             return (T) a();
         }
 
@@ -78,75 +78,75 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
         }
 
         public T c(String str) {
-            this.f40388c = str;
+            this.f37402c = str;
             return (T) a();
         }
 
         public T d(String str) {
-            this.f40389d = str;
+            this.f37403d = str;
             return (T) a();
         }
 
         public T e(String str) {
-            this.f40390e = str;
+            this.f37404e = str;
             return (T) a();
         }
 
         public T f(String str) {
-            this.f40391f = str;
+            this.f37405f = str;
             return (T) a();
         }
 
         public T g(String str) {
-            this.f40392g = str;
+            this.f37406g = str;
             return (T) a();
         }
 
         public T h(String str) {
-            this.f40393h = str;
+            this.f37407h = str;
             return (T) a();
         }
     }
 
     /* renamed from: com.meizu.cloud.pushsdk.c.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0504b extends a<C0504b> {
-        public C0504b() {
+    /* loaded from: classes6.dex */
+    public static class C0465b extends a<C0465b> {
+        public C0465b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.meizu.cloud.pushsdk.c.c.a.AbstractC0503a
+        @Override // com.meizu.cloud.pushsdk.c.c.a.AbstractC0464a
         /* renamed from: c */
-        public C0504b a() {
+        public C0465b a() {
             return this;
         }
     }
 
     public b(a<?> aVar) {
         super(aVar);
-        this.f40381e = aVar.f40387b;
-        this.f40382f = aVar.f40388c;
-        this.f40380d = aVar.f40386a;
-        this.f40383g = aVar.f40389d;
-        this.f40384h = aVar.f40390e;
-        this.f40385i = aVar.f40391f;
-        this.j = aVar.f40392g;
-        this.k = aVar.f40393h;
-        this.l = aVar.f40394i;
+        this.f37395e = aVar.f37401b;
+        this.f37396f = aVar.f37402c;
+        this.f37394d = aVar.f37400a;
+        this.f37397g = aVar.f37403d;
+        this.f37398h = aVar.f37404e;
+        this.f37399i = aVar.f37405f;
+        this.j = aVar.f37406g;
+        this.k = aVar.f37407h;
+        this.l = aVar.f37408i;
     }
 
     public static a<?> d() {
-        return new C0504b();
+        return new C0465b();
     }
 
     public c e() {
         c cVar = new c();
-        cVar.a("en", this.f40380d);
-        cVar.a(Config.FEED_LIST_PART, this.f40381e);
-        cVar.a(AppIconSetting.DEFAULT_LARGE_ICON, this.f40382f);
-        cVar.a("pv", this.f40383g);
-        cVar.a(Config.PACKAGE_NAME, this.f40384h);
-        cVar.a("si", this.f40385i);
+        cVar.a("en", this.f37394d);
+        cVar.a(Config.FEED_LIST_PART, this.f37395e);
+        cVar.a(AppIconSetting.DEFAULT_LARGE_ICON, this.f37396f);
+        cVar.a("pv", this.f37397g);
+        cVar.a(Config.PACKAGE_NAME, this.f37398h);
+        cVar.a("si", this.f37399i);
         cVar.a("ms", this.j);
         cVar.a("ect", this.k);
         cVar.a("br", Integer.valueOf(this.l));

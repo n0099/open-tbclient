@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import androidx.core.view.GravityCompat;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -113,7 +114,7 @@ public class LinearLayoutCompat extends ViewGroup {
 
     private void forceUniformWidth(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65540, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, i3) == null) {
             int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(getMeasuredWidth(), 1073741824);
             for (int i4 = 0; i4 < i2; i4++) {
                 View virtualChildAt = getVirtualChildAt(i4);
@@ -1696,13 +1697,13 @@ public class LinearLayoutCompat extends ViewGroup {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {marginLayoutParams};
-                interceptable.invokeUnInit(65540, newInitContext);
+                interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     super((ViewGroup.MarginLayoutParams) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65540, newInitContext);
+                    interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                     return;
                 }
             }

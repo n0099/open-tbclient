@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.framework.f.c.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f41176c;
+    public int f38190c;
     public String md5;
     public String n;
     public String pk;
@@ -37,7 +37,7 @@ public class AInfo {
     public int getC() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41176c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38190c : invokeV.intValue;
     }
 
     public String getMd5() {
@@ -67,7 +67,7 @@ public class AInfo {
     public void setC(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f41176c = i2;
+            this.f38190c = i2;
         }
     }
 

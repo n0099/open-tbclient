@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -120,7 +121,7 @@ public final class PathUtils {
     @Deprecated
     public static void deleteOldFiles(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65540, null, context) == null) && TextUtils.equals("mounted", Environment.getExternalStorageState())) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) && TextUtils.equals("mounted", Environment.getExternalStorageState())) {
             SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
             if (defaultSharedPreferences.getBoolean("key_path_utils_delete_old_file", false)) {
                 return;

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -30,7 +31,7 @@ import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.UiError;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class QQShare extends BaseApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int QQ_SHARE_SUMMARY_MAX_LENGTH = 512;
@@ -100,8 +101,8 @@ public class QQShare extends BaseApi {
             }
             String str = a2;
             String string8 = bundle.getString("imageLocalUrl");
-            String appId = this.f41776b.getAppId();
-            String openId = this.f41776b.getOpenId();
+            String appId = this.f38790b.getAppId();
+            String openId = this.f38790b.getOpenId();
             f.a("openSDK_LOG.QQShare", "doShareToQQ -- openid: " + openId);
             if (!TextUtils.isEmpty(string)) {
                 stringBuffer.append("&image_url=" + Base64.encodeToString(j.i(string), 2));
@@ -142,7 +143,7 @@ public class QQShare extends BaseApi {
             }
             stringBuffer.append("&cflag=" + Base64.encodeToString(j.i(String.valueOf(i5)), 2));
             f.a("openSDK_LOG.QQShare", "doShareToQQ -- url: " + stringBuffer.toString());
-            com.tencent.connect.a.a.a(e.a(), this.f41776b, "requireApi", "shareToNativeQQ");
+            com.tencent.connect.a.a.a(e.a(), this.f38790b, "requireApi", "shareToNativeQQ");
             Intent intent = new Intent("android.intent.action.VIEW");
             intent.setData(Uri.parse(stringBuffer.toString()));
             intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, activity.getPackageName());
@@ -169,11 +170,11 @@ public class QQShare extends BaseApi {
             }
             String str2 = i3 == i2 ? "11" : "10";
             if (a(intent)) {
-                d.a().a(this.f41776b.getOpenId(), this.f41776b.getAppId(), Constants.VIA_SHARE_TO_QQ, str2, "3", "0", this.mViaShareQQType, "0", "1", "0");
-                d.a().a(0, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f41776b.getAppId(), String.valueOf(0), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "");
+                d.a().a(this.f38790b.getOpenId(), this.f38790b.getAppId(), Constants.VIA_SHARE_TO_QQ, str2, "3", "0", this.mViaShareQQType, "0", "1", "0");
+                d.a().a(0, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f38790b.getAppId(), String.valueOf(0), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "");
             } else {
-                d.a().a(this.f41776b.getOpenId(), this.f41776b.getAppId(), Constants.VIA_SHARE_TO_QQ, str2, "3", "1", this.mViaShareQQType, "0", "1", "0");
-                d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f41776b.getAppId(), String.valueOf(0), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "hasActivityForIntent fail");
+                d.a().a(this.f38790b.getOpenId(), this.f38790b.getAppId(), Constants.VIA_SHARE_TO_QQ, str2, "3", "1", this.mViaShareQQType, "0", "1", "0");
+                d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f38790b.getAppId(), String.valueOf(0), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "hasActivityForIntent fail");
             }
             f.c("openSDK_LOG.QQShare", "doShareToQQ() --end");
         }
@@ -211,28 +212,28 @@ public class QQShare extends BaseApi {
                 if (j.f(activity, "5.0.0")) {
                     iUiListener.onError(new UiError(-15, Constants.MSG_PARAM_APPSHARE_TOO_LOW, null));
                     f.e("openSDK_LOG.QQShare", "shareToQQ, app share is not support below qq5.0.");
-                    d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f41776b.getAppId(), String.valueOf(0), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQQ, app share is not support below qq5.0.");
+                    d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f38790b.getAppId(), String.valueOf(0), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQQ, app share is not support below qq5.0.");
                     return;
                 }
-                string4 = String.format("http://fusion.qq.com/cgi-bin/qzapps/unified_jump?appid=%1$s&from=%2$s&isOpenAppID=1", this.f41776b.getAppId(), "mqq");
+                string4 = String.format("http://fusion.qq.com/cgi-bin/qzapps/unified_jump?appid=%1$s&from=%2$s&isOpenAppID=1", this.f38790b.getAppId(), "mqq");
                 bundle.putString("targetUrl", string4);
             }
             if (!j.b() && j.f(activity, "4.5.0")) {
                 iUiListener.onError(new UiError(-6, Constants.MSG_SHARE_NOSD_ERROR, null));
                 f.e("openSDK_LOG.QQShare", "shareToQQ sdcard is null--end");
-                d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f41776b.getAppId(), String.valueOf(0), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQQ sdcard is null");
+                d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f38790b.getAppId(), String.valueOf(0), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQQ sdcard is null");
                 return;
             }
             if (i2 == 5) {
                 if (j.f(activity, "4.3.0")) {
                     iUiListener.onError(new UiError(-6, Constants.MSG_PARAM_QQ_VERSION_ERROR, null));
                     f.e("openSDK_LOG.QQShare", "shareToQQ, version below 4.3 is not support.");
-                    d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f41776b.getAppId(), String.valueOf(0), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQQ, version below 4.3 is not support.");
+                    d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f38790b.getAppId(), String.valueOf(0), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQQ, version below 4.3 is not support.");
                     return;
                 } else if (!j.h(string5)) {
                     iUiListener.onError(new UiError(-6, Constants.MSG_PARAM_IMAGE_URL_FORMAT_ERROR, null));
                     f.e("openSDK_LOG.QQShare", "shareToQQ -- error: 非法的图片地址!");
-                    d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f41776b.getAppId(), String.valueOf(0), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, Constants.MSG_PARAM_IMAGE_URL_FORMAT_ERROR);
+                    d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f38790b.getAppId(), String.valueOf(0), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, Constants.MSG_PARAM_IMAGE_URL_FORMAT_ERROR);
                     return;
                 }
             }
@@ -241,20 +242,20 @@ public class QQShare extends BaseApi {
                     if (TextUtils.isEmpty(string2)) {
                         iUiListener.onError(new UiError(-6, Constants.MSG_PARAM_TITLE_NULL_ERROR, null));
                         f.e("openSDK_LOG.QQShare", "shareToQQ, title is empty.");
-                        d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f41776b.getAppId(), String.valueOf(0), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQQ, title is empty.");
+                        d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f38790b.getAppId(), String.valueOf(0), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQQ, title is empty.");
                         return;
                     }
                 } else {
                     iUiListener.onError(new UiError(-6, Constants.MSG_PARAM_ERROR, null));
                     f.e("openSDK_LOG.QQShare", "shareToQQ, targetUrl is empty or illegal..");
-                    d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f41776b.getAppId(), String.valueOf(0), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQQ, targetUrl is empty or illegal..");
+                    d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f38790b.getAppId(), String.valueOf(0), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQQ, targetUrl is empty or illegal..");
                     return;
                 }
             }
             if (!TextUtils.isEmpty(string) && !string.startsWith("http://") && !string.startsWith("https://") && !new File(string).exists()) {
                 iUiListener.onError(new UiError(-6, Constants.MSG_PARAM_IMAGE_URL_FORMAT_ERROR, null));
                 f.e("openSDK_LOG.QQShare", "shareToQQ, image url is emprty or illegal.");
-                d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f41776b.getAppId(), String.valueOf(0), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQQ, image url is emprty or illegal.");
+                d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f38790b.getAppId(), String.valueOf(0), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQQ, image url is emprty or illegal.");
                 return;
             }
             if (TextUtils.isEmpty(string2) || string2.length() <= 128) {
@@ -272,7 +273,7 @@ public class QQShare extends BaseApi {
             } else {
                 try {
                     f.d("openSDK_LOG.QQShare", "shareToQQ, don't support share, will show download dialog");
-                    new TDialog(activity, "", a(""), null, this.f41776b).show();
+                    new TDialog(activity, "", a(""), null, this.f38790b).show();
                 } catch (RuntimeException e2) {
                     f.b("openSDK_LOG.QQShare", " shareToQQ, TDialog.show not in main thread", e2);
                     e2.printStackTrace();
@@ -285,7 +286,7 @@ public class QQShare extends BaseApi {
 
     private void b(Activity activity, Bundle bundle, IUiListener iUiListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, this, activity, bundle, iUiListener) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, activity, bundle, iUiListener) == null) {
             f.c("openSDK_LOG.QQShare", "shareToMobileQQ() -- start.");
             String string = bundle.getString("imageUrl");
             String string2 = bundle.getString("title");
@@ -298,7 +299,7 @@ public class QQShare extends BaseApi {
                             iUiListener.onError(new UiError(-6, Constants.MSG_SHARE_NOSD_ERROR, null));
                             f.e("openSDK_LOG.QQShare", Constants.MSG_SHARE_NOSD_ERROR);
                         }
-                        d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f41776b.getAppId(), String.valueOf(0), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, Constants.MSG_SHARE_NOSD_ERROR);
+                        d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f38790b.getAppId(), String.valueOf(0), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, Constants.MSG_SHARE_NOSD_ERROR);
                         return;
                     } else if (!j.f(activity, "4.3.0")) {
                         c(activity, bundle, iUiListener);
@@ -308,22 +309,22 @@ public class QQShare extends BaseApi {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ Bundle f41785a;
+                            public final /* synthetic */ Bundle f38799a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ String f41786b;
+                            public final /* synthetic */ String f38800b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ String f41787c;
+                            public final /* synthetic */ String f38801c;
 
                             /* renamed from: d  reason: collision with root package name */
-                            public final /* synthetic */ IUiListener f41788d;
+                            public final /* synthetic */ IUiListener f38802d;
 
                             /* renamed from: e  reason: collision with root package name */
-                            public final /* synthetic */ Activity f41789e;
+                            public final /* synthetic */ Activity f38803e;
 
                             /* renamed from: f  reason: collision with root package name */
-                            public final /* synthetic */ QQShare f41790f;
+                            public final /* synthetic */ QQShare f38804f;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -340,12 +341,12 @@ public class QQShare extends BaseApi {
                                         return;
                                     }
                                 }
-                                this.f41790f = this;
-                                this.f41785a = bundle;
-                                this.f41786b = string2;
-                                this.f41787c = string3;
-                                this.f41788d = iUiListener;
-                                this.f41789e = activity;
+                                this.f38804f = this;
+                                this.f38799a = bundle;
+                                this.f38800b = string2;
+                                this.f38801c = string3;
+                                this.f38802d = iUiListener;
+                                this.f38803e = activity;
                             }
 
                             @Override // com.tencent.open.utils.c
@@ -353,17 +354,17 @@ public class QQShare extends BaseApi {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
                                     if (i2 == 0) {
-                                        this.f41785a.putString("imageLocalUrl", str);
-                                    } else if (TextUtils.isEmpty(this.f41786b) && TextUtils.isEmpty(this.f41787c)) {
-                                        IUiListener iUiListener2 = this.f41788d;
+                                        this.f38799a.putString("imageLocalUrl", str);
+                                    } else if (TextUtils.isEmpty(this.f38800b) && TextUtils.isEmpty(this.f38801c)) {
+                                        IUiListener iUiListener2 = this.f38802d;
                                         if (iUiListener2 != null) {
                                             iUiListener2.onError(new UiError(-6, Constants.MSG_SHARE_GETIMG_ERROR, null));
                                             f.e("openSDK_LOG.QQShare", "shareToMobileQQ -- error: 获取分享图片失败!");
                                         }
-                                        d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f41790f.f41776b.getAppId(), String.valueOf(0), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, Constants.MSG_SHARE_GETIMG_ERROR);
+                                        d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f38804f.f38790b.getAppId(), String.valueOf(0), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, Constants.MSG_SHARE_GETIMG_ERROR);
                                         return;
                                     }
-                                    this.f41790f.c(this.f41789e, this.f41785a, this.f41788d);
+                                    this.f38804f.c(this.f38803e, this.f38799a, this.f38802d);
                                 }
                             }
 
@@ -387,22 +388,22 @@ public class QQShare extends BaseApi {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ Bundle f41791a;
+                            public final /* synthetic */ Bundle f38805a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ String f41792b;
+                            public final /* synthetic */ String f38806b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ String f41793c;
+                            public final /* synthetic */ String f38807c;
 
                             /* renamed from: d  reason: collision with root package name */
-                            public final /* synthetic */ IUiListener f41794d;
+                            public final /* synthetic */ IUiListener f38808d;
 
                             /* renamed from: e  reason: collision with root package name */
-                            public final /* synthetic */ Activity f41795e;
+                            public final /* synthetic */ Activity f38809e;
 
                             /* renamed from: f  reason: collision with root package name */
-                            public final /* synthetic */ QQShare f41796f;
+                            public final /* synthetic */ QQShare f38810f;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -419,12 +420,12 @@ public class QQShare extends BaseApi {
                                         return;
                                     }
                                 }
-                                this.f41796f = this;
-                                this.f41791a = bundle;
-                                this.f41792b = string2;
-                                this.f41793c = string3;
-                                this.f41794d = iUiListener;
-                                this.f41795e = activity;
+                                this.f38810f = this;
+                                this.f38805a = bundle;
+                                this.f38806b = string2;
+                                this.f38807c = string3;
+                                this.f38808d = iUiListener;
+                                this.f38809e = activity;
                             }
 
                             @Override // com.tencent.open.utils.c
@@ -432,17 +433,17 @@ public class QQShare extends BaseApi {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
                                     if (i2 == 0) {
-                                        this.f41791a.putString("imageLocalUrl", str);
-                                    } else if (TextUtils.isEmpty(this.f41792b) && TextUtils.isEmpty(this.f41793c)) {
-                                        IUiListener iUiListener2 = this.f41794d;
+                                        this.f38805a.putString("imageLocalUrl", str);
+                                    } else if (TextUtils.isEmpty(this.f38806b) && TextUtils.isEmpty(this.f38807c)) {
+                                        IUiListener iUiListener2 = this.f38808d;
                                         if (iUiListener2 != null) {
                                             iUiListener2.onError(new UiError(-6, Constants.MSG_SHARE_GETIMG_ERROR, null));
                                             f.e("openSDK_LOG.QQShare", "shareToMobileQQ -- error: 获取分享图片失败!");
                                         }
-                                        d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f41796f.f41776b.getAppId(), String.valueOf(0), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, Constants.MSG_SHARE_GETIMG_ERROR);
+                                        d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.f38810f.f38790b.getAppId(), String.valueOf(0), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, Constants.MSG_SHARE_GETIMG_ERROR);
                                         return;
                                     }
-                                    this.f41796f.c(this.f41795e, this.f41791a, this.f41794d);
+                                    this.f38810f.c(this.f38809e, this.f38805a, this.f38808d);
                                 }
                             }
 

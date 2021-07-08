@@ -1,5 +1,6 @@
 package com.baidu.ar.bean;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
 import com.baidu.mobads.container.adrequest.AdParamInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -88,7 +89,7 @@ public final class FunctionType {
     public static FunctionType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (FunctionType[]) $VALUES.clone() : (FunctionType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (FunctionType[]) $VALUES.clone() : (FunctionType[]) invokeV.objValue;
     }
 
     public String getValue() {

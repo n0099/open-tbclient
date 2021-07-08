@@ -8,18 +8,18 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f44475a = 0;
+    public static int f41491a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f44476b = 3;
+    public static int f41492b = 3;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f44477c;
+    public static final String[] f41493c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class h {
                 return;
             }
         }
-        f44477c = new String[]{"meizu"};
+        f41493c = new String[]{"meizu"};
     }
 
     public static String a(int i2) {
@@ -61,7 +61,7 @@ public class h {
         String lowerCase = str.toLowerCase();
         int i2 = 0;
         while (true) {
-            String[] strArr = f44477c;
+            String[] strArr = f41493c;
             if (i2 >= strArr.length) {
                 return false;
             }

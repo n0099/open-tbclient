@@ -21,21 +21,21 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class CyberPlayerCoreProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class LibsVersionType {
         public static /* synthetic */ Interceptable $ic;
         public static final LibsVersionType ALL_VERSION;
         public static final LibsVersionType SUCCESS_LOADED_VERSION;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ LibsVersionType[] f4756a;
+        public static final /* synthetic */ LibsVersionType[] f4773a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -54,7 +54,7 @@ public abstract class CyberPlayerCoreProvider {
             ALL_VERSION = new LibsVersionType("ALL_VERSION", 0);
             LibsVersionType libsVersionType = new LibsVersionType("SUCCESS_LOADED_VERSION", 1);
             SUCCESS_LOADED_VERSION = libsVersionType;
-            f4756a = new LibsVersionType[]{ALL_VERSION, libsVersionType};
+            f4773a = new LibsVersionType[]{ALL_VERSION, libsVersionType};
         }
 
         public LibsVersionType(String str, int i2) {
@@ -85,7 +85,7 @@ public abstract class CyberPlayerCoreProvider {
         public static LibsVersionType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LibsVersionType[]) f4756a.clone() : (LibsVersionType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LibsVersionType[]) f4773a.clone() : (LibsVersionType[]) invokeV.objValue;
         }
     }
 

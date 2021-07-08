@@ -83,7 +83,7 @@ public final class MenuItemCompat {
     public static View getActionView(MenuItem menuItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, menuItem)) == null) ? menuItem.getActionView() : (View) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, menuItem)) == null) ? menuItem.getActionView() : (View) invokeL.objValue;
     }
 
     public static int getAlphabeticModifiers(MenuItem menuItem) {

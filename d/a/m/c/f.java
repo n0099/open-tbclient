@@ -21,22 +21,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f46192b;
+    public static boolean f43190b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f46193c;
+    public static String f43191c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static HashMap<String, Integer> f46194d;
+    public static HashMap<String, Integer> f43192d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f46195a;
+    public Context f43193a;
 
     static {
         InterceptResult invokeClinit;
@@ -51,19 +51,19 @@ public class f {
                 return;
             }
         }
-        f46192b = AppConfig.isDebug();
-        f46193c = "networkparam";
+        f43190b = AppConfig.isDebug();
+        f43191c = "networkparam";
         HashMap<String, Integer> hashMap = new HashMap<>();
-        f46194d = hashMap;
+        f43192d = hashMap;
         hashMap.put(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 1);
-        f46194d.put("3GNET", 21);
-        f46194d.put("3GWAP", 22);
-        f46194d.put("CMNET", 31);
-        f46194d.put("UNINET", 32);
-        f46194d.put("CTNET", 33);
-        f46194d.put("CMWAP", 41);
-        f46194d.put("UNIWAP", 42);
-        f46194d.put("CTWAP", 43);
+        f43192d.put("3GNET", 21);
+        f43192d.put("3GWAP", 22);
+        f43192d.put("CMNET", 31);
+        f43192d.put("UNINET", 32);
+        f43192d.put("CTNET", 33);
+        f43192d.put("CMWAP", 41);
+        f43192d.put("UNIWAP", 42);
+        f43192d.put("CTWAP", 43);
     }
 
     public f() {
@@ -79,7 +79,7 @@ public class f {
                 return;
             }
         }
-        this.f46195a = AppRuntime.getAppContext();
+        this.f43193a = AppRuntime.getAppContext();
     }
 
     public String a(String str, boolean z) {
@@ -89,13 +89,13 @@ public class f {
             if (z) {
                 String b2 = b();
                 if (TextUtils.equals(b2, NetworkParam.NET_TYPE_ID_DISCONNECT)) {
-                    return UrlUtil.addParam(str, "network", PreferenceManager.getDefaultSharedPreferences(this.f46195a.getApplicationContext()).getString(NetworkParam.LAST_NETWORK_TYPE, NetworkParam.NET_TYPE_ID_DISCONNECT));
+                    return UrlUtil.addParam(str, "network", PreferenceManager.getDefaultSharedPreferences(this.f43193a.getApplicationContext()).getString(NetworkParam.LAST_NETWORK_TYPE, NetworkParam.NET_TYPE_ID_DISCONNECT));
                 }
                 if (TextUtils.isEmpty(b2)) {
                     return str;
                 }
                 if (!TextUtils.equals(b2, NetworkParam.NET_TYPE_ID_DISCONNECT)) {
-                    SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.f46195a.getApplicationContext()).edit();
+                    SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.f43193a.getApplicationContext()).edit();
                     edit.putString(NetworkParam.LAST_NETWORK_TYPE, b2);
                     edit.apply();
                 }
@@ -111,13 +111,13 @@ public class f {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long uptimeMillis = f46192b ? SystemClock.uptimeMillis() : 0L;
-            ConnectManager connectManager = new ConnectManager(this.f46195a);
+            long uptimeMillis = f43190b ? SystemClock.uptimeMillis() : 0L;
+            ConnectManager connectManager = new ConnectManager(this.f43193a);
             String netType = connectManager.getNetType();
             int subType = connectManager.getSubType();
             if (!TextUtils.isEmpty(netType)) {
                 netType = netType.toUpperCase();
-                Integer num = f46194d.get(netType);
+                Integer num = f43192d.get(netType);
                 if (num == null) {
                     num = 5;
                 }
@@ -125,9 +125,9 @@ public class f {
             } else {
                 str = ((Object) 5) + "_" + subType;
             }
-            if (f46192b) {
+            if (f43190b) {
                 long uptimeMillis2 = SystemClock.uptimeMillis();
-                Log.i(f46193c, "getCurrentNetTypeId cost " + (uptimeMillis2 - uptimeMillis) + "ms, current net type: " + netType + ", type id: " + str + ", subtype id: " + subType + ", subtype name: " + connectManager.getSubTypeName());
+                Log.i(f43191c, "getCurrentNetTypeId cost " + (uptimeMillis2 - uptimeMillis) + "ms, current net type: " + netType + ", type id: " + str + ", subtype id: " + subType + ", subtype name: " + connectManager.getSubTypeName());
             }
             return str;
         }

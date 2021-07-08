@@ -12,23 +12,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface a extends IInterface {
 
     /* renamed from: com.baidu.cyberplayer.sdk.remote.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static abstract class AbstractBinderC0091a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.cyberplayer.sdk.remote.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public static class C0092a implements a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f4966a;
+            public IBinder f4983a;
 
             public C0092a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public interface a extends IInterface {
                         return;
                     }
                 }
-                this.f4966a = iBinder;
+                this.f4983a = iBinder;
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.a
@@ -57,7 +57,7 @@ public interface a extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemoteExtractor");
-                        this.f4966a.transact(3, obtain, obtain2, 0);
+                        this.f4983a.transact(3, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(obtain2) : null;
                     } finally {
@@ -79,7 +79,7 @@ public interface a extends IInterface {
                         obtain.writeInt(i2);
                         obtain.writeString(str);
                         obtain.writeLong(j);
-                        this.f4966a.transact(2, obtain, obtain2, 0);
+                        this.f4983a.transact(2, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
                         obtain2.recycle();
@@ -102,7 +102,7 @@ public interface a extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        this.f4966a.transact(1, obtain, obtain2, 0);
+                        this.f4983a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
                         obtain2.recycle();
@@ -115,7 +115,7 @@ public interface a extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f4966a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f4983a : (IBinder) invokeV.objValue;
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.a
@@ -126,7 +126,7 @@ public interface a extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemoteExtractor");
-                        this.f4966a.transact(4, obtain, obtain2, 0);
+                        this.f4983a.transact(4, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
                         obtain2.recycle();

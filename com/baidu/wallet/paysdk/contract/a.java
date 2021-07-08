@@ -4,13 +4,13 @@ import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.wallet.base.widget.SafeKeyBoardEditText;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.paysdk.contract.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface InterfaceC0283a {
         boolean a(String str);
 
@@ -19,7 +19,7 @@ public class a {
         void c(String str);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         View a();
 

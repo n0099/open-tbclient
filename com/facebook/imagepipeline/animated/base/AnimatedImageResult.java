@@ -11,7 +11,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.references.CloseableReference;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AnimatedImageResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

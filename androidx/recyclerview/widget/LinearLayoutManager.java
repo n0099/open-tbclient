@@ -529,7 +529,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
     private int computeScrollOffset(RecyclerView.State state) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, state)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, state)) == null) {
             if (getChildCount() == 0) {
                 return 0;
             }

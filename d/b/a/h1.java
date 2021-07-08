@@ -5,19 +5,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class h1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final j1 f71678a;
+    public final j1 f68781a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f71679b;
+    public int f68782b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f71680c;
+    public boolean f68783c;
 
     public h1(j1 j1Var) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public abstract class h1 {
                 return;
             }
         }
-        this.f71679b = 0;
-        this.f71678a = j1Var;
+        this.f68782b = 0;
+        this.f68781a = j1Var;
     }
 
     public abstract boolean a();
@@ -51,14 +51,14 @@ public abstract class h1 {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f71680c = true;
+            this.f68783c = true;
         }
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f71680c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f68783c : invokeV.booleanValue;
     }
 
     public final long h() {
@@ -67,7 +67,7 @@ public abstract class h1 {
         long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (!a() || e0.a(this.f71678a.f())) {
+            if (!a() || e0.a(this.f68781a.f())) {
                 long b2 = b();
                 long currentTimeMillis = System.currentTimeMillis();
                 if (b2 <= 1000 + currentTimeMillis) {
@@ -78,12 +78,12 @@ public abstract class h1 {
                         z = false;
                     }
                     if (z) {
-                        this.f71679b = 0;
+                        this.f68782b = 0;
                         j = b() - System.currentTimeMillis();
                     } else {
                         long[] c2 = c();
-                        int i2 = this.f71679b;
-                        this.f71679b = i2 + 1;
+                        int i2 = this.f68782b;
+                        this.f68782b = i2 + 1;
                         j = c2[i2 % c2.length];
                     }
                     h0.e(e() + " worked:" + z + " " + j, null);

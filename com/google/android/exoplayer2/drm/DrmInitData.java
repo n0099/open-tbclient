@@ -19,7 +19,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<DrmInitData> CREATOR;
@@ -30,7 +30,7 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
     @Nullable
     public final String schemeType;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class SchemeData implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SchemeData> CREATOR;
@@ -41,7 +41,7 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
         public final boolean requiresSecureDecryption;
         public final UUID uuid;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public static class a implements Parcelable.Creator<SchemeData> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -169,7 +169,7 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
         public boolean matches(UUID uuid) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, uuid)) == null) ? b.f72601b.equals(this.uuid) || uuid.equals(this.uuid) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, uuid)) == null) ? b.f69704b.equals(this.uuid) || uuid.equals(this.uuid) : invokeL.booleanValue;
         }
 
         @Override // android.os.Parcelable
@@ -229,7 +229,7 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Parcelable.Creator<DrmInitData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -402,8 +402,8 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, schemeData, schemeData2)) == null) {
-            if (b.f72601b.equals(schemeData.uuid)) {
-                return b.f72601b.equals(schemeData2.uuid) ? 0 : 1;
+            if (b.f69704b.equals(schemeData.uuid)) {
+                return b.f69704b.equals(schemeData2.uuid) ? 0 : 1;
             }
             return schemeData.uuid.compareTo(schemeData2.uuid);
         }
@@ -445,14 +445,14 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {str, schemeDataArr};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), (SchemeData[]) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }

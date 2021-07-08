@@ -11,12 +11,12 @@ import com.sdk.base.framework.c.f;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Boolean f41086a;
+    public static final Boolean f38100a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public final class d {
                 return;
             }
         }
-        f41086a = Boolean.valueOf(f.f41195b);
+        f38100a = Boolean.valueOf(f.f38209b);
     }
 
     public d() {
@@ -87,7 +87,7 @@ public final class d {
                         }
                     } catch (Exception e2) {
                         e = e2;
-                        com.sdk.base.framework.a.a.c.b("StringDownloadHandler", e.getMessage(), f41086a);
+                        com.sdk.base.framework.a.a.c.b("StringDownloadHandler", e.getMessage(), f38100a);
                         if (sb != null) {
                         }
                     }

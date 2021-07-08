@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewConfigurationCompat;
 import com.baidu.adp.widget.SwipeBackLayout;
@@ -76,7 +77,7 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
     private int getPointerIndex(MotionEvent motionEvent, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, this, motionEvent, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, motionEvent, i2)) == null) {
             int findPointerIndex = MotionEventCompat.findPointerIndex(motionEvent, i2);
             if (findPointerIndex == -1) {
                 this.mActivePointerId = -1;

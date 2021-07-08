@@ -21,13 +21,13 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.RandomAccess;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Longs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class LexicographicalComparator implements Comparator<long[]> {
         public static final /* synthetic */ LexicographicalComparator[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -109,7 +109,7 @@ public final class Longs {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class LongArrayAsList extends AbstractList<Long> implements RandomAccess, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -326,7 +326,7 @@ public final class Longs {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class LongConverter extends Converter<String, Long> implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final LongConverter INSTANCE;
@@ -414,7 +414,7 @@ public final class Longs {
     public static int e(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65540, null, j)) == null) ? (int) (j ^ (j >>> 32)) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j)) == null) ? (int) (j ^ (j >>> 32)) : invokeJ.intValue;
     }
 
     public static int f(long[] jArr, long j, int i2, int i3) {

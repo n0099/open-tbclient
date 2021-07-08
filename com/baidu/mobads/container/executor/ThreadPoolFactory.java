@@ -16,7 +16,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ThreadPoolFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BACKUP_POOL_SIZE = 5;

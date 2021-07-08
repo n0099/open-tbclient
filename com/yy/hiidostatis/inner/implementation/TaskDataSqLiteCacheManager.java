@@ -26,7 +26,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class TaskDataSqLiteCacheManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_CACHE_DAY;
@@ -102,7 +102,7 @@ public class TaskDataSqLiteCacheManager {
     private TaskDataSqLiteDBManager getDbManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             TaskDataSqLiteDBManager taskDataSqLiteDBManager = this.mDbManager;
             if (taskDataSqLiteDBManager != null) {
                 return taskDataSqLiteDBManager;

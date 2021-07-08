@@ -2,6 +2,7 @@ package com.bytedance.sdk.component.utils;
 
 import android.content.Context;
 import android.os.Environment;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,12 +20,12 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class a implements Comparator<File> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -308,7 +309,7 @@ public class f {
 
     public static void a(File file, int i2, Set<String> set) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65540, null, file, i2, set) == null) || i2 < 0 || !file.exists() || file.isFile()) {
+        if (!(interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, i2, set) == null) || i2 < 0 || !file.exists() || file.isFile()) {
             return;
         }
         try {

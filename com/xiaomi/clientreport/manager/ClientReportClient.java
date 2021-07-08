@@ -2,6 +2,7 @@ package com.xiaomi.clientreport.manager;
 
 import android.content.Context;
 import android.os.Process;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,7 +13,7 @@ import com.xiaomi.clientreport.data.EventClientReport;
 import com.xiaomi.clientreport.data.PerfClientReport;
 import com.xiaomi.clientreport.processor.IEventProcessor;
 import com.xiaomi.clientreport.processor.IPerfProcessor;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ClientReportClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +60,7 @@ public class ClientReportClient {
 
     public static void reportEvent(Context context, EventClientReport eventClientReport) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65540, null, context, eventClientReport) == null) || eventClientReport == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, eventClientReport) == null) || eventClientReport == null) {
             return;
         }
         a.a(context).a(eventClientReport);

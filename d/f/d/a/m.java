@@ -1,5 +1,6 @@
 package d.f.d.a;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,21 +14,21 @@ import com.google.common.base.JdkPattern;
 import java.util.Locale;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class m {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final l f73728a;
+    public static final l f70831a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class b implements l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +83,7 @@ public final class m {
             }
         }
         Logger.getLogger(m.class.getName());
-        f73728a = c();
+        f70831a = c();
     }
 
     public m() {
@@ -104,7 +105,7 @@ public final class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             n.p(str);
-            return f73728a.a(str);
+            return f70831a.a(str);
         }
         return (e) invokeL.objValue;
     }
@@ -118,13 +119,13 @@ public final class m {
     public static l c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? new b(null) : (l) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new b(null) : (l) invokeV.objValue;
     }
 
     public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f73728a.b() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f70831a.b() : invokeV.booleanValue;
     }
 
     public static boolean e(String str) {

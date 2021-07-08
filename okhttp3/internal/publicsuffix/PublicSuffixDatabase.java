@@ -1,5 +1,6 @@
 package okhttp3.internal.publicsuffix;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -22,7 +23,7 @@ import okhttp3.internal.platform.Platform;
 import okio.BufferedSource;
 import okio.GzipSource;
 import okio.Okio;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class PublicSuffixDatabase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] EMPTY_RULE;
@@ -245,7 +246,7 @@ public final class PublicSuffixDatabase {
     public static PublicSuffixDatabase get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? instance : (PublicSuffixDatabase) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? instance : (PublicSuffixDatabase) invokeV.objValue;
     }
 
     private void readTheList() throws IOException {

@@ -1,12 +1,13 @@
 package com.bumptech.glide.util.pool;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class GlideTrace {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_LENGTH = 127;
@@ -47,7 +48,7 @@ public final class GlideTrace {
 
     public static void beginSectionFormat(String str, Object obj, Object obj2, Object obj3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65540, null, str, obj, obj2, obj3) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, obj, obj2, obj3) == null) {
         }
     }
 

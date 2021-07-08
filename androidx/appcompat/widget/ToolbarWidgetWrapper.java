@@ -106,7 +106,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
 
     private void setTitleInt(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, charSequence) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, charSequence) == null) {
             this.mTitle = charSequence;
             if ((this.mDisplayOpts & 8) != 0) {
                 this.mToolbar.setTitle(charSequence);

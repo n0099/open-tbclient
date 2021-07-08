@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AdWebVideoActivityConfig extends AdWebViewActivityConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_GOOD_STYLE = "good_style";

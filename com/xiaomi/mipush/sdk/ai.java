@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.hf;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public /* synthetic */ class ai {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f42758a;
+    public static final /* synthetic */ int[] f39772a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,45 +28,45 @@ public /* synthetic */ class ai {
             }
         }
         int[] iArr = new int[hf.values().length];
-        f42758a = iArr;
+        f39772a = iArr;
         try {
-            iArr[hf.f43236a.ordinal()] = 1;
+            iArr[hf.f40250a.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f42758a[hf.f43237b.ordinal()] = 2;
+            f39772a[hf.f40251b.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f42758a[hf.f43238c.ordinal()] = 3;
+            f39772a[hf.f40252c.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f42758a[hf.f43239d.ordinal()] = 4;
+            f39772a[hf.f40253d.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            f42758a[hf.f43240e.ordinal()] = 5;
+            f39772a[hf.f40254e.ordinal()] = 5;
         } catch (NoSuchFieldError unused5) {
         }
         try {
-            f42758a[hf.f43241f.ordinal()] = 6;
+            f39772a[hf.f40255f.ordinal()] = 6;
         } catch (NoSuchFieldError unused6) {
         }
         try {
-            f42758a[hf.f43242g.ordinal()] = 7;
+            f39772a[hf.f40256g.ordinal()] = 7;
         } catch (NoSuchFieldError unused7) {
         }
         try {
-            f42758a[hf.f43243h.ordinal()] = 8;
+            f39772a[hf.f40257h.ordinal()] = 8;
         } catch (NoSuchFieldError unused8) {
         }
         try {
-            f42758a[hf.f43244i.ordinal()] = 9;
+            f39772a[hf.f40258i.ordinal()] = 9;
         } catch (NoSuchFieldError unused9) {
         }
         try {
-            f42758a[hf.j.ordinal()] = 10;
+            f39772a[hf.j.ordinal()] = 10;
         } catch (NoSuchFieldError unused10) {
         }
     }

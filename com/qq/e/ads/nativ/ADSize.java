@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ADSize {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUTO_HEIGHT = -2;
@@ -14,10 +14,10 @@ public class ADSize {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40782a;
+    public int f37796a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40783b;
+    public int f37797b;
 
     public ADSize(int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -34,19 +34,19 @@ public class ADSize {
                 return;
             }
         }
-        this.f40783b = i3;
-        this.f40782a = i2;
+        this.f37797b = i3;
+        this.f37796a = i2;
     }
 
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40783b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37797b : invokeV.intValue;
     }
 
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40782a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37796a : invokeV.intValue;
     }
 }

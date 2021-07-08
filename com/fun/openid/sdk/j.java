@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ExecutorService f32669a;
+    public static final ExecutorService f32779a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,6 +28,6 @@ public class j {
                 return;
             }
         }
-        f32669a = Executors.newSingleThreadExecutor();
+        f32779a = Executors.newSingleThreadExecutor();
     }
 }

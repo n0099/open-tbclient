@@ -23,19 +23,19 @@ import com.baidu.wallet.statistics.api.StatisticManager;
 import com.baidu.wallet.util.StatHelper;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class v extends PayBaseBean<DirectPayContentResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PayRequest f25901a;
+    public PayRequest f26011a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25902b;
+    public String f26012b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25903c;
+    public String f26013c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> v(Context context) {
@@ -55,16 +55,16 @@ public class v extends PayBaseBean<DirectPayContentResponse> {
                 return;
             }
         }
-        this.f25901a = null;
-        this.f25902b = null;
-        this.f25903c = null;
-        this.f25901a = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
+        this.f26011a = null;
+        this.f26012b = null;
+        this.f26013c = null;
+        this.f26011a = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f25902b = str;
+            this.f26012b = str;
         }
     }
 
@@ -72,7 +72,7 @@ public class v extends PayBaseBean<DirectPayContentResponse> {
     public void execBean() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (BeanConstants.API_GET_PAY_ORDER.equals(this.f25903c)) {
+            if (BeanConstants.API_GET_PAY_ORDER.equals(this.f26013c)) {
                 List<String> collectData = StatHelper.collectData(StatHelper.getOrderNo(), StatHelper.getSpNo());
                 HashMap hashMap = new HashMap();
                 hashMap.put(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, StatHelper.getSpNo());
@@ -126,32 +126,32 @@ public class v extends PayBaseBean<DirectPayContentResponse> {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            this.f25903c = BeanConstants.API_GET_PAY_ORDER;
-            if (this.f25901a.hasCashDeskCode()) {
-                this.f25903c = BeanConstants.API_GET_PAY_ORDER_PREPAY;
-            } else if (BaiduPay.PAY_FROM_HUA_ZHUAN_ZHANG.equals(this.f25901a.getPayFrom())) {
-                this.f25903c = BeanConstants.API_GET_PAY_ORDER_TRANSFER;
-            } else if (BaiduPay.PAY_FROM_HUA_FEI.equals(this.f25901a.getPayFrom())) {
-                this.f25903c = BeanConstants.API_GET_PAY_ORDER_CHARGE;
-            } else if (BaiduPay.PAY_FROM_BIND_CARD.equals(this.f25901a.getPayFrom())) {
-                this.f25903c = BeanConstants.API_CARD_ADD;
-            } else if (BaiduPay.PAY_FROM_AUTHORIZE.equals(this.f25901a.getPayFrom())) {
-                this.f25903c = BeanConstants.API_AUTHORIZE_ORDER;
+            this.f26013c = BeanConstants.API_GET_PAY_ORDER;
+            if (this.f26011a.hasCashDeskCode()) {
+                this.f26013c = BeanConstants.API_GET_PAY_ORDER_PREPAY;
+            } else if (BaiduPay.PAY_FROM_HUA_ZHUAN_ZHANG.equals(this.f26011a.getPayFrom())) {
+                this.f26013c = BeanConstants.API_GET_PAY_ORDER_TRANSFER;
+            } else if (BaiduPay.PAY_FROM_HUA_FEI.equals(this.f26011a.getPayFrom())) {
+                this.f26013c = BeanConstants.API_GET_PAY_ORDER_CHARGE;
+            } else if (BaiduPay.PAY_FROM_BIND_CARD.equals(this.f26011a.getPayFrom())) {
+                this.f26013c = BeanConstants.API_CARD_ADD;
+            } else if (BaiduPay.PAY_FROM_AUTHORIZE.equals(this.f26011a.getPayFrom())) {
+                this.f26013c = BeanConstants.API_AUTHORIZE_ORDER;
             } else if (PayDataCache.getInstance().isFromPreCashier()) {
-                this.f25903c = BeanConstants.API_GET_PRE_PAY_ORDER;
+                this.f26013c = BeanConstants.API_GET_PRE_PAY_ORDER;
             }
             if (PayDataCache.getInstance().isFromPreCashier()) {
-                str = DomainConfig.getInstance().getAppPayHost() + this.f25903c + "?" + this.f25901a.mParams + "&" + this.f25902b;
+                str = DomainConfig.getInstance().getAppPayHost() + this.f26013c + "?" + this.f26011a.mParams + "&" + this.f26012b;
             } else {
-                str = DomainConfig.getInstance().getAppPayHost() + this.f25903c + "?" + this.f25901a.mParams;
+                str = DomainConfig.getInstance().getAppPayHost() + this.f26013c + "?" + this.f26011a.mParams;
             }
             if (WalletFingerprint.getInstance(this.mContext).hasEnrollFingerprint()) {
                 str = str + "&enroll_fingerprint=1";
             }
-            if (TextUtils.isEmpty(this.f25901a.mSecurityParams)) {
+            if (TextUtils.isEmpty(this.f26011a.mSecurityParams)) {
                 return str;
             }
-            return str + "&security_sdk_param=" + this.f25901a.mSecurityParams;
+            return str + "&security_sdk_param=" + this.f26011a.mSecurityParams;
         }
         return (String) invokeV.objValue;
     }

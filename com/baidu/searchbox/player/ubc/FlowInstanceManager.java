@@ -3,6 +3,7 @@ package com.baidu.searchbox.player.ubc;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,7 +17,7 @@ import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FlowInstanceManager {
     public static /* synthetic */ Interceptable $ic;
     public static final ConcurrentHashMap<String, Flow> FLOW_FETCHERS;
@@ -75,7 +76,7 @@ public class FlowInstanceManager {
 
     public static void createFlow(@Nullable String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, null, str) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         if (hasCreateFlow(str)) {

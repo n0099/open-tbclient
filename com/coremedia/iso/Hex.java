@@ -1,5 +1,6 @@
 package com.coremedia.iso;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class Hex {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] DIGITS;
@@ -70,7 +71,7 @@ public class Hex {
     public static String encodeHex(byte[] bArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i2)) == null) {
             int length = bArr.length;
             char[] cArr = new char[(length << 1) + (i2 > 0 ? length / i2 : 0)];
             int i3 = 0;

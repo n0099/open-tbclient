@@ -1,5 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.payapi;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class PayStatus {
     public static final /* synthetic */ PayStatus[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -85,7 +86,7 @@ public final class PayStatus {
     public static PayStatus[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (PayStatus[]) $VALUES.clone() : (PayStatus[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (PayStatus[]) $VALUES.clone() : (PayStatus[]) invokeV.objValue;
     }
 
     public int getCode() {

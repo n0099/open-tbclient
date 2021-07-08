@@ -1,5 +1,6 @@
 package com.baidu.webkit.sdk;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.INoProGuard;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class Log implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static String LOG_TAG = "ZeusLog";
@@ -61,7 +62,7 @@ public final class Log implements INoProGuard {
     public static int d(String str, String str2, Throwable th) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, str, str2, th)) == null) ? printLog(3, str, str2, th) : invokeLLL.intValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th)) == null) ? printLog(3, str, str2, th) : invokeLLL.intValue;
     }
 
     public static int d(String str, String str2, Object... objArr) {

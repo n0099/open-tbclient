@@ -2,6 +2,7 @@ package com.baidu.ar.plugin;
 
 import android.content.Context;
 import android.os.Environment;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -84,7 +85,7 @@ public class PluginDirHelper {
     public static String getBaseDir(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             init(context);
             return enforceDirExists(sBaseDir);
         }

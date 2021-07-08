@@ -1,6 +1,7 @@
 package com.qq.e.comm.util;
 
 import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,24 +17,24 @@ import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PublicKey f41069a;
+    public PublicKey f38083a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f41070b;
+    public final boolean f38084b;
 
     /* renamed from: com.qq.e.comm.util.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static final class C0519a {
+    /* loaded from: classes6.dex */
+    public static final class C0480a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f41071a;
+        public static final a f38085a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,7 +50,7 @@ public class a {
                     return;
                 }
             }
-            f41071a = new a((byte) 0);
+            f38085a = new a((byte) 0);
         }
     }
 
@@ -68,12 +69,12 @@ public class a {
             }
         }
         try {
-            this.f41069a = b("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDKta2b5Vw5YkWHCAj4rJCwS227\r/35FZ29e4I6pS2B8zSq2RgBpXUuMg7oZF1Qt3x0iyg8PeyblyNeCRB6gIMehFThe\r1Y7m1FaQyaZp+CJYOTLM4/THKp9UndrEgJ/5a83vP1375YCV2lMvWARrNlBep4RN\rnESUJhQz58Gr/F39TwIDAQAB");
+            this.f38083a = b("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDKta2b5Vw5YkWHCAj4rJCwS227\r/35FZ29e4I6pS2B8zSq2RgBpXUuMg7oZF1Qt3x0iyg8PeyblyNeCRB6gIMehFThe\r1Y7m1FaQyaZp+CJYOTLM4/THKp9UndrEgJ/5a83vP1375YCV2lMvWARrNlBep4RN\rnESUJhQz58Gr/F39TwIDAQAB");
             z = true;
         } catch (Throwable unused) {
             z = false;
         }
-        this.f41070b = z;
+        this.f38084b = z;
     }
 
     public /* synthetic */ a(byte b2) {
@@ -83,18 +84,18 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0519a.f41071a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0480a.f38085a : (a) invokeV.objValue;
     }
 
     private String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
-            if (this.f41069a != null) {
+            if (this.f38083a != null) {
                 byte[] decode = Base64.decode(str, 0);
                 try {
                     Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
-                    cipher.init(2, this.f41069a);
+                    cipher.init(2, this.f38083a);
                     return new String(cipher.doFinal(decode), "UTF-8").trim();
                 } catch (Throwable th) {
                     GDTLogger.e("ErrorWhileVerifySigNature", th);
@@ -109,7 +110,7 @@ public class a {
     public static PublicKey b(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
                 return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str, 0)));
             } catch (NullPointerException unused) {
@@ -136,7 +137,7 @@ public class a {
             if (StringUtil.isEmpty(str2)) {
                 return false;
             }
-            if (this.f41070b) {
+            if (this.f38084b) {
                 String a2 = a(str);
                 boolean equals = str2.equals(a2);
                 GDTLogger.d("Verify Result" + equals + "src=" + str2 + " & target=" + a2);

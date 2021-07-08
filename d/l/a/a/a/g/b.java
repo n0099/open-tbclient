@@ -2,6 +2,7 @@ package d.l.a.a.a.g;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +81,7 @@ public class b {
     public static JSONObject e(JSONObject... jSONObjectArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, jSONObjectArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObjectArr)) == null) {
             JSONObject jSONObject = new JSONObject();
             if (jSONObjectArr != null && jSONObjectArr.length != 0) {
                 for (JSONObject jSONObject2 : jSONObjectArr) {

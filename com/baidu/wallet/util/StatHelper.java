@@ -1,6 +1,7 @@
 package com.baidu.wallet.util;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.config.AppConfigImp;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
@@ -13,13 +14,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class StatHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class Key {
         public static final /* synthetic */ Key[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -135,7 +136,7 @@ public class StatHelper {
 
     public static void cacheOrderId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
             a.a(Key.orderId.name(), str);
         }
     }

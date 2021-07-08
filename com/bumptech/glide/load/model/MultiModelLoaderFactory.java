@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.util.Pools;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,7 +23,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MultiModelLoaderFactory {
     public static /* synthetic */ Interceptable $ic;
     public static final Factory DEFAULT_FACTORY;
@@ -33,7 +34,7 @@ public class MultiModelLoaderFactory {
     public final Factory factory;
     public final Pools.Pool<List<Throwable>> throwableListPool;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class EmptyModelLoader implements ModelLoader<Object, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +75,7 @@ public class MultiModelLoaderFactory {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Entry<Model, Data> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,7 +116,7 @@ public class MultiModelLoaderFactory {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -368,6 +369,6 @@ public class MultiModelLoaderFactory {
     private <Model, Data> ModelLoader<Model, Data> build(@NonNull Entry<?, ?> entry) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, this, entry)) == null) ? (ModelLoader) Preconditions.checkNotNull(entry.factory.build(this)) : (ModelLoader) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, entry)) == null) ? (ModelLoader) Preconditions.checkNotNull(entry.factory.build(this)) : (ModelLoader) invokeL.objValue;
     }
 }

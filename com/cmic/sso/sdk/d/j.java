@@ -11,17 +11,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.cmic.sso.sdk.a.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: b  reason: collision with root package name */
-    public static j f32547b;
+    public static j f32657b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f32548a;
+    public Context f32658a;
 
     public j(Context context) {
         Interceptable interceptable = $ic;
@@ -38,13 +38,13 @@ public class j {
                 return;
             }
         }
-        this.f32548a = context;
+        this.f32658a = context;
     }
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            f32547b = new j(context);
+            f32657b = new j(context);
         }
     }
 
@@ -108,7 +108,7 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            TelephonyManager telephonyManager = (TelephonyManager) this.f32548a.getSystemService("phone");
+            TelephonyManager telephonyManager = (TelephonyManager) this.f32658a.getSystemService("phone");
             if (telephonyManager != null) {
                 String simOperator = telephonyManager.getSimOperator();
                 c.b("SIMUtils", "SysOperType = " + simOperator);
@@ -122,7 +122,7 @@ public class j {
     public static j a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f32547b : (j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f32657b : (j) invokeV.objValue;
     }
 
     @SuppressLint({"MissingPermission"})
@@ -133,9 +133,9 @@ public class j {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             b.C0371b b2 = com.cmic.sso.sdk.a.b.a().b();
             String f2 = b2.f(b2.d());
-            if (TextUtils.isEmpty(f2) && n.a(this.f32548a) && (telephonyManager = (TelephonyManager) this.f32548a.getSystemService("phone")) != null) {
+            if (TextUtils.isEmpty(f2) && n.a(this.f32658a) && (telephonyManager = (TelephonyManager) this.f32658a.getSystemService("phone")) != null) {
                 f2 = telephonyManager.getSimOperator();
-                if (TextUtils.isEmpty(f2) && g.a(this.f32548a, "android.permission.READ_PHONE_STATE") && n.d()) {
+                if (TextUtils.isEmpty(f2) && g.a(this.f32658a, "android.permission.READ_PHONE_STATE") && n.d()) {
                     String str = null;
                     try {
                         str = telephonyManager.getSubscriberId();

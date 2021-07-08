@@ -1,6 +1,7 @@
 package com.ta.utdid2.b.a;
 
 import android.util.Xml;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -17,7 +18,7 @@ import java.util.Map;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlSerializer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -199,7 +200,7 @@ public class e {
     public static final void a(Object obj, String str, XmlSerializer xmlSerializer) throws XmlPullParserException, IOException {
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, null, obj, str, xmlSerializer) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str, xmlSerializer) == null) {
             if (obj == null) {
                 xmlSerializer.startTag(null, StringUtil.NULL_STRING);
                 if (str != null) {

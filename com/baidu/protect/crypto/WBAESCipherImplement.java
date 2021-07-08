@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.i0.a.a;
-/* loaded from: classes3.dex */
+import d.a.f0.a.a;
+/* loaded from: classes2.dex */
 public class WBAESCipherImplement extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f9530a;
+    public long f9547a;
 
     static {
         InterceptResult invokeClinit;
@@ -67,24 +67,24 @@ public class WBAESCipherImplement extends a {
 
     private native long initKeyDataMemory(byte[] bArr, byte[] bArr2);
 
-    @Override // d.a.i0.a.a
+    @Override // d.a.f0.a.a
     public final boolean a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
             long initKeyDataMemory = initKeyDataMemory(bArr, null);
-            this.f9530a = initKeyDataMemory;
+            this.f9547a = initKeyDataMemory;
             return initKeyDataMemory > 0;
         }
         return invokeL.booleanValue;
     }
 
-    @Override // d.a.i0.a.a
+    @Override // d.a.f0.a.a
     public final boolean b(byte[] bArr, byte[] bArr2, int i2) throws b {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, bArr2, i2)) == null) {
-            long j = this.f9530a;
+            long j = this.f9547a;
             if (j <= 0) {
                 return false;
             }

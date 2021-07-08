@@ -15,26 +15,26 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.h2.h.e;
-/* loaded from: classes5.dex */
+import d.a.p0.h2.h.e;
+/* loaded from: classes4.dex */
 public class PbThreadPostView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f19509e;
+    public Context f19549e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f19510f;
+    public View f19550f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f19511g;
+    public TextView f19551g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f19512h;
+    public TextView f19552h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f19513i;
+    public View.OnClickListener f19553i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PbThreadPostView(Context context) {
@@ -60,16 +60,16 @@ public class PbThreadPostView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f19510f = findViewById(R.id.pb_thread_post_container);
-            this.f19511g = (TextView) findViewById(R.id.pb_thread_post_content);
-            this.f19512h = (TextView) findViewById(R.id.pb_thread_post_button);
+            this.f19550f = findViewById(R.id.pb_thread_post_container);
+            this.f19551g = (TextView) findViewById(R.id.pb_thread_post_content);
+            this.f19552h = (TextView) findViewById(R.id.pb_thread_post_button);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f19509e = getContext();
+            this.f19549e = getContext();
             setClipChildren(false);
             setClipToPadding(false);
             setOrientation(1);
@@ -82,17 +82,17 @@ public class PbThreadPostView extends LinearLayout {
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            SkinManager.setBackgroundColor(this.f19510f, R.color.CAM_X0205, i2);
-            SkinManager.setViewTextColor(this.f19511g, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f19512h, R.color.CAM_X0302);
+            SkinManager.setBackgroundColor(this.f19550f, R.color.CAM_X0205, i2);
+            SkinManager.setViewTextColor(this.f19551g, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f19552h, R.color.CAM_X0302);
         }
     }
 
     public void setChildOnClickLinstener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) && this.f19513i == null) {
-            this.f19513i = onClickListener;
-            this.f19512h.setOnClickListener(onClickListener);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) && this.f19553i == null) {
+            this.f19553i = onClickListener;
+            this.f19552h.setOnClickListener(onClickListener);
         }
     }
 

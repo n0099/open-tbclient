@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.os.RemoteException;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,34 +16,34 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.utils.j;
 import com.bytedance.sdk.openadsdk.IBinderPool;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f31413c;
+    public static volatile a f31523c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f31414a;
+    public Context f31524a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IBinderPool f31415b;
+    public IBinderPool f31525b;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f31416d;
+    public CountDownLatch f31526d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f31417e;
+    public final Object f31527e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f31418f;
+    public long f31528f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ServiceConnection f31419g;
+    public ServiceConnection f31529g;
 
     /* renamed from: h  reason: collision with root package name */
-    public IBinder.DeathRecipient f31420h;
+    public IBinder.DeathRecipient f31530h;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -59,14 +60,14 @@ public class a {
                 return;
             }
         }
-        this.f31417e = new Object();
-        this.f31418f = 0L;
-        this.f31419g = new ServiceConnection(this) { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.a.1
+        this.f31527e = new Object();
+        this.f31528f = 0L;
+        this.f31529g = new ServiceConnection(this) { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f31421a;
+            public final /* synthetic */ a f31531a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -83,21 +84,21 @@ public class a {
                         return;
                     }
                 }
-                this.f31421a = this;
+                this.f31531a = this;
             }
 
             @Override // android.content.ServiceConnection
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
-                    this.f31421a.f31415b = IBinderPool.Stub.asInterface(iBinder);
+                    this.f31531a.f31525b = IBinderPool.Stub.asInterface(iBinder);
                     try {
-                        this.f31421a.f31415b.asBinder().linkToDeath(this.f31421a.f31420h, 0);
+                        this.f31531a.f31525b.asBinder().linkToDeath(this.f31531a.f31530h, 0);
                     } catch (RemoteException e2) {
                         j.c("MultiProcess", "onServiceConnected throws :", e2);
                     }
-                    this.f31421a.f31416d.countDown();
-                    j.b("MultiProcess", "onServiceConnected - binderService consume time ：" + (System.currentTimeMillis() - this.f31421a.f31418f));
+                    this.f31531a.f31526d.countDown();
+                    j.b("MultiProcess", "onServiceConnected - binderService consume time ：" + (System.currentTimeMillis() - this.f31531a.f31528f));
                 }
             }
 
@@ -109,12 +110,12 @@ public class a {
                 }
             }
         };
-        this.f31420h = new IBinder.DeathRecipient(this) { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.a.2
+        this.f31530h = new IBinder.DeathRecipient(this) { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.a.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f31422a;
+            public final /* synthetic */ a f31532a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -131,7 +132,7 @@ public class a {
                         return;
                     }
                 }
-                this.f31422a = this;
+                this.f31532a = this;
             }
 
             @Override // android.os.IBinder.DeathRecipient
@@ -139,13 +140,13 @@ public class a {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     j.d("MultiProcess", "binder died.");
-                    this.f31422a.f31415b.asBinder().unlinkToDeath(this.f31422a.f31420h, 0);
-                    this.f31422a.f31415b = null;
-                    this.f31422a.a();
+                    this.f31532a.f31525b.asBinder().unlinkToDeath(this.f31532a.f31530h, 0);
+                    this.f31532a.f31525b = null;
+                    this.f31532a.a();
                 }
             }
         };
-        this.f31414a = context.getApplicationContext();
+        this.f31524a = context.getApplicationContext();
         a();
     }
 
@@ -153,14 +154,14 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f31413c == null) {
+            if (f31523c == null) {
                 synchronized (a.class) {
-                    if (f31413c == null) {
-                        f31413c = new a(context);
+                    if (f31523c == null) {
+                        f31523c = new a(context);
                     }
                 }
             }
-            return f31413c;
+            return f31523c;
         }
         return (a) invokeL.objValue;
     }
@@ -170,8 +171,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             try {
-                if (this.f31415b != null) {
-                    return this.f31415b.queryBinder(i2);
+                if (this.f31525b != null) {
+                    return this.f31525b.queryBinder(i2);
                 }
                 return null;
             } catch (RemoteException e2) {
@@ -185,14 +186,14 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             synchronized (this) {
                 j.c("MultiProcess", "BinderPool......connectBinderPoolService");
-                this.f31416d = new CountDownLatch(1);
+                this.f31526d = new CountDownLatch(1);
                 try {
-                    this.f31414a.bindService(new Intent(this.f31414a, BinderPoolService.class), this.f31419g, 1);
-                    this.f31418f = System.currentTimeMillis();
-                    this.f31416d.await();
+                    this.f31524a.bindService(new Intent(this.f31524a, BinderPoolService.class), this.f31529g, 1);
+                    this.f31528f = System.currentTimeMillis();
+                    this.f31526d.await();
                 } catch (Exception e2) {
                     j.c("MultiProcess", "connectBinderPoolService throws: ", e2);
                 }

@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.CashierDataNew;
 import com.baidu.android.lbspay.beans.LbsPayBeanFactory;
@@ -110,7 +111,7 @@ public class LBSTransCashierActivity extends LBSBaseActivity {
     private final String getGroupStr(String... strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, strArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, strArr)) == null) {
             if (strArr == null) {
                 return "";
             }

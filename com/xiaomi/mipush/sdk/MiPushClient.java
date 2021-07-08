@@ -50,7 +50,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.TimeZone;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public abstract class MiPushClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String COMMAND_REGISTER = "register";
@@ -67,7 +67,7 @@ public abstract class MiPushClient {
     public static long sCurMsgId;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class CodeResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,13 +103,13 @@ public abstract class MiPushClient {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public interface ICallbackResult<R> {
         void onResult(R r);
     }
 
     @Deprecated
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static abstract class MiPushClientCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -179,7 +179,7 @@ public abstract class MiPushClient {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class TokenResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -230,15 +230,15 @@ public abstract class MiPushClient {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public interface UPSRegisterCallBack extends ICallbackResult<TokenResult> {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public interface UPSTurnCallBack extends ICallbackResult<CodeResult> {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public interface UPSUnRegisterCallBack extends ICallbackResult<TokenResult> {
     }
 
@@ -565,7 +565,7 @@ public abstract class MiPushClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, context)) == null) {
             checkNotNull(context, "context");
-            return f.a(context).b(e.f42788b);
+            return f.a(context).b(e.f39802b);
         }
         return invokeL.booleanValue;
     }
@@ -575,7 +575,7 @@ public abstract class MiPushClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, context)) == null) {
             checkNotNull(context, "context");
-            return f.a(context).b(e.f42787a);
+            return f.a(context).b(e.f39801a);
         }
         return invokeL.booleanValue;
     }
@@ -585,7 +585,7 @@ public abstract class MiPushClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, context)) == null) {
             checkNotNull(context, "context");
-            return f.a(context).b(e.f42789c);
+            return f.a(context).b(e.f39803c);
         }
         return invokeL.booleanValue;
     }
@@ -593,7 +593,7 @@ public abstract class MiPushClient {
     public static boolean getOpenVIVOPush(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65569, null, context)) == null) ? f.a(context).b(e.f42790d) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65569, null, context)) == null) ? f.a(context).b(e.f39804d) : invokeL.booleanValue;
     }
 
     public static String getRegId(Context context) {
@@ -727,7 +727,7 @@ public abstract class MiPushClient {
                     cif.b(com.xiaomi.push.g.a(sContext, sContext.getPackageName()));
                     cif.h("3_8_5");
                     cif.a(30805);
-                    cif.a(ht.f43323c);
+                    cif.a(ht.f40337c);
                     if (!TextUtils.isEmpty(str3)) {
                         cif.g(str3);
                     }
@@ -750,13 +750,13 @@ public abstract class MiPushClient {
                     } else {
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(b.m111a(sContext).m119c());
-                        PushMessageHelper.sendCommandMessageBroadcast(sContext, PushMessageHelper.generateCommandMessage(ev.f43062a.f340a, arrayList, 0L, null, null));
+                        PushMessageHelper.sendCommandMessageBroadcast(sContext, PushMessageHelper.generateCommandMessage(ev.f40076a.f340a, arrayList, 0L, null, null));
                     }
                     an.a(sContext).m102a();
                     if (b.m111a(sContext).m115a()) {
                         ie ieVar = new ie();
                         ieVar.b(b.m111a(sContext).m112a());
-                        ieVar.c(hp.f43293g.f509a);
+                        ieVar.c(hp.f40307g.f509a);
                         ieVar.a(com.xiaomi.push.service.at.a());
                         HashMap hashMap = new HashMap();
                         ieVar.f650a = hashMap;
@@ -769,7 +769,7 @@ public abstract class MiPushClient {
                         if (!TextUtils.isEmpty(e2)) {
                             ieVar.f650a.put(DeviceUtils.KEY_OLD_NAME_STRING, e2);
                         }
-                        an.a(sContext).a((an) ieVar, hf.f43244i, false, (hs) null);
+                        an.a(sContext).a((an) ieVar, hf.f40258i, false, (hs) null);
                     }
                     if (!com.xiaomi.push.n.m539a(sContext, "update_devId", false)) {
                         updateImeiOrOaid();
@@ -801,7 +801,7 @@ public abstract class MiPushClient {
                         ieVar2.c(hp.j.f509a);
                         ieVar2.a(com.xiaomi.push.service.at.a());
                         ieVar2.a(false);
-                        an.a(sContext).a((an) ieVar2, hf.f43244i, false, (hs) null, false);
+                        an.a(sContext).a((an) ieVar2, hf.f40258i, false, (hs) null, false);
                         addPullNotificationTime(sContext);
                     }
                 }
@@ -826,22 +826,22 @@ public abstract class MiPushClient {
     public static void operateSyncAction(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65574, null, context) == null) {
-            if ("syncing".equals(ae.a(sContext).a(at.f42771a))) {
+            if ("syncing".equals(ae.a(sContext).a(at.f39785a))) {
                 disablePush(sContext);
             }
-            if ("syncing".equals(ae.a(sContext).a(at.f42772b))) {
+            if ("syncing".equals(ae.a(sContext).a(at.f39786b))) {
                 enablePush(sContext);
             }
-            if ("syncing".equals(ae.a(sContext).a(at.f42773c))) {
+            if ("syncing".equals(ae.a(sContext).a(at.f39787c))) {
                 syncAssemblePushToken(sContext);
             }
-            if ("syncing".equals(ae.a(sContext).a(at.f42774d))) {
+            if ("syncing".equals(ae.a(sContext).a(at.f39788d))) {
                 syncAssembleFCMPushToken(sContext);
             }
-            if ("syncing".equals(ae.a(sContext).a(at.f42775e))) {
+            if ("syncing".equals(ae.a(sContext).a(at.f39789e))) {
                 syncAssembleCOSPushToken(context);
             }
-            if ("syncing".equals(ae.a(sContext).a(at.f42776f))) {
+            if ("syncing".equals(ae.a(sContext).a(at.f39790f))) {
                 syncAssembleFTOSPushToken(context);
             }
         }
@@ -1075,7 +1075,7 @@ public abstract class MiPushClient {
             ieVar.d(context.getPackageName());
             ieVar.a(com.xiaomi.push.service.at.a());
             ieVar.a(false);
-            an.a(context).a((an) ieVar, hf.f43244i, false, (hs) null, false);
+            an.a(context).a((an) ieVar, hf.f40258i, false, (hs) null, false);
         }
     }
 
@@ -1091,7 +1091,7 @@ public abstract class MiPushClient {
             ieVar.c("bar:click");
             ieVar.a(str);
             ieVar.a(false);
-            an.a(context).a(ieVar, hf.f43244i, false, true, hsVar, true, str2, str3);
+            an.a(context).a(ieVar, hf.f40258i, false, true, hsVar, true, str2, str3);
         }
     }
 
@@ -1134,7 +1134,7 @@ public abstract class MiPushClient {
             ieVar.c("bar:click");
             ieVar.a(str);
             ieVar.a(false);
-            an.a(context).a((an) ieVar, hf.f43244i, false, hsVar);
+            an.a(context).a((an) ieVar, hf.f40258i, false, hsVar);
         }
     }
 
@@ -1203,11 +1203,11 @@ public abstract class MiPushClient {
             arrayList2.add(String.format("%1$02d:%2$02d", Integer.valueOf(i2), Integer.valueOf(i3)));
             arrayList2.add(String.format("%1$02d:%2$02d", Integer.valueOf(i4), Integer.valueOf(i5)));
             if (!acceptTimeSet(context, (String) arrayList.get(0), (String) arrayList.get(1))) {
-                setCommand(context, ev.f43070i.f340a, arrayList, str);
+                setCommand(context, ev.f40084i.f340a, arrayList, str);
             } else if (1 == PushMessageHelper.getPushMode(context)) {
-                PushMessageHandler.a(context, str, ev.f43070i.f340a, 0L, null, arrayList2);
+                PushMessageHandler.a(context, str, ev.f40084i.f340a, 0L, null, arrayList2);
             } else {
-                PushMessageHelper.sendCommandMessageBroadcast(context, PushMessageHelper.generateCommandMessage(ev.f43070i.f340a, arrayList2, 0L, null, null));
+                PushMessageHelper.sendCommandMessageBroadcast(context, PushMessageHelper.generateCommandMessage(ev.f40084i.f340a, arrayList2, 0L, null, null));
             }
         }
     }
@@ -1217,7 +1217,7 @@ public abstract class MiPushClient {
         if (!(interceptable == null || interceptable.invokeLLL(65600, null, context, str, str2) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        setCommand(context, ev.f43064c.f340a, str, str2);
+        setCommand(context, ev.f40078c.f340a, str, str2);
     }
 
     public static void setCommand(Context context, String str, String str2, String str3) {
@@ -1230,27 +1230,27 @@ public abstract class MiPushClient {
             if (!TextUtils.isEmpty(str2)) {
                 arrayList.add(str2);
             }
-            if (ev.f43064c.f340a.equalsIgnoreCase(str) && Math.abs(System.currentTimeMillis() - aliasSetTime(context, str2)) < 86400000) {
+            if (ev.f40078c.f340a.equalsIgnoreCase(str) && Math.abs(System.currentTimeMillis() - aliasSetTime(context, str2)) < 86400000) {
                 if (1 != PushMessageHelper.getPushMode(context)) {
-                    evVar = ev.f43064c;
+                    evVar = ev.f40078c;
                     PushMessageHelper.sendCommandMessageBroadcast(context, PushMessageHelper.generateCommandMessage(evVar.f340a, arrayList, 0L, null, str3));
                     return;
                 }
                 PushMessageHandler.a(context, str3, str, 0L, null, arrayList);
                 return;
             }
-            if (ev.f43065d.f340a.equalsIgnoreCase(str) && aliasSetTime(context, str2) < 0) {
+            if (ev.f40079d.f340a.equalsIgnoreCase(str) && aliasSetTime(context, str2) < 0) {
                 sb = new StringBuilder();
                 str4 = "Don't cancel alias for ";
-            } else if (ev.f43066e.f340a.equalsIgnoreCase(str) && Math.abs(System.currentTimeMillis() - accountSetTime(context, str2)) < 3600000) {
+            } else if (ev.f40080e.f340a.equalsIgnoreCase(str) && Math.abs(System.currentTimeMillis() - accountSetTime(context, str2)) < 3600000) {
                 if (1 != PushMessageHelper.getPushMode(context)) {
-                    evVar = ev.f43066e;
+                    evVar = ev.f40080e;
                     PushMessageHelper.sendCommandMessageBroadcast(context, PushMessageHelper.generateCommandMessage(evVar.f340a, arrayList, 0L, null, str3));
                     return;
                 }
                 PushMessageHandler.a(context, str3, str, 0L, null, arrayList);
                 return;
-            } else if (!ev.f43067f.f340a.equalsIgnoreCase(str) || accountSetTime(context, str2) >= 0) {
+            } else if (!ev.f40081f.f340a.equalsIgnoreCase(str) || accountSetTime(context, str2) >= 0) {
                 setCommand(context, str, arrayList, str3);
                 return;
             } else {
@@ -1296,7 +1296,7 @@ public abstract class MiPushClient {
         if (!(interceptable == null || interceptable.invokeLLL(65604, null, context, str, str2) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        setCommand(context, ev.f43066e.f340a, str, str2);
+        setCommand(context, ev.f40080e.f340a, str, str2);
     }
 
     public static boolean shouldPullNotification(Context context) {
@@ -1329,7 +1329,7 @@ public abstract class MiPushClient {
             }
             ArrayList arrayList = new ArrayList();
             arrayList.add(str);
-            PushMessageHelper.sendCommandMessageBroadcast(context, PushMessageHelper.generateCommandMessage(ev.f43068g.f340a, arrayList, 0L, null, null));
+            PushMessageHelper.sendCommandMessageBroadcast(context, PushMessageHelper.generateCommandMessage(ev.f40082g.f340a, arrayList, 0L, null, null));
             return;
         }
         ij ijVar = new ij();
@@ -1339,35 +1339,35 @@ public abstract class MiPushClient {
         ijVar.c(str);
         ijVar.d(context.getPackageName());
         ijVar.e(str2);
-        com.xiaomi.channel.commonutils.logger.b.e("cmd:" + ev.f43068g + StringUtil.ARRAY_ELEMENT_SEPARATOR + a2);
-        an.a(context).a((an) ijVar, hf.f43238c, (hs) null);
+        com.xiaomi.channel.commonutils.logger.b.e("cmd:" + ev.f40082g + StringUtil.ARRAY_ELEMENT_SEPARATOR + a2);
+        an.a(context).a((an) ijVar, hf.f40252c, (hs) null);
     }
 
     public static void syncAssembleCOSPushToken(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65609, null, context) == null) {
-            an.a(context).a((String) null, at.f42775e, e.f42789c);
+            an.a(context).a((String) null, at.f39789e, e.f39803c);
         }
     }
 
     public static void syncAssembleFCMPushToken(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65610, null, context) == null) {
-            an.a(context).a((String) null, at.f42774d, e.f42788b);
+            an.a(context).a((String) null, at.f39788d, e.f39802b);
         }
     }
 
     public static void syncAssembleFTOSPushToken(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65611, null, context) == null) {
-            an.a(context).a((String) null, at.f42776f, e.f42790d);
+            an.a(context).a((String) null, at.f39790f, e.f39804d);
         }
     }
 
     public static void syncAssemblePushToken(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65612, null, context) == null) {
-            an.a(context).a((String) null, at.f42773c, e.f42787a);
+            an.a(context).a((String) null, at.f39787c, e.f39801a);
         }
     }
 
@@ -1448,14 +1448,14 @@ public abstract class MiPushClient {
     public static void unsetAlias(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65618, null, context, str, str2) == null) {
-            setCommand(context, ev.f43065d.f340a, str, str2);
+            setCommand(context, ev.f40079d.f340a, str, str2);
         }
     }
 
     public static void unsetUserAccount(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65619, null, context, str, str2) == null) {
-            setCommand(context, ev.f43067f.f340a, str, str2);
+            setCommand(context, ev.f40081f.f340a, str, str2);
         }
     }
 
@@ -1473,8 +1473,8 @@ public abstract class MiPushClient {
             inVar.c(str);
             inVar.d(context.getPackageName());
             inVar.e(str2);
-            com.xiaomi.channel.commonutils.logger.b.e("cmd:" + ev.f43069h + StringUtil.ARRAY_ELEMENT_SEPARATOR + a2);
-            an.a(context).a((an) inVar, hf.f43239d, (hs) null);
+            com.xiaomi.channel.commonutils.logger.b.e("cmd:" + ev.f40083h + StringUtil.ARRAY_ELEMENT_SEPARATOR + a2);
+            an.a(context).a((an) inVar, hf.f40253d, (hs) null);
         }
     }
 
@@ -1509,7 +1509,7 @@ public abstract class MiPushClient {
                     if (com.xiaomi.push.i.f(MiPushClient.sContext) != null || ax.a(MiPushClient.sContext).a()) {
                         ie ieVar = new ie();
                         ieVar.b(b.m111a(MiPushClient.sContext).m112a());
-                        ieVar.c(hp.f43293g.f509a);
+                        ieVar.c(hp.f40307g.f509a);
                         ieVar.a(com.xiaomi.push.service.at.a());
                         ieVar.a(new HashMap());
                         String str = "";
@@ -1529,7 +1529,7 @@ public abstract class MiPushClient {
                         if (a2 >= 0) {
                             ieVar.m466a().put("space_id", Integer.toString(a2));
                         }
-                        an.a(MiPushClient.sContext).a((an) ieVar, hf.f43244i, false, (hs) null);
+                        an.a(MiPushClient.sContext).a((an) ieVar, hf.f40258i, false, (hs) null);
                     }
                 }
             }).start();

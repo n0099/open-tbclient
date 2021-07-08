@@ -22,7 +22,7 @@ import com.baidu.wallet.paysdk.ui.OrderConfirmActivity;
 import com.baidu.wallet.paysdk.ui.PayTypeActivity;
 import com.baidu.wallet.paysdk.ui.PostWebviewActivity;
 import com.baidu.wallet.statistics.api.StatisticManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

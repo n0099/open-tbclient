@@ -2,6 +2,7 @@ package com.sina.weibo.sdk.auth;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,7 +15,7 @@ import com.sina.weibo.sdk.network.IRequestService;
 import com.sina.weibo.sdk.network.impl.RequestParam;
 import com.sina.weibo.sdk.network.impl.RequestService;
 import com.sina.weibo.sdk.network.target.SimpleTarget;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AccessTokenKeeper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ACCESS_TOKEN = "access_token";
@@ -130,7 +131,7 @@ public class AccessTokenKeeper {
 
     public static void writeAccessToken(Context context, Oauth2AccessToken oauth2AccessToken) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65540, null, context, oauth2AccessToken) == null) || context == null || oauth2AccessToken == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, oauth2AccessToken) == null) || context == null || oauth2AccessToken == null) {
             return;
         }
         SharedPreferences.Editor edit = context.getSharedPreferences(PREFERENCES_NAME, 32768).edit();

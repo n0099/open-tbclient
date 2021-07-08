@@ -10,24 +10,24 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a.v2.q0;
-import d.a.q0.b.e;
-import d.a.q0.b.f;
-import d.a.q0.b.g;
-/* loaded from: classes4.dex */
+import d.a.n0.a.v2.q0;
+import d.a.n0.b.e;
+import d.a.n0.b.f;
+import d.a.n0.b.g;
+/* loaded from: classes3.dex */
 public class LoginServiceAgreementActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_URL = "url";
     public transient /* synthetic */ FieldHolder $fh;
     public SwanAppActionBar mActionBar;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LoginServiceAgreementActivity f11628e;
+        public final /* synthetic */ LoginServiceAgreementActivity f11645e;
 
         public a(LoginServiceAgreementActivity loginServiceAgreementActivity) {
             Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public class LoginServiceAgreementActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f11628e = loginServiceAgreementActivity;
+            this.f11645e = loginServiceAgreementActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f11628e.finish();
+                this.f11645e.finish();
             }
         }
     }

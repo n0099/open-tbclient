@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaMetadataRetriever;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.afx.recode.Mp4ComposerEngine;
@@ -19,14 +20,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Mp4Composer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Mp4Composer";
     public transient /* synthetic */ FieldHolder $fh;
     public ExecutorService mExecutorService;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface Listener {
         void onCompleted();
 
@@ -52,7 +53,7 @@ public class Mp4Composer {
     private ExecutorService getExecutorService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             if (this.mExecutorService == null) {
                 this.mExecutorService = Executors.newSingleThreadExecutor();
             }

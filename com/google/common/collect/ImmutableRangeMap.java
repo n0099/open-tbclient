@@ -21,7 +21,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final ImmutableRangeMap<Comparable<?>, Object> EMPTY;
@@ -30,7 +30,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
     public final transient ImmutableList<Range<K>> ranges;
     public final transient ImmutableList<V> values;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class SerializedForm<K extends Comparable<?>, V> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -83,13 +83,13 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class a<K extends Comparable<?>, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<Map.Entry<Range<K>, V>> f33121a;
+        public final List<Map.Entry<Range<K>, V>> f33231a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -104,26 +104,26 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
                     return;
                 }
             }
-            this.f33121a = Lists.i();
+            this.f33231a = Lists.i();
         }
 
         public ImmutableRangeMap<K, V> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Collections.sort(this.f33121a, Range.rangeLexOrdering().onKeys());
-                ImmutableList.a aVar = new ImmutableList.a(this.f33121a.size());
-                ImmutableList.a aVar2 = new ImmutableList.a(this.f33121a.size());
-                for (int i2 = 0; i2 < this.f33121a.size(); i2++) {
-                    Range<K> key = this.f33121a.get(i2).getKey();
+                Collections.sort(this.f33231a, Range.rangeLexOrdering().onKeys());
+                ImmutableList.a aVar = new ImmutableList.a(this.f33231a.size());
+                ImmutableList.a aVar2 = new ImmutableList.a(this.f33231a.size());
+                for (int i2 = 0; i2 < this.f33231a.size(); i2++) {
+                    Range<K> key = this.f33231a.get(i2).getKey();
                     if (i2 > 0) {
-                        Range<K> key2 = this.f33121a.get(i2 - 1).getKey();
+                        Range<K> key2 = this.f33231a.get(i2 - 1).getKey();
                         if (key.isConnected(key2) && !key.intersection(key2).isEmpty()) {
                             throw new IllegalArgumentException("Overlapping ranges: range " + key2 + " overlaps with entry " + key);
                         }
                     }
                     aVar.h(key);
-                    aVar2.h(this.f33121a.get(i2).getValue());
+                    aVar2.h(this.f33231a.get(i2).getValue());
                 }
                 return new ImmutableRangeMap<>(aVar.j(), aVar2.j());
             }
@@ -137,7 +137,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
                 n.p(range);
                 n.p(v);
                 n.k(!range.isEmpty(), "Range must not be empty, but was %s", range);
-                this.f33121a.add(Maps.l(range, v));
+                this.f33231a.add(Maps.l(range, v));
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -188,7 +188,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
     public static <K extends Comparable<?>, V> ImmutableRangeMap<K, V> copyOf(a1<K, ? extends V> a1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, a1Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, a1Var)) == null) {
             if (a1Var instanceof ImmutableRangeMap) {
                 return (ImmutableRangeMap) a1Var;
             }

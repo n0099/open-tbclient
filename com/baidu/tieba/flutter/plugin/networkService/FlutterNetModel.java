@@ -19,7 +19,7 @@ import d.a.c.e.m.e;
 import d.a.c.e.p.l;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FlutterNetModel implements NetworkServicePlugin.NetModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TIMOUT_MIN = 10;
@@ -36,7 +36,7 @@ public class FlutterNetModel implements NetworkServicePlugin.NetModel {
     public int timeout;
     public Runnable timeoutRunnable;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class NetAsyncTask extends BdAsyncTask<Object, String, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -130,7 +130,7 @@ public class FlutterNetModel implements NetworkServicePlugin.NetModel {
                     HashMap<String, String> hashMap = new HashMap<>();
                     hashMap.put("server", this.flutterNetModel.getHttpUrl());
                     hashMap.put(RetrieveTaskManager.KEY, this.flutterNetModel.getHttpUrl());
-                    hashMap.put("state", this.httpNetContext.getStat().stat.f44193h);
+                    hashMap.put("state", this.httpNetContext.getStat().stat.f41209h);
                     if (this.httpNetContext.getPerformance() != null && this.flutterNetModel.getStartRequestTime() > 0 && this.httpNetContext.getPerformance().containsKey("startTime")) {
                         long f2 = b.f(this.httpNetContext.getPerformance().get("startTime"), 0L) - this.flutterNetModel.getStartRequestTime();
                         if (f2 > 0) {
@@ -147,7 +147,7 @@ public class FlutterNetModel implements NetworkServicePlugin.NetModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface NetResponseCallback {
         void onHttpResponseMessage(HashMap<String, String> hashMap, HashMap<String, String> hashMap2, int i2, String str, String str2, String str3);
     }

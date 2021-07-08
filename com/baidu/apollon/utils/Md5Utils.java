@@ -2,6 +2,7 @@ package com.baidu.apollon.utils;
 
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,7 +23,7 @@ public final class Md5Utils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static char[] f4078a;
+    public static char[] f4081a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +39,7 @@ public final class Md5Utils {
                 return;
             }
         }
-        f4078a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f4081a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
     public Md5Utils() {
@@ -248,7 +249,7 @@ public final class Md5Utils {
     public static MessageDigest a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             try {
                 return MessageDigest.getInstance("MD5");
             } catch (NoSuchAlgorithmException e2) {
@@ -275,8 +276,8 @@ public final class Md5Utils {
                 if (i2 > 0 && ch != null) {
                     stringBuffer.append(ch.charValue());
                 }
-                stringBuffer.append(f4078a[i3]);
-                stringBuffer.append(f4078a[i4]);
+                stringBuffer.append(f4081a[i3]);
+                stringBuffer.append(f4081a[i4]);
             }
             return stringBuffer.toString();
         }

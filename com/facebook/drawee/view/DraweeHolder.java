@@ -20,7 +20,7 @@ import com.facebook.drawee.drawable.VisibilityCallback;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.interfaces.DraweeHierarchy;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DraweeHolder<DH extends DraweeHierarchy> implements VisibilityCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -94,7 +94,7 @@ public class DraweeHolder<DH extends DraweeHierarchy> implements VisibilityCallb
 
     private void detachController() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65540, this) == null) && this.mIsControllerAttached) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.mIsControllerAttached) {
             this.mEventTracker.recordEvent(DraweeEventTracker.Event.ON_DETACH_CONTROLLER);
             this.mIsControllerAttached = false;
             if (isControllerValid()) {

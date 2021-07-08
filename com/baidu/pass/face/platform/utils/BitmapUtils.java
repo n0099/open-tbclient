@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
+import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.encrypt.a;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.model.BDFaceImageInstance;
@@ -19,7 +20,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class BitmapUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IMAGEBOUND = 128;
@@ -139,7 +140,7 @@ public final class BitmapUtils {
     public static String bitmapToJpegBase64(Bitmap bitmap, int i2, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{bitmap, Integer.valueOf(i2), Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bitmap, Integer.valueOf(i2), Float.valueOf(f2)})) == null) {
             try {
                 float max = f2 / Math.max(bitmap.getWidth(), bitmap.getHeight());
                 if (max < 1.0f) {
@@ -399,9 +400,9 @@ public final class BitmapUtils {
                         i9 = 16;
                     }
                     float f2 = (i9 - 16) * 1.164f;
-                    float f3 = i12 + a.f1888g;
+                    float f3 = i12 + a.f1889g;
                     int round = Math.round((1.596f * f3) + f2);
-                    float f4 = i11 + a.f1888g;
+                    float f4 = i11 + a.f1889g;
                     int round2 = Math.round((f2 - (f3 * 0.813f)) - (0.391f * f4));
                     int round3 = Math.round(f2 + (f4 * 2.018f));
                     if (round < 0) {

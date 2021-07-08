@@ -12,33 +12,33 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class q extends aa {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final v f28490a;
+    public static final v f28600a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<String> f28491b;
+    public final List<String> f28601b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<String> f28492c;
+    public final List<String> f28602c;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<String> f28493a;
+        public final List<String> f28603a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<String> f28494b;
+        public final List<String> f28604b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Charset f28495c;
+        public final Charset f28605c;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public a() {
@@ -62,8 +62,8 @@ public final class q extends aa {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-                this.f28493a.add(t.a(str, " \"':;<=>@[]^`{}|/\\?#&!$(),~", false, false, true, true, this.f28495c));
-                this.f28494b.add(t.a(str2, " \"':;<=>@[]^`{}|/\\?#&!$(),~", false, false, true, true, this.f28495c));
+                this.f28603a.add(t.a(str, " \"':;<=>@[]^`{}|/\\?#&!$(),~", false, false, true, true, this.f28605c));
+                this.f28604b.add(t.a(str2, " \"':;<=>@[]^`{}|/\\?#&!$(),~", false, false, true, true, this.f28605c));
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -84,15 +84,15 @@ public final class q extends aa {
                     return;
                 }
             }
-            this.f28493a = new ArrayList();
-            this.f28494b = new ArrayList();
-            this.f28495c = charset;
+            this.f28603a = new ArrayList();
+            this.f28604b = new ArrayList();
+            this.f28605c = charset;
         }
 
         public q a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new q(this.f28493a, this.f28494b) : (q) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new q(this.f28603a, this.f28604b) : (q) invokeV.objValue;
         }
     }
 
@@ -109,7 +109,7 @@ public final class q extends aa {
                 return;
             }
         }
-        f28490a = v.a("application/x-www-form-urlencoded");
+        f28600a = v.a("application/x-www-form-urlencoded");
     }
 
     public q(List<String> list, List<String> list2) {
@@ -127,15 +127,15 @@ public final class q extends aa {
                 return;
             }
         }
-        this.f28491b = com.bytedance.sdk.component.b.b.a.c.a(list);
-        this.f28492c = com.bytedance.sdk.component.b.b.a.c.a(list2);
+        this.f28601b = com.bytedance.sdk.component.b.b.a.c.a(list);
+        this.f28602c = com.bytedance.sdk.component.b.b.a.c.a(list2);
     }
 
     @Override // com.bytedance.sdk.component.b.b.aa
     public v a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f28490a : (v) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f28600a : (v) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.component.b.b.aa
@@ -163,14 +163,14 @@ public final class q extends aa {
             } else {
                 c2 = dVar.c();
             }
-            int size = this.f28491b.size();
+            int size = this.f28601b.size();
             for (int i2 = 0; i2 < size; i2++) {
                 if (i2 > 0) {
                     c2.i(38);
                 }
-                c2.b(this.f28491b.get(i2));
+                c2.b(this.f28601b.get(i2));
                 c2.i(61);
-                c2.b(this.f28492c.get(i2));
+                c2.b(this.f28602c.get(i2));
             }
             if (z) {
                 long b2 = c2.b();

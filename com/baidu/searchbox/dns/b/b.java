@@ -2,6 +2,7 @@ package com.baidu.searchbox.dns.b;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.dns.util.DnsChecker;
 import com.baidu.searchbox.dns.util.DnsUtil;
@@ -19,7 +20,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static Map<String, List<String>> s;
@@ -86,7 +87,7 @@ public class b {
     public static boolean b(Map<String, List<String>> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, map)) == null) ? map != null && map.containsKey(UnitedSchemeConstants.UNITED_SCHEME_BACKUP) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map)) == null) ? map != null && map.containsKey(UnitedSchemeConstants.UNITED_SCHEME_BACKUP) : invokeL.booleanValue;
     }
 
     public static Map<String, List<String>> h(String str) {

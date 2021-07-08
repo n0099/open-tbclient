@@ -1,5 +1,6 @@
 package com.baidu.mapapi.utils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.GeoPoint;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SpatialRelationUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +77,7 @@ public class SpatialRelationUtil {
         InterceptResult invokeLL;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, list, latLng)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, latLng)) == null) {
             if (list == null || list.size() == 0 || latLng == null) {
                 return false;
             }

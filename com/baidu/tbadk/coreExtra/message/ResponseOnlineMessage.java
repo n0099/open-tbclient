@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.r0.c0.a;
+import d.a.o0.c0.a;
 import java.util.ArrayList;
 import java.util.List;
 import protobuf.ConfigVersion;
@@ -17,7 +17,7 @@ import protobuf.MaskInfo;
 import protobuf.UpdateClientInfo.DataRes;
 import protobuf.UpdateClientInfo.UpdateClientInfoResIdl;
 import protobuf.UserInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ResponseOnlineMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

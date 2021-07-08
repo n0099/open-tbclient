@@ -33,25 +33,25 @@ import com.baidu.wallet.home.ui.widget.umoneyhome.UMHBigCreditCardGroup;
 import com.baidu.wallet.home.ui.widget.umoneyhome.UMHGuideGroup;
 import com.baidu.wallet.home.ui.widget.umoneyhome.UMHHeadGroup;
 import com.baidu.wallet.home.ui.widget.umoneyhome.UMHNoticeBarGroup;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.home.ui.widget.a$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.wallet.home.ui.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class C0266a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f24969a;
+        public static a f25079a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -67,7 +67,7 @@ public class a {
                     return;
                 }
             }
-            f24969a = new a(null);
+            f25079a = new a(null);
         }
     }
 
@@ -78,7 +78,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0266a.f24969a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0266a.f25079a : (a) invokeV.objValue;
     }
 
     public a() {

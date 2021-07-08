@@ -11,9 +11,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.j0.a.b.b;
-import d.a.j0.a.b.d;
-/* loaded from: classes3.dex */
+import d.a.g0.a.b.b;
+import d.a.g0.a.b.d;
+/* loaded from: classes2.dex */
 public class ANRRuntime {
     public static /* synthetic */ Interceptable $ic;
     public static ANRRuntime sInstance;

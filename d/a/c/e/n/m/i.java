@@ -11,18 +11,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class b extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public class i {
             int i2 = 0;
             Iterator<d.a.c.e.n.h.d> it = c2.iterator();
             while (it.hasNext()) {
-                i2 = (int) (i2 + it.next().f44343a);
+                i2 = (int) (i2 + it.next().f41359a);
             }
             int i3 = i2 - IMConstants.MAX_IMAGE_CACHE_DISC_SIZE;
             ArrayList arrayList = new ArrayList();
@@ -59,8 +59,8 @@ public class i {
                 Iterator<d.a.c.e.n.h.d> it2 = c2.iterator();
                 while (it2.hasNext()) {
                     d.a.c.e.n.h.d next = it2.next();
-                    arrayList.add(next.f44344b);
-                    i3 = (int) (i3 - next.f44343a);
+                    arrayList.add(next.f41360b);
+                    i3 = (int) (i3 - next.f41359a);
                     if (i3 <= 0) {
                         break;
                     }
@@ -71,9 +71,9 @@ public class i {
             while (it3.hasNext()) {
                 d.a.c.e.n.h.d next2 = it3.next();
                 if (next2 != null) {
-                    long j = next2.f44345c;
-                    if (j != 0 && j + 604800000 < currentTimeMillis && !arrayList.contains(next2.f44344b)) {
-                        arrayList.add(next2.f44344b);
+                    long j = next2.f41361c;
+                    if (j != 0 && j + 604800000 < currentTimeMillis && !arrayList.contains(next2.f41360b)) {
+                        arrayList.add(next2.f41360b);
                     }
                 }
             }

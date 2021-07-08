@@ -11,6 +11,7 @@ import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.database.Cursor;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -25,12 +26,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class s {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Boolean f42253a;
+    public static Boolean f39267a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static com.vivo.push.model.b a(Context context) {
@@ -114,7 +115,7 @@ public final class s {
         String str;
         Cursor query;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65540, null, context)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) != null) {
             return (String) invokeL.objValue;
         }
         Cursor cursor = null;
@@ -124,7 +125,7 @@ public final class s {
         }
         try {
             try {
-                query = context.getContentResolver().query(com.vivo.push.z.f42285a, null, null, null, null);
+                query = context.getContentResolver().query(com.vivo.push.z.f39299a, null, null, null, null);
             } catch (Exception e3) {
                 e = e3;
                 str = null;
@@ -318,7 +319,7 @@ public final class s {
         ProviderInfo resolveContentProvider;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            Boolean bool = f42253a;
+            Boolean bool = f39267a;
             if (bool != null) {
                 return bool.booleanValue();
             }
@@ -327,7 +328,7 @@ public final class s {
                 str = resolveContentProvider.packageName;
             }
             Boolean valueOf = Boolean.valueOf("BCC35D4D3606F154F0402AB7634E8490C0B244C2675C3C6238986987024F0C02".equals(f(context, str)));
-            f42253a = valueOf;
+            f39267a = valueOf;
             return valueOf.booleanValue();
         }
         return invokeL.booleanValue;

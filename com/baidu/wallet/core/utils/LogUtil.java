@@ -1,5 +1,6 @@
 package com.baidu.wallet.core.utils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -7,28 +8,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class LogUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24633a = "LogUtil";
+    public static final String f24743a = "LogUtil";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f24634b = false;
+    public static final boolean f24744b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f24635c = false;
+    public static final boolean f24745c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f24636d = false;
+    public static final boolean f24746d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f24637e = false;
+    public static final boolean f24747e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f24638f = false;
+    public static final boolean f24748f = false;
     public transient /* synthetic */ FieldHolder $fh;
 
     public LogUtil() {
@@ -48,7 +49,7 @@ public final class LogUtil {
     public static void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            d(f24633a, str);
+            d(f24743a, str);
         }
     }
 
@@ -66,7 +67,7 @@ public final class LogUtil {
 
     public static void errord(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
         }
     }
 

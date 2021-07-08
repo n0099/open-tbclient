@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class EditTextDialog extends BaseDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f24128a;
+    public TextView f24238a;
     public PluginEditText mContentEditText;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -65,7 +65,7 @@ public class EditTextDialog extends BaseDialog {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ EditTextDialog f24129a;
+                public final /* synthetic */ EditTextDialog f24239a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -82,16 +82,16 @@ public class EditTextDialog extends BaseDialog {
                             return;
                         }
                     }
-                    this.f24129a = this;
+                    this.f24239a = this;
                 }
 
                 @Override // android.text.TextWatcher
                 public void afterTextChanged(Editable editable) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, editable) == null) {
-                        EditTextDialog editTextDialog = this.f24129a;
+                        EditTextDialog editTextDialog = this.f24239a;
                         editTextDialog.setTextColor(ResUtils.getColor(editTextDialog.mContext, "wallet_nfc_gray_text"));
-                        EditTextDialog editTextDialog2 = this.f24129a;
+                        EditTextDialog editTextDialog2 = this.f24239a;
                         editTextDialog2.setTipsText(ResUtils.getString(editTextDialog2.mContext, "wallet_nfc_buscard_cardlists_modify_card_tips"));
                     }
                 }
@@ -110,7 +110,7 @@ public class EditTextDialog extends BaseDialog {
                     }
                 }
             });
-            this.f24128a = (TextView) findViewById(ResUtils.id(this.mContext, "dialog_text_msg"));
+            this.f24238a = (TextView) findViewById(ResUtils.id(this.mContext, "dialog_text_msg"));
         }
     }
 
@@ -138,14 +138,14 @@ public class EditTextDialog extends BaseDialog {
     public void setTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f24128a.setTextColor(i2);
+            this.f24238a.setTextColor(i2);
         }
     }
 
     public void setTipsText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f24128a.setText(str);
+            this.f24238a.setText(str);
         }
     }
 
@@ -180,7 +180,7 @@ public class EditTextDialog extends BaseDialog {
     public void setTipsText(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f24128a.setText(i2);
+            this.f24238a.setText(i2);
         }
     }
 }

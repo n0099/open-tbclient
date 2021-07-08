@@ -18,7 +18,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.apache.commons.base.binary4util.CodecStringUtils;
 import org.apache.commons.base.binary4util.Hex;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class DigestUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STREAM_BUFFER_LENGTH = 1024;
@@ -502,7 +502,7 @@ public class DigestUtils {
     public static byte[] digest(MessageDigest messageDigest, InputStream inputStream) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, messageDigest, inputStream)) == null) ? updateDigest(messageDigest, inputStream).digest() : (byte[]) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, messageDigest, inputStream)) == null) ? updateDigest(messageDigest, inputStream).digest() : (byte[]) invokeLL.objValue;
     }
 
     public String digestAsHex(InputStream inputStream) throws IOException {

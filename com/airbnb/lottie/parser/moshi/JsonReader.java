@@ -1,5 +1,6 @@
 package com.airbnb.lottie.parser.moshi;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -208,7 +209,7 @@ public abstract class JsonReader implements Closeable {
         int i2;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, bufferedSink, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bufferedSink, str) == null) {
             String[] strArr = REPLACEMENT_CHARS;
             bufferedSink.writeByte(34);
             int length = str.length();

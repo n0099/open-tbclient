@@ -17,21 +17,21 @@ import com.fun.openid.sdk.f;
 import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f32659a;
+        public boolean f32769a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final LinkedBlockingQueue<IBinder> f32660b;
+        public final LinkedBlockingQueue<IBinder> f32770b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -46,19 +46,19 @@ public class d implements f {
                     return;
                 }
             }
-            this.f32659a = false;
-            this.f32660b = new LinkedBlockingQueue<>();
+            this.f32769a = false;
+            this.f32770b = new LinkedBlockingQueue<>();
         }
 
         public IBinder a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f32659a) {
+                if (this.f32769a) {
                     throw new IllegalStateException();
                 }
-                this.f32659a = true;
-                return this.f32660b.poll(5L, TimeUnit.SECONDS);
+                this.f32769a = true;
+                return this.f32770b.poll(5L, TimeUnit.SECONDS);
             }
             return (IBinder) invokeV.objValue;
         }
@@ -68,7 +68,7 @@ public class d implements f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
                 try {
-                    this.f32660b.put(iBinder);
+                    this.f32770b.put(iBinder);
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }

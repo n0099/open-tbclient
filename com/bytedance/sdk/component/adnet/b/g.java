@@ -15,25 +15,25 @@ import com.bytedance.sdk.component.adnet.core.i;
 import com.bytedance.sdk.component.adnet.core.m;
 import com.bytedance.sdk.component.adnet.core.o;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class g<T> extends Request<T> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f27800c;
+    public static final String f27910c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f27801d;
+    public final Object f27911d;
     @Nullable
     @GuardedBy("mLock")
 
     /* renamed from: e  reason: collision with root package name */
-    public m.a<T> f27802e;
+    public m.a<T> f27912e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f27803f;
+    public final String f27913f;
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +48,7 @@ public abstract class g<T> extends Request<T> {
                 return;
             }
         }
-        f27800c = String.format("application/json; charset=%s", "utf-8");
+        f27910c = String.format("application/json; charset=%s", "utf-8");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -70,9 +70,9 @@ public abstract class g<T> extends Request<T> {
                 return;
             }
         }
-        this.f27801d = new Object();
-        this.f27802e = aVar;
-        this.f27803f = str2;
+        this.f27911d = new Object();
+        this.f27912e = aVar;
+        this.f27913f = str2;
     }
 
     @Override // com.bytedance.sdk.component.adnet.core.Request
@@ -83,8 +83,8 @@ public abstract class g<T> extends Request<T> {
         m.a<T> aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mVar) == null) {
-            synchronized (this.f27801d) {
-                aVar = this.f27802e;
+            synchronized (this.f27911d) {
+                aVar = this.f27912e;
             }
             if (aVar != null) {
                 aVar.a(mVar);
@@ -97,8 +97,8 @@ public abstract class g<T> extends Request<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.cancel();
-            synchronized (this.f27801d) {
-                this.f27802e = null;
+            synchronized (this.f27911d) {
+                this.f27912e = null;
             }
         }
     }
@@ -109,12 +109,12 @@ public abstract class g<T> extends Request<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                if (this.f27803f == null) {
+                if (this.f27913f == null) {
                     return null;
                 }
-                return this.f27803f.getBytes("utf-8");
+                return this.f27913f.getBytes("utf-8");
             } catch (UnsupportedEncodingException unused) {
-                o.d("Unsupported Encoding while trying to get the bytes of %s using %s", this.f27803f, "utf-8");
+                o.d("Unsupported Encoding while trying to get the bytes of %s using %s", this.f27913f, "utf-8");
                 return null;
             }
         }
@@ -125,7 +125,7 @@ public abstract class g<T> extends Request<T> {
     public String getBodyContentType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f27800c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f27910c : (String) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.component.adnet.core.Request

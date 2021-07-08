@@ -19,14 +19,14 @@ import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
 import com.baidu.ugc.editvideo.record.processor.IEffectProcessor;
 import com.baidu.ugc.editvideo.record.renderer.IMediaRenderer;
 import com.baidu.ugc.editvideo.record.renderer.MediaGLRenderer;
-import d.a.c0.b.a.e;
-import d.a.y0.a;
-import d.a.y0.t.h;
-import d.a.y0.t.v;
+import d.a.v0.a;
+import d.a.v0.t.h;
+import d.a.v0.t.v;
+import d.a.z.b.a.e;
 import java.util.List;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView.Renderer, IMediaLifeCycle, MediaGLRenderer.OnDrawFrameFrequencyListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
     public float mTx;
     public float mTy;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnSurfaceTextureCreateListener {
         void onSurfaceTextureCreate(SurfaceTexture surfaceTexture, int i2);
     }

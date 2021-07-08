@@ -1,5 +1,5 @@
 package com.baidu.mobads.container.widget.player;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface PlayerEvent {
     public static final int PLAY_COMPLETION = 256;
     public static final int PLAY_ERROR = 257;

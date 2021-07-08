@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.util.JsonReader;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.NetworkUtil;
@@ -30,39 +31,39 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CustomMapStyleLoader {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7944a = "CustomMapStyleLoader";
+    public static final String f7961a = "CustomMapStyleLoader";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f7945c;
+    public static String f7962c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7946b;
+    public String f7963b;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f7947d;
+    public Context f7964d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f7948e;
+    public String f7965e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f7949f;
+    public boolean f7966f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AsyncHttpClient f7950g;
+    public AsyncHttpClient f7967g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CustomMapStyleLoader f7951a;
+        public final /* synthetic */ CustomMapStyleLoader f7968a;
 
         public a(CustomMapStyleLoader customMapStyleLoader) {
             Interceptable interceptable = $ic;
@@ -79,30 +80,30 @@ public class CustomMapStyleLoader {
                     return;
                 }
             }
-            this.f7951a = customMapStyleLoader;
+            this.f7968a = customMapStyleLoader;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7951a.b();
-                String d2 = this.f7951a.d();
+                this.f7968a.b();
+                String d2 = this.f7968a.d();
                 if (TextUtils.isEmpty(d2)) {
-                    Log.e(CustomMapStyleLoader.f7944a, "build request url failed");
+                    Log.e(CustomMapStyleLoader.f7961a, "build request url failed");
                 } else {
-                    this.f7951a.a(d2);
+                    this.f7968a.a(d2);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final CustomMapStyleLoader f7952a;
+        public static final CustomMapStyleLoader f7969a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -118,7 +119,7 @@ public class CustomMapStyleLoader {
                     return;
                 }
             }
-            f7952a = new CustomMapStyleLoader(null);
+            f7969a = new CustomMapStyleLoader(null);
         }
     }
 
@@ -150,8 +151,8 @@ public class CustomMapStyleLoader {
                 return;
             }
         }
-        this.f7949f = true;
-        this.f7950g = new AsyncHttpClient();
+        this.f7966f = true;
+        this.f7967g = new AsyncHttpClient();
     }
 
     public /* synthetic */ CustomMapStyleLoader(c cVar) {
@@ -161,7 +162,7 @@ public class CustomMapStyleLoader {
     private String a(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, map)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, map)) == null) {
             if (map.isEmpty()) {
                 return null;
             }
@@ -186,14 +187,14 @@ public class CustomMapStyleLoader {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, str) == null) {
-            this.f7950g.get(str, new c(this));
+            this.f7967g.get(str, new c(this));
         }
     }
 
     private void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, jSONObject) == null) {
-            File file = new File(f7945c);
+            File file = new File(f7962c);
             if (file.exists()) {
                 file.delete();
             }
@@ -202,7 +203,7 @@ public class CustomMapStyleLoader {
                     file.createNewFile();
                 }
             } catch (IOException e2) {
-                Log.e(f7944a, "create custom file failed", e2);
+                Log.e(f7961a, "create custom file failed", e2);
             }
             String optString = jSONObject.optString("json");
             String optString2 = jSONObject.optString(PackageTable.MD5, StringUtil.NULL_STRING);
@@ -211,16 +212,16 @@ public class CustomMapStyleLoader {
                 jSONObject2.put("json", optString);
                 jSONObject2.put(PackageTable.MD5, optString2);
             } catch (JSONException e3) {
-                Log.e(f7944a, "build style data failed", e3);
+                Log.e(f7961a, "build style data failed", e3);
             }
             String jSONObject3 = jSONObject2.toString();
             try {
-                FileOutputStream openFileOutput = this.f7947d.openFileOutput("server_custom_style_file.json", 0);
+                FileOutputStream openFileOutput = this.f7964d.openFileOutput("server_custom_style_file.json", 0);
                 openFileOutput.write(jSONObject3.getBytes());
                 openFileOutput.flush();
                 openFileOutput.close();
             } catch (IOException e4) {
-                Log.e(f7944a, "write style data into file failed", e4);
+                Log.e(f7961a, "write style data into file failed", e4);
             }
         }
     }
@@ -245,11 +246,11 @@ public class CustomMapStyleLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
             if (!c()) {
-                this.f7946b = StringUtil.NULL_STRING;
+                this.f7963b = StringUtil.NULL_STRING;
                 return;
             }
             try {
-                FileInputStream openFileInput = this.f7947d.openFileInput("server_custom_style_file.json");
+                FileInputStream openFileInput = this.f7964d.openFileInput("server_custom_style_file.json");
                 JsonReader jsonReader = new JsonReader(new InputStreamReader(openFileInput));
                 try {
                     try {
@@ -257,7 +258,7 @@ public class CustomMapStyleLoader {
                             jsonReader.beginObject();
                             while (jsonReader.hasNext()) {
                                 if (jsonReader.nextName().equals(PackageTable.MD5)) {
-                                    this.f7946b = jsonReader.nextString();
+                                    this.f7963b = jsonReader.nextString();
                                 } else {
                                     jsonReader.skipValue();
                                 }
@@ -266,8 +267,8 @@ public class CustomMapStyleLoader {
                             jsonReader.close();
                             openFileInput.close();
                         } catch (IOException e2) {
-                            this.f7946b = StringUtil.NULL_STRING;
-                            Log.e(f7944a, "Read custom style failed", e2);
+                            this.f7963b = StringUtil.NULL_STRING;
+                            Log.e(f7961a, "Read custom style failed", e2);
                             jsonReader.close();
                             openFileInput.close();
                         }
@@ -276,16 +277,16 @@ public class CustomMapStyleLoader {
                             jsonReader.close();
                             openFileInput.close();
                         } catch (IOException e3) {
-                            Log.e(f7944a, "Close custom style failed", e3);
+                            Log.e(f7961a, "Close custom style failed", e3);
                         }
                         throw th;
                     }
                 } catch (IOException e4) {
-                    Log.e(f7944a, "Close custom style failed", e4);
+                    Log.e(f7961a, "Close custom style failed", e4);
                 }
             } catch (FileNotFoundException e5) {
-                this.f7946b = StringUtil.NULL_STRING;
-                Log.e(f7944a, "Open custom style failed", e5);
+                this.f7963b = StringUtil.NULL_STRING;
+                Log.e(f7961a, "Open custom style failed", e5);
             }
         }
     }
@@ -296,7 +297,7 @@ public class CustomMapStyleLoader {
             Intent intent = i2 == 0 ? new Intent(SDKInitializer.SDK_BROADTCAST_ACTION_STRING_LOAD_CUSTOM_STYLE_SUCCESS) : new Intent(SDKInitializer.SDK_BROADTCAST_ACTION_STRING_LOAD_CUSTOM_STYLE_ERROR);
             intent.putExtra("error_code", i2);
             intent.putExtra("error_message", str);
-            this.f7947d.sendBroadcast(intent);
+            this.f7964d.sendBroadcast(intent);
         }
     }
 
@@ -311,20 +312,20 @@ public class CustomMapStyleLoader {
             if (a(jSONObject.optInt("status"), jSONObject.optString("message"))) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject == null || optJSONObject.length() == 0) {
-                    Log.e(f7944a, "custom style data is null");
+                    Log.e(f7961a, "custom style data is null");
                 } else {
                     a(optJSONObject);
                 }
             }
         } catch (JSONException e2) {
-            Log.e(f7944a, "parse response result failed", e2);
+            Log.e(f7961a, "parse response result failed", e2);
         }
     }
 
     private boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) ? new File(f7945c).exists() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) ? new File(f7962c).exists() : invokeV.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -334,10 +335,10 @@ public class CustomMapStyleLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
-            linkedHashMap.put("style_id", this.f7948e);
-            linkedHashMap.put("type", this.f7949f ? "publish" : "edit");
-            linkedHashMap.put(PackageTable.MD5, this.f7946b);
-            linkedHashMap.put("token", i.f7995d);
+            linkedHashMap.put("style_id", this.f7965e);
+            linkedHashMap.put("type", this.f7966f ? "publish" : "edit");
+            linkedHashMap.put(PackageTable.MD5, this.f7963b);
+            linkedHashMap.put("token", i.f8012d);
             return e() + "?" + ((a(linkedHashMap) + i.c()) + "&sign=" + AppMD5.getSignMD5String(str));
         }
         return (String) invokeV.objValue;
@@ -352,29 +353,29 @@ public class CustomMapStyleLoader {
     public static String getCustomStyleFilePath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? f7945c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? f7962c : (String) invokeV.objValue;
     }
 
     public static CustomMapStyleLoader getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? b.f7952a : (CustomMapStyleLoader) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? b.f7969a : (CustomMapStyleLoader) invokeV.objValue;
     }
 
     public void initCustomStyleFilePath(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f7947d = context;
-            f7945c = context.getFilesDir().getAbsolutePath();
-            f7945c += "/server_custom_style_file.json";
+            this.f7964d = context;
+            f7962c = context.getFilesDir().getAbsolutePath();
+            f7962c += "/server_custom_style_file.json";
         }
     }
 
     public void loadCustomMapStyleFile(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) && NetworkUtil.isNetworkAvailable(this.f7947d) && !TextUtils.isEmpty(str)) {
-            this.f7948e = str;
-            this.f7949f = z;
+        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) && NetworkUtil.isNetworkAvailable(this.f7964d) && !TextUtils.isEmpty(str)) {
+            this.f7965e = str;
+            this.f7966f = z;
             new Thread(new a(this), "Load custom style").start();
         }
     }

@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,7 +23,7 @@ import com.google.android.material.R;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class MaterialToolbar extends Toolbar {
     public static /* synthetic */ Interceptable $ic;
     public static final int DEF_STYLE_RES;
@@ -67,7 +68,7 @@ public class MaterialToolbar extends Toolbar {
 
     private void initBackground(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             Drawable background = getBackground();
             if (background == null || (background instanceof ColorDrawable)) {
                 MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable();

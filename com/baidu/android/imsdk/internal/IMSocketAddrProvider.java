@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.internal;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.HttpHelper;
@@ -98,7 +99,7 @@ public class IMSocketAddrProvider {
 
     private void fullSocketAddrsQueue() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65540, this) == null) && SOCKET_ADDR_PRIORITY_QUEUE.isEmpty()) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && SOCKET_ADDR_PRIORITY_QUEUE.isEmpty()) {
             LogUtils.d(TAG, "socket queue is empty......");
             getSmartSocketAddrs();
         }

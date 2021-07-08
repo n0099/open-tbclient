@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
 @Descriptor(tags = {5})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DecoderSpecificInfo extends BaseDescriptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

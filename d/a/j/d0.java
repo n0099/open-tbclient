@@ -22,15 +22,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.q.b2;
-/* loaded from: classes8.dex */
+import d.a.o0.r.q.b2;
+/* loaded from: classes7.dex */
 public class d0 extends c implements p<b2>, q {
     public static /* synthetic */ Interceptable $ic;
     public static final int s;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f45747i;
+    public RelativeLayout f42639i;
     public ImageView j;
     public FrameLayout k;
     public b2 l;
@@ -41,13 +41,13 @@ public class d0 extends c implements p<b2>, q {
     public Align q;
     public View.OnClickListener r;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d0 f45748e;
+        public final /* synthetic */ d0 f42640e;
 
         public a(d0 d0Var) {
             Interceptable interceptable = $ic;
@@ -64,17 +64,17 @@ public class d0 extends c implements p<b2>, q {
                     return;
                 }
             }
-            this.f45748e = d0Var;
+            this.f42640e = d0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f45748e.l == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f42640e.l == null) {
                 return;
             }
-            CustomMessage customMessage = new CustomMessage(2921428, this.f45748e.m);
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921428, this.f45748e.l);
+            CustomMessage customMessage = new CustomMessage(2921428, this.f42640e.m);
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921428, this.f42640e.l);
             customResponsedMessage.setOrginalMessage(customMessage);
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
         }
@@ -116,7 +116,7 @@ public class d0 extends c implements p<b2>, q {
         this.p = R.color.CAM_X0111;
         this.r = new a(this);
         this.n = i2;
-        this.f45747i = new RelativeLayout(context);
+        this.f42639i = new RelativeLayout(context);
         this.j = new ImageView(context);
         FrameLayout frameLayout = new FrameLayout(context);
         this.k = frameLayout;
@@ -125,8 +125,8 @@ public class d0 extends c implements p<b2>, q {
         frameLayout.addView(imageView, new FrameLayout.LayoutParams(i5, i5));
         this.k.setOnClickListener(this.r);
         m(Align.ALIGN_RIGHT_BOTTOM);
-        this.f45747i.addView(this.k);
-        g(this.f45747i);
+        this.f42639i.addView(this.k);
+        g(this.f42639i);
         h(-1);
         i(new RelativeLayout.LayoutParams(-1, -1));
     }
@@ -165,7 +165,7 @@ public class d0 extends c implements p<b2>, q {
         this.q = align;
     }
 
-    public void n(d.a.r0.r.q.a aVar) {
+    public void n(d.a.o0.r.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             m(Align.ALIGN_RIGHT_TOP);

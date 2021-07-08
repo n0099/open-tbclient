@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -21,6 +22,7 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.atomData.SignAllForumActivityConfig;
+import com.baidu.tbadk.core.atomData.VideoWorkListActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.NewUrlSchemaHelper;
 import com.baidu.tbadk.core.util.UrlManager;
@@ -40,12 +42,12 @@ import com.idlefish.flutterboost.containers.BoostFlutterActivity;
 import d.a.c.e.m.e;
 import d.a.c.e.n.a;
 import d.a.c.h.j.g.d;
-import d.a.r0.a.g;
+import d.a.o0.a.g;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class OpenFlutter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTIVITY_CONCERN_FORUM = "ConcernForum";
@@ -53,6 +55,7 @@ public class OpenFlutter {
     public static final String ACTIVITY_FORUM_DETAIL = "ForumDetail";
     public static final String ACTIVITY_PERSON_CENTER = "PersonalCenter";
     public static final String ACTIVITY_SIGN_TOGETHER = "SignAllForum";
+    public static final String ACTIVITY_VIDEO_WORK_LIST = "VideoWorkListPage";
     public static final int DEFAULT_REQUEST_CODE = 10001;
     public static final String EXTRA_ANIMATED = "animated";
     public static final String EXTRA_BACKGROUND_MODE = "background_mode";
@@ -148,7 +151,10 @@ public class OpenFlutter {
             } else if (intentConfig instanceof PersonBarActivityConfig) {
                 str = ACTIVITY_CONCERN_FORUM;
             } else if (!(intentConfig instanceof PersonPolymericActivityConfig) && !(intentConfig instanceof PersonInfoActivityConfig)) {
-                return customMessage;
+                if (!(intentConfig instanceof VideoWorkListActivityConfig)) {
+                    return customMessage;
+                }
+                str = ACTIVITY_VIDEO_WORK_LIST;
             } else {
                 e.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.flutter.base.util.OpenFlutter.2
                     public static /* synthetic */ Interceptable $ic;
@@ -204,7 +210,7 @@ public class OpenFlutter {
         InterceptResult invokeLLL;
         String name;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, context, str, map)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, map)) == null) {
             if (checkSwitch(str)) {
                 Intent intent = new Intent(context, FlutterPageActivity.class);
                 BoostFlutterActivity.SerializableMap serializableMap = new BoostFlutterActivity.SerializableMap();
@@ -255,7 +261,9 @@ public class OpenFlutter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, intentConfig, str)) == null) {
             HashMap hashMap = new HashMap();
-            if (ACTIVITY_FANS.equals(str)) {
+            if (ACTIVITY_VIDEO_WORK_LIST.equals(str)) {
+                hashMap.put("publisher", intentConfig.getIntent().getStringExtra("type"));
+            } else if (ACTIVITY_FANS.equals(str)) {
                 hashMap.put("userId", intentConfig.getIntent().getStringExtra("user_id"));
                 hashMap.put("userSex", String.valueOf(intentConfig.getIntent().getIntExtra("user_sex", 0)));
                 hashMap.put("type", Integer.valueOf(intentConfig.getIntent().getBooleanExtra("follow", true) ? 1 : 2));
@@ -279,7 +287,7 @@ public class OpenFlutter {
                 } else {
                     hashMap.put("uid", String.valueOf(intentConfig.getIntent().getLongExtra("user_id", 0L)));
                 }
-                hashMap.put("abstatus", d.a.r0.b.d.a() ? "1" : "0");
+                hashMap.put("abstatus", d.a.o0.b.d.a() ? "1" : "0");
             }
             if (intentConfig.getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null) {
                 parseUriParmes(str, hashMap, (Uri) intentConfig.getIntent().getParcelableExtra(IntentConfig.KEY_URI));
@@ -320,7 +328,7 @@ public class OpenFlutter {
                         this.val$params = hashMap;
                     }
 
-                    @Override // d.a.r0.a.g.b
+                    @Override // d.a.o0.a.g.b
                     public void onCallBack(HashMap<String, Object> hashMap2) {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeL(1048576, this, hashMap2) == null) && hashMap2 != null && (hashMap2.get(g.u) instanceof String)) {

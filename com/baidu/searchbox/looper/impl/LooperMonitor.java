@@ -18,7 +18,7 @@ import d.e.b.a.c;
 import d.e.b.a.d;
 @Singleton
 @Service
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LooperMonitor implements ILooperMonitor {
     public static /* synthetic */ Interceptable $ic;
     public static volatile boolean sIsStartTrack;

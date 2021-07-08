@@ -10,28 +10,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class d<P, R> extends com.bytedance.sdk.component.a.b<P, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f27622a;
+    public boolean f27732a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f27623b;
+    public a f27733b;
 
     /* renamed from: c  reason: collision with root package name */
-    public f f27624c;
+    public f f27734c;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(@Nullable Object obj);
 
         void a(@Nullable Throwable th);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         d a();
     }
@@ -49,14 +49,14 @@ public abstract class d<P, R> extends com.bytedance.sdk.component.a.b<P, R> {
                 return;
             }
         }
-        this.f27622a = true;
+        this.f27732a = true;
     }
 
     private boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (this.f27622a) {
+            if (this.f27732a) {
                 return true;
             }
             i.a(new IllegalStateException("Jsb async call already finished: " + a() + ", hashcode: " + hashCode()));
@@ -85,8 +85,8 @@ public abstract class d<P, R> extends com.bytedance.sdk.component.a.b<P, R> {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f27622a = false;
-            this.f27624c = null;
+            this.f27732a = false;
+            this.f27734c = null;
         }
     }
 
@@ -101,7 +101,7 @@ public abstract class d<P, R> extends com.bytedance.sdk.component.a.b<P, R> {
     public final void a(@Nullable R r) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r) == null) && g()) {
-            this.f27623b.a(r);
+            this.f27733b.a(r);
             e();
         }
     }
@@ -109,7 +109,7 @@ public abstract class d<P, R> extends com.bytedance.sdk.component.a.b<P, R> {
     public final void a(Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, th) == null) && g()) {
-            this.f27623b.a(th);
+            this.f27733b.a(th);
             e();
         }
     }
@@ -117,8 +117,8 @@ public abstract class d<P, R> extends com.bytedance.sdk.component.a.b<P, R> {
     public void a(@NonNull P p, @NonNull f fVar, @NonNull a aVar) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, p, fVar, aVar) == null) {
-            this.f27624c = fVar;
-            this.f27623b = aVar;
+            this.f27734c = fVar;
+            this.f27733b = aVar;
             a(p, fVar);
         }
     }

@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
 import d.a.c.e.p.l;
-import d.a.r0.r.s.a;
-/* loaded from: classes5.dex */
+import d.a.o0.r.s.a;
+/* loaded from: classes4.dex */
 public class CurrencySwitchTDouYBeanDialog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_RETRY_TIME = 3;
@@ -167,7 +167,7 @@ public class CurrencySwitchTDouYBeanDialog {
                     this.this$0 = this;
                 }
 
-                @Override // d.a.r0.r.s.a.e
+                @Override // d.a.o0.r.s.a.e
                 public void onClick(a aVar3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar3) == null) {

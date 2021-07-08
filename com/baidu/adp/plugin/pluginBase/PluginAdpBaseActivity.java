@@ -42,7 +42,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginAdpBaseActivity f2254e;
+        public final /* synthetic */ PluginAdpBaseActivity f2255e;
 
         public a(PluginAdpBaseActivity pluginAdpBaseActivity) {
             Interceptable interceptable = $ic;
@@ -59,14 +59,14 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
                     return;
                 }
             }
-            this.f2254e = pluginAdpBaseActivity;
+            this.f2255e = pluginAdpBaseActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                PluginAdpBaseActivity pluginAdpBaseActivity = this.f2254e;
+                PluginAdpBaseActivity pluginAdpBaseActivity = this.f2255e;
                 pluginAdpBaseActivity.onPreLoad(pluginAdpBaseActivity.onGetPreLoadListView());
             }
         }

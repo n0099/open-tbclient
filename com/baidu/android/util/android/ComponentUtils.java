@@ -6,6 +6,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.ComponentInfo;
 import android.content.pm.PackageManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -207,7 +208,7 @@ public final class ComponentUtils {
     public static ComponentInfo getReceiverInfo(Context context, ComponentName componentName) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, componentName)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, componentName)) == null) {
             try {
                 return context.getPackageManager().getReceiverInfo(componentName, 0);
             } catch (PackageManager.NameNotFoundException unused) {

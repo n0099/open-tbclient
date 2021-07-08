@@ -1,6 +1,7 @@
 package com.baidu.platform.core.f;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
@@ -24,12 +25,12 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f9427b = "c";
+    public static final String f9444b = "c";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -103,7 +104,7 @@ public class c extends com.baidu.platform.base.d {
     private boolean a(String str, SuggestionResult suggestionResult) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, str, suggestionResult)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, suggestionResult)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject.length() != 0) {
@@ -115,7 +116,7 @@ public class c extends com.baidu.platform.base.d {
                     return false;
                 }
             } catch (JSONException e2) {
-                Log.e(f9427b, "Parse sug search error", e2);
+                Log.e(f9444b, "Parse sug search error", e2);
             }
             suggestionResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
             return false;
@@ -172,7 +173,7 @@ public class c extends com.baidu.platform.base.d {
                 try {
                     jSONObject = new JSONObject(str);
                 } catch (JSONException e2) {
-                    Log.e(f9427b, "Parse suggestion search result error", e2);
+                    Log.e(f9444b, "Parse suggestion search result error", e2);
                 }
                 if (jSONObject.length() != 0) {
                     if (jSONObject.has("SDK_InnerError")) {

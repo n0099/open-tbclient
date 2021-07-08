@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface IRemoteUBCService extends IInterface {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static abstract class Stub extends Binder implements IRemoteUBCService {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.ubc.IRemoteUBCService";
@@ -33,7 +33,7 @@ public interface IRemoteUBCService extends IInterface {
         public static final int TRANSACTION_uploadLocalDatas = 11;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public static class Proxy implements IRemoteUBCService {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

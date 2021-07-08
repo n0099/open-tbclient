@@ -11,7 +11,7 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SampleImpl implements Sample {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

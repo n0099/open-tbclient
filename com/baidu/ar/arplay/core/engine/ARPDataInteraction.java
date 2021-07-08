@@ -2,6 +2,7 @@ package com.baidu.ar.arplay.core.engine;
 
 import android.content.SharedPreferences;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.engine.ARPContent;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -86,7 +87,7 @@ public class ARPDataInteraction implements ARPContent.a {
     public static void updateVideoFrame(Object obj, String str, int i2, String str2, String str3) {
         ARPDataInteraction aRPDataInteraction;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{obj, str, Integer.valueOf(i2), str2, str3}) == null) || (aRPDataInteraction = (ARPDataInteraction) ((WeakReference) obj).get()) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{obj, str, Integer.valueOf(i2), str2, str3}) == null) || (aRPDataInteraction = (ARPDataInteraction) ((WeakReference) obj).get()) == null) {
             return;
         }
         aRPDataInteraction.updateVideoFrame(str, i2, str2, str3);

@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.b.a.d0.n;
 import d.f.b.a.d0.u.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class b implements d.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int[] f72755a;
+    public final int[] f69858a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final n[] f72756b;
+    public final n[] f69859b;
 
     public b(int[] iArr, n[] nVarArr) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public final class b implements d.b {
                 return;
             }
         }
-        this.f72755a = iArr;
-        this.f72756b = nVarArr;
+        this.f69858a = iArr;
+        this.f69859b = nVarArr;
     }
 
     @Override // d.f.b.a.d0.u.d.b
@@ -48,10 +48,10 @@ public final class b implements d.b {
         }
         int i4 = 0;
         while (true) {
-            int[] iArr = this.f72755a;
+            int[] iArr = this.f69858a;
             if (i4 < iArr.length) {
                 if (i3 == iArr[i4]) {
-                    return this.f72756b[i4];
+                    return this.f69859b[i4];
                 }
                 i4++;
             } else {
@@ -67,10 +67,10 @@ public final class b implements d.b {
         if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
             return (int[]) invokeV.objValue;
         }
-        int[] iArr = new int[this.f72756b.length];
+        int[] iArr = new int[this.f69859b.length];
         int i2 = 0;
         while (true) {
-            n[] nVarArr = this.f72756b;
+            n[] nVarArr = this.f69859b;
             if (i2 >= nVarArr.length) {
                 return iArr;
             }
@@ -85,7 +85,7 @@ public final class b implements d.b {
         n[] nVarArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            for (n nVar : this.f72756b) {
+            for (n nVar : this.f69859b) {
                 if (nVar != null) {
                     nVar.D(j);
                 }

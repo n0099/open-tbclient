@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class BaseRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLIENT = "android";

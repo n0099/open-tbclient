@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,7 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BIG_INTEGER_PREFIX = "VGhpcyBpcyB0aGUgcHJlZml4IGZvciBCaWdJbnRlZ2Vy";
@@ -169,7 +170,7 @@ public class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler {
         InterceptResult invokeV;
         Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             Map<String, ?> all = this.preferences.getAll();
             HashMap hashMap = new HashMap();
             for (String str : all.keySet()) {

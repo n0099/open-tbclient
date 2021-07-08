@@ -8,18 +8,18 @@ import h.f;
 import h.j;
 import h.n.a;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class OperatorWindowWithSize$WindowSkip<T> extends j<T> implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f76225e;
+    public final int f73259e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f76226f;
+    public final int f73260f;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public final class WindowSkipProducer extends AtomicBoolean implements f {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4625807964358024108L;
@@ -54,9 +54,9 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends j<T> implements 
                 } else if (i2 != 0) {
                     OperatorWindowWithSize$WindowSkip operatorWindowWithSize$WindowSkip = this.this$0;
                     if (get() || !compareAndSet(false, true)) {
-                        operatorWindowWithSize$WindowSkip.request(h.o.a.a.c(j, operatorWindowWithSize$WindowSkip.f76226f));
+                        operatorWindowWithSize$WindowSkip.request(h.o.a.a.c(j, operatorWindowWithSize$WindowSkip.f73260f));
                     } else {
-                        operatorWindowWithSize$WindowSkip.request(h.o.a.a.a(h.o.a.a.c(j, operatorWindowWithSize$WindowSkip.f76225e), h.o.a.a.c(operatorWindowWithSize$WindowSkip.f76226f - operatorWindowWithSize$WindowSkip.f76225e, j - 1)));
+                        operatorWindowWithSize$WindowSkip.request(h.o.a.a.a(h.o.a.a.c(j, operatorWindowWithSize$WindowSkip.f73259e), h.o.a.a.c(operatorWindowWithSize$WindowSkip.f73260f - operatorWindowWithSize$WindowSkip.f73259e, j - 1)));
                     }
                 }
             }

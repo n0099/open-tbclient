@@ -16,25 +16,25 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.bytedance.tea.crash.c f71869a;
+    public com.bytedance.tea.crash.c f68972a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f71870b;
+    public Context f68973b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.c.b.g f71871c;
+    public d.b.c.b.g f68974c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f71872d;
+    public b f68975d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f71873e;
+    public d f68976e;
 
     public c(com.bytedance.tea.crash.c cVar, Context context, b bVar, d dVar) {
         Interceptable interceptable = $ic;
@@ -51,11 +51,11 @@ public abstract class c {
                 return;
             }
         }
-        this.f71869a = cVar;
-        this.f71870b = context;
-        this.f71872d = bVar;
-        this.f71873e = dVar;
-        this.f71871c = m.a().d();
+        this.f68972a = cVar;
+        this.f68973b = context;
+        this.f68975d = bVar;
+        this.f68976e = dVar;
+        this.f68974c = m.a().d();
     }
 
     public d.b.c.b.e.a a(d.b.c.b.e.a aVar) {
@@ -85,22 +85,22 @@ public abstract class c {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            if (d() && (bVar = this.f71872d) != null) {
+            if (d() && (bVar = this.f68975d) != null) {
                 aVar.e(bVar);
             }
             aVar.b(m.g());
-            aVar.k("is_background", Boolean.valueOf(!l.b.g(this.f71870b)));
+            aVar.k("is_background", Boolean.valueOf(!l.b.g(this.f68973b)));
             aVar.k("pid", Integer.valueOf(Process.myPid()));
-            aVar.k("battery", Integer.valueOf(this.f71873e.a()));
-            aVar.h(this.f71871c.e());
+            aVar.k("battery", Integer.valueOf(this.f68976e.a()));
+            aVar.h(this.f68974c.e());
             aVar.m(m.j());
             aVar.a(m.k(), m.l());
-            aVar.g(this.f71871c.f());
-            aVar.i(l.o.b(this.f71870b));
+            aVar.g(this.f68974c.f());
+            aVar.i(l.o.b(this.f68973b));
             if (b()) {
                 f(aVar);
             }
-            aVar.f(this.f71871c.d());
+            aVar.f(this.f68974c.d());
             String h2 = m.h();
             if (h2 != null) {
                 aVar.k(Constant.KEY_BUSINESS, h2);
@@ -160,12 +160,12 @@ public abstract class c {
     public final void g(d.b.c.b.e.a aVar) {
         List<d.b.c.b.b> a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || (a2 = m.c().a(this.f71869a)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || (a2 = m.c().a(this.f68972a)) == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
         for (d.b.c.b.b bVar : a2) {
-            Map<? extends String, ? extends String> a3 = bVar.a(this.f71869a);
+            Map<? extends String, ? extends String> a3 = bVar.a(this.f68972a);
             if (a3 != null) {
                 try {
                     for (String str : a3.keySet()) {

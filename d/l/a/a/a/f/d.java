@@ -15,37 +15,37 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f74064a;
+    public String f71116a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f74065b;
+    public final String f71117b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f74066c;
+    public final String f71118c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f74067d;
+    public final boolean f71119d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f74068e;
+    public final long f71120e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f74069f;
+    public final String f71121f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final long f74070g;
+    public final long f71122g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final JSONObject f74071h;
+    public final JSONObject f71123h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final JSONObject f74072i;
+    public final JSONObject f71124i;
     public final List<String> j;
     public final int k;
     public final Object l;
@@ -53,37 +53,37 @@ public class d {
     public final String n;
     public final JSONObject o;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f74073a;
+        public String f71125a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f74074b;
+        public String f71126b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f74075c;
+        public String f71127c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f74076d;
+        public boolean f71128d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f74077e;
+        public long f71129e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f74078f;
+        public String f71130f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f74079g;
+        public long f71131g;
 
         /* renamed from: h  reason: collision with root package name */
-        public JSONObject f74080h;
+        public JSONObject f71132h;
 
         /* renamed from: i  reason: collision with root package name */
-        public JSONObject f74081i;
+        public JSONObject f71133i;
         public Map<String, Object> j;
         public List<String> k;
         public int l;
@@ -106,7 +106,7 @@ public class d {
                     return;
                 }
             }
-            this.f74076d = false;
+            this.f71128d = false;
             this.o = false;
         }
 
@@ -124,7 +124,7 @@ public class d {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-                this.f74077e = j;
+                this.f71129e = j;
                 return this;
             }
             return (a) invokeJ.objValue;
@@ -144,7 +144,7 @@ public class d {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f74074b = str;
+                this.f71126b = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -164,7 +164,7 @@ public class d {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jSONObject)) == null) {
-                this.f74080h = jSONObject;
+                this.f71132h = jSONObject;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -184,67 +184,67 @@ public class d {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                if (TextUtils.isEmpty(this.f74073a)) {
-                    this.f74073a = AppLog.UMENG_CATEGORY;
+                if (TextUtils.isEmpty(this.f71125a)) {
+                    this.f71125a = AppLog.UMENG_CATEGORY;
                 }
                 JSONObject jSONObject = new JSONObject();
-                if (this.f74080h == null) {
-                    this.f74080h = new JSONObject();
+                if (this.f71132h == null) {
+                    this.f71132h = new JSONObject();
                 }
                 try {
                     if (this.j != null && !this.j.isEmpty()) {
                         for (Map.Entry<String, Object> entry : this.j.entrySet()) {
-                            if (!this.f74080h.has(entry.getKey())) {
-                                this.f74080h.putOpt(entry.getKey(), entry.getValue());
+                            if (!this.f71132h.has(entry.getKey())) {
+                                this.f71132h.putOpt(entry.getKey(), entry.getValue());
                             }
                         }
                     }
                     if (this.o) {
-                        this.p = this.f74075c;
+                        this.p = this.f71127c;
                         JSONObject jSONObject2 = new JSONObject();
                         this.q = jSONObject2;
-                        if (this.f74076d) {
-                            jSONObject2.put("ad_extra_data", this.f74080h.toString());
+                        if (this.f71128d) {
+                            jSONObject2.put("ad_extra_data", this.f71132h.toString());
                         } else {
-                            Iterator<String> keys = this.f74080h.keys();
+                            Iterator<String> keys = this.f71132h.keys();
                             while (keys.hasNext()) {
                                 String next = keys.next();
-                                this.q.put(next, this.f74080h.get(next));
+                                this.q.put(next, this.f71132h.get(next));
                             }
                         }
-                        this.q.put("category", this.f74073a);
-                        this.q.put("tag", this.f74074b);
-                        this.q.put("value", this.f74077e);
-                        this.q.put("ext_value", this.f74079g);
+                        this.q.put("category", this.f71125a);
+                        this.q.put("tag", this.f71126b);
+                        this.q.put("value", this.f71129e);
+                        this.q.put("ext_value", this.f71131g);
                         if (!TextUtils.isEmpty(this.n)) {
                             this.q.put(TiebaStatic.Params.REFER, this.n);
                         }
-                        if (this.f74081i != null) {
-                            this.q = d.l.a.a.a.g.b.e(this.f74081i, this.q);
+                        if (this.f71133i != null) {
+                            this.q = d.l.a.a.a.g.b.e(this.f71133i, this.q);
                         }
-                        if (this.f74076d) {
-                            if (!this.q.has("log_extra") && !TextUtils.isEmpty(this.f74078f)) {
-                                this.q.put("log_extra", this.f74078f);
+                        if (this.f71128d) {
+                            if (!this.q.has("log_extra") && !TextUtils.isEmpty(this.f71130f)) {
+                                this.q.put("log_extra", this.f71130f);
                             }
                             this.q.put("is_ad_event", "1");
                         }
                     }
-                    if (this.f74076d) {
-                        jSONObject.put("ad_extra_data", this.f74080h.toString());
-                        if (!jSONObject.has("log_extra") && !TextUtils.isEmpty(this.f74078f)) {
-                            jSONObject.put("log_extra", this.f74078f);
+                    if (this.f71128d) {
+                        jSONObject.put("ad_extra_data", this.f71132h.toString());
+                        if (!jSONObject.has("log_extra") && !TextUtils.isEmpty(this.f71130f)) {
+                            jSONObject.put("log_extra", this.f71130f);
                         }
                         jSONObject.put("is_ad_event", "1");
                     } else {
-                        jSONObject.put("extra", this.f74080h);
+                        jSONObject.put("extra", this.f71132h);
                     }
                     if (!TextUtils.isEmpty(this.n)) {
                         jSONObject.putOpt(TiebaStatic.Params.REFER, this.n);
                     }
-                    if (this.f74081i != null) {
-                        jSONObject = d.l.a.a.a.g.b.e(this.f74081i, jSONObject);
+                    if (this.f71133i != null) {
+                        jSONObject = d.l.a.a.a.g.b.e(this.f71133i, jSONObject);
                     }
-                    this.f74080h = jSONObject;
+                    this.f71132h = jSONObject;
                 } catch (Exception e2) {
                     l.F().a(e2, "DownloadEventModel build");
                 }
@@ -257,7 +257,7 @@ public class d {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
-                this.f74079g = j;
+                this.f71131g = j;
                 return this;
             }
             return (a) invokeJ.objValue;
@@ -267,7 +267,7 @@ public class d {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-                this.f74075c = str;
+                this.f71127c = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -277,7 +277,7 @@ public class d {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, jSONObject)) == null) {
-                this.f74081i = jSONObject;
+                this.f71133i = jSONObject;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -287,7 +287,7 @@ public class d {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
-                this.f74076d = z;
+                this.f71128d = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -297,7 +297,7 @@ public class d {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-                this.f74078f = str;
+                this.f71130f = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -329,15 +329,15 @@ public class d {
                 return;
             }
         }
-        this.f74064a = aVar.f74073a;
-        this.f74065b = aVar.f74074b;
-        this.f74066c = aVar.f74075c;
-        this.f74067d = aVar.f74076d;
-        this.f74068e = aVar.f74077e;
-        this.f74069f = aVar.f74078f;
-        this.f74070g = aVar.f74079g;
-        this.f74071h = aVar.f74080h;
-        this.f74072i = aVar.f74081i;
+        this.f71116a = aVar.f71125a;
+        this.f71117b = aVar.f71126b;
+        this.f71118c = aVar.f71127c;
+        this.f71119d = aVar.f71128d;
+        this.f71120e = aVar.f71129e;
+        this.f71121f = aVar.f71130f;
+        this.f71122g = aVar.f71131g;
+        this.f71123h = aVar.f71132h;
+        this.f71124i = aVar.f71133i;
         this.j = aVar.k;
         this.k = aVar.l;
         this.l = aVar.m;
@@ -350,25 +350,25 @@ public class d {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f74065b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71117b : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f74066c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71118c : (String) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f74067d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f71119d : invokeV.booleanValue;
     }
 
     public JSONObject d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f74071h : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f71123h : (JSONObject) invokeV.objValue;
     }
 
     public boolean e() {
@@ -383,23 +383,23 @@ public class d {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("category: ");
-            sb.append(this.f74064a);
+            sb.append(this.f71116a);
             sb.append("\ttag: ");
-            sb.append(this.f74065b);
+            sb.append(this.f71117b);
             sb.append("\tlabel: ");
-            sb.append(this.f74066c);
+            sb.append(this.f71118c);
             sb.append("\nisAd: ");
-            sb.append(this.f74067d);
+            sb.append(this.f71119d);
             sb.append("\tadId: ");
-            sb.append(this.f74068e);
+            sb.append(this.f71120e);
             sb.append("\tlogExtra: ");
-            sb.append(this.f74069f);
+            sb.append(this.f71121f);
             sb.append("\textValue: ");
-            sb.append(this.f74070g);
+            sb.append(this.f71122g);
             sb.append("\nextJson: ");
-            sb.append(this.f74071h);
+            sb.append(this.f71123h);
             sb.append("\nparamsJson: ");
-            sb.append(this.f74072i);
+            sb.append(this.f71124i);
             sb.append("\nclickTrackUrl: ");
             List<String> list = this.j;
             sb.append(list != null ? list.toString() : "");

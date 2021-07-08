@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.nativecode;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -27,7 +28,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class NativeJpegTranscoder implements ImageTranscoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NativeJpegTranscoder";
@@ -81,7 +82,7 @@ public class NativeJpegTranscoder implements ImageTranscoder {
     @VisibleForTesting
     public static void transcodeJpeg(InputStream inputStream, OutputStream outputStream, int i2, int i3, int i4) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{inputStream, outputStream, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{inputStream, outputStream, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             NativeJpegTranscoderSoLoader.ensure();
             boolean z = false;
             Preconditions.checkArgument(i3 >= 1);

@@ -1,5 +1,5 @@
 package d.a.j.w0;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface a {
-    void a(d.a.r0.r.q.a aVar);
+    void a(d.a.o0.r.q.a aVar);
 }

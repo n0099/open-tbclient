@@ -11,21 +11,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONStringer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class x0 {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: a  reason: collision with root package name */
-    public static final String[] f42697a;
+    /* renamed from: a */
+    public static final String[] f39711a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public static final String[] f42698b;
+    /* renamed from: b */
+    public static final String[] f39712b;
 
-    /* renamed from: c  reason: collision with root package name */
-    public static final String[] f42699c;
+    /* renamed from: c */
+    public static final String[] f39713c;
 
-    /* renamed from: d  reason: collision with root package name */
-    public static final String[] f42700d;
+    /* renamed from: d */
+    public static final String[] f39714d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,10 +41,10 @@ public class x0 {
                 return;
             }
         }
-        f42697a = new String[]{"as", "ac", "ao", "scb", "wdin", "asr", "wbas", "wbao"};
-        f42698b = new String[]{"ins", Config.DEVICE_BRAND, "wdtr", "witr"};
-        f42699c = new String[]{"be", "bce", "bpe", "ps", "scbe", "wdst", "wde", "wie", "dplop", "wbe"};
-        f42700d = new String[]{"Ld", "wdin", "wiin", "wdre", "wiop", "wii"};
+        f39711a = new String[]{"as", "ac", "ao", "scb", "wdin", "asr", "wbas", "wbao"};
+        f39712b = new String[]{"ins", Config.DEVICE_BRAND, "wdtr", "witr"};
+        f39713c = new String[]{"be", "bce", "bpe", "ps", "scbe", "wdst", "wde", "wie", "dplop", "wbe"};
+        f39714d = new String[]{"Ld", "wdin", "wiin", "wdre", "wiop", "wii"};
     }
 
     public x0() {
@@ -71,21 +71,21 @@ public class x0 {
         JSONStringer d2 = d();
         d2.key("e").value(str).key("timeis").value(c());
         if (y0Var != null) {
-            d2.key("pid").value(y0Var.f42708a);
-            if (y0Var.f42709b != null) {
+            d2.key("pid").value(y0Var.f39722a);
+            if (y0Var.f39723b != null) {
                 JSONStringer key = d2.key("traceid");
-                String traceid = y0Var.f42709b.getTraceid();
+                String traceid = y0Var.f39723b.getTraceid();
                 try {
                     traceid = z.a(traceid);
                 } catch (Exception unused) {
                 }
                 JSONStringer key2 = key.value(traceid).key(IAdRequestParam.CELL_ID);
-                String id = y0Var.f42709b.getId();
+                String id = y0Var.f39723b.getId();
                 try {
                     id = z.a(id);
                 } catch (Exception unused2) {
                 }
-                key2.value(id).key("type").value(y0Var.f42709b.getType());
+                key2.value(id).key("type").value(y0Var.f39723b.getType());
             }
         }
         return d2;
@@ -126,5 +126,10 @@ public class x0 {
         } catch (Exception unused) {
             return str;
         }
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.win.opensdk.w0.a(int, long):com.win.opensdk.w0] */
+    public static /* synthetic */ JSONStringer a() {
+        return new JSONStringer().object();
     }
 }

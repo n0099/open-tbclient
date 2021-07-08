@@ -17,18 +17,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f43496a;
+        public final String f40510a;
 
         /* renamed from: a  reason: collision with other field name */
         public final boolean f812a;
@@ -48,24 +48,24 @@ public final class j {
                     return;
                 }
             }
-            this.f43496a = str;
+            this.f40510a = str;
             this.f812a = z;
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43496a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40510a : (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static final class b implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final LinkedBlockingQueue<IBinder> f43497a;
+        public final LinkedBlockingQueue<IBinder> f40511a;
 
         /* renamed from: a  reason: collision with other field name */
         public boolean f813a;
@@ -84,7 +84,7 @@ public final class j {
                 }
             }
             this.f813a = false;
-            this.f43497a = new LinkedBlockingQueue<>(1);
+            this.f40511a = new LinkedBlockingQueue<>(1);
         }
 
         public /* synthetic */ b(k kVar) {
@@ -99,7 +99,7 @@ public final class j {
                     throw new IllegalStateException();
                 }
                 this.f813a = true;
-                return this.f43497a.poll(30000L, TimeUnit.MILLISECONDS);
+                return this.f40511a.poll(30000L, TimeUnit.MILLISECONDS);
             }
             return (IBinder) invokeV.objValue;
         }
@@ -109,7 +109,7 @@ public final class j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
                 try {
-                    this.f43497a.put(iBinder);
+                    this.f40511a.put(iBinder);
                 } catch (InterruptedException unused) {
                 }
             }
@@ -123,13 +123,13 @@ public final class j {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static final class c implements IInterface {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public IBinder f43498a;
+        public IBinder f40512a;
 
         public c(IBinder iBinder) {
             Interceptable interceptable = $ic;
@@ -146,7 +146,7 @@ public final class j {
                     return;
                 }
             }
-            this.f43498a = iBinder;
+            this.f40512a = iBinder;
         }
 
         public String a() {
@@ -157,7 +157,7 @@ public final class j {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.google.android.gms.ads.identifier.internal.IAdvertisingIdService");
-                    this.f43498a.transact(1, obtain, obtain2, 0);
+                    this.f40512a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -172,7 +172,7 @@ public final class j {
         public IBinder asBinder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43498a : (IBinder) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40512a : (IBinder) invokeV.objValue;
         }
     }
 

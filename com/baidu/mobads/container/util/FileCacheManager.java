@@ -17,7 +17,7 @@ import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
 import java.util.Comparator;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FileCacheManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FILE_CHECK_COMPLETION = 256;
@@ -27,12 +27,12 @@ public class FileCacheManager {
     public MyHandler mHandler;
     public IFileCacheCheckListener mListener;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface IFileCacheCheckListener {
         void checkFileCacheEnd();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class MyHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

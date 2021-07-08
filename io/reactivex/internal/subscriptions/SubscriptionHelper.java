@@ -1,5 +1,6 @@
 package io.reactivex.internal.subscriptions;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,7 +18,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class SubscriptionHelper implements Subscription {
     public static final /* synthetic */ SubscriptionHelper[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -102,7 +103,7 @@ public final class SubscriptionHelper implements Subscription {
     public static boolean deferredSetOnce(AtomicReference<Subscription> atomicReference, AtomicLong atomicLong, Subscription subscription) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, atomicReference, atomicLong, subscription)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, atomicReference, atomicLong, subscription)) == null) {
             if (setOnce(atomicReference, subscription)) {
                 long andSet = atomicLong.getAndSet(0L);
                 if (andSet != 0) {

@@ -1,6 +1,7 @@
 package com.baidu.livesdk.sdk.im.live;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.livesdk.api.im.ConnectListener;
 import com.baidu.livesdk.api.im.IMCastSetListener;
@@ -18,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LiveIMManager implements LiveIM {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -64,7 +65,7 @@ public class LiveIMManager implements LiveIM {
     /* JADX INFO: Access modifiers changed from: private */
     public void reconnect() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             try {
                 for (Map.Entry<String, LiveIMController> entry : this.mHashMap.entrySet()) {
                     LiveIMController liveIMController = this.mHashMap.get(entry.getKey());

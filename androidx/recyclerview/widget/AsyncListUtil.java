@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.UiThread;
 import androidx.annotation.WorkerThread;
+import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.ThreadUtil;
 import androidx.recyclerview.widget.TileList;
 import com.baidu.android.imsdk.internal.Constants;
@@ -330,7 +331,7 @@ public class AsyncListUtil<T> {
             private int getTileStart(int i5) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(65540, this, i5)) == null) ? i5 - (i5 % this.this$0.mTileSize) : invokeI.intValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i5)) == null) ? i5 - (i5 % this.this$0.mTileSize) : invokeI.intValue;
             }
 
             private boolean isTileLoaded(int i5) {

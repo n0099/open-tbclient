@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class m implements w {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f74692a;
+    public boolean f71744a;
 
     public m() {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public abstract class m implements w {
                 return;
             }
         }
-        this.f74692a = false;
+        this.f71744a = false;
     }
 
     @Override // d.l.a.e.b.f.w
@@ -37,13 +37,13 @@ public abstract class m implements w {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || list == null || list.isEmpty()) {
             return;
         }
-        this.f74692a = true;
+        this.f71744a = true;
     }
 
     @Override // d.l.a.e.b.f.w
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f74692a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71744a : invokeV.booleanValue;
     }
 }

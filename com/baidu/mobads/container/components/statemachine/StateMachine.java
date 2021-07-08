@@ -2,6 +2,7 @@ package com.baidu.mobads.container.components.statemachine;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.adrequest.IXAdInstanceInfo;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.container.util.RemoteXAdLogger;
@@ -17,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class StateMachine {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_CACHED_AD_NUM = 100;
@@ -89,7 +90,7 @@ public class StateMachine {
 
     public static void event(String str, AdStateCode adStateCode) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, str, adStateCode) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, adStateCode) == null) {
         }
     }
 

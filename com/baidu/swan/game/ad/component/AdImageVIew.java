@@ -18,18 +18,18 @@ import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
 import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AdImageVIew extends AppCompatImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends BaseBitmapDataSubscriber {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AdImageVIew f11737a;
+        public final /* synthetic */ AdImageVIew f11754a;
 
         public a(AdImageVIew adImageVIew) {
             Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class AdImageVIew extends AppCompatImageView {
                     return;
                 }
             }
-            this.f11737a = adImageVIew;
+            this.f11754a = adImageVIew;
         }
 
         @Override // com.facebook.datasource.BaseDataSubscriber
@@ -62,7 +62,7 @@ public class AdImageVIew extends AppCompatImageView {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) || bitmap == null) {
                 return;
             }
-            this.f11737a.setImageBitmap(bitmap);
+            this.f11754a.setImageBitmap(bitmap);
         }
     }
 

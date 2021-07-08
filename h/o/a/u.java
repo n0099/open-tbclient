@@ -9,61 +9,61 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.d;
 import h.g;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class u<T> implements d.b<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final a<T> f75498e;
+    public final a<T> f72532e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final b<T> f75499f;
+    public final b<T> f72533f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final h.d<? extends T> f75500g;
+    public final h.d<? extends T> f72534g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final h.g f75501h;
+    public final h.g f72535h;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface a<T> extends h.n.h<c<T>, Long, g.a, h.k> {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface b<T> extends h.n.i<c<T>, Long, T, g.a, h.k> {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class c<T> extends h.j<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.u.d f75502e;
+        public final h.u.d f72536e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final h.q.e<T> f75503f;
+        public final h.q.e<T> f72537f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final b<T> f75504g;
+        public final b<T> f72538g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final h.d<? extends T> f75505h;
+        public final h.d<? extends T> f72539h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final g.a f75506i;
+        public final g.a f72540i;
         public final h.o.b.a j;
         public boolean k;
         public long l;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes8.dex */
         public class a extends h.j<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f75507e;
+            public final /* synthetic */ c f72541e;
 
             public a(c cVar) {
                 Interceptable interceptable = $ic;
@@ -80,14 +80,14 @@ public class u<T> implements d.b<T, T> {
                         return;
                     }
                 }
-                this.f75507e = cVar;
+                this.f72541e = cVar;
             }
 
             @Override // h.e
             public void onCompleted() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f75507e.f75503f.onCompleted();
+                    this.f72541e.f72537f.onCompleted();
                 }
             }
 
@@ -95,7 +95,7 @@ public class u<T> implements d.b<T, T> {
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                    this.f75507e.f75503f.onError(th);
+                    this.f72541e.f72537f.onError(th);
                 }
             }
 
@@ -103,7 +103,7 @@ public class u<T> implements d.b<T, T> {
             public void onNext(T t) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                    this.f75507e.f75503f.onNext(t);
+                    this.f72541e.f72537f.onNext(t);
                 }
             }
 
@@ -111,7 +111,7 @@ public class u<T> implements d.b<T, T> {
             public void setProducer(h.f fVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
-                    this.f75507e.j.c(fVar);
+                    this.f72541e.j.c(fVar);
                 }
             }
         }
@@ -131,11 +131,11 @@ public class u<T> implements d.b<T, T> {
                     return;
                 }
             }
-            this.f75503f = eVar;
-            this.f75504g = bVar;
-            this.f75502e = dVar;
-            this.f75505h = dVar2;
-            this.f75506i = aVar;
+            this.f72537f = eVar;
+            this.f72538g = bVar;
+            this.f72536e = dVar;
+            this.f72539h = dVar2;
+            this.f72540i = aVar;
             this.j = new h.o.b.a();
         }
 
@@ -152,13 +152,13 @@ public class u<T> implements d.b<T, T> {
                     }
                 }
                 if (z) {
-                    if (this.f75505h == null) {
-                        this.f75503f.onError(new TimeoutException());
+                    if (this.f72539h == null) {
+                        this.f72537f.onError(new TimeoutException());
                         return;
                     }
                     a aVar = new a(this);
-                    this.f75505h.I(aVar);
-                    this.f75502e.a(aVar);
+                    this.f72539h.I(aVar);
+                    this.f72536e.a(aVar);
                 }
             }
         }
@@ -177,8 +177,8 @@ public class u<T> implements d.b<T, T> {
                     }
                 }
                 if (z) {
-                    this.f75502e.unsubscribe();
-                    this.f75503f.onCompleted();
+                    this.f72536e.unsubscribe();
+                    this.f72537f.onCompleted();
                 }
             }
         }
@@ -197,8 +197,8 @@ public class u<T> implements d.b<T, T> {
                     }
                 }
                 if (z) {
-                    this.f75502e.unsubscribe();
-                    this.f75503f.onError(th);
+                    this.f72536e.unsubscribe();
+                    this.f72537f.onError(th);
                 }
             }
         }
@@ -220,8 +220,8 @@ public class u<T> implements d.b<T, T> {
                     }
                 }
                 if (z) {
-                    this.f75503f.onNext(t);
-                    this.f75502e.a(this.f75504g.a(this, Long.valueOf(j), t, this.f75506i));
+                    this.f72537f.onNext(t);
+                    this.f72536e.a(this.f72538g.a(this, Long.valueOf(j), t, this.f72540i));
                 }
             }
         }
@@ -250,10 +250,10 @@ public class u<T> implements d.b<T, T> {
                 return;
             }
         }
-        this.f75498e = aVar;
-        this.f75499f = bVar;
-        this.f75500g = dVar;
-        this.f75501h = gVar;
+        this.f72532e = aVar;
+        this.f72533f = bVar;
+        this.f72534g = dVar;
+        this.f72535h = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -263,15 +263,15 @@ public class u<T> implements d.b<T, T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jVar)) == null) {
-            g.a createWorker = this.f75501h.createWorker();
+            g.a createWorker = this.f72535h.createWorker();
             jVar.add(createWorker);
             h.q.e eVar = new h.q.e(jVar);
             h.u.d dVar = new h.u.d();
             eVar.add(dVar);
-            c cVar = new c(eVar, this.f75499f, dVar, this.f75500g, createWorker);
+            c cVar = new c(eVar, this.f72533f, dVar, this.f72534g, createWorker);
             eVar.add(cVar);
             eVar.setProducer(cVar.j);
-            dVar.a(this.f75498e.a(cVar, 0L, createWorker));
+            dVar.a(this.f72532e.a(cVar, 0L, createWorker));
             return cVar;
         }
         return (h.j) invokeL.objValue;

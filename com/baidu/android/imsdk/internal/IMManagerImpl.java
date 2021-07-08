@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.internal;
 
 import android.content.Context;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.Utility;
@@ -96,7 +97,7 @@ public class IMManagerImpl {
     public static String getVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? String.valueOf(IMConfigInternal.getInstance().getSDKVersionValue(sContext)) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? String.valueOf(IMConfigInternal.getInstance().getSDKVersionValue(sContext)) : (String) invokeV.objValue;
     }
 
     private boolean isKickOffMsg(ChatMsg chatMsg) {

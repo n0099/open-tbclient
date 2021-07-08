@@ -3,6 +3,7 @@ package com.yy.hiidostatis.inner.util;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Process;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.cipher.Coder;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class ProcessUtil {
     public static /* synthetic */ Interceptable $ic;
     public static String mCurProcessName;
@@ -98,7 +99,7 @@ public final class ProcessUtil {
     public static boolean isBackground(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             try {
                 List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
                 String packageName = context.getPackageName();

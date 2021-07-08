@@ -1,5 +1,6 @@
 package rx.internal.schedulers;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,7 +16,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
 import rx.internal.util.RxThreadFactory;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class GenericScheduledExecutorServiceFactory {
     public static final /* synthetic */ GenericScheduledExecutorServiceFactory[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -81,7 +82,7 @@ public final class GenericScheduledExecutorServiceFactory {
     public static ThreadFactory threadFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? THREAD_FACTORY : (ThreadFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? THREAD_FACTORY : (ThreadFactory) invokeV.objValue;
     }
 
     public static GenericScheduledExecutorServiceFactory valueOf(String str) {

@@ -1,6 +1,7 @@
 package com.baidu.tieba.funAd.http;
 
 import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FunAdRecordHttpMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLICK_AD_RECORD = "c14116";
@@ -74,7 +75,7 @@ public class FunAdRecordHttpMessage extends HttpMessage {
 
     public static void uploadShowOrClickRecord(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10}) == null) && FunAdServerRecordSwitch.isOpen()) {
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10}) == null) && FunAdServerRecordSwitch.isOpen()) {
             MessageManager.getInstance().sendMessage(new FunAdRecordHttpMessage(str, 6, str2, str3, str4, str5, str6, str7, str8, str9, str10));
         }
     }

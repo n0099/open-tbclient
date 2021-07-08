@@ -2,6 +2,7 @@ package com.baidu.android.common.util;
 
 import android.util.Log;
 import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -365,7 +366,7 @@ public class HanziToPinyin {
     public static String buildUnihansIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             String str = "";
             for (int i2 = 0; i2 < UNIHANS.length; i2++) {
                 str = str + HANZI.indexOf(UNIHANS[i2]);

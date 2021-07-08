@@ -6,9 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.core.config.item.AvatarGuiderConfigItem;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class w implements com.kwad.sdk.core.c<com.kwad.sdk.core.g.a.g> {
+/* loaded from: classes6.dex */
+public class w implements com.kwad.sdk.core.d<AvatarGuiderConfigItem.AvatarGuiderConfig> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,27 +28,31 @@ public class w implements com.kwad.sdk.core.c<com.kwad.sdk.core.g.a.g> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public JSONObject a(com.kwad.sdk.core.g.a.g gVar) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.core.d
+    public void a(AvatarGuiderConfigItem.AvatarGuiderConfig avatarGuiderConfig, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "feedAdH5Version", gVar.f36141a);
-            com.kwad.sdk.utils.o.a(jSONObject, "feedAdH5Url", gVar.f36142b);
-            return jSONObject;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, avatarGuiderConfig, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return (JSONObject) invokeL.objValue;
+        avatarGuiderConfig.showByPlayRate = jSONObject.optInt("showByPlayRate", new Integer("70").intValue());
+        avatarGuiderConfig.showTimeLength = jSONObject.optInt("showTimeLength", new Integer("3000").intValue());
+        avatarGuiderConfig.showMaxTimes = jSONObject.optInt("showMaxTimes", new Integer("7").intValue());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public void a(com.kwad.sdk.core.g.a.g gVar, JSONObject jSONObject) {
+    @Override // com.kwad.sdk.core.d
+    public JSONObject b(AvatarGuiderConfigItem.AvatarGuiderConfig avatarGuiderConfig, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, gVar, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, avatarGuiderConfig, jSONObject)) == null) {
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
+            }
+            com.kwad.sdk.utils.q.a(jSONObject, "showByPlayRate", avatarGuiderConfig.showByPlayRate);
+            com.kwad.sdk.utils.q.a(jSONObject, "showTimeLength", avatarGuiderConfig.showTimeLength);
+            com.kwad.sdk.utils.q.a(jSONObject, "showMaxTimes", avatarGuiderConfig.showMaxTimes);
+            return jSONObject;
         }
-        gVar.f36141a = jSONObject.optString("feedAdH5Version");
-        gVar.f36142b = jSONObject.optString("feedAdH5Url");
+        return (JSONObject) invokeLL.objValue;
     }
 }

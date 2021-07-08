@@ -1,5 +1,6 @@
 package com.google.common.collect;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +18,7 @@ import java.io.ObjectOutputStream;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class HashMultimap<K, V> extends HashMultimapGwtSerializationDependencies<K, V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_VALUES_PER_KEY = 2;
@@ -202,7 +203,7 @@ public final class HashMultimap<K, V> extends HashMultimapGwtSerializationDepend
     public static <K, V> HashMultimap<K, V> create(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65540, null, i2, i3)) == null) ? new HashMultimap<>(i2, i3) : (HashMultimap) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3)) == null) ? new HashMultimap<>(i2, i3) : (HashMultimap) invokeII.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

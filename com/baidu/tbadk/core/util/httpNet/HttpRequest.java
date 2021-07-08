@@ -18,12 +18,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.j;
-import d.a.r0.f0.f;
-import d.a.r0.r.d0.b;
-import d.a.r0.r.l.c;
-import d.a.r0.r.l.e;
-import d.a.r0.s.b.a;
-/* loaded from: classes4.dex */
+import d.a.o0.f0.f;
+import d.a.o0.r.d0.b;
+import d.a.o0.r.l.c;
+import d.a.o0.r.l.e;
+import d.a.o0.s.b.a;
+/* loaded from: classes3.dex */
 public class HttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BDUSS = "BDUSS";

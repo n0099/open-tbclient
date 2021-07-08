@@ -14,6 +14,7 @@ import android.os.Handler;
 import android.os.ResultReceiver;
 import android.view.KeyEvent;
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -182,7 +183,7 @@ public class MediaControllerCompatApi21 {
         public static int getMaxVolume(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, obj)) == null) ? ((MediaController.PlaybackInfo) obj).getMaxVolume() : invokeL.intValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) ? ((MediaController.PlaybackInfo) obj).getMaxVolume() : invokeL.intValue;
         }
 
         public static int getPlaybackType(Object obj) {
@@ -276,7 +277,7 @@ public class MediaControllerCompatApi21 {
 
         public static void playFromMediaId(Object obj, String str, Bundle bundle) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(65540, null, obj, str, bundle) == null) {
+            if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str, bundle) == null) {
                 ((MediaController.TransportControls) obj).playFromMediaId(str, bundle);
             }
         }
@@ -381,7 +382,7 @@ public class MediaControllerCompatApi21 {
     public static Object fromToken(Context context, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, obj)) == null) ? new MediaController(context, (MediaSession.Token) obj) : invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, obj)) == null) ? new MediaController(context, (MediaSession.Token) obj) : invokeLL.objValue;
     }
 
     public static Bundle getExtras(Object obj) {

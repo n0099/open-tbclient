@@ -18,22 +18,22 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static h f43868d;
+    public static h f40884d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Resources f43869a;
+    public Resources f40885a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<String> f43870b;
+    public ArrayList<String> f40886b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashSet<String> f43871c;
+    public HashSet<String> f40887c;
 
     static {
         InterceptResult invokeClinit;
@@ -63,23 +63,23 @@ public class h {
                 return;
             }
         }
-        this.f43869a = null;
-        this.f43870b = null;
-        this.f43871c = null;
+        this.f40885a = null;
+        this.f40886b = null;
+        this.f40887c = null;
     }
 
     public static h a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f43868d == null) {
+            if (f40884d == null) {
                 synchronized (h.class) {
-                    if (f43868d == null) {
-                        f43868d = new h();
+                    if (f40884d == null) {
+                        f40884d = new h();
                     }
                 }
             }
-            return f43868d;
+            return f40884d;
         }
         return (h) invokeV.objValue;
     }
@@ -90,7 +90,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                resources = this.f43869a;
+                resources = this.f40885a;
             }
             return resources;
         }
@@ -102,37 +102,37 @@ public class h {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
             synchronized (this) {
                 if (!TextUtils.isEmpty(str2)) {
-                    if (this.f43869a != null) {
+                    if (this.f40885a != null) {
                         if (!TextUtils.isEmpty(str)) {
-                            if (this.f43871c == null) {
-                                this.f43871c = new HashSet<>();
+                            if (this.f40887c == null) {
+                                this.f40887c = new HashSet<>();
                             }
-                            if (this.f43871c.contains(str)) {
+                            if (this.f40887c.contains(str)) {
                                 d.a.c.h.h.a.b().o("plugin_load", "repeat_inject_res", str, str2);
                             }
-                            this.f43871c.add(str);
+                            this.f40887c.add(str);
                         }
-                        if (this.f43870b == null) {
-                            this.f43870b = new ArrayList<>();
+                        if (this.f40886b == null) {
+                            this.f40886b = new ArrayList<>();
                         }
-                        if (this.f43870b.contains(str2)) {
+                        if (this.f40886b.contains(str2)) {
                             return;
                         }
                         if (Build.VERSION.SDK_INT >= 20) {
-                            d.a.c.h.k.d.a(this.f43869a.getAssets(), V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{str2});
+                            d.a.c.h.k.d.a(this.f40885a.getAssets(), V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{str2});
                         } else {
                             AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
-                            if (this.f43870b.size() > 0) {
-                                Iterator<String> it = this.f43870b.iterator();
+                            if (this.f40886b.size() > 0) {
+                                Iterator<String> it = this.f40886b.iterator();
                                 while (it.hasNext()) {
                                     d.a.c.h.k.d.a(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{it.next()});
                                 }
                             }
                             d.a.c.h.k.d.a(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{str2});
                             d.a.c.h.k.d.a(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{BdBaseApplication.getInst().getApp().getPackageCodePath()});
-                            this.f43869a = new Resources(assetManager, this.f43869a.getDisplayMetrics(), this.f43869a.getConfiguration());
+                            this.f40885a = new Resources(assetManager, this.f40885a.getDisplayMetrics(), this.f40885a.getConfiguration());
                         }
-                        this.f43870b.add(str2);
+                        this.f40886b.add(str2);
                         return;
                     }
                     throw new RuntimeException("hostResources is null");
@@ -146,7 +146,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resources) == null) {
             synchronized (this) {
-                this.f43869a = resources;
+                this.f40885a = resources;
             }
         }
     }

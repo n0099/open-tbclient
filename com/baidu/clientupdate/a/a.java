@@ -9,37 +9,37 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f4604a;
+    public String f4621a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4605b;
+    public String f4622b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f4606c;
+    public String f4623c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f4607d;
+    public String f4624d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONArray f4608e;
+    public JSONArray f4625e;
 
     /* renamed from: f  reason: collision with root package name */
-    public JSONArray f4609f;
+    public JSONArray f4626f;
 
     /* renamed from: g  reason: collision with root package name */
-    public JSONArray f4610g;
+    public JSONArray f4627g;
 
     /* renamed from: h  reason: collision with root package name */
-    public JSONArray f4611h;
+    public JSONArray f4628h;
 
     /* renamed from: i  reason: collision with root package name */
-    public JSONArray f4612i;
+    public JSONArray f4629i;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -70,71 +70,71 @@ public class a implements Serializable {
                 return;
             }
         }
-        this.f4605b = str;
-        this.f4607d = str2;
-        this.f4604a = str3;
-        this.f4606c = str4;
-        this.f4608e = jSONArray;
-        this.f4609f = jSONArray2;
-        this.f4610g = jSONArray3;
-        this.f4611h = jSONArray4;
-        this.f4612i = jSONArray5;
+        this.f4622b = str;
+        this.f4624d = str2;
+        this.f4621a = str3;
+        this.f4623c = str4;
+        this.f4625e = jSONArray;
+        this.f4626f = jSONArray2;
+        this.f4627g = jSONArray3;
+        this.f4628h = jSONArray4;
+        this.f4629i = jSONArray5;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4604a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4621a : (String) invokeV.objValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f4604a = str;
+            this.f4621a = str;
         }
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4606c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4623c : (String) invokeV.objValue;
     }
 
     public JSONArray c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f4608e : (JSONArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f4625e : (JSONArray) invokeV.objValue;
     }
 
     public JSONArray d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f4609f : (JSONArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f4626f : (JSONArray) invokeV.objValue;
     }
 
     public JSONArray e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f4610g : (JSONArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f4627g : (JSONArray) invokeV.objValue;
     }
 
     public JSONArray f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f4611h : (JSONArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f4628h : (JSONArray) invokeV.objValue;
     }
 
     public JSONArray g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f4612i : (JSONArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f4629i : (JSONArray) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "LogModel{sessioninfo='" + this.f4604a + "', ug='" + this.f4605b + "', nm='" + this.f4606c + "', flag='" + this.f4607d + "', stm=" + this.f4608e + ", sc=" + this.f4609f + ", etm=" + this.f4610g + ", mg=" + this.f4611h + ", ex=" + this.f4612i + '}';
+            return "LogModel{sessioninfo='" + this.f4621a + "', ug='" + this.f4622b + "', nm='" + this.f4623c + "', flag='" + this.f4624d + "', stm=" + this.f4625e + ", sc=" + this.f4626f + ", etm=" + this.f4627g + ", mg=" + this.f4628h + ", ex=" + this.f4629i + '}';
         }
         return (String) invokeV.objValue;
     }

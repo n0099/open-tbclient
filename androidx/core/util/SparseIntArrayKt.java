@@ -1,6 +1,7 @@
 package androidx.core.util;
 
 import android.util.SparseIntArray;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +51,7 @@ public final class SparseIntArrayKt {
     public static final int getOrDefault(SparseIntArray sparseIntArray, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65540, null, sparseIntArray, i2, i3)) == null) ? sparseIntArray.get(i2, i3) : invokeLII.intValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, sparseIntArray, i2, i3)) == null) ? sparseIntArray.get(i2, i3) : invokeLII.intValue;
     }
 
     public static final int getOrElse(SparseIntArray sparseIntArray, int i2, Function0<Integer> function0) {

@@ -3,6 +3,7 @@ package org.webrtc;
 import android.graphics.ImageFormat;
 import android.support.v4.media.session.MediaSessionCompat;
 import androidx.core.view.DisplayCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -22,14 +23,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class CameraEnumerationAndroid {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ArrayList<Size> COMMON_RESOLUTIONS;
     public static final String TAG = "CameraEnumerationAndroid";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class CaptureFormat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +39,7 @@ public class CameraEnumerationAndroid {
         public final int imageFormat;
         public final int width;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes9.dex */
         public static class FramerateRange {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -182,7 +183,7 @@ public class CameraEnumerationAndroid {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static abstract class ClosestComparator<T> implements Comparator<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -335,7 +336,7 @@ public class CameraEnumerationAndroid {
 
     public static void reportCameraResolution(Histogram histogram, Size size) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, histogram, size) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, histogram, size) == null) {
             histogram.addSample(COMMON_RESOLUTIONS.indexOf(size) + 1);
         }
     }

@@ -27,12 +27,12 @@ import d.l.a.d.h;
 import d.l.a.e.b.a.a;
 import d.l.a.e.b.f.i;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class f implements d.l.a.a.a.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class a implements a.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class f implements d.l.a.a.a.b {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class b implements i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,7 +150,7 @@ public class f implements d.l.a.a.a.b {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -184,18 +184,18 @@ public class f implements d.l.a.a.a.b {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes8.dex */
         public static class a implements b<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Runnable f74427a;
+            public final /* synthetic */ Runnable f71479a;
 
             public a(Runnable runnable) {
                 Interceptable interceptable = $ic;
@@ -212,7 +212,7 @@ public class f implements d.l.a.a.a.b {
                         return;
                     }
                 }
-                this.f74427a = runnable;
+                this.f71479a = runnable;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -222,14 +222,14 @@ public class f implements d.l.a.a.a.b {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    this.f74427a.run();
+                    this.f71479a.run();
                     return null;
                 }
                 return (Void) invokeV.objValue;
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes8.dex */
         public interface b<T> {
             T b();
         }
@@ -269,17 +269,17 @@ public class f implements d.l.a.a.a.b {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class e implements d.l.a.a.a.e.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes8.dex */
         public static class a {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static e f74428a;
+            public static e f71480a;
             public transient /* synthetic */ FieldHolder $fh;
 
             static {
@@ -295,7 +295,7 @@ public class f implements d.l.a.a.a.b {
                         return;
                     }
                 }
-                f74428a = new e();
+                f71480a = new e();
             }
         }
 
@@ -316,7 +316,7 @@ public class f implements d.l.a.a.a.b {
         public static e b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f74428a : (e) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f71480a : (e) invokeV.objValue;
         }
 
         public static String c(Throwable th) {

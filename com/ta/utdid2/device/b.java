@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.ta.utdid2.a.a.f;
 import java.util.zip.Adler32;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f41682a;
+    public static a f38696a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Object f41683d;
+    public static final Object f38697d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class b {
                 return;
             }
         }
-        f41683d = new Object();
+        f38697d = new Object();
     }
 
     public static long a(a aVar) {
@@ -59,12 +59,12 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             synchronized (b.class) {
-                if (f41682a != null) {
-                    return f41682a;
+                if (f38696a != null) {
+                    return f38696a;
                 }
                 if (context != null) {
                     a a2 = a(context);
-                    f41682a = a2;
+                    f38696a = a2;
                     return a2;
                 }
                 return null;
@@ -78,7 +78,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             if (context != null) {
-                synchronized (f41683d) {
+                synchronized (f38697d) {
                     String value = c.a(context).getValue();
                     if (f.isEmpty(value)) {
                         return null;

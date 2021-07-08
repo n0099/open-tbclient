@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.b;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +16,7 @@ import java.security.spec.RSAPrivateKeySpec;
 import java.security.spec.RSAPublicKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -126,7 +127,7 @@ public class h {
     public static String b(byte[] bArr, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, bArr, str)) == null) ? new String(b(bArr, str, RsaCipher.RSA_PADDING), "UTF-8") : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, str)) == null) ? new String(b(bArr, str, RsaCipher.RSA_PADDING), "UTF-8") : (String) invokeLL.objValue;
     }
 
     public static byte[] b(byte[] bArr, String str, String str2) {

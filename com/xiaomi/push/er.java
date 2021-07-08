@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.ServiceInfo;
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,12 +13,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.service.XMJobService;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class er {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f43058a;
+    public static int f40072a;
 
     /* renamed from: a  reason: collision with other field name */
     public static a f333a;
@@ -26,7 +27,7 @@ public final class er {
     public static final String f334a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a();
 
@@ -50,7 +51,7 @@ public final class er {
             }
         }
         f334a = XMJobService.class.getCanonicalName();
-        f43058a = 0;
+        f40072a = 0;
     }
 
     public static synchronized void a() {
@@ -136,15 +137,15 @@ public final class er {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65539, null, context, i2) == null) {
             synchronized (er.class) {
-                int i3 = f43058a;
+                int i3 = f40072a;
                 if (!"com.xiaomi.xmsf".equals(context.getPackageName())) {
                     if (i2 == 2) {
-                        f43058a = 2;
+                        f40072a = 2;
                     } else {
-                        f43058a = 0;
+                        f40072a = 0;
                     }
                 }
-                if (i3 != f43058a && f43058a == 2) {
+                if (i3 != f40072a && f40072a == 2) {
                     a();
                     f333a = new eu(context);
                 }
@@ -154,7 +155,7 @@ public final class er {
 
     public static synchronized void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65540, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
             synchronized (er.class) {
                 if (f333a == null) {
                     com.xiaomi.channel.commonutils.logger.b.m70a("timer is not initialized");

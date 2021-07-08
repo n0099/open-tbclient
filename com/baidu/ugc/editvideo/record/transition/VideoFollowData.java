@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.y0.j.b;
+import d.a.v0.j.b;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class VideoFollowData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUDIO_TYPE_FOLLOW = 0;
@@ -81,7 +81,7 @@ public class VideoFollowData implements Serializable {
     public static boolean isSameStyleFollowType(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? TextUtils.equals("2", str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? TextUtils.equals("2", str) : invokeL.booleanValue;
     }
 
     public static VideoFollowData parse(String str) {

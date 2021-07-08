@@ -26,20 +26,20 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public SparseArray<a<n, TypeAdapter.ViewHolder>> f2395e;
+    public SparseArray<a<n, TypeAdapter.ViewHolder>> f2396e;
     @SuppressLint({"UseSparseArrays"})
 
     /* renamed from: f  reason: collision with root package name */
-    public SparseArray<Integer> f2396f;
+    public SparseArray<Integer> f2397f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<n> f2397g;
+    public List<n> f2398g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RecyclerView f2398h;
+    public RecyclerView f2399h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f2399i;
+    public int f2400i;
 
     public RecyclerViewTypeAdapter() {
         Interceptable interceptable = $ic;
@@ -54,10 +54,10 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
                 return;
             }
         }
-        this.f2396f = new SparseArray<>();
-        this.f2397g = new ArrayList();
-        this.f2398h = null;
-        this.f2399i = -1;
+        this.f2397f = new SparseArray<>();
+        this.f2398g = new ArrayList();
+        this.f2399h = null;
+        this.f2400i = -1;
     }
 
     @Override // d.a.c.k.e.r
@@ -65,13 +65,13 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
-            List<n> list = this.f2397g;
+            List<n> list = this.f2398g;
             if (list != null && list.size() != 0) {
-                int size = this.f2397g.size();
+                int size = this.f2398g.size();
                 int i4 = -1;
                 for (int i5 = 0; i5 < size; i5++) {
-                    if (this.f2397g.get(i5) != null && this.f2397g.get(i5).getType() != null) {
-                        if (i3 == this.f2397g.get(i5).getType().getId()) {
+                    if (this.f2398g.get(i5) != null && this.f2398g.get(i5).getType() != null) {
+                        if (i3 == this.f2398g.get(i5).getType().getId()) {
                             i4++;
                         }
                         if (i5 == i2) {
@@ -96,14 +96,14 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
                 return null;
             }
             int i2 = -1;
-            SparseArray<a<n, TypeAdapter.ViewHolder>> sparseArray = this.f2395e;
-            if (sparseArray != null && sparseArray.size() != 0 && (type = nVar.getType()) != null && (num = this.f2396f.get(type.getId())) != null) {
+            SparseArray<a<n, TypeAdapter.ViewHolder>> sparseArray = this.f2396e;
+            if (sparseArray != null && sparseArray.size() != 0 && (type = nVar.getType()) != null && (num = this.f2397f.get(type.getId())) != null) {
                 i2 = num.intValue();
             }
-            if (i2 < 0 || i2 >= this.f2395e.size()) {
+            if (i2 < 0 || i2 >= this.f2396e.size()) {
                 return null;
             }
-            return this.f2395e.get(i2);
+            return this.f2396e.get(i2);
         }
         return (a) invokeL.objValue;
     }
@@ -113,15 +113,62 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) || aVar == null || aVar.H() == null) {
             return;
         }
-        if (this.f2395e == null) {
-            this.f2395e = new SparseArray<>();
+        if (this.f2396e == null) {
+            this.f2396e = new SparseArray<>();
         }
         if (aVar.H() != null) {
             aVar.Z(this);
             int id = aVar.H().getId();
-            int size = this.f2395e.size();
-            this.f2395e.put(size, aVar);
-            this.f2396f.put(id, Integer.valueOf(size));
+            int size = this.f2396e.size();
+            this.f2396e.put(size, aVar);
+            this.f2397f.put(id, Integer.valueOf(size));
+        }
+    }
+
+    public List<n> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2398g : (List) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.a.c.k.e.o
+    /* renamed from: f */
+    public n getItem(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+            List<n> list = this.f2398g;
+            if (list != null) {
+                int size = list.size();
+                if (i2 < 0 || i2 >= size) {
+                    return null;
+                }
+                return this.f2398g.get(i2);
+            }
+            return null;
+        }
+        return (n) invokeI.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    /* renamed from: g */
+    public void onBindViewHolder(TypeAdapter.ViewHolder viewHolder, int i2) {
+        a<n, TypeAdapter.ViewHolder> aVar;
+        n item;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048581, this, viewHolder, i2) == null) || viewHolder == null || this.f2396e == null || this.f2398g == null) {
+            return;
+        }
+        int itemCount = getItemCount();
+        if (i2 < 0 || i2 >= itemCount || (aVar = this.f2396e.get(getItemViewType(i2))) == null || (item = getItem(i2)) == null || !(item instanceof n)) {
+            return;
+        }
+        try {
+            aVar.Y(i2, this.f2399h, viewHolder, item);
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -129,15 +176,15 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getItemCount() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? getItemCount() : invokeV.intValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<n> list = this.f2397g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            List<n> list = this.f2398g;
             if (list != null) {
                 return list.size();
             }
@@ -150,7 +197,7 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
     public long getItemId(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? i2 : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) ? i2 : invokeI.longValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -160,10 +207,10 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
         BdUniqueId type;
         Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            this.f2399i = i2;
-            SparseArray<a<n, TypeAdapter.ViewHolder>> sparseArray = this.f2395e;
-            if (sparseArray == null || sparseArray.size() == 0 || (item = getItem(i2)) == null || (type = item.getType()) == null || (num = this.f2396f.get(type.getId())) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
+            this.f2400i = i2;
+            SparseArray<a<n, TypeAdapter.ViewHolder>> sparseArray = this.f2396e;
+            if (sparseArray == null || sparseArray.size() == 0 || (item = getItem(i2)) == null || (type = item.getType()) == null || (num = this.f2397f.get(type.getId())) == null) {
                 return -1;
             }
             return num.intValue();
@@ -171,66 +218,19 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
         return invokeI.intValue;
     }
 
-    public List<n> m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f2397g : (List) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.c.k.e.o
-    /* renamed from: n */
-    public n getItem(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            List<n> list = this.f2397g;
-            if (list != null) {
-                int size = list.size();
-                if (i2 < 0 || i2 >= size) {
-                    return null;
-                }
-                return this.f2397g.get(i2);
-            }
-            return null;
-        }
-        return (n) invokeI.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: o */
-    public void onBindViewHolder(TypeAdapter.ViewHolder viewHolder, int i2) {
-        a<n, TypeAdapter.ViewHolder> aVar;
-        n item;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048586, this, viewHolder, i2) == null) || viewHolder == null || this.f2395e == null || this.f2397g == null) {
-            return;
-        }
-        int itemCount = getItemCount();
-        if (i2 < 0 || i2 >= itemCount || (aVar = this.f2395e.get(getItemViewType(i2))) == null || (item = getItem(i2)) == null || !(item instanceof n)) {
-            return;
-        }
-        try {
-            aVar.Y(i2, this.f2398h, viewHolder, item);
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: p */
+    /* renamed from: h */
     public TypeAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i2) {
         InterceptResult invokeLI;
         a<n, TypeAdapter.ViewHolder> aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048589, this, viewGroup, i2)) == null) {
-            if (this.f2398h == null) {
-                this.f2398h = (RecyclerView) viewGroup;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048587, this, viewGroup, i2)) == null) {
+            if (this.f2399h == null) {
+                this.f2399h = (RecyclerView) viewGroup;
             }
-            n item = getItem(this.f2399i);
-            SparseArray<a<n, TypeAdapter.ViewHolder>> sparseArray = this.f2395e;
+            n item = getItem(this.f2400i);
+            SparseArray<a<n, TypeAdapter.ViewHolder>> sparseArray = this.f2396e;
             TypeAdapter.ViewHolder viewHolder = null;
             if (sparseArray != null && (aVar = sparseArray.get(i2)) != null) {
                 try {
@@ -247,30 +247,30 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
         return (TypeAdapter.ViewHolder) invokeLI.objValue;
     }
 
-    public void q(ViewGroup viewGroup, View view, int i2, long j) {
+    public void i(ViewGroup viewGroup, View view, int i2, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{viewGroup, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || this.f2395e == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{viewGroup, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || this.f2396e == null) {
             return;
         }
         n item = getItem(i2);
         int itemViewType = getItemViewType(i2);
-        a<n, TypeAdapter.ViewHolder> valueAt = itemViewType >= 0 ? this.f2395e.valueAt(itemViewType) : null;
+        a<n, TypeAdapter.ViewHolder> valueAt = itemViewType >= 0 ? this.f2396e.valueAt(itemViewType) : null;
         if (valueAt == null || valueAt.A() == null) {
             return;
         }
         valueAt.A().b(view, item, valueAt.H(), viewGroup, i2, j);
     }
 
-    public boolean r(ViewGroup viewGroup, View view, int i2, long j) {
+    public boolean j(ViewGroup viewGroup, View view, int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{viewGroup, view, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
-            if (this.f2395e == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{viewGroup, view, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+            if (this.f2396e == null) {
                 return false;
             }
             n item = getItem(i2);
             int itemViewType = getItemViewType(i2);
-            a<n, TypeAdapter.ViewHolder> valueAt = itemViewType >= 0 ? this.f2395e.valueAt(itemViewType) : null;
+            a<n, TypeAdapter.ViewHolder> valueAt = itemViewType >= 0 ? this.f2396e.valueAt(itemViewType) : null;
             if (valueAt == null || valueAt.B() == null) {
                 return false;
             }
@@ -279,49 +279,49 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
         return invokeCommon.booleanValue;
     }
 
-    public void s(int i2, int i3) {
+    public void k(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048592, this, i2, i3) == null) || i2 >= this.f2397g.size()) {
+        if (!(interceptable == null || interceptable.invokeII(1048590, this, i2, i3) == null) || i2 >= this.f2398g.size()) {
             return;
         }
-        this.f2397g.remove(i2);
+        this.f2398g.remove(i2);
         notifyItemRemoved(i2 + i3);
+    }
+
+    public void l(int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIII(1048591, this, i2, i3, i4) == null) || i2 >= this.f2398g.size() || i3 >= this.f2398g.size() || i2 > i3) {
+            return;
+        }
+        this.f2398g.subList(i2, i3 + 1).clear();
+        notifyItemRangeRemoved(i4 + i2, (i3 - i2) + 1);
+    }
+
+    public void m(List<? extends n> list, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048592, this, list, i2, i3) == null) {
+            List<n> list2 = this.f2398g;
+            if (list2 == null) {
+                this.f2398g = new ArrayList();
+            } else {
+                list2.clear();
+            }
+            this.f2398g.addAll(list);
+            notifyItemRangeChanged(i2, i3);
+        }
     }
 
     public void setData(List<? extends n> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, list) == null) {
-            List<n> list2 = this.f2397g;
+        if (interceptable == null || interceptable.invokeL(1048595, this, list) == null) {
+            List<n> list2 = this.f2398g;
             if (list2 == null) {
-                this.f2397g = new ArrayList();
+                this.f2398g = new ArrayList();
             } else {
                 list2.clear();
             }
-            this.f2397g.addAll(list);
+            this.f2398g.addAll(list);
             notifyDataSetChanged();
-        }
-    }
-
-    public void t(int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIII(1048594, this, i2, i3, i4) == null) || i2 >= this.f2397g.size() || i3 >= this.f2397g.size() || i2 > i3) {
-            return;
-        }
-        this.f2397g.subList(i2, i3 + 1).clear();
-        notifyItemRangeRemoved(i4 + i2, (i3 - i2) + 1);
-    }
-
-    public void u(List<? extends n> list, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048595, this, list, i2, i3) == null) {
-            List<n> list2 = this.f2397g;
-            if (list2 == null) {
-                this.f2397g = new ArrayList();
-            } else {
-                list2.clear();
-            }
-            this.f2397g.addAll(list);
-            notifyItemRangeChanged(i2, i3);
         }
     }
 }

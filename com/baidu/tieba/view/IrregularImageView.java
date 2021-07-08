@@ -19,27 +19,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.l.c;
 import d.a.c.e.l.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class IrregularImageView extends AppCompatImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f22062e;
+    public int f22119e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f22063f;
+    public int f22120f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c<d.a.c.k.d.a> f22064g;
+    public final c<d.a.c.k.d.a> f22121g;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends c<d.a.c.k.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IrregularImageView f22065a;
+        public final /* synthetic */ IrregularImageView f22122a;
 
         public a(IrregularImageView irregularImageView) {
             Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class IrregularImageView extends AppCompatImageView {
                     return;
                 }
             }
-            this.f22065a = irregularImageView;
+            this.f22122a = irregularImageView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,23 +65,23 @@ public class IrregularImageView extends AppCompatImageView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
                 if (aVar == null) {
-                    if (this.f22065a.f22063f != 0) {
+                    if (this.f22122a.f22120f != 0) {
                         Bitmap bitmap = null;
                         try {
-                            bitmap = BitmapFactory.decodeResource(this.f22065a.getResources(), this.f22065a.f22063f);
+                            bitmap = BitmapFactory.decodeResource(this.f22122a.getResources(), this.f22122a.f22120f);
                         } catch (Throwable th) {
                             th.printStackTrace();
                         }
                         if (bitmap != null) {
-                            IrregularImageView irregularImageView = this.f22065a;
-                            irregularImageView.setImage(bitmap, irregularImageView.f22062e);
+                            IrregularImageView irregularImageView = this.f22122a;
+                            irregularImageView.setImage(bitmap, irregularImageView.f22119e);
                             return;
                         }
                         return;
                     }
                     return;
                 }
-                this.f22065a.setImage(aVar.p(), this.f22065a.f22062e);
+                this.f22122a.setImage(aVar.p(), this.f22122a.f22119e);
             }
         }
     }
@@ -104,10 +104,10 @@ public class IrregularImageView extends AppCompatImageView {
                 return;
             }
         }
-        this.f22064g = new a(this);
+        this.f22121g = new a(this);
     }
 
-    public final Bitmap g(Bitmap bitmap, int i2, int i3) {
+    public final Bitmap i(Bitmap bitmap, int i2, int i3) {
         InterceptResult invokeLII;
         int i4;
         float f2;
@@ -151,15 +151,15 @@ public class IrregularImageView extends AppCompatImageView {
     public void setErrorRes(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f22063f = i2;
+            this.f22120f = i2;
         }
     }
 
     public void setImage(String str, BdUniqueId bdUniqueId, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048579, this, str, bdUniqueId, i2) == null) {
-            this.f22062e = i2;
-            d.h().k(str, 10, this.f22064g, 0, 0, bdUniqueId, new Object[0]);
+            this.f22119e = i2;
+            d.h().k(str, 10, this.f22121g, 0, 0, bdUniqueId, new Object[0]);
         }
     }
 
@@ -182,7 +182,7 @@ public class IrregularImageView extends AppCompatImageView {
                 return;
             }
         }
-        this.f22064g = new a(this);
+        this.f22121g = new a(this);
     }
 
     public void setImage(Bitmap bitmap, int i2) {
@@ -198,7 +198,7 @@ public class IrregularImageView extends AppCompatImageView {
             try {
                 bitmap3 = Bitmap.createBitmap(bitmap2.getWidth(), bitmap2.getHeight(), Bitmap.Config.ARGB_8888);
                 try {
-                    bitmap4 = g(bitmap, bitmap2.getWidth(), bitmap2.getHeight());
+                    bitmap4 = i(bitmap, bitmap2.getWidth(), bitmap2.getHeight());
                 } catch (Throwable th) {
                     th = th;
                     th.printStackTrace();
@@ -248,6 +248,6 @@ public class IrregularImageView extends AppCompatImageView {
                 return;
             }
         }
-        this.f22064g = new a(this);
+        this.f22121g = new a(this);
     }
 }

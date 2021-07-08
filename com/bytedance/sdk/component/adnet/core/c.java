@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c extends ByteArrayOutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f27861a;
+    public final b f27971a;
 
     public c(b bVar, int i2) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class c extends ByteArrayOutputStream {
                 return;
             }
         }
-        this.f27861a = bVar;
+        this.f27971a = bVar;
         ((ByteArrayOutputStream) this).buf = bVar.a(Math.max(i2, 256));
     }
 
@@ -41,9 +41,9 @@ public class c extends ByteArrayOutputStream {
             if (i3 + i2 <= ((ByteArrayOutputStream) this).buf.length) {
                 return;
             }
-            byte[] a2 = this.f27861a.a((i3 + i2) * 2);
+            byte[] a2 = this.f27971a.a((i3 + i2) * 2);
             System.arraycopy(((ByteArrayOutputStream) this).buf, 0, a2, 0, ((ByteArrayOutputStream) this).count);
-            this.f27861a.a(((ByteArrayOutputStream) this).buf);
+            this.f27971a.a(((ByteArrayOutputStream) this).buf);
             ((ByteArrayOutputStream) this).buf = a2;
         }
     }
@@ -52,7 +52,7 @@ public class c extends ByteArrayOutputStream {
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f27861a.a(((ByteArrayOutputStream) this).buf);
+            this.f27971a.a(((ByteArrayOutputStream) this).buf);
             ((ByteArrayOutputStream) this).buf = null;
             super.close();
         }
@@ -61,7 +61,7 @@ public class c extends ByteArrayOutputStream {
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f27861a.a(((ByteArrayOutputStream) this).buf);
+            this.f27971a.a(((ByteArrayOutputStream) this).buf);
         }
     }
 

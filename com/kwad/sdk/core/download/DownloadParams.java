@@ -7,11 +7,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.AdInfo;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DownloadParams extends com.kwad.sdk.core.response.a.a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4966891183505507851L;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean downloadEnablePause;
     public int downloadPlace;
     public String filePath;
     public String mAppIcon;
@@ -39,6 +40,7 @@ public class DownloadParams extends com.kwad.sdk.core.response.a.a implements Se
                 return;
             }
         }
+        this.downloadEnablePause = false;
         this.downloadPlace = 1;
     }
 
@@ -54,6 +56,7 @@ public class DownloadParams extends com.kwad.sdk.core.response.a.a implements Se
             downloadParams.mFileUrl = adInfo.adConversionInfo.appDownloadUrl;
             downloadParams.mAppIcon = adBaseInfo.appIconUrl;
             downloadParams.mShortDesc = adBaseInfo.adDescription;
+            downloadParams.downloadEnablePause = com.kwad.sdk.core.response.b.a.ak(adInfo);
             return downloadParams;
         }
         return (DownloadParams) invokeL.objValue;

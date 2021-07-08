@@ -14,7 +14,7 @@ import d.f.d.a.k;
 import d.f.d.a.n;
 import d.f.d.a.q;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class HostAndPort implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NO_PORT = -1;
@@ -109,7 +109,7 @@ public final class HostAndPort implements Serializable {
     public static String[] getHostAndPortFromBracketedHost(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             n.k(str.charAt(0) == '[', "Bracketed host-port string must start with a bracket: %s", str);
             int indexOf = str.indexOf(58);
             int lastIndexOf = str.lastIndexOf(93);

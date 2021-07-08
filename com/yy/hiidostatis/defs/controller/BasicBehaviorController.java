@@ -2,6 +2,7 @@ package com.yy.hiidostatis.defs.controller;
 
 import android.content.Context;
 import android.os.Handler;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +23,7 @@ import com.yy.hiidostatis.inner.util.DefaultPreference;
 import com.yy.hiidostatis.inner.util.ThreadPool;
 import com.yy.hiidostatis.inner.util.Util;
 import com.yy.hiidostatis.inner.util.log.L;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class BasicBehaviorController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean EMPTY_DATA_FORBIDDEN = false;
@@ -45,7 +46,7 @@ public class BasicBehaviorController {
     public IStatisAPI mStatisAPI;
     public int mbehaviorSendThreshold;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public class AppActionReporter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +85,7 @@ public class BasicBehaviorController {
         private boolean isStartCalled() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) ? this.mBeginStartCpuTimeMillis != 0 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.mBeginStartCpuTimeMillis != 0 : invokeV.booleanValue;
         }
 
         private boolean isStartedCalled() {
@@ -318,7 +319,7 @@ public class BasicBehaviorController {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public class PageActionReporter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

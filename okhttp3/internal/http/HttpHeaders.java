@@ -1,5 +1,6 @@
 package okhttp3.internal.http;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,7 +24,7 @@ import okhttp3.HttpUrl;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.internal.Util;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class HttpHeaders {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern PARAMETER;
@@ -70,7 +71,7 @@ public final class HttpHeaders {
     public static boolean hasBody(Response response) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, response)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, response)) == null) {
             if (response.request().method().equals("HEAD")) {
                 return false;
             }

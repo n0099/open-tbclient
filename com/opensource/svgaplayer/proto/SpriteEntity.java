@@ -18,7 +18,7 @@ import d.k.a.h.a;
 import java.io.IOException;
 import java.util.List;
 import okio.ByteString;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SpriteEntity extends Message<SpriteEntity, Builder> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ProtoAdapter<SpriteEntity> ADAPTER;
@@ -30,7 +30,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
     public final String imageKey;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder extends Message.a<SpriteEntity, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +84,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ProtoAdapter_SpriteEntity extends ProtoAdapter<SpriteEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

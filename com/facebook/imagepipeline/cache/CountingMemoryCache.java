@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimmable {
     public static /* synthetic */ Interceptable $ic;
     @VisibleForTesting
@@ -52,13 +52,13 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
     public final Map<Bitmap, Object> mOtherEntries;
     public final ValueDescriptor<V> mValueDescriptor;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface CacheTrimStrategy {
         double getTrimRatio(MemoryTrimType memoryTrimType);
     }
 
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Entry<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +99,7 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface EntryStateObserver<K> {
         void onExclusivityChanged(K k, boolean z);
     }
@@ -170,7 +170,7 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
 
     private synchronized void decreaseClientCount(Entry<K, V> entry) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, entry) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, entry) == null) {
             synchronized (this) {
                 Preconditions.checkNotNull(entry);
                 Preconditions.checkState(entry.clientCount > 0);

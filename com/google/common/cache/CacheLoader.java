@@ -16,12 +16,12 @@ import java.io.Serializable;
 import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executor;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class CacheLoader<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class FunctionToCacheLoader<K, V> extends CacheLoader<K, V> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -60,7 +60,7 @@ public abstract class CacheLoader<K, V> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class InvalidCacheLoadException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public abstract class CacheLoader<K, V> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class SupplierToCacheLoader<V> extends CacheLoader<Object, V> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -124,7 +124,7 @@ public abstract class CacheLoader<K, V> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class UnsupportedLoadingOperationException extends UnsupportedOperationException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,31 +144,31 @@ public abstract class CacheLoader<K, V> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a extends CacheLoader<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CacheLoader f32910a;
+        public final /* synthetic */ CacheLoader f33020a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Executor f32911b;
+        public final /* synthetic */ Executor f33021b;
 
         /* renamed from: com.google.common.cache.CacheLoader$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public class CallableC0380a implements Callable<V> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Object f32912e;
+            public final /* synthetic */ Object f33022e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Object f32913f;
+            public final /* synthetic */ Object f33023f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ a f32914g;
+            public final /* synthetic */ a f33024g;
 
             public CallableC0380a(a aVar, Object obj, Object obj2) {
                 Interceptable interceptable = $ic;
@@ -185,9 +185,9 @@ public abstract class CacheLoader<K, V> {
                         return;
                     }
                 }
-                this.f32914g = aVar;
-                this.f32912e = obj;
-                this.f32913f = obj2;
+                this.f33024g = aVar;
+                this.f33022e = obj;
+                this.f33023f = obj2;
             }
 
             /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.google.common.cache.CacheLoader */
@@ -196,7 +196,7 @@ public abstract class CacheLoader<K, V> {
             public V call() throws Exception {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32914g.f32910a.reload(this.f32912e, this.f32913f).get() : (V) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33024g.f33020a.reload(this.f33022e, this.f33023f).get() : (V) invokeV.objValue;
             }
         }
 
@@ -215,22 +215,22 @@ public abstract class CacheLoader<K, V> {
                     return;
                 }
             }
-            this.f32910a = cacheLoader;
-            this.f32911b = executor;
+            this.f33020a = cacheLoader;
+            this.f33021b = executor;
         }
 
         @Override // com.google.common.cache.CacheLoader
         public V load(K k) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) ? (V) this.f32910a.load(k) : (V) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) ? (V) this.f33020a.load(k) : (V) invokeL.objValue;
         }
 
         @Override // com.google.common.cache.CacheLoader
         public Map<K, V> loadAll(Iterable<? extends K> iterable) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iterable)) == null) ? this.f32910a.loadAll(iterable) : (Map) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iterable)) == null) ? this.f33020a.loadAll(iterable) : (Map) invokeL.objValue;
         }
 
         @Override // com.google.common.cache.CacheLoader
@@ -239,7 +239,7 @@ public abstract class CacheLoader<K, V> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, k, v)) == null) {
                 ListenableFutureTask create = ListenableFutureTask.create(new CallableC0380a(this, k, v));
-                this.f32911b.execute(create);
+                this.f33021b.execute(create);
                 return create;
             }
             return (ListenableFuture) invokeLL.objValue;

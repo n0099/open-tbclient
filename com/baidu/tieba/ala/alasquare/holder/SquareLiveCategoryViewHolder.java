@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SquareLiveCategoryViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f13899a;
+    public View f13938a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SquareLiveCategoryViewHolder(View view) {
@@ -32,6 +32,6 @@ public class SquareLiveCategoryViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f13899a = view;
+        this.f13938a = view;
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.android.util.io;
 
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
@@ -54,7 +55,7 @@ public class CommentUtils {
         }
         try {
             try {
-                randomAccessFile2 = new RandomAccessFile(file, r.f7745a);
+                randomAccessFile2 = new RandomAccessFile(file, r.f7762a);
             } catch (IOException e2) {
                 e2.printStackTrace();
                 return null;
@@ -193,7 +194,7 @@ public class CommentUtils {
     public static short stream2Short(byte[] bArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i2)) == null) {
             ByteBuffer allocate = ByteBuffer.allocate(2);
             allocate.order(ByteOrder.LITTLE_ENDIAN);
             allocate.put(bArr[i2]);

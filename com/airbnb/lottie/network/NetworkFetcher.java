@@ -4,6 +4,7 @@ import android.content.Context;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 import androidx.core.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.LottieCompositionFactory;
 import com.airbnb.lottie.LottieResult;
@@ -130,7 +131,7 @@ public class NetworkFetcher {
     public static LottieResult<LottieComposition> fetchSync(Context context, String str, @Nullable String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, context, str, str2)) == null) ? new NetworkFetcher(context, str, str2).fetchSync() : (LottieResult) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2)) == null) ? new NetworkFetcher(context, str, str2).fetchSync() : (LottieResult) invokeLLL.objValue;
     }
 
     private String getErrorFromConnection(HttpURLConnection httpURLConnection) throws IOException {

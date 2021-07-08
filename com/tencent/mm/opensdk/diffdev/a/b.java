@@ -11,13 +11,13 @@ import com.tencent.mm.opensdk.diffdev.OAuthListener;
 import com.tencent.mm.opensdk.utils.Log;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class b implements OAuthListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ a f41823f;
+    public final /* synthetic */ a f38837f;
 
     public b(a aVar) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public final class b implements OAuthListener {
                 return;
             }
         }
-        this.f41823f = aVar;
+        this.f38837f = aVar;
     }
 
     @Override // com.tencent.mm.opensdk.diffdev.OAuthListener
@@ -43,9 +43,9 @@ public final class b implements OAuthListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, oAuthErrCode, str) == null) {
             Log.d("MicroMsg.SDK.ListenerWrapper", String.format("onAuthFinish, errCode = %s, authCode = %s", oAuthErrCode.toString(), str));
-            this.f41823f.f41821d = null;
+            this.f38837f.f38835d = null;
             ArrayList<OAuthListener> arrayList = new ArrayList();
-            list = this.f41823f.f41820c;
+            list = this.f38837f.f38834c;
             arrayList.addAll(list);
             for (OAuthListener oAuthListener : arrayList) {
                 oAuthListener.onAuthFinish(oAuthErrCode, str);
@@ -60,7 +60,7 @@ public final class b implements OAuthListener {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr) == null) {
             Log.d("MicroMsg.SDK.ListenerWrapper", "onAuthGotQrcode, qrcodeImgPath = " + str);
             ArrayList<OAuthListener> arrayList = new ArrayList();
-            list = this.f41823f.f41820c;
+            list = this.f38837f.f38834c;
             arrayList.addAll(list);
             for (OAuthListener oAuthListener : arrayList) {
                 oAuthListener.onAuthGotQrcode(str, bArr);
@@ -75,9 +75,9 @@ public final class b implements OAuthListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Log.d("MicroMsg.SDK.ListenerWrapper", "onQrcodeScanned");
-            handler = this.f41823f.handler;
+            handler = this.f38837f.handler;
             if (handler != null) {
-                handler2 = this.f41823f.handler;
+                handler2 = this.f38837f.handler;
                 handler2.post(new c(this));
             }
         }

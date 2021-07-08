@@ -2,6 +2,7 @@ package com.baidu.ar.lua;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.widget.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.DefinedLuaListener;
@@ -21,7 +22,7 @@ public class e {
     public LuaMsgListener cc;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f4225f;
+    public b f4228f;
     public c rN;
     public DefinedLuaListener sX;
 
@@ -43,7 +44,7 @@ public class e {
         if (bVar == null) {
             return;
         }
-        this.f4225f = bVar;
+        this.f4228f = bVar;
         fl();
         if (this.cc == null) {
             this.cc = new LuaMsgListener(this) { // from class: com.baidu.ar.lua.e.1
@@ -93,7 +94,7 @@ public class e {
 
     private void fl() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             c cVar = new c(this) { // from class: com.baidu.ar.lua.e.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +135,7 @@ public class e {
                 }
             };
             this.rN = cVar;
-            this.f4225f.c(cVar);
+            this.f4228f.c(cVar);
         }
     }
 
@@ -180,7 +181,7 @@ public class e {
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b bVar = this.f4225f;
+            b bVar = this.f4228f;
             if (bVar != null) {
                 if (this.cc != null) {
                     bVar.fk().removeLuaMsgListener(this.cc);
@@ -188,10 +189,10 @@ public class e {
                 }
                 c cVar = this.rN;
                 if (cVar != null) {
-                    this.f4225f.d(cVar);
+                    this.f4228f.d(cVar);
                     this.rN = null;
                 }
-                this.f4225f = null;
+                this.f4228f = null;
             }
             this.sX = null;
         }

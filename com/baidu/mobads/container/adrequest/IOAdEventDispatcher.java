@@ -2,7 +2,7 @@ package com.baidu.mobads.container.adrequest;
 
 import com.baidu.mobads.sdk.api.IOAdEvent;
 import com.baidu.mobads.sdk.api.IOAdEventListener;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface IOAdEventDispatcher {
     void addEventListener(String str, IOAdEventListener iOAdEventListener);
 

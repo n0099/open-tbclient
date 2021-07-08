@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.datamodel.CardData;
 import com.baidu.wallet.core.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FindPwdCardCheckResponse implements IBeanResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Card[] bind_card_arr;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Card implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

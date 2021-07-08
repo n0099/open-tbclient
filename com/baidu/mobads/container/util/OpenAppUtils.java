@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,7 +22,7 @@ import com.baidu.webkit.sdk.WebViewFactory;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class OpenAppUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCHEME_WTAI_MC = "wtai://wp/mc;";
@@ -169,7 +170,7 @@ public class OpenAppUtils {
 
     public static void openApp(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) {
             try {
                 Intent launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(str);
                 launchIntentForPackage.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);

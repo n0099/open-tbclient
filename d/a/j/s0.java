@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.j.a;
 import tbclient.VideoInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class s0 extends h {
     public static /* synthetic */ Interceptable $ic;
     public static final int v;
@@ -29,20 +29,20 @@ public class s0 extends h {
     public int m;
     public int n;
     public Context o;
-    public d.a.r0.r.q.a p;
+    public d.a.o0.r.q.a p;
     public VideoImageNoPlayerLayout q;
     public int r;
     public String s;
     public int t;
     public d.a.j.w0.a u;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ s0 f45796e;
+        public final /* synthetic */ s0 f42688e;
 
         public a(s0 s0Var) {
             Interceptable interceptable = $ic;
@@ -59,28 +59,28 @@ public class s0 extends h {
                     return;
                 }
             }
-            this.f45796e = s0Var;
+            this.f42688e = s0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             s0 s0Var;
-            a.InterfaceC0643a interfaceC0643a;
+            a.InterfaceC0609a interfaceC0609a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0643a = (s0Var = this.f45796e).f45738i) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0609a = (s0Var = this.f42688e).f42630i) == null) {
                 return;
             }
-            interfaceC0643a.a(s0Var.p);
+            interfaceC0609a.a(s0Var.p);
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class b implements d.a.j.w0.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ s0 f45797a;
+        public final /* synthetic */ s0 f42689a;
 
         public b(s0 s0Var) {
             Interceptable interceptable = $ic;
@@ -97,16 +97,16 @@ public class s0 extends h {
                     return;
                 }
             }
-            this.f45797a = s0Var;
+            this.f42689a = s0Var;
         }
 
         @Override // d.a.j.w0.a
-        public void a(d.a.r0.r.q.a aVar) {
+        public void a(d.a.o0.r.q.a aVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.f45797a.u == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.f42689a.u == null) {
                 return;
             }
-            this.f45797a.u.a(this.f45797a.p);
+            this.f42689a.u.a(this.f42689a.p);
         }
     }
 
@@ -164,7 +164,7 @@ public class s0 extends h {
     }
 
     @Override // d.a.j.a
-    public void l(d.a.s0.a0.b0<d.a.r0.r.q.a> b0Var) {
+    public void l(d.a.p0.a0.b0<d.a.o0.r.q.a> b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b0Var) == null) {
             super.l(b0Var);
@@ -194,14 +194,14 @@ public class s0 extends h {
         r5 = r1;
      */
     /* JADX WARN: Code restructure failed: missing block: B:44:0x00e9, code lost:
-        r1 = d.a.r0.b.g.b.l(r11, r0, r2, r3, r5);
+        r1 = d.a.o0.b.g.b.n(r11, r0, r2, r3, r5);
      */
     @Override // d.a.j.p
     /* renamed from: u */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(d.a.r0.r.q.a aVar) {
+    public void a(d.a.o0.r.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             int k = d.a.c.e.p.l.k(TbadkCoreApplication.getInst());
@@ -281,10 +281,10 @@ public class s0 extends h {
         }
     }
 
-    public void w(a.InterfaceC0643a interfaceC0643a) {
+    public void w(a.InterfaceC0609a interfaceC0609a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0643a) == null) {
-            this.f45738i = interfaceC0643a;
+        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0609a) == null) {
+            this.f42630i = interfaceC0609a;
         }
     }
 

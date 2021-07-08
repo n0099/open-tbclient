@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FaceShopData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;

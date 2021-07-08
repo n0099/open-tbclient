@@ -11,33 +11,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public DressItemData f21402e;
+    public DressItemData f21448e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21403f;
+    public int f21449f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21404g;
+    public int f21450g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f21405h;
+    public b f21451h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.c.c.g.a f21406i;
+    public d.a.c.c.g.a f21452i;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends d.a.c.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BackgroundPreviewModel f21407a;
+        public final /* synthetic */ BackgroundPreviewModel f21453a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BackgroundPreviewModel backgroundPreviewModel, int i2, int i3) {
@@ -58,7 +58,7 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
                     return;
                 }
             }
-            this.f21407a = backgroundPreviewModel;
+            this.f21453a = backgroundPreviewModel;
         }
 
         @Override // d.a.c.c.g.a
@@ -71,23 +71,23 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
             if (z || (responsedMessage instanceof BackgroundGetSocketResponseMessage)) {
                 if (responsedMessage.getError() == 0) {
                     if (z) {
-                        this.f21407a.f21402e = ((BackgroundGetHttpResponseMessage) responsedMessage).getBgItem();
+                        this.f21453a.f21448e = ((BackgroundGetHttpResponseMessage) responsedMessage).getBgItem();
                     } else if (responsedMessage instanceof BackgroundGetSocketResponseMessage) {
-                        this.f21407a.f21402e = ((BackgroundGetSocketResponseMessage) responsedMessage).getBgItem();
+                        this.f21453a.f21448e = ((BackgroundGetSocketResponseMessage) responsedMessage).getBgItem();
                     }
                 }
-                if (this.f21407a.f21405h != null) {
-                    if (this.f21407a.f21402e != null) {
-                        this.f21407a.f21402e.setPropsId(this.f21407a.f21403f);
-                        this.f21407a.f21402e.setInUse(this.f21407a.f21404g == 1);
+                if (this.f21453a.f21451h != null) {
+                    if (this.f21453a.f21448e != null) {
+                        this.f21453a.f21448e.setPropsId(this.f21453a.f21449f);
+                        this.f21453a.f21448e.setInUse(this.f21453a.f21450g == 1);
                     }
-                    this.f21407a.f21405h.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f21407a.f21402e);
+                    this.f21453a.f21451h.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f21453a.f21448e);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(int i2, String str, DressItemData dressItemData);
     }
@@ -107,17 +107,17 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
                 return;
             }
         }
-        this.f21406i = new a(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, 309023);
-        this.f21403f = i2;
-        this.f21404g = i3;
+        this.f21452i = new a(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, 309023);
+        this.f21449f = i2;
+        this.f21450g = i3;
         registerTask();
-        registerListener(this.f21406i);
+        registerListener(this.f21452i);
     }
 
     public void B(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f21405h = bVar;
+            this.f21451h = bVar;
         }
     }
 
@@ -127,7 +127,7 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             BackgroundGetRequestMessage backgroundGetRequestMessage = new BackgroundGetRequestMessage();
-            backgroundGetRequestMessage.setPropId(this.f21403f);
+            backgroundGetRequestMessage.setPropId(this.f21449f);
             sendMessage(backgroundGetRequestMessage);
             return false;
         }
@@ -147,15 +147,15 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f21406i);
+            MessageManager.getInstance().unRegisterListener(this.f21452i);
         }
     }
 
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            d.a.s0.h3.d0.a.h(309023, BackgroundGetSocketResponseMessage.class, false, false);
-            d.a.s0.h3.d0.a.c(309023, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, TbConfig.PERSONAL_BACKGROUND_GET, BackgroundGetHttpResponseMessage.class, false, false, false, false);
+            d.a.p0.h3.d0.a.h(309023, BackgroundGetSocketResponseMessage.class, false, false);
+            d.a.p0.h3.d0.a.c(309023, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, TbConfig.PERSONAL_BACKGROUND_GET, BackgroundGetHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

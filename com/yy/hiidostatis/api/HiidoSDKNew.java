@@ -74,7 +74,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class HiidoSDKNew implements HiidoApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_METRICS_NAME = "DEFAULT_METRICS";
@@ -119,12 +119,12 @@ public class HiidoSDKNew implements HiidoApi {
     public SessionReportWrapper sessionReport;
     public volatile boolean userAgreed;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public interface HdidReceiver {
         void onHdidReceived(String str);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public class QuitTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

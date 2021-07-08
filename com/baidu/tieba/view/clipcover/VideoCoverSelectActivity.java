@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoCoverSelectActivityConfig;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActivity> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +49,8 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
         if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (c2 = this.mCoverSelsctLayout.c()) == null) {
             return;
         }
-        String SaveFile = FileHelper.SaveFile("tbVideo/temp/", System.currentTimeMillis() + ".jpg", c2, 90);
+        String str = getIntent().getBooleanExtra(AlbumActivityConfig.KEY_DIRECT_TO_WORK_PUBLISH_PAGE, false) ? "tbNewVideo/temp/" : "tbVideo/temp/";
+        String SaveFile = FileHelper.SaveFile(str, System.currentTimeMillis() + ".jpg", c2, 90);
         Intent intent = new Intent();
         intent.putExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_IMAGE_PATH, SaveFile);
         setResult(-1, intent);

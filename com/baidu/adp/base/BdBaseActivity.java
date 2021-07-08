@@ -45,7 +45,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdBaseActivity f2135e;
+        public final /* synthetic */ BdBaseActivity f2136e;
 
         public a(BdBaseActivity bdBaseActivity) {
             Interceptable interceptable = $ic;
@@ -62,14 +62,14 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
                     return;
                 }
             }
-            this.f2135e = bdBaseActivity;
+            this.f2136e = bdBaseActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdBaseActivity bdBaseActivity = this.f2135e;
+                BdBaseActivity bdBaseActivity = this.f2136e;
                 bdBaseActivity.onPreLoad(bdBaseActivity.onGetPreLoadListView());
             }
         }

@@ -7,22 +7,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.a.a.c;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @c(a = "gecko_accesskey")
 
     /* renamed from: a  reason: collision with root package name */
-    public List<String> f32127a;
+    public List<String> f32237a;
     @c(a = IAdRequestParam.OS)
 
     /* renamed from: b  reason: collision with root package name */
-    public int f32128b;
+    public int f32238b;
     @c(a = "msg_type")
 
     /* renamed from: c  reason: collision with root package name */
-    public int f32129c;
+    public int f32239c;
 
     public a(List<String> list) {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class a {
                 return;
             }
         }
-        this.f32128b = 0;
-        this.f32129c = 1;
-        this.f32127a = list;
+        this.f32238b = 0;
+        this.f32239c = 1;
+        this.f32237a = list;
     }
 }

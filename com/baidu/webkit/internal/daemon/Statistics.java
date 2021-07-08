@@ -1,12 +1,13 @@
 package com.baidu.webkit.internal.daemon;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.INoProGuard;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class Statistics implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static boolean mIsInited;
@@ -74,7 +75,7 @@ public final class Statistics implements INoProGuard {
         InterceptResult invokeLLL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, str, str2, str3)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3)) == null) {
             synchronized (Statistics.class) {
                 try {
                     if (!mIsInited) {

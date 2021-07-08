@@ -7,15 +7,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.tencent.connect.common.Constants;
 import java.util.LinkedList;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class r1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final LinkedList<p> f71746a;
+    public static final LinkedList<p> f68849a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final LinkedList<p> f71747b;
+    public static final LinkedList<p> f68850b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,8 +31,8 @@ public class r1 {
                 return;
             }
         }
-        f71746a = new LinkedList<>();
-        f71747b = new LinkedList<>();
+        f68849a = new LinkedList<>();
+        f68850b = new LinkedList<>();
     }
 
     public static void a() {
@@ -40,11 +40,11 @@ public class r1 {
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             LinkedList linkedList = new LinkedList();
             LinkedList linkedList2 = new LinkedList();
-            synchronized (f71746a) {
-                linkedList.addAll(f71746a);
-                linkedList2.addAll(f71747b);
-                f71746a.clear();
-                f71747b.clear();
+            synchronized (f68849a) {
+                linkedList.addAll(f68849a);
+                linkedList2.addAll(f68850b);
+                f68849a.clear();
+                f68850b.clear();
             }
             while (!linkedList.isEmpty()) {
                 j1.d((p) linkedList.poll());
@@ -68,12 +68,12 @@ public class r1 {
     public static void b(p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, pVar) == null) {
-            synchronized (f71746a) {
-                if (f71746a.size() > 200) {
+            synchronized (f68849a) {
+                if (f68849a.size() > 200) {
                     h0.c("drop event in cache", null);
-                    f71747b.add(f71746a.poll());
+                    f68850b.add(f68849a.poll());
                 }
-                f71746a.add(pVar);
+                f68849a.add(pVar);
             }
         }
     }

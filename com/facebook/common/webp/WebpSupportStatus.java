@@ -3,6 +3,7 @@ package com.facebook.common.webp;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,7 +17,7 @@ import com.facebook.imageutils.WebpUtil;
 import java.io.UnsupportedEncodingException;
 import javax.annotation.Nullable;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class WebpSupportStatus {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EXTENDED_WEBP_HEADER_LENGTH = 21;
@@ -53,7 +54,7 @@ public class WebpSupportStatus {
         sIsExtendedWebpSupported = isExtendedWebpSupported();
         sWebpBitmapFactory = null;
         sWebpLibraryChecked = false;
-        WEBP_RIFF_BYTES = asciiBytes(b.f23840e);
+        WEBP_RIFF_BYTES = asciiBytes(b.f23950e);
         WEBP_NAME_BYTES = asciiBytes("WEBP");
         WEBP_VP8_BYTES = asciiBytes(WebpUtil.VP8_HEADER);
         WEBP_VP8L_BYTES = asciiBytes(WebpUtil.VP8L_HEADER);
@@ -99,7 +100,7 @@ public class WebpSupportStatus {
     public static boolean isExtendedWebpHeader(byte[] bArr, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65540, null, bArr, i2, i3)) == null) ? i3 >= 21 && matchBytePattern(bArr, i2 + 12, WEBP_VP8X_BYTES) : invokeLII.booleanValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i2, i3)) == null) ? i3 >= 21 && matchBytePattern(bArr, i2 + 12, WEBP_VP8X_BYTES) : invokeLII.booleanValue;
     }
 
     public static boolean isExtendedWebpHeaderWithAlpha(byte[] bArr, int i2) {

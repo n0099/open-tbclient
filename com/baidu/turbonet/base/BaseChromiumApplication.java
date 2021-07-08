@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.Window;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +17,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BaseChromiumApplication extends Application {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "cr.base";
@@ -24,15 +25,15 @@ public class BaseChromiumApplication extends Application {
     public static final String TOOLBAR_CALLBACK_WRAPPER_CLASS = "androidx.appcompat.app.ToolbarActionBar$ToolbarCallbackWrapper";
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean mShouldInitializeApplicationStatusTracking;
-    public d.a.t0.a.b<c> mWindowFocusListeners;
+    public d.a.q0.a.b<c> mWindowFocusListeners;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements Application.ActivityLifecycleCallbacks {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaseChromiumApplication f22898e;
+        public final /* synthetic */ BaseChromiumApplication f23008e;
 
         public a(BaseChromiumApplication baseChromiumApplication) {
             Interceptable interceptable = $ic;
@@ -49,14 +50,14 @@ public class BaseChromiumApplication extends Application {
                     return;
                 }
             }
-            this.f22898e = baseChromiumApplication;
+            this.f23008e = baseChromiumApplication;
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityCreated(Activity activity, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-                activity.getWindow().setCallback((Window.Callback) Proxy.newProxyInstance(Window.Callback.class.getClassLoader(), new Class[]{Window.Callback.class}, new b(this.f22898e, activity, activity.getWindow().getCallback())));
+                activity.getWindow().setCallback((Window.Callback) Proxy.newProxyInstance(Window.Callback.class.getClassLoader(), new Class[]{Window.Callback.class}, new b(this.f23008e, activity, activity.getWindow().getCallback())));
             }
         }
 
@@ -103,19 +104,19 @@ public class BaseChromiumApplication extends Application {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements InvocationHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Window.Callback f22899e;
+        public final Window.Callback f23009e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Activity f22900f;
+        public final Activity f23010f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ BaseChromiumApplication f22901g;
+        public final /* synthetic */ BaseChromiumApplication f23011g;
 
         public b(BaseChromiumApplication baseChromiumApplication, Activity activity, Window.Callback callback) {
             Interceptable interceptable = $ic;
@@ -132,18 +133,18 @@ public class BaseChromiumApplication extends Application {
                     return;
                 }
             }
-            this.f22901g = baseChromiumApplication;
-            this.f22899e = callback;
-            this.f22900f = activity;
+            this.f23011g = baseChromiumApplication;
+            this.f23009e = callback;
+            this.f23010f = activity;
         }
 
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f22899e.onWindowFocusChanged(z);
-                Iterator it = this.f22901g.mWindowFocusListeners.iterator();
+                this.f23009e.onWindowFocusChanged(z);
+                Iterator it = this.f23011g.mWindowFocusListeners.iterator();
                 while (it.hasNext()) {
-                    ((c) it.next()).a(this.f22900f, z);
+                    ((c) it.next()).a(this.f23010f, z);
                 }
             }
         }
@@ -158,7 +159,7 @@ public class BaseChromiumApplication extends Application {
                     return null;
                 }
                 try {
-                    return method.invoke(this.f22899e, objArr);
+                    return method.invoke(this.f23009e, objArr);
                 } catch (InvocationTargetException e2) {
                     if (e2.getCause() instanceof AbstractMethodError) {
                         throw e2.getCause();
@@ -170,7 +171,7 @@ public class BaseChromiumApplication extends Application {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void a(Activity activity, boolean z);
     }
@@ -202,7 +203,7 @@ public class BaseChromiumApplication extends Application {
 
     private void startTrackingApplicationStatus() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             ApplicationStatus.i(this);
             registerActivityLifecycleCallbacks(new a(this));
         }
@@ -213,7 +214,7 @@ public class BaseChromiumApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             super.attachBaseContext(context);
-            d.a.t0.a.c.a.b(this);
+            d.a.q0.a.c.a.b(this);
         }
     }
 
@@ -263,7 +264,7 @@ public class BaseChromiumApplication extends Application {
                 return;
             }
         }
-        this.mWindowFocusListeners = new d.a.t0.a.b<>();
+        this.mWindowFocusListeners = new d.a.q0.a.b<>();
         this.mShouldInitializeApplicationStatusTracking = z;
     }
 }

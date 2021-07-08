@@ -11,19 +11,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PersonPostAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f20317a;
+    public int[] f20363a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PersonThreadFragment f20318b;
+    public PersonThreadFragment f20364b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PersonReplyFragment f20319c;
+    public PersonReplyFragment f20365c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonPostAdapter(PersonPostActivity personPostActivity) {
@@ -48,22 +48,34 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
         bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.getPortraitUrl());
         bundle.putString(PersonPostActivity.KEY_EMPTYVIEW_TXT, personPostActivity.getEmptyViewText());
         PersonReplyFragment personReplyFragment = new PersonReplyFragment();
-        this.f20319c = personReplyFragment;
+        this.f20365c = personReplyFragment;
         personReplyFragment.setArguments(bundle);
-        this.f20319c.X0(personPostActivity);
+        this.f20365c.Y0(personPostActivity);
         PersonThreadFragment personThreadFragment = new PersonThreadFragment();
-        this.f20318b = personThreadFragment;
+        this.f20364b = personThreadFragment;
         personThreadFragment.setArguments(bundle);
-        this.f20318b.W0(personPostActivity);
-        this.f20318b.V0(personPostActivity);
-        this.f20317a = new int[]{0, 1};
+        this.f20364b.X0(personPostActivity);
+        this.f20364b.W0(personPostActivity);
+        this.f20363a = new int[]{0, 1};
+    }
+
+    public int b(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f20363a[i2] : invokeI.intValue;
+    }
+
+    public PersonThreadFragment c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20364b : (PersonThreadFragment) invokeV.objValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return 2;
         }
         return invokeV.intValue;
@@ -73,27 +85,15 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
             if (i2 != 0) {
                 if (i2 != 1) {
                     return null;
                 }
-                return this.f20319c;
+                return this.f20365c;
             }
-            return this.f20318b;
+            return this.f20364b;
         }
         return (Fragment) invokeI.objValue;
-    }
-
-    public int i(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f20317a[i2] : invokeI.intValue;
-    }
-
-    public PersonThreadFragment j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20318b : (PersonThreadFragment) invokeV.objValue;
     }
 }

@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class c implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Process f23181a;
+    public final /* synthetic */ Process f23291a;
 
     public c(Process process) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public final class c implements Runnable {
                 return;
             }
         }
-        this.f23181a = process;
+        this.f23291a = process;
     }
 
     @Override // java.lang.Runnable
@@ -37,7 +37,7 @@ public final class c implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
                 do {
-                } while (this.f23181a.getErrorStream().read(new byte[8192]) >= 0);
+                } while (this.f23291a.getErrorStream().read(new byte[8192]) >= 0);
             } catch (IOException unused) {
             }
         }

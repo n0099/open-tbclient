@@ -11,7 +11,7 @@ import com.baidubce.model.User;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ListPartsResponse extends BosResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -21,37 +21,37 @@ import com.bytedance.sdk.openadsdk.core.dynamic.d.a;
 import com.bytedance.sdk.openadsdk.r.q;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class DynamicBaseWidget extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f29871a;
+    public float f29981a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f29872b;
+    public float f29982b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f29873c;
+    public float f29983c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f29874d;
+    public float f29984d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f29875e;
+    public int f29985e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f29876f;
+    public int f29986f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f29877g;
+    public int f29987g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f29878h;
+    public int f29988h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f29879i;
+    public Context f29989i;
     public e j;
     public f k;
     public List<DynamicBaseWidget> l;
@@ -79,17 +79,17 @@ public abstract class DynamicBaseWidget extends ViewGroup {
             }
         }
         this.p = true;
-        this.f29879i = context;
+        this.f29989i = context;
         this.m = dynamicRootView;
         this.k = fVar;
-        this.f29871a = fVar.a();
-        this.f29872b = fVar.b();
-        this.f29873c = fVar.c();
-        this.f29874d = fVar.d();
-        this.f29877g = (int) q.b(this.f29879i, this.f29871a);
-        this.f29878h = (int) q.b(this.f29879i, this.f29872b);
-        this.f29875e = (int) q.b(this.f29879i, this.f29873c);
-        this.f29876f = (int) q.b(this.f29879i, this.f29874d);
+        this.f29981a = fVar.a();
+        this.f29982b = fVar.b();
+        this.f29983c = fVar.c();
+        this.f29984d = fVar.d();
+        this.f29987g = (int) q.b(this.f29989i, this.f29981a);
+        this.f29988h = (int) q.b(this.f29989i, this.f29982b);
+        this.f29985e = (int) q.b(this.f29989i, this.f29983c);
+        this.f29986f = (int) q.b(this.f29989i, this.f29984d);
         e eVar = new e(fVar.e());
         this.j = eVar;
         this.o = eVar.k() > 0;
@@ -126,11 +126,11 @@ public abstract class DynamicBaseWidget extends ViewGroup {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             boolean b2 = b();
             try {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.f29875e, this.f29876f);
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.f29985e, this.f29986f);
                 j.f("DynamicBaseWidget", "widget mDynamicView:" + this.n);
-                j.f("DynamicBaseWidget", "mDynamicView x,y,w,h:" + this.f29871a + "," + this.f29872b + "," + this.f29875e + "," + this.f29876f);
-                layoutParams.topMargin = this.f29878h;
-                layoutParams.leftMargin = this.f29877g;
+                j.f("DynamicBaseWidget", "mDynamicView x,y,w,h:" + this.f29981a + "," + this.f29982b + "," + this.f29985e + "," + this.f29986f);
+                layoutParams.topMargin = this.f29988h;
+                layoutParams.leftMargin = this.f29987g;
                 this.m.addView(this, layoutParams);
                 return b2;
             } catch (Exception unused) {
@@ -156,9 +156,9 @@ public abstract class DynamicBaseWidget extends ViewGroup {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(q.b(this.f29879i, this.j.l()));
+            gradientDrawable.setCornerRadius(q.b(this.f29989i, this.j.l()));
             gradientDrawable.setColor(this.j.q());
-            gradientDrawable.setStroke((int) q.b(this.f29879i, this.j.n()), this.j.m());
+            gradientDrawable.setStroke((int) q.b(this.f29989i, this.j.n()), this.j.m());
             return gradientDrawable;
         }
         return (Drawable) invokeV.objValue;

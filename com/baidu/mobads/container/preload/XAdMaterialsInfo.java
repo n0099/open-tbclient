@@ -2,6 +2,7 @@ package com.baidu.mobads.container.preload;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdURIUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class XAdMaterialsInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<XAdMaterialsInfo> CREATOR;
@@ -110,7 +111,7 @@ public class XAdMaterialsInfo implements Parcelable {
     public static List<XAdMaterialsInfo> fromJsonArray(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, jSONArray)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray)) == null) {
             ArrayList arrayList = new ArrayList();
             if (jSONArray != null) {
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {

@@ -2,27 +2,27 @@ package com.meizu.cloud.pushsdk.b.g;
 
 import java.io.IOException;
 import java.io.InterruptedIOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final n f40262a = new n() { // from class: com.meizu.cloud.pushsdk.b.g.n.1
+    public static final n f37276a = new n() { // from class: com.meizu.cloud.pushsdk.b.g.n.1
         @Override // com.meizu.cloud.pushsdk.b.g.n
         public void a() throws IOException {
         }
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f40263b;
+    public boolean f37277b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f40264c;
+    public long f37278c;
 
     public void a() throws IOException {
         if (Thread.interrupted()) {
             throw new InterruptedIOException("thread interrupted");
         }
-        if (this.f40263b && this.f40264c - System.nanoTime() <= 0) {
+        if (this.f37277b && this.f37278c - System.nanoTime() <= 0) {
             throw new InterruptedIOException("deadline reached");
         }
     }

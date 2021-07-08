@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class WebAuthResult extends SapiResult {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_CODE_NEED_BACK_PHONE_NO_REG = 12;
@@ -24,7 +24,7 @@ public class WebAuthResult extends SapiResult {
     public boolean isAccountFreeze;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class LoginType {
         public static /* synthetic */ Interceptable $ic;
         public static final LoginType FORCE_BIND;
@@ -36,11 +36,11 @@ public class WebAuthResult extends SapiResult {
         public static final LoginType SHARE_V2_CHOICE;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ LoginType[] f9982b;
+        public static final /* synthetic */ LoginType[] f9999b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f9983a;
+        public String f10000a;
 
         static {
             InterceptResult invokeClinit;
@@ -63,7 +63,7 @@ public class WebAuthResult extends SapiResult {
             SHARE_V1_CHOICE = new LoginType("SHARE_V1_CHOICE", 5, ShareCallPacking.LOGIN_TYPE_SHARE_V1_CHOICE);
             LoginType loginType = new LoginType("SHARE_V2_CHOICE", 6, ShareCallPacking.LOGIN_TYPE_SHARE_V2_CHOICE);
             SHARE_V2_CHOICE = loginType;
-            f9982b = new LoginType[]{PHONE_REG, LOGIN, LOGIN_PROTECT, FORCE_BIND, GUIDE_BIND, SHARE_V1_CHOICE, loginType};
+            f9999b = new LoginType[]{PHONE_REG, LOGIN, LOGIN_PROTECT, FORCE_BIND, GUIDE_BIND, SHARE_V1_CHOICE, loginType};
         }
 
         public LoginType(String str, int i2, String str2) {
@@ -84,7 +84,7 @@ public class WebAuthResult extends SapiResult {
                     return;
                 }
             }
-            this.f9983a = str2;
+            this.f10000a = str2;
         }
 
         public static LoginType valueOf(String str) {
@@ -96,13 +96,13 @@ public class WebAuthResult extends SapiResult {
         public static LoginType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LoginType[]) f9982b.clone() : (LoginType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LoginType[]) f9999b.clone() : (LoginType[]) invokeV.objValue;
         }
 
         public String getLoginType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f9983a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10000a : (String) invokeV.objValue;
         }
     }
 

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.media.AudioDeviceInfo;
 import android.media.AudioManager;
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -17,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 import java.util.Arrays;
 import org.webrtc.Logging;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class WebRtcAudioUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "WebRtcAudioUtilsExternal";
@@ -111,7 +112,7 @@ public final class WebRtcAudioUtils {
     @TargetApi(23)
     public static void logAudioDeviceInfo(String str, AudioManager audioManager) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65540, null, str, audioManager) == null) && runningOnMarshmallowOrHigher()) {
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, audioManager) == null) && runningOnMarshmallowOrHigher()) {
             AudioDeviceInfo[] devices = audioManager.getDevices(3);
             if (devices.length != 0) {
                 Logging.d(str, "Audio Devices: ");

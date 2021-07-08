@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.data.DataRewinder;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ByteBufferRewinder implements DataRewinder<ByteBuffer> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ByteBuffer buffer;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Factory implements DataRewinder.Factory<ByteBuffer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

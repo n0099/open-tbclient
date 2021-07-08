@@ -1,5 +1,6 @@
 package org.webrtc;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
 import org.webrtc.VideoEncoder;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class VideoEncoderWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +66,7 @@ public class VideoEncoderWrapper {
     public static boolean getScalingSettingsOn(VideoEncoder.ScalingSettings scalingSettings) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, scalingSettings)) == null) ? scalingSettings.on : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, scalingSettings)) == null) ? scalingSettings.on : invokeL.booleanValue;
     }
 
     public static native void nativeOnEncodedFrame(long j, ByteBuffer byteBuffer, int i2, int i3, long j2, int i4, int i5, boolean z, Integer num);

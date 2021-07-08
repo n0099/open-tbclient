@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class c extends d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c f43975c;
+    public static c f40991c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,22 +43,22 @@ public class c extends d {
                 return;
             }
         }
-        this.f43976a = new e(20000, 10000, 5000);
-        this.f43977b = 3;
+        this.f40992a = new e(20000, 10000, 5000);
+        this.f40993b = 3;
     }
 
     public static c c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f43975c == null) {
+            if (f40991c == null) {
                 synchronized (c.class) {
-                    if (f43975c == null) {
-                        f43975c = new c();
+                    if (f40991c == null) {
+                        f40991c = new c();
                     }
                 }
             }
-            return f43975c;
+            return f40991c;
         }
         return (c) invokeV.objValue;
     }
@@ -75,7 +75,7 @@ public class c extends d {
             if (i4 < 3000) {
                 i4 = 3000;
             }
-            this.f43976a = new e(i2, i3, i4);
+            this.f40992a = new e(i2, i3, i4);
         }
     }
 }

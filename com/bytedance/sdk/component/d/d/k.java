@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.d.p;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class k extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class k extends a {
                 aVar.a(new e());
             } else if (j.a(a2)) {
                 aVar.a(new l(a2, true));
-            } else if (j == p.f28729a) {
+            } else if (j == p.f28839a) {
                 aVar.a(new d(a2, true));
             } else {
                 aVar.a(new l(a2));

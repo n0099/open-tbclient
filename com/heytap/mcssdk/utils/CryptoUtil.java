@@ -1,6 +1,7 @@
 package com.heytap.mcssdk.utils;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class CryptoUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_RADIX = 16;
@@ -76,7 +77,7 @@ public class CryptoUtil {
     public static byte[] getUTF8Bytes(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (str == null) {
                 return new byte[0];
             }

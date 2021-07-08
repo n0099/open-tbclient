@@ -8,20 +8,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f46500b;
+    public static a f53764b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC0678a f46501a;
+    public InterfaceC1246a f53765a;
 
     /* renamed from: d.a.p.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0678a {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC1246a {
         void a(String str, HashMap<String, Object> hashMap);
     }
 
@@ -58,21 +58,21 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f46500b == null) {
+            if (f53764b == null) {
                 synchronized (a.class) {
-                    if (f46500b == null) {
-                        f46500b = new a();
+                    if (f53764b == null) {
+                        f53764b = new a();
                     }
                 }
             }
-            return f46500b;
+            return f53764b;
         }
         return (a) invokeV.objValue;
     }
 
-    public InterfaceC0678a a() {
+    public InterfaceC1246a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f46501a : (InterfaceC0678a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53765a : (InterfaceC1246a) invokeV.objValue;
     }
 }

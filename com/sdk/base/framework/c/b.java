@@ -6,22 +6,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f41184a;
+    public long f38198a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f41185b;
+    public c f38199b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f41186c;
+    public int f38200c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f41187d;
+    public String f38201d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -36,48 +36,48 @@ public final class b {
                 return;
             }
         }
-        this.f41184a = System.currentTimeMillis();
-        this.f41185b = new c();
-        this.f41187d = "";
+        this.f38198a = System.currentTimeMillis();
+        this.f38199b = new c();
+        this.f38201d = "";
     }
 
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41187d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38201d : (String) invokeV.objValue;
     }
 
     public final void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f41186c = i2;
+            this.f38200c = i2;
         }
     }
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f41187d = str;
+            this.f38201d = str;
         }
     }
 
     public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41186c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38200c : invokeV.intValue;
     }
 
     public final c c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41185b : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f38199b : (c) invokeV.objValue;
     }
 
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "MobileLog{time=" + this.f41184a + ", status=" + this.f41185b + '}';
+            return "MobileLog{time=" + this.f38198a + ", status=" + this.f38199b + '}';
         }
         return (String) invokeV.objValue;
     }

@@ -1,178 +1,150 @@
 package com.kwad.sdk.core.report;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import androidx.annotation.WorkerThread;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.UUID;
-/* loaded from: classes7.dex */
-public class m {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.KsAdSDKImpl;
+import com.kwad.sdk.core.network.BaseResultData;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public abstract class m extends com.kwad.sdk.core.network.a<n> {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f36546a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static long f36547b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static Context f36548c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-615486124, "Lcom/kwad/sdk/core/report/m;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public m() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-615486124, "Lcom/kwad/sdk/core/report/m;");
+        }
+    }
+
+    private void a(n nVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, this, nVar) == null) {
+            try {
+                List<String> i2 = nVar.i();
+                for (String str : i2) {
+                    KsAdSDKImpl.get().getProxyForHttp().doGetWithoutResponse(str, null);
+                }
+                d.a(nVar.h(), i2);
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.a(e2);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.kwad.sdk.core.network.a
+    public void a(n nVar, com.kwad.sdk.core.network.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nVar, cVar) == null) {
+        }
+    }
+
+    @Override // com.kwad.sdk.core.network.a
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (com.ksad.download.d.b.a(KsAdSDKImpl.get().getContext())) {
+                super.d();
+            } else {
+                com.kwad.sdk.core.d.a.e("ReportNetwork", "no network while report log");
+            }
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0056  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x009e A[ORIG_RETURN, RETURN] */
+    @Override // com.kwad.sdk.core.network.a
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void f() {
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            n b2 = b();
+            com.kwad.sdk.core.network.c cVar = null;
+            try {
+                str = b2.a();
+            } catch (Exception e2) {
+                e = e2;
+                str = null;
+            }
+            try {
+                cVar = KsAdSDKImpl.get().getProxyForHttp().doPost(str, (Map<String, String>) null, b2.e());
+                if (cVar == null || cVar.f34670a != 200) {
+                    str2 = "report fail result is null";
+                } else {
+                    str2 = "report success actionType:" + b2.f34893b;
+                }
+                com.kwad.sdk.core.d.a.a("ReportNetwork", str2);
+                a(b2);
+            } catch (Exception e3) {
+                e = e3;
+                com.kwad.sdk.core.d.a.a(e);
+                if (com.kwad.sdk.b.f33870b.booleanValue()) {
+                }
+            }
+            if (com.kwad.sdk.b.f33870b.booleanValue()) {
                 return;
             }
-        }
-        f36546a = g();
-        f36547b = 0L;
-    }
+            BaseResultData baseResultData = new BaseResultData(this) { // from class: com.kwad.sdk.core.report.ReportNetwork$1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ m this$0;
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            com.kwad.sdk.core.d.a.a("ReportIdManager", ">> updateSessionId");
-            String g2 = g();
-            f36546a = g2;
-            return g2;
-        }
-        return (String) invokeV.objValue;
-    }
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
 
-    public static void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            f36548c = context;
-        }
-    }
-
-    @WorkerThread
-    public static boolean a(Context context, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, context, j)) == null) {
-            if (context != null) {
-                SharedPreferences.Editor edit = context.getSharedPreferences("ksadsdk_seq", 0).edit();
-                edit.putLong(IAdRequestParam.SEQ, j);
-                return edit.commit();
+                @Override // com.kwad.sdk.core.network.BaseResultData, com.kwad.sdk.core.b
+                public void parseJson(@Nullable JSONObject jSONObject) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
+                        super.parseJson(jSONObject);
+                    }
+                }
+            };
+            if (cVar != null) {
+                try {
+                    baseResultData.parseJson(new JSONObject(cVar.f34671b));
+                } catch (JSONException e4) {
+                    e4.printStackTrace();
+                }
             }
-            return false;
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    @WorkerThread
-    public static long b(Context context) {
-        InterceptResult invokeL;
-        SharedPreferences sharedPreferences;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
-            if (context == null || (sharedPreferences = context.getSharedPreferences("ksadsdk_seq", 0)) == null) {
-                return 0L;
+            if (baseResultData.isResultOk()) {
+                return;
             }
-            return sharedPreferences.getLong(IAdRequestParam.SEQ, 1L);
+            throw new RuntimeException("请求返回失败 code:" + baseResultData.result + ", errorMsg:" + baseResultData.errorMsg + "\n url=" + str);
         }
-        return invokeL.longValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f36546a : (String) invokeV.objValue;
-    }
-
-    @WorkerThread
-    public static boolean b(Context context, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(AdIconUtil.BAIDU_LOGO_ID, null, context, j)) == null) {
-            if (context != null) {
-                SharedPreferences.Editor edit = context.getSharedPreferences("ksadsdk_mplogseq", 0).edit();
-                edit.putLong(IAdRequestParam.SEQ, j);
-                return edit.commit();
-            }
-            return false;
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    @WorkerThread
-    public static long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            long b2 = b(f36548c);
-            a(f36548c, 1 + b2);
-            return b2;
-        }
-        return invokeV.longValue;
-    }
-
-    @WorkerThread
-    public static long c(Context context) {
-        InterceptResult invokeL;
-        SharedPreferences sharedPreferences;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            if (context == null || (sharedPreferences = context.getSharedPreferences("ksadsdk_mplogseq", 0)) == null) {
-                return 0L;
-            }
-            return sharedPreferences.getLong(IAdRequestParam.SEQ, 1L);
-        }
-        return invokeL.longValue;
-    }
-
-    @WorkerThread
-    public static synchronized long d() {
-        InterceptResult invokeV;
-        long c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            synchronized (m.class) {
-                c2 = c(f36548c);
-                b(f36548c, 1 + c2);
-            }
-            return c2;
-        }
-        return invokeV.longValue;
-    }
-
-    public static long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            com.kwad.sdk.core.d.a.a("ReportIdManager", ">> updateListId");
-            long currentTimeMillis = System.currentTimeMillis();
-            f36547b = currentTimeMillis;
-            return currentTimeMillis;
-        }
-        return invokeV.longValue;
-    }
-
-    public static long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? f36547b : invokeV.longValue;
-    }
-
-    public static String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? UUID.randomUUID().toString() : (String) invokeV.objValue;
     }
 }

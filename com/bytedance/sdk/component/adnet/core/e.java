@@ -7,22 +7,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.adnet.err.VAdError;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class e implements com.bytedance.sdk.component.adnet.face.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f27873a;
+    public int f27983a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27874b;
+    public int f27984b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27875c;
+    public int f27985c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final float f27876d;
+    public final float f27986d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public e() {
@@ -47,7 +47,7 @@ public class e implements com.bytedance.sdk.component.adnet.face.d {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            this.f27873a = i2;
+            this.f27983a = i2;
             return this;
         }
         return (e) invokeI.objValue;
@@ -57,7 +57,7 @@ public class e implements com.bytedance.sdk.component.adnet.face.d {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            this.f27875c = i2;
+            this.f27985c = i2;
             return this;
         }
         return (e) invokeI.objValue;
@@ -66,7 +66,7 @@ public class e implements com.bytedance.sdk.component.adnet.face.d {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27874b <= this.f27875c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27984b <= this.f27985c : invokeV.booleanValue;
     }
 
     public e(int i2, int i3, float f2) {
@@ -84,32 +84,32 @@ public class e implements com.bytedance.sdk.component.adnet.face.d {
                 return;
             }
         }
-        this.f27873a = i2;
-        this.f27875c = i3;
-        this.f27876d = f2;
+        this.f27983a = i2;
+        this.f27985c = i3;
+        this.f27986d = f2;
     }
 
     @Override // com.bytedance.sdk.component.adnet.face.d
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27873a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27983a : invokeV.intValue;
     }
 
     @Override // com.bytedance.sdk.component.adnet.face.d
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27874b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27984b : invokeV.intValue;
     }
 
     @Override // com.bytedance.sdk.component.adnet.face.d
     public void a(VAdError vAdError) throws VAdError {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vAdError) == null) {
-            this.f27874b++;
-            int i2 = this.f27873a;
-            this.f27873a = i2 + ((int) (i2 * this.f27876d));
+            this.f27984b++;
+            int i2 = this.f27983a;
+            this.f27983a = i2 + ((int) (i2 * this.f27986d));
             if (!c()) {
                 throw vAdError;
             }

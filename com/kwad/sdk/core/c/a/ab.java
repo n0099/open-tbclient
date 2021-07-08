@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.config.item.ProfileGuideConfigItem;
+import com.kwad.sdk.core.report.n;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class ab implements com.kwad.sdk.core.c<ProfileGuideConfigItem.ProfileGuideConfig> {
+/* loaded from: classes6.dex */
+public class ab implements com.kwad.sdk.core.d<n.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,29 +28,65 @@ public class ab implements com.kwad.sdk.core.c<ProfileGuideConfigItem.ProfileGui
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public JSONObject a(ProfileGuideConfigItem.ProfileGuideConfig profileGuideConfig) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.core.d
+    public void a(n.a aVar, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, profileGuideConfig)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "appearTime", profileGuideConfig.appearTime);
-            com.kwad.sdk.utils.o.a(jSONObject, "showInterval", profileGuideConfig.showInterval);
-            com.kwad.sdk.utils.o.a(jSONObject, "showCount", profileGuideConfig.showCount);
-            return jSONObject;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, aVar, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return (JSONObject) invokeL.objValue;
+        aVar.f34897a = jSONObject.optInt("photoPlaySecond");
+        aVar.f34898b = jSONObject.optInt("itemClickType");
+        aVar.f34899c = jSONObject.optInt("itemCloseType");
+        aVar.f34900d = jSONObject.optInt("elementType");
+        aVar.f34902f = jSONObject.optString("payload");
+        aVar.f34903g = jSONObject.optInt("deeplinkType");
+        aVar.f34904h = jSONObject.optInt("downloadSource");
+        aVar.f34905i = jSONObject.optInt("isPackageChanged");
+        aVar.j = jSONObject.optString("installedFrom");
+        aVar.k = jSONObject.optString("downloadFailedReason");
+        aVar.l = jSONObject.optInt("isChangedEndcard");
+        aVar.m = jSONObject.optInt("adAggPageSource");
+        aVar.n = jSONObject.optString("serverPackageName");
+        aVar.o = jSONObject.optString("installedPackageName");
+        aVar.p = jSONObject.optInt("closeButtonImpressionTime");
+        aVar.q = jSONObject.optInt("closeButtonClickTime");
+        aVar.r = jSONObject.optLong("landingPageLoadedDuration");
+        aVar.s = jSONObject.optInt("downloadStatus");
+        aVar.t = jSONObject.optInt("downloadCardType");
+        aVar.u = jSONObject.optInt("landingPageType");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public void a(ProfileGuideConfigItem.ProfileGuideConfig profileGuideConfig, JSONObject jSONObject) {
+    @Override // com.kwad.sdk.core.d
+    public JSONObject b(n.a aVar, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, profileGuideConfig, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, jSONObject)) == null) {
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
+            }
+            com.kwad.sdk.utils.q.a(jSONObject, "photoPlaySecond", aVar.f34897a);
+            com.kwad.sdk.utils.q.a(jSONObject, "itemClickType", aVar.f34898b);
+            com.kwad.sdk.utils.q.a(jSONObject, "itemCloseType", aVar.f34899c);
+            com.kwad.sdk.utils.q.a(jSONObject, "elementType", aVar.f34900d);
+            com.kwad.sdk.utils.q.a(jSONObject, "payload", aVar.f34902f);
+            com.kwad.sdk.utils.q.a(jSONObject, "deeplinkType", aVar.f34903g);
+            com.kwad.sdk.utils.q.a(jSONObject, "downloadSource", aVar.f34904h);
+            com.kwad.sdk.utils.q.a(jSONObject, "isPackageChanged", aVar.f34905i);
+            com.kwad.sdk.utils.q.a(jSONObject, "installedFrom", aVar.j);
+            com.kwad.sdk.utils.q.a(jSONObject, "downloadFailedReason", aVar.k);
+            com.kwad.sdk.utils.q.a(jSONObject, "isChangedEndcard", aVar.l);
+            com.kwad.sdk.utils.q.a(jSONObject, "adAggPageSource", aVar.m);
+            com.kwad.sdk.utils.q.a(jSONObject, "serverPackageName", aVar.n);
+            com.kwad.sdk.utils.q.a(jSONObject, "installedPackageName", aVar.o);
+            com.kwad.sdk.utils.q.a(jSONObject, "closeButtonImpressionTime", aVar.p);
+            com.kwad.sdk.utils.q.a(jSONObject, "closeButtonClickTime", aVar.q);
+            com.kwad.sdk.utils.q.a(jSONObject, "landingPageLoadedDuration", aVar.r);
+            com.kwad.sdk.utils.q.a(jSONObject, "downloadStatus", aVar.s);
+            com.kwad.sdk.utils.q.a(jSONObject, "downloadCardType", aVar.t);
+            com.kwad.sdk.utils.q.a(jSONObject, "landingPageType", aVar.u);
+            return jSONObject;
         }
-        profileGuideConfig.appearTime = jSONObject.optLong("appearTime", new Long("2000").longValue());
-        profileGuideConfig.showInterval = jSONObject.optInt("showInterval", new Integer("3").intValue());
-        profileGuideConfig.showCount = jSONObject.optInt("showCount", new Integer("2").intValue());
+        return (JSONObject) invokeLL.objValue;
     }
 }

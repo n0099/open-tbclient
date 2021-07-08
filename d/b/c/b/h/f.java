@@ -14,21 +14,21 @@ import java.io.InputStreamReader;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class a extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public InputStream f71890e;
+        public InputStream f68993e;
 
         /* renamed from: f  reason: collision with root package name */
-        public List<String> f71891f;
+        public List<String> f68994f;
 
         public a(InputStream inputStream, List<String> list) {
             Interceptable interceptable = $ic;
@@ -45,15 +45,15 @@ public class f {
                     return;
                 }
             }
-            this.f71890e = inputStream;
-            this.f71891f = list;
+            this.f68993e = inputStream;
+            this.f68994f = list;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f71890e));
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f68993e));
                 int i2 = 32768;
                 while (true) {
                     try {
@@ -65,7 +65,7 @@ public class f {
                             if (i2 < 0) {
                                 break;
                             }
-                            this.f71891f.add(readLine);
+                            this.f68994f.add(readLine);
                         }
                     } catch (IOException unused) {
                     } catch (Throwable th) {
@@ -78,16 +78,16 @@ public class f {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class b extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Process f71892e;
+        public Process f68995e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f71893f;
+        public long f68996f;
 
         public b(Process process, long j) {
             Interceptable interceptable = $ic;
@@ -104,8 +104,8 @@ public class f {
                     return;
                 }
             }
-            this.f71892e = process;
-            this.f71893f = j;
+            this.f68995e = process;
+            this.f68996f = j;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
@@ -113,11 +113,11 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    Thread.sleep(this.f71893f);
+                    Thread.sleep(this.f68996f);
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }
-                Process process = this.f71892e;
+                Process process = this.f68995e;
                 if (process != null) {
                     process.destroy();
                 }

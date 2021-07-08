@@ -1,31 +1,139 @@
 package d.n.a.a.c.b;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.os.IBinder;
+import android.os.Parcel;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes10.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Field;
+/* loaded from: classes8.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: a  reason: collision with root package name */
-    public static final f f75155a;
+    /* renamed from: c  reason: collision with root package name */
+    public static Context f72188c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-590029215, "Ld/n/a/a/c/b/g;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-590029215, "Ld/n/a/a/c/b/g;");
+    /* renamed from: a  reason: collision with root package name */
+    public final Class f72189a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public i f72190b;
+
+    public g() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        f75155a = new f((byte) 0);
+        this.f72189a = g();
+        this.f72190b = new i(this);
+    }
+
+    public /* synthetic */ g(byte b2) {
+        this();
+    }
+
+    public static g d(Context context) {
+        InterceptResult invokeL;
+        g gVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            f72188c = context;
+            gVar = h.f72191a;
+            return gVar;
+        }
+        return (g) invokeL.objValue;
+    }
+
+    public static Class g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+            try {
+                return Class.forName("android.os.ServiceManager");
+            } catch (ClassNotFoundException e2) {
+                c.c(e2);
+                return null;
+            }
+        }
+        return (Class) invokeV.objValue;
+    }
+
+    public final Parcel c(String str, String str2, Parcel parcel, Parcel parcel2) {
+        InterceptResult invokeLLLL;
+        Object obj;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, str, str2, parcel, parcel2)) == null) {
+            String f2 = f(str);
+            if (f2 != null && str2 != null) {
+                try {
+                    obj = this.f72189a.getDeclaredMethod("getService", String.class).invoke(null, str);
+                    try {
+                        Field declaredField = Class.forName(f2 + "$Stub").getDeclaredField(str2);
+                        declaredField.setAccessible(true);
+                        i2 = declaredField.getInt(null);
+                    } catch (Throwable th) {
+                        th = th;
+                        c.c(th);
+                        i2 = -1;
+                        if (obj != null) {
+                            try {
+                                ((IBinder) obj).transact(i2, parcel, parcel2, 0);
+                            } catch (Throwable th2) {
+                                c.c(th2);
+                            }
+                            return parcel2;
+                        }
+                        return null;
+                    }
+                } catch (Throwable th3) {
+                    th = th3;
+                    obj = null;
+                }
+                if (obj != null && i2 >= 0) {
+                    ((IBinder) obj).transact(i2, parcel, parcel2, 0);
+                    return parcel2;
+                }
+            }
+            return null;
+        }
+        return (Parcel) invokeLLLL.objValue;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    public final String f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            Parcel obtain = Parcel.obtain();
+            Parcel obtain2 = Parcel.obtain();
+            String str2 = null;
+            try {
+                ((IBinder) this.f72189a.getDeclaredMethod("getService", String.class).invoke(null, str)).transact(1598968902, obtain, obtain2, 0);
+                str2 = obtain2.readString();
+            } finally {
+                try {
+                    return str2;
+                } finally {
+                }
+            }
+            return str2;
+        }
+        return (String) invokeL.objValue;
     }
 }

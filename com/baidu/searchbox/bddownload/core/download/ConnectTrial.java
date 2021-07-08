@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ConnectTrial {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern CONTENT_DISPOSITION_NON_QUOTED_PATTERN;
@@ -102,7 +102,7 @@ public class ConnectTrial {
     public static String findFilename(DownloadConnection.Connected connected) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, connected)) == null) ? parseContentDisposition(connected.getResponseHeaderField("Content-Disposition")) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, connected)) == null) ? parseContentDisposition(connected.getResponseHeaderField("Content-Disposition")) : (String) invokeL.objValue;
     }
 
     public static long findInstanceLength(DownloadConnection.Connected connected) {

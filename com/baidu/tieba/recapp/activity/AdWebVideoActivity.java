@@ -25,9 +25,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.s0.w2.f0.b.f;
+import d.a.p0.w2.f0.b.f;
 import tbclient.VideoInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AdWebVideoActivity extends AdWebViewActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static b STATISTIC_DATA = null;
@@ -46,13 +46,13 @@ public class AdWebVideoActivity extends AdWebViewActivity {
     public WebViewContainer mWebContainer;
     public int mWebViewTopMargin;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements WebViewContainer.OnScrollChangedCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AdWebVideoActivity f20444a;
+        public final /* synthetic */ AdWebVideoActivity f20490a;
 
         public a(AdWebVideoActivity adWebVideoActivity) {
             Interceptable interceptable = $ic;
@@ -69,40 +69,40 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                     return;
                 }
             }
-            this.f20444a = adWebVideoActivity;
+            this.f20490a = adWebVideoActivity;
         }
 
         @Override // com.baidu.tieba.recapp.view.WebViewContainer.OnScrollChangedCallback
         public void onScroll(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-                this.f20444a.mWebViewTopMargin -= i3;
-                if (this.f20444a.mWebViewTopMargin <= 0) {
-                    this.f20444a.mVideoView.stopPlay(this.f20444a.mVideoView.getPlayStatus() != 2);
-                } else if (this.f20444a.mWebViewTopMargin < this.f20444a.mPausePos) {
-                    this.f20444a.mVideoView.pausePlay(1);
-                } else if (this.f20444a.mVideoView.getPlayStatus() == 2) {
-                    this.f20444a.mVideoView.autoContinue();
-                } else if (this.f20444a.mVideoView.getPlayStatus() == -1) {
-                    this.f20444a.mVideoView.autoPlay(0);
+                this.f20490a.mWebViewTopMargin -= i3;
+                if (this.f20490a.mWebViewTopMargin <= 0) {
+                    this.f20490a.mVideoView.stopPlay(this.f20490a.mVideoView.getPlayStatus() != 2);
+                } else if (this.f20490a.mWebViewTopMargin < this.f20490a.mPausePos) {
+                    this.f20490a.mVideoView.pausePlay(1);
+                } else if (this.f20490a.mVideoView.getPlayStatus() == 2) {
+                    this.f20490a.mVideoView.autoContinue();
+                } else if (this.f20490a.mVideoView.getPlayStatus() == -1) {
+                    this.f20490a.mVideoView.autoPlay(0);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public AdvertAppInfo f20445a;
+        public AdvertAppInfo f20491a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f20446b;
+        public int f20492b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f20447c;
+        public String f20493c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -164,9 +164,9 @@ public class AdWebVideoActivity extends AdWebViewActivity {
         if (interceptable == null || interceptable.invokeLIL(65544, null, advertAppInfo, i2, str) == null) {
             b bVar = new b();
             STATISTIC_DATA = bVar;
-            bVar.f20445a = advertAppInfo;
-            bVar.f20447c = str;
-            bVar.f20446b = i2;
+            bVar.f20491a = advertAppInfo;
+            bVar.f20493c = str;
+            bVar.f20492b = i2;
         }
     }
 
@@ -188,7 +188,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 if (this.mGoodsStyle == 14) {
                     Integer valueOf = Integer.valueOf(l.k(getActivity()));
                     builder.video_height = valueOf;
-                    builder.video_width = Integer.valueOf(d.a.s0.w2.f0.c.a.c(valueOf.intValue()));
+                    builder.video_width = Integer.valueOf(d.a.p0.w2.f0.c.a.c(valueOf.intValue()));
                 } else {
                     Integer valueOf2 = Integer.valueOf(l.k(getActivity()));
                     builder.video_width = valueOf2;
@@ -217,10 +217,10 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 this.mVideoView.initVideoViewLayout(this.mGoodsStyle == 14);
                 b bVar = STATISTIC_DATA;
                 if (bVar != null) {
-                    this.mVideoView.updateTailFrameView(bVar.f20445a);
+                    this.mVideoView.updateTailFrameView(bVar.f20491a);
                     DistributeVideoView distributeVideoView = this.mVideoView;
                     b bVar2 = STATISTIC_DATA;
-                    distributeVideoView.setStatisticInfo(bVar2.f20445a, bVar2.f20446b, bVar2.f20447c);
+                    distributeVideoView.setStatisticInfo(bVar2.f20491a, bVar2.f20492b, bVar2.f20493c);
                 } else {
                     this.mVideoView.updateTailFrameView(null);
                 }

@@ -11,25 +11,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.b.a.a0.l;
 import d.f.b.a.a0.t.w;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class a implements d.f.b.a.a0.e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f72390e;
+    public static final int f69493e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f72391a;
+    public final long f69494a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b f72392b;
+    public final b f69495b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.f.b.a.i0.l f72393c;
+    public final d.f.b.a.i0.l f69496c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f72394d;
+    public boolean f69497d;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +44,7 @@ public final class a implements d.f.b.a.a0.e {
                 return;
             }
         }
-        f72390e = d.f.b.a.i0.v.q("ID3");
+        f69493e = d.f.b.a.i0.v.q("ID3");
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -69,8 +69,8 @@ public final class a implements d.f.b.a.a0.e {
     public void a(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.f72394d = false;
-            this.f72392b.b();
+            this.f69497d = false;
+            this.f69495b.b();
         }
     }
 
@@ -97,9 +97,9 @@ public final class a implements d.f.b.a.a0.e {
         d.f.b.a.i0.l lVar = new d.f.b.a.i0.l(10);
         int i2 = 0;
         while (true) {
-            fVar.c(lVar.f73386a, 0, 10);
+            fVar.c(lVar.f70489a, 0, 10);
             lVar.J(0);
-            if (lVar.A() != f72390e) {
+            if (lVar.A() != f69493e) {
                 break;
             }
             lVar.K(3);
@@ -113,7 +113,7 @@ public final class a implements d.f.b.a.a0.e {
         while (true) {
             int i4 = 0;
             while (true) {
-                fVar.c(lVar.f73386a, 0, 5);
+                fVar.c(lVar.f70489a, 0, 5);
                 lVar.J(0);
                 if (lVar.D() != 2935) {
                     break;
@@ -122,7 +122,7 @@ public final class a implements d.f.b.a.a0.e {
                 if (i4 >= 4) {
                     return true;
                 }
-                int e2 = d.f.b.a.x.a.e(lVar.f73386a);
+                int e2 = d.f.b.a.x.a.e(lVar.f70489a);
                 if (e2 == -1) {
                     return false;
                 }
@@ -137,17 +137,17 @@ public final class a implements d.f.b.a.a0.e {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fVar, kVar)) == null) {
-            int read = fVar.read(this.f72393c.f73386a, 0, 2786);
+            int read = fVar.read(this.f69496c.f70489a, 0, 2786);
             if (read == -1) {
                 return -1;
             }
-            this.f72393c.J(0);
-            this.f72393c.I(read);
-            if (!this.f72394d) {
-                this.f72392b.e(this.f72391a, true);
-                this.f72394d = true;
+            this.f69496c.J(0);
+            this.f69496c.I(read);
+            if (!this.f69497d) {
+                this.f69495b.e(this.f69494a, true);
+                this.f69497d = true;
             }
-            this.f72392b.c(this.f72393c);
+            this.f69495b.c(this.f69496c);
             return 0;
         }
         return invokeLL.intValue;
@@ -157,7 +157,7 @@ public final class a implements d.f.b.a.a0.e {
     public void f(d.f.b.a.a0.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, gVar) == null) {
-            this.f72392b.f(gVar, new w.d(0, 1));
+            this.f69495b.f(gVar, new w.d(0, 1));
             gVar.j();
             gVar.p(new l.a(-9223372036854775807L));
         }
@@ -185,8 +185,8 @@ public final class a implements d.f.b.a.a0.e {
                 return;
             }
         }
-        this.f72391a = j;
-        this.f72392b = new b();
-        this.f72393c = new d.f.b.a.i0.l(2786);
+        this.f69494a = j;
+        this.f69495b = new b();
+        this.f69496c = new d.f.b.a.i0.l(2786);
     }
 }

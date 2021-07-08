@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BaseProducerContext implements ProducerContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -92,7 +92,7 @@ public class BaseProducerContext implements ProducerContext {
 
     public static void callOnPriorityChanged(@Nullable List<ProducerContextCallbacks> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, null, list) == null) || list == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list) == null) || list == null) {
             return;
         }
         for (ProducerContextCallbacks producerContextCallbacks : list) {

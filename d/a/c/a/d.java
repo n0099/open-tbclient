@@ -10,23 +10,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class d<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public f<T> mContext;
     public InputMethodManager mInputManager;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f43866e;
+        public View f40882e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f43867f;
+        public final /* synthetic */ d f40883f;
 
         public a(d dVar, View view) {
             Interceptable interceptable = $ic;
@@ -43,19 +43,19 @@ public class d<T> {
                     return;
                 }
             }
-            this.f43867f = dVar;
-            this.f43866e = null;
-            this.f43866e = view;
+            this.f40883f = dVar;
+            this.f40882e = null;
+            this.f40882e = view;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             f<T> fVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (fVar = this.f43867f.mContext) == null || fVar.getPageActivity() == null || this.f43867f.mContext.getPageActivity().isFinishing()) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (fVar = this.f40883f.mContext) == null || fVar.getPageActivity() == null || this.f40883f.mContext.getPageActivity().isFinishing()) {
                 return;
             }
-            this.f43867f.ShowSoftKeyPad(this.f43866e);
+            this.f40883f.ShowSoftKeyPad(this.f40882e);
         }
     }
 

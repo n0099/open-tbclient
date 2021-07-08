@@ -11,7 +11,7 @@ import com.baidu.tieba.flutter.plugin.networkService.NetworkServicePlugin;
 import com.baidu.tieba.flutter.plugin.performanceMonitor.PerformanceMonitorPlugin;
 import com.baidu.tieba.flutter.plugin.progressHUD.ProgressHUDPlugin;
 import com.baidu.tieba.flutter.plugin.tiebaShare.TiebaSharePlugin;
-import com.baidu.tieba.flutter.plugin.tiebaUtility.android.TiebaUtilityPlugin;
+import com.baidu.tieba.flutter.plugin.tiebautility.android.TiebaUtilityPlugin;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.idlefish.flutterboost.FlutterBoostPlugin;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.plugins.webviewflutter.WebViewFlutterPlugin;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FlutterPluginInit {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

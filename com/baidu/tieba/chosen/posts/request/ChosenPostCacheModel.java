@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.b0.a.d.b;
-/* loaded from: classes5.dex */
+import d.a.p0.b0.a.d.b;
+/* loaded from: classes4.dex */
 public class ChosenPostCacheModel extends CacheModel<b, ChosenPostActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CACHE_KEY = "chosen_post_cache";

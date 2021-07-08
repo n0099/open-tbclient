@@ -17,33 +17,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class EmotionPackageDetailModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f14881e;
+    public d f14920e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f14882f;
+    public e f14921f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final HttpMessageListener f14883g;
+    public final HttpMessageListener f14922g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final HttpMessageListener f14884h;
+    public final HttpMessageListener f14923h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final HttpMessageListener f14885i;
+    public final HttpMessageListener f14924i;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionPackageDetailModel f14886a;
+        public final /* synthetic */ EmotionPackageDetailModel f14925a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(EmotionPackageDetailModel emotionPackageDetailModel, int i2) {
@@ -63,29 +63,29 @@ public class EmotionPackageDetailModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f14886a = emotionPackageDetailModel;
+            this.f14925a = emotionPackageDetailModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003346 && (httpResponsedMessage instanceof PackageDetailResponseMessage) && this.f14886a.mLoadDataCallBack != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003346 && (httpResponsedMessage instanceof PackageDetailResponseMessage) && this.f14925a.mLoadDataCallBack != null) {
                 PackageDetailResponseMessage packageDetailResponseMessage = (PackageDetailResponseMessage) httpResponsedMessage;
-                if (this.f14886a.mLoadDataCallBack != null) {
-                    this.f14886a.mLoadDataCallBack.c(packageDetailResponseMessage.data);
+                if (this.f14925a.mLoadDataCallBack != null) {
+                    this.f14925a.mLoadDataCallBack.c(packageDetailResponseMessage.data);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionPackageDetailModel f14887a;
+        public final /* synthetic */ EmotionPackageDetailModel f14926a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(EmotionPackageDetailModel emotionPackageDetailModel, int i2) {
@@ -105,31 +105,31 @@ public class EmotionPackageDetailModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f14887a = emotionPackageDetailModel;
+            this.f14926a = emotionPackageDetailModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003347 || this.f14887a.f14881e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003347 || this.f14926a.f14920e == null) {
                 return;
             }
             if (httpResponsedMessage.getError() == 0) {
-                this.f14887a.f14881e.onResult(true);
+                this.f14926a.f14920e.onResult(true);
             } else {
-                this.f14887a.f14881e.onResult(false);
+                this.f14926a.f14920e.onResult(false);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionPackageDetailModel f14888a;
+        public final /* synthetic */ EmotionPackageDetailModel f14927a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(EmotionPackageDetailModel emotionPackageDetailModel, int i2) {
@@ -149,26 +149,26 @@ public class EmotionPackageDetailModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f14888a = emotionPackageDetailModel;
+            this.f14927a = emotionPackageDetailModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003358 || this.f14888a.f14882f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003358 || this.f14927a.f14921f == null) {
                 return;
             }
-            this.f14888a.f14882f.a(httpResponsedMessage);
+            this.f14927a.f14921f.a(httpResponsedMessage);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface d {
         void onResult(boolean z);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface e {
         void a(HttpResponsedMessage httpResponsedMessage);
     }
@@ -186,9 +186,9 @@ public class EmotionPackageDetailModel extends BdBaseModel {
                 return;
             }
         }
-        this.f14883g = new a(this, CmdConfigHttp.CMD_EMOTION_PACKAGE_DETAIL);
-        this.f14884h = new b(this, CmdConfigHttp.CMD_DELETE_EMOTION_PACKAGE);
-        this.f14885i = new c(this, CmdConfigHttp.CMD_VOTE_EMOTION);
+        this.f14922g = new a(this, CmdConfigHttp.CMD_EMOTION_PACKAGE_DETAIL);
+        this.f14923h = new b(this, CmdConfigHttp.CMD_DELETE_EMOTION_PACKAGE);
+        this.f14924i = new c(this, CmdConfigHttp.CMD_VOTE_EMOTION);
         setUniqueId(BdUniqueId.gen());
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_EMOTION_PACKAGE_DETAIL, TbConfig.SERVER_ADDRESS + TbConfig.GET_NEW_PACKAGE_DETAIL);
         tbHttpMessageTask.setResponsedClass(PackageDetailResponseMessage.class);
@@ -200,11 +200,11 @@ public class EmotionPackageDetailModel extends BdBaseModel {
         tbHttpMessageTask3.setIsNeedTbs(true);
         tbHttpMessageTask3.setResponsedClass(JsonHttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask3);
-        this.f14883g.setTag(getUniqueId());
-        this.f14883g.setSelfListener(true);
-        registerListener(this.f14883g);
-        registerListener(this.f14884h);
-        registerListener(this.f14885i);
+        this.f14922g.setTag(getUniqueId());
+        this.f14922g.setSelfListener(true);
+        registerListener(this.f14922g);
+        registerListener(this.f14923h);
+        registerListener(this.f14924i);
     }
 
     public void B(int i2, d dVar) {
@@ -215,7 +215,7 @@ public class EmotionPackageDetailModel extends BdBaseModel {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_DELETE_EMOTION_PACKAGE);
         httpMessage.addParam("package_id", i2);
         sendMessage(httpMessage);
-        this.f14881e = dVar;
+        this.f14920e = dVar;
     }
 
     public void C(int i2) {
@@ -236,7 +236,7 @@ public class EmotionPackageDetailModel extends BdBaseModel {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_VOTE_EMOTION);
         httpMessage.addParam(IntentConfig.PKG_ID, i2);
         sendMessage(httpMessage);
-        this.f14882f = eVar;
+        this.f14921f = eVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -254,12 +254,12 @@ public class EmotionPackageDetailModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f14883g);
+            MessageManager.getInstance().unRegisterListener(this.f14922g);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_EMOTION_PACKAGE_DETAIL);
-            MessageManager.getInstance().unRegisterListener(this.f14884h);
+            MessageManager.getInstance().unRegisterListener(this.f14923h);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_DELETE_EMOTION_PACKAGE);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_VOTE_EMOTION);
-            MessageManager.getInstance().unRegisterListener(this.f14885i);
+            MessageManager.getInstance().unRegisterListener(this.f14924i);
             return true;
         }
         return invokeV.booleanValue;

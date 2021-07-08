@@ -1,6 +1,7 @@
 package com.baidu.sapi2.utils.enums;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class FastLoginFeature {
     public static final /* synthetic */ FastLoginFeature[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -27,7 +28,7 @@ public final class FastLoginFeature {
     public transient /* synthetic */ FieldHolder $fh;
     public String mStrValue;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface SSOLoginType {
         public static final String HONOR = "glory_login";
         public static final String HUAWEI = "huawei_login";
@@ -116,7 +117,7 @@ public final class FastLoginFeature {
     public static FastLoginFeature valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (FastLoginFeature) Enum.valueOf(FastLoginFeature.class, str) : (FastLoginFeature) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (FastLoginFeature) Enum.valueOf(FastLoginFeature.class, str) : (FastLoginFeature) invokeL.objValue;
     }
 
     public static FastLoginFeature[] values() {

@@ -27,7 +27,7 @@ import java.util.Set;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.NotThreadSafe;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class BasePool<V> implements Pool<V> {
     public static /* synthetic */ Interceptable $ic;
     public static OnFailedListener mOnFailedListener;
@@ -50,7 +50,7 @@ public abstract class BasePool<V> implements Pool<V> {
 
     @VisibleForTesting
     @NotThreadSafe
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Counter {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "com.facebook.imagepipeline.memory.BasePool.Counter";
@@ -103,7 +103,7 @@ public abstract class BasePool<V> implements Pool<V> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class InvalidSizeException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,7 +129,7 @@ public abstract class BasePool<V> implements Pool<V> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class InvalidValueException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -155,12 +155,12 @@ public abstract class BasePool<V> implements Pool<V> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnFailedListener {
         void onFailed();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class PoolSizeViolationException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -186,7 +186,7 @@ public abstract class BasePool<V> implements Pool<V> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class SizeTooLargeException extends InvalidSizeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -283,7 +283,7 @@ public abstract class BasePool<V> implements Pool<V> {
 
     private synchronized void initBuckets() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             synchronized (this) {
                 SparseIntArray sparseIntArray = this.mPoolParams.bucketSizes;
                 if (sparseIntArray != null) {

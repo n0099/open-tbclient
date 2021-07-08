@@ -2,6 +2,7 @@ package com.baidu.mobstat;
 
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,12 +11,12 @@ import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class bm {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +27,7 @@ public final class bm {
             if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i2, bArr)) == null) {
                 int i3 = i2 - 1;
                 if (i3 >= 0) {
-                    String[] strArr = br.f8860a;
+                    String[] strArr = br.f8877a;
                     if (strArr.length > i3) {
                         SecretKeySpec secretKeySpec = new SecretKeySpec(strArr[i3].getBytes(), "AES");
                         Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
@@ -45,7 +46,7 @@ public final class bm {
             if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i2, bArr)) == null) {
                 int i3 = i2 - 1;
                 if (i3 >= 0) {
-                    String[] strArr = br.f8860a;
+                    String[] strArr = br.f8877a;
                     if (strArr.length > i3) {
                         SecretKeySpec secretKeySpec = new SecretKeySpec(strArr[i3].getBytes(), "AES");
                         Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
@@ -85,7 +86,7 @@ public final class bm {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +108,7 @@ public final class bm {
         public static byte[] b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
                 byte[] bArr = new byte[16];
                 new SecureRandom().nextBytes(bArr);
                 return bArr;

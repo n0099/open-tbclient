@@ -11,7 +11,7 @@ import java.net.InetAddress;
 import org.apache.http.HttpHost;
 import org.apache.http.conn.routing.RouteInfo;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class HttpRoute implements RouteInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,12 +22,12 @@ public final class HttpRoute implements RouteInfo {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {httpHost, inetAddress, httpHostArr, Boolean.valueOf(z), tunnelType, layerType};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }

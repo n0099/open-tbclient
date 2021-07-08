@@ -11,7 +11,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetLevelInfo.DataRes;
 import tbclient.GetLevelInfo.GetLevelInfoResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GetLevelInfoReadCacheResponsedMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

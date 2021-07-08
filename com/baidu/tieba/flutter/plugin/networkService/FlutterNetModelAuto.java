@@ -35,13 +35,13 @@ import d.a.c.c.g.a;
 import d.a.c.c.g.c;
 import d.a.c.e.m.e;
 import d.a.c.e.p.l;
-import d.a.r0.g0.b.g;
-import d.a.r0.g0.b.h;
-import d.a.r0.v0.b;
+import d.a.o0.g0.b.g;
+import d.a.o0.g0.b.h;
+import d.a.o0.v0.b;
 import java.util.HashMap;
 import java.util.Map;
 import protobuf.Error;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkServicePlugin.NetModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TIMOUT_MIN = 10;
@@ -70,7 +70,7 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
     public BdUniqueId unique_id;
 
     /* renamed from: com.baidu.tieba.flutter.plugin.networkService.FlutterNetModelAuto$11  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass11 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$tieba$flutter$plugin$networkService$FlutterNetModelAuto$NetModelType;
         public static /* synthetic */ Interceptable $ic;
@@ -106,22 +106,22 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface NetModelCallback<T extends g, D extends h> extends NetModelHttpCallback<T, D>, NetModelSocketCallback<T, D> {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface NetModelHttpCallback<T extends g, D extends h> {
         void onHttpResponseMessage(String str, HashMap<String, String> hashMap, MvcHttpResponsedMessage<D> mvcHttpResponsedMessage, MvcHttpMessage<T, D> mvcHttpMessage, MvcNetMessage<T, D> mvcNetMessage);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface NetModelSocketCallback<T extends g, D extends h> {
         void onSocketResponseMessage(String str, HashMap<String, String> hashMap, SocketResponsedMessage socketResponsedMessage, SocketMessage socketMessage, NetMessage netMessage);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class NetModelType {
         public static final /* synthetic */ NetModelType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

@@ -7,25 +7,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public interface a {
 
     /* renamed from: d.a.c.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0584a implements a {
+    /* loaded from: classes6.dex */
+    public static class C0545a implements a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: c  reason: collision with root package name */
-        public static a f43979c;
+        public static a f40995c;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f43980a;
+        public int f40996a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final d f43981b;
+        public final d f40997b;
 
-        public C0584a() {
+        public C0545a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,12 +38,12 @@ public interface a {
                     return;
                 }
             }
-            this.f43980a = 0;
-            this.f43981b = new d();
-            if (NSGif.f2155f) {
-                this.f43980a = 0;
+            this.f40996a = 0;
+            this.f40997b = new d();
+            if (NSGif.f2156f) {
+                this.f40996a = 0;
             } else {
-                this.f43980a = 1;
+                this.f40996a = 1;
             }
         }
 
@@ -52,11 +52,11 @@ public interface a {
             a aVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                synchronized (C0584a.class) {
-                    if (f43979c == null) {
-                        f43979c = new C0584a();
+                synchronized (C0545a.class) {
+                    if (f40995c == null) {
+                        f40995c = new C0545a();
                     }
-                    aVar = f43979c;
+                    aVar = f40995c;
                 }
                 return aVar;
             }
@@ -68,9 +68,9 @@ public interface a {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
-                if (this.f43980a == 0) {
+                if (this.f40996a == 0) {
                     try {
-                        return this.f43981b.a(bArr, i2, i3);
+                        return this.f40997b.a(bArr, i2, i3);
                     } catch (Exception unused) {
                     }
                 }
@@ -84,9 +84,9 @@ public interface a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                if (this.f43980a == 0) {
+                if (this.f40996a == 0) {
                     try {
-                        return this.f43981b.get(str);
+                        return this.f40997b.get(str);
                     } catch (Exception unused) {
                     }
                 }

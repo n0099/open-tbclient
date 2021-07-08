@@ -10,30 +10,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ExecutorService f6647a;
+    public ExecutorService f6664a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ExecutorService f6648b;
+    public ExecutorService f6665b;
 
     /* renamed from: com.baidu.location.b.v$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static v f6649a;
+        public static v f6666a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,7 +49,7 @@ public class v {
                     return;
                 }
             }
-            f6649a = new v(null);
+            f6666a = new v(null);
         }
     }
 
@@ -74,7 +74,7 @@ public class v {
     public static v a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f6649a : (v) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f6666a : (v) invokeV.objValue;
     }
 
     public synchronized ExecutorService b() {
@@ -83,11 +83,11 @@ public class v {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                if (this.f6647a == null || this.f6647a.isShutdown()) {
-                    this.f6647a = null;
-                    this.f6647a = Executors.newSingleThreadExecutor();
+                if (this.f6664a == null || this.f6664a.isShutdown()) {
+                    this.f6664a = null;
+                    this.f6664a = Executors.newSingleThreadExecutor();
                 }
-                executorService = this.f6647a;
+                executorService = this.f6664a;
             }
             return executorService;
         }
@@ -100,11 +100,11 @@ public class v {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                if (this.f6648b == null || this.f6648b.isShutdown()) {
-                    this.f6648b = null;
-                    this.f6648b = Executors.newFixedThreadPool(2);
+                if (this.f6665b == null || this.f6665b.isShutdown()) {
+                    this.f6665b = null;
+                    this.f6665b = Executors.newFixedThreadPool(2);
                 }
-                executorService = this.f6648b;
+                executorService = this.f6665b;
             }
             return executorService;
         }
@@ -114,11 +114,11 @@ public class v {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ExecutorService executorService = this.f6647a;
+            ExecutorService executorService = this.f6664a;
             if (executorService != null) {
                 executorService.shutdown();
             }
-            ExecutorService executorService2 = this.f6648b;
+            ExecutorService executorService2 = this.f6665b;
             if (executorService2 != null) {
                 executorService2.shutdown();
             }

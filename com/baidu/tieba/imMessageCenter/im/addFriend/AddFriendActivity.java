@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,13 +49,13 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
     public String st_type;
     public String userId;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends d.a.c.c.g.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AddFriendActivity f17699a;
+        public final /* synthetic */ AddFriendActivity f17738a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AddFriendActivity addFriendActivity, int i2) {
@@ -75,7 +75,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                     return;
                 }
             }
-            this.f17699a = addFriendActivity;
+            this.f17738a = addFriendActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -87,31 +87,31 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                 int error = responseAddFriendMessage.getError();
                 String errorString = responseAddFriendMessage.getErrorString();
                 if (error == 0) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001193, new d.a.s0.j1.a.a.a(this.f17699a.userId, this.f17699a.name)));
-                    if (this.f17699a.isLower) {
-                        AddFriendActivity addFriendActivity = this.f17699a;
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001193, new d.a.p0.j1.a.a.a(this.f17738a.userId, this.f17738a.name)));
+                    if (this.f17738a.isLower) {
+                        AddFriendActivity addFriendActivity = this.f17738a;
                         addFriendActivity.showToast(addFriendActivity.getPageContext().getPageActivity().getString(R.string.group_apply_succ), false);
                     } else {
-                        AddFriendActivity addFriendActivity2 = this.f17699a;
+                        AddFriendActivity addFriendActivity2 = this.f17738a;
                         addFriendActivity2.showToast(addFriendActivity2.getPageContext().getPageActivity().getString(R.string.group_apply_succ), false);
                     }
-                    this.f17699a.finish();
+                    this.f17738a.finish();
                 } else if (AntiHelper.m(error, errorString)) {
-                    AntiHelper.u(this.f17699a.getPageContext().getPageActivity(), errorString);
+                    AntiHelper.u(this.f17738a.getPageContext().getPageActivity(), errorString);
                 } else {
-                    l.M(this.f17699a.getPageContext().getPageActivity(), errorString);
+                    l.M(this.f17738a.getPageContext().getPageActivity(), errorString);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AddFriendActivity f17700e;
+        public final /* synthetic */ AddFriendActivity f17739e;
 
         public b(AddFriendActivity addFriendActivity) {
             Interceptable interceptable = $ic;
@@ -128,26 +128,26 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                     return;
                 }
             }
-            this.f17700e = addFriendActivity;
+            this.f17739e = addFriendActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                AddFriendActivity addFriendActivity = this.f17700e;
-                addFriendActivity.HidenSoftKeyPad(addFriendActivity.mInputMethodManager, this.f17700e.mSayInput);
+                AddFriendActivity addFriendActivity = this.f17739e;
+                addFriendActivity.HidenSoftKeyPad(addFriendActivity.mInputMethodManager, this.f17739e.mSayInput);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AddFriendActivity f17701e;
+        public final /* synthetic */ AddFriendActivity f17740e;
 
         public c(AddFriendActivity addFriendActivity) {
             Interceptable interceptable = $ic;
@@ -164,26 +164,26 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                     return;
                 }
             }
-            this.f17701e = addFriendActivity;
+            this.f17740e = addFriendActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f17701e.mSayInput == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f17740e.mSayInput == null) {
                 return;
             }
-            this.f17701e.mSayInput.setText("");
+            this.f17740e.mSayInput.setText("");
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AddFriendActivity f17702e;
+        public final /* synthetic */ AddFriendActivity f17741e;
 
         public d(AddFriendActivity addFriendActivity) {
             Interceptable interceptable = $ic;
@@ -200,31 +200,31 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                     return;
                 }
             }
-            this.f17702e = addFriendActivity;
+            this.f17741e = addFriendActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                AddFriendActivity addFriendActivity = this.f17702e;
-                addFriendActivity.HidenSoftKeyPad(addFriendActivity.mInputMethodManager, this.f17702e.mSayInput);
+                AddFriendActivity addFriendActivity = this.f17741e;
+                addFriendActivity.HidenSoftKeyPad(addFriendActivity.mInputMethodManager, this.f17741e.mSayInput);
                 if (TbadkCoreApplication.getInst().appResponseToIntentClass(AddressListActivityConfig.class)) {
-                    this.f17702e.requestFriendData(this.f17702e.mSayInput.getText().toString());
+                    this.f17741e.requestFriendData(this.f17741e.mSayInput.getText().toString());
                     return;
                 }
-                this.f17702e.showToast(R.string.plugin_not_install);
+                this.f17741e.showToast(R.string.plugin_not_install);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class e implements View.OnFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AddFriendActivity f17703e;
+        public final /* synthetic */ AddFriendActivity f17742e;
 
         public e(AddFriendActivity addFriendActivity) {
             Interceptable interceptable = $ic;
@@ -241,7 +241,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                     return;
                 }
             }
-            this.f17703e = addFriendActivity;
+            this.f17742e = addFriendActivity;
         }
 
         @Override // android.view.View.OnFocusChangeListener
@@ -249,23 +249,23 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
                 if (z) {
-                    AddFriendActivity addFriendActivity = this.f17703e;
-                    addFriendActivity.ShowSoftKeyPad(addFriendActivity.mInputMethodManager, this.f17703e.mSayInput);
+                    AddFriendActivity addFriendActivity = this.f17742e;
+                    addFriendActivity.ShowSoftKeyPad(addFriendActivity.mInputMethodManager, this.f17742e.mSayInput);
                     return;
                 }
-                AddFriendActivity addFriendActivity2 = this.f17703e;
-                addFriendActivity2.HidenSoftKeyPad(addFriendActivity2.mInputMethodManager, this.f17703e.mSayInput);
+                AddFriendActivity addFriendActivity2 = this.f17742e;
+                addFriendActivity2.HidenSoftKeyPad(addFriendActivity2.mInputMethodManager, this.f17742e.mSayInput);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class f implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AddFriendActivity f17704e;
+        public final /* synthetic */ AddFriendActivity f17743e;
 
         public f(AddFriendActivity addFriendActivity) {
             Interceptable interceptable = $ic;
@@ -282,7 +282,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                     return;
                 }
             }
-            this.f17704e = addFriendActivity;
+            this.f17743e = addFriendActivity;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -290,8 +290,8 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                if (this.f17704e.mSayInput.getParent() != null) {
-                    this.f17704e.mSayInput.getParent().requestDisallowInterceptTouchEvent(true);
+                if (this.f17743e.mSayInput.getParent() != null) {
+                    this.f17743e.mSayInput.getParent().requestDisallowInterceptTouchEvent(true);
                     return false;
                 }
                 return false;

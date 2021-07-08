@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.core.h;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a implements d.l.a.a.a.c.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f30985a;
+    public final WeakReference<Context> f31095a;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class a implements d.l.a.a.a.c.b {
                 return;
             }
         }
-        this.f30985a = new WeakReference<>(context);
+        this.f31095a = new WeakReference<>(context);
     }
 
     @Override // d.l.a.a.a.c.b

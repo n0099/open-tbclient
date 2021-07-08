@@ -5,7 +5,7 @@ import d.h.a.a.a;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class BasicPushStatus implements Serializable {
     public static final String SUCCESS_CODE = "200";
     public static final String TAG = "BasicPushStatus";

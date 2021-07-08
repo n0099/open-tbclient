@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.fsg.base.ApollonConstants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,24 +16,24 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class CheckUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5341a = "CheckUtils";
+    public static final String f5358a = "CheckUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5342b = 3;
+    public static final int f5359b = 3;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f5343c = 12;
+    public static final int f5360c = 12;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f5344d = 4;
+    public static final int f5361d = 4;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f5345e;
+    public static long f5362e;
     public transient /* synthetic */ FieldHolder $fh;
 
     public CheckUtils() {
@@ -240,7 +241,7 @@ public final class CheckUtils {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             if (TextUtils.equals("mounted", Environment.getExternalStorageState())) {
                 File externalStorageDirectory = Environment.getExternalStorageDirectory();
@@ -278,13 +279,13 @@ public final class CheckUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j = currentTimeMillis - f5345e;
+            long j = currentTimeMillis - f5362e;
             LogUtil.logd("timeD=" + j);
             if (0 < j && j < 500) {
                 LogUtil.logd("点的太快了 timeD=" + j);
                 return true;
             }
-            f5345e = currentTimeMillis;
+            f5362e = currentTimeMillis;
             return false;
         }
         return invokeV.booleanValue;

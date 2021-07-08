@@ -19,34 +19,34 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.internal.bind.TypeAdapters;
-import d.a.q0.a.f;
-import d.a.q0.a.g;
-import d.a.q0.a.k;
-import d.a.q0.a.v2.n0;
-import d.a.q0.a.z1.b.f.e;
+import d.a.n0.a.f;
+import d.a.n0.a.g;
+import d.a.n0.a.k;
+import d.a.n0.a.v2.n0;
+import d.a.n0.a.z1.b.f.e;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BdDatePicker extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean w;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f11263e;
+    public int f11280e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f11264f;
+    public int f11281f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f11265g;
+    public int f11282g;
 
     /* renamed from: h  reason: collision with root package name */
-    public WheelView3d f11266h;
+    public WheelView3d f11283h;
 
     /* renamed from: i  reason: collision with root package name */
-    public WheelView3d f11267i;
+    public WheelView3d f11284i;
     public WheelView3d j;
     public Date k;
     public Date l;
@@ -61,13 +61,13 @@ public class BdDatePicker extends LinearLayout {
     public int u;
     public int v;
 
-    /* loaded from: classes4.dex */
-    public class a implements d.a.q0.a.z1.a.e.c.b {
+    /* loaded from: classes3.dex */
+    public class a implements d.a.n0.a.z1.a.e.c.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdDatePicker f11268a;
+        public final /* synthetic */ BdDatePicker f11285a;
 
         public a(BdDatePicker bdDatePicker) {
             Interceptable interceptable = $ic;
@@ -84,28 +84,28 @@ public class BdDatePicker extends LinearLayout {
                     return;
                 }
             }
-            this.f11268a = bdDatePicker;
+            this.f11285a = bdDatePicker;
         }
 
-        @Override // d.a.q0.a.z1.a.e.c.b
+        @Override // d.a.n0.a.z1.a.e.c.b
         public void a(WheelView3d wheelView3d, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, wheelView3d, i2) == null) {
-                BdDatePicker bdDatePicker = this.f11268a;
-                bdDatePicker.f11263e = i2 + bdDatePicker.m;
-                this.f11268a.j();
-                this.f11268a.i();
+                BdDatePicker bdDatePicker = this.f11285a;
+                bdDatePicker.f11280e = i2 + bdDatePicker.m;
+                this.f11285a.j();
+                this.f11285a.i();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements d.a.q0.a.z1.a.e.c.b {
+    /* loaded from: classes3.dex */
+    public class b implements d.a.n0.a.z1.a.e.c.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdDatePicker f11269a;
+        public final /* synthetic */ BdDatePicker f11286a;
 
         public b(BdDatePicker bdDatePicker) {
             Interceptable interceptable = $ic;
@@ -122,27 +122,27 @@ public class BdDatePicker extends LinearLayout {
                     return;
                 }
             }
-            this.f11269a = bdDatePicker;
+            this.f11286a = bdDatePicker;
         }
 
-        @Override // d.a.q0.a.z1.a.e.c.b
+        @Override // d.a.n0.a.z1.a.e.c.b
         public void a(WheelView3d wheelView3d, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, wheelView3d, i2) == null) {
-                BdDatePicker bdDatePicker = this.f11269a;
-                bdDatePicker.f11264f = i2 + bdDatePicker.o;
-                this.f11269a.i();
+                BdDatePicker bdDatePicker = this.f11286a;
+                bdDatePicker.f11281f = i2 + bdDatePicker.o;
+                this.f11286a.i();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c implements d.a.q0.a.z1.a.e.c.b {
+    /* loaded from: classes3.dex */
+    public class c implements d.a.n0.a.z1.a.e.c.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdDatePicker f11270a;
+        public final /* synthetic */ BdDatePicker f11287a;
 
         public c(BdDatePicker bdDatePicker) {
             Interceptable interceptable = $ic;
@@ -159,20 +159,20 @@ public class BdDatePicker extends LinearLayout {
                     return;
                 }
             }
-            this.f11270a = bdDatePicker;
+            this.f11287a = bdDatePicker;
         }
 
-        @Override // d.a.q0.a.z1.a.e.c.b
+        @Override // d.a.n0.a.z1.a.e.c.b
         public void a(WheelView3d wheelView3d, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, wheelView3d, i2) == null) {
-                BdDatePicker bdDatePicker = this.f11270a;
-                bdDatePicker.f11265g = i2 + bdDatePicker.r;
+                BdDatePicker bdDatePicker = this.f11287a;
+                bdDatePicker.f11282g = i2 + bdDatePicker.r;
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface d {
     }
 
@@ -189,7 +189,7 @@ public class BdDatePicker extends LinearLayout {
                 return;
             }
         }
-        w = k.f49133a;
+        w = k.f45831a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -210,9 +210,9 @@ public class BdDatePicker extends LinearLayout {
                 return;
             }
         }
-        this.f11263e = FeatureCodes.SKY_SEG;
-        this.f11264f = 1;
-        this.f11265g = 1;
+        this.f11280e = FeatureCodes.SKY_SEG;
+        this.f11281f = 1;
+        this.f11282g = 1;
         this.m = FeatureCodes.SKY_SEG;
         this.n = 2100;
         this.o = 1;
@@ -233,25 +233,25 @@ public class BdDatePicker extends LinearLayout {
             this.u = n0.g(16.0f);
             this.v = n0.g(14.0f);
             WheelView3d wheelView3d = (WheelView3d) findViewById(f.wheel_year);
-            this.f11266h = wheelView3d;
+            this.f11283h = wheelView3d;
             wheelView3d.setCenterTextSize(this.u);
-            this.f11266h.setOuterTextSize(this.v);
-            this.f11266h.setLineSpacingMultiplier(3.0f);
-            this.f11266h.setTextColorCenter(-16777216);
-            this.f11266h.setTextColorOut(-16777216);
-            this.f11266h.setDividerType(WheelView3d.DividerType.FILL);
-            this.f11266h.setVisibleItem(7);
-            this.f11266h.setOnItemSelectedListener(new a(this));
+            this.f11283h.setOuterTextSize(this.v);
+            this.f11283h.setLineSpacingMultiplier(3.0f);
+            this.f11283h.setTextColorCenter(-16777216);
+            this.f11283h.setTextColorOut(-16777216);
+            this.f11283h.setDividerType(WheelView3d.DividerType.FILL);
+            this.f11283h.setVisibleItem(7);
+            this.f11283h.setOnItemSelectedListener(new a(this));
             WheelView3d wheelView3d2 = (WheelView3d) findViewById(f.wheel_month);
-            this.f11267i = wheelView3d2;
+            this.f11284i = wheelView3d2;
             wheelView3d2.setCenterTextSize(this.u);
-            this.f11267i.setOuterTextSize(this.v);
-            this.f11267i.setTextColorCenter(-16777216);
-            this.f11267i.setTextColorOut(-16777216);
-            this.f11267i.setLineSpacingMultiplier(3.0f);
-            this.f11267i.setDividerType(WheelView3d.DividerType.FILL);
-            this.f11267i.setVisibleItem(7);
-            this.f11267i.setOnItemSelectedListener(new b(this));
+            this.f11284i.setOuterTextSize(this.v);
+            this.f11284i.setTextColorCenter(-16777216);
+            this.f11284i.setTextColorOut(-16777216);
+            this.f11284i.setLineSpacingMultiplier(3.0f);
+            this.f11284i.setDividerType(WheelView3d.DividerType.FILL);
+            this.f11284i.setVisibleItem(7);
+            this.f11284i.setOnItemSelectedListener(new b(this));
             WheelView3d wheelView3d3 = (WheelView3d) findViewById(f.wheel_day);
             this.j = wheelView3d3;
             wheelView3d3.setCenterTextSize(this.u);
@@ -269,28 +269,28 @@ public class BdDatePicker extends LinearLayout {
     public int getDay() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11265g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11282g : invokeV.intValue;
     }
 
     public int getMonth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11264f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11281f : invokeV.intValue;
     }
 
     public int getYear() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f11263e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f11280e : invokeV.intValue;
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             Calendar calendar = Calendar.getInstance();
-            this.f11263e = calendar.get(1);
-            this.f11264f = calendar.get(2) + 1;
-            this.f11265g = calendar.get(5);
+            this.f11280e = calendar.get(1);
+            this.f11281f = calendar.get(2) + 1;
+            this.f11282g = calendar.get(5);
             n();
         }
     }
@@ -299,13 +299,13 @@ public class BdDatePicker extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             int[] iArr = {4, 6, 9, 11};
-            if (Arrays.binarySearch(new int[]{1, 3, 5, 7, 8, 10, 12}, this.f11264f) >= 0) {
+            if (Arrays.binarySearch(new int[]{1, 3, 5, 7, 8, 10, 12}, this.f11281f) >= 0) {
                 this.q = 31;
-            } else if (Arrays.binarySearch(iArr, this.f11264f) >= 0) {
+            } else if (Arrays.binarySearch(iArr, this.f11281f) >= 0) {
                 this.q = 30;
             } else {
-                int i2 = this.f11263e;
-                if ((i2 % 4 == 0 && i2 % 100 != 0) || this.f11263e % 400 == 0) {
+                int i2 = this.f11280e;
+                if ((i2 % 4 == 0 && i2 % 100 != 0) || this.f11280e % 400 == 0) {
                     this.q = 29;
                 } else {
                     this.q = 28;
@@ -314,16 +314,16 @@ public class BdDatePicker extends LinearLayout {
             this.r = 1;
             this.s = this.q;
             Date date = this.k;
-            if (date != null && this.f11263e == this.m && this.f11264f == date.getMonth() + 1) {
+            if (date != null && this.f11280e == this.m && this.f11281f == date.getMonth() + 1) {
                 this.r = this.k.getDate();
             }
             Date date2 = this.l;
-            if (date2 != null && this.f11263e == this.n && this.f11264f == date2.getMonth() + 1) {
+            if (date2 != null && this.f11280e == this.n && this.f11281f == date2.getMonth() + 1) {
                 this.s = this.l.getDate();
             }
-            this.j.setAdapter(new d.a.q0.a.z1.a.e.a.b(this.r, this.s));
+            this.j.setAdapter(new d.a.n0.a.z1.a.e.a.b(this.r, this.s));
             m(this.j, this.r, this.s);
-            setDay(this.f11265g);
+            setDay(this.f11282g);
         }
     }
 
@@ -333,28 +333,28 @@ public class BdDatePicker extends LinearLayout {
             this.o = 1;
             this.p = 12;
             Date date = this.k;
-            if (date != null && this.f11263e == this.m) {
+            if (date != null && this.f11280e == this.m) {
                 this.o = date.getMonth() + 1;
             }
             Date date2 = this.l;
-            if (date2 != null && this.f11263e == this.n) {
+            if (date2 != null && this.f11280e == this.n) {
                 this.p = date2.getMonth() + 1;
             }
-            this.f11267i.setAdapter(new d.a.q0.a.z1.a.e.a.b(this.o, this.p));
-            m(this.f11267i, this.o, this.p);
-            setMonth(this.f11264f);
+            this.f11284i.setAdapter(new d.a.n0.a.z1.a.e.a.b(this.o, this.p));
+            m(this.f11284i, this.o, this.p);
+            setMonth(this.f11281f);
         }
     }
 
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            int i2 = this.f11263e;
+            int i2 = this.f11280e;
             if (i2 < this.m || i2 > this.n) {
-                this.f11263e = this.m;
+                this.f11280e = this.m;
             }
-            this.f11266h.setAdapter(new d.a.q0.a.z1.a.e.a.b(this.m, this.n));
-            m(this.f11266h, this.m, this.n);
+            this.f11283h.setAdapter(new d.a.n0.a.z1.a.e.a.b(this.m, this.n));
+            m(this.f11283h, this.m, this.n);
         }
     }
 
@@ -382,11 +382,11 @@ public class BdDatePicker extends LinearLayout {
                 c2 = 65535;
             }
             if (c2 == 0) {
-                wheelView3d = this.f11266h;
+                wheelView3d = this.f11283h;
             } else if (c2 != 1) {
                 wheelView3d = c2 != 2 ? null : this.j;
             } else {
-                wheelView3d = this.f11267i;
+                wheelView3d = this.f11284i;
             }
             return wheelView3d != null && wheelView3d.getVisibility() == 0;
         }
@@ -427,7 +427,7 @@ public class BdDatePicker extends LinearLayout {
                 }
                 i2 = i3;
             }
-            this.f11265g = i2;
+            this.f11282g = i2;
             this.j.setCurrentItem(i2 - this.r);
         }
     }
@@ -435,8 +435,8 @@ public class BdDatePicker extends LinearLayout {
     public void setDisabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.f11266h.setIsOptions(z);
-            this.f11267i.setIsOptions(z);
+            this.f11283h.setIsOptions(z);
+            this.f11284i.setIsOptions(z);
             this.j.setIsOptions(z);
         }
     }
@@ -468,22 +468,22 @@ public class BdDatePicker extends LinearLayout {
             c2 = 0;
         }
         if (c2 == 0) {
-            this.f11266h.setGravity(17);
-            this.f11267i.setVisibility(8);
+            this.f11283h.setGravity(17);
+            this.f11284i.setVisibility(8);
             this.j.setVisibility(8);
         } else if (c2 != 1) {
-            this.f11266h.setGravity(5);
-            this.f11266h.setGravityOffset(this.t);
+            this.f11283h.setGravity(5);
+            this.f11283h.setGravityOffset(this.t);
             this.j.setGravity(3);
             this.j.setGravityOffset(this.t);
-            this.f11267i.setVisibility(0);
+            this.f11284i.setVisibility(0);
             this.j.setVisibility(0);
         } else {
-            this.f11266h.setGravity(5);
-            this.f11266h.setGravityOffset(this.t);
-            this.f11267i.setGravity(3);
-            this.f11267i.setGravityOffset(this.t);
-            this.f11267i.setVisibility(0);
+            this.f11283h.setGravity(5);
+            this.f11283h.setGravityOffset(this.t);
+            this.f11284i.setGravity(3);
+            this.f11284i.setGravityOffset(this.t);
+            this.f11284i.setVisibility(0);
             this.j.setVisibility(8);
         }
     }
@@ -505,12 +505,12 @@ public class BdDatePicker extends LinearLayout {
                         e.g(appContext2, "The month must be between " + this.o + " and " + this.p).F();
                     }
                 }
-                this.f11264f = i2;
-                this.f11267i.setCurrentItem(i2 - this.o);
+                this.f11281f = i2;
+                this.f11284i.setCurrentItem(i2 - this.o);
             }
             i2 = i3;
-            this.f11264f = i2;
-            this.f11267i.setCurrentItem(i2 - this.o);
+            this.f11281f = i2;
+            this.f11284i.setCurrentItem(i2 - this.o);
         }
     }
 
@@ -523,8 +523,8 @@ public class BdDatePicker extends LinearLayout {
     public void setScrollCycle(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            this.f11267i.setCyclic(z);
-            this.f11266h.setCyclic(z);
+            this.f11284i.setCyclic(z);
+            this.f11283h.setCyclic(z);
             this.j.setCyclic(z);
         }
     }
@@ -558,12 +558,12 @@ public class BdDatePicker extends LinearLayout {
                         e.g(appContext2, "The year must be between " + this.m + " and " + this.n).F();
                     }
                 }
-                this.f11263e = i2;
-                this.f11266h.setCurrentItem(i2 - this.m);
+                this.f11280e = i2;
+                this.f11283h.setCurrentItem(i2 - this.m);
             }
             i2 = i3;
-            this.f11263e = i2;
-            this.f11266h.setCurrentItem(i2 - this.m);
+            this.f11280e = i2;
+            this.f11283h.setCurrentItem(i2 - this.m);
         }
     }
 
@@ -586,9 +586,9 @@ public class BdDatePicker extends LinearLayout {
                 return;
             }
         }
-        this.f11263e = FeatureCodes.SKY_SEG;
-        this.f11264f = 1;
-        this.f11265g = 1;
+        this.f11280e = FeatureCodes.SKY_SEG;
+        this.f11281f = 1;
+        this.f11282g = 1;
         this.m = FeatureCodes.SKY_SEG;
         this.n = 2100;
         this.o = 1;
@@ -619,9 +619,9 @@ public class BdDatePicker extends LinearLayout {
                 return;
             }
         }
-        this.f11263e = FeatureCodes.SKY_SEG;
-        this.f11264f = 1;
-        this.f11265g = 1;
+        this.f11280e = FeatureCodes.SKY_SEG;
+        this.f11281f = 1;
+        this.f11282g = 1;
         this.m = FeatureCodes.SKY_SEG;
         this.n = 2100;
         this.o = 1;

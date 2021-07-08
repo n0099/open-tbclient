@@ -6,31 +6,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte[] f28011a;
+    public final byte[] f28121a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28012b;
+    public int f28122b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28013c;
+    public int f28123c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f28014d;
+    public boolean f28124d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f28015e;
+    public boolean f28125e;
 
     /* renamed from: f  reason: collision with root package name */
-    public o f28016f;
+    public o f28126f;
 
     /* renamed from: g  reason: collision with root package name */
-    public o f28017g;
+    public o f28127g;
 
     public o() {
         Interceptable interceptable = $ic;
@@ -45,17 +45,17 @@ public final class o {
                 return;
             }
         }
-        this.f28011a = new byte[8192];
-        this.f28015e = true;
-        this.f28014d = false;
+        this.f28121a = new byte[8192];
+        this.f28125e = true;
+        this.f28124d = false;
     }
 
     public final o a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.f28014d = true;
-            return new o(this.f28011a, this.f28012b, this.f28013c, true, false);
+            this.f28124d = true;
+            return new o(this.f28121a, this.f28122b, this.f28123c, true, false);
         }
         return (o) invokeV.objValue;
     }
@@ -64,15 +64,15 @@ public final class o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            o oVar = this.f28016f;
+            o oVar = this.f28126f;
             if (oVar == this) {
                 oVar = null;
             }
-            o oVar2 = this.f28017g;
-            oVar2.f28016f = this.f28016f;
-            this.f28016f.f28017g = oVar2;
-            this.f28016f = null;
-            this.f28017g = null;
+            o oVar2 = this.f28127g;
+            oVar2.f28126f = this.f28126f;
+            this.f28126f.f28127g = oVar2;
+            this.f28126f = null;
+            this.f28127g = null;
             return oVar;
         }
         return (o) invokeV.objValue;
@@ -81,14 +81,14 @@ public final class o {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            o oVar = this.f28017g;
+            o oVar = this.f28127g;
             if (oVar != this) {
-                if (oVar.f28015e) {
-                    int i2 = this.f28013c - this.f28012b;
-                    if (i2 > (8192 - oVar.f28013c) + (oVar.f28014d ? 0 : oVar.f28012b)) {
+                if (oVar.f28125e) {
+                    int i2 = this.f28123c - this.f28122b;
+                    if (i2 > (8192 - oVar.f28123c) + (oVar.f28124d ? 0 : oVar.f28122b)) {
                         return;
                     }
-                    a(this.f28017g, i2);
+                    a(this.f28127g, i2);
                     b();
                     p.a(this);
                     return;
@@ -103,10 +103,10 @@ public final class o {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oVar)) == null) {
-            oVar.f28017g = this;
-            oVar.f28016f = this.f28016f;
-            this.f28016f.f28017g = oVar;
-            this.f28016f = oVar;
+            oVar.f28127g = this;
+            oVar.f28126f = this.f28126f;
+            this.f28126f.f28127g = oVar;
+            this.f28126f = oVar;
             return oVar;
         }
         return (o) invokeL.objValue;
@@ -127,11 +127,11 @@ public final class o {
                 return;
             }
         }
-        this.f28011a = bArr;
-        this.f28012b = i2;
-        this.f28013c = i3;
-        this.f28014d = z;
-        this.f28015e = z2;
+        this.f28121a = bArr;
+        this.f28122b = i2;
+        this.f28123c = i3;
+        this.f28124d = z;
+        this.f28125e = z2;
     }
 
     public final o a(int i2) {
@@ -139,16 +139,16 @@ public final class o {
         o a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (i2 > 0 && i2 <= this.f28013c - this.f28012b) {
+            if (i2 > 0 && i2 <= this.f28123c - this.f28122b) {
                 if (i2 >= 1024) {
                     a2 = a();
                 } else {
                     a2 = p.a();
-                    System.arraycopy(this.f28011a, this.f28012b, a2.f28011a, 0, i2);
+                    System.arraycopy(this.f28121a, this.f28122b, a2.f28121a, 0, i2);
                 }
-                a2.f28013c = a2.f28012b + i2;
-                this.f28012b += i2;
-                this.f28017g.a(a2);
+                a2.f28123c = a2.f28122b + i2;
+                this.f28122b += i2;
+                this.f28127g.a(a2);
                 return a2;
             }
             throw new IllegalArgumentException();
@@ -159,16 +159,16 @@ public final class o {
     public final void a(o oVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, oVar, i2) == null) {
-            if (oVar.f28015e) {
-                int i3 = oVar.f28013c;
+            if (oVar.f28125e) {
+                int i3 = oVar.f28123c;
                 if (i3 + i2 > 8192) {
-                    if (!oVar.f28014d) {
-                        int i4 = oVar.f28012b;
+                    if (!oVar.f28124d) {
+                        int i4 = oVar.f28122b;
                         if ((i3 + i2) - i4 <= 8192) {
-                            byte[] bArr = oVar.f28011a;
+                            byte[] bArr = oVar.f28121a;
                             System.arraycopy(bArr, i4, bArr, 0, i3 - i4);
-                            oVar.f28013c -= oVar.f28012b;
-                            oVar.f28012b = 0;
+                            oVar.f28123c -= oVar.f28122b;
+                            oVar.f28122b = 0;
                         } else {
                             throw new IllegalArgumentException();
                         }
@@ -176,9 +176,9 @@ public final class o {
                         throw new IllegalArgumentException();
                     }
                 }
-                System.arraycopy(this.f28011a, this.f28012b, oVar.f28011a, oVar.f28013c, i2);
-                oVar.f28013c += i2;
-                this.f28012b += i2;
+                System.arraycopy(this.f28121a, this.f28122b, oVar.f28121a, oVar.f28123c, i2);
+                oVar.f28123c += i2;
+                this.f28122b += i2;
                 return;
             }
             throw new IllegalArgumentException();

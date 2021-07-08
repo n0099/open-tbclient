@@ -14,7 +14,7 @@ import d.l.a.b.a.a.b;
 import d.l.a.b.a.a.c;
 import d.l.a.e.b.f.v;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -165,7 +165,7 @@ public class b {
         return (c.a) invokeLLL.objValue;
     }
 
-    public static a.C2045a a(m mVar) {
+    public static a.C2013a a(m mVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, mVar)) == null) {
@@ -174,19 +174,19 @@ public class b {
             if (mVar != null && !TextUtils.isEmpty(mVar.ax())) {
                 z = 2;
             }
-            a.C2045a c2045a = new a.C2045a();
-            c2045a.a(y);
-            c2045a.e(z);
-            c2045a.c(true);
-            c2045a.f(false);
-            c2045a.b(mVar);
+            a.C2013a c2013a = new a.C2013a();
+            c2013a.a(y);
+            c2013a.e(z);
+            c2013a.c(true);
+            c2013a.f(false);
+            c2013a.b(mVar);
             if (mVar != null && mVar.am() != null) {
-                c2045a.j(mVar.am().a());
-                c2045a.k(mVar.am().b());
+                c2013a.j(mVar.am().a());
+                c2013a.k(mVar.am().b());
             }
-            return c2045a;
+            return c2013a;
         }
-        return (a.C2045a) invokeL.objValue;
+        return (a.C2013a) invokeL.objValue;
     }
 
     public static b.a a(m mVar, String str) {

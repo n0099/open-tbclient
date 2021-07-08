@@ -53,7 +53,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class DownloadManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_DOWNLOAD_MERGE_STATUS = "com.baidu.clientupdate.download.STATUS_MERGE";
@@ -289,21 +289,21 @@ public final class DownloadManager {
                     download.mCurrentLength = j2;
                     download.mFileLength = j3;
                     long currentTimeMillis = System.currentTimeMillis();
-                    if (currentTimeMillis - download.f4659a < 200) {
+                    if (currentTimeMillis - download.f4676a < 200) {
                         return;
                     }
-                    download.f4659a = currentTimeMillis;
+                    download.f4676a = currentTimeMillis;
                     int progress = download.getProgress();
-                    if (progress != download.f4661c) {
+                    if (progress != download.f4678c) {
                         this.this$0.notifyProgressChange(j, progress);
-                        download.f4661c = progress;
+                        download.f4678c = progress;
                     }
-                    if (currentTimeMillis - download.f4660b > 2000) {
+                    if (currentTimeMillis - download.f4677b > 2000) {
                         long currentTimeMillis2 = System.currentTimeMillis();
                         this.this$0.mDbHelper.b(download);
                         long currentTimeMillis3 = System.currentTimeMillis();
                         LogUtil.logE("DownloadManager", "1新的更新数据库用时time:" + (currentTimeMillis3 - currentTimeMillis2) + "ms");
-                        download.f4660b = currentTimeMillis;
+                        download.f4677b = currentTimeMillis;
                     }
                 }
             }
@@ -407,7 +407,7 @@ public final class DownloadManager {
             return;
         }
         if (downloadState == DownloadState.CANCEL) {
-            if (download.f4662d) {
+            if (download.f4679d) {
                 try {
                     new File(download.mSavedPath, Uri.encode(download.mFileName)).delete();
                 } catch (Exception e2) {
@@ -892,7 +892,7 @@ public final class DownloadManager {
             download.mUrl = cursor.getString(cursor.getColumnIndex("uri"));
             download.mFileName = cursor.getString(cursor.getColumnIndex("_data"));
             download.mSavedPath = cursor.getString(cursor.getColumnIndex("saved_path_for_user"));
-            download.mFileLength = cursor.getLong(cursor.getColumnIndex("total_bytes"));
+            download.mFileLength = cursor.getLong(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES));
             download.mCurrentLength = cursor.getLong(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES));
             String encode = Uri.encode(download.mFileName);
             File file = new File(download.mSavedPath + File.separator + encode);
@@ -1112,7 +1112,7 @@ public final class DownloadManager {
                         for (int i2 = 0; i2 < this.val$downloadIds.length; i2++) {
                             Download download = (Download) this.this$0.mDownloadMap.get(Long.valueOf(this.val$downloadIds[i2]));
                             if (download != null) {
-                                download.f4662d = true;
+                                download.f4679d = true;
                                 this.this$0.mTaskManager.stopDownload(download.mUrl, this.val$downloadIds[i2], false);
                             }
                         }
@@ -1128,7 +1128,7 @@ public final class DownloadManager {
             for (int i2 = 0; i2 < jArr.length; i2++) {
                 Download download = (Download) this.mDownloadMap.get(Long.valueOf(jArr[i2]));
                 if (download != null) {
-                    download.f4662d = false;
+                    download.f4679d = false;
                     this.mTaskManager.stopDownload(download.mUrl, jArr[i2], false);
                 }
             }

@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f6522a;
+    public static Object f6539a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f6523b;
+    public static b f6540b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f6524c;
+    public int f6541c;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,7 @@ public class b {
                 return;
             }
         }
-        f6522a = new Object();
+        f6539a = new Object();
     }
 
     public b() {
@@ -51,7 +51,7 @@ public class b {
                 return;
             }
         }
-        this.f6524c = -1;
+        this.f6541c = -1;
     }
 
     public static b a() {
@@ -59,11 +59,11 @@ public class b {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (f6522a) {
-                if (f6523b == null) {
-                    f6523b = new b();
+            synchronized (f6539a) {
+                if (f6540b == null) {
+                    f6540b = new b();
                 }
-                bVar = f6523b;
+                bVar = f6540b;
             }
             return bVar;
         }
@@ -72,10 +72,10 @@ public class b {
 
     public void a(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) || i3 == this.f6524c) {
+        if (!(interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) || i3 == this.f6541c) {
             return;
         }
-        this.f6524c = i3;
+        this.f6541c = i3;
         Bundle bundle = new Bundle();
         bundle.putInt("loctype", i2);
         bundle.putInt("diagtype", i3);

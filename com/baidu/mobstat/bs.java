@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class bs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

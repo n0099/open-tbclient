@@ -33,19 +33,19 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class HttpLoader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.yy.mobile.framework.revenuesdk.baseapi.log.HttpLoader$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class MyHostnameVerifier implements HostnameVerifier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public class HttpLoader {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class MyX509TrustManager implements X509TrustManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

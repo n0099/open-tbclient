@@ -12,13 +12,13 @@ public class c implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Activity f1792a;
+    public final /* synthetic */ Activity f1793a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ SslErrorHandler f1793b;
+    public final /* synthetic */ SslErrorHandler f1794b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ b f1794c;
+    public final /* synthetic */ b f1795c;
 
     public c(b bVar, Activity activity, SslErrorHandler sslErrorHandler) {
         Interceptable interceptable = $ic;
@@ -35,16 +35,16 @@ public class c implements Runnable {
                 return;
             }
         }
-        this.f1794c = bVar;
-        this.f1792a = activity;
-        this.f1793b = sslErrorHandler;
+        this.f1795c = bVar;
+        this.f1793a = activity;
+        this.f1794b = sslErrorHandler;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.alipay.sdk.widget.e.a(this.f1792a, "安全警告", "安全连接证书校验无效，将无法保证访问数据的安全性，可能存在风险，请选择是否继续？", "继续", new d(this), "退出", new e(this));
+            com.alipay.sdk.widget.e.a(this.f1793a, "安全警告", "安全连接证书校验无效，将无法保证访问数据的安全性，可能存在风险，请选择是否继续？", "继续", new d(this), "退出", new e(this));
         }
     }
 }

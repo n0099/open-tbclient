@@ -8,6 +8,6 @@ import java.lang.annotation.Target;
 @Target({ElementType.METHOD})
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public @interface OverridingMethodsMustInvokeSuper {
 }

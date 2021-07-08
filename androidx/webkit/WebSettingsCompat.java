@@ -3,6 +3,7 @@ package androidx.webkit;
 import android.annotation.SuppressLint;
 import android.webkit.WebSettings;
 import androidx.annotation.RestrictTo;
+import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.internal.WebSettingsAdapter;
 import androidx.webkit.internal.WebViewFeatureInternal;
 import androidx.webkit.internal.WebViewGlueCommunicator;
@@ -86,7 +87,7 @@ public class WebSettingsCompat {
     public static boolean getSafeBrowsingEnabled(WebSettings webSettings) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, webSettings)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, webSettings)) == null) {
             WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("SAFE_BROWSING_ENABLE");
             if (feature.isSupportedByFramework()) {
                 return webSettings.getSafeBrowsingEnabled();

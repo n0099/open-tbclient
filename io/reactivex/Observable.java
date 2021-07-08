@@ -204,13 +204,13 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Publisher;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class Observable<T> implements ObservableSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: io.reactivex.Observable$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$io$reactivex$BackpressureStrategy;
         public static /* synthetic */ Interceptable $ic;
@@ -5557,7 +5557,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
     public static <T1, T2, T3, T4, T5, T6, T7, T8, T9, R> Observable<R> combineLatest(ObservableSource<? extends T1> observableSource, ObservableSource<? extends T2> observableSource2, ObservableSource<? extends T3> observableSource3, ObservableSource<? extends T4> observableSource4, ObservableSource<? extends T5> observableSource5, ObservableSource<? extends T6> observableSource6, ObservableSource<? extends T7> observableSource7, ObservableSource<? extends T8> observableSource8, ObservableSource<? extends T9> observableSource9, Function9<? super T1, ? super T2, ? super T3, ? super T4, ? super T5, ? super T6, ? super T7, ? super T8, ? super T9, ? extends R> function9) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{observableSource, observableSource2, observableSource3, observableSource4, observableSource5, observableSource6, observableSource7, observableSource8, observableSource9, function9})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{observableSource, observableSource2, observableSource3, observableSource4, observableSource5, observableSource6, observableSource7, observableSource8, observableSource9, function9})) == null) {
             ObjectHelper.requireNonNull(observableSource, "source1 is null");
             ObjectHelper.requireNonNull(observableSource2, "source2 is null");
             ObjectHelper.requireNonNull(observableSource3, "source3 is null");

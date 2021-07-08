@@ -30,7 +30,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class EC3TrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long MAX_FRAMES_PER_MMAP = 20;
@@ -44,7 +44,7 @@ public class EC3TrackImpl extends AbstractTrack {
     public List<Sample> samples;
     public TrackMetaData trackMetaData;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class BitStreamInfo extends EC3SpecificBox.Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -241,7 +241,7 @@ public class EC3TrackImpl extends AbstractTrack {
         InterceptResult invokeV;
         int readBits;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             long position = this.dataSource.position();
             ByteBuffer allocate = ByteBuffer.allocate(200);
             this.dataSource.read(allocate);

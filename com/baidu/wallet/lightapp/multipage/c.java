@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import androidx.annotation.NonNull;
 import com.baidu.wallet.lightapp.business.LightappBrowserWebView;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface c {
     View a();
 

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.hs;
 import com.xiaomi.push.ii;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class PushMessageHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ERROR_MESSAGE = "error_message";
@@ -123,7 +124,7 @@ public class PushMessageHelper {
     public static hs generateMessage(MiPushMessage miPushMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, miPushMessage)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, miPushMessage)) == null) {
             hs hsVar = new hs();
             hsVar.a(miPushMessage.getMessageId());
             hsVar.b(miPushMessage.getTopic());

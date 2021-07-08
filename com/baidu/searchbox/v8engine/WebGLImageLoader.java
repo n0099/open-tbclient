@@ -20,14 +20,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.l0.a.e.a;
+import d.a.i0.a.e.a;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class WebGLImageLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASSET_URL = "asset://";
@@ -40,7 +40,7 @@ public class WebGLImageLoader {
     public static BitmapReferenceMap sReferenceMap;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class NetValueCallback implements ValueCallback<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

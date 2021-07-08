@@ -39,7 +39,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MyCouponDetailActivity extends BeanActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BEAN_TAG = "MyCouponDetailActivity";
@@ -168,7 +168,7 @@ public class MyCouponDetailActivity extends BeanActivity {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ MyCouponDetailActivity f27003a;
+                        public final /* synthetic */ MyCouponDetailActivity f27113a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -185,14 +185,14 @@ public class MyCouponDetailActivity extends BeanActivity {
                                     return;
                                 }
                             }
-                            this.f27003a = this;
+                            this.f27113a = this;
                         }
 
                         @Override // com.baidu.wallet.base.widget.WalletBaseEmptyView.EmptyBtnClickListener
                         public void onBtnClick() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.f27003a.queryDetail(true);
+                                this.f27113a.queryDetail(true);
                             }
                         }
                     });
@@ -210,7 +210,7 @@ public class MyCouponDetailActivity extends BeanActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ MyCouponDetailActivity f27002a;
+                public final /* synthetic */ MyCouponDetailActivity f27112a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -227,14 +227,14 @@ public class MyCouponDetailActivity extends BeanActivity {
                             return;
                         }
                     }
-                    this.f27002a = this;
+                    this.f27112a = this;
                 }
 
                 @Override // com.baidu.wallet.base.widget.WalletBaseEmptyView.EmptyBtnClickListener
                 public void onBtnClick() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f27002a.queryDetail(true);
+                        this.f27112a.queryDetail(true);
                     }
                 }
             });
@@ -409,7 +409,7 @@ public class MyCouponDetailActivity extends BeanActivity {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ MyCouponDetailActivity f27000a;
+                        public final /* synthetic */ MyCouponDetailActivity f27110a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -426,19 +426,19 @@ public class MyCouponDetailActivity extends BeanActivity {
                                     return;
                                 }
                             }
-                            this.f27000a = this;
+                            this.f27110a = this;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                MyCouponDetailActivity myCouponDetailActivity = this.f27000a;
+                                MyCouponDetailActivity myCouponDetailActivity = this.f27110a;
                                 myCouponDetailActivity.mClipboardManager = (ClipboardManager) myCouponDetailActivity.getSystemService("clipboard");
-                                MyCouponDetailActivity myCouponDetailActivity2 = this.f27000a;
-                                myCouponDetailActivity2.mClipData = ClipData.newPlainText(ResUtils.getString(myCouponDetailActivity2.mAct, "wallet_personal_coupon_detail_copy_lable"), this.f27000a.mDetail.display_coupon_num);
-                                this.f27000a.mClipboardManager.setPrimaryClip(this.f27000a.mClipData);
-                                BeanActivity beanActivity = this.f27000a.mAct;
+                                MyCouponDetailActivity myCouponDetailActivity2 = this.f27110a;
+                                myCouponDetailActivity2.mClipData = ClipData.newPlainText(ResUtils.getString(myCouponDetailActivity2.mAct, "wallet_personal_coupon_detail_copy_lable"), this.f27110a.mDetail.display_coupon_num);
+                                this.f27110a.mClipboardManager.setPrimaryClip(this.f27110a.mClipData);
+                                BeanActivity beanActivity = this.f27110a.mAct;
                                 GlobalUtils.toast(beanActivity, ResUtils.getString(beanActivity, "wallet_personal_coupon_detail_copy_success"));
                             }
                         }
@@ -452,7 +452,7 @@ public class MyCouponDetailActivity extends BeanActivity {
                 CouponDetailResponse couponDetailResponse = this.mDetail;
                 if (couponDetailResponse.is_started) {
                     CouponDetailResponse.AppSceneService appSceneService = couponDetailResponse.app_scene_service;
-                    if (appSceneService == null ? !((TextUtils.isEmpty(couponDetailResponse.sdk_para) || !this.mDetail.sdk_para.contains("type:1")) && TextUtils.isEmpty(this.mDetail.scene_service)) : !(appSceneService.f26978android <= 0 && TextUtils.isEmpty(appSceneService.url))) {
+                    if (appSceneService == null ? !((TextUtils.isEmpty(couponDetailResponse.sdk_para) || !this.mDetail.sdk_para.contains("type:1")) && TextUtils.isEmpty(this.mDetail.scene_service)) : !(appSceneService.f27088android <= 0 && TextUtils.isEmpty(appSceneService.url))) {
                         this.isShowBtn = true;
                     }
                     if (this.isShowBtn) {
@@ -472,7 +472,7 @@ public class MyCouponDetailActivity extends BeanActivity {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ MyCouponDetailActivity f27001a;
+                            public final /* synthetic */ MyCouponDetailActivity f27111a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -489,7 +489,7 @@ public class MyCouponDetailActivity extends BeanActivity {
                                         return;
                                     }
                                 }
-                                this.f27001a = this;
+                                this.f27111a = this;
                             }
 
                             @Override // android.view.View.OnClickListener
@@ -501,47 +501,47 @@ public class MyCouponDetailActivity extends BeanActivity {
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                                     JSONObject jSONObject = new JSONObject();
                                     try {
-                                        jSONObject.put("template_num", this.f27001a.mDetail.template_num);
-                                        jSONObject.put("coupon_num", this.f27001a.mDetail.coupon_num);
-                                        jSONObject.put("card_type", this.f27001a.mDetail.card_type);
+                                        jSONObject.put("template_num", this.f27111a.mDetail.template_num);
+                                        jSONObject.put("coupon_num", this.f27111a.mDetail.coupon_num);
+                                        jSONObject.put("card_type", this.f27111a.mDetail.card_type);
                                     } catch (JSONException e2) {
                                         e2.printStackTrace();
                                     }
                                     DXMSdkSAUtils.onEventWithValues("CouponDetailToUseBtnClick", Arrays.asList(jSONObject.toString()));
                                     PayStatisticsUtil.onEventWithValue("CouponDetailToUseBtnClick", jSONObject.toString());
-                                    if (this.f27001a.mDetail.app_scene_service != null) {
-                                        if (this.f27001a.mDetail.app_scene_service.f26978android > 0) {
-                                            this.f27001a.needRefresh = true;
+                                    if (this.f27111a.mDetail.app_scene_service != null) {
+                                        if (this.f27111a.mDetail.app_scene_service.f27088android > 0) {
+                                            this.f27111a.needRefresh = true;
                                             BaiduWalletServiceController baiduWalletServiceController = BaiduWalletServiceController.getInstance();
-                                            MyCouponDetailActivity myCouponDetailActivity = this.f27001a;
-                                            baiduWalletServiceController.gotoWalletService(myCouponDetailActivity.mAct, myCouponDetailActivity.mDetail.app_scene_service.f26978android, "");
+                                            MyCouponDetailActivity myCouponDetailActivity = this.f27111a;
+                                            baiduWalletServiceController.gotoWalletService(myCouponDetailActivity.mAct, myCouponDetailActivity.mDetail.app_scene_service.f27088android, "");
                                             return;
-                                        } else if (TextUtils.isEmpty(this.f27001a.mDetail.app_scene_service.url)) {
+                                        } else if (TextUtils.isEmpty(this.f27111a.mDetail.app_scene_service.url)) {
                                             return;
                                         } else {
-                                            this.f27001a.needRefresh = true;
+                                            this.f27111a.needRefresh = true;
                                             baiduWalletDelegate = BaiduWalletDelegate.getInstance();
-                                            MyCouponDetailActivity myCouponDetailActivity2 = this.f27001a;
+                                            MyCouponDetailActivity myCouponDetailActivity2 = this.f27111a;
                                             beanActivity = myCouponDetailActivity2.mAct;
                                             str = myCouponDetailActivity2.mDetail.app_scene_service.url;
                                         }
-                                    } else if (!TextUtils.isEmpty(this.f27001a.mDetail.sdk_para) && this.f27001a.mDetail.sdk_para.contains("type:1")) {
-                                        this.f27001a.needRefresh = true;
+                                    } else if (!TextUtils.isEmpty(this.f27111a.mDetail.sdk_para) && this.f27111a.mDetail.sdk_para.contains("type:1")) {
+                                        this.f27111a.needRefresh = true;
                                         DXMSdkSAUtils.onEvent("couponDetailButtonClick");
                                         PayStatisticsUtil.onEvent("couponDetailButtonClick");
                                         BaiduWalletServiceController baiduWalletServiceController2 = BaiduWalletServiceController.getInstance();
-                                        BeanActivity beanActivity2 = this.f27001a.mAct;
-                                        baiduWalletServiceController2.gotoWalletService(beanActivity2, "512", this.f27001a.mDetail.qrcode_choose + "");
+                                        BeanActivity beanActivity2 = this.f27111a.mAct;
+                                        baiduWalletServiceController2.gotoWalletService(beanActivity2, "512", this.f27111a.mDetail.qrcode_choose + "");
                                         return;
-                                    } else if (TextUtils.isEmpty(this.f27001a.mDetail.scene_service)) {
+                                    } else if (TextUtils.isEmpty(this.f27111a.mDetail.scene_service)) {
                                         return;
                                     } else {
-                                        this.f27001a.needRefresh = true;
-                                        this.f27001a.isShowBtn = true;
+                                        this.f27111a.needRefresh = true;
+                                        this.f27111a.isShowBtn = true;
                                         DXMSdkSAUtils.onEvent("couponDetailButtonClick");
                                         PayStatisticsUtil.onEvent("couponDetailButtonClick");
                                         baiduWalletDelegate = BaiduWalletDelegate.getInstance();
-                                        MyCouponDetailActivity myCouponDetailActivity3 = this.f27001a;
+                                        MyCouponDetailActivity myCouponDetailActivity3 = this.f27111a;
                                         beanActivity = myCouponDetailActivity3.mAct;
                                         str = myCouponDetailActivity3.mDetail.scene_service;
                                     }

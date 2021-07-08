@@ -1,5 +1,6 @@
 package com.bytedance.sdk.component.adnet.d;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,43 +8,43 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f27941a;
+    public a f28051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f27942b;
+    public b f28052b;
 
     /* renamed from: com.bytedance.sdk.component.adnet.d.d$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f27943a;
+        public static final a f28053a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f27944b;
+        public static final a f28054b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f27945c;
+        public static final a f28055c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f27946d;
+        public static final a f28056d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final /* synthetic */ a[] f27947e;
+        public static final /* synthetic */ a[] f28057e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -59,12 +60,12 @@ public class d {
                     return;
                 }
             }
-            f27943a = new a("DEBUG", 0);
-            f27944b = new a("INFO", 1);
-            f27945c = new a("ERROR", 2);
+            f28053a = new a("DEBUG", 0);
+            f28054b = new a("INFO", 1);
+            f28055c = new a("ERROR", 2);
             a aVar = new a("OFF", 3);
-            f27946d = aVar;
-            f27947e = new a[]{f27943a, f27944b, f27945c, aVar};
+            f28056d = aVar;
+            f28057e = new a[]{f28053a, f28054b, f28055c, aVar};
         }
 
         public a(String str, int i2) {
@@ -95,23 +96,23 @@ public class d {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f27947e.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f28057e.clone() : (a[]) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(String str, String str2);
 
         void b(String str, String str2);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f27948a;
+        public static final d f28058a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -127,7 +128,7 @@ public class d {
                     return;
                 }
             }
-            f27948a = new d(null);
+            f28058a = new d(null);
         }
     }
 
@@ -139,17 +140,17 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
             synchronized (d.class) {
-                c.f27948a.f27941a = aVar;
+                c.f28058a.f28051a = aVar;
             }
         }
     }
 
     public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65540, null, str, str2) == null) || c.f27948a.f27941a.compareTo(a.f27943a) > 0) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || c.f28058a.f28051a.compareTo(a.f28053a) > 0) {
             return;
         }
-        c.f27948a.f27942b.b(str, str2);
+        c.f28058a.f28052b.b(str, str2);
     }
 
     public d() {
@@ -165,15 +166,15 @@ public class d {
                 return;
             }
         }
-        this.f27941a = a.f27946d;
-        this.f27942b = new com.bytedance.sdk.component.adnet.d.b();
+        this.f28051a = a.f28056d;
+        this.f28052b = new com.bytedance.sdk.component.adnet.d.b();
     }
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || c.f27948a.f27941a.compareTo(a.f27945c) > 0) {
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || c.f28058a.f28051a.compareTo(a.f28055c) > 0) {
             return;
         }
-        c.f27948a.f27942b.a(str, str2);
+        c.f28058a.f28052b.a(str, str2);
     }
 }

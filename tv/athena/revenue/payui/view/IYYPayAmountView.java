@@ -12,11 +12,11 @@ import i.a.a.e.o.a;
 import java.util.List;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public interface IYYPayAmountView extends a {
 
     @Keep
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface Callback {
         void onRefreshViewFail(int i2, String str);
 
@@ -26,7 +26,7 @@ public interface IYYPayAmountView extends a {
     }
 
     @Keep
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class ViewParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

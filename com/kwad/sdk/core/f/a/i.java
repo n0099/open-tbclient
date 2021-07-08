@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f36104a;
+    public Context f34429a;
 
     public i(Context context) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class i {
                 return;
             }
         }
-        this.f36104a = context;
+        this.f34429a = context;
     }
 
     public String a() {
@@ -40,16 +40,16 @@ public class i {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-                str = (String) cls.getMethod("getOAID", Context.class).invoke(cls.newInstance(), this.f36104a);
+                str = (String) cls.getMethod("getOAID", Context.class).invoke(cls.newInstance(), this.f34429a);
             } catch (Exception e3) {
                 str = "";
                 e2 = e3;
             }
             try {
-                com.kwad.sdk.core.d.a.b("XiaomiDeviceIDHelper", "getOAID oaid:" + str);
+                com.kwad.sdk.core.d.a.c("XiaomiDeviceIDHelper", "getOAID oaid:" + str);
             } catch (Exception e4) {
                 e2 = e4;
-                com.kwad.sdk.core.d.a.b("XiaomiDeviceIDHelper", "getOAID fail");
+                com.kwad.sdk.core.d.a.c("XiaomiDeviceIDHelper", "getOAID fail");
                 com.kwad.sdk.core.d.a.b(e2);
                 return str;
             }

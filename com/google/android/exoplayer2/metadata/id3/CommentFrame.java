@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.b.a.i0.v;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class CommentFrame extends Id3Frame {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<CommentFrame> CREATOR;
@@ -21,7 +21,7 @@ public final class CommentFrame extends Id3Frame {
     public final String language;
     public final String text;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Parcelable.Creator<CommentFrame> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

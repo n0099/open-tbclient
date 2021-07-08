@@ -25,36 +25,36 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static h f44425a;
+    public static h f41441a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a extends BdAsyncTask<Object, Object, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f44426a;
+        public String f41442a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f44427b;
+        public String f41443b;
 
         /* renamed from: c  reason: collision with root package name */
-        public StringBuilder f44428c;
+        public StringBuilder f41444c;
 
         /* renamed from: d  reason: collision with root package name */
-        public i f44429d;
+        public i f41445d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f44430e;
+        public boolean f41446e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h f44431f;
+        public final /* synthetic */ h f41447f;
 
         public a(h hVar, String str, String str2, StringBuilder sb, i iVar) {
             Interceptable interceptable = $ic;
@@ -71,12 +71,12 @@ public class h {
                     return;
                 }
             }
-            this.f44431f = hVar;
-            this.f44426a = str;
-            this.f44427b = str2;
-            this.f44428c = sb;
-            this.f44429d = iVar;
-            this.f44430e = false;
+            this.f41447f = hVar;
+            this.f41442a = str;
+            this.f41443b = str2;
+            this.f41444c = sb;
+            this.f41445d = iVar;
+            this.f41446e = false;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -84,12 +84,12 @@ public class h {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                boolean i2 = this.f44431f.i(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.f44426a, this.f44428c);
-                this.f44430e = i2;
+                boolean i2 = this.f41447f.i(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.f41442a, this.f41444c);
+                this.f41446e = i2;
                 if (i2) {
                     return null;
                 }
-                this.f44431f.d(this.f44427b, "".getBytes(), this.f44428c);
+                this.f41447f.d(this.f41443b, "".getBytes(), this.f41444c);
                 return null;
             }
             return invokeL.objValue;
@@ -100,13 +100,13 @@ public class h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
                 super.onPostExecute(obj);
-                if (this.f44428c.length() > 0) {
+                if (this.f41444c.length() > 0) {
                     BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-                    bdStatisticsManager.error("so", "load_" + this.f44426a + ".so", "", -9101, this.f44428c.toString(), new Object[0]);
+                    bdStatisticsManager.error("so", "load_" + this.f41442a + ".so", "", -9101, this.f41444c.toString(), new Object[0]);
                 }
-                i iVar = this.f44429d;
+                i iVar = this.f41445d;
                 if (iVar != null) {
-                    iVar.a(this.f44430e);
+                    iVar.a(this.f41446e);
                 }
             }
         }
@@ -145,14 +145,14 @@ public class h {
         InterceptResult invokeV;
         h hVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
-            h hVar2 = f44425a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            h hVar2 = f41441a;
             if (hVar2 == null) {
                 synchronized (h.class) {
-                    if (f44425a == null) {
-                        f44425a = new h();
+                    if (f41441a == null) {
+                        f41441a = new h();
                     }
-                    hVar = f44425a;
+                    hVar = f41441a;
                 }
                 return hVar;
             }
@@ -295,7 +295,7 @@ public class h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + com.baidu.fsg.face.base.b.c.f5570g + File.separator + "lib" + str + ".so";
+            return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + com.baidu.fsg.face.base.b.c.f5587g + File.separator + "lib" + str + ".so";
         }
         return (String) invokeL.objValue;
     }

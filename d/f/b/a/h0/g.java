@@ -1,6 +1,7 @@
 package d.f.b.a.h0;
 
 import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -10,31 +11,31 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Uri f73280a;
+    public final Uri f70383a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f73281b;
+    public final byte[] f70384b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f73282c;
+    public final long f70385c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f73283d;
+    public final long f70386d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f73284e;
+    public final long f70387e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f73285f;
+    public final String f70388f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f73286g;
+    public final int f70389g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public g(Uri uri, int i2) {
@@ -60,14 +61,14 @@ public final class g {
     public boolean a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (this.f73286g & i2) == i2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (this.f70389g & i2) == i2 : invokeI.booleanValue;
     }
 
     public g b(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            long j2 = this.f73284e;
+            long j2 = this.f70387e;
             return c(j, j2 != -1 ? j2 - j : -1L);
         }
         return (g) invokeJ.objValue;
@@ -76,14 +77,14 @@ public final class g {
     public g c(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? (j == 0 && this.f73284e == j2) ? this : new g(this.f73280a, this.f73281b, this.f73282c + j, this.f73283d + j, j2, this.f73285f, this.f73286g) : (g) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? (j == 0 && this.f70387e == j2) ? this : new g(this.f70383a, this.f70384b, this.f70385c + j, this.f70386d + j, j2, this.f70388f, this.f70389g) : (g) invokeCommon.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "DataSpec[" + this.f73280a + StringUtil.ARRAY_ELEMENT_SEPARATOR + Arrays.toString(this.f73281b) + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f73282c + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f73283d + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f73284e + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f73285f + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f73286g + PreferencesUtil.RIGHT_MOUNT;
+            return "DataSpec[" + this.f70383a + StringUtil.ARRAY_ELEMENT_SEPARATOR + Arrays.toString(this.f70384b) + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f70385c + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f70386d + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f70387e + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f70388f + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f70389g + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }
@@ -157,12 +158,12 @@ public final class g {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {uri, bArr, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }
@@ -173,12 +174,12 @@ public final class g {
             z = false;
         }
         d.f.b.a.i0.a.a(z);
-        this.f73280a = uri;
-        this.f73281b = bArr;
-        this.f73282c = j;
-        this.f73283d = j2;
-        this.f73284e = j3;
-        this.f73285f = str;
-        this.f73286g = i2;
+        this.f70383a = uri;
+        this.f70384b = bArr;
+        this.f70385c = j;
+        this.f70386d = j2;
+        this.f70387e = j3;
+        this.f70388f = str;
+        this.f70389g = i2;
     }
 }

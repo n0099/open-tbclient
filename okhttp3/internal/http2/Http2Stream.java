@@ -21,7 +21,7 @@ import okio.BufferedSource;
 import okio.Sink;
 import okio.Source;
 import okio.Timeout;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class Http2Stream {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -39,7 +39,7 @@ public final class Http2Stream {
     public long unacknowledgedBytesRead;
     public final StreamTimeout writeTimeout;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public final class FramingSink implements Sink {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
         public static /* synthetic */ Interceptable $ic = null;
@@ -167,7 +167,7 @@ public final class Http2Stream {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public final class FramingSource implements Source {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
         public static /* synthetic */ Interceptable $ic;
@@ -342,7 +342,7 @@ public final class Http2Stream {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class StreamTimeout extends AsyncTimeout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

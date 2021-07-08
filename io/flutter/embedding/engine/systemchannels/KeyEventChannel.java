@@ -15,14 +15,14 @@ import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.JSONMessageCodec;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class KeyEventChannel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final BasicMessageChannel<Object> channel;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class FlutterKeyEvent {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -14,7 +14,7 @@ import org.apache.http.HeaderElement;
 import org.apache.http.NameValuePair;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class BasicHeaderValueFormatter implements HeaderValueFormatter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BasicHeaderValueFormatter DEFAULT = null;
@@ -74,7 +74,7 @@ public class BasicHeaderValueFormatter implements HeaderValueFormatter {
     public static final String formatNameValuePair(NameValuePair nameValuePair, boolean z, HeaderValueFormatter headerValueFormatter) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{nameValuePair, Boolean.valueOf(z), headerValueFormatter})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{nameValuePair, Boolean.valueOf(z), headerValueFormatter})) == null) {
             throw new RuntimeException("Stub!");
         }
         return (String) invokeCommon.objValue;

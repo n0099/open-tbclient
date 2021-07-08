@@ -3,21 +3,22 @@ package com.bytedance.sdk.component.utils;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class r {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f28802a;
+    public static String f28912a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Resources f28803b;
+    public static Resources f28913b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,10 +40,10 @@ public final class r {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f28802a == null) {
-                f28802a = context.getPackageName();
+            if (f28912a == null) {
+                f28912a = context.getPackageName();
             }
-            return f28802a;
+            return f28912a;
         }
         return (String) invokeL.objValue;
     }
@@ -50,7 +51,7 @@ public final class r {
     public static int b(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) ? a(context, str, "string") : invokeLL.intValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) ? a(context, str, "string") : invokeLL.intValue;
     }
 
     public static Drawable c(Context context, String str) {
@@ -117,10 +118,10 @@ public final class r {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, str2)) == null) {
-            if (f28803b == null) {
-                f28803b = context.getResources();
+            if (f28913b == null) {
+                f28913b = context.getResources();
             }
-            return f28803b.getIdentifier(str, str2, a(context));
+            return f28913b.getIdentifier(str, str2, a(context));
         }
         return invokeLLL.intValue;
     }

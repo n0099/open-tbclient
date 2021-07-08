@@ -15,6 +15,7 @@ import android.webkit.JavascriptInterface;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.utils.GlobalUtils;
@@ -42,7 +43,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PassNormalizeActivity extends BeanActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FLAG_PAY_SKD = 1;
@@ -53,13 +54,13 @@ public class PassNormalizeActivity extends BeanActivity {
     public String url;
 
     /* renamed from: com.baidu.wallet.paysdk.ui.PassNormalizeActivity$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class JavascriptInterfaceImpl implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,13 +112,13 @@ public class PassNormalizeActivity extends BeanActivity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public final class a extends SafeWebView.SafeWebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PassNormalizeActivity f26432a;
+        public final /* synthetic */ PassNormalizeActivity f26542a;
 
         public /* synthetic */ a(PassNormalizeActivity passNormalizeActivity, AnonymousClass1 anonymousClass1) {
             this(passNormalizeActivity);
@@ -135,12 +136,12 @@ public class PassNormalizeActivity extends BeanActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
                 LogUtil.logd("onPageFinished url=" + str);
-                if (this.f26432a.mContent != null) {
-                    WalletGlobalUtils.safeDismissDialog(this.f26432a, -1);
+                if (this.f26542a.mContent != null) {
+                    WalletGlobalUtils.safeDismissDialog(this.f26542a, -1);
                 }
-                String property = DebugConfig.getInstance(this.f26432a.mContent).getProperty(DebugConfig.PASS_COMPLETE_VERIFY, DebugConfig.SERVER_COMPLETE_VERIFY);
+                String property = DebugConfig.getInstance(this.f26542a.mContent).getProperty(DebugConfig.PASS_COMPLETE_VERIFY, DebugConfig.SERVER_COMPLETE_VERIFY);
                 if (str != null && str.startsWith(property)) {
-                    this.f26432a.mWebView.loadUrl("javascript:window.sapi_obj.authorized_response(document.body.innerHTML);");
+                    this.f26542a.mWebView.loadUrl("javascript:window.sapi_obj.authorized_response(document.body.innerHTML);");
                 }
                 super.onPageFinished(webView, str);
             }
@@ -152,17 +153,17 @@ public class PassNormalizeActivity extends BeanActivity {
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
                 LogUtil.logd("url=" + str);
                 if (str == null || !str.equals(TbDomainConfig.DOMAIN_HTTPS_BAIDU)) {
-                    if (this.f26432a.mContent != null) {
-                        PassNormalizeActivity passNormalizeActivity = this.f26432a;
+                    if (this.f26542a.mContent != null) {
+                        PassNormalizeActivity passNormalizeActivity = this.f26542a;
                         WalletGlobalUtils.safeShowDialog(passNormalizeActivity, -1, ResUtils.getString(passNormalizeActivity.mContent, "ebpay_loading"));
                     }
                     super.onPageStarted(webView, str, bitmap);
                     return;
                 }
-                PassUtil.backNormalized(this.f26432a.mContent, this.f26432a.type, null);
+                PassUtil.backNormalized(this.f26542a.mContent, this.f26542a.type, null);
                 DXMSdkSAUtils.onEventWithValues("normalizeVerify", Arrays.asList(QueryResponse.Options.CANCEL));
                 PayStatisticsUtil.onEventWithValue("normalizeVerify", QueryResponse.Options.CANCEL);
-                this.f26432a.finish();
+                this.f26542a.finish();
             }
         }
 
@@ -181,7 +182,7 @@ public class PassNormalizeActivity extends BeanActivity {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
                 if (str != null && (str.startsWith("sms") || str.startsWith("tel") || str.startsWith("bdscenter"))) {
                     try {
-                        this.f26432a.mContent.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                        this.f26542a.mContent.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                         return true;
                     } catch (Throwable th) {
                         LogUtil.logd(th.getMessage());
@@ -209,7 +210,7 @@ public class PassNormalizeActivity extends BeanActivity {
                     return;
                 }
             }
-            this.f26432a = passNormalizeActivity;
+            this.f26542a = passNormalizeActivity;
         }
     }
 
@@ -253,7 +254,7 @@ public class PassNormalizeActivity extends BeanActivity {
         InterceptResult invokeL;
         HashMap hashMap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
             LogUtil.logd("html=" + str);
             String matcher = getMatcher("<client>([\\S\\s]*?)</client>", str);
             HashMap hashMap2 = null;

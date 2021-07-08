@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.cache;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface MemoryCacheTracker<K> {
     void onCacheHit(K k);
 

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import javax.annotation.Nullable;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class RtpParameters {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +20,7 @@ public class RtpParameters {
     public final Rtcp rtcp;
     public final String transactionId;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class Codec {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,7 +98,7 @@ public class RtpParameters {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class Encoding {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -185,7 +185,7 @@ public class RtpParameters {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class HeaderExtension {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -236,7 +236,7 @@ public class RtpParameters {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class Rtcp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

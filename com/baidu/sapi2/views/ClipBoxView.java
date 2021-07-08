@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ClipBoxView extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static int G = 0;
@@ -56,31 +56,31 @@ public class ClipBoxView extends View {
     public boolean F;
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f9991a;
+    public Paint f10008a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f9992b;
+    public Paint f10009b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f9993c;
+    public int f10010c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f9994d;
+    public int f10011d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RectF f9995e;
+    public RectF f10012e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RectF f9996f;
+    public RectF f10013f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f9997g;
+    public float f10014g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f9998h;
+    public float f10015h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f9999i;
+    public int f10016i;
     public int j;
     public int k;
     public int l;
@@ -99,13 +99,13 @@ public class ClipBoxView extends View {
     public float y;
     public float z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ClipBoxView f10000a;
+        public final /* synthetic */ ClipBoxView f10017a;
 
         public a(ClipBoxView clipBoxView) {
             Interceptable interceptable = $ic;
@@ -122,16 +122,16 @@ public class ClipBoxView extends View {
                     return;
                 }
             }
-            this.f10000a = clipBoxView;
+            this.f10017a = clipBoxView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f10000a.n = Float.parseFloat(String.valueOf(valueAnimator.getAnimatedValue()));
-                this.f10000a.invalidate();
-                this.f10000a.c();
+                this.f10017a.n = Float.parseFloat(String.valueOf(valueAnimator.getAnimatedValue()));
+                this.f10017a.invalidate();
+                this.f10017a.c();
             }
         }
     }
@@ -188,30 +188,30 @@ public class ClipBoxView extends View {
             }
             int i2 = this.l;
             if (i2 == 1) {
-                float x = motionEvent.getX() - this.f9995e.left;
+                float x = motionEvent.getX() - this.f10012e.left;
                 float y = motionEvent.getY();
-                RectF rectF = this.f9995e;
+                RectF rectF = this.f10012e;
                 float f2 = rectF.top;
                 float f3 = (x + (y - f2)) / 2.0f;
                 b(rectF.left + f3, f2 + f3, rectF.right, rectF.bottom);
             } else if (i2 == 2) {
-                float x2 = this.f9995e.right - motionEvent.getX();
+                float x2 = this.f10012e.right - motionEvent.getX();
                 float y2 = motionEvent.getY();
-                RectF rectF2 = this.f9995e;
+                RectF rectF2 = this.f10012e;
                 float f4 = rectF2.top;
                 float f5 = (x2 + (y2 - f4)) / 2.0f;
                 b(rectF2.left, f4 + f5, rectF2.right - f5, rectF2.bottom);
             } else if (i2 == 3) {
                 float x3 = motionEvent.getX();
-                RectF rectF3 = this.f9995e;
+                RectF rectF3 = this.f10012e;
                 float y3 = ((x3 - rectF3.left) + (rectF3.bottom - motionEvent.getY())) / 2.0f;
-                RectF rectF4 = this.f9995e;
+                RectF rectF4 = this.f10012e;
                 b(rectF4.left + y3, rectF4.top, rectF4.right, rectF4.bottom - y3);
             } else if (i2 != 4) {
                 return false;
             } else {
-                float x4 = ((this.f9995e.right - motionEvent.getX()) + (this.f9995e.bottom - motionEvent.getY())) / 2.0f;
-                RectF rectF5 = this.f9995e;
+                float x4 = ((this.f10012e.right - motionEvent.getX()) + (this.f10012e.bottom - motionEvent.getY())) / 2.0f;
+                RectF rectF5 = this.f10012e;
                 b(rectF5.left, rectF5.top, rectF5.right - x4, rectF5.bottom - x4);
             }
             return true;
@@ -224,21 +224,21 @@ public class ClipBoxView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
             setLayerType(1, null);
-            this.f9991a = new Paint();
-            this.f9992b = new Paint();
-            this.f9991a.setColor(-1);
-            this.f9991a.setStyle(Paint.Style.STROKE);
-            this.f9991a.setStrokeWidth(SapiUtils.dip2px(getContext(), 1.0f));
-            this.f9991a.setAntiAlias(true);
-            this.f9992b.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-            this.f9992b.setAntiAlias(true);
-            this.f9993c = SapiUtils.dip2px(getContext(), 20.0f);
-            this.f9994d = SapiUtils.dip2px(getContext(), 4.0f);
-            this.f9999i = SapiUtils.dip2px(getContext(), this.f9999i);
+            this.f10008a = new Paint();
+            this.f10009b = new Paint();
+            this.f10008a.setColor(-1);
+            this.f10008a.setStyle(Paint.Style.STROKE);
+            this.f10008a.setStrokeWidth(SapiUtils.dip2px(getContext(), 1.0f));
+            this.f10008a.setAntiAlias(true);
+            this.f10009b.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+            this.f10009b.setAntiAlias(true);
+            this.f10010c = SapiUtils.dip2px(getContext(), 20.0f);
+            this.f10011d = SapiUtils.dip2px(getContext(), 4.0f);
+            this.f10016i = SapiUtils.dip2px(getContext(), this.f10016i);
             this.k = SapiUtils.dip2px(getContext(), this.k);
             this.m = SapiUtils.dip2px(getContext(), this.m);
-            this.f9995e = new RectF();
-            this.f9996f = new RectF();
+            this.f10012e = new RectF();
+            this.f10013f = new RectF();
             this.E = H;
             this.F = true;
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
@@ -266,7 +266,7 @@ public class ClipBoxView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             Rect rect = new Rect();
-            RectF rectF = this.f9995e;
+            RectF rectF = this.f10012e;
             rect.left = (int) rectF.left;
             rect.right = (int) rectF.right;
             rect.top = (int) rectF.top;
@@ -282,7 +282,7 @@ public class ClipBoxView extends View {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.onDraw(canvas);
             int argb = Color.argb(180, 0, 0, 0);
-            this.f9991a.setStrokeWidth(SapiUtils.dip2px(getContext(), 1.0f));
+            this.f10008a.setStrokeWidth(SapiUtils.dip2px(getContext(), 1.0f));
             canvas.drawColor(argb);
             b(canvas);
             if (this.n == 1.0f) {
@@ -290,7 +290,7 @@ public class ClipBoxView extends View {
                 this.D = false;
                 this.n = 0.0f;
             }
-            canvas.drawRect(this.f9995e, this.f9992b);
+            canvas.drawRect(this.f10012e, this.f10009b);
             if (this.D) {
                 a(canvas);
             }
@@ -303,11 +303,11 @@ public class ClipBoxView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            int i6 = this.f9999i;
+            int i6 = this.f10016i;
             int i7 = i2 - (i6 * 2);
             int i8 = (i3 - i7) / 2;
             this.j = i8;
-            RectF rectF = this.f9995e;
+            RectF rectF = this.f10012e;
             float f2 = i6;
             rectF.left = f2;
             float f3 = i8;
@@ -350,55 +350,55 @@ public class ClipBoxView extends View {
                 return false;
             }
             this.D = true;
-            this.f9996f.set(motionEvent.getX() - this.f9993c, motionEvent.getY() - this.f9993c, motionEvent.getX() + this.f9993c, motionEvent.getY() + this.f9993c);
-            RectF rectF = this.f9996f;
-            RectF rectF2 = this.f9995e;
+            this.f10013f.set(motionEvent.getX() - this.f10010c, motionEvent.getY() - this.f10010c, motionEvent.getX() + this.f10010c, motionEvent.getY() + this.f10010c);
+            RectF rectF = this.f10013f;
+            RectF rectF2 = this.f10012e;
             if (rectF.contains(rectF2.left, rectF2.top)) {
                 this.l = 1;
                 return true;
             }
-            RectF rectF3 = this.f9996f;
-            RectF rectF4 = this.f9995e;
+            RectF rectF3 = this.f10013f;
+            RectF rectF4 = this.f10012e;
             if (rectF3.contains(rectF4.right, rectF4.top)) {
                 this.l = 2;
                 return true;
             }
-            RectF rectF5 = this.f9996f;
-            RectF rectF6 = this.f9995e;
+            RectF rectF5 = this.f10013f;
+            RectF rectF6 = this.f10012e;
             if (rectF5.contains(rectF6.left, rectF6.bottom)) {
                 this.l = 3;
                 return true;
             }
-            RectF rectF7 = this.f9996f;
-            RectF rectF8 = this.f9995e;
+            RectF rectF7 = this.f10013f;
+            RectF rectF8 = this.f10012e;
             if (rectF7.contains(rectF8.right, rectF8.bottom)) {
                 this.l = 4;
                 return true;
             }
-            RectF rectF9 = this.f9996f;
-            RectF rectF10 = this.f9995e;
+            RectF rectF9 = this.f10013f;
+            RectF rectF10 = this.f10012e;
             float f2 = rectF10.left;
             float f3 = rectF10.top;
             if (rectF9.intersect(f2, f3, rectF10.right, f3)) {
                 this.l = 5;
                 return true;
             }
-            RectF rectF11 = this.f9996f;
-            RectF rectF12 = this.f9995e;
+            RectF rectF11 = this.f10013f;
+            RectF rectF12 = this.f10012e;
             float f4 = rectF12.left;
             if (rectF11.intersect(f4, rectF12.top, f4, rectF12.bottom)) {
                 this.l = 6;
                 return true;
             }
-            RectF rectF13 = this.f9996f;
-            RectF rectF14 = this.f9995e;
+            RectF rectF13 = this.f10013f;
+            RectF rectF14 = this.f10012e;
             float f5 = rectF14.right;
             if (rectF13.intersect(f5, rectF14.top, f5, rectF14.bottom)) {
                 this.l = 7;
                 return true;
             }
-            RectF rectF15 = this.f9996f;
-            RectF rectF16 = this.f9995e;
+            RectF rectF15 = this.f10013f;
+            RectF rectF16 = this.f10012e;
             float f6 = rectF16.left;
             float f7 = rectF16.bottom;
             if (rectF15.intersect(f6, f7, rectF16.right, f7)) {
@@ -439,38 +439,38 @@ public class ClipBoxView extends View {
                 case 1:
                     float x = motionEvent.getX();
                     float y = motionEvent.getY();
-                    RectF rectF = this.f9995e;
+                    RectF rectF = this.f10012e;
                     b(x, y, rectF.right, rectF.bottom);
                     return true;
                 case 2:
-                    b(this.f9995e.left, motionEvent.getY(), motionEvent.getX(), this.f9995e.bottom);
+                    b(this.f10012e.left, motionEvent.getY(), motionEvent.getX(), this.f10012e.bottom);
                     return true;
                 case 3:
                     float x2 = motionEvent.getX();
-                    RectF rectF2 = this.f9995e;
+                    RectF rectF2 = this.f10012e;
                     b(x2, rectF2.top, rectF2.right, motionEvent.getY());
                     return true;
                 case 4:
-                    RectF rectF3 = this.f9995e;
+                    RectF rectF3 = this.f10012e;
                     b(rectF3.left, rectF3.top, motionEvent.getX(), motionEvent.getY());
                     return true;
                 case 5:
-                    float f2 = this.f9995e.left;
+                    float f2 = this.f10012e.left;
                     float y2 = motionEvent.getY();
-                    RectF rectF4 = this.f9995e;
+                    RectF rectF4 = this.f10012e;
                     b(f2, y2, rectF4.right, rectF4.bottom);
                     return true;
                 case 6:
                     float x3 = motionEvent.getX();
-                    RectF rectF5 = this.f9995e;
+                    RectF rectF5 = this.f10012e;
                     b(x3, rectF5.top, rectF5.right, rectF5.bottom);
                     return true;
                 case 7:
-                    RectF rectF6 = this.f9995e;
-                    b(rectF6.left, rectF6.top, motionEvent.getX(), this.f9995e.bottom);
+                    RectF rectF6 = this.f10012e;
+                    b(rectF6.left, rectF6.top, motionEvent.getX(), this.f10012e.bottom);
                     return true;
                 case 8:
-                    RectF rectF7 = this.f9995e;
+                    RectF rectF7 = this.f10012e;
                     b(rectF7.left, rectF7.top, rectF7.right, motionEvent.getY());
                     return true;
                 default:
@@ -499,7 +499,7 @@ public class ClipBoxView extends View {
                 return;
             }
         }
-        this.f9999i = 22;
+        this.f10016i = 22;
         this.k = 2;
         this.l = -1;
         this.m = 20;
@@ -523,21 +523,21 @@ public class ClipBoxView extends View {
     public void a(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            RectF rectF = this.f9995e;
+            RectF rectF = this.f10012e;
             float f2 = rectF.left;
             float f3 = rectF.top;
             float f4 = rectF.right;
             float f5 = rectF.bottom;
             float f6 = (f5 - f3) / 3.0f;
             float f7 = f3 + f6;
-            canvas.drawLine(f2, f7, f4, f7, this.f9991a);
+            canvas.drawLine(f2, f7, f4, f7, this.f10008a);
             float f8 = f3 + (f6 * 2.0f);
-            canvas.drawLine(f2, f8, f4, f8, this.f9991a);
+            canvas.drawLine(f2, f8, f4, f8, this.f10008a);
             float f9 = (f4 - f2) / 3.0f;
             float f10 = f2 + f9;
-            canvas.drawLine(f10, f3, f10, f5, this.f9991a);
+            canvas.drawLine(f10, f3, f10, f5, this.f10008a);
             float f11 = f2 + (f9 * 2.0f);
-            canvas.drawLine(f11, f3, f11, f5, this.f9991a);
+            canvas.drawLine(f11, f3, f11, f5, this.f10008a);
         }
     }
 
@@ -556,7 +556,7 @@ public class ClipBoxView extends View {
             this.s = f5 - this.v;
             this.p = this.w - f2;
             this.r = f4 - this.x;
-            this.f9995e.set(f2, f3, f4, f5);
+            this.f10012e.set(f2, f3, f4, f5);
         }
     }
 
@@ -564,13 +564,13 @@ public class ClipBoxView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65547, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
             if (f5 - f3 < 50.0f) {
-                RectF rectF = this.f9995e;
+                RectF rectF = this.f10012e;
                 float f6 = rectF.top;
                 f5 = rectF.bottom;
                 f3 = f6;
             }
             if (f4 - f2 < 50.0f) {
-                RectF rectF2 = this.f9995e;
+                RectF rectF2 = this.f10012e;
                 float f7 = rectF2.left;
                 f4 = rectF2.right;
                 f2 = f7;
@@ -583,39 +583,39 @@ public class ClipBoxView extends View {
     private void c(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65551, this, canvas) == null) {
-            this.f9991a.setStrokeWidth(this.f9994d);
-            RectF rectF = this.f9995e;
+            this.f10008a.setStrokeWidth(this.f10011d);
+            RectF rectF = this.f10012e;
             float f2 = rectF.left;
             float f3 = rectF.top;
-            canvas.drawLine(f2 - this.k, f3, f2 + this.f9993c, f3, this.f9991a);
-            RectF rectF2 = this.f9995e;
+            canvas.drawLine(f2 - this.k, f3, f2 + this.f10010c, f3, this.f10008a);
+            RectF rectF2 = this.f10012e;
             float f4 = rectF2.left;
             float f5 = rectF2.top;
-            canvas.drawLine(f4, f5, f4, f5 + this.f9993c, this.f9991a);
-            RectF rectF3 = this.f9995e;
+            canvas.drawLine(f4, f5, f4, f5 + this.f10010c, this.f10008a);
+            RectF rectF3 = this.f10012e;
             float f6 = rectF3.right;
             float f7 = rectF3.top;
-            canvas.drawLine(f6 + this.k, f7, f6 - this.f9993c, f7, this.f9991a);
-            RectF rectF4 = this.f9995e;
+            canvas.drawLine(f6 + this.k, f7, f6 - this.f10010c, f7, this.f10008a);
+            RectF rectF4 = this.f10012e;
             float f8 = rectF4.right;
             float f9 = rectF4.top;
-            canvas.drawLine(f8, f9, f8, f9 + this.f9993c, this.f9991a);
-            RectF rectF5 = this.f9995e;
+            canvas.drawLine(f8, f9, f8, f9 + this.f10010c, this.f10008a);
+            RectF rectF5 = this.f10012e;
             float f10 = rectF5.left;
             float f11 = rectF5.bottom;
-            canvas.drawLine(f10 - this.k, f11, f10 + this.f9993c, f11, this.f9991a);
-            RectF rectF6 = this.f9995e;
+            canvas.drawLine(f10 - this.k, f11, f10 + this.f10010c, f11, this.f10008a);
+            RectF rectF6 = this.f10012e;
             float f12 = rectF6.left;
             float f13 = rectF6.bottom;
-            canvas.drawLine(f12, f13, f12, f13 - this.f9993c, this.f9991a);
-            RectF rectF7 = this.f9995e;
+            canvas.drawLine(f12, f13, f12, f13 - this.f10010c, this.f10008a);
+            RectF rectF7 = this.f10012e;
             float f14 = rectF7.right;
             float f15 = rectF7.bottom;
-            canvas.drawLine(f14 + this.k, f15, f14 - this.f9993c, f15, this.f9991a);
-            RectF rectF8 = this.f9995e;
+            canvas.drawLine(f14 + this.k, f15, f14 - this.f10010c, f15, this.f10008a);
+            RectF rectF8 = this.f10012e;
             float f16 = rectF8.right;
             float f17 = rectF8.bottom;
-            canvas.drawLine(f16, f17, f16, f17 - this.f9993c, this.f9991a);
+            canvas.drawLine(f16, f17, f16, f17 - this.f10010c, this.f10008a);
         }
     }
 
@@ -623,17 +623,17 @@ public class ClipBoxView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, this, canvas) == null) {
             if (this.t) {
-                RectF rectF = this.f9995e;
+                RectF rectF = this.f10012e;
                 float f2 = this.w;
                 float f3 = this.n;
                 rectF.left = f2 - (this.p * f3);
                 rectF.top = this.u - (this.q * f3);
                 rectF.right = this.x + (this.r * f3);
                 rectF.bottom = this.v + (f3 * this.s);
-                canvas.drawRect(rectF, this.f9991a);
+                canvas.drawRect(rectF, this.f10008a);
                 return;
             }
-            canvas.drawRect(this.f9995e, this.f9991a);
+            canvas.drawRect(this.f10012e, this.f10008a);
         }
     }
 
@@ -668,7 +668,7 @@ public class ClipBoxView extends View {
             this.s = f5 - this.v;
             this.p = this.w - f2;
             this.r = f4 - this.x;
-            this.f9995e.set(f2, f3, f4, f5);
+            this.f10012e.set(f2, f3, f4, f5);
         }
     }
 
@@ -681,13 +681,13 @@ public class ClipBoxView extends View {
                 return;
             }
             float f2 = ((this.y - 1.0f) / 20.0f) + 1.0f;
-            zoomImageView.f10061e.postTranslate(this.B / 20.0f, this.C / 20.0f);
-            Matrix matrix = zoomImageView.f10061e;
-            RectF rectF = this.f9995e;
+            zoomImageView.f10078e.postTranslate(this.B / 20.0f, this.C / 20.0f);
+            Matrix matrix = zoomImageView.f10078e;
+            RectF rectF = this.f10012e;
             matrix.postScale(f2, f2, (rectF.left + rectF.right) / 2.0f, (rectF.top + rectF.bottom) / 2.0f);
-            RectF rectF2 = this.f9995e;
+            RectF rectF2 = this.f10012e;
             zoomImageView.a((rectF2.left + rectF2.right) / 2.0f, (rectF2.top + rectF2.bottom) / 2.0f);
-            zoomImageView.setImageMatrix(zoomImageView.f10061e);
+            zoomImageView.setImageMatrix(zoomImageView.f10078e);
         }
     }
 
@@ -697,8 +697,8 @@ public class ClipBoxView extends View {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            int width = getWidth() - (this.f9999i * 2);
-            RectF rectF = this.f9995e;
+            int width = getWidth() - (this.f10016i * 2);
+            RectF rectF = this.f10012e;
             float f2 = rectF.right;
             float f3 = rectF.left;
             float f4 = f2 - f3;
@@ -712,16 +712,16 @@ public class ClipBoxView extends View {
                 this.x = f2;
                 float f8 = (f2 - f3) / (f7 - f6);
                 this.z = f5 / f4;
-                RectF rectF2 = this.f9995e;
+                RectF rectF2 = this.f10012e;
                 float height = (getHeight() - (this.m * 2)) / (rectF2.bottom - rectF2.top);
                 this.A = height;
                 float min = Math.min(this.z, height);
                 this.y = min;
                 float f9 = min - 1.0f;
                 float f10 = f9 <= 1.0f ? f9 : 1.0f;
-                RectF rectF3 = this.f9995e;
+                RectF rectF3 = this.f10012e;
                 this.B = ((getWidth() / 2) - ((rectF3.left + rectF3.right) / 2.0f)) * f10;
-                RectF rectF4 = this.f9995e;
+                RectF rectF4 = this.f10012e;
                 float f11 = rectF4.top;
                 float f12 = rectF4.bottom;
                 this.C = ((getHeight() / 2) - ((f11 + f12) / 2.0f)) * f10;
@@ -738,7 +738,7 @@ public class ClipBoxView extends View {
                 if (this.E == G) {
                     a(f15, f16, f17, f18, f8);
                 } else {
-                    a(this.f9999i, this.j, i2 + width, i3 + width);
+                    a(this.f10016i, this.j, i2 + width, i3 + width);
                 }
                 this.o.setDuration(500L).start();
                 this.t = true;
@@ -753,13 +753,13 @@ public class ClipBoxView extends View {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, motionEvent)) == null) {
-            int width = getWidth() - (this.f9999i * 2);
-            RectF rectF = this.f9995e;
+            int width = getWidth() - (this.f10016i * 2);
+            RectF rectF = this.f10012e;
             float f2 = width;
             if (rectF.right - rectF.left < f2 || rectF.bottom - rectF.top < f2) {
                 return false;
             }
-            return motionEvent.getX() < ((float) this.f9999i) || motionEvent.getX() > ((float) (this.f9999i + width)) || motionEvent.getY() < ((float) this.j) || motionEvent.getY() > ((float) (this.j + width));
+            return motionEvent.getX() < ((float) this.f10016i) || motionEvent.getX() > ((float) (this.f10016i + width)) || motionEvent.getY() < ((float) this.j) || motionEvent.getY() > ((float) (this.j + width));
         }
         return invokeL.booleanValue;
     }

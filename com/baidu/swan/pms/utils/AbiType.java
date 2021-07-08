@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -17,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.n.c;
+import d.a.n0.n.c;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class AbiType {
     public static final /* synthetic */ AbiType[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -65,7 +66,7 @@ public final class AbiType {
         AbiType abiType4 = new AbiType("X86_64", 4, "x86_64", abiType3, ARMEABI_V7A, ARMEABI);
         X86_64 = abiType4;
         $VALUES = new AbiType[]{ARMEABI, ARMEABI_V7A, ARM64_V8A, X86, abiType4};
-        DEBUG = c.f53910a;
+        DEBUG = c.f50608a;
         sIndex = new HashMap();
     }
 
@@ -194,7 +195,7 @@ public final class AbiType {
         InterceptResult invokeLL;
         AbiType[] values;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, abiType)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, abiType)) == null) {
             if (sIndex.isEmpty()) {
                 for (AbiType abiType2 : values()) {
                     if (abiType2 != null && !TextUtils.isEmpty(abiType2.id)) {

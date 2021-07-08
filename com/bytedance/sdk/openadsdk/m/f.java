@@ -20,37 +20,37 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f31396a;
+    public a f31506a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f31397b;
+    public Context f31507b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference<View> f31398c;
+    public WeakReference<View> f31508c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f31399d;
+    public d f31509d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.m.a f31400e;
+    public com.bytedance.sdk.openadsdk.m.a f31510e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f31401f;
+    public b f31511f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f31402g;
+    public int f31512g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f31403h;
+    public int f31513h;
 
     /* renamed from: i  reason: collision with root package name */
-    public JSONObject f31404i;
+    public JSONObject f31514i;
     public String j;
     public String k;
     public String l;
@@ -64,18 +64,18 @@ public class f {
     public ViewTreeObserver.OnGlobalLayoutListener t;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f31406a;
+        public static final a f31516a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f31407b;
+        public static final a f31517b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final /* synthetic */ a[] f31408c;
+        public static final /* synthetic */ a[] f31518c;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -91,10 +91,10 @@ public class f {
                     return;
                 }
             }
-            f31406a = new a("MAIN", 0);
+            f31516a = new a("MAIN", 0);
             a aVar = new a("RIFLE", 1);
-            f31407b = aVar;
-            f31408c = new a[]{f31406a, aVar};
+            f31517b = aVar;
+            f31518c = new a[]{f31516a, aVar};
         }
 
         public a(String str, int i2) {
@@ -125,7 +125,7 @@ public class f {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f31408c.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f31518c.clone() : (a[]) invokeV.objValue;
         }
     }
 
@@ -144,16 +144,16 @@ public class f {
                 return;
             }
         }
-        this.f31402g = 0;
-        this.f31403h = 0;
-        this.f31404i = new JSONObject();
+        this.f31512g = 0;
+        this.f31513h = 0;
+        this.f31514i = new JSONObject();
         this.m = new HashMap();
         this.t = new ViewTreeObserver.OnGlobalLayoutListener(this) { // from class: com.bytedance.sdk.openadsdk.m.f.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ f f31405a;
+            public final /* synthetic */ f f31515a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -170,7 +170,7 @@ public class f {
                         return;
                     }
                 }
-                this.f31405a = this;
+                this.f31515a = this;
             }
 
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -178,18 +178,18 @@ public class f {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     try {
-                        View view = (View) this.f31405a.f31398c.get();
+                        View view = (View) this.f31515a.f31508c.get();
                         if (view == null) {
                             return;
                         }
-                        this.f31405a.b(view);
+                        this.f31515a.b(view);
                     } catch (Throwable th) {
                         e.a("PlayablePlugin", "onSizeChanged error", th);
                     }
                 }
             }
         };
-        this.f31396a = a.f31406a;
+        this.f31506a = a.f31516a;
         g.a(webView);
         a(webView);
         a(context, bVar, aVar);
@@ -202,16 +202,16 @@ public class f {
             return;
         }
         try {
-            if (this.f31402g == view.getWidth() && this.f31403h == view.getHeight()) {
+            if (this.f31512g == view.getWidth() && this.f31513h == view.getHeight()) {
                 return;
             }
-            this.f31402g = view.getWidth();
-            this.f31403h = view.getHeight();
+            this.f31512g = view.getWidth();
+            this.f31513h = view.getHeight();
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("width", this.f31402g);
-            jSONObject.put("height", this.f31403h);
+            jSONObject.put("width", this.f31512g);
+            jSONObject.put("height", this.f31513h);
             a("resize", jSONObject);
-            this.f31404i = jSONObject;
+            this.f31514i = jSONObject;
         } catch (Throwable th) {
             e.a("PlayablePlugin", "resetViewDataJsonByView error", th);
         }
@@ -262,25 +262,25 @@ public class f {
     public Set<String> j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f31399d.a() : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f31509d.a() : (Set) invokeV.objValue;
     }
 
     public c k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f31400e.a() : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f31510e.a() : (c) invokeV.objValue;
     }
 
     public com.bytedance.sdk.openadsdk.m.a l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f31400e : (com.bytedance.sdk.openadsdk.m.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f31510e : (com.bytedance.sdk.openadsdk.m.a) invokeV.objValue;
     }
 
     public JSONObject m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f31404i : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f31514i : (JSONObject) invokeV.objValue;
     }
 
     public JSONObject n() {
@@ -292,7 +292,7 @@ public class f {
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            this.f31400e.b();
+            this.f31510e.b();
         }
     }
 
@@ -312,7 +312,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
             try {
-                View view = this.f31398c.get();
+                View view = this.f31508c.get();
                 if (view != null) {
                     if (Build.VERSION.SDK_INT >= 16) {
                         view.getViewTreeObserver().removeOnGlobalLayoutListener(this.t);
@@ -323,7 +323,7 @@ public class f {
             } catch (Throwable unused) {
             }
             try {
-                this.f31399d.b();
+                this.f31509d.b();
             } catch (Throwable unused2) {
             }
         }
@@ -368,10 +368,10 @@ public class f {
     private void a(Context context, b bVar, com.bytedance.sdk.openadsdk.m.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, this, context, bVar, aVar) == null) {
-            this.f31397b = context;
-            this.f31399d = new d(this);
-            this.f31400e = aVar;
-            this.f31401f = bVar;
+            this.f31507b = context;
+            this.f31509d = new d(this);
+            this.f31510e = aVar;
+            this.f31511f = bVar;
         }
     }
 
@@ -398,7 +398,7 @@ public class f {
             return;
         }
         try {
-            this.f31398c = new WeakReference<>(view);
+            this.f31508c = new WeakReference<>(view);
             b(view);
             view.getViewTreeObserver().addOnGlobalLayoutListener(this.t);
         } catch (Throwable th) {
@@ -415,7 +415,7 @@ public class f {
     public Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31397b : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31507b : (Context) invokeV.objValue;
     }
 
     public f b(String str) {
@@ -495,7 +495,7 @@ public class f {
                 sb.append(jSONObject != null ? jSONObject.toString() : "");
                 e.a("PlayablePlugin", sb.toString());
             }
-            JSONObject a2 = this.f31399d.a(str, jSONObject);
+            JSONObject a2 = this.f31509d.a(str, jSONObject);
             if (e.a()) {
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("PlayablePlugin JSB-RSP [");
@@ -522,7 +522,7 @@ public class f {
                 sb.append(jSONObject != null ? jSONObject.toString() : "");
                 e.a("PlayablePlugin", sb.toString());
             }
-            b bVar = this.f31401f;
+            b bVar = this.f31511f;
             if (bVar != null) {
                 bVar.a(str, jSONObject);
             }

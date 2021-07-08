@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -8,9 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.q.b2;
-import d.a.r0.r.q.w0;
-/* loaded from: classes4.dex */
+import d.a.o0.r.q.b2;
+import d.a.o0.r.q.w0;
+/* loaded from: classes3.dex */
 public class FeedTabCardStatisticHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_TAB_FEED_PICTURE_TEXT_THREAD_BIG_PICTURE_CLICK = "c13632";
@@ -125,7 +126,7 @@ public class FeedTabCardStatisticHelper {
         InterceptResult invokeLL;
         StatisticItem baseThreadStatisticLog;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, b2Var, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, b2Var, str)) == null) {
             if (b2Var == null) {
                 return null;
             }

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 import tv.athena.revenue.payui.activity.immersion.BarHide;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class b implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,22 +25,22 @@ public class b implements Cloneable {
     @ColorInt
 
     /* renamed from: e  reason: collision with root package name */
-    public int f75751e;
+    public int f72785e;
     @ColorInt
 
     /* renamed from: f  reason: collision with root package name */
-    public int f75752f;
+    public int f72786f;
     @FloatRange(from = 0.0d, to = 1.0d)
 
     /* renamed from: g  reason: collision with root package name */
-    public float f75753g;
+    public float f72787g;
     @FloatRange(from = 0.0d, to = 1.0d)
 
     /* renamed from: h  reason: collision with root package name */
-    public float f75754h;
+    public float f72788h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f75755i;
+    public boolean f72789i;
     public boolean j;
     public BarHide k;
     public boolean l;
@@ -76,11 +76,11 @@ public class b implements Cloneable {
                 return;
             }
         }
-        this.f75751e = 0;
-        this.f75752f = -16777216;
-        this.f75753g = 0.0f;
-        this.f75754h = 0.0f;
-        this.f75755i = false;
+        this.f72785e = 0;
+        this.f72786f = -16777216;
+        this.f72787g = 0.0f;
+        this.f72788h = 0.0f;
+        this.f72789i = false;
         this.j = false;
         this.k = BarHide.FLAG_SHOW_BAR;
         this.l = false;

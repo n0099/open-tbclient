@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.k.e.n;
 import d.a.d.j;
 import d.a.d.k;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseCardInfo implements n, k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public abstract class BaseCardInfo implements n, k {
     public j trigger;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class SupportType {
         public static final /* synthetic */ SupportType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

@@ -1,6 +1,7 @@
 package com.yy.hiidostatis.defs.controller;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.fsg.face.base.b.c;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +20,7 @@ import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class SdkAnalyzeController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PACKAGE_NAME = "%PACKAGE_NAME%";
@@ -90,7 +91,7 @@ public class SdkAnalyzeController {
     private boolean isExistFile(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, str)) == null) {
             if (context != null && !Util.empty(str)) {
                 try {
                     String replaceAll = str.replaceAll(PACKAGE_NAME, context.getPackageName());

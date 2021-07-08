@@ -21,7 +21,7 @@ import java.security.cert.X509Certificate;
 import javax.net.ssl.HttpsURLConnection;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public final class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                String string = w.a(context).f10524a.getString("lt_sha", "");
+                String string = w.a(context).f10541a.getString("lt_sha", "");
                 if (TextUtils.isEmpty(string)) {
                     com.baidu.sofire.b.a();
                     return new JSONArray();

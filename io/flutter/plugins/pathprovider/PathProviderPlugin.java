@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
     public final Executor executor;
     public final Executor uiThreadExecutor;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class UiThreadExecutor implements Executor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -169,7 +169,7 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) ? PathUtils.getDataDirectory(this.context) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? PathUtils.getDataDirectory(this.context) : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class VerSig {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f24656a = 0;
+    public static final int f24766a = 0;
     public transient /* synthetic */ FieldHolder $fh;
 
     public VerSig() {

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FacePackageData extends AbstractImageProvider implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;

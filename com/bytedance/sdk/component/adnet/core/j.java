@@ -1,6 +1,7 @@
 package com.bytedance.sdk.component.adnet.core;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,21 +28,21 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import org.apache.http.client.methods.HttpOptions;
 import org.apache.http.client.methods.HttpTrace;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class j implements IHttpStack {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final w f27910a;
+    public final w f28020a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a extends FilterInputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final ac f27911a;
+        public final ac f28021a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ac acVar) {
@@ -61,7 +62,7 @@ public class j implements IHttpStack {
                     return;
                 }
             }
-            this.f27911a = acVar;
+            this.f28021a = acVar;
         }
 
         @Override // java.io.FilterInputStream, java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
@@ -70,7 +71,7 @@ public class j implements IHttpStack {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.close();
                 try {
-                    this.f27911a.close();
+                    this.f28021a.close();
                 } catch (Throwable unused) {
                 }
             }
@@ -90,7 +91,7 @@ public class j implements IHttpStack {
                 return;
             }
         }
-        this.f27910a = new w.a().a(10000L, TimeUnit.MILLISECONDS).b(10000L, TimeUnit.MILLISECONDS).c(10000L, TimeUnit.MILLISECONDS).a();
+        this.f28020a = new w.a().a(10000L, TimeUnit.MILLISECONDS).b(10000L, TimeUnit.MILLISECONDS).c(10000L, TimeUnit.MILLISECONDS).a();
     }
 
     public static boolean a(int i2, int i3) {
@@ -127,7 +128,7 @@ public class j implements IHttpStack {
             z.a aVar = new z.a();
             URL url = new URL(request.getUrl());
             String host = url.getHost();
-            n nVar = com.bytedance.sdk.component.adnet.a.f27715a;
+            n nVar = com.bytedance.sdk.component.adnet.a.f27825a;
             String a2 = nVar != null ? nVar.a(host) : null;
             boolean z = false;
             if (!TextUtils.isEmpty(a2)) {
@@ -170,7 +171,7 @@ public class j implements IHttpStack {
         }
         long timeoutMs = request.getTimeoutMs();
         boolean z = true;
-        w a2 = this.f27910a.y().a(timeoutMs, TimeUnit.MILLISECONDS).b(timeoutMs, TimeUnit.MILLISECONDS).c(timeoutMs, TimeUnit.MILLISECONDS).b(true).a(true).a();
+        w a2 = this.f28020a.y().a(timeoutMs, TimeUnit.MILLISECONDS).b(timeoutMs, TimeUnit.MILLISECONDS).c(timeoutMs, TimeUnit.MILLISECONDS).b(true).a(true).a();
         z.a c2 = c(request);
         if (c2 != null) {
             a(request);
@@ -193,7 +194,7 @@ public class j implements IHttpStack {
             com.bytedance.sdk.component.b.b.a.c.k a3 = com.bytedance.sdk.component.b.b.a.c.k.a(b2);
             ac h2 = b2.h();
             try {
-                int i2 = a3.f28147b;
+                int i2 = a3.f28257b;
                 if (i2 != -1) {
                     if (!a(request.getMethod(), i2)) {
                         HttpResponse httpResponse = new HttpResponse(i2, a(b2.g()));
@@ -263,7 +264,7 @@ public class j implements IHttpStack {
 
     public static void a(z.a aVar, Request<?> request) throws IOException, com.bytedance.sdk.component.adnet.err.a {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, aVar, request) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar, request) == null) {
             switch (request.getMethod()) {
                 case -1:
                     byte[] postBody = request.getPostBody();

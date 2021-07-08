@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.utils.j;
 import com.bytedance.sdk.openadsdk.core.dynamic.b.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DynamicBaseWidgetImp extends DynamicBaseWidget {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public class DynamicBaseWidgetImp extends DynamicBaseWidget {
     public ViewGroup.LayoutParams getWidgetLayoutParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new ViewGroup.LayoutParams(this.f29875e, this.f29876f) : (ViewGroup.LayoutParams) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new ViewGroup.LayoutParams(this.f29985e, this.f29986f) : (ViewGroup.LayoutParams) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -91,7 +91,7 @@ public class DynamicBaseWidgetImp extends DynamicBaseWidget {
             return;
         }
         j.f("DynamicBaseWidget", "widget mDynamicView onLayout l,t,r,b:" + i2 + "," + i3 + "," + i4 + "," + i5);
-        this.n.layout(0, 0, this.f29875e, this.f29876f);
+        this.n.layout(0, 0, this.f29985e, this.f29986f);
     }
 
     @Override // android.view.View
@@ -99,7 +99,7 @@ public class DynamicBaseWidgetImp extends DynamicBaseWidget {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            setMeasuredDimension(this.f29875e, this.f29876f);
+            setMeasuredDimension(this.f29985e, this.f29986f);
         }
     }
 }

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
@@ -17,7 +18,7 @@ import com.tencent.open.SocialConstants;
 import kotlin.Metadata;
 import kotlin.TypeCastException;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0005\u001a\u0019\u0010\u0003\u001a\u00020\u0001*\u00020\u00002\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0003\u0010\u0004\u001a\u0011\u0010\u0005\u001a\u00020\u0001*\u00020\u0000¢\u0006\u0004\b\u0005\u0010\u0006\u001a\u0011\u0010\u0007\u001a\u00020\u0001*\u00020\u0000¢\u0006\u0004\b\u0007\u0010\u0006\u001a\u0011\u0010\b\u001a\u00020\u0001*\u00020\u0000¢\u0006\u0004\b\b\u0010\u0006\u001a\u0011\u0010\t\u001a\u00020\u0001*\u00020\u0000¢\u0006\u0004\b\t\u0010\u0006\u001a\u0011\u0010\u000b\u001a\u00020\n*\u00020\u0000¢\u0006\u0004\b\u000b\u0010\f\u001a!\u0010\u0012\u001a\u00020\u0011*\u00020\u00002\u0006\u0010\u000e\u001a\u00020\r2\u0006\u0010\u0010\u001a\u00020\u000f¢\u0006\u0004\b\u0012\u0010\u0013\u001a\u0019\u0010\u0017\u001a\u00020\u0016*\u00020\u00002\u0006\u0010\u0015\u001a\u00020\u0014¢\u0006\u0004\b\u0017\u0010\u0018\u001a\u0019\u0010\u0019\u001a\u00020\u0011*\u00020\u00002\u0006\u0010\u000e\u001a\u00020\r¢\u0006\u0004\b\u0019\u0010\u001a¨\u0006\u001b"}, d2 = {"Landroid/content/Context;", "", "dp", "dpToPxByScale", "(Landroid/content/Context;I)I", "getNavBarHeight", "(Landroid/content/Context;)I", "getScreenHeight", "getScreenWidth", "getStatusBarHeight", "Landroid/view/WindowManager;", "getWindowManager", "(Landroid/content/Context;)Landroid/view/WindowManager;", "Landroid/content/BroadcastReceiver;", SocialConstants.PARAM_RECEIVER, "Landroid/content/IntentFilter;", CloudControlRequest.REQUEST_KEY_FILTER, "", "registerLocalReceiver", "(Landroid/content/Context;Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)V", "Landroid/content/Intent;", "intent", "", "sendLocalBroadcast", "(Landroid/content/Context;Landroid/content/Intent;)Z", "unregisterLocalReceiver", "(Landroid/content/Context;Landroid/content/BroadcastReceiver;)V", "lib-player-floating_release"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class UtilsKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +60,7 @@ public final class UtilsKt {
     public static final int getStatusBarHeight(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) ? VideoSystemHelper.getStatusBarHeight() : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? VideoSystemHelper.getStatusBarHeight() : invokeL.intValue;
     }
 
     public static final WindowManager getWindowManager(Context context) {

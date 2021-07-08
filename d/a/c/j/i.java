@@ -27,30 +27,30 @@ import java.security.MessageDigest;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44782a;
+    public static final boolean f41798a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f44783b;
+    public static volatile boolean f41799b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a extends d.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f44784a;
+        public final /* synthetic */ f f41800a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f44785b;
+        public final /* synthetic */ String f41801b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Context f44786c;
+        public final /* synthetic */ Context f41802c;
 
         public a(f fVar, String str, Context context) {
             Interceptable interceptable = $ic;
@@ -67,9 +67,9 @@ public class i {
                     return;
                 }
             }
-            this.f44784a = fVar;
-            this.f44785b = str;
-            this.f44786c = context;
+            this.f41800a = fVar;
+            this.f41801b = str;
+            this.f41802c = context;
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -79,49 +79,49 @@ public class i {
         public void b(int i2, String str, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, jSONObject) == null) {
-                this.f44784a.a(this.f44785b, -1, null);
+                this.f41800a.a(this.f41801b, -1, null);
                 try {
                     try {
                         if (jSONObject != null) {
-                            if (i.f44782a) {
+                            if (i.f41798a) {
                                 Log.d(TitanDownloadService.TAG, "onResponse " + jSONObject);
                             }
-                            PackageInfo k = i.k(this.f44786c, jSONObject);
+                            PackageInfo k = i.k(this.f41802c, jSONObject);
                             if (k.errNo != 0) {
-                                if (i.f44782a) {
+                                if (i.f41798a) {
                                     Log.d(TitanDownloadService.TAG, "return fail result");
                                 }
                                 if (k.errNo != -2) {
                                     Log.d(TitanDownloadService.TAG, "patch data errno = " + k.errNo);
                                 }
-                                this.f44784a.a(this.f44785b, -1, null);
+                                this.f41800a.a(this.f41801b, -1, null);
                                 synchronized (i.class) {
-                                    boolean unused = i.f44783b = false;
+                                    boolean unused = i.f41799b = false;
                                 }
                                 return;
                             }
                             Log.d(TitanDownloadService.TAG, "start install patch");
-                            j.b(this.f44786c, this.f44784a, k, true);
+                            j.b(this.f41802c, this.f41800a, k, true);
                             synchronized (i.class) {
-                                boolean unused2 = i.f44783b = false;
+                                boolean unused2 = i.f41799b = false;
                             }
                             return;
                         }
                         Log.d(TitanDownloadService.TAG, "response parse fail");
-                        this.f44784a.a(this.f44785b, -1, null);
+                        this.f41800a.a(this.f41801b, -1, null);
                         synchronized (i.class) {
-                            boolean unused3 = i.f44783b = false;
+                            boolean unused3 = i.f41799b = false;
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
-                        this.f44784a.a(this.f44785b, -1, null);
+                        this.f41800a.a(this.f41801b, -1, null);
                         synchronized (i.class) {
-                            boolean unused4 = i.f44783b = false;
+                            boolean unused4 = i.f41799b = false;
                         }
                     }
                 } catch (Throwable th) {
                     synchronized (i.class) {
-                        boolean unused5 = i.f44783b = false;
+                        boolean unused5 = i.f41799b = false;
                         throw th;
                     }
                 }
@@ -129,16 +129,16 @@ public class i {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class b implements d.b<InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ File f44787a;
+        public final /* synthetic */ File f41803a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f44788b;
+        public final /* synthetic */ String f41804b;
 
         public b(File file, String str) {
             Interceptable interceptable = $ic;
@@ -155,8 +155,8 @@ public class i {
                     return;
                 }
             }
-            this.f44787a = file;
-            this.f44788b = str;
+            this.f41803a = file;
+            this.f41804b = str;
         }
 
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
@@ -175,7 +175,7 @@ public class i {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, str, inputStream) == null) {
                 if (inputStream == null) {
-                    if (i.f44782a) {
+                    if (i.f41798a) {
                         Log.d(TitanDownloadService.TAG, "download patch inputstream is null");
                         return;
                     }
@@ -185,7 +185,7 @@ public class i {
                 try {
                     try {
                         messageDigest = MessageDigest.getInstance("MD5");
-                        fileOutputStream = new FileOutputStream(this.f44787a);
+                        fileOutputStream = new FileOutputStream(this.f41803a);
                     } catch (Exception e2) {
                         e = e2;
                     }
@@ -203,20 +203,20 @@ public class i {
                         messageDigest.update(bArr, 0, read);
                     }
                     String e3 = i.e(messageDigest.digest());
-                    if (i.f44782a) {
+                    if (i.f41798a) {
                         Log.d(TitanDownloadService.TAG, "download file md5 = " + e3);
                     }
-                    if (!TextUtils.equals(this.f44788b, e3)) {
+                    if (!TextUtils.equals(this.f41804b, e3)) {
                         Log.d(TitanDownloadService.TAG, "patch md5 not match");
                         fileOutputStream.close();
-                        this.f44787a.delete();
+                        this.f41803a.delete();
                     }
                     Closeables.closeSafely(inputStream);
                     Closeables.closeSafely(fileOutputStream);
                 } catch (Exception e4) {
                     e = e4;
                     fileOutputStream2 = fileOutputStream;
-                    this.f44787a.delete();
+                    this.f41803a.delete();
                     e.printStackTrace();
                     Closeables.closeSafely(inputStream);
                     Closeables.closeSafely(fileOutputStream2);
@@ -250,8 +250,8 @@ public class i {
                 return;
             }
         }
-        f44782a = d.a.c.j.a.f44765a;
-        f44783b = false;
+        f41798a = d.a.c.j.a.f41781a;
+        f41799b = false;
     }
 
     public i() {
@@ -292,15 +292,15 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65543, null, context, str, fVar) == null) {
             synchronized (i.class) {
-                if (f44783b) {
-                    if (f44782a) {
+                if (f41799b) {
+                    if (f41798a) {
                         Log.d(TitanDownloadService.TAG, "doInstall is installing");
                     }
                     return;
                 }
-                f44783b = true;
+                f41799b = true;
                 String z = e.p().z(i());
-                if (f44782a) {
+                if (f41798a) {
                     Log.d(TitanDownloadService.TAG, "url = " + z);
                 }
                 Log.d(TitanDownloadService.TAG, "start require patch data");
@@ -357,7 +357,7 @@ public class i {
             }
             try {
                 String jSONObject6 = jSONObject.toString();
-                if (d.a.c.j.a.f44765a) {
+                if (d.a.c.j.a.f41781a) {
                     Log.d(TitanDownloadService.TAG, "getCcsContent = " + jSONObject6);
                 }
                 return jSONObject6.getBytes("UTF-8");
@@ -397,7 +397,7 @@ public class i {
             int optInt = jSONObject.optInt("errno", -1);
             packageInfo.errNo = optInt;
             if (optInt != 0) {
-                if (f44782a) {
+                if (f41798a) {
                     Log.d(TitanDownloadService.TAG, "response errno = " + optInt);
                 }
                 return packageInfo;

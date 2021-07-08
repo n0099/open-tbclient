@@ -1,6 +1,7 @@
 package com.baidu.ar.libloader;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.ARType;
 import com.baidu.ar.libloader.ILibLoader;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -72,7 +73,7 @@ public final class a {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (sLock) {
                 z = sK;
             }

@@ -20,20 +20,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.router.RouterCallback;
 import com.facebook.common.util.UriUtil;
 import d.a.c.e.n.a;
-import d.a.r0.m0.j;
-import d.a.r0.m0.k;
-import d.a.s0.q0.a.g.e;
+import d.a.o0.m0.j;
+import d.a.o0.m0.k;
+import d.a.p0.q0.a.g.e;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonitorAuto.HostPerformanceMonitor {
     public static /* synthetic */ Interceptable $ic;
     public static HashMap<String, String> flutterEngineStartInfo;
     public transient /* synthetic */ FieldHolder $fh;
     public final CustomMessageListener mFlutterEngineInitListener;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class PerfCPULogAsync extends BdAsyncTask<String, Integer, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

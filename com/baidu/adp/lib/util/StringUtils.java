@@ -1,6 +1,7 @@
 package com.baidu.adp.lib.util;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -67,7 +68,7 @@ public class StringUtils {
 
     public static final void clearStringBuilder(StringBuilder sb) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, null, sb) == null) || sb == null || sb.length() <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, sb) == null) || sb == null || sb.length() <= 0) {
             return;
         }
         sb.delete(0, sb.length());

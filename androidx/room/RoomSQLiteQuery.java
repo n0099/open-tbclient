@@ -198,7 +198,7 @@ public class RoomSQLiteQuery implements SupportSQLiteQuery, SupportSQLiteProgram
 
     public static void prunePoolLocked() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65540, null) == null) || sQueryPool.size() <= 15) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || sQueryPool.size() <= 15) {
             return;
         }
         int size = sQueryPool.size() - 10;

@@ -11,7 +11,7 @@ import com.baidu.wallet.router.RouterCallback;
 import com.baidu.wallet.router.RouterRequest;
 import com.baidu.wallet.statistics.api.StatisticManager;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class j {
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ ISmsController[] f26212a;
+                                    public final /* synthetic */ ISmsController[] f26322a;
 
                                     {
                                         Interceptable interceptable2 = $ic;
@@ -50,7 +50,7 @@ public class j {
                                                 return;
                                             }
                                         }
-                                        this.f26212a = iSmsControllerArr;
+                                        this.f26322a = iSmsControllerArr;
                                     }
 
                                     @Override // com.baidu.wallet.router.RouterCallback
@@ -62,7 +62,7 @@ public class j {
                                                 if (obj == null || !(obj instanceof ISmsController)) {
                                                     return;
                                                 }
-                                                this.f26212a[0] = (ISmsController) obj;
+                                                this.f26322a[0] = (ISmsController) obj;
                                             } else if (i3 == 5) {
                                                 HashMap hashMap2 = new HashMap();
                                                 hashMap2.put("provider", "hce");

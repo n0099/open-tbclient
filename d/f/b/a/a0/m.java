@@ -9,25 +9,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public interface m {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f72126a;
+        public final int f69229a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final byte[] f72127b;
+        public final byte[] f69230b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f72128c;
+        public final int f69231c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f72129d;
+        public final int f69232d;
 
         public a(int i2, byte[] bArr, int i3, int i4) {
             Interceptable interceptable = $ic;
@@ -44,10 +44,10 @@ public interface m {
                     return;
                 }
             }
-            this.f72126a = i2;
-            this.f72127b = bArr;
-            this.f72128c = i3;
-            this.f72129d = i4;
+            this.f69229a = i2;
+            this.f69230b = bArr;
+            this.f69231c = i3;
+            this.f69232d = i4;
         }
 
         public boolean equals(Object obj) {
@@ -61,7 +61,7 @@ public interface m {
                     return false;
                 }
                 a aVar = (a) obj;
-                return this.f72126a == aVar.f72126a && this.f72128c == aVar.f72128c && this.f72129d == aVar.f72129d && Arrays.equals(this.f72127b, aVar.f72127b);
+                return this.f69229a == aVar.f69229a && this.f69231c == aVar.f69231c && this.f69232d == aVar.f69232d && Arrays.equals(this.f69230b, aVar.f69230b);
             }
             return invokeL.booleanValue;
         }
@@ -69,7 +69,7 @@ public interface m {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (((((this.f72126a * 31) + Arrays.hashCode(this.f72127b)) * 31) + this.f72128c) * 31) + this.f72129d : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (((((this.f69229a * 31) + Arrays.hashCode(this.f69230b)) * 31) + this.f69231c) * 31) + this.f69232d : invokeV.intValue;
         }
     }
 

@@ -16,13 +16,13 @@ import d.a.c.e.l.b;
 import d.a.c.e.l.e;
 import d.a.c.k.d.a;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class EmotionShareLoaderProc implements e<EmotionShare> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MemeLoaderProc2 impl;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class EmotionShare {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class ForceDeleteFileOperate extends DiskFileOperate implements d.a.c.e.a.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

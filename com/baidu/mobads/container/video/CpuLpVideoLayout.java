@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CpuLpVideoLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SOURCE_CHANGE = 1;
@@ -46,7 +46,7 @@ public class CpuLpVideoLayout extends RelativeLayout {
     public final AdVideoViewListener mVideoListener;
     public final Runnable updateTimeRunnable;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface OnVideoStatusListener {
         void chooseNextVideo(JsWithPlayerData jsWithPlayerData);
 

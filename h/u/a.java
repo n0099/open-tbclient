@@ -1,5 +1,6 @@
 package h.u;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,24 +11,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.k;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class a implements k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final h.n.a f75709f;
+    public static final h.n.a f72743f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicReference<h.n.a> f75710e;
+    public final AtomicReference<h.n.a> f72744e;
 
     /* renamed from: h.u.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C2113a implements h.n.a {
+    /* loaded from: classes8.dex */
+    public static class C2081a implements h.n.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C2113a() {
+        public C2081a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,7 +63,7 @@ public final class a implements k {
                 return;
             }
         }
-        f75709f = new C2113a();
+        f72743f = new C2081a();
     }
 
     public a() {
@@ -78,7 +79,7 @@ public final class a implements k {
                 return;
             }
         }
-        this.f75710e = new AtomicReference<>();
+        this.f72744e = new AtomicReference<>();
     }
 
     public static a a() {
@@ -90,14 +91,14 @@ public final class a implements k {
     public static a b(h.n.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, aVar)) == null) ? new a(aVar) : (a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar)) == null) ? new a(aVar) : (a) invokeL.objValue;
     }
 
     @Override // h.k
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75710e.get() == f75709f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72744e.get() == f72743f : invokeV.booleanValue;
     }
 
     @Override // h.k
@@ -105,9 +106,9 @@ public final class a implements k {
         h.n.a andSet;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            h.n.a aVar = this.f75710e.get();
-            h.n.a aVar2 = f75709f;
-            if (aVar == aVar2 || (andSet = this.f75710e.getAndSet(aVar2)) == null || andSet == f75709f) {
+            h.n.a aVar = this.f72744e.get();
+            h.n.a aVar2 = f72743f;
+            if (aVar == aVar2 || (andSet = this.f72744e.getAndSet(aVar2)) == null || andSet == f72743f) {
                 return;
             }
             andSet.call();
@@ -129,6 +130,6 @@ public final class a implements k {
                 return;
             }
         }
-        this.f75710e = new AtomicReference<>(aVar);
+        this.f72744e = new AtomicReference<>(aVar);
     }
 }

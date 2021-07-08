@@ -2,6 +2,7 @@ package androidx.core.animation;
 
 import android.animation.Animator;
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -76,7 +77,7 @@ public final class AnimatorKt {
     public static final Animator.AnimatorListener doOnCancel(Animator animator, final Function1<? super Animator, Unit> function1) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, animator, function1)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, animator, function1)) == null) {
             Animator.AnimatorListener animatorListener = new Animator.AnimatorListener(function1) { // from class: androidx.core.animation.AnimatorKt$doOnCancel$$inlined$addListener$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

@@ -34,7 +34,7 @@ import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.animation.AnimatorSetCompat;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class IndicatorViewController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CAPTION_OPACITY_FADE_ANIMATION_DURATION = 167;
@@ -101,7 +101,7 @@ public final class IndicatorViewController {
     private boolean canAdjustIndicatorPadding() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) ? (this.indicatorArea == null || this.textInputView.getEditText() == null) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? (this.indicatorArea == null || this.textInputView.getEditText() == null) ? false : true : invokeV.booleanValue;
     }
 
     private void createCaptionAnimators(@NonNull List<Animator> list, boolean z, @Nullable TextView textView, int i2, int i3, int i4) {

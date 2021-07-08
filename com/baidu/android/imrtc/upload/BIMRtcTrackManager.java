@@ -1,6 +1,7 @@
 package com.baidu.android.imrtc.upload;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imrtc.utils.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMPushUploadManager;
@@ -42,7 +43,7 @@ public class BIMRtcTrackManager {
         BIMRtcPbGenerator bIMRtcPbGenerator;
         byte[] generateRtcClient;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, null, context) == null) || (generateRtcClient = (bIMRtcPbGenerator = new BIMRtcPbGenerator()).generateRtcClient(context)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) || (generateRtcClient = (bIMRtcPbGenerator = new BIMRtcPbGenerator()).generateRtcClient(context)) == null) {
             return;
         }
         IMPushUploadManager.getInstance(context).requestUpload(null, generateRtcClient, "", new IMPushUploadResponseListener(context, bIMRtcPbGenerator) { // from class: com.baidu.android.imrtc.upload.BIMRtcTrackManager.2

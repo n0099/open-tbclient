@@ -1,5 +1,6 @@
 package com.baidu.pass.ecommerce.request;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.ecommerce.common.MapObject;
 import com.baidu.pass.ecommerce.common.request.BaseMapObjectRequest;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AddressRequestFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ADDRESS_GET_REGION = "/address/get/region";
@@ -62,7 +63,7 @@ public class AddressRequestFactory {
     public static BaseRequest newGetAddressListRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? new BaseMapObjectRequest(GET_ADDRESS_LIST_URL, null) : (BaseRequest) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new BaseMapObjectRequest(GET_ADDRESS_LIST_URL, null) : (BaseRequest) invokeV.objValue;
     }
 
     public static BaseRequest newIgnoreNuoMiAddress() {

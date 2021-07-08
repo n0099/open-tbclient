@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.remotepay.IRemoteServiceCallback;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface IBDWalletAppPay extends IInterface {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static abstract class Stub extends Binder implements IBDWalletAppPay {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.wallet.remotepay.IBDWalletAppPay";
@@ -26,7 +26,7 @@ public interface IBDWalletAppPay extends IInterface {
         public static final int TRANSACTION_unregisterCallback = 4;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public static class Proxy implements IBDWalletAppPay {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

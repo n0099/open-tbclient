@@ -16,19 +16,19 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.MaskTextView;
 import com.baidu.wallet.home.ui.widget.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CHNoticeItem extends BaseItemView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MaskTextView f25035a;
+    public MaskTextView f25145a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f25036b;
+    public MaskTextView f25146b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f25037c;
+    public NetImageView f25147c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHNoticeItem(Context context, AttributeSet attributeSet) {
@@ -55,9 +55,9 @@ public class CHNoticeItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_credit_card_notice_item"), this);
-            this.f25035a = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_notice_content"));
-            this.f25036b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_notice_class"));
-            this.f25037c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_credit_card_notice_img"));
+            this.f25145a = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_notice_content"));
+            this.f25146b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_notice_class"));
+            this.f25147c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_credit_card_notice_img"));
         }
     }
 
@@ -65,15 +65,15 @@ public class CHNoticeItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             if (!TextUtils.isEmpty(getData().label)) {
-                this.f25036b.setMaskText(getData().label);
+                this.f25146b.setMaskText(getData().label);
             } else {
-                this.f25036b.setVisibility(8);
+                this.f25146b.setVisibility(8);
             }
-            this.f25035a.setMaskText(getData().name);
+            this.f25145a.setMaskText(getData().name);
             if (!TextUtils.isEmpty(getData().type) && !TextUtils.isEmpty(getData().link_addr)) {
-                this.f25037c.setVisibility(0);
+                this.f25147c.setVisibility(0);
             } else {
-                this.f25037c.setVisibility(8);
+                this.f25147c.setVisibility(8);
             }
         }
     }

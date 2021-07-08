@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.ClipboardManager;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class EditTextPasteFilterUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EDITTEXT_PASTE_INTERCEPTOR_KEY = "textPasteInteceptor";
@@ -74,7 +75,7 @@ public class EditTextPasteFilterUtils {
     public static List<String> regxParse(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             ArrayList arrayList = new ArrayList();
             Matcher matcher = Pattern.compile(str2).matcher(str);
             while (matcher.find()) {

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.embedapplog.AppLog;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class v extends p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class v extends p {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cursor)) == null) {
-            this.f71720e = cursor.getLong(0);
+            this.f68823e = cursor.getLong(0);
             this.m = cursor.getBlob(1);
             this.n = cursor.getInt(2);
             this.u = null;
@@ -106,7 +106,7 @@ public class v extends p {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("magic_tag", "ss_app_log");
             jSONObject.put("header", this.u);
-            jSONObject.put("time_sync", n.f71704b);
+            jSONObject.put("time_sync", n.f68807b);
             if (this.r != null) {
                 JSONArray jSONArray = new JSONArray();
                 jSONArray.put(this.r.m());
@@ -195,7 +195,7 @@ public class v extends p {
     public void p(long j, JSONObject jSONObject, u uVar, y yVar, JSONArray jSONArray, JSONArray jSONArray2, JSONArray jSONArray3, JSONArray jSONArray4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), jSONObject, uVar, yVar, jSONArray, jSONArray2, jSONArray3, jSONArray4}) == null) {
-            this.f71720e = j;
+            this.f68823e = j;
             this.u = jSONObject;
             this.r = uVar;
             this.t = yVar;

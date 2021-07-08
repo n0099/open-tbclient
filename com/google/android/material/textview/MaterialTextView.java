@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleableRes;
 import androidx.appcompat.widget.AppCompatTextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +19,7 @@ import com.google.android.material.R;
 import com.google.android.material.resources.MaterialAttributes;
 import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MaterialTextView extends AppCompatTextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +47,7 @@ public class MaterialTextView extends AppCompatTextView {
 
     private void applyLineHeightFromViewAppearance(@NonNull Resources.Theme theme, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65540, this, theme, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, theme, i2) == null) {
             TypedArray obtainStyledAttributes = theme.obtainStyledAttributes(i2, R.styleable.MaterialTextAppearance);
             int readFirstAvailableDimension = readFirstAvailableDimension(getContext(), obtainStyledAttributes, R.styleable.MaterialTextAppearance_android_lineHeight, R.styleable.MaterialTextAppearance_lineHeight);
             obtainStyledAttributes.recycle();

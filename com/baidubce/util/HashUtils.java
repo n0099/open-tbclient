@@ -1,5 +1,6 @@
 package com.baidubce.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,7 +17,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class HashUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final Charset UTF8;
@@ -94,7 +95,7 @@ public class HashUtils {
     public static byte[] computeSha256Hash(InputStream inputStream) throws NoSuchAlgorithmException, IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, inputStream)) == null) ? computeHash(inputStream, MessageDigest.getInstance("SHA-256")) : (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream)) == null) ? computeHash(inputStream, MessageDigest.getInstance("SHA-256")) : (byte[]) invokeL.objValue;
     }
 
     public static String sha256Hex(String str, String str2) {

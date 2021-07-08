@@ -10,7 +10,7 @@ import com.baidu.wallet.lightapp.multipage.h;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LangbridgeOpenPollAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c extends ContentObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27543a;
+    public String f27653a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27544b;
+    public int f27654b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f27545c;
+    public b f27655c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, int i2, String str) {
@@ -38,18 +38,18 @@ public class c extends ContentObserver {
                 return;
             }
         }
-        this.f27545c = bVar;
-        this.f27544b = i2;
-        this.f27543a = str;
+        this.f27655c = bVar;
+        this.f27654b = i2;
+        this.f27653a = str;
     }
 
     @Override // android.database.ContentObserver
     public void onChange(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            b bVar = this.f27545c;
+            b bVar = this.f27655c;
             if (bVar != null) {
-                bVar.a(this.f27544b, this.f27543a);
+                bVar.a(this.f27654b, this.f27653a);
             } else {
                 com.bun.miitmdid.utils.a.b("VMS_IDLG_SDK_Observer", "mIdentifierIdClient is null");
             }

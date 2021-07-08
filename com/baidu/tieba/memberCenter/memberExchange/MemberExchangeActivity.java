@@ -20,25 +20,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String descStr;
     public String dueDate;
     public HttpMessageListener getTCodeInfoListener;
-    public d.a.s0.v1.d.a mView;
+    public d.a.p0.v1.d.a mView;
     public String memberImage;
     public String memberLevelIcon;
     public String memberName;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MemberExchangeActivity f18546a;
+        public final /* synthetic */ MemberExchangeActivity f18586a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(MemberExchangeActivity memberExchangeActivity, int i2) {
@@ -58,7 +58,7 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
                     return;
                 }
             }
-            this.f18546a = memberExchangeActivity;
+            this.f18586a = memberExchangeActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,22 +69,22 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
                 GetTCodeResMessage getTCodeResMessage = (GetTCodeResMessage) httpResponsedMessage;
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                     if (getTCodeResMessage.getTCodeInfo() != null) {
-                        if (getTCodeResMessage.getTCodeInfo().f68296a.equals("0")) {
-                            this.f18546a.showToast(R.string.exchange_success);
+                        if (getTCodeResMessage.getTCodeInfo().f65078a.equals("0")) {
+                            this.f18586a.showToast(R.string.exchange_success);
                             return;
                         } else {
-                            this.f18546a.showToast(R.string.exchange_error);
+                            this.f18586a.showToast(R.string.exchange_error);
                             return;
                         }
                     }
-                    this.f18546a.showToast(R.string.neterror);
+                    this.f18586a.showToast(R.string.neterror);
                     return;
                 }
                 String errorString = httpResponsedMessage.getErrorString();
                 if (StringUtils.isNull(errorString) || StringUtil.NULL_STRING.equals(errorString)) {
-                    errorString = this.f18546a.getResources().getString(R.string.neterror);
+                    errorString = this.f18586a.getResources().getString(R.string.neterror);
                 }
-                this.f18546a.showToast(errorString);
+                this.f18586a.showToast(errorString);
             }
         }
     }
@@ -163,7 +163,7 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
             }
             initTask();
             initListener();
-            d.a.s0.v1.d.a aVar = new d.a.s0.v1.d.a(this);
+            d.a.p0.v1.d.a aVar = new d.a.p0.v1.d.a(this);
             this.mView = aVar;
             aVar.a(this.memberImage, this.memberName, this.memberLevelIcon, this.dueDate, this.descStr);
         }

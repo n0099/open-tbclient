@@ -101,7 +101,7 @@ public class ContentGroup implements DrawingContent, PathContent, BaseKeyframeAn
     private boolean hasTwoOrMoreDrawableContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             int i2 = 0;
             for (int i3 = 0; i3 < this.contents.size(); i3++) {
                 if ((this.contents.get(i3) instanceof DrawingContent) && (i2 = i2 + 1) >= 2) {

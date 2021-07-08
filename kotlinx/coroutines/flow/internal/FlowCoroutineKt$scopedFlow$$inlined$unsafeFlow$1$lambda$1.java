@@ -11,7 +11,7 @@ import kotlin.jvm.functions.Function3;
 import kotlinx.coroutines.CoroutineScope;
 import kotlinx.coroutines.flow.FlowCollector;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0014\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0003\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u0003H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005¨\u0006\u0006"}, d2 = {"<anonymous>", "", "R", "Lkotlinx/coroutines/CoroutineScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "kotlinx/coroutines/flow/internal/FlowCoroutineKt$scopedFlow$1$1"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class FlowCoroutineKt$scopedFlow$$inlined$unsafeFlow$1$lambda$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     public final /* synthetic */ FlowCollector $this_unsafeFlow;
     public Object L$0;

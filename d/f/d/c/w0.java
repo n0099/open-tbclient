@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class w0<K> extends v0<K> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public transient long[] f73816i;
+    public transient long[] f70919i;
     public transient int j;
     public transient int k;
 
@@ -42,19 +42,19 @@ public class w0<K> extends v0<K> {
     public final int E(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (int) (this.f73816i[i2] >>> 32) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (int) (this.f70919i[i2] >>> 32) : invokeI.intValue;
     }
 
     public final int F(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (int) this.f73816i[i2] : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (int) this.f70919i[i2] : invokeI.intValue;
     }
 
     public final void G(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            long[] jArr = this.f73816i;
+            long[] jArr = this.f70919i;
             jArr[i2] = (jArr[i2] & 4294967295L) | (i3 << 32);
         }
     }
@@ -78,7 +78,7 @@ public class w0<K> extends v0<K> {
     public final void I(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-            long[] jArr = this.f73816i;
+            long[] jArr = this.f70919i;
             jArr[i2] = (jArr[i2] & (-4294967296L)) | (i3 & 4294967295L);
         }
     }
@@ -115,7 +115,7 @@ public class w0<K> extends v0<K> {
             this.j = -2;
             this.k = -2;
             long[] jArr = new long[i2];
-            this.f73816i = jArr;
+            this.f70919i = jArr;
             Arrays.fill(jArr, -1L);
         }
     }
@@ -170,10 +170,10 @@ public class w0<K> extends v0<K> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
             super.y(i2);
-            long[] jArr = this.f73816i;
+            long[] jArr = this.f70919i;
             int length = jArr.length;
             long[] copyOf = Arrays.copyOf(jArr, i2);
-            this.f73816i = copyOf;
+            this.f70919i = copyOf;
             Arrays.fill(copyOf, length, i2, -1L);
         }
     }

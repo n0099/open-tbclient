@@ -6,9 +6,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.o0.c.b;
+import d.a.p0.o0.c.b;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class EmotionData implements Serializable, b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
@@ -31,7 +31,7 @@ public class EmotionData implements Serializable, b {
         }
     }
 
-    @Override // d.a.s0.o0.c.b
+    @Override // d.a.p0.o0.c.b
     public boolean IsValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class EmotionData implements Serializable, b {
         return invokeV.booleanValue;
     }
 
-    @Override // d.a.s0.o0.c.b
+    @Override // d.a.p0.o0.c.b
     public String getGroupId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

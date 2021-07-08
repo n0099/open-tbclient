@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.c.e.c.a;
 import protobuf.CommitReceivedPmsg.CommitReceivedPmsgReqIdl;
 import protobuf.CommitReceivedPmsg.DataReq;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RequestPersonalMsgReadMessage extends TbSocketMessage implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class RequestPersonalMsgReadMessage extends TbSocketMessage implements a 
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.groupId = d.a.s0.i1.s.a.f61853i;
+                builder.groupId = d.a.p0.i1.s.a.f58618i;
                 builder.msgType = 22;
                 builder.msgId = Long.valueOf(this.hasSentMsgId);
                 builder.toUid = Long.valueOf(this.toUid);

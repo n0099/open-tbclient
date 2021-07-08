@@ -2,6 +2,7 @@ package com.baidu.location.a;
 
 import android.content.Context;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.baidu.lbsapi.auth.LBSAuthManagerListener;
@@ -13,28 +14,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a implements LBSAuthManagerListener {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f6498a;
+    public static Object f6515a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f6499b;
+    public static a f6516b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f6500c;
+    public int f6517c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f6501d;
+    public Context f6518d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f6502e;
+    public long f6519e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f6503f;
+    public String f6520f;
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +50,7 @@ public class a implements LBSAuthManagerListener {
                 return;
             }
         }
-        f6498a = new Object();
+        f6515a = new Object();
     }
 
     public a() {
@@ -65,10 +66,10 @@ public class a implements LBSAuthManagerListener {
                 return;
             }
         }
-        this.f6500c = 0;
-        this.f6501d = null;
-        this.f6502e = 0L;
-        this.f6503f = null;
+        this.f6517c = 0;
+        this.f6518d = null;
+        this.f6519e = 0L;
+        this.f6520f = null;
     }
 
     public static a a() {
@@ -76,11 +77,11 @@ public class a implements LBSAuthManagerListener {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (f6498a) {
-                if (f6499b == null) {
-                    f6499b = new a();
+            synchronized (f6515a) {
+                if (f6516b == null) {
+                    f6516b = new a();
                 }
-                aVar = f6499b;
+                aVar = f6516b;
             }
             return aVar;
         }
@@ -104,7 +105,7 @@ public class a implements LBSAuthManagerListener {
     public static String c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             try {
                 return LBSAuthManager.getInstance(context).getMCode();
             } catch (Exception e2) {
@@ -118,9 +119,9 @@ public class a implements LBSAuthManagerListener {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f6501d = context;
+            this.f6518d = context;
             LBSAuthManager.getInstance(context).authenticate(false, "lbs_locsdk", null, this);
-            this.f6502e = System.currentTimeMillis();
+            this.f6519e = System.currentTimeMillis();
         }
     }
 
@@ -128,13 +129,13 @@ public class a implements LBSAuthManagerListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i2 = this.f6500c;
+            int i2 = this.f6517c;
             boolean z = i2 == 0 || i2 == 602 || i2 == 601 || i2 == -10 || i2 == -11;
-            if (this.f6501d != null) {
-                long currentTimeMillis = System.currentTimeMillis() - this.f6502e;
+            if (this.f6518d != null) {
+                long currentTimeMillis = System.currentTimeMillis() - this.f6519e;
                 if (!z ? currentTimeMillis < 0 || currentTimeMillis > 10000 : currentTimeMillis > 86400000) {
-                    LBSAuthManager.getInstance(this.f6501d).authenticate(false, "lbs_locsdk", null, this);
-                    this.f6502e = System.currentTimeMillis();
+                    LBSAuthManager.getInstance(this.f6518d).authenticate(false, "lbs_locsdk", null, this);
+                    this.f6519e = System.currentTimeMillis();
                 }
             }
             return z;
@@ -146,18 +147,18 @@ public class a implements LBSAuthManagerListener {
     public void onAuthResult(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) == null) {
-            this.f6500c = i2;
+            this.f6517c = i2;
             if (i2 == 0) {
-                Log.i(com.baidu.location.e.a.f6740a, "LocationAuthManager Authentication AUTHENTICATE_SUCC");
+                Log.i(com.baidu.location.e.a.f6757a, "LocationAuthManager Authentication AUTHENTICATE_SUCC");
             } else {
-                String str2 = com.baidu.location.e.a.f6740a;
+                String str2 = com.baidu.location.e.a.f6757a;
                 Log.i(str2, "LocationAuthManager Authentication Error errorcode = " + i2 + " , msg = " + str);
             }
             if (str != null) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     if (jSONObject.getString("token") != null) {
-                        this.f6503f = jSONObject.getString("token");
+                        this.f6520f = jSONObject.getString("token");
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();

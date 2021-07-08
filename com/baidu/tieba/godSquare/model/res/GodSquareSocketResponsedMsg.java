@@ -9,11 +9,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.s0.z0.c.a;
+import d.a.p0.z0.c.a;
 import tbclient.Error;
 import tbclient.GetHotGod.DataRes;
 import tbclient.GetHotGod.GetHotGodResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GodSquareSocketResponsedMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

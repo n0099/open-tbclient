@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class TextureVideoKernel extends AbsVideoCyber {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "TextureVideoKernel";
@@ -124,7 +124,7 @@ public class TextureVideoKernel extends AbsVideoCyber {
 
     private void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             BdVideoLog.d("TextureVideoKernel", "reset");
             this.mPlayer.reset();
         }

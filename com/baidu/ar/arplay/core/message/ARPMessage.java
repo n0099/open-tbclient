@@ -174,7 +174,7 @@ public class ARPMessage {
         InterceptResult invokeV;
         ARPMessage aRPMessage;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             ARPMessage aRPMessage2 = mARPMessage;
             if (aRPMessage2 == null) {
                 synchronized (ARPMessage.class) {

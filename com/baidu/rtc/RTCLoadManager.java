@@ -3,6 +3,7 @@ package com.baidu.rtc;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cloudbase.plugin.DownSoHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +16,7 @@ import d.a.l.d.b;
 import java.io.File;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class RTCLoadManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JINGLE_LIB_NAME = "jingle_peerconnection_so";
@@ -28,7 +29,7 @@ public class RTCLoadManager {
     public ExecutorService mLoadServer;
     public b mSoCallback;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface LoadListener {
         void onLoadError(int i2, String str);
 
@@ -106,9 +107,9 @@ public class RTCLoadManager {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
                     Log.d(RTCLoadManager.TAG, "Be successful to download so!");
-                    String str4 = a.g(this.this$0.mContext) + File.separator + "libjingle_peerconnection_so.so";
+                    String str4 = a.k(this.this$0.mContext) + File.separator + "libjingle_peerconnection_so.so";
                     Log.d(RTCLoadManager.TAG, "RTC so path is: " + str4);
-                    if (DownSoHelper.k(this.this$0.mContext).n(a.g(this.this$0.mContext))) {
+                    if (DownSoHelper.k(this.this$0.mContext).n(a.k(this.this$0.mContext))) {
                         try {
                             System.load(str4);
                             this.this$0.mIsLoadCompleted = true;
@@ -161,7 +162,7 @@ public class RTCLoadManager {
         InterceptResult invokeL;
         RTCLoadManager rTCLoadManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             synchronized (RTCLoadManager.class) {
                 if (sInstance == null) {
                     sInstance = new RTCLoadManager(context);
@@ -259,7 +260,7 @@ public class RTCLoadManager {
             Log.d(TAG, "setup so later loading feature, and cpu type: " + str2);
             DownSoHelper.k(this.mContext).o(str2);
             if (TextUtils.isEmpty(str)) {
-                DownSoHelper.k(this.mContext).j(a.f(), true, this.mSoCallback);
+                DownSoHelper.k(this.mContext).j(a.j(), true, this.mSoCallback);
                 return;
             }
             Log.d(TAG, "setup so later load url: " + str);

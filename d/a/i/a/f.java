@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.browser.core.util.BdLog;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,27 +18,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ConcurrentHashMap<String, ConcurrentHashMap<String, Object>> f45687a;
+    public static ConcurrentHashMap<String, ConcurrentHashMap<String, Object>> f42534a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f45688b;
+    public static b f42535b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f45689c;
+    public static volatile boolean f42536c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +52,7 @@ public final class f {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 0) {
                 f.d();
-                f.f45688b.sendEmptyMessageDelayed(0, 15000L);
+                f.f42535b.sendEmptyMessageDelayed(0, 15000L);
             }
         }
 
@@ -89,10 +90,10 @@ public final class f {
                 return;
             }
         }
-        f45687a = new ConcurrentHashMap<>();
-        f45689c = false;
+        f42534a = new ConcurrentHashMap<>();
+        f42536c = false;
         b bVar = new b(d.a.i.a.i.b.a("PreferenceQueue").getLooper(), null);
-        f45688b = bVar;
+        f42535b = bVar;
         bVar.sendEmptyMessageDelayed(0, 15000L);
     }
 
@@ -101,16 +102,16 @@ public final class f {
         if (!(interceptable == null || interceptable.invokeLLL(65539, null, str, str2, obj) == null) || str == null) {
             return;
         }
-        if (!f45687a.containsKey(str)) {
+        if (!f42534a.containsKey(str)) {
             if (obj == null || str2 == null) {
                 return;
             }
             ConcurrentHashMap<String, Object> concurrentHashMap = new ConcurrentHashMap<>();
             concurrentHashMap.put(str2, obj);
-            f45687a.put(str, concurrentHashMap);
+            f42534a.put(str, concurrentHashMap);
             return;
         }
-        ConcurrentHashMap<String, Object> concurrentHashMap2 = f45687a.get(str);
+        ConcurrentHashMap<String, Object> concurrentHashMap2 = f42534a.get(str);
         if (concurrentHashMap2 != null) {
             if (obj != null) {
                 concurrentHashMap2.put(str2, obj);
@@ -121,23 +122,23 @@ public final class f {
         } else {
             ConcurrentHashMap<String, Object> concurrentHashMap3 = new ConcurrentHashMap<>();
             concurrentHashMap3.put(str2, obj);
-            f45687a.put(str, concurrentHashMap3);
+            f42534a.put(str, concurrentHashMap3);
         }
     }
 
     public static void d() {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65540, null) == null) || f45689c) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || f42536c) {
             return;
         }
-        f45689c = true;
+        f42536c = true;
         try {
             try {
                 Context baseContext = d.a.i.a.b.a().getBaseContext();
-                BdLog.a("BdPreferenceQueueWorker", "pending work category: " + f45687a.size());
-                for (String str : f45687a.keySet()) {
-                    ConcurrentHashMap<String, Object> concurrentHashMap = f45687a.get(str);
+                BdLog.a("BdPreferenceQueueWorker", "pending work category: " + f42534a.size());
+                for (String str : f42534a.keySet()) {
+                    ConcurrentHashMap<String, Object> concurrentHashMap = f42534a.get(str);
                     if (concurrentHashMap == null || concurrentHashMap.size() <= 0) {
                         i2 = 0;
                     } else {
@@ -173,14 +174,14 @@ public final class f {
                 e2.printStackTrace();
             }
         } finally {
-            f45689c = false;
+            f42536c = false;
         }
     }
 
     public static void e(String str) {
         ConcurrentHashMap<String, Object> concurrentHashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) || str == null || (concurrentHashMap = f45687a.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) || str == null || (concurrentHashMap = f42534a.get(str)) == null) {
             return;
         }
         concurrentHashMap.clear();
@@ -188,17 +189,17 @@ public final class f {
 
     public static void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) || f45688b.hasMessages(0)) {
+        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) || f42535b.hasMessages(0)) {
             return;
         }
-        f45688b.sendEmptyMessageDelayed(0, 15000L);
+        f42535b.sendEmptyMessageDelayed(0, 15000L);
     }
 
     public static void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
             Log.d("BdPreferenceQueueWorker", "wait to finish");
-            f45688b.removeMessages(0);
+            f42535b.removeMessages(0);
             d();
             f();
         }

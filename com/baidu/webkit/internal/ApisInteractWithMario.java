@@ -1,6 +1,7 @@
 package com.baidu.webkit.internal;
 
 import android.webkit.ValueCallback;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +15,7 @@ import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class ApisInteractWithMario implements INoProGuard {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -63,7 +64,7 @@ public abstract class ApisInteractWithMario implements INoProGuard {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ ValueCallback f27274a;
+                        public final /* synthetic */ ValueCallback f27384a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -80,14 +81,14 @@ public abstract class ApisInteractWithMario implements INoProGuard {
                                     return;
                                 }
                             }
-                            this.f27274a = valueCallback;
+                            this.f27384a = valueCallback;
                         }
 
                         @Override // java.lang.Runnable
                         public final void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                ApisInteractWithMario.addOnCronetThreadInitializedListener(this.f27274a);
+                                ApisInteractWithMario.addOnCronetThreadInitializedListener(this.f27384a);
                             }
                         }
                     });
@@ -113,7 +114,7 @@ public abstract class ApisInteractWithMario implements INoProGuard {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ String f27273a;
+                        public final /* synthetic */ String f27383a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -130,14 +131,14 @@ public abstract class ApisInteractWithMario implements INoProGuard {
                                     return;
                                 }
                             }
-                            this.f27273a = str;
+                            this.f27383a = str;
                         }
 
                         @Override // java.lang.Runnable
                         public final void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                ApisInteractWithMario.clearCrashKey(this.f27273a);
+                                ApisInteractWithMario.clearCrashKey(this.f27383a);
                             }
                         }
                     });
@@ -157,7 +158,7 @@ public abstract class ApisInteractWithMario implements INoProGuard {
         InterceptResult invokeV;
         WebViewFactoryProvider provider;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (sInstance == null && (provider = WebViewFactory.getProvider()) != null) {
                 Object apisInteractWithMario = provider.getApisInteractWithMario();
                 if (apisInteractWithMario instanceof ApisInteractWithMario) {
@@ -192,10 +193,10 @@ public abstract class ApisInteractWithMario implements INoProGuard {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ String f27271a;
+                        public final /* synthetic */ String f27381a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ String f27272b;
+                        public final /* synthetic */ String f27382b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -212,15 +213,15 @@ public abstract class ApisInteractWithMario implements INoProGuard {
                                     return;
                                 }
                             }
-                            this.f27271a = str;
-                            this.f27272b = str2;
+                            this.f27381a = str;
+                            this.f27382b = str2;
                         }
 
                         @Override // java.lang.Runnable
                         public final void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                ApisInteractWithMario.setCrashKeyValue(this.f27271a, this.f27272b);
+                                ApisInteractWithMario.setCrashKeyValue(this.f27381a, this.f27382b);
                             }
                         }
                     });
@@ -246,7 +247,7 @@ public abstract class ApisInteractWithMario implements INoProGuard {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ long f27270a;
+                        public final /* synthetic */ long f27380a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -263,14 +264,14 @@ public abstract class ApisInteractWithMario implements INoProGuard {
                                     return;
                                 }
                             }
-                            this.f27270a = j;
+                            this.f27380a = j;
                         }
 
                         @Override // java.lang.Runnable
                         public final void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                ApisInteractWithMario.setMessageChannalFunctoinTable(this.f27270a);
+                                ApisInteractWithMario.setMessageChannalFunctoinTable(this.f27380a);
                             }
                         }
                     });

@@ -1,5 +1,6 @@
 package com.baidu.ar.vo;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.engine.ARPDataInteraction;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
@@ -67,7 +68,7 @@ public class VOAR extends c {
     private com.baidu.ar.vo.c.g a(d dVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, dVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, dVar)) == null) {
             com.baidu.ar.vo.c.g gVar = new com.baidu.ar.vo.c.g(r(), this.yk, this.yn, new a(this) { // from class: com.baidu.ar.vo.VOAR.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

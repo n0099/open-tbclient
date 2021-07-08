@@ -20,13 +20,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
 import com.heytap.mcssdk.mode.CommandMessage;
-import d.a.g0.a;
-import d.a.g0.k.h.d;
-import d.a.g0.n.b;
-import d.a.g0.o.a.c;
+import d.a.d0.a;
+import d.a.d0.k.h.d;
+import d.a.d0.n.b;
+import d.a.d0.o.a.c;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PolyActivity extends Activity implements m.l {
     public static /* synthetic */ Interceptable $ic;
     public static c m;
@@ -87,7 +87,7 @@ public class PolyActivity extends Activity implements m.l {
 
     public static void a(Context context, c cVar, a.b bVar, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65540, null, context, cVar, bVar, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, cVar, bVar, bundle) == null) {
             if (o) {
                 Y();
             }
@@ -96,7 +96,7 @@ public class PolyActivity extends Activity implements m.l {
             Intent intent = new Intent(context, PolyActivity.class);
             intent.putExtra("pay_arguements", bundle);
             if (!(context instanceof Activity)) {
-                d.a.g0.n.d.e("!context instanceof Activity");
+                d.a.d0.n.d.e("!context instanceof Activity");
                 intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             }
             context.startActivity(intent);
@@ -129,7 +129,7 @@ public class PolyActivity extends Activity implements m.l {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("c", bundle.getString("cuid"));
             jSONObject.put("z", string);
-            jSONObject.put("mac", d.a.g0.n.a.d());
+            jSONObject.put("mac", d.a.d0.n.a.d());
             jSONObject.put("app", "android");
             jSONObject.put("ver", X());
             bundle.putString("deviceInfo", jSONObject.toString());
@@ -144,9 +144,9 @@ public class PolyActivity extends Activity implements m.l {
             if (bundle == null) {
                 return new Bundle();
             }
-            d.f45439a = bundle.getString("bduss");
-            d.f45440b = bundle.getString("tpOrderId");
-            d.f45443e = bundle.getString("nativeAppId");
+            d.f42120a = bundle.getString("bduss");
+            d.f42121b = bundle.getString("tpOrderId");
+            d.f42124e = bundle.getString("nativeAppId");
             bundle.putString("deviceType", "ANDROID");
             bundle.putString("channel", "cashiersdk");
             bundle.putString(CommandMessage.SDK_VERSION, "2.7.7");
@@ -195,7 +195,7 @@ public class PolyActivity extends Activity implements m.l {
             super.onActivityResult(i2, i3, intent);
             if (i2 == 200) {
                 if (i3 == -1) {
-                    d.a.g0.k.i.a.k().d(this, intent.getExtras(), this.q, true);
+                    d.a.d0.k.i.a.k().d(this, intent.getExtras(), this.q, true);
                     return;
                 }
                 m mVar = this.q;
@@ -218,7 +218,7 @@ public class PolyActivity extends Activity implements m.l {
             if (!mVar.g0()) {
                 super.onBackPressed();
             }
-            d.a.g0.n.d.e("PolyActivity onBackPressed");
+            d.a.d0.n.d.e("PolyActivity onBackPressed");
         }
     }
 
@@ -241,7 +241,7 @@ public class PolyActivity extends Activity implements m.l {
             super.onCreate(bundle);
             overridePendingTransition(0, 0);
             Z();
-            d.a.g0.n.d.e("PolyActivity onCreate");
+            d.a.d0.n.d.e("PolyActivity onCreate");
         }
     }
 
@@ -291,7 +291,7 @@ public class PolyActivity extends Activity implements m.l {
             setContentView(mVar);
             this.q.setResultListener(n);
             this.q.setCloseListener(this);
-            this.q.setWalletList(new d.a.g0.k.i.c(new d.a.g0.k.i.b(this, m)));
+            this.q.setWalletList(new d.a.d0.k.i.c(new d.a.d0.k.i.b(this, m)));
             String string = this.arguments.getString("chosenChannel");
             if (TextUtils.equals(this.arguments.getString("panelType"), "NONE") && !TextUtils.isEmpty(string)) {
                 this.q.i(c(this.arguments), string);

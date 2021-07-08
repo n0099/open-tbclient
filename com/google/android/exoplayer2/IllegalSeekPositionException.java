@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.b.a.w;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class IllegalSeekPositionException extends IllegalStateException {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

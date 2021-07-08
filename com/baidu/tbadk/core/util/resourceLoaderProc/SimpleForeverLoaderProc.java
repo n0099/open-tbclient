@@ -16,7 +16,7 @@ import d.a.c.e.l.b;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
 import d.a.c.k.d.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +90,7 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(cVar);
-            bVar.f44260a = diskCancelWorker;
+            bVar.f41276a = diskCancelWorker;
         }
     }
 
@@ -115,7 +115,7 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
             if (bVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                 diskCancelWorker.setOperate(createDiskPicOperate);
-                bVar.f44260a = diskCancelWorker;
+                bVar.f41276a = diskCancelWorker;
             }
             if (!d.g().a(createDiskPicOperate)) {
                 d.a.c.e.l.a.f(false, 0L);

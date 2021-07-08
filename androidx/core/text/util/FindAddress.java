@@ -2,6 +2,7 @@ package androidx.core.text.util;
 
 import androidx.annotation.RestrictTo;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -255,7 +256,7 @@ public class FindAddress {
     public static String findAddress(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             Matcher matcher = sHouseNumberRe.matcher(str);
             int i2 = 0;
             while (matcher.find(i2)) {

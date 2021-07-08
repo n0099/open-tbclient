@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.l.a.e.b.l.f;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class c implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final InputStream f74757a;
+    public final InputStream f71809a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.l.a.e.b.i.a f74758b;
+    public final d.l.a.e.b.i.a f71810b;
 
     public c(InputStream inputStream, int i2) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class c implements b {
                 return;
             }
         }
-        this.f74757a = inputStream;
-        this.f74758b = new d.l.a.e.b.i.a(i2);
+        this.f71809a = inputStream;
+        this.f71810b = new d.l.a.e.b.i.a(i2);
     }
 
     @Override // d.l.a.e.b.h.b
@@ -44,9 +44,9 @@ public class c implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            d.l.a.e.b.i.a aVar = this.f74758b;
-            aVar.f74761c = this.f74757a.read(aVar.f74759a);
-            return this.f74758b;
+            d.l.a.e.b.i.a aVar = this.f71810b;
+            aVar.f71813c = this.f71809a.read(aVar.f71811a);
+            return this.f71810b;
         }
         return (d.l.a.e.b.i.a) invokeV.objValue;
     }
@@ -62,7 +62,7 @@ public class c implements b {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            f.E(this.f74757a);
+            f.E(this.f71809a);
         }
     }
 }

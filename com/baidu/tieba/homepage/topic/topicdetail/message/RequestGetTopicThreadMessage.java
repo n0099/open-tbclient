@@ -8,18 +8,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.z0.w;
+import d.a.o0.z0.w;
 import tbclient.CommonReq;
 import tbclient.NewTopicThread.DataReq;
 import tbclient.NewTopicThread.NewTopicThreadReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RequestGetTopicThreadMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String callFrom;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f16862common;
+    public CommonReq f16901common;
     public long lastFeedId;
     public long pageNo;
     public long topicId;
@@ -49,7 +49,7 @@ public class RequestGetTopicThreadMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f76571common = this.f16862common;
+            builder.f73605common = this.f16901common;
             builder.topic_id = Long.valueOf(this.topicId);
             builder.page_no = Long.valueOf(this.pageNo);
             builder.last_feed_id = Long.valueOf(this.lastFeedId);
@@ -74,7 +74,7 @@ public class RequestGetTopicThreadMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, commonReq) == null) {
-            this.f16862common = commonReq;
+            this.f16901common = commonReq;
         }
     }
 

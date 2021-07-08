@@ -2,6 +2,7 @@ package com.baidu.apollon.base;
 
 import android.app.Activity;
 import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.NoProguard;
 import com.baidu.apollon.utils.LogUtil;
@@ -20,7 +21,7 @@ public class ApollonBaseActivity extends Activity implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3606a = "ApollonBaseActivity";
+    public static final String f3609a = "ApollonBaseActivity";
     public static LinkedList<ApollonBaseActivity> mActivityStack;
     public static int mLiveActivityNum;
     public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +79,7 @@ public class ApollonBaseActivity extends Activity implements NoProguard {
 
     public static synchronized void clearTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             synchronized (ApollonBaseActivity.class) {
                 Iterator<ApollonBaseActivity> it = mActivityStack.iterator();
                 while (it.hasNext()) {
@@ -107,7 +108,7 @@ public class ApollonBaseActivity extends Activity implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, apollonBaseActivity) == null) {
             synchronized (ApollonBaseActivity.class) {
-                LogUtil.d(f3606a, "clearTasksTopOf. stack size = " + mActivityStack.size());
+                LogUtil.d(f3609a, "clearTasksTopOf. stack size = " + mActivityStack.size());
                 for (int size = mActivityStack.size() + (-1); size > 0; size--) {
                     ApollonBaseActivity apollonBaseActivity2 = mActivityStack.get(size);
                     if (apollonBaseActivity2 == apollonBaseActivity) {
@@ -123,7 +124,7 @@ public class ApollonBaseActivity extends Activity implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65543, null, i2) == null) {
             synchronized (ApollonBaseActivity.class) {
-                LogUtil.d(f3606a, "clearTasksWithFlag. stack size = " + mActivityStack.size());
+                LogUtil.d(f3609a, "clearTasksWithFlag. stack size = " + mActivityStack.size());
                 Iterator<ApollonBaseActivity> it = mActivityStack.iterator();
                 while (it.hasNext()) {
                     ApollonBaseActivity next = it.next();

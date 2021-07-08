@@ -1,32 +1,34 @@
 package com.kwad.sdk.core.config.item;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.api.KsAdSDK;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class c extends a<Boolean> {
+/* loaded from: classes6.dex */
+public class c extends b<Integer> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(String str, boolean z) {
-        super(str, Boolean.valueOf(z));
+    public c() {
+        super("batchReportCacheType", 2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], objArr2[1]);
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -34,27 +36,55 @@ public class c extends a<Boolean> {
         }
     }
 
-    @Override // com.kwad.sdk.core.config.item.a
+    public static int a(@Nullable Context context) {
+        InterceptResult invokeL;
+        SharedPreferences sharedPreferences;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            com.kwad.sdk.core.d.a.a("BatchReportCacheTypeConfigItem", "loadBatchReportCacheType");
+            if (context == null || (sharedPreferences = context.getSharedPreferences("ksadsdk_rep", 0)) == null) {
+                return 2;
+            }
+            return sharedPreferences.getInt("batchReportCacheType", 2);
+        }
+        return invokeL.intValue;
+    }
+
+    public static void a(@Nullable Context context, int i2) {
+        SharedPreferences sharedPreferences;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65538, null, context, i2) == null) {
+            com.kwad.sdk.core.d.a.a("BatchReportCacheTypeConfigItem", "saveBatchReportCacheType");
+            if (context == null || (sharedPreferences = context.getSharedPreferences("ksadsdk_rep", 0)) == null) {
+                return;
+            }
+            SharedPreferences.Editor edit = sharedPreferences.edit();
+            edit.putInt("batchReportCacheType", i2);
+            edit.apply();
+        }
+    }
+
+    @Override // com.kwad.sdk.core.config.item.b
     public void a(@NonNull SharedPreferences.Editor editor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, editor) == null) {
-            editor.putBoolean(a(), b().booleanValue());
+            a(KsAdSDK.getContext(), a().intValue());
         }
     }
 
-    @Override // com.kwad.sdk.core.config.item.a
+    @Override // com.kwad.sdk.core.config.item.b
     public void a(@NonNull SharedPreferences sharedPreferences) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sharedPreferences) == null) {
-            a((c) Boolean.valueOf(sharedPreferences.getBoolean(a(), c().booleanValue())));
+            a((c) Integer.valueOf(a(KsAdSDK.getContext())));
         }
     }
 
-    @Override // com.kwad.sdk.core.config.item.a
+    @Override // com.kwad.sdk.core.config.item.b
     public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            a((c) (jSONObject != null ? Boolean.valueOf(jSONObject.optBoolean(a(), c().booleanValue())) : c()));
+            a((c) (jSONObject != null ? Integer.valueOf(jSONObject.optInt(b(), c().intValue())) : c()));
         }
     }
 }

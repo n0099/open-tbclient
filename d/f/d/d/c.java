@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.hash.Funnel;
 import java.nio.charset.Charset;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class c implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

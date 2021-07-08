@@ -9,40 +9,40 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.b.a.i0.v;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f73631a;
+    public byte[] f70734a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f73632b;
+    public byte[] f70735b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f73633c;
+    public int f70736c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int[] f73634d;
+    public int[] f70737d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int[] f73635e;
+    public int[] f70738e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f73636f;
+    public int f70739f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f73637g;
+    public int f70740g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f73638h;
+    public int f70741h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final MediaCodec.CryptoInfo f73639i;
-    public final C2028b j;
+    public final MediaCodec.CryptoInfo f70742i;
+    public final C1997b j;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,30 +50,30 @@ public final class b {
 
     @TargetApi(24)
     /* renamed from: d.f.b.a.y.b$b  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static final class C2028b {
+    /* loaded from: classes8.dex */
+    public static final class C1997b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final MediaCodec.CryptoInfo f73640a;
+        public final MediaCodec.CryptoInfo f70743a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final MediaCodec.CryptoInfo.Pattern f73641b;
+        public final MediaCodec.CryptoInfo.Pattern f70744b;
 
-        public /* synthetic */ C2028b(MediaCodec.CryptoInfo cryptoInfo, a aVar) {
+        public /* synthetic */ C1997b(MediaCodec.CryptoInfo cryptoInfo, a aVar) {
             this(cryptoInfo);
         }
 
         public final void b(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-                this.f73641b.set(i2, i3);
-                this.f73640a.setPattern(this.f73641b);
+                this.f70744b.set(i2, i3);
+                this.f70743a.setPattern(this.f70744b);
             }
         }
 
-        public C2028b(MediaCodec.CryptoInfo cryptoInfo) {
+        public C1997b(MediaCodec.CryptoInfo cryptoInfo) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,8 +88,8 @@ public final class b {
                     return;
                 }
             }
-            this.f73640a = cryptoInfo;
-            this.f73641b = new MediaCodec.CryptoInfo.Pattern(0, 0);
+            this.f70743a = cryptoInfo;
+            this.f70744b = new MediaCodec.CryptoInfo.Pattern(0, 0);
         }
     }
 
@@ -106,16 +106,16 @@ public final class b {
                 return;
             }
         }
-        MediaCodec.CryptoInfo b2 = v.f73412a >= 16 ? b() : null;
-        this.f73639i = b2;
-        this.j = v.f73412a >= 24 ? new C2028b(b2, null) : null;
+        MediaCodec.CryptoInfo b2 = v.f70515a >= 16 ? b() : null;
+        this.f70742i = b2;
+        this.j = v.f70515a >= 24 ? new C1997b(b2, null) : null;
     }
 
     @TargetApi(16)
     public MediaCodec.CryptoInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73639i : (MediaCodec.CryptoInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70742i : (MediaCodec.CryptoInfo) invokeV.objValue;
     }
 
     @TargetApi(16)
@@ -128,15 +128,15 @@ public final class b {
     public void c(int i2, int[] iArr, int[] iArr2, byte[] bArr, byte[] bArr2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), iArr, iArr2, bArr, bArr2, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            this.f73636f = i2;
-            this.f73634d = iArr;
-            this.f73635e = iArr2;
-            this.f73632b = bArr;
-            this.f73631a = bArr2;
-            this.f73633c = i3;
-            this.f73637g = i4;
-            this.f73638h = i5;
-            if (v.f73412a >= 16) {
+            this.f70739f = i2;
+            this.f70737d = iArr;
+            this.f70738e = iArr2;
+            this.f70735b = bArr;
+            this.f70734a = bArr2;
+            this.f70736c = i3;
+            this.f70740g = i4;
+            this.f70741h = i5;
+            if (v.f70515a >= 16) {
                 d();
             }
         }
@@ -146,15 +146,15 @@ public final class b {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MediaCodec.CryptoInfo cryptoInfo = this.f73639i;
-            cryptoInfo.numSubSamples = this.f73636f;
-            cryptoInfo.numBytesOfClearData = this.f73634d;
-            cryptoInfo.numBytesOfEncryptedData = this.f73635e;
-            cryptoInfo.key = this.f73632b;
-            cryptoInfo.iv = this.f73631a;
-            cryptoInfo.mode = this.f73633c;
-            if (v.f73412a >= 24) {
-                this.j.b(this.f73637g, this.f73638h);
+            MediaCodec.CryptoInfo cryptoInfo = this.f70742i;
+            cryptoInfo.numSubSamples = this.f70739f;
+            cryptoInfo.numBytesOfClearData = this.f70737d;
+            cryptoInfo.numBytesOfEncryptedData = this.f70738e;
+            cryptoInfo.key = this.f70735b;
+            cryptoInfo.iv = this.f70734a;
+            cryptoInfo.mode = this.f70736c;
+            if (v.f70515a >= 24) {
+                this.j.b(this.f70740g, this.f70741h);
             }
         }
     }

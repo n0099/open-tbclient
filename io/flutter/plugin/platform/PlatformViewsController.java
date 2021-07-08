@@ -28,7 +28,7 @@ import io.flutter.view.TextureRegistry;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class PlatformViewsController implements PlatformViewsAccessibilityDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MINIMAL_SDK = 20;
@@ -47,7 +47,7 @@ public class PlatformViewsController implements PlatformViewsAccessibilityDelega
     public final HashMap<Integer, VirtualDisplayController> vdControllers;
 
     /* renamed from: io.flutter.plugin.platform.PlatformViewsController$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class AnonymousClass1 implements PlatformViewsChannel.PlatformViewsHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

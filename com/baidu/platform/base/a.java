@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Base64;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mapapi.http.AsyncHttpClient;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapapi.search.core.SearchResult;
@@ -21,28 +22,28 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Lock f9377a;
+    public final Lock f9394a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AsyncHttpClient f9378b;
+    public AsyncHttpClient f9395b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f9379c;
+    public Handler f9396c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f9380d;
+    public boolean f9397d;
 
     /* renamed from: e  reason: collision with root package name */
-    public DistrictResult f9381e;
+    public DistrictResult f9398e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SearchType f9382f;
+    public SearchType f9399f;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -57,11 +58,11 @@ public abstract class a {
                 return;
             }
         }
-        this.f9378b = new AsyncHttpClient();
-        this.f9379c = new Handler(Looper.getMainLooper());
-        this.f9377a = new ReentrantLock();
-        this.f9380d = true;
-        this.f9381e = null;
+        this.f9395b = new AsyncHttpClient();
+        this.f9396c = new Handler(Looper.getMainLooper());
+        this.f9394a = new ReentrantLock();
+        this.f9397d = true;
+        this.f9398e = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -82,8 +83,8 @@ public abstract class a {
 
     private void a(AsyncHttpClient asyncHttpClient, HttpClient.ProtoResultCallback protoResultCallback, SearchResult searchResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, this, asyncHttpClient, protoResultCallback, searchResult) == null) {
-            asyncHttpClient.get(new com.baidu.platform.core.a.c(((DistrictResult) searchResult).getCityName()).a(this.f9382f), protoResultCallback);
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, asyncHttpClient, protoResultCallback, searchResult) == null) {
+            asyncHttpClient.get(new com.baidu.platform.core.a.c(((DistrictResult) searchResult).getCityName()).a(this.f9399f), protoResultCallback);
         }
     }
 
@@ -98,7 +99,7 @@ public abstract class a {
     private void a(SearchResult searchResult, Object obj, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, this, searchResult, obj, dVar) == null) {
-            this.f9379c.post(new c(this, dVar, searchResult, obj));
+            this.f9396c.post(new c(this, dVar, searchResult, obj));
         }
     }
 
@@ -113,15 +114,15 @@ public abstract class a {
             } else if (!(dVar instanceof com.baidu.platform.core.a.b)) {
                 a(a2, obj, dVar);
             } else {
-                DistrictResult districtResult = this.f9381e;
+                DistrictResult districtResult = this.f9398e;
                 if (districtResult != null) {
                     DistrictResult districtResult2 = (DistrictResult) a2;
                     districtResult2.setCityCode(districtResult.getCityCode());
-                    districtResult2.setCenterPt(this.f9381e.getCenterPt());
+                    districtResult2.setCenterPt(this.f9398e.getCenterPt());
                 }
                 a(a2, obj, dVar);
-                this.f9380d = true;
-                this.f9381e = null;
+                this.f9397d = true;
+                this.f9398e = null;
                 ((com.baidu.platform.core.a.b) dVar).a(false);
             }
         }
@@ -133,9 +134,9 @@ public abstract class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, this, dVar, searchResult)) == null) {
             if (dVar instanceof com.baidu.platform.core.a.b) {
                 DistrictResult districtResult = (DistrictResult) searchResult;
-                if (SearchResult.ERRORNO.RESULT_NOT_FOUND == districtResult.error && districtResult.getCityName() != null && this.f9380d) {
-                    this.f9380d = false;
-                    this.f9381e = districtResult;
+                if (SearchResult.ERRORNO.RESULT_NOT_FOUND == districtResult.error && districtResult.getCityName() != null && this.f9397d) {
+                    this.f9397d = false;
+                    this.f9398e = districtResult;
                     ((com.baidu.platform.core.a.b) dVar).a(true);
                     return true;
                 }
@@ -201,10 +202,10 @@ public abstract class a {
                 return false;
             }
             SearchType a2 = dVar.a();
-            this.f9382f = a2;
+            this.f9399f = a2;
             String a3 = eVar.a(a2);
             if (a3 != null) {
-                this.f9378b.get(a3, new b(this, dVar, obj));
+                this.f9395b.get(a3, new b(this, dVar, obj));
                 return true;
             }
             Log.e("BaseSearch", "The sendurl is: " + a3);

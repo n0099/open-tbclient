@@ -15,20 +15,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.k.e.a;
-import d.a.s0.p0.y.c.b;
-/* loaded from: classes5.dex */
+import d.a.p0.p0.y.c.b;
+/* loaded from: classes4.dex */
 public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext m;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class EmotionGridViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public EmotionHorizontalView f15042a;
+        public EmotionHorizontalView f15081a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public EmotionGridViewHolder(View view) {
@@ -48,16 +48,16 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
                     return;
                 }
             }
-            this.f15042a = (EmotionHorizontalView) view;
+            this.f15081a = (EmotionHorizontalView) view;
         }
 
         public void b(b bVar) {
             EmotionHorizontalView emotionHorizontalView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || (emotionHorizontalView = this.f15042a) == null || bVar == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || (emotionHorizontalView = this.f15081a) == null || bVar == null) {
                 return;
             }
-            emotionHorizontalView.setData(bVar.f64579e);
+            emotionHorizontalView.setData(bVar.f61345e);
         }
     }
 

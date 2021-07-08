@@ -5,17 +5,18 @@ import android.graphics.PointF;
 import android.graphics.Typeface;
 import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.TextWordsEntity;
-import d.a.y0.b;
-import d.a.y0.t.g;
+import d.a.v0.b;
+import d.a.v0.t.g;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SubTitleConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CENTER = 0;
@@ -63,7 +64,7 @@ public class SubTitleConfig {
     public int maxEngLineNum;
     public Paint.Align textGravity;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ShadowConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +91,7 @@ public class SubTitleConfig {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class StrokeConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,7 +116,7 @@ public class SubTitleConfig {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class TypefaceConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CREATE_FROM_ASSET = 1;
@@ -210,7 +211,7 @@ public class SubTitleConfig {
         public static Typeface toTypeFace(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
                 if (TextUtils.isEmpty(str)) {
                     return null;
                 }

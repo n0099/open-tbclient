@@ -119,7 +119,7 @@ public class ARPEngine implements c {
 
     private void initEngine3DInstance() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             try {
                 Object newInstance = Class.forName(ENGINE_3D_CLASS_NAME).newInstance();
                 if (newInstance instanceof IARPEngine3D) {

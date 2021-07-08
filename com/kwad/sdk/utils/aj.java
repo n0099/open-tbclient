@@ -1,100 +1,202 @@
 package com.kwad.sdk.utils;
 
-import android.os.SystemClock;
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.InvocationTargetException;
+/* loaded from: classes6.dex */
 public class aj {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f39333a;
+    public static String f36494a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f39334b;
+    public static String f36495b;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f39335c;
-
-    public aj() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        g();
-    }
-
-    private void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.f39333a = 0L;
-            this.f39334b = -1L;
-        }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            g();
-            this.f39335c = true;
-            this.f39334b = SystemClock.elapsedRealtime();
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f39335c && this.f39334b < 0) {
-            this.f39334b = SystemClock.elapsedRealtime();
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f39335c && this.f39334b > 0) {
-            this.f39333a += SystemClock.elapsedRealtime() - this.f39334b;
-            this.f39334b = -1L;
-        }
-    }
-
-    public long d() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f39335c) {
-                this.f39335c = false;
-                if (this.f39334b > 0) {
-                    this.f39333a += SystemClock.elapsedRealtime() - this.f39334b;
-                    this.f39334b = -1L;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a("MIUI") : invokeV.booleanValue;
+    }
+
+    public static boolean a(String str) {
+        InterceptResult invokeL;
+        String upperCase;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            String str2 = f36494a;
+            if (str2 != null) {
+                return str2.contains(str);
+            }
+            String b2 = b("ro.build.version.opporom");
+            f36495b = b2;
+            if (TextUtils.isEmpty(b2)) {
+                String b3 = b("ro.vivo.os.version");
+                f36495b = b3;
+                if (TextUtils.isEmpty(b3)) {
+                    String b4 = b("ro.build.version.emui");
+                    f36495b = b4;
+                    if (TextUtils.isEmpty(b4)) {
+                        String b5 = b("ro.miui.ui.version.name");
+                        f36495b = b5;
+                        if (TextUtils.isEmpty(b5)) {
+                            String b6 = b("ro.product.system.manufacturer");
+                            f36495b = b6;
+                            if (TextUtils.isEmpty(b6)) {
+                                String b7 = b("ro.smartisan.version");
+                                f36495b = b7;
+                                if (TextUtils.isEmpty(b7)) {
+                                    String str3 = "SAMSUNG";
+                                    if (!b("ro.product.manufacturer").toUpperCase().contains("SAMSUNG")) {
+                                        String str4 = Build.DISPLAY;
+                                        f36495b = str4;
+                                        str3 = "FLYME";
+                                        if (!str4.toUpperCase().contains("FLYME")) {
+                                            f36495b = "unknown";
+                                            upperCase = Build.MANUFACTURER.toUpperCase();
+                                        }
+                                    }
+                                    f36494a = str3;
+                                    return f36494a.contains(str);
+                                }
+                                upperCase = "SMARTISAN";
+                            } else {
+                                upperCase = "OnePlus";
+                            }
+                        } else {
+                            upperCase = "MIUI";
+                        }
+                    } else {
+                        upperCase = "EMUI";
+                    }
+                } else {
+                    upperCase = "VIVO";
                 }
-                return this.f39333a;
+            } else {
+                upperCase = "OPPO";
             }
-            return 0L;
+            f36494a = upperCase;
+            return f36494a.contains(str);
         }
-        return invokeV.longValue;
+        return invokeL.booleanValue;
     }
 
-    public boolean e() {
-        InterceptResult invokeV;
+    /* JADX WARN: Can't wrap try/catch for region: R(6:3|(2:4|5)|6|7|(6:11|12|14|15|16|17)|9) */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x003e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @SuppressLint({"PrivateApi"})
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String b(String str) {
+        InterceptResult invokeL;
+        String str2;
+        BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f39335c : invokeV.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            BufferedReader bufferedReader2 = null;
+            try {
+                Class<?> cls = Class.forName("android.os.SystemProperties");
+                str2 = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, str);
+            } catch (ClassNotFoundException e2) {
+                e2.printStackTrace();
+                str2 = null;
+                if (TextUtils.isEmpty(str2)) {
+                }
+                return str2;
+            } catch (IllegalAccessException e3) {
+                e3.printStackTrace();
+                str2 = null;
+                if (TextUtils.isEmpty(str2)) {
+                }
+                return str2;
+            } catch (NoSuchMethodException e4) {
+                e4.printStackTrace();
+                str2 = null;
+                if (TextUtils.isEmpty(str2)) {
+                }
+                return str2;
+            } catch (InvocationTargetException e5) {
+                e5.printStackTrace();
+                str2 = null;
+                if (TextUtils.isEmpty(str2)) {
+                }
+                return str2;
+            }
+            if (TextUtils.isEmpty(str2)) {
+                try {
+                    try {
+                        bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()), 1024);
+                    } catch (IOException e6) {
+                        e = e6;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                }
+                try {
+                    str2 = bufferedReader.readLine();
+                    bufferedReader.close();
+                } catch (IOException e7) {
+                    e = e7;
+                    bufferedReader2 = bufferedReader;
+                    e.printStackTrace();
+                    if (bufferedReader2 != null) {
+                        bufferedReader2.close();
+                    }
+                    return str2;
+                } catch (Throwable th2) {
+                    th = th2;
+                    bufferedReader2 = bufferedReader;
+                    if (bufferedReader2 != null) {
+                        try {
+                            bufferedReader2.close();
+                        } catch (IOException unused) {
+                        }
+                    }
+                    throw th;
+                }
+            }
+            return str2;
+        }
+        return (String) invokeL.objValue;
     }
 
-    public long f() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f39333a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a("FLYME") : invokeV.booleanValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (f36494a == null) {
+                a("");
+            }
+            return f36494a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+            if (f36495b == null) {
+                a("");
+            }
+            return f36495b;
+        }
+        return (String) invokeV.objValue;
     }
 }

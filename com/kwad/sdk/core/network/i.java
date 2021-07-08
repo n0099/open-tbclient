@@ -14,14 +14,17 @@ import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.core.network.g;
 import com.kwad.sdk.export.proxy.AdHttpProxy;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public h f36367a;
+    public h<R, T> f34682a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final com.kwad.sdk.core.network.b.b f34683b;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -36,7 +39,35 @@ public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
                 return;
             }
         }
-        this.f36367a = null;
+        this.f34682a = null;
+        this.f34683b = new com.kwad.sdk.core.network.b.b();
+    }
+
+    private void a(@NonNull R r) {
+        h<R, T> hVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, this, r) == null) || (hVar = this.f34682a) == null) {
+            return;
+        }
+        hVar.a(r);
+    }
+
+    private void a(@NonNull R r, int i2, String str) {
+        h<R, T> hVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLIL(65538, this, r, i2, str) == null) || (hVar = this.f34682a) == null) {
+            return;
+        }
+        hVar.a(r, i2, str);
+    }
+
+    private void a(@NonNull R r, T t) {
+        h<R, T> hVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65539, this, r, t) == null) || (hVar = this.f34682a) == null) {
+            return;
+        }
+        hVar.a(r, t);
     }
 
     @Override // com.kwad.sdk.core.network.a
@@ -44,117 +75,159 @@ public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, r, cVar) == null) {
             if (cVar == null) {
-                com.kwad.sdk.core.d.a.d("Networking", "request responseBase is null");
-                h hVar = this.f36367a;
-                if (hVar != null) {
-                    f fVar = f.f36358a;
-                    hVar.a(r, fVar.k, fVar.l);
-                }
-            } else if (TextUtils.isEmpty(cVar.f36356b) || cVar.f36355a != 200) {
-                h hVar2 = this.f36367a;
-                if (hVar2 != null) {
-                    hVar2.a(r, cVar.f36355a, "网络错误");
-                }
+                f fVar = f.f34675c;
+                a(r, fVar.m, fVar.n);
+                this.f34683b.a("responseBase is null");
+                com.kwad.sdk.core.d.a.e("Networking", "request responseBase is null");
+            } else if (TextUtils.isEmpty(cVar.f34671b) || cVar.f34670a != 200) {
+                a(r, cVar.f34670a, "网络错误");
+                com.kwad.sdk.core.network.b.b bVar = this.f34683b;
+                bVar.a("httpCodeError:" + cVar.f34670a + ":" + cVar.f34671b);
+                StringBuilder sb = new StringBuilder();
+                sb.append("request responseBase httpCodeError:");
+                sb.append(cVar.f34670a);
+                com.kwad.sdk.core.d.a.e("Networking", sb.toString());
             } else {
                 try {
-                    T b2 = b(cVar.f36356b);
-                    if (b2 == null) {
-                        h hVar3 = this.f36367a;
-                        if (hVar3 != null) {
-                            f fVar2 = f.f36359b;
-                            hVar3.a(r, fVar2.k, fVar2.l);
+                    T b2 = b(cVar.f34671b);
+                    this.f34683b.d();
+                    if (b2.isResultOk()) {
+                        if (!b2.isDataEmpty()) {
+                            a((i<R, T>) r, (R) b2);
+                            return;
                         }
-                    } else if (!b2.isResultOk()) {
-                        h hVar4 = this.f36367a;
-                        if (hVar4 != null) {
-                            hVar4.a(r, b2.result, b2.errorMsg);
-                        }
-                    } else if (!b2.isDataEmpty()) {
-                        h hVar5 = this.f36367a;
-                        if (hVar5 != null) {
-                            hVar5.a(r, b2);
-                        }
-                    } else {
-                        h hVar6 = this.f36367a;
-                        if (hVar6 != null) {
-                            f fVar3 = f.f36360c;
-                            hVar6.a(r, fVar3.k, fVar3.l);
-                        }
+                        f fVar2 = f.f34677e;
+                        a(r, fVar2.m, fVar2.n);
+                        return;
                     }
+                    a(r, b2.result, b2.errorMsg);
+                    com.kwad.sdk.core.network.b.b bVar2 = this.f34683b;
+                    bVar2.a("serverCodeError:" + b2.result + ":" + b2.errorMsg);
                 } catch (Exception e2) {
-                    h hVar7 = this.f36367a;
-                    if (hVar7 != null) {
-                        f fVar4 = f.f36359b;
-                        hVar7.a(r, fVar4.k, fVar4.l);
-                    }
-                    com.kwad.sdk.core.d.a.a(e2);
+                    f fVar3 = f.f34676d;
+                    a(r, fVar3.m, fVar3.n);
+                    com.kwad.sdk.core.d.a.b(e2);
+                    com.kwad.sdk.core.network.b.b bVar3 = this.f34683b;
+                    bVar3.a("parseDataError:" + e2.getMessage());
                 }
             }
         }
     }
 
-    public void a(@NonNull h hVar) {
+    public void a(@NonNull h<R, T> hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar) == null) {
-            this.f36367a = hVar;
+            this.f34683b.a();
+            this.f34682a = hVar;
             d();
         }
     }
 
-    public boolean a_() {
+    @NonNull
+    public abstract T b(String str);
+
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
     }
-
-    @NonNull
-    public abstract T b(String str);
 
     @Override // com.kwad.sdk.core.network.a
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.e();
-            this.f36367a = null;
+            this.f34682a = null;
         }
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:20:0x0059 -> B:29:0x005c). Please submit an issue!!! */
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x00bc: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:30:0x00bc */
     @Override // com.kwad.sdk.core.network.a
     @WorkerThread
     public void f() {
+        g gVar;
+        R r;
+        Exception e2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            R b2 = b();
-            h hVar = this.f36367a;
-            if (hVar != null) {
-                hVar.a(b2);
-            }
-            if (!com.ksad.download.d.b.a(KsAdSDKImpl.get().getContext())) {
-                h hVar2 = this.f36367a;
-                if (hVar2 != null) {
-                    f fVar = f.f36358a;
-                    hVar2.a(b2, fVar.k, fVar.l);
-                    return;
-                }
-                return;
-            }
+            g gVar2 = null;
             c cVar = null;
             try {
-                String a2 = b2.a();
-                AdHttpProxy proxyForHttp = KsAdSDKImpl.get().getProxyForHttp();
-                cVar = a_() ? proxyForHttp.doPost(a2, b2.b(), b2.d()) : proxyForHttp.doPost(a2, b2.b(), b2.c());
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.a(e2);
+            } catch (Throwable th) {
+                th = th;
+                gVar2 = gVar;
             }
             try {
-                a(b2, cVar);
-            } catch (Exception e3) {
-                com.kwad.sdk.core.d.a.a(e3);
+                try {
+                    r = b();
+                    try {
+                        this.f34683b.b();
+                        a((i<R, T>) r);
+                        if (com.ksad.download.d.b.a(KsAdSDKImpl.get().getContext())) {
+                            try {
+                                String a2 = r.a();
+                                AdHttpProxy proxyForHttp = KsAdSDKImpl.get().getProxyForHttp();
+                                cVar = g() ? proxyForHttp.doPost(a2, r.c(), r.e()) : proxyForHttp.doPost(a2, r.c(), r.d());
+                            } catch (Exception e3) {
+                                com.kwad.sdk.core.d.a.b(e3);
+                                this.f34683b.a("requestError:" + e3.getMessage());
+                            }
+                            this.f34683b.c();
+                            try {
+                                a((i<R, T>) r, cVar);
+                            } catch (Exception e4) {
+                                this.f34683b.a("onResponseError:" + e4.getMessage());
+                                com.kwad.sdk.core.d.a.b(e4);
+                            }
+                        } else {
+                            a(r, f.f34675c.m, f.f34675c.n);
+                        }
+                    } catch (Exception e5) {
+                        e2 = e5;
+                        try {
+                            this.f34683b.a("requestError:" + e2.getMessage());
+                        } catch (Exception unused) {
+                        }
+                        com.kwad.sdk.core.d.a.a(e2);
+                        if (c() && com.kwad.sdk.core.config.c.aj()) {
+                            this.f34683b.a(r.a(), r.b());
+                            this.f34683b.e();
+                        }
+                        return;
+                    }
+                } catch (Exception unused2) {
+                    return;
+                }
+            } catch (Exception e6) {
+                r = null;
+                e2 = e6;
+            } catch (Throwable th2) {
+                th = th2;
+                try {
+                    if (c() && com.kwad.sdk.core.config.c.aj()) {
+                        this.f34683b.a(gVar2.a(), gVar2.b());
+                        this.f34683b.e();
+                    }
+                } catch (Exception unused3) {
+                }
+                throw th;
+            }
+            if (c() && com.kwad.sdk.core.config.c.aj()) {
+                this.f34683b.a(r.a(), r.b());
+                this.f34683b.e();
             }
         }
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

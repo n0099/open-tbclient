@@ -13,7 +13,7 @@ import d.f.d.a.n;
 import java.lang.Throwable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractCatchingFuture<V, X extends Throwable, F, T> extends FluentFuture.TrustedFuture<V> implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +21,7 @@ public abstract class AbstractCatchingFuture<V, X extends Throwable, F, T> exten
     public F fallback;
     public ListenableFuture<? extends V> inputFuture;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class AsyncCatchingFuture<V, X extends Throwable> extends AbstractCatchingFuture<V, X, AsyncFunction<? super X, ? extends V>, ListenableFuture<? extends V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +78,7 @@ public abstract class AbstractCatchingFuture<V, X extends Throwable, F, T> exten
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class CatchingFuture<V, X extends Throwable> extends AbstractCatchingFuture<V, X, g<? super X, ? extends V>, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.TimerTask;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c extends TimerTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f5166a;
+    public final /* synthetic */ a f5183a;
 
     public c(a aVar) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public class c extends TimerTask {
                 return;
             }
         }
-        this.f5166a = aVar;
+        this.f5183a = aVar;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f5166a.a();
+            this.f5183a.a();
         }
     }
 }

@@ -16,6 +16,7 @@ import androidx.annotation.RestrictTo;
 import androidx.annotation.StringRes;
 import androidx.appcompat.R;
 import androidx.appcompat.view.ActionMode;
+import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentTransaction;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -617,13 +618,13 @@ public abstract class ActionBar {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {layoutParams};
-                interceptable.invokeUnInit(65540, newInitContext);
+                interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     super((ViewGroup.LayoutParams) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65540, newInitContext);
+                    interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                     return;
                 }
             }

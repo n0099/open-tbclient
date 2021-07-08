@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.z0.w;
+import d.a.o0.z0.w;
 import tbclient.GetForumSquare.DataReq;
 import tbclient.GetForumSquare.GetForumSquareReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ForumSquareRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOAD_RN = 20;

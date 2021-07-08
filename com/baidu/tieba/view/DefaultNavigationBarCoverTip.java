@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -21,8 +22,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.m.g;
-/* loaded from: classes5.dex */
+import d.a.o0.m.g;
+/* loaded from: classes4.dex */
 public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,13 +34,13 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
     public final g p;
     public NavigationBarCoverTip.e q;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DefaultNavigationBarCoverTip f21980e;
+        public final /* synthetic */ DefaultNavigationBarCoverTip f22037e;
 
         public a(DefaultNavigationBarCoverTip defaultNavigationBarCoverTip) {
             Interceptable interceptable = $ic;
@@ -56,7 +57,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
                     return;
                 }
             }
-            this.f21980e = defaultNavigationBarCoverTip;
+            this.f22037e = defaultNavigationBarCoverTip;
         }
 
         @Override // android.view.View.OnClickListener
@@ -64,22 +65,22 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
             TbPageContext<?> tbPageContext;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f21980e.e();
-                if (this.f21980e.l == null || TextUtils.isEmpty(this.f21980e.n) || (tbPageContext = UtilHelper.getTbPageContext(this.f21980e.l)) == null) {
+                this.f22037e.e();
+                if (this.f22037e.l == null || TextUtils.isEmpty(this.f22037e.n) || (tbPageContext = UtilHelper.getTbPageContext(this.f22037e.l)) == null) {
                     return;
                 }
-                UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.f21980e.n});
+                UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.f22037e.n});
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DefaultNavigationBarCoverTip f21981e;
+        public final /* synthetic */ DefaultNavigationBarCoverTip f22038e;
 
         public b(DefaultNavigationBarCoverTip defaultNavigationBarCoverTip) {
             Interceptable interceptable = $ic;
@@ -96,26 +97,26 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
                     return;
                 }
             }
-            this.f21981e = defaultNavigationBarCoverTip;
+            this.f22038e = defaultNavigationBarCoverTip;
         }
 
-        @Override // d.a.r0.m.g, android.app.Application.ActivityLifecycleCallbacks
+        @Override // d.a.o0.m.g, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity == this.f21981e.l) {
-                this.f21981e.setCoverTipListener(null);
-                this.f21981e.r();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity == this.f22038e.l) {
+                this.f22038e.setCoverTipListener(null);
+                this.f22038e.r();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c implements NavigationBarCoverTip.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DefaultNavigationBarCoverTip f21982a;
+        public final /* synthetic */ DefaultNavigationBarCoverTip f22039a;
 
         public c(DefaultNavigationBarCoverTip defaultNavigationBarCoverTip) {
             Interceptable interceptable = $ic;
@@ -132,14 +133,14 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
                     return;
                 }
             }
-            this.f21982a = defaultNavigationBarCoverTip;
+            this.f22039a = defaultNavigationBarCoverTip;
         }
 
         @Override // com.baidu.tieba.view.NavigationBarCoverTip.e
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f21982a.r();
+                this.f22039a.r();
             }
         }
 
@@ -180,7 +181,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
     public static DefaultNavigationBarCoverTip s(Activity activity, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, activity, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, str, str2)) == null) {
             if (activity == null) {
                 activity = TbadkCoreApplication.getInst().getCurrentActivity();
             }
@@ -205,7 +206,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
             TextView textView = (TextView) inflate.findViewById(R.id.write_thread_success_tips);
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.m.findViewById(R.id.share_icon);
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
-            d.a.r0.r.f0.m.c cVar = new d.a.r0.r.f0.m.c();
+            d.a.o0.r.f0.n.c cVar = new d.a.o0.r.f0.n.c();
             cVar.r();
             tBSpecificationBtn.setConfig(cVar);
             textView.setSingleLine();

@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ViewOverlayApi14 implements ViewOverlayImpl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +85,7 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
     }
 
     @SuppressLint({"ViewConstructor", "PrivateApi"})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class OverlayViewGroup extends ViewGroup {
         public static /* synthetic */ Interceptable $ic;
         public static Method invalidateChildInParentFastMethod;
@@ -162,7 +162,7 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
 
         private void getOffset(int[] iArr) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65540, this, iArr) == null) {
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, iArr) == null) {
                 int[] iArr2 = new int[2];
                 int[] iArr3 = new int[2];
                 this.hostView.getLocationOnScreen(iArr2);

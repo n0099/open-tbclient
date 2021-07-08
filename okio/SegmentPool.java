@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class SegmentPool {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long MAX_SIZE = 65536;

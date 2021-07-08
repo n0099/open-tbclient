@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.metadata.Metadata;
 import d.f.b.a.i0.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class Id3Frame implements Metadata.Entry {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

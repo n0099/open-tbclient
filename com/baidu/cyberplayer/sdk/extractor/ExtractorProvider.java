@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileDescriptor;
 import java.util.Map;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class ExtractorProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

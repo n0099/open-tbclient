@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import d.a.c.k.e.n;
-import d.a.s0.e1.k.b.c.a;
-import d.a.s0.e1.k.b.c.c;
+import d.a.p0.e1.k.b.c.a;
+import d.a.p0.e1.k.b.c.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.NewTopicList.DataRes;
 import tbclient.NewTopicList.NewTopicList;
 import tbclient.NewTopicList.NewTopicListResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,13 +72,13 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
                 aVar.O(newTopicList);
                 this.mTopicDataList.add(aVar);
                 c cVar = new c();
-                cVar.f59078e = R.dimen.tbds1;
-                cVar.f59079f = R.color.CAM_X0203;
+                cVar.f55823e = R.dimen.tbds1;
+                cVar.f55824f = R.color.CAM_X0203;
                 this.mTopicDataList.add(cVar);
                 i3++;
             }
         }
         List<n> list = this.mTopicDataList;
-        ((c) ListUtils.getItem(list, list.size() - 1)).f59078e = 0;
+        ((c) ListUtils.getItem(list, list.size() - 1)).f55823e = 0;
     }
 }

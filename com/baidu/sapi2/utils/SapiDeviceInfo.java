@@ -3,6 +3,7 @@ package com.baidu.sapi2.utils;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.nps.pm.provider.BundleOpProvider;
 import com.baidu.pass.common.SecurityUtil;
@@ -27,7 +28,7 @@ import java.util.Map;
 import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SapiDeviceInfo implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AES_KEY;
@@ -36,7 +37,7 @@ public class SapiDeviceInfo implements NoProguard {
     public static final int VERSION = 11;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class DeviceInfoCookieManager {
         public static /* synthetic */ Interceptable $ic;
         public static Map<String, String> cookiesMap;
@@ -278,7 +279,7 @@ public class SapiDeviceInfo implements NoProguard {
     public static String encryptDeviceInfo(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
                 String buildIV = buildIV();
                 String base64Encode = SecurityUtil.base64Encode(SecurityUtil.aesEncrypt(str, buildIV, AES_KEY));

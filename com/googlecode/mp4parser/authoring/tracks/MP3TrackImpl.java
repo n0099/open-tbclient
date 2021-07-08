@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.authoring.tracks;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.record.EncoderParams;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -32,7 +33,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MP3TrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] BIT_RATE;
@@ -52,7 +53,7 @@ public class MP3TrackImpl extends AbstractTrack {
     public List<Sample> samples;
     public TrackMetaData trackMetaData;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class MP3Header {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -201,7 +202,7 @@ public class MP3TrackImpl extends AbstractTrack {
     private MP3Header readMP3Header(DataSource dataSource) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, dataSource)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, dataSource)) == null) {
             MP3Header mP3Header = new MP3Header(this);
             ByteBuffer allocate = ByteBuffer.allocate(4);
             while (allocate.position() < 4) {

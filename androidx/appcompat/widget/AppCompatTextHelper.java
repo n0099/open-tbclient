@@ -157,7 +157,7 @@ public class AppCompatTextHelper {
 
     private void setCompoundTints() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             TintInfo tintInfo = this.mDrawableTint;
             this.mDrawableLeftTint = tintInfo;
             this.mDrawableTopTint = tintInfo;

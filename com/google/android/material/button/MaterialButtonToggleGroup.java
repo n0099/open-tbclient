@@ -43,7 +43,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.TreeMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class MaterialButtonToggleGroup extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int DEF_STYLE_RES;
@@ -61,7 +61,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
     public boolean singleSelection;
     public boolean skipCheckedStateTracker;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class CheckedStateTracker implements MaterialButton.OnCheckedChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class CornerData {
         public static /* synthetic */ Interceptable $ic;
         public static final CornerSize noCorner;
@@ -167,7 +167,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         public static CornerData left(CornerData cornerData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, cornerData)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cornerData)) == null) {
                 CornerSize cornerSize = cornerData.topLeft;
                 CornerSize cornerSize2 = cornerData.bottomLeft;
                 CornerSize cornerSize3 = noCorner;
@@ -204,12 +204,12 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface OnButtonCheckedListener {
         void onButtonChecked(MaterialButtonToggleGroup materialButtonToggleGroup, @IdRes int i2, boolean z);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class PressedStateTracker implements MaterialButton.OnPressedChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

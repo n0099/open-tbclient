@@ -12,42 +12,42 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f12800a;
+        public boolean f12817a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f12801b;
+        public String f12818b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f12802c;
+        public String f12819c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f12803d;
+        public boolean f12820d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f12804e;
+        public boolean f12821e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f12805f;
+        public boolean f12822f;
 
         /* renamed from: g  reason: collision with root package name */
-        public HttpResponse f12806g;
+        public HttpResponse f12823g;
 
         /* renamed from: h  reason: collision with root package name */
-        public JSONObject f12807h;
+        public JSONObject f12824h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f12808i;
+        public boolean f12825i;
         public boolean j;
         public String k;
         public BlockPopInfoData l;
@@ -66,8 +66,8 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
                     return;
                 }
             }
-            this.f12804e = false;
-            this.f12805f = false;
+            this.f12821e = false;
+            this.f12822f = false;
             this.m = 0;
         }
 
@@ -98,7 +98,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.f12807h = jSONObject;
+                this.f12824h = jSONObject;
                 JSONObject optJSONObject = jSONObject.optJSONObject("info");
                 if (optJSONObject == null) {
                     return;
@@ -142,7 +142,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (getData() == null || !(getData() instanceof a)) {
                 return false;
             }
-            return getData().f12803d;
+            return getData().f12820d;
         }
         return invokeV.booleanValue;
     }
@@ -154,7 +154,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (getData() == null || !(getData() instanceof a)) {
                 return false;
             }
-            return getData().f12805f;
+            return getData().f12822f;
         }
         return invokeV.booleanValue;
     }
@@ -166,7 +166,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (getData() == null || !(getData() instanceof a)) {
                 return false;
             }
-            return getData().f12800a;
+            return getData().f12817a;
         }
         return invokeV.booleanValue;
     }

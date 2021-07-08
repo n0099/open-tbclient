@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.u.b.g.a;
-/* loaded from: classes5.dex */
+import d.a.p0.u.b.g.a;
+/* loaded from: classes4.dex */
 public class PermissionActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PERMISSION_REQUEST_CODE = 999;

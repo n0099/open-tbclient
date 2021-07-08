@@ -18,7 +18,7 @@ import org.aspectj.runtime.internal.cflowstack.ThreadStack;
 import org.aspectj.runtime.internal.cflowstack.ThreadStackFactory;
 import org.aspectj.runtime.internal.cflowstack.ThreadStackFactoryImpl;
 import org.aspectj.runtime.internal.cflowstack.ThreadStackFactoryImpl11;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class CFlowStack {
     public static /* synthetic */ Interceptable $ic;
     public static ThreadStackFactory tsFactory;
@@ -79,7 +79,7 @@ public class CFlowStack {
     public static ThreadStackFactory getThreadLocalStackFactoryFor11() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? new ThreadStackFactoryImpl11() : (ThreadStackFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new ThreadStackFactoryImpl11() : (ThreadStackFactory) invokeV.objValue;
     }
 
     private Stack getThreadStack() {

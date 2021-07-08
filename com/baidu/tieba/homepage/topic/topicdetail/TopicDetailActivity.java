@@ -29,8 +29,8 @@ import d.a.c.e.m.b;
 import d.a.c.e.p.j;
 import d.a.c.e.p.k;
 import d.a.c.k.e.n;
-import d.a.r0.a.g;
-import d.a.r0.a.x;
+import d.a.o0.a.g;
+import d.a.o0.a.x;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -39,8 +39,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements d.a.s0.e1.k.a.a {
+/* loaded from: classes4.dex */
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements d.a.p0.e1.k.a.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCHEME_TOPIC_DETAIL = "tbtopicdetail://";
     public static final String TOPIC_ID_PREFFIX = "topic_id=";
@@ -52,13 +52,13 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
     public TopicDetailView mTopicDetailView;
     public long topicID;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements g.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TopicDetailActivity f16857a;
+        public final /* synthetic */ TopicDetailActivity f16896a;
 
         public a(TopicDetailActivity topicDetailActivity) {
             Interceptable interceptable = $ic;
@@ -75,10 +75,10 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                     return;
                 }
             }
-            this.f16857a = topicDetailActivity;
+            this.f16896a = topicDetailActivity;
         }
 
-        @Override // d.a.r0.a.g.b
+        @Override // d.a.o0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(g.v) instanceof String)) {
@@ -86,7 +86,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                 if (StringUtils.isNull(str)) {
                     return;
                 }
-                this.f16857a.topicID = b.f(str, -1L);
+                this.f16896a.topicID = b.f(str, -1L);
             }
         }
     }
@@ -167,14 +167,14 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.r0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.o0.k0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a024" : (String) invokeV.objValue;
     }
 
-    @Override // d.a.s0.e1.k.a.a
+    @Override // d.a.p0.e1.k.a.a
     public void loadData() {
         int i2;
         String substring;
@@ -231,12 +231,12 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // d.a.s0.e1.k.a.a
-    public void netCallback(int i2, d.a.s0.e1.k.a.c.a aVar) {
+    @Override // d.a.p0.e1.k.a.a
+    public void netCallback(int i2, d.a.p0.e1.k.a.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i2, aVar) == null) {
             this.mTopicDetailView.r();
-            if (i2 == 0 && aVar != null && !ListUtils.isEmpty(aVar.f59016f)) {
+            if (i2 == 0 && aVar != null && !ListUtils.isEmpty(aVar.f55761f)) {
                 this.mTopicDetailView.s();
                 this.mTopicDetailView.setData(aVar);
                 return;
@@ -245,7 +245,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // d.a.s0.e1.k.a.a
+    @Override // d.a.p0.e1.k.a.a
     public void netThreadCallback(int i2, boolean z, List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), list}) == null) {

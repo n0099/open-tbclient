@@ -19,12 +19,12 @@ import com.baidu.ugc.editvideo.record.processor.glrender.MultiMediaPreGlRenderer
 import com.baidu.ugc.editvideo.record.renderer.IMediaRenderer;
 import com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSource;
 import com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener;
-import d.a.c0.b.a.e;
-import d.a.y0.t.h;
+import d.a.v0.t.h;
+import d.a.z.b.a.e;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MultiMediaOutputSurface extends BaseOutputSurface implements OnDrawUpdateTextureListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

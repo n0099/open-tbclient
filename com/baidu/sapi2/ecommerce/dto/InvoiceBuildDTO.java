@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class InvoiceBuildDTO extends SapiWebDTO implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_MANAGE = "0";

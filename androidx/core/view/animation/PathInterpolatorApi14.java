@@ -3,6 +3,7 @@ package androidx.core.view.animation;
 import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.view.animation.Interpolator;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,7 +60,7 @@ public class PathInterpolatorApi14 implements Interpolator {
     public static Path createQuad(float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
             Path path = new Path();
             path.moveTo(0.0f, 0.0f);
             path.quadTo(f2, f3, 1.0f, 1.0f);

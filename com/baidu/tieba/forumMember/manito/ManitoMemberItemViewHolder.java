@@ -9,28 +9,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ManitoMemberItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public GodHeadImageView f15186a;
+    public GodHeadImageView f15225a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f15187b;
+    public TextView f15226b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f15188c;
+    public TextView f15227c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f15189d;
+    public TextView f15228d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f15190e;
+    public View f15229e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15191f;
+    public int f15230f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ManitoMemberItemViewHolder(View view) {
@@ -50,15 +50,15 @@ public class ManitoMemberItemViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f15191f = 3;
+        this.f15230f = 3;
         GodHeadImageView godHeadImageView = (GodHeadImageView) view.findViewById(R.id.item_head);
-        this.f15186a = godHeadImageView;
+        this.f15225a = godHeadImageView;
         godHeadImageView.setShapeType(0);
-        this.f15186a.setShowType(1);
-        this.f15186a.setRadius(14);
-        this.f15187b = (TextView) view.findViewById(R.id.item_manito_name);
-        this.f15188c = (TextView) view.findViewById(R.id.item_manito_intro);
-        this.f15189d = (TextView) view.findViewById(R.id.item_manito_fans);
-        this.f15190e = view.findViewById(R.id.divider_line);
+        this.f15225a.setShowType(1);
+        this.f15225a.setRadius(14);
+        this.f15226b = (TextView) view.findViewById(R.id.item_manito_name);
+        this.f15227c = (TextView) view.findViewById(R.id.item_manito_intro);
+        this.f15228d = (TextView) view.findViewById(R.id.item_manito_fans);
+        this.f15229e = view.findViewById(R.id.divider_line);
     }
 }

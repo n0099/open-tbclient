@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.util.https;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbSingleton;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.Domains;
-import d.a.r0.s.c.z;
+import d.a.o0.s.c.z;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.KeyManagementException;
@@ -32,19 +33,19 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HttpsUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.tbadk.core.util.https.HttpsUtil$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class MyHostnameVerifier implements HostnameVerifier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +82,7 @@ public class HttpsUtil {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class MyTrustManager implements X509TrustManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,7 +137,7 @@ public class HttpsUtil {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class SSLParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -158,7 +159,7 @@ public class HttpsUtil {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class UnSafeTrustManager implements X509TrustManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -216,7 +217,7 @@ public class HttpsUtil {
     public static MyHostnameVerifier buildMyHostnameVerifier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? new MyHostnameVerifier(null) : (MyHostnameVerifier) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new MyHostnameVerifier(null) : (MyHostnameVerifier) invokeV.objValue;
     }
 
     public static boolean checkHostnameInWhiteList(String str) {

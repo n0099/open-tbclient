@@ -1,0 +1,144 @@
+package d.a.n0.j;
+
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
+/* loaded from: classes7.dex */
+public class i implements d.a.n0.a.c1.d.e {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public i() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // d.a.n0.a.c1.d.e
+    public boolean a(Context context, d.a.n0.a.h1.c.g gVar, d.a.n0.a.h1.b bVar, d.a.n0.a.a2.e eVar) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, gVar, bVar, eVar)) == null) {
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // d.a.n0.a.c1.d.e
+    public boolean b(Context context, d.a.n0.a.h1.c.b bVar, d.a.n0.a.h1.b bVar2, d.a.n0.a.a2.e eVar) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bVar, bVar2, eVar)) == null) ? d.a.n0.j.k.e.d.e().c(context, bVar, bVar2, eVar) : invokeLLLL.booleanValue;
+    }
+
+    @Override // d.a.n0.a.c1.d.e
+    public boolean c(Context context, d.a.n0.a.h1.c.c cVar, d.a.n0.a.h1.b bVar, d.a.n0.a.a2.e eVar) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, cVar, bVar, eVar)) == null) ? d.a.n0.j.k.e.c.d().c(context, cVar, bVar, eVar) : invokeLLLL.booleanValue;
+    }
+
+    @Override // d.a.n0.a.c1.d.e
+    public void d(d.a.n0.a.p.e.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            c.h(bVar);
+        }
+    }
+
+    @Override // d.a.n0.a.c1.d.e
+    public boolean e(Context context, d.a.n0.a.h1.c.a aVar, d.a.n0.a.h1.b bVar, d.a.n0.a.a2.e eVar) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, context, aVar, bVar, eVar)) == null) ? d.a.n0.j.o.f.a.h().c(context, aVar, bVar, eVar) : invokeLLLL.booleanValue;
+    }
+
+    @Override // d.a.n0.a.c1.d.e
+    public void f(d.a.n0.a.p.e.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            c.d(bVar);
+        }
+    }
+
+    @Override // d.a.n0.a.c1.d.e
+    public boolean g(Context context, d.a.n0.a.h1.c.c cVar, d.a.n0.a.h1.b bVar, d.a.n0.a.a2.e eVar) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, context, cVar, bVar, eVar)) == null) ? d.a.n0.j.k.b.e().c(context, cVar, bVar, eVar) : invokeLLLL.booleanValue;
+    }
+
+    @Override // d.a.n0.a.c1.d.e
+    public boolean h(Context context, d.a.n0.a.h1.c.e eVar, d.a.n0.a.h1.b bVar, d.a.n0.a.a2.e eVar2) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, context, eVar, bVar, eVar2)) == null) ? d.a.n0.j.k.e.f.e().c(context, eVar, bVar, eVar2) : invokeLLLL.booleanValue;
+    }
+
+    @Override // d.a.n0.a.c1.d.e
+    public void i(d.a.n0.a.p.e.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
+            c.e(bVar);
+        }
+    }
+
+    @Override // d.a.n0.a.c1.d.e
+    public boolean j(Context context, d.a.n0.a.h1.c.f fVar, d.a.n0.a.h1.b bVar, d.a.n0.a.a2.e eVar) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, context, fVar, bVar, eVar)) == null) ? d.a.n0.j.k.e.g.e().c(context, fVar, bVar, eVar) : invokeLLLL.booleanValue;
+    }
+
+    @Override // d.a.n0.a.c1.d.e
+    public boolean k(Context context, d.a.n0.a.h1.c.c cVar, d.a.n0.a.h1.b bVar, d.a.n0.a.a2.e eVar) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048586, this, context, cVar, bVar, eVar)) == null) ? d.a.n0.j.k.e.a.d().c(context, cVar, bVar, eVar) : invokeLLLL.booleanValue;
+    }
+
+    @Override // d.a.n0.a.c1.d.e
+    public boolean l(Context context, d.a.n0.a.h1.c.c cVar, d.a.n0.a.h1.b bVar, d.a.n0.a.a2.e eVar) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048587, this, context, cVar, bVar, eVar)) == null) ? d.a.n0.j.k.c.d().c(context, cVar, bVar, eVar) : invokeLLLL.booleanValue;
+    }
+
+    @Override // d.a.n0.a.c1.d.e
+    public boolean m(Context context, d.a.n0.a.h1.c.c cVar, d.a.n0.a.h1.b bVar, d.a.n0.a.a2.e eVar) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048588, this, context, cVar, bVar, eVar)) == null) ? d.a.n0.j.k.e.e.f().c(context, cVar, bVar, eVar) : invokeLLLL.booleanValue;
+    }
+
+    @Override // d.a.n0.a.c1.d.e
+    public boolean n(Context context, d.a.n0.a.h1.c.c cVar, d.a.n0.a.h1.b bVar, d.a.n0.a.a2.e eVar) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048589, this, context, cVar, bVar, eVar)) == null) ? d.a.n0.j.k.e.b.d().c(context, cVar, bVar, eVar) : invokeLLLL.booleanValue;
+    }
+
+    @Override // d.a.n0.a.c1.d.e
+    public boolean o(Context context, d.a.n0.a.h1.c.c cVar, d.a.n0.a.h1.b bVar, d.a.n0.a.a2.e eVar) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048590, this, context, cVar, bVar, eVar)) == null) ? d.a.n0.j.k.d.d().c(context, cVar, bVar, eVar) : invokeLLLL.booleanValue;
+    }
+}

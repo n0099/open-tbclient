@@ -3,6 +3,7 @@ package com.baidu.tieba.tblauncher;
 import android.app.Activity;
 import android.net.Uri;
 import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -37,21 +38,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.a4.i;
+import d.a.p0.a4.i;
 import java.net.URLDecoder;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MainTabActivityStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f21311a;
+    public static int f21357a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f21312b;
+    public static boolean f21358b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,13 +84,13 @@ public class MainTabActivityStatic {
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Activity) {
-                    d.a.r0.r.a0.b.d((Activity) data);
+                    d.a.o0.r.a0.b.d((Activity) data);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class b implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,10 +123,10 @@ public class MainTabActivityStatic {
                     String str = strArr[0];
                     if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE)) {
                         if (str.contains(UrlSchemaHelper.GOTO_ENTERFORUM_TAB)) {
-                            d.a.r0.r.a0.b.f(tbPageContext.getPageActivity(), 1, true);
+                            d.a.o0.r.a0.b.f(tbPageContext.getPageActivity(), 1, true);
                             return 1;
                         } else if (str.contains(UrlSchemaHelper.GOTO_RECOMMNEDS_FRS_TAB)) {
-                            d.a.r0.r.a0.b.f(tbPageContext.getPageActivity(), 2, true);
+                            d.a.o0.r.a0.b.f(tbPageContext.getPageActivity(), 2, true);
                             return 1;
                         }
                     }
@@ -152,7 +153,7 @@ public class MainTabActivityStatic {
                             i2 = -1;
                         }
                         if (i2 != -1) {
-                            d.a.r0.r.a0.b.f(tbPageContext.getPageActivity(), i2, true);
+                            d.a.o0.r.a0.b.f(tbPageContext.getPageActivity(), i2, true);
                             return 1;
                         }
                     }
@@ -163,7 +164,7 @@ public class MainTabActivityStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -198,7 +199,7 @@ public class MainTabActivityStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class d implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -267,7 +268,7 @@ public class MainTabActivityStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class e implements CustomMessageTask.CustomRunnable<MainTabActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -300,7 +301,7 @@ public class MainTabActivityStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class f implements CustomMessageTask.CustomRunnable<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -334,7 +335,7 @@ public class MainTabActivityStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class g implements CustomMessageTask.CustomRunnable<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -367,7 +368,7 @@ public class MainTabActivityStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class h implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -459,7 +460,7 @@ public class MainTabActivityStatic {
     public static boolean c(NewsRemindMessage newsRemindMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, newsRemindMessage)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, newsRemindMessage)) == null) {
             if (newsRemindMessage == null) {
                 return false;
             }
@@ -476,11 +477,11 @@ public class MainTabActivityStatic {
         }
         int b2 = b(newsRemindMessage);
         boolean c2 = c(newsRemindMessage);
-        if (b2 == f21311a && c2 == f21312b) {
+        if (b2 == f21357a && c2 == f21358b) {
             return;
         }
-        f21311a = b2;
-        f21312b = c2;
+        f21357a = b2;
+        f21358b = c2;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921002, new Pair(Integer.valueOf(b2), Boolean.valueOf(c2))));
     }
 

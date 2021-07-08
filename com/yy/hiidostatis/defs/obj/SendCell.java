@@ -1,5 +1,6 @@
 package com.yy.hiidostatis.defs.obj;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +16,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class SendCell {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AES_KEY = "*&Hjkfa{{07";
@@ -98,7 +99,7 @@ public class SendCell {
     public static long parseId(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
                 if (str.endsWith(".sec")) {
                     return Long.parseLong(str.substring(0, str.length() - 4));

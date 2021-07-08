@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.q.b2;
-/* loaded from: classes8.dex */
+import d.a.o0.r.q.b2;
+/* loaded from: classes7.dex */
 public class j extends c implements p<b2>, q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public FollowUserDecorView f45755i;
+    public FollowUserDecorView f42647i;
     public boolean j;
     public int k;
     public int l;
@@ -45,13 +45,13 @@ public class j extends c implements p<b2>, q {
         this.k = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds166);
         this.l = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds78);
         FollowUserDecorView followUserDecorView = new FollowUserDecorView(tbPageContext.getPageActivity());
-        this.f45755i = followUserDecorView;
+        this.f42647i = followUserDecorView;
         followUserDecorView.setUseNewStyle(z);
         h(-1);
         m(z);
     }
 
-    public void k(d.a.r0.r.q.a aVar, boolean z) {
+    public void k(d.a.o0.r.q.a aVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, z) == null) {
             this.j = z;
@@ -81,7 +81,7 @@ public class j extends c implements p<b2>, q {
                 layoutParams.topMargin = l(R.dimen.tbds52);
             }
             i(layoutParams);
-            g(this.f45755i);
+            g(this.f42647i);
         }
     }
 
@@ -93,19 +93,19 @@ public class j extends c implements p<b2>, q {
         if (interceptable == null || interceptable.invokeL(1048580, this, b2Var) == null) {
             if (b2Var != null && b2Var.H() != null) {
                 p(l(this.j ? R.dimen.tbds120 : R.dimen.tbds44));
-                this.f45755i.setVisibility(0);
-                this.f45755i.setData(b2Var);
-                this.f45755i.setTag(b2Var);
+                this.f42647i.setVisibility(0);
+                this.f42647i.setData(b2Var);
+                this.f42647i.setTag(b2Var);
                 return;
             }
-            this.f45755i.setVisibility(8);
+            this.f42647i.setVisibility(8);
         }
     }
 
     public void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f45755i.setClickableUnLike(z);
+            this.f42647i.setClickableUnLike(z);
         }
     }
 
@@ -113,7 +113,7 @@ public class j extends c implements p<b2>, q {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i2) == null) {
-            this.f45755i.r(i2);
+            this.f42647i.r(i2);
         }
     }
 
@@ -123,28 +123,28 @@ public class j extends c implements p<b2>, q {
             if (d() != null) {
                 d().rightMargin = i2;
             }
-            this.f45755i.setLayoutParams(d());
+            this.f42647i.setLayoutParams(d());
         }
     }
 
     public void q(FollowUserButton.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.f45755i.setOnClickEvent(aVar);
+            this.f42647i.setOnClickEvent(aVar);
         }
     }
 
     public void r(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) {
-            this.f45755i.setPageUniqueId(bdUniqueId);
+            this.f42647i.setPageUniqueId(bdUniqueId);
         }
     }
 
     public void s(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f45755i.setSvgIconResId(i2);
+            this.f42647i.setSvgIconResId(i2);
         }
     }
 }

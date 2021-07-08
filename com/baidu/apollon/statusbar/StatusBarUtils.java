@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.Window;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -73,7 +74,7 @@ public class StatusBarUtils {
     public static int getInternalDimensionSize(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             int identifier = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
             int dimensionPixelSize = identifier > 0 ? context.getResources().getDimensionPixelSize(identifier) : 0;
             return dimensionPixelSize > 0 ? dimensionPixelSize : dip2px(context, 25.0f);
@@ -131,13 +132,13 @@ public class StatusBarUtils {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ View f4001a;
+            public final /* synthetic */ View f4004a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ ViewGroup.LayoutParams f4002b;
+            public final /* synthetic */ ViewGroup.LayoutParams f4005b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ Context f4003c;
+            public final /* synthetic */ Context f4006c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -154,9 +155,9 @@ public class StatusBarUtils {
                         return;
                     }
                 }
-                this.f4001a = view;
-                this.f4002b = layoutParams;
-                this.f4003c = context;
+                this.f4004a = view;
+                this.f4005b = layoutParams;
+                this.f4006c = context;
             }
 
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -165,11 +166,11 @@ public class StatusBarUtils {
                 if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || Build.VERSION.SDK_INT < 19) {
                     return;
                 }
-                this.f4001a.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                this.f4002b.height = this.f4001a.getHeight() + StatusBarUtils.getStatusBarHeight(this.f4003c);
-                View view2 = this.f4001a;
-                view2.setPadding(view2.getPaddingLeft(), this.f4001a.getPaddingTop() + StatusBarUtils.getStatusBarHeight(this.f4003c), this.f4001a.getPaddingRight(), this.f4001a.getPaddingBottom());
-                this.f4001a.setLayoutParams(this.f4002b);
+                this.f4004a.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                this.f4005b.height = this.f4004a.getHeight() + StatusBarUtils.getStatusBarHeight(this.f4006c);
+                View view2 = this.f4004a;
+                view2.setPadding(view2.getPaddingLeft(), this.f4004a.getPaddingTop() + StatusBarUtils.getStatusBarHeight(this.f4006c), this.f4004a.getPaddingRight(), this.f4004a.getPaddingBottom());
+                this.f4004a.setLayoutParams(this.f4005b);
             }
         });
     }

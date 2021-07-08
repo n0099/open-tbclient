@@ -10,34 +10,34 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.pngencrypt.chunk.ah;
 import java.io.Closeable;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class o implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final k f38792a;
+    public final k f35864a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f38793b;
+    public final boolean f35865b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c f38794c;
+    public final c f35866c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final a f38795d;
+    public final a f35867d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ah f38796e;
+    public final ah f35868e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f38797f;
+    public int f35869f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ErrorBehaviour f38798g;
+    public ErrorBehaviour f35870g;
 
     /* renamed from: h  reason: collision with root package name */
-    public i<? extends Object> f38799h;
+    public i<? extends Object> f35871h;
 
     public o(InputStream inputStream, boolean z) {
         Interceptable interceptable = $ic;
@@ -54,30 +54,30 @@ public class o implements Closeable {
                 return;
             }
         }
-        this.f38797f = -1;
-        this.f38798g = ErrorBehaviour.STRICT;
+        this.f35869f = -1;
+        this.f35870g = ErrorBehaviour.STRICT;
         a aVar = new a(inputStream);
-        this.f38795d = aVar;
+        this.f35867d = aVar;
         aVar.a(z);
         c f2 = f();
-        this.f38794c = f2;
+        this.f35866c = f2;
         try {
-            if (this.f38795d.b(f2, 36) != 36) {
+            if (this.f35867d.b(f2, 36) != 36) {
                 com.kwad.sdk.core.d.a.a(new PngjException("Could not read first 36 bytes (PNG signature+IHDR chunk)"));
             }
-            this.f38792a = this.f38794c.j();
-            this.f38793b = this.f38794c.k() != null;
+            this.f35864a = this.f35866c.j();
+            this.f35865b = this.f35866c.k() != null;
             b(5024024L);
             a(901001001L);
             c(2024024L);
-            this.f38794c.c("fdAT");
-            this.f38794c.c("fcTL");
-            this.f38796e = new ah(this.f38794c.f38692i);
+            this.f35866c.c("fdAT");
+            this.f35866c.c("fcTL");
+            this.f35868e = new ah(this.f35866c.f35764i);
             a(m.a());
-            this.f38797f = -1;
+            this.f35869f = -1;
         } catch (RuntimeException e2) {
-            this.f38795d.close();
-            this.f38794c.close();
+            this.f35867d.close();
+            this.f35866c.close();
             throw e2;
         }
     }
@@ -88,11 +88,11 @@ public class o implements Closeable {
             return;
         }
         while (true) {
-            c cVar = this.f38794c;
-            if (cVar.f38691h >= 4) {
+            c cVar = this.f35866c;
+            if (cVar.f35763h >= 4) {
                 return;
             }
-            if (this.f38795d.a(cVar) <= 0) {
+            if (this.f35867d.a(cVar) <= 0) {
                 com.kwad.sdk.core.d.a.a(new PngjException("Premature ending reading first chunks"));
             }
         }
@@ -101,14 +101,14 @@ public class o implements Closeable {
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.f38794c.a(j);
+            this.f35866c.a(j);
         }
     }
 
     public void a(i<? extends Object> iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iVar) == null) {
-            this.f38799h = iVar;
+            this.f35871h = iVar;
         }
     }
 
@@ -116,10 +116,10 @@ public class o implements Closeable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f38794c.g()) {
+            if (this.f35866c.g()) {
                 a();
             }
-            return this.f38796e;
+            return this.f35868e;
         }
         return (ah) invokeV.objValue;
     }
@@ -127,7 +127,7 @@ public class o implements Closeable {
     public void b(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.f38794c.c(j);
+            this.f35866c.c(j);
         }
     }
 
@@ -135,9 +135,9 @@ public class o implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             e();
-            this.f38794c.c("IDAT");
-            this.f38794c.c("fdAT");
-            if (this.f38794c.g()) {
+            this.f35866c.c("IDAT");
+            this.f35866c.c("fdAT");
+            if (this.f35866c.g()) {
                 a();
             }
             d();
@@ -147,7 +147,7 @@ public class o implements Closeable {
     public void c(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.f38794c.b(j);
+            this.f35866c.b(j);
         }
     }
 
@@ -156,13 +156,13 @@ public class o implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             try {
-                if (this.f38794c != null) {
-                    this.f38794c.close();
+                if (this.f35866c != null) {
+                    this.f35866c.close();
                 }
             } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.d("PNG_ENCRYPT", "error closing chunk sequence:" + e2.getMessage());
+                com.kwad.sdk.core.d.a.e("PNG_ENCRYPT", "error closing chunk sequence:" + e2.getMessage());
             }
-            a aVar = this.f38795d;
+            a aVar = this.f35867d;
             if (aVar != null) {
                 aVar.close();
             }
@@ -173,13 +173,13 @@ public class o implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             try {
-                if (this.f38794c.g()) {
+                if (this.f35866c.g()) {
                     a();
                 }
-                if (this.f38794c.h() != null && !this.f38794c.h().d()) {
-                    this.f38794c.h().g();
+                if (this.f35866c.h() != null && !this.f35866c.h().d()) {
+                    this.f35866c.h().g();
                 }
-                while (!this.f38794c.b() && this.f38795d.a(this.f38794c) > 0) {
+                while (!this.f35866c.b() && this.f35867d.a(this.f35866c) > 0) {
                 }
             } finally {
                 close();
@@ -190,7 +190,7 @@ public class o implements Closeable {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f38794c.a(false);
+            this.f35866c.a(false);
         }
     }
 
@@ -204,7 +204,7 @@ public class o implements Closeable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.f38792a.toString() + " interlaced=" + this.f38793b;
+            return this.f35864a.toString() + " interlaced=" + this.f35865b;
         }
         return (String) invokeV.objValue;
     }

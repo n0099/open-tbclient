@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.crabsdk.lite.a.n;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,15 +12,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f4721a;
+    public static SimpleDateFormat f4738a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static PackageManager f4722b;
+    public static PackageManager f4739b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a(long j) {
@@ -55,10 +56,10 @@ public final class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, date)) == null) {
-            if (f4721a == null) {
-                f4721a = new SimpleDateFormat("MM-dd HH:mm:ss");
+            if (f4738a == null) {
+                f4738a = new SimpleDateFormat("MM-dd HH:mm:ss");
             }
-            return f4721a.format(date);
+            return f4738a.format(date);
         }
         return (String) invokeL.objValue;
     }
@@ -90,11 +91,11 @@ public final class c {
     public static boolean e(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) {
-            if (f4722b == null) {
-                f4722b = context.getPackageManager();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            if (f4739b == null) {
+                f4739b = context.getPackageManager();
             }
-            return f4722b.checkPermission(str, context.getPackageName()) == 0;
+            return f4739b.checkPermission(str, context.getPackageName()) == 0;
         }
         return invokeLL.booleanValue;
     }

@@ -1,5 +1,5 @@
 package com.baidu.mobads.container.util.animation;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface OnTransitionListener {
     void onFinishActivity();
 

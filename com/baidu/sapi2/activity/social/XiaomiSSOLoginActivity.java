@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.account.openauth.XiaomiOAuthFuture;
 import com.xiaomi.account.openauth.XiaomiOAuthResults;
 import com.xiaomi.account.openauth.XiaomiOAuthorize;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,24 +25,24 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
     public boolean o;
     public c p;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ XiaomiOAuthFuture f9908a;
+        public final /* synthetic */ XiaomiOAuthFuture f9925a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ XiaomiSSOLoginActivity f9909b;
+        public final /* synthetic */ XiaomiSSOLoginActivity f9926b;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f9910a;
+            public final /* synthetic */ b f9927a;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -59,35 +59,35 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
                         return;
                     }
                 }
-                this.f9910a = bVar;
+                this.f9927a = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f9910a.f9909b.p.a();
+                    this.f9927a.f9926b.p.a();
                 }
             }
         }
 
         /* renamed from: com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity$b$b  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public class RunnableC0143b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f9911a;
+            public final /* synthetic */ String f9928a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f9912b;
+            public final /* synthetic */ String f9929b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f9913c;
+            public final /* synthetic */ String f9930c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ b f9914d;
+            public final /* synthetic */ b f9931d;
 
             public RunnableC0143b(b bVar, String str, String str2, String str3) {
                 Interceptable interceptable = $ic;
@@ -104,17 +104,17 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
                         return;
                     }
                 }
-                this.f9914d = bVar;
-                this.f9911a = str;
-                this.f9912b = str2;
-                this.f9913c = str3;
+                this.f9931d = bVar;
+                this.f9928a = str;
+                this.f9929b = str2;
+                this.f9930c = str3;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f9914d.f9909b.p.a(this.f9911a, this.f9912b, this.f9913c);
+                    this.f9931d.f9926b.p.a(this.f9928a, this.f9929b, this.f9930c);
                 }
             }
         }
@@ -134,8 +134,8 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
                     return;
                 }
             }
-            this.f9909b = xiaomiSSOLoginActivity;
-            this.f9908a = xiaomiOAuthFuture;
+            this.f9926b = xiaomiSSOLoginActivity;
+            this.f9925a = xiaomiOAuthFuture;
         }
 
         @Override // java.lang.Runnable
@@ -143,7 +143,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    XiaomiOAuthResults xiaomiOAuthResults = (XiaomiOAuthResults) this.f9908a.getResult();
+                    XiaomiOAuthResults xiaomiOAuthResults = (XiaomiOAuthResults) this.f9925a.getResult();
                     if (xiaomiOAuthResults.hasError()) {
                         new Handler(Looper.getMainLooper()).post(new a(this));
                         return;
@@ -156,7 +156,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface c {
         void a();
 
@@ -216,7 +216,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.setupViews();
-            setTitleText(d.a.e0.a.j.a.sapi_sdk_title_login_xiaomi);
+            setTitleText(d.a.b0.a.j.a.sapi_sdk_title_login_xiaomi);
             RelativeLayout relativeLayout = this.rootView;
             if (relativeLayout != null) {
                 relativeLayout.setVisibility(4);
@@ -235,13 +235,13 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ XiaomiSSOLoginActivity f9907a;
+        public final /* synthetic */ XiaomiSSOLoginActivity f9924a;
 
         public a(XiaomiSSOLoginActivity xiaomiSSOLoginActivity) {
             Interceptable interceptable = $ic;
@@ -258,27 +258,27 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
                     return;
                 }
             }
-            this.f9907a = xiaomiSSOLoginActivity;
+            this.f9924a = xiaomiSSOLoginActivity;
         }
 
         @Override // com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity.c
         public void a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3) == null) || this.f9907a.sapiWebView == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3) == null) || this.f9924a.sapiWebView == null) {
                 return;
             }
-            SapiConfiguration sapiConfiguration = this.f9907a.configuration;
+            SapiConfiguration sapiConfiguration = this.f9924a.configuration;
             SocialType socialType = SocialType.XIAOMI;
-            this.f9907a.a(ParamsUtil.getUrlBind(sapiConfiguration, socialType, str, str2, this.f9907a.configuration.xiaomiAppID + ""), "小米授权登录中");
-            this.f9907a.o = false;
+            this.f9924a.a(ParamsUtil.getUrlBind(sapiConfiguration, socialType, str, str2, this.f9924a.configuration.xiaomiAppID + ""), "小米授权登录中");
+            this.f9924a.o = false;
         }
 
         @Override // com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                XiaomiSSOLoginActivity xiaomiSSOLoginActivity = this.f9907a;
-                xiaomiSSOLoginActivity.a(((BaseSSOLoginActivity) xiaomiSSOLoginActivity).f9883g);
+                XiaomiSSOLoginActivity xiaomiSSOLoginActivity = this.f9924a;
+                xiaomiSSOLoginActivity.a(((BaseSSOLoginActivity) xiaomiSSOLoginActivity).f9900g);
             }
         }
     }

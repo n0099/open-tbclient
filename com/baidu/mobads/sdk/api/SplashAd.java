@@ -20,12 +20,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.h0.a.b.a;
-import d.a.k0.a.g.d;
+import d.a.e0.a.b.a;
+import d.a.h0.a.g.d;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SplashAd implements d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_BOTTOM_LOGO_HEIGHT = "bottomLogoHeight";
@@ -52,12 +52,12 @@ public class SplashAd implements d {
     public int mTimeout;
     public int mTipStyle;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface OnFinishListener {
         void onFinishActivity();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface SplashFocusAdListener {
         void onAdClick();
 
@@ -98,7 +98,7 @@ public class SplashAd implements d {
 
     public static void registerEnterTransition(Activity activity, SplashFocusAdListener splashFocusAdListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, activity, splashFocusAdListener) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, splashFocusAdListener) == null) {
             XSplashAdProd.registerEnterTransition(activity, null, splashFocusAdListener);
         }
     }
@@ -128,7 +128,7 @@ public class SplashAd implements d {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("place_id", this.mAdPlaceId);
-                jSONObject.put("source", TextUtils.equals(this.mAdPlaceId, a.f45561a.get().A()) ? "bes_cpc" : "gd");
+                jSONObject.put("source", TextUtils.equals(this.mAdPlaceId, a.f42209a.get().A()) ? "bes_cpc" : "gd");
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

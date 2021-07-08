@@ -82,7 +82,7 @@ public class ContentProviderProxy extends ContentProvider {
     public static ContentProvider queryContentProvider(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             ArrayList<Plugin> allPlugins = PluginCenter.getInstance().getAllPlugins();
             if (str != null && allPlugins != null && allPlugins.size() != 0) {
                 try {

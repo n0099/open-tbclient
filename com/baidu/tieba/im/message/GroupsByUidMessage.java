@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.QueryGroupsByUid.DataReq;
 import protobuf.QueryGroupsByUid.QueryGroupsByUidReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GroupsByUidMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

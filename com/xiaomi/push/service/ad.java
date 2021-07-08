@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class ad extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f43565a;
+    public final /* synthetic */ int f40579a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ ao f879a;
@@ -38,7 +38,7 @@ public final class ad extends ai.a {
         }
         this.f880a = str;
         this.f879a = aoVar;
-        this.f43565a = i2;
+        this.f40579a = i2;
     }
 
     @Override // com.xiaomi.push.ai.a
@@ -53,7 +53,7 @@ public final class ad extends ai.a {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f879a.a(this.f43565a);
+            this.f879a.a(this.f40579a);
         }
     }
 }

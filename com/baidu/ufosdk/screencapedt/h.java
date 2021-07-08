@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.ui.FeedbackEditActivity;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class h implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f23258a;
+    public final /* synthetic */ int f23368a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ ScreenCapEditActivity f23259b;
+    public final /* synthetic */ ScreenCapEditActivity f23369b;
 
     public h(ScreenCapEditActivity screenCapEditActivity, int i2) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public final class h implements Runnable {
                 return;
             }
         }
-        this.f23259b = screenCapEditActivity;
-        this.f23258a = i2;
+        this.f23369b = screenCapEditActivity;
+        this.f23368a = i2;
     }
 
     @Override // java.lang.Runnable
@@ -43,13 +43,13 @@ public final class h implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Intent intent = new Intent();
-            intent.setClass(this.f23259b, FeedbackEditActivity.class);
-            byteArrayOutputStream = this.f23259b.J;
+            intent.setClass(this.f23369b, FeedbackEditActivity.class);
+            byteArrayOutputStream = this.f23369b.J;
             intent.putExtra("shot", byteArrayOutputStream.toByteArray());
-            intent.putExtra("extend_feedback_channel", this.f23258a);
-            intent.putExtra("feedback_channel", this.f23258a);
-            this.f23259b.startActivity(intent);
-            this.f23259b.finish();
+            intent.putExtra("extend_feedback_channel", this.f23368a);
+            intent.putExtra("feedback_channel", this.f23368a);
+            this.f23369b.startActivity(intent);
+            this.f23369b.finish();
         }
     }
 }

@@ -1,50 +1,37 @@
 package com.kwad.sdk.utils;
 
+import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.IntentFilter;
-import androidx.annotation.NonNull;
+import android.media.AudioAttributes;
+import android.media.AudioFocusRequest;
+import android.media.AudioManager;
+import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
-import com.baidu.tieba.service.AsInstallService;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+import org.webrtc.MediaStreamTrack;
+/* loaded from: classes6.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final AtomicBoolean f39393a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static volatile h f39394b;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* renamed from: a  reason: collision with root package name */
+    public AudioManager f36573a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public AudioManager.OnAudioFocusChangeListener f36574b;
+
     /* renamed from: c  reason: collision with root package name */
-    public Context f39395c;
+    public a f36575c;
 
-    /* renamed from: d  reason: collision with root package name */
-    public a f39396d;
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1510835508, "Lcom/kwad/sdk/utils/h;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1510835508, "Lcom/kwad/sdk/utils/h;");
-                return;
-            }
-        }
-        f39393a = new AtomicBoolean(false);
+        void b();
     }
 
     public h(Context context) {
@@ -53,63 +40,81 @@ public class h {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f39395c = context.getApplicationContext();
-    }
+        this.f36573a = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        this.f36574b = new AudioManager.OnAudioFocusChangeListener(this) { // from class: com.kwad.sdk.utils.h.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-    public static h a(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f39394b == null) {
-                synchronized (h.class) {
-                    if (f39394b == null) {
-                        f39394b = new h(context);
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ h f36576a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
                     }
                 }
+                this.f36576a = this;
             }
-            return f39394b;
-        }
-        return (h) invokeL.objValue;
+
+            @Override // android.media.AudioManager.OnAudioFocusChangeListener
+            public void onAudioFocusChange(int i4) {
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeI(1048576, this, i4) == null) || this.f36576a.f36575c == null) {
+                    return;
+                }
+                if (i4 < 0) {
+                    this.f36576a.f36575c.a();
+                } else {
+                    this.f36576a.f36575c.b();
+                }
+            }
+        };
     }
 
-    private void c() {
-        Context context;
+    @TargetApi(26)
+    private AudioFocusRequest b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && f39393a.get() && (context = this.f39395c) != null) {
-            context.unregisterReceiver(this.f39396d);
-            f39393a.set(false);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? new AudioFocusRequest.Builder(2).setAudioAttributes(new AudioAttributes.Builder().setLegacyStreamType(3).setUsage(1).setContentType(2).build()).setAcceptsDelayedFocusGain(false).setOnAudioFocusChangeListener(this.f36574b).build() : (AudioFocusRequest) invokeV.objValue;
+    }
+
+    public void a(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            this.f36575c = aVar;
         }
     }
 
-    public void a() {
+    public boolean a() {
+        InterceptResult invokeV;
+        AudioManager audioManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f39395c == null || f39393a.get()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener = this.f36574b;
+            if (onAudioFocusChangeListener == null || (audioManager = this.f36573a) == null) {
+                return false;
+            }
+            return Build.VERSION.SDK_INT >= 26 ? 1 == audioManager.requestAudioFocus(b()) : 1 == audioManager.requestAudioFocus(onAudioFocusChangeListener, 3, 2);
         }
-        if (this.f39396d == null) {
-            this.f39396d = new a();
-        }
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(PackageChangedReceiver.ACTION_UNINSTALL);
-        intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
-        intentFilter.addDataScheme(AsInstallService.SCHEME_PACKAGE_ADDED);
-        this.f39395c.registerReceiver(this.f39396d, intentFilter);
-        f39393a.set(true);
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c();
-        }
+        return invokeV.booleanValue;
     }
 }

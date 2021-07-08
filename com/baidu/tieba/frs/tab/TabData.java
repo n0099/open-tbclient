@@ -5,10 +5,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.u0.k2.e;
+import d.a.p0.u0.k2.e;
 import java.util.Collection;
 import java.util.LinkedList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TabData extends LinkedList<e> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_TAB_LOCATE_1 = 1;

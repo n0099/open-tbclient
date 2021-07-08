@@ -857,6 +857,6 @@ public abstract class JSONValidator implements Cloneable, Closeable {
     public static JSONValidator fromUtf8(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, inputStream)) == null) ? new UTF8InputStreamValidator(inputStream) : (JSONValidator) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream)) == null) ? new UTF8InputStreamValidator(inputStream) : (JSONValidator) invokeL.objValue;
     }
 }

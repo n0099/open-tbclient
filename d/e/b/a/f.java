@@ -1,6 +1,7 @@
 package d.e.b.a;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,21 +16,21 @@ import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f72053a;
+    public static final Object f69156a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SimpleDateFormat f72054b;
+    public static final SimpleDateFormat f69157b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final SimpleDateFormat f72055c;
+    public static final SimpleDateFormat f69158c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +58,7 @@ public class f {
                 if (g2 == null || g2.length <= 0) {
                     return;
                 }
-                synchronized (f.f72053a) {
+                synchronized (f.f69156a) {
                     for (File file : g2) {
                         if (currentTimeMillis - file.lastModified() > 172800000) {
                             file.delete();
@@ -81,9 +82,9 @@ public class f {
                 return;
             }
         }
-        f72053a = new Object();
-        f72054b = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.US);
-        f72055c = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
+        f69156a = new Object();
+        f69157b = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.US);
+        f69158c = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
     }
 
     public static void b() {
@@ -98,7 +99,7 @@ public class f {
         String d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            synchronized (f72053a) {
+            synchronized (f69156a) {
                 d2 = d("looper", str);
             }
             return d2;
@@ -109,19 +110,19 @@ public class f {
     public static String d(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             String str3 = "";
             BufferedWriter bufferedWriter = null;
             try {
                 File c2 = c.c();
                 long currentTimeMillis = System.currentTimeMillis();
-                str3 = c2.getAbsolutePath() + "/" + str + "-" + f72054b.format(Long.valueOf(currentTimeMillis)) + ".log";
+                str3 = c2.getAbsolutePath() + "/" + str + "-" + f69157b.format(Long.valueOf(currentTimeMillis)) + ".log";
                 BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(str3, true), "UTF-8"));
                 try {
                     bufferedWriter2.write(Part.CRLF);
                     bufferedWriter2.write("**********************");
                     bufferedWriter2.write(Part.CRLF);
-                    bufferedWriter2.write(f72055c.format(Long.valueOf(currentTimeMillis)) + "(write log time)");
+                    bufferedWriter2.write(f69158c.format(Long.valueOf(currentTimeMillis)) + "(write log time)");
                     bufferedWriter2.write(Part.CRLF);
                     bufferedWriter2.write(Part.CRLF);
                     bufferedWriter2.write(str2);

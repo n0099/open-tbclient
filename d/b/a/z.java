@@ -13,12 +13,12 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class z implements IDataObserver {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<WeakReference<IDataObserver>> f71785a;
+    public static ArrayList<WeakReference<IDataObserver>> f68888a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class z implements IDataObserver {
                 return;
             }
         }
-        f71785a = new ArrayList<>(4);
+        f68888a = new ArrayList<>(4);
     }
 
     public z() {
@@ -56,7 +56,7 @@ public class z implements IDataObserver {
         if (interceptable == null || interceptable.invokeL(1048576, this, iDataObserver) == null) {
             synchronized (this) {
                 if (iDataObserver != null) {
-                    f71785a.add(new WeakReference<>(iDataObserver));
+                    f68888a.add(new WeakReference<>(iDataObserver));
                 }
             }
         }
@@ -66,7 +66,7 @@ public class z implements IDataObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iDataObserver) == null) {
             synchronized (this) {
-                Iterator<WeakReference<IDataObserver>> it = f71785a.iterator();
+                Iterator<WeakReference<IDataObserver>> it = f68888a.iterator();
                 while (it.hasNext()) {
                     IDataObserver iDataObserver2 = it.next().get();
                     if (iDataObserver2 == null) {
@@ -84,7 +84,7 @@ public class z implements IDataObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) {
             synchronized (this) {
-                Iterator<WeakReference<IDataObserver>> it = f71785a.iterator();
+                Iterator<WeakReference<IDataObserver>> it = f68888a.iterator();
                 while (it.hasNext()) {
                     IDataObserver iDataObserver = it.next().get();
                     if (iDataObserver == null) {
@@ -102,7 +102,7 @@ public class z implements IDataObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048579, this, z, jSONObject) == null) {
             synchronized (this) {
-                Iterator<WeakReference<IDataObserver>> it = f71785a.iterator();
+                Iterator<WeakReference<IDataObserver>> it = f68888a.iterator();
                 while (it.hasNext()) {
                     IDataObserver iDataObserver = it.next().get();
                     if (iDataObserver == null) {
@@ -120,7 +120,7 @@ public class z implements IDataObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048580, this, z, jSONObject) == null) {
             synchronized (this) {
-                Iterator<WeakReference<IDataObserver>> it = f71785a.iterator();
+                Iterator<WeakReference<IDataObserver>> it = f68888a.iterator();
                 while (it.hasNext()) {
                     IDataObserver iDataObserver = it.next().get();
                     if (iDataObserver == null) {
@@ -138,7 +138,7 @@ public class z implements IDataObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), str, str2, str3, str4, str5, str6}) == null) {
             synchronized (this) {
-                Iterator<WeakReference<IDataObserver>> it = f71785a.iterator();
+                Iterator<WeakReference<IDataObserver>> it = f68888a.iterator();
                 while (it.hasNext()) {
                     IDataObserver iDataObserver = it.next().get();
                     if (iDataObserver == null) {

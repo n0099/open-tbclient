@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FadeDrawable extends ArrayDrawable {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -97,7 +97,7 @@ public class FadeDrawable extends ArrayDrawable {
     public static boolean getGlobalFadingEnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? sGlobalFadingEnable : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? sGlobalFadingEnable : invokeV.booleanValue;
     }
 
     private void resetInternal() {

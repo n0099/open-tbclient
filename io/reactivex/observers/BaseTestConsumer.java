@@ -29,7 +29,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> implements Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,14 +45,14 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
     public final List<T> values;
 
     /* renamed from: io.reactivex.observers.BaseTestConsumer$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static abstract class TestWaitStrategy implements Runnable {
         public static final /* synthetic */ TestWaitStrategy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -311,7 +311,7 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
         public static TestWaitStrategy valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (TestWaitStrategy) Enum.valueOf(TestWaitStrategy.class, str) : (TestWaitStrategy) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (TestWaitStrategy) Enum.valueOf(TestWaitStrategy.class, str) : (TestWaitStrategy) invokeL.objValue;
         }
 
         public static TestWaitStrategy[] values() {

@@ -13,7 +13,7 @@ import com.baidu.wallet.qrcodescanner.QRScanCodeActivity;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class GetQRScanCodeResultAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,10 +41,10 @@ public class GetQRScanCodeResultAction implements RouterAction {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RouterCallback f27164a;
+                public final /* synthetic */ RouterCallback f27274a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ GetQRScanCodeResultAction f27165b;
+                public final /* synthetic */ GetQRScanCodeResultAction f27275b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -61,8 +61,8 @@ public class GetQRScanCodeResultAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f27165b = this;
-                    this.f27164a = routerCallback;
+                    this.f27275b = this;
+                    this.f27274a = routerCallback;
                 }
 
                 @Override // com.baidu.wallet.qrcodescanner.IScanCodeListener
@@ -75,7 +75,7 @@ public class GetQRScanCodeResultAction implements RouterAction {
                         }
                         HashMap hashMap2 = new HashMap();
                         hashMap2.put("value", str);
-                        RouterCallback routerCallback2 = this.f27164a;
+                        RouterCallback routerCallback2 = this.f27274a;
                         if (routerCallback2 != null) {
                             routerCallback2.onResult(0, hashMap2);
                         }
@@ -87,11 +87,11 @@ public class GetQRScanCodeResultAction implements RouterAction {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
                         QRScanCodeActivity.mLightAppListener = null;
-                        if (this.f27164a != null) {
+                        if (this.f27274a != null) {
                             HashMap hashMap2 = new HashMap();
                             hashMap2.put(RouterCallback.KEY_ERROR_CODE, Integer.valueOf(i2));
                             hashMap2.put("errorMsg", str);
-                            this.f27164a.onResult(1, hashMap2);
+                            this.f27274a.onResult(1, hashMap2);
                         }
                     }
                 }

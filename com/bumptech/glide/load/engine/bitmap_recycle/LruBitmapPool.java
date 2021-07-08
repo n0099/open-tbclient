@@ -7,6 +7,7 @@ import android.os.Build;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -21,7 +22,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LruBitmapPool implements BitmapPool {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Bitmap.Config DEFAULT_CONFIG;
@@ -38,14 +39,14 @@ public class LruBitmapPool implements BitmapPool {
     public final LruPoolStrategy strategy;
     public final BitmapTracker tracker;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface BitmapTracker {
         void add(Bitmap bitmap);
 
         void remove(Bitmap bitmap);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class NullBitmapTracker implements BitmapTracker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +80,7 @@ public class LruBitmapPool implements BitmapPool {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ThrowingBitmapTracker implements BitmapTracker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -167,7 +168,7 @@ public class LruBitmapPool implements BitmapPool {
     @TargetApi(26)
     public static void assertNotHardwareConfig(Bitmap.Config config) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65540, null, config) == null) && Build.VERSION.SDK_INT >= 26 && config == Bitmap.Config.HARDWARE) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, config) == null) && Build.VERSION.SDK_INT >= 26 && config == Bitmap.Config.HARDWARE) {
             throw new IllegalArgumentException("Cannot create a mutable Bitmap with config: " + config + ". Consider setting Downsampler#ALLOW_HARDWARE_CONFIG to false in your RequestOptions and/or in GlideBuilder.setDefaultRequestOptions");
         }
     }

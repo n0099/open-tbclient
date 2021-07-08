@@ -44,19 +44,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.z0.p0;
-import d.a.s0.w2.l;
+import d.a.o0.z0.p0;
+import d.a.p0.w2.l;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AdStatic {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f13700a = true;
+    public static boolean f13717a = true;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,11 +88,11 @@ public class AdStatic {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016 || customResponsedMessage.getData() == null) {
                 return;
             }
-            d.a.s0.q.c.a.c(TbadkCoreApplication.getInst());
+            d.a.p0.q.c.a.c(TbadkCoreApplication.getInst());
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class b implements l.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,7 +111,7 @@ public class AdStatic {
             }
         }
 
-        @Override // d.a.s0.w2.l.c
+        @Override // d.a.p0.w2.l.c
         public int a(Context context, String str, String str2, boolean z, l.d dVar, boolean z2, Bundle bundle) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public class AdStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class c implements l.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -146,7 +146,7 @@ public class AdStatic {
             }
         }
 
-        @Override // d.a.s0.w2.l.a
+        @Override // d.a.p0.w2.l.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Bundle i2;
@@ -174,7 +174,7 @@ public class AdStatic {
                         UtilHelper.smsTo(context, substring, str4);
                         return 0;
                     } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_JUMP_OUTER)) {
-                        d.a.s0.q.c.a.f(context, str);
+                        d.a.p0.q.c.a.f(context, str);
                         return 1;
                     } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_FINISH_THIS_PAGE) && (context instanceof Activity)) {
                         ((Activity) context).finish();
@@ -203,9 +203,9 @@ public class AdStatic {
                         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001372));
                         return 0;
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_OPFEATURE)) {
-                        AdStatic.p(context, d.a.s0.q.c.a.d(str.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_OPFEATURE, ""), str2), null, null);
+                        AdStatic.p(context, d.a.p0.q.c.a.d(str.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_OPFEATURE, ""), str2), null, null);
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_WEB)) {
-                        AdStatic.p(context, d.a.s0.q.c.a.d(str.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_WEB, ""), str2), null, null);
+                        AdStatic.p(context, d.a.p0.q.c.a.d(str.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_WEB, ""), str2), null, null);
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_TOPIC)) {
                         AdStatic.p(context, str3, str.substring(6), null);
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_ZB)) {
@@ -223,7 +223,7 @@ public class AdStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class d implements l.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -242,7 +242,7 @@ public class AdStatic {
             }
         }
 
-        @Override // d.a.s0.w2.l.a
+        @Override // d.a.p0.w2.l.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -312,7 +312,7 @@ public class AdStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class e implements l.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -331,7 +331,7 @@ public class AdStatic {
             }
         }
 
-        @Override // d.a.s0.w2.l.a
+        @Override // d.a.p0.w2.l.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -391,7 +391,7 @@ public class AdStatic {
         intentFilter.addAction(PackageChangedReceiver.ACTION_UNINSTALL);
         intentFilter.addDataScheme(AsInstallService.SCHEME_PACKAGE_ADDED);
         TbadkCoreApplication.getInst().registerReceiver(new AppNotificationReceiver(), intentFilter);
-        d.a.s0.q.a.l().o(bVar);
+        d.a.p0.q.a.l().o(bVar);
         SwitchManager.getInstance().addSwitchData(new d.a.c.e.f.b("switch_mbaidu_startup", 1, null));
         l();
         m();
@@ -565,28 +565,28 @@ public class AdStatic {
     public static void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, null) == null) {
-            d.a.s0.q.a.l().e(new c());
+            d.a.p0.q.a.l().e(new c());
         }
     }
 
     public static void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            d.a.s0.q.a.l().e(new d());
+            d.a.p0.q.a.l().e(new d());
         }
     }
 
     public static void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, null) == null) {
-            d.a.s0.q.a.l().e(new e());
+            d.a.p0.q.a.l().e(new e());
         }
     }
 
     public static void o(Context context, String str, String str2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65552, null, context, str, str2, bundle) == null) {
-            String d2 = d.a.s0.q.c.a.d(str, null);
+            String d2 = d.a.p0.q.c.a.d(str, null);
             Intent intent = new Intent();
             intent.setAction("com.baidu.searchbox.action.VIEW");
             intent.addCategory("android.intent.category.DEFAULT");
@@ -607,7 +607,7 @@ public class AdStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65553, null, context, str, str2, bundle) == null) {
             k(str);
-            d.a.s0.q.c.a.g(context, str, str2, bundle);
+            d.a.p0.q.c.a.g(context, str, str2, bundle);
         }
     }
 
@@ -616,7 +616,7 @@ public class AdStatic {
         if (interceptable == null || interceptable.invokeLLLL(65554, null, context, str, str2, bundle) == null) {
             TiebaStatic.eventStat(context, "url_1", null);
             String h2 = h(str);
-            if (!g(h2) && e() && i("com.baidu.searchbox") && f(h2) && f13700a) {
+            if (!g(h2) && e() && i("com.baidu.searchbox") && f(h2) && f13717a) {
                 TiebaStatic.eventStat(context, "url_2", null);
                 o(context, str, str2, bundle);
                 return;

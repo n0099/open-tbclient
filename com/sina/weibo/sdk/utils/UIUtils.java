@@ -3,13 +3,14 @@ package com.sina.weibo.sdk.utils;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.widget.Toast;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class UIUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +45,7 @@ public class UIUtils {
 
     public static void showToast(Context context, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65540, null, context, i2, i3) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2, i3) == null) || context == null) {
             return;
         }
         Toast.makeText(context, i2, i3).show();

@@ -23,7 +23,7 @@ import com.googlecode.mp4parser.util.Path;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractBox implements Box {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -99,7 +99,7 @@ public abstract class AbstractBox implements Box {
     private boolean isSmallBox() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             int i2 = "uuid".equals(getType()) ? 24 : 8;
             if (!this.isRead) {
                 return this.memMapSize + ((long) i2) < 4294967296L;

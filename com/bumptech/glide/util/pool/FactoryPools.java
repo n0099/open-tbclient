@@ -3,6 +3,7 @@ package com.bumptech.glide.util.pool;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.util.Pools;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class FactoryPools {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_POOL_SIZE = 20;
@@ -22,12 +23,12 @@ public final class FactoryPools {
     public static final String TAG = "FactoryPools";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface Factory<T> {
         T create();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class FactoryPool<T> implements Pools.Pool<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,13 +91,13 @@ public final class FactoryPools {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface Poolable {
         @NonNull
         StateVerifier getVerifier();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface Resetter<T> {
         void reset(@NonNull T t);
     }
@@ -166,7 +167,7 @@ public final class FactoryPools {
     public static <T> Resetter<T> emptyResetter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (Resetter<T>) EMPTY_RESETTER : (Resetter) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (Resetter<T>) EMPTY_RESETTER : (Resetter) invokeV.objValue;
     }
 
     @NonNull

@@ -2,6 +2,7 @@ package com.baidu.searchbox.aperf.bosuploader;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -19,7 +20,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ContentUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_LOCAL_EXPIRED_AT = "localExpireAt";
@@ -115,7 +116,7 @@ public class ContentUtil {
     public static STSInfo createSTSInfo(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
                 return createSTSInfo(new JSONObject(str));
             } catch (JSONException e2) {

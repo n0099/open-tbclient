@@ -1,6 +1,7 @@
 package com.baidu.mobads.container.util;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.utils.UtilsBlink;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Base64 {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] DECODING_TABLE;
@@ -128,7 +129,7 @@ public class Base64 {
     public static String decodeStr(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (str == null || str.length() < 4) {
                 return null;
             }

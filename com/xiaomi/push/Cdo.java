@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* renamed from: com.xiaomi.push.do  reason: invalid class name */
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class Cdo implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ dn f42969a;
+    public final /* synthetic */ dn f39983a;
 
     public Cdo(dn dnVar) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public class Cdo implements Runnable {
                 return;
             }
         }
-        this.f42969a = dnVar;
+        this.f39983a = dnVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f42969a.b();
+            this.f39983a.b();
         }
     }
 }

@@ -16,22 +16,22 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import kotlin.text.Typography;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<BasicNameValuePair> f44296a;
+    public ArrayList<BasicNameValuePair> f41312a;
 
     /* renamed from: b  reason: collision with root package name */
-    public StringBuilder f44297b;
+    public StringBuilder f41313b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f44298c;
+    public long f41314c;
 
     /* renamed from: d  reason: collision with root package name */
-    public g f44299d;
+    public g f41315d;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class a {
                 return;
             }
         }
-        this.f44297b = new StringBuilder(100);
+        this.f41313b = new StringBuilder(100);
     }
 
     public static String h(String str) {
@@ -62,10 +62,10 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, obj, obj2) == null) || obj == null || obj2 == null) {
             return;
         }
-        if (this.f44296a == null) {
-            this.f44296a = new ArrayList<>();
+        if (this.f41312a == null) {
+            this.f41312a = new ArrayList<>();
         }
-        this.f44296a.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
+        this.f41312a.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
     }
 
     public void b(String str, String str2) {
@@ -76,16 +76,16 @@ public class a {
         if (TextUtils.isEmpty(str2)) {
             str2 = "";
         }
-        if (this.f44297b.length() > 0) {
-            this.f44297b.append(Typography.amp);
+        if (this.f41313b.length() > 0) {
+            this.f41313b.append(Typography.amp);
         }
-        this.f44297b.append(str);
-        this.f44297b.append("=");
+        this.f41313b.append(str);
+        this.f41313b.append("=");
         try {
-            this.f44297b.append(URLEncoder.encode(h(str2), "utf-8"));
+            this.f41313b.append(URLEncoder.encode(h(str2), "utf-8"));
         } catch (Throwable th) {
             BdLog.e(th);
-            this.f44297b.append(h(str2));
+            this.f41313b.append(h(str2));
         }
     }
 
@@ -106,31 +106,31 @@ public class a {
     public void d(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            if (this.f44299d == null) {
-                this.f44299d = new g();
+            if (this.f41315d == null) {
+                this.f41315d = new g();
             }
-            this.f44299d.f(cVar);
-            ArrayList<BasicNameValuePair> arrayList = this.f44296a;
+            this.f41315d.f(cVar);
+            ArrayList<BasicNameValuePair> arrayList = this.f41312a;
             if (arrayList != null && arrayList.size() > 0) {
-                Iterator<BasicNameValuePair> it = this.f44296a.iterator();
+                Iterator<BasicNameValuePair> it = this.f41312a.iterator();
                 while (it.hasNext()) {
                     BasicNameValuePair next = it.next();
                     if ("module".equals(next.getName())) {
-                        this.f44299d.i(next.getValue());
+                        this.f41315d.i(next.getValue());
                     } else if ("st".equals(next.getName())) {
-                        this.f44299d.e(next.getValue());
+                        this.f41315d.e(next.getValue());
                     } else if ("errNo".equals(next.getName())) {
-                        this.f44299d.g(next.getValue());
+                        this.f41315d.g(next.getValue());
                     } else if ("errMsg".equals(next.getName())) {
-                        this.f44299d.h(next.getValue());
+                        this.f41315d.h(next.getValue());
                     } else {
-                        this.f44299d.b(next.getName(), next.getValue());
+                        this.f41315d.b(next.getName(), next.getValue());
                     }
                 }
             }
-            StringBuilder sb = this.f44297b;
+            StringBuilder sb = this.f41313b;
             if (sb != null) {
-                this.f44299d.a(sb.toString());
+                this.f41315d.a(sb.toString());
             }
         }
     }
@@ -138,19 +138,19 @@ public class a {
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? System.currentTimeMillis() - this.f44298c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? System.currentTimeMillis() - this.f41314c : invokeV.longValue;
     }
 
     public g f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f44299d : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f41315d : (g) invokeV.objValue;
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f44298c = System.currentTimeMillis();
+            this.f41314c = System.currentTimeMillis();
         }
     }
 
@@ -159,10 +159,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             StringBuilder sb = new StringBuilder(200);
-            if (this.f44297b.length() > 0) {
-                sb.append((CharSequence) this.f44297b);
+            if (this.f41313b.length() > 0) {
+                sb.append((CharSequence) this.f41313b);
             }
-            ArrayList<BasicNameValuePair> arrayList = this.f44296a;
+            ArrayList<BasicNameValuePair> arrayList = this.f41312a;
             if (arrayList != null) {
                 Iterator<BasicNameValuePair> it = arrayList.iterator();
                 while (it.hasNext()) {
@@ -172,7 +172,7 @@ public class a {
                             sb.append(Typography.amp);
                         }
                         sb.append(next.getName());
-                        sb.append(com.alipay.sdk.encrypt.a.f1889h);
+                        sb.append(com.alipay.sdk.encrypt.a.f1890h);
                         try {
                             sb.append(URLEncoder.encode(h(next.getValue()), "utf-8"));
                         } catch (UnsupportedEncodingException e2) {
@@ -200,6 +200,6 @@ public class a {
                 return;
             }
         }
-        this.f44297b = new StringBuilder(100);
+        this.f41313b = new StringBuilder(100);
     }
 }

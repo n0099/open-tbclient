@@ -5,12 +5,12 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f27416a;
+    public static final int f27526a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -26,6 +26,6 @@ public final class a {
                 return;
             }
         }
-        f27416a = com.baidu.webkit.logsdk.a.f27359a ? 3 : 20;
+        f27526a = com.baidu.webkit.logsdk.a.f27469a ? 3 : 20;
     }
 }

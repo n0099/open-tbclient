@@ -1,6 +1,7 @@
 package d.a.c.g.h;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,27 +13,27 @@ import java.util.AbstractMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f44612a = "11446";
+    public static String f41628a = "11446";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f44613b = "type";
+    public static String f41629b = "type";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f44614c = "value";
+    public static String f41630c = "value";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f44615d = "ext";
+    public static String f41631d = "ext";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f44616e = "suc";
+    public static String f41632e = "suc";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f44617f = "fail";
+    public static String f41633f = "fail";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -61,8 +62,8 @@ public class d {
         if (interceptable == null || interceptable.invokeLL(65538, null, str, list) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(f44613b, f44617f);
-                jSONObject.put(f44614c, str);
+                jSONObject.put(f41629b, f41633f);
+                jSONObject.put(f41630c, str);
                 JSONObject jSONObject2 = new JSONObject();
                 if (list != null && !list.isEmpty()) {
                     for (int i2 = 0; i2 < list.size(); i2++) {
@@ -72,8 +73,8 @@ public class d {
                         }
                     }
                 }
-                jSONObject.put(f44615d, jSONObject2);
-                d(f44612a, jSONObject);
+                jSONObject.put(f41631d, jSONObject2);
+                d(f41628a, jSONObject);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -85,8 +86,8 @@ public class d {
         if (interceptable == null || interceptable.invokeLL(65539, null, str, list) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(f44613b, f44616e);
-                jSONObject.put(f44614c, str);
+                jSONObject.put(f41629b, f41632e);
+                jSONObject.put(f41630c, str);
                 JSONObject jSONObject2 = new JSONObject();
                 if (list != null && !list.isEmpty()) {
                     for (int i2 = 0; i2 < list.size(); i2++) {
@@ -96,8 +97,8 @@ public class d {
                         }
                     }
                 }
-                jSONObject.put(f44615d, jSONObject2);
-                d(f44612a, jSONObject);
+                jSONObject.put(f41631d, jSONObject2);
+                d(f41628a, jSONObject);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -106,7 +107,7 @@ public class d {
 
     public static void d(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, str, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, jSONObject) == null) {
             ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(str, jSONObject);
         }
     }

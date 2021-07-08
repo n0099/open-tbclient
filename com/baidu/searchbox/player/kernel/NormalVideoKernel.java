@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class NormalVideoKernel extends AbsVideoKernel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NormalVideoKernel";

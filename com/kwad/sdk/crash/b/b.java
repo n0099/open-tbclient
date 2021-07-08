@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Set<String> f36940a;
+    public Set<String> f35310a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f36941b;
+    public Set<String> f35311b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class b {
                 return;
             }
         }
-        this.f36940a = new HashSet();
-        this.f36941b = new HashSet();
+        this.f35310a = new HashSet();
+        this.f35311b = new HashSet();
     }
 
     public synchronized void a(String[] strArr, String[] strArr2) {
@@ -46,7 +46,7 @@ public class b {
                         if (strArr.length > 0) {
                             for (String str : strArr) {
                                 if (!TextUtils.isEmpty(str)) {
-                                    this.f36940a.add(str);
+                                    this.f35310a.add(str);
                                 }
                             }
                         }
@@ -57,7 +57,7 @@ public class b {
                 if (strArr2 != null && strArr2.length > 0) {
                     for (String str2 : strArr2) {
                         if (!TextUtils.isEmpty(str2)) {
-                            this.f36941b.add(str2);
+                            this.f35311b.add(str2);
                         }
                     }
                 }
@@ -71,7 +71,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                strArr = (String[]) this.f36940a.toArray(new String[this.f36940a.size()]);
+                strArr = (String[]) this.f35310a.toArray(new String[this.f35310a.size()]);
             }
             return strArr;
         }
@@ -84,7 +84,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                strArr = (String[]) this.f36941b.toArray(new String[this.f36941b.size()]);
+                strArr = (String[]) this.f35311b.toArray(new String[this.f35311b.size()]);
             }
             return strArr;
         }

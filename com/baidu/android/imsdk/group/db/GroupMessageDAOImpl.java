@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsgFactory;
@@ -386,7 +387,7 @@ public class GroupMessageDAOImpl {
         InterceptResult invokeLLL;
         int createGroup;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, context, chatMsg, str)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, chatMsg, str)) == null) {
             DBOperation newDb = DBOperationFactory.getNewDb(context);
             if (newDb == null) {
                 LogUtils.e(TAG, " operation is null");

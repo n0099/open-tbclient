@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class dg implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ df f42962a;
+    public final /* synthetic */ df f39976a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ String f235a;
@@ -38,7 +38,7 @@ public class dg implements Runnable {
                 return;
             }
         }
-        this.f42962a = dfVar;
+        this.f39976a = dfVar;
         this.f235a = str;
         this.f236a = th;
     }
@@ -61,7 +61,7 @@ public class dg implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             list = df.f232a;
             simpleDateFormat = df.f231a;
-            str = this.f42962a.f42960b;
+            str = this.f39976a.f39974b;
             list.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat.format(new Date()), str, this.f235a), this.f236a));
             list2 = df.f232a;
             if (list2.size() > 20000) {
@@ -79,18 +79,18 @@ public class dg implements Runnable {
                 }
                 list4 = df.f232a;
                 simpleDateFormat2 = df.f231a;
-                str4 = this.f42962a.f42960b;
+                str4 = this.f39976a.f39974b;
                 list4.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat2.format(new Date()), str4, "flush " + size + " lines logs."), null));
             }
             try {
                 if (aa.d()) {
-                    this.f42962a.m244a();
+                    this.f39976a.m244a();
                     return;
                 }
-                str3 = this.f42962a.f42960b;
+                str3 = this.f39976a.f39974b;
                 Log.w(str3, "SDCard is unavailable.");
             } catch (Exception e2) {
-                str2 = this.f42962a.f42960b;
+                str2 = this.f39976a.f39974b;
                 Log.e(str2, "", e2);
             }
         }

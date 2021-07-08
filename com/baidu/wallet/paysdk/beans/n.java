@@ -18,16 +18,16 @@ import com.baidu.wallet.paysdk.datamodel.PwdRequest;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class n extends BaseBean<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BindFastRequest f25886a;
+    public BindFastRequest f25996a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PwdRequest f25887b;
+    public PwdRequest f25997b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> n(Context context) {
@@ -47,9 +47,9 @@ public class n extends BaseBean<Object> {
                 return;
             }
         }
-        this.f25886a = null;
-        this.f25887b = null;
-        this.f25887b = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
+        this.f25996a = null;
+        this.f25997b = null;
+        this.f25997b = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -65,19 +65,19 @@ public class n extends BaseBean<Object> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f25886a != null) {
+            if (this.f25996a != null) {
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f25886a.getmBankCard())));
-                String handlePwdSimple = PasswordController.handlePwdSimple(this.f25887b.mPayPass);
+                arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f25996a.getmBankCard())));
+                String handlePwdSimple = PasswordController.handlePwdSimple(this.f25997b.mPayPass);
                 String seed = PasswordController.getSeed();
-                String handlePwd = PasswordController.handlePwd(this.f25887b.mConfirmPayPass, seed);
+                String handlePwd = PasswordController.handlePwd(this.f25997b.mConfirmPayPass, seed);
                 arrayList.add(new RestNameValuePair("mobile_pwd", SafePay.getInstance().encryptProxy(handlePwdSimple)));
                 arrayList.add(new RestNameValuePair("confirm_mobile_pwd", handlePwd));
-                arrayList.add(new RestNameValuePair("mobile_pwd_psp", PasswordController.handlePwdForPassport(this.f25887b.mConfirmPayPass)));
+                arrayList.add(new RestNameValuePair("mobile_pwd_psp", PasswordController.handlePwdForPassport(this.f25997b.mConfirmPayPass)));
                 arrayList.add(new RestNameValuePair("seed", SafePay.getInstance().encryptProxy(seed)));
                 arrayList.add(new RestNameValuePair("key", SafePay.getInstance().getpwProxy()));
-                arrayList.add(new RestNameValuePair("sms_token", this.f25886a.getSmsToken()));
-                arrayList.add(new RestNameValuePair("session_id", this.f25886a.getSessionId()));
+                arrayList.add(new RestNameValuePair("sms_token", this.f25996a.getSmsToken()));
+                arrayList.add(new RestNameValuePair("session_id", this.f25996a.getSessionId()));
                 return arrayList;
             }
             throw new IllegalStateException("not call setBindRequest(req) method or param(req) null");

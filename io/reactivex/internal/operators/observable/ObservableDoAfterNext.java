@@ -13,13 +13,13 @@ import io.reactivex.annotations.Nullable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.internal.observers.BasicFuseableObserver;
 @Experimental
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class ObservableDoAfterNext<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Consumer<? super T> onAfterNext;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class DoAfterObserver<T> extends BasicFuseableObserver<T, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

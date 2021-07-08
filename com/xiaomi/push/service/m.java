@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -16,18 +17,18 @@ import com.xiaomi.mipush.sdk.Constants;
 import com.xiaomi.push.fm;
 import java.util.TreeMap;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class m {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static l f43679a;
+    public static l f40693a;
 
     /* renamed from: a  reason: collision with other field name */
     public static a f963a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a();
     }
@@ -37,8 +38,8 @@ public class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             synchronized (m.class) {
-                if (f43679a != null) {
-                    return f43679a;
+                if (f40693a != null) {
+                    return f40693a;
                 }
                 SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_account", 0);
                 String string = sharedPreferences.getString("uuid", null);
@@ -61,7 +62,7 @@ public class m {
                     com.xiaomi.channel.commonutils.logger.b.m70a("read_phone_state permission changes.");
                 }
                 l lVar = new l(string, string2, string3, string4, string5, string6, i2);
-                f43679a = lVar;
+                f40693a = lVar;
                 return lVar;
             }
         }
@@ -105,11 +106,11 @@ public class m {
                 String a5 = com.xiaomi.push.i.a(context, false);
                 com.xiaomi.channel.commonutils.logger.b.m70a("account register:" + a5 + " mim:" + com.xiaomi.push.ax.a(context).e());
                 treeMap.put("devid", a5);
-                if (f43679a != null && !TextUtils.isEmpty(f43679a.f962a)) {
-                    treeMap.put("uuid", f43679a.f962a);
-                    int lastIndexOf = f43679a.f962a.lastIndexOf("/");
+                if (f40693a != null && !TextUtils.isEmpty(f40693a.f962a)) {
+                    treeMap.put("uuid", f40693a.f962a);
+                    int lastIndexOf = f40693a.f962a.lastIndexOf("/");
                     if (lastIndexOf != -1) {
-                        str4 = f43679a.f962a.substring(lastIndexOf + 1);
+                        str4 = f40693a.f962a.substring(lastIndexOf + 1);
                         com.xiaomi.push.ax.a(context).a(treeMap);
                         b2 = com.xiaomi.push.i.b(context);
                         if (!TextUtils.isEmpty(b2)) {
@@ -170,12 +171,12 @@ public class m {
                                 String string2 = jSONObject2.getString("token");
                                 String string3 = jSONObject2.getString("userId");
                                 if (TextUtils.isEmpty(str4)) {
-                                    str4 = com.alipay.sdk.sys.a.f1936i + com.xiaomi.push.bm.a(6);
+                                    str4 = com.alipay.sdk.sys.a.f1937i + com.xiaomi.push.bm.a(6);
                                 }
                                 l lVar = new l(string3 + "@xiaomi.com/" + str4, string2, string, str5, str6, str7, com.xiaomi.push.ab.a());
                                 a(context, lVar);
                                 com.xiaomi.push.i.a(context, jSONObject2.optString("vdevid"));
-                                f43679a = lVar;
+                                f40693a = lVar;
                                 return lVar;
                             }
                             p.a(context, jSONObject.getInt("code"), jSONObject.optString("description"));
@@ -240,21 +241,21 @@ public class m {
             if (com.xiaomi.push.ab.b()) {
                 sb = new StringBuilder();
                 sb.append("http://");
-                sb.append(fm.f43120b);
+                sb.append(fm.f40134b);
                 str = ":9085";
-            } else if (com.xiaomi.push.o.f43518a.name().equals(a2)) {
+            } else if (com.xiaomi.push.o.f40532a.name().equals(a2)) {
                 sb = new StringBuilder();
                 str = "https://cn.register.xmpush.xiaomi.com";
-            } else if (com.xiaomi.push.o.f43519b.name().equals(a2)) {
+            } else if (com.xiaomi.push.o.f40533b.name().equals(a2)) {
                 sb = new StringBuilder();
                 str = "https://register.xmpush.global.xiaomi.com";
-            } else if (com.xiaomi.push.o.f43520c.name().equals(a2)) {
+            } else if (com.xiaomi.push.o.f40534c.name().equals(a2)) {
                 sb = new StringBuilder();
                 str = "https://fr.register.xmpush.global.xiaomi.com";
-            } else if (com.xiaomi.push.o.f43521d.name().equals(a2)) {
+            } else if (com.xiaomi.push.o.f40535d.name().equals(a2)) {
                 sb = new StringBuilder();
                 str = "https://ru.register.xmpush.global.xiaomi.com";
-            } else if (com.xiaomi.push.o.f43522e.name().equals(a2)) {
+            } else if (com.xiaomi.push.o.f40536e.name().equals(a2)) {
                 sb = new StringBuilder();
                 str = "https://idmb.register.xmpush.global.xiaomi.com";
             } else {
@@ -281,9 +282,9 @@ public class m {
     /* renamed from: a  reason: collision with other method in class */
     public static void m631a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             context.getSharedPreferences("mipush_account", 0).edit().clear().commit();
-            f43679a = null;
+            f40693a = null;
             a();
         }
     }
@@ -293,13 +294,13 @@ public class m {
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, lVar) == null) {
             SharedPreferences.Editor edit = context.getSharedPreferences("mipush_account", 0).edit();
             edit.putString("uuid", lVar.f962a);
-            edit.putString("security", lVar.f43675c);
-            edit.putString("token", lVar.f43674b);
-            edit.putString("app_id", lVar.f43676d);
-            edit.putString("package_name", lVar.f43678f);
-            edit.putString("app_token", lVar.f43677e);
+            edit.putString("security", lVar.f40689c);
+            edit.putString("token", lVar.f40688b);
+            edit.putString("app_id", lVar.f40690d);
+            edit.putString("package_name", lVar.f40692f);
+            edit.putString("app_token", lVar.f40691e);
             edit.putString("device_id", com.xiaomi.push.i.k(context));
-            edit.putInt("env_type", lVar.f43673a);
+            edit.putInt("env_type", lVar.f40687a);
             edit.commit();
             a();
         }

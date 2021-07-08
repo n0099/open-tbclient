@@ -8,21 +8,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a extends d.a.c.e.a.f.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.a.c.e.n.h.a f44404c;
+        public final /* synthetic */ d.a.c.e.n.h.a f41420c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ boolean f44405d;
+        public final /* synthetic */ boolean f41421d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(String str, String str2, DiskFileOperate.Action action, d.a.c.e.n.h.a aVar, boolean z) {
@@ -43,8 +43,8 @@ public class h {
                     return;
                 }
             }
-            this.f44404c = aVar;
-            this.f44405d = z;
+            this.f41420c = aVar;
+            this.f41421d = z;
         }
 
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -53,22 +53,22 @@ public class h {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 super.callback(z);
                 if (z) {
-                    this.f44404c.F(getFileInfo().length());
-                    if (this.f44405d || this.f44404c.l() > 20480) {
-                        h.b(this.f44404c);
+                    this.f41420c.F(getFileInfo().length());
+                    if (this.f41421d || this.f41420c.l() > 20480) {
+                        h.b(this.f41420c);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class b extends DiskFileOperate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.c.e.n.h.a f44406a;
+        public final /* synthetic */ d.a.c.e.n.h.a f41422a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(String str, String str2, String str3, String str4, DiskFileOperate.Action action, d.a.c.e.n.h.a aVar) {
@@ -89,7 +89,7 @@ public class h {
                     return;
                 }
             }
-            this.f44406a = aVar;
+            this.f41422a = aVar;
         }
 
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -98,8 +98,8 @@ public class h {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 super.callback(z);
                 if (z) {
-                    this.f44406a.F(0L);
-                    d.a.c.e.n.l.b.m().s(this.f44406a);
+                    this.f41422a.F(0L);
+                    d.a.c.e.n.l.b.m().s(this.f41422a);
                     return;
                 }
                 BdLog.e("Track Log rename fail!");
@@ -107,13 +107,13 @@ public class h {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class c extends d.a.c.e.a.f.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.a.c.e.n.h.a f44407c;
+        public final /* synthetic */ d.a.c.e.n.h.a f41423c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(String str, String str2, DiskFileOperate.Action action, d.a.c.e.n.h.a aVar) {
@@ -134,7 +134,7 @@ public class h {
                     return;
                 }
             }
-            this.f44407c = aVar;
+            this.f41423c = aVar;
         }
 
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -143,7 +143,7 @@ public class h {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 super.callback(z);
                 if (z) {
-                    this.f44407c.F(getFileInfo().length());
+                    this.f41423c.F(getFileInfo().length());
                 }
             }
         }

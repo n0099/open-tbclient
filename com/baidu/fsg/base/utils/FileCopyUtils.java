@@ -1,5 +1,6 @@
 package com.baidu.fsg.base.utils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,12 +20,12 @@ import java.io.OutputStream;
 import java.io.Reader;
 import java.io.StringWriter;
 import java.io.Writer;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class FileCopyUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f5363a = 4096;
+    public static final int f5380a = 4096;
     public transient /* synthetic */ FieldHolder $fh;
 
     public FileCopyUtils() {
@@ -248,7 +249,7 @@ public abstract class FileCopyUtils {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
     public static void copy(String str, Writer writer) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, str, writer) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, writer) == null) {
             Assert.notNull(str, "No input String specified");
             Assert.notNull(writer, "No Writer specified");
             try {

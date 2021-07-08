@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.common;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,7 +13,7 @@ import java.util.regex.Pattern;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BytesRange {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TO_END_OF_CONTENT = Integer.MAX_VALUE;
@@ -95,7 +96,7 @@ public class BytesRange {
     public static String valueOrEmpty(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) ? i2 == Integer.MAX_VALUE ? "" : Integer.toString(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? i2 == Integer.MAX_VALUE ? "" : Integer.toString(i2) : (String) invokeI.objValue;
     }
 
     public boolean contains(@Nullable BytesRange bytesRange) {

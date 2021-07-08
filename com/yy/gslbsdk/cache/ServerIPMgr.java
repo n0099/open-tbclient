@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ServerIPMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] SERVER_IP_CMC;
@@ -103,7 +103,7 @@ public class ServerIPMgr {
         InterceptResult invokeLI;
         String ip;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, this, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, context, i2)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
             List<ServerTB> serverByIsp = DBAccessMgr.getInstance(context).getServerByIsp(i2);
             if (serverByIsp != null && !serverByIsp.isEmpty()) {

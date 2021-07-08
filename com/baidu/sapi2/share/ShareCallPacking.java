@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ShareCallPacking {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_APP_PKG = "PKG";
@@ -31,7 +31,7 @@ public class ShareCallPacking {
     public static StatModel statModel;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static abstract class ShareLoginCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public class ShareCallPacking {
         public abstract void onSuccess();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class StatModel {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_ACCOUNT_APP = "account_app";

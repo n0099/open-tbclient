@@ -2869,7 +2869,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         public static int getChildMeasureSpec(int i2, int i3, int i4, int i5, boolean z) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z)})) == null) {
                 int max = Math.max(0, i2 - i4);
                 if (z) {
                     if (i5 < 0) {
@@ -3301,7 +3301,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         private boolean tryBindViewHolderByDeadline(@NonNull ViewHolder viewHolder, int i2, int i3, long j) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, this, new Object[]{viewHolder, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{viewHolder, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)})) == null) {
                 viewHolder.mOwnerRecyclerView = this.this$0;
                 int itemViewType = viewHolder.getItemViewType();
                 long nanoTime = this.this$0.getNanoTime();
@@ -10041,13 +10041,13 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {layoutParams};
-                interceptable.invokeUnInit(65540, newInitContext);
+                interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     super((ViewGroup.LayoutParams) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65540, newInitContext);
+                    interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                     return;
                 }
             }

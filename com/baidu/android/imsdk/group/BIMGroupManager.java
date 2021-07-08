@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.group;
 
 import android.content.Context;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.ISendMessageListener;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
@@ -77,7 +78,7 @@ public class BIMGroupManager extends BaseManager {
 
     public static void delFansGroupMember(Context context, String str, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<String>> bIMValueCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65540, null, context, str, arrayList, bIMValueCallBack) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, arrayList, bIMValueCallBack) == null) {
             GroupManagerImpl.getInstance(context).delFansGroupMember(str, arrayList, bIMValueCallBack);
         }
     }

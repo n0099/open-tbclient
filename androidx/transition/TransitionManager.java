@@ -6,6 +6,7 @@ import android.view.ViewTreeObserver;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.collection.ArrayMap;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -199,7 +200,7 @@ public class TransitionManager {
 
     public static void changeScene(Scene scene, Transition transition) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, scene, transition) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, scene, transition) == null) {
             ViewGroup sceneRoot = scene.getSceneRoot();
             if (sPendingTransitions.contains(sceneRoot)) {
                 return;

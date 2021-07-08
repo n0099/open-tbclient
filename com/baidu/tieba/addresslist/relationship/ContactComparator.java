@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.s.f.a;
+import d.a.o0.s.f.a;
 import java.io.Serializable;
 import java.util.Comparator;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ContactComparator implements Comparator<a>, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LAST_KEY = "#";

@@ -8,31 +8,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FavoritePoiInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6827a;
+    public String f6844a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6828b;
+    public String f6845b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f6829c;
+    public LatLng f6846c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f6830d;
+    public String f6847d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f6831e;
+    public String f6848e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f6832f;
+    public String f6849f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f6833g;
+    public long f6850g;
 
     public FavoritePoiInfo() {
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class FavoritePoiInfo {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.f6830d = str;
+            this.f6847d = str;
             return this;
         }
         return (FavoritePoiInfo) invokeL.objValue;
@@ -62,7 +62,7 @@ public class FavoritePoiInfo {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.f6831e = str;
+            this.f6848e = str;
             return this;
         }
         return (FavoritePoiInfo) invokeL.objValue;
@@ -71,50 +71,50 @@ public class FavoritePoiInfo {
     public String getAddr() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f6830d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f6847d : (String) invokeV.objValue;
     }
 
     public String getCityName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6831e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6848e : (String) invokeV.objValue;
     }
 
     public String getID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6827a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6844a : (String) invokeV.objValue;
     }
 
     public String getPoiName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f6828b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f6845b : (String) invokeV.objValue;
     }
 
     public LatLng getPt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f6829c : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f6846c : (LatLng) invokeV.objValue;
     }
 
     public long getTimeStamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f6833g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f6850g : invokeV.longValue;
     }
 
     public String getUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f6832f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f6849f : (String) invokeV.objValue;
     }
 
     public FavoritePoiInfo poiName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            this.f6828b = str;
+            this.f6845b = str;
             return this;
         }
         return (FavoritePoiInfo) invokeL.objValue;
@@ -124,7 +124,7 @@ public class FavoritePoiInfo {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, latLng)) == null) {
-            this.f6829c = latLng;
+            this.f6846c = latLng;
             return this;
         }
         return (FavoritePoiInfo) invokeL.objValue;
@@ -134,7 +134,7 @@ public class FavoritePoiInfo {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            this.f6832f = str;
+            this.f6849f = str;
             return this;
         }
         return (FavoritePoiInfo) invokeL.objValue;

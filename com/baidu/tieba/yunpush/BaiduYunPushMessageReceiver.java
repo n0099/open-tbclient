@@ -16,12 +16,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.d0.b;
+import d.a.o0.r.d0.b;
 import java.net.URISyntaxException;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_SHAREDPRE_PUSH_STARTWORK = "baidu_yunpush_start_work";

@@ -1,5 +1,6 @@
 package com.google.common.collect;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,7 +21,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ArrayListMultimap<K, V> extends ArrayListMultimapGwtSerializationDependencies<K, V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_VALUES_PER_KEY = 3;
@@ -215,7 +216,7 @@ public final class ArrayListMultimap<K, V> extends ArrayListMultimapGwtSerializa
     public static <K, V> ArrayListMultimap<K, V> create(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65540, null, i2, i3)) == null) ? new ArrayListMultimap<>(i2, i3) : (ArrayListMultimap) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3)) == null) ? new ArrayListMultimap<>(i2, i3) : (ArrayListMultimap) invokeII.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

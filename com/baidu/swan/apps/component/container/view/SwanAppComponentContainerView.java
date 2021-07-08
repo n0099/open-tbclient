@@ -19,29 +19,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a.c0.b.b;
-import d.a.q0.a.c0.g.a;
-import d.a.q0.a.e0.d;
-import d.a.q0.a.k;
-/* loaded from: classes4.dex */
+import d.a.n0.a.c0.b.b;
+import d.a.n0.a.c0.g.a;
+import d.a.n0.a.e0.d;
+import d.a.n0.a.k;
+/* loaded from: classes3.dex */
 public class SwanAppComponentContainerView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f10889i;
+    public static final boolean f10906i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f10890e;
+    public View f10907e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f10891f;
+    public b f10908f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Path f10892g;
+    public Path f10909g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ScrollView f10893h;
+    public ScrollView f10910h;
 
     static {
         InterceptResult invokeClinit;
@@ -56,7 +56,7 @@ public class SwanAppComponentContainerView extends FrameLayout {
                 return;
             }
         }
-        f10889i = k.f49133a;
+        f10906i = k.f45831a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -83,26 +83,26 @@ public class SwanAppComponentContainerView extends FrameLayout {
     public final void a(Canvas canvas) {
         Path path;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || Build.VERSION.SDK_INT < 21 || (path = this.f10892g) == null || this.f10890e == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || Build.VERSION.SDK_INT < 21 || (path = this.f10909g) == null || this.f10907e == null) {
             return;
         }
-        b bVar = this.f10891f;
-        if (bVar instanceof d.a.q0.a.c0.c.e.c.b) {
-            d.a.q0.a.c0.c.e.c.b bVar2 = (d.a.q0.a.c0.c.e.c.b) bVar;
+        b bVar = this.f10908f;
+        if (bVar instanceof d.a.n0.a.c0.c.e.c.b) {
+            d.a.n0.a.c0.c.e.c.b bVar2 = (d.a.n0.a.c0.c.e.c.b) bVar;
             if (bVar2.r > 0) {
                 path.reset();
-                Path path2 = this.f10892g;
-                float left = this.f10890e.getLeft();
-                float top = this.f10890e.getTop();
-                float right = this.f10890e.getRight();
-                float bottom = this.f10890e.getBottom();
+                Path path2 = this.f10909g;
+                float left = this.f10907e.getLeft();
+                float top = this.f10907e.getTop();
+                float right = this.f10907e.getRight();
+                float bottom = this.f10907e.getBottom();
                 int i2 = bVar2.r;
                 path2.addRoundRect(left, top, right, bottom, i2, i2, Path.Direction.CW);
-                if (f10889i) {
+                if (f10906i) {
                     Log.d("Component-ContainerView", "SwanAppComponentContainerView  model.borderRadius =" + bVar2.r);
                 }
                 canvas.save();
-                canvas.clipPath(this.f10892g);
+                canvas.clipPath(this.f10909g);
                 canvas.restore();
             }
         }
@@ -111,7 +111,7 @@ public class SwanAppComponentContainerView extends FrameLayout {
     public ScrollView getScrollView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10893h : (ScrollView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10910h : (ScrollView) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -127,7 +127,7 @@ public class SwanAppComponentContainerView extends FrameLayout {
     public void setHidden(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            View view = this.f10893h;
+            View view = this.f10910h;
             if (view == null) {
                 view = this;
             }
@@ -138,14 +138,14 @@ public class SwanAppComponentContainerView extends FrameLayout {
     public void setModel(@NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f10891f = bVar;
+            this.f10908f = bVar;
         }
     }
 
     public void setScrollView(ScrollView scrollView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, scrollView) == null) {
-            this.f10893h = scrollView;
+            this.f10910h = scrollView;
         }
     }
 
@@ -159,18 +159,18 @@ public class SwanAppComponentContainerView extends FrameLayout {
     public void setTargetView(@NonNull View view, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, view, i2) == null) {
-            if (this.f10890e == view) {
+            if (this.f10907e == view) {
                 d.l("Component-ContainerView", "repeat setTargetView with the same view");
                 return;
             }
-            if (this.f10892g == null) {
-                this.f10892g = new Path();
+            if (this.f10909g == null) {
+                this.f10909g = new Path();
             }
-            if (this.f10890e != null) {
+            if (this.f10907e != null) {
                 a.a("Component-ContainerView", "repeat setTargetView with the different view");
-                removeView(this.f10890e);
+                removeView(this.f10907e);
             }
-            this.f10890e = view;
+            this.f10907e = view;
             addView(view, i2, generateDefaultLayoutParams());
         }
     }

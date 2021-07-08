@@ -1,9 +1,13 @@
 package com.kwad.sdk.core.report;
 
-import androidx.annotation.NonNull;
-import com.kwad.sdk.core.report.d;
-/* loaded from: classes7.dex */
-public interface h<T extends d> {
-    @NonNull
-    T a();
+import java.util.List;
+/* loaded from: classes6.dex */
+public interface h<T> {
+    long a();
+
+    void a(T t);
+
+    void a(List<T> list);
+
+    List<T> b();
 }

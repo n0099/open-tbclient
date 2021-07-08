@@ -155,7 +155,7 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
     private int findFirstMatchIndex(Locale locale) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65540, this, locale)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, locale)) != null) {
             return invokeL.intValue;
         }
         int i2 = 0;

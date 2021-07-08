@@ -14,39 +14,39 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5287a = "f";
+    public static final String f5304a = "f";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONArray f5288b;
+    public JSONArray f5305b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f5289c;
+    public byte[] f5306c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f5290d;
+    public byte[] f5307d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f5291e;
+    public byte[] f5308e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f5292a;
+        public int f5309a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f5293b;
+        public String f5310b;
 
         /* renamed from: c  reason: collision with root package name */
-        public h[] f5294c;
+        public h[] f5311c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -63,12 +63,12 @@ public class f {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static f f5295a;
+        public static f f5312a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -84,7 +84,7 @@ public class f {
                     return;
                 }
             }
-            f5295a = new f(null);
+            f5312a = new f(null);
         }
 
         public b() {
@@ -124,7 +124,7 @@ public class f {
     public static f a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f5295a : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f5312a : (f) invokeV.objValue;
     }
 
     public void b() {
@@ -167,8 +167,8 @@ public class f {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this.f5290d) {
-                z = this.f5288b.length() == 0;
+            synchronized (this.f5307d) {
+                z = this.f5305b.length() == 0;
             }
             return z;
         }
@@ -178,7 +178,7 @@ public class f {
     public JSONArray d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f5288b : (JSONArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f5305b : (JSONArray) invokeV.objValue;
     }
 
     public f() {
@@ -194,18 +194,18 @@ public class f {
                 return;
             }
         }
-        this.f5288b = new JSONArray();
-        this.f5289c = new byte[0];
-        this.f5290d = new byte[0];
-        this.f5291e = new byte[0];
+        this.f5305b = new JSONArray();
+        this.f5306c = new byte[0];
+        this.f5307d = new byte[0];
+        this.f5308e = new byte[0];
     }
 
     public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            synchronized (this.f5290d) {
+            synchronized (this.f5307d) {
                 try {
-                    this.f5288b.put(this.f5288b.length(), jSONObject);
+                    this.f5305b.put(this.f5305b.length(), jSONObject);
                 } catch (JSONException unused) {
                 }
             }
@@ -215,8 +215,8 @@ public class f {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && com.baidu.fsg.base.statistics.b.o.equals(str)) {
-            synchronized (this.f5290d) {
-                this.f5288b = new JSONArray();
+            synchronized (this.f5307d) {
+                this.f5305b = new JSONArray();
             }
             com.baidu.fsg.base.statistics.a.a(RimStatisticsUtil.getAppContext(), com.baidu.fsg.base.statistics.b.n, StringUtil.EMPTY_ARRAY, false);
         }

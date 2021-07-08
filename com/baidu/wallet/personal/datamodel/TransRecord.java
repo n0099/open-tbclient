@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TransRecord implements NoProguard, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TRANS_STATE_CANCELED = 5;

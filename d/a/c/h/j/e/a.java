@@ -1,7 +1,7 @@
 package d.a.c.h.j.e;
 
 import com.baidu.adp.plugin.packageManager.pluginFileDownload.BdFileDownloadData;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface a {
     void a(BdFileDownloadData bdFileDownloadData);
 

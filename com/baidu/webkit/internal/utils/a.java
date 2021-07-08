@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 import java.util.Stack;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f27356a = "none";
+    public static String f27466a = "none";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -60,13 +60,13 @@ public final class a {
                     } else if (!file.delete()) {
                         sb = new StringBuilder("remove fail, can not delete file = ");
                         sb.append(file.getAbsolutePath());
-                        f27356a = sb.toString();
+                        f27466a = sb.toString();
                         return false;
                     }
                 } else if (!file.delete()) {
                     sb = new StringBuilder("remove fail, can not delete file = ");
                     sb.append(file.getAbsolutePath());
-                    f27356a = sb.toString();
+                    f27466a = sb.toString();
                     return false;
                 }
             }

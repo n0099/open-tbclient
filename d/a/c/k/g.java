@@ -16,28 +16,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.InputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class g extends DynamicDrawableSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f44920e;
+    public Drawable f41936e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Uri f44921f;
+    public Uri f41937f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f44922g;
+    public int f41938g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f44923h;
+    public Context f41939h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f44924i;
+    public a f41940i;
     public Rect j;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         Drawable a(g gVar);
     }
@@ -61,14 +61,14 @@ public class g extends DynamicDrawableSpan {
             }
         }
         this.j = new Rect();
-        this.f44922g = i2;
-        this.f44924i = aVar;
+        this.f41938g = i2;
+        this.f41940i = aVar;
     }
 
     public void a(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
-            this.f44920e = drawable;
+            this.f41936e = drawable;
         }
     }
 
@@ -101,18 +101,18 @@ public class g extends DynamicDrawableSpan {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Drawable drawable = this.f44920e;
+            Drawable drawable = this.f41936e;
             if (drawable == null) {
-                a aVar = this.f44924i;
+                a aVar = this.f41940i;
                 drawable = aVar != null ? aVar.a(this) : null;
             }
             if (drawable != null) {
                 return drawable;
             }
             try {
-                if (this.f44921f != null) {
-                    InputStream openInputStream = this.f44923h.getContentResolver().openInputStream(this.f44921f);
-                    BitmapDrawable bitmapDrawable = new BitmapDrawable(this.f44923h.getResources(), BitmapFactory.decodeStream(openInputStream));
+                if (this.f41937f != null) {
+                    InputStream openInputStream = this.f41939h.getContentResolver().openInputStream(this.f41937f);
+                    BitmapDrawable bitmapDrawable = new BitmapDrawable(this.f41939h.getResources(), BitmapFactory.decodeStream(openInputStream));
                     try {
                         bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
                         openInputStream.close();
@@ -121,7 +121,7 @@ public class g extends DynamicDrawableSpan {
                         drawable = bitmapDrawable;
                     }
                 } else {
-                    drawable = this.f44923h.getResources().getDrawable(this.f44922g);
+                    drawable = this.f41939h.getResources().getDrawable(this.f41938g);
                     drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
                 }
             } catch (Exception unused2) {
@@ -136,7 +136,7 @@ public class g extends DynamicDrawableSpan {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{paint, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), fontMetricsInt})) == null) {
-            if (this.f44920e == null && this.f44924i != null) {
+            if (this.f41936e == null && this.f41940i != null) {
                 if (fontMetricsInt != null) {
                     int i4 = -this.j.bottom;
                     fontMetricsInt.ascent = i4;

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.e.b.a.b;
 import d.e.b.a.j.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LooperContextDispatcher extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

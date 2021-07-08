@@ -11,6 +11,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.BaiduStatJSInterface;
 import com.baidu.mobstat.MtjConfig;
@@ -26,20 +27,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class StatService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EXCEPTION_LOG = 1;
     public static final int JAVA_EXCEPTION_LOG = 16;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f8593a;
+    public static boolean f8610a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f8594b;
+    public static boolean f8611b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface WearListener {
         boolean onSendLogData(String str);
     }
@@ -318,7 +319,7 @@ public class StatService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65581, null, feedTrackStrategy) == null) {
             av.a(feedTrackStrategy);
-            f8594b = true;
+            f8611b = true;
         }
     }
 
@@ -366,8 +367,8 @@ public class StatService {
 
     public static void setOn(Context context, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65586, null, context, i2) == null) && a(context, "setOn(...)") && !f8593a) {
-            f8593a = true;
+        if ((interceptable == null || interceptable.invokeLI(65586, null, context, i2) == null) && a(context, "setOn(...)") && !f8610a) {
+            f8610a = true;
             if ((i2 & 1) != 0) {
                 a(context, false);
             } else if ((i2 & 16) != 0) {
@@ -465,7 +466,7 @@ public class StatService {
             }
             af.a(appKey);
             af.a(z2);
-            if (!f8594b) {
+            if (!f8611b) {
                 setFeedTrack(MtjConfig.FeedTrackStrategy.TRACK_ALL);
             }
             BDStatCore.instance().init(context);
@@ -564,7 +565,7 @@ public class StatService {
 
     public static void a(Context context, String str, String str2, int i2, ExtraInfo extraInfo, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{context, str, str2, Integer.valueOf(i2), extraInfo, map}) == null) && a(context, "onEvent(...)") && !TextUtils.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, Integer.valueOf(i2), extraInfo, map}) == null) && a(context, "onEvent(...)") && !TextUtils.isEmpty(str)) {
             boolean a2 = bx.a(Application.class, MissionEvent.MESSAGE_CREATE);
             if (a2) {
                 bc.c().c("[WARNING] onEvent 方法被 Application.onCreate()调用，not a good practice; 可能由于多进程反复重启等原因造成Application.onCreate() 方法多次被执行，导致启动次数高；建议埋点在统计路径触发的第一个页面中，比如APP主页面中");

@@ -27,8 +27,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.s0.t3.c;
-/* loaded from: classes4.dex */
+import d.a.p0.t3.c;
+/* loaded from: classes3.dex */
 public class KuangFloatingWindowController {
     public static /* synthetic */ Interceptable $ic;
     public static boolean currentStatus;

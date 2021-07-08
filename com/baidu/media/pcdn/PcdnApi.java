@@ -2,7 +2,7 @@ package com.baidu.media.pcdn;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PcdnApi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

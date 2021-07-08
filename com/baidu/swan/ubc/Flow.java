@@ -15,11 +15,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.r.e;
-import d.a.q0.r.l;
-import d.a.q0.r.n;
-import d.a.q0.r.r;
-import d.a.q0.s.d;
+import d.a.n0.r.e;
+import d.a.n0.r.l;
+import d.a.n0.r.n;
+import d.a.n0.r.r;
+import d.a.n0.s.d;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -27,7 +27,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"SyntheticAccessor"})
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class Flow implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<Flow> CREATOR;
@@ -44,7 +44,7 @@ public class Flow implements Parcelable {
     public l mUbcContext;
     public boolean mValid;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<Flow> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,7 +112,7 @@ public class Flow implements Parcelable {
     public final void cancel() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.mValid) {
-            if (d.a.j0.b.a.a.g()) {
+            if (d.a.g0.b.a.a.g()) {
                 if (d.a()) {
                     n.f().c(this.mId, this.mHandle);
                 }
@@ -144,7 +144,7 @@ public class Flow implements Parcelable {
     public final void end() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.mValid) {
-            if (d.a.j0.b.a.a.g()) {
+            if (d.a.g0.b.a.a.g()) {
                 JSONArray jSONArray = new JSONArray();
                 HashMap<String, Slot> hashMap = this.mSlotMaps;
                 if (hashMap != null && (r1 = hashMap.entrySet().iterator()) != null) {
@@ -239,7 +239,7 @@ public class Flow implements Parcelable {
     public final void setValue(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048591, this, str) == null) && this.mValid) {
-            if (d.a.j0.b.a.a.g()) {
+            if (d.a.g0.b.a.a.g()) {
                 if (d.a()) {
                     n.f().p(this.mId, this.mHandle, str);
                 }
@@ -261,7 +261,7 @@ public class Flow implements Parcelable {
     public void setValueWithDuration(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048593, this, str) == null) && this.mValid) {
-            if (d.a.j0.b.a.a.g()) {
+            if (d.a.g0.b.a.a.g()) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     float currentTimeMillis = ((float) (System.currentTimeMillis() - this.mStartTime)) / 1000.0f;
@@ -349,7 +349,7 @@ public class Flow implements Parcelable {
     public final void addEvent(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && this.mValid) {
-            if (d.a.j0.b.a.a.g()) {
+            if (d.a.g0.b.a.a.g()) {
                 if (d.a()) {
                     n.f().m(this.mId, str, this.mHandle, str2, this.mOption);
                 }
@@ -388,12 +388,12 @@ public class Flow implements Parcelable {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
                 int i5 = i4 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }
@@ -409,7 +409,7 @@ public class Flow implements Parcelable {
     public final void addEvent(String str, String str2, long j) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && this.mValid) {
-            if (d.a.j0.b.a.a.g()) {
+            if (d.a.g0.b.a.a.g()) {
                 if (d.a()) {
                     n.f().n(this.mId, str, this.mHandle, str2, j, this.mOption);
                 }

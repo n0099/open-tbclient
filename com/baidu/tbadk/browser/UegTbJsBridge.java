@@ -13,15 +13,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.e.a.a;
-import d.a.r0.s.c.l;
-import d.a.s0.h3.l0.b;
-import d.a.s0.h3.l0.d.c;
-import d.a.s0.p3.d;
+import d.a.o0.s.c.l;
+import d.a.p0.h3.l0.b;
+import d.a.p0.h3.l0.d.c;
+import d.a.p0.p3.d;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
 @a
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class UegTbJsBridge implements b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "CommonJSBridge";
@@ -88,7 +88,7 @@ public class UegTbJsBridge implements b {
         return (c) invokeLL.objValue;
     }
 
-    @Override // d.a.s0.h3.l0.b
+    @Override // d.a.p0.h3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

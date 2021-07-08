@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
 import android.os.storage.StorageManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,7 +23,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DeviceInfoUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final FileFilter CPU_FILTER;
@@ -247,7 +248,7 @@ public class DeviceInfoUtil {
     public static String getDeviceBoard() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? Build.BOARD : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Build.BOARD : (String) invokeV.objValue;
     }
 
     public static String getDeviceBrand() {

@@ -36,7 +36,7 @@ public final class ScaleGestureDetectorCompat {
     @Deprecated
     public static void setQuickScaleEnabled(Object obj, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65540, null, obj, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, z) == null) {
             setQuickScaleEnabled((ScaleGestureDetector) obj, z);
         }
     }

@@ -7,6 +7,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -17,7 +18,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CircleIndicator extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CIRCLE_INTER_WIDTH = 10;
@@ -64,7 +65,7 @@ public class CircleIndicator extends View {
 
     private void drawCircles(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, canvas) == null) {
             this.mTabPaint.setColor(this.mCircleColor);
             for (int i2 = 0; i2 < this.mTabCount; i2++) {
                 int i3 = this.mRadius;

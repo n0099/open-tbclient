@@ -1,11 +1,12 @@
 package d.l.a.e.b.l;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import kotlin.text.Typography;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +82,7 @@ public class g {
     public static StringBuilder e(StringBuilder sb, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, sb, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, sb, str)) == null) {
             sb.append(Typography.quote);
             sb.append(str);
             sb.append(Typography.quote);

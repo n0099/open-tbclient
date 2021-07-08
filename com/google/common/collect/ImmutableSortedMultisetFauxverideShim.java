@@ -1,5 +1,6 @@
 package com.google.common.collect;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -7,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.ImmutableSortedMultiset;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class ImmutableSortedMultisetFauxverideShim<E> extends ImmutableMultiset<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +64,7 @@ public abstract class ImmutableSortedMultisetFauxverideShim<E> extends Immutable
     public static <E> ImmutableSortedMultiset<E> of(E e2, E e3) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, e2, e3)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, e2, e3)) == null) {
             throw new UnsupportedOperationException();
         }
         return (ImmutableSortedMultiset) invokeLL.objValue;

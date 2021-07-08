@@ -9,6 +9,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +18,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Field;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -128,7 +129,7 @@ public final class o {
 
     public static void a(byte[] bArr, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65540, null, bArr, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i2, i3) == null) {
             bArr[i2 + 0] = (byte) (i3 >> 0);
             bArr[i2 + 1] = (byte) (i3 >> 8);
             bArr[i2 + 2] = (byte) (i3 >> 16);

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class o extends k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,8 +40,8 @@ public class o extends k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, context, mVar, adSlot) == null) {
             NativeExpressVideoView nativeExpressVideoView = new NativeExpressVideoView(context, mVar, adSlot, "embeded_ad");
-            this.f30337a = nativeExpressVideoView;
-            a(nativeExpressVideoView, this.f30339c);
+            this.f30447a = nativeExpressVideoView;
+            a(nativeExpressVideoView, this.f30449c);
         }
     }
 
@@ -50,7 +50,7 @@ public class o extends k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            NativeExpressView nativeExpressView = this.f30337a;
+            NativeExpressView nativeExpressView = this.f30447a;
             if (nativeExpressView != null) {
                 return ((NativeExpressVideoView) nativeExpressView).getVideoModel();
             }
@@ -63,7 +63,7 @@ public class o extends k {
     public void setVideoAdListener(TTNativeExpressAd.ExpressVideoAdListener expressVideoAdListener) {
         NativeExpressView nativeExpressView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, expressVideoAdListener) == null) || (nativeExpressView = this.f30337a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, expressVideoAdListener) == null) || (nativeExpressView = this.f30447a) == null) {
             return;
         }
         nativeExpressView.setVideoAdListener(expressVideoAdListener);

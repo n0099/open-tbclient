@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.SubtitleDecoderException;
 import java.nio.ByteBuffer;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class c extends d.f.b.a.y.g<h, i, SubtitleDecoderException> implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,8 +70,8 @@ public abstract class c extends d.f.b.a.y.g<h, i, SubtitleDecoderException> impl
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048583, this, hVar, iVar, z)) == null) {
             try {
-                ByteBuffer byteBuffer = hVar.f73652g;
-                iVar.n(hVar.f73653h, w(byteBuffer.array(), byteBuffer.limit(), z), hVar.j);
+                ByteBuffer byteBuffer = hVar.f70755g;
+                iVar.n(hVar.f70756h, w(byteBuffer.array(), byteBuffer.limit(), z), hVar.j);
                 iVar.g(Integer.MIN_VALUE);
                 return null;
             } catch (SubtitleDecoderException e2) {

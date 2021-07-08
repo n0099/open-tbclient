@@ -1,5 +1,6 @@
 package com.baidu.webkit.internal;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,7 +14,7 @@ import java.io.File;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ReflectUtils implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static String sReflectErrorDetail = "none";
@@ -79,7 +80,7 @@ public class ReflectUtils implements INoProGuard {
     public static Object getField(Object obj, Class cls, String str) throws NoSuchFieldException, IllegalAccessException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, obj, cls, str)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, cls, str)) == null) {
             Field declaredField = cls.getDeclaredField(str);
             declaredField.setAccessible(true);
             return declaredField.get(obj);

@@ -3,13 +3,10 @@ package com.kwad.sdk.core;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,31 +15,30 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
-import com.kwad.sdk.KsAdSDKImpl;
 import java.lang.ref.WeakReference;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class NetworkMonitor {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f35887a;
+    public static volatile boolean f34143a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<WeakReference<a>> f35888b;
+    public List<WeakReference<a>> f34144b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f35889c;
+    public boolean f34145c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final BroadcastReceiver f35890d;
+    public final BroadcastReceiver f34146d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Holder {
         public static final /* synthetic */ Holder[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -109,7 +105,7 @@ public class NetworkMonitor {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class NetworkState {
         public static final /* synthetic */ NetworkState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -170,7 +166,7 @@ public class NetworkMonitor {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(NetworkState networkState);
     }
@@ -203,14 +199,14 @@ public class NetworkMonitor {
                 return;
             }
         }
-        this.f35888b = Collections.synchronizedList(new LinkedList());
-        this.f35889c = false;
-        this.f35890d = new BroadcastReceiver(this) { // from class: com.kwad.sdk.core.NetworkMonitor.1
+        this.f34144b = Collections.synchronizedList(new LinkedList());
+        this.f34145c = false;
+        this.f34146d = new BroadcastReceiver(this) { // from class: com.kwad.sdk.core.NetworkMonitor.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ NetworkMonitor f35891a;
+            public final /* synthetic */ NetworkMonitor f34147a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -227,7 +223,7 @@ public class NetworkMonitor {
                         return;
                     }
                 }
-                this.f35891a = this;
+                this.f34147a = this;
             }
 
             @Override // android.content.BroadcastReceiver
@@ -241,16 +237,16 @@ public class NetworkMonitor {
                         if ((ContextCompat.checkSelfPermission(context, DefaultConnectivityMonitorFactory.NETWORK_PERMISSION) == 0) && (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) != null) {
                             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
                             if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
-                                networkMonitor = this.f35891a;
+                                networkMonitor = this.f34147a;
                                 networkState = NetworkState.NETWORK_NONE;
                             } else if (1 == activeNetworkInfo.getType()) {
-                                networkMonitor = this.f35891a;
+                                networkMonitor = this.f34147a;
                                 networkState = NetworkState.NETWORK_WIFI;
                             } else if (activeNetworkInfo.getType() == 0) {
-                                networkMonitor = this.f35891a;
+                                networkMonitor = this.f34147a;
                                 networkState = NetworkState.NETWORK_MOBILE;
                             } else {
-                                networkMonitor = this.f35891a;
+                                networkMonitor = this.f34147a;
                                 networkState = NetworkState.NETWORK_NONE;
                             }
                             networkMonitor.a(networkState);
@@ -263,18 +259,12 @@ public class NetworkMonitor {
         };
     }
 
-    public static NetworkMonitor a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Holder.INSTANCE.getInstance() : (NetworkMonitor) invokeV.objValue;
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public void a(NetworkState networkState) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, networkState) == null) {
-            Iterator<WeakReference<a>> it = this.f35888b.iterator();
+        if (interceptable == null || interceptable.invokeL(65539, this, networkState) == null) {
+            Iterator<WeakReference<a>> it = this.f34144b.iterator();
             while (it.hasNext()) {
                 WeakReference<a> next = it.next();
                 if (next == null || (aVar = next.get()) == null) {
@@ -283,62 +273,6 @@ public class NetworkMonitor {
                     aVar.a(networkState);
                 }
             }
-        }
-    }
-
-    private synchronized void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
-            synchronized (this) {
-                if (f35887a) {
-                    return;
-                }
-                Context context = KsAdSDKImpl.get().getContext();
-                if (context == null) {
-                    return;
-                }
-                context.getApplicationContext().registerReceiver(this.f35890d, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
-                f35887a = true;
-            }
-        }
-    }
-
-    public void a(@NonNull a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            d();
-            this.f35888b.add(new WeakReference<>(aVar));
-        }
-    }
-
-    public void b(a aVar) {
-        a aVar2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null) {
-            return;
-        }
-        Iterator<WeakReference<a>> it = this.f35888b.iterator();
-        while (it.hasNext()) {
-            WeakReference<a> next = it.next();
-            if (next == null || (aVar2 = next.get()) == null) {
-                it.remove();
-            } else if (aVar == aVar2) {
-                it.remove();
-                return;
-            }
-        }
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !this.f35889c : invokeV.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f35889c = true;
         }
     }
 }

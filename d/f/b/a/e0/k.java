@@ -16,7 +16,7 @@ import com.google.android.exoplayer2.text.SubtitleDecoderException;
 import d.f.b.a.l;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class k extends d.f.b.a.a implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public final class k extends d.f.b.a.a implements Handler.Callback {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public k(j jVar, Looper looper) {
-        this(jVar, looper, g.f73035a);
+        this(jVar, looper, g.f70138a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,7 +56,7 @@ public final class k extends d.f.b.a.a implements Handler.Callback {
     }
 
     @Override // d.f.b.a.a
-    public void A(Format[] formatArr, long j) throws ExoPlaybackException {
+    public void B(Format[] formatArr, long j) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048576, this, formatArr, j) == null) {
             Format format = formatArr[0];
@@ -69,14 +69,14 @@ public final class k extends d.f.b.a.a implements Handler.Callback {
         }
     }
 
-    public final void E() {
+    public final void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            K(Collections.emptyList());
+            L(Collections.emptyList());
         }
     }
 
-    public final long F() {
+    public final long G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -89,14 +89,14 @@ public final class k extends d.f.b.a.a implements Handler.Callback {
         return invokeV.longValue;
     }
 
-    public final void G(List<b> list) {
+    public final void H(List<b> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.n.i(list);
         }
     }
 
-    public final void H() {
+    public final void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.v = null;
@@ -114,32 +114,32 @@ public final class k extends d.f.b.a.a implements Handler.Callback {
         }
     }
 
-    public final void I() {
+    public final void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            H();
+            I();
             this.u.release();
             this.u = null;
             this.s = 0;
         }
     }
 
-    public final void J() {
+    public final void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            I();
+            J();
             this.u = this.o.b(this.t);
         }
     }
 
-    public final void K(List<b> list) {
+    public final void L(List<b> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             Handler handler = this.m;
             if (handler != null) {
                 handler.obtainMessage(0, list).sendToTarget();
             } else {
-                G(list);
+                H(list);
             }
         }
     }
@@ -148,7 +148,7 @@ public final class k extends d.f.b.a.a implements Handler.Callback {
     public int a(Format format) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, format)) == null) ? this.o.a(format) ? d.f.b.a.a.D(null, format.drmInitData) ? 4 : 2 : d.f.b.a.i0.i.h(format.sampleMimeType) ? 1 : 0 : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, format)) == null) ? this.o.a(format) ? d.f.b.a.a.E(null, format.drmInitData) ? 4 : 2 : d.f.b.a.i0.i.h(format.sampleMimeType) ? 1 : 0 : invokeL.intValue;
     }
 
     @Override // d.f.b.a.r
@@ -164,7 +164,7 @@ public final class k extends d.f.b.a.a implements Handler.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, message)) == null) {
             if (message.what == 0) {
-                G((List) message.obj);
+                H((List) message.obj);
                 return true;
             }
             throw new IllegalStateException();
@@ -183,7 +183,7 @@ public final class k extends d.f.b.a.a implements Handler.Callback {
     }
 
     @Override // d.f.b.a.r
-    public void j(long j, long j2) throws ExoPlaybackException {
+    public void k(long j, long j2) throws ExoPlaybackException {
         boolean z;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || this.r) {
@@ -194,18 +194,18 @@ public final class k extends d.f.b.a.a implements Handler.Callback {
             try {
                 this.x = this.u.c();
             } catch (SubtitleDecoderException e2) {
-                throw ExoPlaybackException.createForRenderer(e2, t());
+                throw ExoPlaybackException.createForRenderer(e2, u());
             }
         }
         if (getState() != 2) {
             return;
         }
         if (this.w != null) {
-            long F = F();
+            long G = G();
             z = false;
-            while (F <= j) {
+            while (G <= j) {
                 this.y++;
-                F = F();
+                G = G();
                 z = true;
             }
         } else {
@@ -214,15 +214,15 @@ public final class k extends d.f.b.a.a implements Handler.Callback {
         i iVar = this.x;
         if (iVar != null) {
             if (iVar.j()) {
-                if (!z && F() == Long.MAX_VALUE) {
+                if (!z && G() == Long.MAX_VALUE) {
                     if (this.s == 2) {
-                        J();
+                        K();
                     } else {
-                        H();
+                        I();
                         this.r = true;
                     }
                 }
-            } else if (this.x.f73655f <= j) {
+            } else if (this.x.f70758f <= j) {
                 i iVar2 = this.w;
                 if (iVar2 != null) {
                     iVar2.m();
@@ -235,7 +235,7 @@ public final class k extends d.f.b.a.a implements Handler.Callback {
             }
         }
         if (z) {
-            K(this.w.d(j));
+            L(this.w.d(j));
         }
         if (this.s == 2) {
             return;
@@ -256,47 +256,47 @@ public final class k extends d.f.b.a.a implements Handler.Callback {
                     this.s = 2;
                     return;
                 }
-                int B = B(this.p, this.v, false);
-                if (B == -4) {
+                int C = C(this.p, this.v, false);
+                if (C == -4) {
                     if (this.v.j()) {
                         this.q = true;
                     } else {
-                        this.v.j = this.p.f73492a.subsampleOffsetUs;
+                        this.v.j = this.p.f70595a.subsampleOffsetUs;
                         this.v.o();
                     }
                     this.u.d(this.v);
                     this.v = null;
-                } else if (B == -3) {
+                } else if (C == -3) {
                     return;
                 }
             } catch (SubtitleDecoderException e3) {
-                throw ExoPlaybackException.createForRenderer(e3, t());
+                throw ExoPlaybackException.createForRenderer(e3, u());
             }
         }
     }
 
     @Override // d.f.b.a.a
-    public void v() {
+    public void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             this.t = null;
-            E();
-            I();
+            F();
+            J();
         }
     }
 
     @Override // d.f.b.a.a
-    public void x(long j, boolean z) {
+    public void y(long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            E();
+            F();
             this.q = false;
             this.r = false;
             if (this.s != 0) {
-                J();
+                K();
                 return;
             }
-            H();
+            I();
             this.u.flush();
         }
     }

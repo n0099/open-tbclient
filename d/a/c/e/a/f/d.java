@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class d extends DiskFileOperate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f44012a;
+    public String f41028a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f44013b;
+    public String f41029b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(String str, String str2, DiskFileOperate.Action action) {
@@ -38,20 +38,20 @@ public class d extends DiskFileOperate {
                 return;
             }
         }
-        this.f44012a = null;
-        this.f44013b = "UTF-8";
+        this.f41028a = null;
+        this.f41029b = "UTF-8";
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44012a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41028a : (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f44012a = str;
+            this.f41028a = str;
         }
     }
 
@@ -60,10 +60,10 @@ public class d extends DiskFileOperate {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = this.f44012a;
+            String str = this.f41028a;
             if (str != null) {
                 try {
-                    return str.getBytes(this.f44013b);
+                    return str.getBytes(this.f41029b);
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
@@ -82,7 +82,7 @@ public class d extends DiskFileOperate {
                 return false;
             }
             try {
-                this.f44012a = new String(bArr, this.f44013b);
+                this.f41028a = new String(bArr, this.f41029b);
                 return true;
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());

@@ -1,5 +1,6 @@
 package d.f.b.a.i0;
 
+import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,19 +8,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class s {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f73409a;
+    public long f70512a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f73410b;
+    public long f70513b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile long f73411c;
+    public volatile long f70514c;
 
     public s(long j) {
         Interceptable interceptable = $ic;
@@ -36,7 +37,7 @@ public final class s {
                 return;
             }
         }
-        this.f73411c = -9223372036854775807L;
+        this.f70514c = -9223372036854775807L;
         h(j);
     }
 
@@ -59,19 +60,19 @@ public final class s {
             if (j == -9223372036854775807L) {
                 return -9223372036854775807L;
             }
-            if (this.f73411c != -9223372036854775807L) {
-                this.f73411c = j;
+            if (this.f70514c != -9223372036854775807L) {
+                this.f70514c = j;
             } else {
-                long j2 = this.f73409a;
+                long j2 = this.f70512a;
                 if (j2 != Long.MAX_VALUE) {
-                    this.f73410b = j2 - j;
+                    this.f70513b = j2 - j;
                 }
                 synchronized (this) {
-                    this.f73411c = j;
+                    this.f70514c = j;
                     notifyAll();
                 }
             }
-            return j + this.f73410b;
+            return j + this.f70513b;
         }
         return invokeJ.longValue;
     }
@@ -83,11 +84,11 @@ public final class s {
             if (j == -9223372036854775807L) {
                 return -9223372036854775807L;
             }
-            if (this.f73411c != -9223372036854775807L) {
-                long i2 = i(this.f73411c);
-                long j2 = (4294967296L + i2) / 8589934592L;
-                long j3 = ((j2 - 1) * 8589934592L) + j;
-                j += j2 * 8589934592L;
+            if (this.f70514c != -9223372036854775807L) {
+                long i2 = i(this.f70514c);
+                long j2 = (4294967296L + i2) / AnimatedStateListDrawableCompat.AnimatedStateListState.REVERSIBLE_FLAG_BIT;
+                long j3 = ((j2 - 1) * AnimatedStateListDrawableCompat.AnimatedStateListState.REVERSIBLE_FLAG_BIT) + j;
+                j += j2 * AnimatedStateListDrawableCompat.AnimatedStateListState.REVERSIBLE_FLAG_BIT;
                 if (Math.abs(j3 - i2) < Math.abs(j - i2)) {
                     j = j3;
                 }
@@ -100,17 +101,17 @@ public final class s {
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f73409a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f70512a : invokeV.longValue;
     }
 
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f73411c != -9223372036854775807L) {
-                return this.f73411c;
+            if (this.f70514c != -9223372036854775807L) {
+                return this.f70514c;
             }
-            long j = this.f73409a;
+            long j = this.f70512a;
             if (j != Long.MAX_VALUE) {
                 return j;
             }
@@ -123,13 +124,13 @@ public final class s {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f73409a == Long.MAX_VALUE) {
+            if (this.f70512a == Long.MAX_VALUE) {
                 return 0L;
             }
-            if (this.f73411c == -9223372036854775807L) {
+            if (this.f70514c == -9223372036854775807L) {
                 return -9223372036854775807L;
             }
-            return this.f73410b;
+            return this.f70513b;
         }
         return invokeV.longValue;
     }
@@ -137,7 +138,7 @@ public final class s {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f73411c = -9223372036854775807L;
+            this.f70514c = -9223372036854775807L;
         }
     }
 
@@ -145,8 +146,8 @@ public final class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
             synchronized (this) {
-                a.f(this.f73411c == -9223372036854775807L);
-                this.f73409a = j;
+                a.f(this.f70514c == -9223372036854775807L);
+                this.f70512a = j;
             }
         }
     }
@@ -155,7 +156,7 @@ public final class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             synchronized (this) {
-                while (this.f73411c == -9223372036854775807L) {
+                while (this.f70514c == -9223372036854775807L) {
                     wait();
                 }
             }

@@ -1,5 +1,6 @@
 package com.xiaomi.push;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,24 +18,24 @@ import java.util.Enumeration;
 import java.util.Vector;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class fr {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f43125a = 5000;
+    public static int f40139a = 5000;
 
     /* renamed from: a  reason: collision with other field name */
     public static Vector<String> f410a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f43126b = 330000;
+    public static int f40140b = 330000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f43127c = 600000;
+    public static int f40141c = 600000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f43128d = 330000;
+    public static int f40142d = 330000;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -67,9 +68,9 @@ public final class fr {
                                 if (newPullParser.getName().equals(PushClientConstants.TAG_CLASS_NAME)) {
                                     a(newPullParser);
                                 } else if (newPullParser.getName().equals("packetReplyTimeout")) {
-                                    f43125a = a(newPullParser, f43125a);
+                                    f40139a = a(newPullParser, f40139a);
                                 } else if (newPullParser.getName().equals("keepAliveInterval")) {
-                                    f43126b = a(newPullParser, f43126b);
+                                    f40140b = a(newPullParser, f40140b);
                                 } else if (newPullParser.getName().equals("mechName")) {
                                     f410a.add(newPullParser.nextText());
                                 }
@@ -107,7 +108,7 @@ public final class fr {
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f43126b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f40140b : invokeV.intValue;
     }
 
     public static int a(XmlPullParser xmlPullParser, int i2) {
@@ -128,7 +129,7 @@ public final class fr {
     public static String m331a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? "3.1.0" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? "3.1.0" : (String) invokeV.objValue;
     }
 
     public static void a(XmlPullParser xmlPullParser) {
@@ -165,6 +166,6 @@ public final class fr {
     public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f43127c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f40141c : invokeV.intValue;
     }
 }

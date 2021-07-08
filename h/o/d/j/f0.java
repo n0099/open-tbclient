@@ -10,15 +10,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class f0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f75667a;
+    public static final a f72701a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -140,7 +140,7 @@ public final class f0 {
             aVar = (a) declaredField.get(null);
         } catch (Throwable unused) {
         }
-        f75667a = aVar;
+        f72701a = aVar;
     }
 
     public static long a(Class<?> cls, String str) {
@@ -148,7 +148,7 @@ public final class f0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, str)) == null) {
             try {
-                return f75667a.g(cls.getDeclaredField(str));
+                return f72701a.g(cls.getDeclaredField(str));
             } catch (NoSuchFieldException e2) {
                 InternalError internalError = new InternalError();
                 internalError.initCause(e2);

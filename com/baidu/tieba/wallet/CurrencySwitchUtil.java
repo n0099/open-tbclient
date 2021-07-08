@@ -2,6 +2,7 @@ package com.baidu.tieba.wallet;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CurrencySwitchUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -123,7 +124,7 @@ public class CurrencySwitchUtil {
     public static Bitmap getMoneyIconBitmap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (isYyIsConvert()) {
                 return SkinManager.getBitmap(R.drawable.icon_huobi_ydou);
             }

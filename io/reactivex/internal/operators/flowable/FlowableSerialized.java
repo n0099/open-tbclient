@@ -8,7 +8,7 @@ import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
 import io.reactivex.subscribers.SerializedSubscriber;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class FlowableSerialized<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

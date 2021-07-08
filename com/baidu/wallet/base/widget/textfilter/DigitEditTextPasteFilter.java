@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DigitEditTextPasteFilter implements IEditTextPasteFilter {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24507a = "DigitEditTextPasteFilter";
+    public static final String f24617a = "DigitEditTextPasteFilter";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

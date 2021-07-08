@@ -1,5 +1,6 @@
 package com.yy.mobile.framework.revenuesdk;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class RevenueSdk {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RevenueSdk";
@@ -91,7 +92,7 @@ public class RevenueSdk {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (RevenueSdk.class) {
                 arrayList = new ArrayList();
                 for (int i2 = 0; i2 < iRevenueMap.size(); i2++) {

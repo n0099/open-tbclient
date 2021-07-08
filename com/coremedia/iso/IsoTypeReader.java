@@ -1,5 +1,6 @@
 package com.coremedia.iso;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,7 +13,7 @@ import com.googlecode.mp4parser.util.IntHashMap;
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class IsoTypeReader {
     public static /* synthetic */ Interceptable $ic;
     public static byte[] codeBytes;
@@ -81,7 +82,7 @@ public final class IsoTypeReader {
     public static double readFixedPoint0230(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, byteBuffer)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, byteBuffer)) == null) {
             byte[] bArr = new byte[4];
             byteBuffer.get(bArr);
             return ((((0 | ((bArr[0] << 24) & (-16777216))) | ((bArr[1] << 16) & 16711680)) | ((bArr[2] << 8) & 65280)) | (bArr[3] & 255)) / 1.073741824E9d;

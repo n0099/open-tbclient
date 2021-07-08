@@ -1,6 +1,7 @@
 package com.baidu.searchbox.http;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class HttpManager extends AbstractHttpManager {
     public static /* synthetic */ Interceptable $ic;
     public static volatile HttpManager httpManager;
@@ -77,7 +78,7 @@ public class HttpManager extends AbstractHttpManager {
     public static HttpManager newHttpManager(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             HttpManager httpManager2 = new HttpManager(context);
             httpManager2.setHttpDnsEnable(getDefault(context).getHttpDnsEnable());
             return httpManager2;

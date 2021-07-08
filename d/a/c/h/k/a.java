@@ -3,6 +3,7 @@ package d.a.c.h.k;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.util.Util;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -24,21 +25,21 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f44743a;
+    public static Object f41759a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d.a.c.h.k.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0599a implements Comparator<Object> {
+    /* loaded from: classes7.dex */
+    public static class C0560a implements Comparator<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0599a() {
+        public C0560a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,7 +67,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class b implements Comparator<File> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,16 +102,16 @@ public class a {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f44744a;
+        public boolean f41760a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f44745b;
+        public String f41761b;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -140,7 +141,7 @@ public class a {
                 return;
             }
         }
-        f44743a = new Object();
+        f41759a = new Object();
     }
 
     public static Object b(Object obj, Object obj2) {
@@ -185,7 +186,7 @@ public class a {
     public static Object d(Object obj, Object obj2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, obj, obj2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, obj2)) == null) {
             if (obj == null) {
                 return obj2;
             }
@@ -273,7 +274,7 @@ public class a {
             if (classLoader == null || classLoader2 == null) {
                 return null;
             }
-            synchronized (f44743a) {
+            synchronized (f41759a) {
                 boolean z2 = true;
                 try {
                     Class.forName("dalvik.system.BaseDexClassLoader");
@@ -473,7 +474,7 @@ public class a {
                         for (String str2 : (String[]) g(dexClassLoader, DexClassLoader.class, "mLibPaths")) {
                             arrayList.add(str2);
                         }
-                        Collections.sort(arrayList, new C0599a());
+                        Collections.sort(arrayList, new C0560a());
                     } catch (Exception unused) {
                         p(pathClassLoader, PathClassLoader.class, "mLibPaths", d(g(pathClassLoader, PathClassLoader.class, "mLibPaths"), g(dexClassLoader, DexClassLoader.class, "mLibPaths")));
                     }
@@ -502,8 +503,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZL = interceptable.invokeZL(65551, null, z, th)) == null) {
             c cVar = new c();
-            cVar.f44744a = z;
-            cVar.f44745b = th != null ? th.getLocalizedMessage() : null;
+            cVar.f41760a = z;
+            cVar.f41761b = th != null ? th.getLocalizedMessage() : null;
             return cVar;
         }
         return (c) invokeZL.objValue;

@@ -108,7 +108,7 @@ public class BdStatisticsManager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdStatisticsManager f2188a;
+        public final /* synthetic */ BdStatisticsManager f2189a;
 
         public b(BdStatisticsManager bdStatisticsManager) {
             Interceptable interceptable = $ic;
@@ -125,15 +125,15 @@ public class BdStatisticsManager {
                     return;
                 }
             }
-            this.f2188a = bdStatisticsManager;
+            this.f2189a = bdStatisticsManager;
         }
 
         @Override // d.a.c.e.n.k.a.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f2188a.isSwitchReady = true;
-                if (this.f2188a.mIsMainProcess) {
+                this.f2189a.isSwitchReady = true;
+                if (this.f2189a.mIsMainProcess) {
                     g.h().f();
                 }
                 BdStatisticsManager.mHandler.removeMessages(2);
@@ -578,7 +578,7 @@ public class BdStatisticsManager {
             d.a.c.e.n.l.b.m().n(cVar, str4, str5);
             g.h().k(cVar);
             if (cVar != null) {
-                this.mAppVersion = cVar.f44302c;
+                this.mAppVersion = cVar.f41318c;
             }
             if (TextUtils.isEmpty(this.mProcessNameMd5)) {
                 String processNameMd5 = getProcessNameMd5();

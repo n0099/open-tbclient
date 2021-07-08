@@ -1,5 +1,6 @@
 package com.yy.gslbsdk.protocol;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +16,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class UpdateServerProtocolMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UpdateServerProtocolMgr";
@@ -127,7 +128,7 @@ public class UpdateServerProtocolMgr {
     public static int translateErrCode(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             if (i2 != 0) {
                 if (i2 != 1) {
                     if (i2 != 2) {

@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class LongAdder extends Striped64 implements Serializable, g {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 7249069246863182397L;
@@ -67,7 +67,7 @@ public final class LongAdder extends Striped64 implements Serializable, g {
             int[] iArr = Striped64.threadHashCode.get();
             boolean z = true;
             if (iArr != null && bVarArr != null && (length = bVarArr.length) >= 1 && (bVar = bVarArr[(length - 1) & iArr[0]]) != null) {
-                long j3 = bVar.f32976a;
+                long j3 = bVar.f33086a;
                 z = bVar.a(j3, j3 + j);
                 if (z) {
                     return;
@@ -144,7 +144,7 @@ public final class LongAdder extends Striped64 implements Serializable, g {
             if (bVarArr != null) {
                 for (Striped64.b bVar : bVarArr) {
                     if (bVar != null) {
-                        j += bVar.f32976a;
+                        j += bVar.f33086a;
                     }
                 }
             }
@@ -163,8 +163,8 @@ public final class LongAdder extends Striped64 implements Serializable, g {
             if (bVarArr != null) {
                 for (Striped64.b bVar : bVarArr) {
                     if (bVar != null) {
-                        j += bVar.f32976a;
-                        bVar.f32976a = 0L;
+                        j += bVar.f33086a;
+                        bVar.f33086a = 0L;
                     }
                 }
             }

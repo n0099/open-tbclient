@@ -1,6 +1,7 @@
 package com.baidu.pass.biometrics.base.utils;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PassBioFileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PassBioFileUtils";
@@ -62,7 +63,7 @@ public class PassBioFileUtils {
     public static boolean isFileExist(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (str == null) {
                 return false;
             }

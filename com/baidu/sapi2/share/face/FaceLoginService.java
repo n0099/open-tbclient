@@ -3,6 +3,7 @@ package com.baidu.sapi2.share.face;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.common.SecurityUtil;
@@ -28,7 +29,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FaceLoginService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FACE_SHARE_V2_MAX_ACCOUNT_SIZE = 10;
@@ -113,7 +114,7 @@ public class FaceLoginService {
     private List<FaceLoginModel> getUidsFromV2ShareStorage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             ArrayList arrayList = new ArrayList();
             if (SapiContext.getInstance().shareLivingunameEnable()) {
                 List<Intent> queryShareActivitys = ShareUtils.queryShareActivitys(this.context);

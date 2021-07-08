@@ -1,6 +1,7 @@
 package com.google.zxing.pdf417.encoder;
 
 import android.support.v4.media.session.MediaSessionCompat;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.widget.AutoScrollHelper;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.IMConstants;
@@ -41,7 +42,7 @@ import com.google.ar.core.InstallActivity;
 import com.google.zxing.WriterException;
 import com.google.zxing.pdf417.PDF417Common;
 import org.apache.http.HttpStatus;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class PDF417ErrorCorrection {
     public static /* synthetic */ Interceptable $ic;
     public static final int[][] EC_COEFFICIENTS;
@@ -120,7 +121,7 @@ public final class PDF417ErrorCorrection {
     public static int getRecommendedMinimumErrorCorrectionLevel(int i2) throws WriterException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             if (i2 > 0) {
                 if (i2 <= 40) {
                     return 2;

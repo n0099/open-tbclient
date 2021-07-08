@@ -1,0 +1,68 @@
+package d.a.n0.h.k;
+
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.n0.a.l0.h;
+@Service
+/* loaded from: classes7.dex */
+public class a implements h {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: d.a.n0.h.k.a$a  reason: collision with other inner class name */
+    /* loaded from: classes7.dex */
+    public static class C1096a {
+        public static /* synthetic */ Interceptable $ic;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static String f50042a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+                if (TextUtils.isEmpty(f50042a)) {
+                    f50042a = d.a.n0.a.s2.b.c();
+                }
+                return f50042a;
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // d.a.n0.a.l0.h
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? C1096a.a() : (String) invokeV.objValue;
+    }
+
+    @Override // d.a.n0.a.l0.h
+    public d.a.n0.a.l0.a b(String str, d.a.n0.a.l0.n.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bVar, v8ThreadDelegatePolicy)) == null) ? new b(str, bVar, v8ThreadDelegatePolicy) : (d.a.n0.a.l0.a) invokeLLL.objValue;
+    }
+}

@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import androidx.transition.TransitionUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -190,7 +191,7 @@ public class ChangeImageTransform extends Transition {
     public static Matrix centerCropMatrix(ImageView imageView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, imageView)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, imageView)) == null) {
             Drawable drawable = imageView.getDrawable();
             int intrinsicWidth = drawable.getIntrinsicWidth();
             float width = imageView.getWidth();

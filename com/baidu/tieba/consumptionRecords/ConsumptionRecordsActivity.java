@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.ConsumptionRecordsActivityConfig;
@@ -17,8 +18,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.e0.c;
-/* loaded from: classes5.dex */
+import d.a.o0.e0.c;
+/* loaded from: classes4.dex */
 public class ConsumptionRecordsActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,14 +49,14 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
             return;
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
-        bVar.f12348c = cVar.f55251a;
-        fragmentTabIndicator.setText(cVar.f55252b);
+        bVar.f12365c = cVar.f51956a;
+        fragmentTabIndicator.setText(cVar.f51957b);
         if (!TextUtils.isEmpty(str)) {
             fragmentTabIndicator.setText(str);
         }
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.ds32));
         fragmentTabIndicator.l = R.color.s_actionbar_text_color;
-        bVar.f12347b = fragmentTabIndicator;
+        bVar.f12364b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 
@@ -82,31 +83,31 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
 
     private void initTabs() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.records_tab_host);
             this.mTabHost = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.mTabHost.setTabWidgetViewHeight((int) getResources().getDimension(R.dimen.ds80));
             SigleRecordsFragment sigleRecordsFragment = new SigleRecordsFragment();
             this.expenditureFragment = sigleRecordsFragment;
-            sigleRecordsFragment.X0(1);
+            sigleRecordsFragment.Y0(1);
             c cVar = new c();
-            cVar.f55251a = this.expenditureFragment;
-            cVar.f55252b = R.string.expenditure_records;
+            cVar.f51956a = this.expenditureFragment;
+            cVar.f51957b = R.string.expenditure_records;
             createAndAddTabSpec(cVar, getTabIndicator(getPageContext().getPageActivity()), null);
             SigleRecordsFragment sigleRecordsFragment2 = new SigleRecordsFragment();
             this.incomeFragment = sigleRecordsFragment2;
-            sigleRecordsFragment2.X0(2);
+            sigleRecordsFragment2.Y0(2);
             c cVar2 = new c();
-            cVar2.f55251a = this.incomeFragment;
-            cVar2.f55252b = R.string.income_records;
+            cVar2.f51956a = this.incomeFragment;
+            cVar2.f51957b = R.string.income_records;
             createAndAddTabSpec(cVar2, getTabIndicator(getPageContext().getPageActivity()), null);
             SigleRecordsFragment sigleRecordsFragment3 = new SigleRecordsFragment();
             this.rechargeFragment = sigleRecordsFragment3;
-            sigleRecordsFragment3.X0(3);
+            sigleRecordsFragment3.Y0(3);
             c cVar3 = new c();
-            cVar3.f55251a = this.rechargeFragment;
-            cVar3.f55252b = R.string.recharge_records;
+            cVar3.f51956a = this.rechargeFragment;
+            cVar3.f51957b = R.string.recharge_records;
             createAndAddTabSpec(cVar3, getTabIndicator(getPageContext().getPageActivity()), null);
             this.mTabHost.k(3);
             this.mTabHost.setCurrentTab(getIndexByType(getIntent().getIntExtra(ConsumptionRecordsActivityConfig.JUMP_FRAGMENT_TYPE, 1)));

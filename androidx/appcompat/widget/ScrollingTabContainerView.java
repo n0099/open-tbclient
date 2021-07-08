@@ -482,7 +482,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
     private boolean isCollapsed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             Spinner spinner = this.mTabSpinner;
             return spinner != null && spinner.getParent() == this;
         }

@@ -1,12 +1,13 @@
 package com.bytedance.sdk.component.b.b.a.c;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpOptions;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,6 +39,6 @@ public final class f {
     public static boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? !str.equals("PROPFIND") : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? !str.equals("PROPFIND") : invokeL.booleanValue;
     }
 }

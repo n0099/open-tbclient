@@ -21,20 +21,20 @@ import com.bytedance.sdk.component.net.utils.ProcessUtils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class NetClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public w okHttpClient;
 
     /* renamed from: com.bytedance.sdk.component.net.NetClient$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -141,7 +141,7 @@ public class NetClient {
     public static void openDeubg() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            d.a(d.a.f27943a);
+            d.a(d.a.f28053a);
         }
     }
 

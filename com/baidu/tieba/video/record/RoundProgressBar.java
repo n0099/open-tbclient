@@ -13,25 +13,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RoundProgressBar extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21647e;
+    public int f21693e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21648f;
+    public int f21694f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21649g;
+    public int f21695g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f21650h;
+    public int f21696h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f21651i;
+    public float f21697i;
     public Paint j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -58,15 +58,15 @@ public class RoundProgressBar extends View {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f21650h = 4;
-            this.f21647e = Color.rgb(255, 255, 255);
+            this.f21696h = 4;
+            this.f21693e = Color.rgb(255, 255, 255);
         }
     }
 
     public void b(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-            this.f21651i = f2;
+            this.f21697i = f2;
             invalidate();
         }
     }
@@ -77,17 +77,17 @@ public class RoundProgressBar extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.onDraw(canvas);
-            this.f21648f = getWidth();
+            this.f21694f = getWidth();
             int height = getHeight();
-            this.f21649g = height;
-            if (this.f21648f > height) {
-                this.f21648f = height;
+            this.f21695g = height;
+            if (this.f21694f > height) {
+                this.f21694f = height;
             }
             this.j.setAntiAlias(true);
             this.j.setStyle(Paint.Style.STROKE);
-            this.j.setStrokeWidth(this.f21650h);
-            this.j.setColor(this.f21647e);
-            canvas.drawArc(new RectF(5.0f, 5.0f, this.f21648f - 5, this.f21649g - 5), 270.0f, (this.f21651i * 360.0f) / 100.0f, false, this.j);
+            this.j.setStrokeWidth(this.f21696h);
+            this.j.setColor(this.f21693e);
+            canvas.drawArc(new RectF(5.0f, 5.0f, this.f21694f - 5, this.f21695g - 5), 270.0f, (this.f21697i * 360.0f) / 100.0f, false, this.j);
         }
     }
 

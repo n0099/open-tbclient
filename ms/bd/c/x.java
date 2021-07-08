@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import ms.bd.c.t;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class x extends t.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,15 +29,15 @@ public class x extends t.c {
             }
         }
         ByteBuffer allocate = ByteBuffer.allocate(4);
-        allocate.order(bVar.f76097a ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN);
-        long j2 = bVar.f76098b + (j * bVar.f76100d);
+        allocate.order(bVar.f73131a ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN);
+        long j2 = bVar.f73132b + (j * bVar.f73134d);
         wVar.h(allocate, j2, 4);
-        this.f76103a = allocate.getInt() & 4294967295L;
+        this.f73137a = allocate.getInt() & 4294967295L;
         wVar.h(allocate, 4 + j2, 4);
-        this.f76104b = allocate.getInt() & 4294967295L;
+        this.f73138b = allocate.getInt() & 4294967295L;
         wVar.h(allocate, 8 + j2, 4);
-        this.f76105c = allocate.getInt() & 4294967295L;
+        this.f73139c = allocate.getInt() & 4294967295L;
         wVar.h(allocate, j2 + 20, 4);
-        this.f76106d = allocate.getInt() & 4294967295L;
+        this.f73140d = allocate.getInt() & 4294967295L;
     }
 }

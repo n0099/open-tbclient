@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.u0.l1.a;
+import d.a.p0.u0.l1.a;
 import tbclient.Error;
 import tbclient.StarTrends.StarTrendsResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FrsDynamicHttpResponseMessage extends MvcProtobufHttpResponsedMessage<a, StarTrendsResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public class FrsDynamicHttpResponseMessage extends MvcProtobufHttpResponsedMessa
                 Integer num = error.errorno;
                 if (num != null) {
                     setError(num.intValue());
-                    this.responseData.f66277h = a2.error.errorno.intValue();
+                    this.responseData.f63058h = a2.error.errorno.intValue();
                 }
                 setErrorString(a2.error.usermsg);
             }

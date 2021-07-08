@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.alibaba.fastjson.asm.ClassReader;
 import com.alibaba.fastjson.asm.TypeCollector;
@@ -77,7 +78,7 @@ public class ASMUtils {
     public static String desc(Method method) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, method)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, method)) == null) {
             Class<?>[] parameterTypes = method.getParameterTypes();
             StringBuilder sb = new StringBuilder((parameterTypes.length + 1) << 4);
             sb.append('(');

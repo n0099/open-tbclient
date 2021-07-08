@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.b.a.i0.l;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final l f72177a;
+    public final l f69280a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f72178b;
+    public int f69281b;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class e {
                 return;
             }
         }
-        this.f72177a = new l(8);
+        this.f69280a = new l(8);
     }
 
     public final long a(d.f.b.a.a0.f fVar) throws IOException, InterruptedException {
@@ -40,8 +40,8 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) {
             int i2 = 0;
-            fVar.c(this.f72177a.f73386a, 0, 1);
-            int i3 = this.f72177a.f73386a[0] & 255;
+            fVar.c(this.f69280a.f70489a, 0, 1);
+            int i3 = this.f69280a.f70489a[0] & 255;
             if (i3 == 0) {
                 return Long.MIN_VALUE;
             }
@@ -52,12 +52,12 @@ public final class e {
                 i5++;
             }
             int i6 = i3 & (~i4);
-            fVar.c(this.f72177a.f73386a, 1, i5);
+            fVar.c(this.f69280a.f70489a, 1, i5);
             while (i2 < i5) {
                 i2++;
-                i6 = (this.f72177a.f73386a[i2] & 255) + (i6 << 8);
+                i6 = (this.f69280a.f70489a[i2] & 255) + (i6 << 8);
             }
-            this.f72178b += i5 + 1;
+            this.f69281b += i5 + 1;
             return i6;
         }
         return invokeL.longValue;
@@ -78,20 +78,20 @@ public final class e {
             j = length;
         }
         int i4 = (int) j;
-        fVar.c(this.f72177a.f73386a, 0, 4);
-        long z = this.f72177a.z();
-        this.f72178b = 4;
+        fVar.c(this.f69280a.f70489a, 0, 4);
+        long z = this.f69280a.z();
+        this.f69281b = 4;
         while (z != 440786851) {
-            int i5 = this.f72178b + 1;
-            this.f72178b = i5;
+            int i5 = this.f69281b + 1;
+            this.f69281b = i5;
             if (i5 == i4) {
                 return false;
             }
-            fVar.c(this.f72177a.f73386a, 0, 1);
-            z = ((z << 8) & (-256)) | (this.f72177a.f73386a[0] & 255);
+            fVar.c(this.f69280a.f70489a, 0, 1);
+            z = ((z << 8) & (-256)) | (this.f69280a.f70489a[0] & 255);
         }
         long a3 = a(fVar);
-        long j2 = this.f72178b;
+        long j2 = this.f69281b;
         if (a3 == Long.MIN_VALUE) {
             return false;
         }
@@ -99,14 +99,14 @@ public final class e {
             return false;
         }
         while (true) {
-            int i6 = this.f72178b;
+            int i6 = this.f69281b;
             long j3 = j2 + a3;
             if (i6 >= j3) {
                 return ((long) i6) == j3;
             } else if (a(fVar) != Long.MIN_VALUE && (a(fVar)) >= 0 && a2 <= 2147483647L) {
                 if (i2 != 0) {
                     fVar.g((int) a2);
-                    this.f72178b = (int) (this.f72178b + a2);
+                    this.f69281b = (int) (this.f69281b + a2);
                 }
             }
         }

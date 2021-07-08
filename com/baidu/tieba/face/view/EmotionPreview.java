@@ -17,30 +17,30 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.l.c;
 import d.a.c.e.l.d;
 import d.a.c.e.p.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class EmotionPreview extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f14814e;
+    public ImageView f14853e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14815f;
+    public int f14854f;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends c<d.a.c.k.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f14816a;
+        public final /* synthetic */ String f14855a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f14817b;
+        public final /* synthetic */ String f14856b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ EmotionPreview f14818c;
+        public final /* synthetic */ EmotionPreview f14857c;
 
         public a(EmotionPreview emotionPreview, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -57,9 +57,9 @@ public class EmotionPreview extends LinearLayout {
                     return;
                 }
             }
-            this.f14818c = emotionPreview;
-            this.f14816a = str;
-            this.f14817b = str2;
+            this.f14857c = emotionPreview;
+            this.f14855a = str;
+            this.f14856b = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,24 +70,24 @@ public class EmotionPreview extends LinearLayout {
                 return;
             }
             if (aVar.t()) {
-                this.f14818c.f14814e = new GifView(this.f14818c.getContext());
-                ((GifView) this.f14818c.f14814e).setSupportNoImage(false);
+                this.f14857c.f14853e = new GifView(this.f14857c.getContext());
+                ((GifView) this.f14857c.f14853e).setSupportNoImage(false);
                 GifInfo gifInfo = new GifInfo();
-                String str2 = this.f14816a;
+                String str2 = this.f14855a;
                 gifInfo.mSharpText = str2;
                 gifInfo.mDynamicUrl = str2;
-                gifInfo.mStaticUrl = this.f14817b;
-                this.f14818c.f14814e.setTag(gifInfo.mSharpText);
-                ((GifView) this.f14818c.f14814e).k0(gifInfo);
+                gifInfo.mStaticUrl = this.f14856b;
+                this.f14857c.f14853e.setTag(gifInfo.mSharpText);
+                ((GifView) this.f14857c.f14853e).k0(gifInfo);
             } else {
-                this.f14818c.f14814e = new TbImageView(this.f14818c.getContext());
-                ((TbImageView) this.f14818c.f14814e).setGifIconSupport(false);
-                aVar.h(this.f14818c.f14814e);
+                this.f14857c.f14853e = new TbImageView(this.f14857c.getContext());
+                ((TbImageView) this.f14857c.f14853e).setGifIconSupport(false);
+                aVar.h(this.f14857c.f14853e);
             }
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.f14818c.f14815f, this.f14818c.f14815f);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.f14857c.f14854f, this.f14857c.f14854f);
             layoutParams.gravity = 17;
-            EmotionPreview emotionPreview = this.f14818c;
-            emotionPreview.addView(emotionPreview.f14814e, layoutParams);
+            EmotionPreview emotionPreview = this.f14857c;
+            emotionPreview.addView(emotionPreview.f14853e, layoutParams);
         }
     }
 
@@ -118,7 +118,7 @@ public class EmotionPreview extends LinearLayout {
             setBackgroundResource(R.drawable.bg_expression_bubble);
             int g2 = l.g(getContext(), R.dimen.ds20);
             setPadding(g2, g2, g2, l.g(getContext(), R.dimen.ds40));
-            this.f14815f = l.g(getContext(), R.dimen.ds200);
+            this.f14854f = l.g(getContext(), R.dimen.ds200);
         }
     }
 
@@ -133,18 +133,18 @@ public class EmotionPreview extends LinearLayout {
             return;
         }
         GifView gifView = new GifView(getContext());
-        this.f14814e = gifView;
+        this.f14853e = gifView;
         gifView.setSupportNoImage(false);
         GifInfo gifInfo = new GifInfo();
         gifInfo.mSharpText = str;
         gifInfo.mDynamicUrl = str;
         gifInfo.mStaticUrl = str2;
-        this.f14814e.setTag(str);
-        ((GifView) this.f14814e).k0(gifInfo);
-        int i3 = this.f14815f;
+        this.f14853e.setTag(str);
+        ((GifView) this.f14853e).k0(gifInfo);
+        int i3 = this.f14854f;
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i3, i3);
         layoutParams.gravity = 17;
-        addView(this.f14814e, layoutParams);
+        addView(this.f14853e, layoutParams);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

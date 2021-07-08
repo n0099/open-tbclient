@@ -23,7 +23,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class GlideException extends Exception {
     public static /* synthetic */ Interceptable $ic = null;
     public static final StackTraceElement[] EMPTY_ELEMENTS;
@@ -74,7 +74,7 @@ public final class GlideException extends Exception {
 
     private void addRootCauses(Throwable th, List<Throwable> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, this, th, list) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, th, list) == null) {
             if (th instanceof GlideException) {
                 for (Throwable th2 : ((GlideException) th).getCauses()) {
                     addRootCauses(th2, list);
@@ -293,7 +293,7 @@ public final class GlideException extends Exception {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class IndentedAppendable implements Appendable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String EMPTY_SEQUENCE = "";

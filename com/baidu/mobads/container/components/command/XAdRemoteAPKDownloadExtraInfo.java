@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class XAdRemoteAPKDownloadExtraInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ADID = "adid";

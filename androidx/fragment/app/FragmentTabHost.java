@@ -300,7 +300,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
 
     private void ensureHierarchy(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65540, this, context) == null) && findViewById(16908307) == null) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) && findViewById(16908307) == null) {
             LinearLayout linearLayout = new LinearLayout(context);
             linearLayout.setOrientation(1);
             addView(linearLayout, new FrameLayout.LayoutParams(-1, -1));

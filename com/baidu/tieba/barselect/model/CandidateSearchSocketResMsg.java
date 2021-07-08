@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.s0.x.b.a;
+import d.a.p0.x.b.a;
 import tbclient.Error;
 import tbclient.Search.SearchResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CandidateSearchSocketResMsg extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class CandidateSearchSocketResMsg extends TbSocketReponsedMessage {
             if (getOrginalMessage() == null || !(getOrginalMessage().getExtra() instanceof CandidateSearchReqMsg)) {
                 return;
             }
-            this.candidateData.f69320a = ((CandidateSearchReqMsg) getOrginalMessage().getExtra()).fid;
+            this.candidateData.f66108a = ((CandidateSearchReqMsg) getOrginalMessage().getExtra()).fid;
         }
     }
 }

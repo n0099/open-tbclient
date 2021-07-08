@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -63,7 +64,7 @@ public final class PreferenceUtils {
     public static boolean getBoolean(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65540, null, str, z)) == null) ? getPreference().getBoolean(str, z) : invokeLZ.booleanValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, z)) == null) ? getPreference().getBoolean(str, z) : invokeLZ.booleanValue;
     }
 
     public static float getFloat(String str, float f2) {

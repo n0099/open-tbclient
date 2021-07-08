@@ -3,6 +3,7 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,13 +19,13 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ds extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f42972a;
+    public Context f39986a;
 
     /* renamed from: a  reason: collision with other field name */
     public SharedPreferences f242a;
@@ -47,7 +48,7 @@ public class ds extends ai.a {
                 return;
             }
         }
-        this.f42972a = context;
+        this.f39986a = context;
         this.f242a = context.getSharedPreferences("mipush_extra", 0);
         this.f243a = com.xiaomi.push.service.aq.a(context);
     }
@@ -66,9 +67,9 @@ public class ds extends ai.a {
             }
             ArrayList arrayList = new ArrayList();
             byte[] bArr = new byte[4];
-            synchronized (dm.f42966a) {
+            synchronized (dm.f39980a) {
                 try {
-                    File file2 = new File(this.f42972a.getExternalFilesDir(null), "push_cdata.lock");
+                    File file2 = new File(this.f39986a.getExternalFilesDir(null), "push_cdata.lock");
                     y.m643a(file2);
                     randomAccessFile = new RandomAccessFile(file2, "rw");
                     try {
@@ -159,7 +160,7 @@ public class ds extends ai.a {
 
     private void a(hn hnVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, this, hnVar) == null) && hnVar.f500a == hh.f43248b && !hnVar.f501a.startsWith("same_")) {
+        if ((interceptable == null || interceptable.invokeL(65539, this, hnVar) == null) && hnVar.f500a == hh.f40262b && !hnVar.f501a.startsWith("same_")) {
             SharedPreferences.Editor edit = this.f242a.edit();
             edit.putLong("dc_job_result_time_4", hnVar.f499a);
             edit.putString("dc_job_result_4", bm.a(hnVar.f501a));
@@ -171,14 +172,14 @@ public class ds extends ai.a {
     private boolean m250a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
-            if (bg.e(this.f42972a)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            if (bg.e(this.f39986a)) {
                 return false;
             }
-            if ((bg.g(this.f42972a) || bg.f(this.f42972a)) && !c()) {
+            if ((bg.g(this.f39986a) || bg.f(this.f39986a)) && !c()) {
                 return true;
             }
-            return (bg.h(this.f42972a) && !b()) || bg.i(this.f42972a);
+            return (bg.h(this.f39986a) && !b()) || bg.i(this.f39986a);
         }
         return invokeV.booleanValue;
     }
@@ -219,8 +220,8 @@ public class ds extends ai.a {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            File file = new File(this.f42972a.getExternalFilesDir(null), "push_cdata.data");
-            if (!bg.d(this.f42972a)) {
+            File file = new File(this.f39986a.getExternalFilesDir(null), "push_cdata.data");
+            if (!bg.d(this.f39986a)) {
                 if (file.length() > 1863680) {
                     file.delete();
                 }
@@ -239,7 +240,7 @@ public class ds extends ai.a {
                     ieVar.a(a3);
                     di m246a = dj.a().m246a();
                     if (m246a != null) {
-                        m246a.a(ieVar, hf.f43244i, null);
+                        m246a.a(ieVar, hf.f40258i, null);
                     }
                     a();
                 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class ViewStatus {
     public static final /* synthetic */ ViewStatus[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -33,7 +33,7 @@ public final class ViewStatus {
             }
         }
         LOADING = new ViewStatus("LOADING", 0);
-        SUCCESS = new ViewStatus(c.f2102g, 1);
+        SUCCESS = new ViewStatus(c.f2103g, 1);
         ERROR = new ViewStatus("ERROR", 2);
         ViewStatus viewStatus = new ViewStatus("EMPTY", 3);
         EMPTY = viewStatus;

@@ -1,5 +1,6 @@
 package okhttp3.internal.http2;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class ErrorCode {
     public static final /* synthetic */ ErrorCode[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -99,6 +100,6 @@ public final class ErrorCode {
     public static ErrorCode[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (ErrorCode[]) $VALUES.clone() : (ErrorCode[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ErrorCode[]) $VALUES.clone() : (ErrorCode[]) invokeV.objValue;
     }
 }

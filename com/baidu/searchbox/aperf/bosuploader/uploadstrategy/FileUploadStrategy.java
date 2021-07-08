@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.j0.b.a.a;
+import d.a.g0.b.a.a;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FileUploadStrategy implements IUpload {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -34,7 +34,7 @@ public class FileUploadStrategy implements IUpload {
     public boolean mInvalidDirDeleted;
     public ThreadPoolExecutor mUploadExecutor;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class Constants {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MAX_COUNT_ATTACHMENT = 100;
@@ -57,7 +57,7 @@ public class FileUploadStrategy implements IUpload {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class FileEntity implements Comparable<FileEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,7 +114,7 @@ public class FileUploadStrategy implements IUpload {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class FileName {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FILE_ID_SEPARATOR = "_";
@@ -230,7 +230,7 @@ public class FileUploadStrategy implements IUpload {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class StoreUtil {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String BASE_ATTACHMENT_UPLOAD_FILE_PATH = "attachment_upload";
@@ -293,7 +293,7 @@ public class FileUploadStrategy implements IUpload {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class TrimConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

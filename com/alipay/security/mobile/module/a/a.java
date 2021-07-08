@@ -2,6 +2,7 @@ package com.alipay.security.mobile.module.a;
 
 import android.os.Environment;
 import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -72,7 +73,7 @@ public final class a {
     public static boolean a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) ? str == null ? str2 == null : str.equals(str2) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) ? str == null ? str2 == null : str.equals(str2) : invokeLL.booleanValue;
     }
 
     public static String b(String str, String str2) {

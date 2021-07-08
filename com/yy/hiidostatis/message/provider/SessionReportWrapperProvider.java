@@ -13,7 +13,7 @@ import com.yy.hiidostatis.provider.MessageConfig;
 import com.yy.hiidostatis.provider.Provider;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class SessionReportWrapperProvider implements Provider<SessionReportWrapper> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

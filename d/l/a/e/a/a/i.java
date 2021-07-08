@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class i extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f74520d;
+    public String f71572d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f74521e;
+    public String f71573e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(Context context, d.l.a.e.b.j.a aVar, String str, String str2, String str3) {
@@ -40,8 +40,8 @@ public class i extends a {
                 return;
             }
         }
-        this.f74520d = str2;
-        this.f74521e = str3;
+        this.f71572d = str2;
+        this.f71573e = str3;
     }
 
     @Override // d.l.a.e.a.a.e
@@ -50,28 +50,28 @@ public class i extends a {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String t = this.f74517b.t("s");
-            String b2 = d.l.a.e.a.h.d.b(this.f74517b.t(ContentUtil.RESULT_KEY_AK), t);
-            String b3 = d.l.a.e.a.h.d.b(this.f74517b.t("am"), t);
-            String b4 = d.l.a.e.a.h.d.b(this.f74517b.t(com.alipay.sdk.sys.a.f1936i), t);
+            String t = this.f71569b.t("s");
+            String b2 = d.l.a.e.a.h.d.b(this.f71569b.t(ContentUtil.RESULT_KEY_AK), t);
+            String b3 = d.l.a.e.a.h.d.b(this.f71569b.t("am"), t);
+            String b4 = d.l.a.e.a.h.d.b(this.f71569b.t(com.alipay.sdk.sys.a.f1937i), t);
             String str2 = null;
             if (!TextUtils.isEmpty(b4) && b4.split(",").length == 2) {
                 String[] split = b4.split(",");
-                String b5 = d.l.a.e.a.h.d.b(this.f74517b.t("al"), t);
-                String b6 = d.l.a.e.a.h.d.b(this.f74517b.t("ao"), t);
+                String b5 = d.l.a.e.a.h.d.b(this.f71569b.t("al"), t);
+                String b6 = d.l.a.e.a.h.d.b(this.f71569b.t("ao"), t);
                 if (!TextUtils.isEmpty(b6) && b6.split(",").length == 2) {
                     String[] split2 = b6.split(",");
-                    JSONObject u = this.f74517b.u("download_dir");
+                    JSONObject u = this.f71569b.u("download_dir");
                     if (u != null) {
                         String optString = u.optString("dir_name");
                         if (!TextUtils.isEmpty(optString) && optString.contains("%s")) {
                             try {
-                                str = String.format(optString, this.f74521e);
+                                str = String.format(optString, this.f71573e);
                             } catch (Throwable unused) {
-                                str = this.f74521e;
+                                str = this.f71573e;
                             }
                         } else {
-                            str = this.f74521e;
+                            str = this.f71573e;
                         }
                         str2 = str;
                         if (str2.length() > 255) {
@@ -80,7 +80,7 @@ public class i extends a {
                     }
                     Intent intent = new Intent(b2);
                     intent.putExtra(split2[0], split2[1]);
-                    intent.putExtra(b3, this.f74520d);
+                    intent.putExtra(b3, this.f71572d);
                     intent.putExtra(b5, str2);
                     intent.putExtra(split[0], Integer.parseInt(split[1]));
                     intent.addFlags(268468224);

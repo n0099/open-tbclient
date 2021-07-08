@@ -1,6 +1,7 @@
 package com.baidu.pass.face.platform.utils;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,14 +19,14 @@ import java.io.OutputStream;
 import java.io.StringWriter;
 import java.net.ServerSocket;
 import java.util.zip.ZipFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IoUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE = 1024;
     public static final int EOF = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface ProgressListener {
         void progress(long j, long j2);
     }
@@ -134,7 +135,7 @@ public class IoUtils {
     public static void copyStream(InputStream inputStream, File file) throws IOException {
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, inputStream, file) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream, file) == null) {
             try {
                 fileOutputStream = FileUtils.openNewFileOutput(file);
             } catch (Throwable th) {

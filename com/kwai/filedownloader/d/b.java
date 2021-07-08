@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<b> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, List<String>> f39527a;
+    public HashMap<String, List<String>> f36735a;
 
     static {
         InterceptResult invokeClinit;
@@ -102,19 +102,19 @@ public class b implements Parcelable {
                 return;
             }
         }
-        this.f39527a = parcel.readHashMap(String.class.getClassLoader());
+        this.f36735a = parcel.readHashMap(String.class.getClassLoader());
     }
 
     public HashMap<String, List<String>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39527a : (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36735a : (HashMap) invokeV.objValue;
     }
 
     public void a(String str) {
         HashMap<String, List<String>> hashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (hashMap = this.f39527a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (hashMap = this.f36735a) == null) {
             return;
         }
         hashMap.remove(str);
@@ -132,13 +132,13 @@ public class b implements Parcelable {
             if (str2 == null) {
                 throw new NullPointerException("value == null");
             }
-            if (this.f39527a == null) {
-                this.f39527a = new HashMap<>();
+            if (this.f36735a == null) {
+                this.f36735a = new HashMap<>();
             }
-            List<String> list = this.f39527a.get(str);
+            List<String> list = this.f36735a.get(str);
             if (list == null) {
                 list = new ArrayList<>();
-                this.f39527a.put(str, list);
+                this.f36735a.put(str, list);
             }
             if (list.contains(str2)) {
                 return;
@@ -160,14 +160,14 @@ public class b implements Parcelable {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f39527a.toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36735a.toString() : (String) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i2) == null) {
-            parcel.writeMap(this.f39527a);
+            parcel.writeMap(this.f36735a);
         }
     }
 }

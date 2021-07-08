@@ -1,5 +1,6 @@
 package okhttp3.internal;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -48,7 +49,7 @@ import okio.BufferedSource;
 import okio.ByteString;
 import okio.Source;
 import org.apache.commons.base.CharEncoding;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class Util {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] EMPTY_BYTE_ARRAY;
@@ -180,7 +181,7 @@ public final class Util {
     public static Charset bomAwareCharset(BufferedSource bufferedSource, Charset charset) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, bufferedSource, charset)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bufferedSource, charset)) == null) {
             if (bufferedSource.rangeEquals(0L, UTF_8_BOM)) {
                 bufferedSource.skip(UTF_8_BOM.size());
                 return UTF_8;

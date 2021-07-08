@@ -3,6 +3,7 @@ package com.alipay.sdk.tid;
 import android.content.Context;
 import android.os.Looper;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.data.c;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,7 +49,7 @@ public class TidHelper {
                     JSONObject jSONObject = new JSONObject(a2.b());
                     b a3 = b.a(context);
                     String optString = jSONObject.optString("tid");
-                    String string = jSONObject.getString(b.f1946e);
+                    String string = jSONObject.getString(b.f1947e);
                     if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(string)) {
                         a3.a(optString, string);
                     }
@@ -63,7 +64,7 @@ public class TidHelper {
 
     public static void clearTID(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             b.a(context).g();
         }
     }

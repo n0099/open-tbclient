@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f36094a;
+    public Context f34419a;
 
     public e(Context context) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class e {
                 return;
             }
         }
-        this.f36094a = context;
+        this.f34419a = context;
     }
 
     public String a() {
@@ -46,7 +46,7 @@ public class e {
             try {
                 Uri parse = Uri.parse("content://cn.nubia.identity/identity");
                 if (Build.VERSION.SDK_INT > 17) {
-                    ContentProviderClient acquireContentProviderClient = this.f36094a.getContentResolver().acquireContentProviderClient(parse);
+                    ContentProviderClient acquireContentProviderClient = this.f34419a.getContentResolver().acquireContentProviderClient(parse);
                     call = acquireContentProviderClient.call("getOAID", null, null);
                     if (Build.VERSION.SDK_INT >= 24) {
                         acquireContentProviderClient.close();
@@ -54,16 +54,16 @@ public class e {
                         acquireContentProviderClient.release();
                     }
                 } else {
-                    call = this.f36094a.getContentResolver().call(parse, "getOAID", (String) null, (Bundle) null);
+                    call = this.f34419a.getContentResolver().call(parse, "getOAID", (String) null, (Bundle) null);
                 }
                 if (call != null) {
                     str = call.getInt("code", -1) == 0 ? call.getString("id") : "";
                     String string = call.getString("message");
-                    com.kwad.sdk.core.d.a.b("NubiaDeviceIDHelper", "getOAID oaid:" + str + "faledMsg:" + string);
+                    com.kwad.sdk.core.d.a.c("NubiaDeviceIDHelper", "getOAID oaid:" + str + "faledMsg:" + string);
                 }
             } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.b("NubiaDeviceIDHelper", "getOAID fail");
-                com.kwad.sdk.core.d.a.a(e2);
+                com.kwad.sdk.core.d.a.c("NubiaDeviceIDHelper", "getOAID fail");
+                com.kwad.sdk.core.d.a.b(e2);
             }
             return str;
         }

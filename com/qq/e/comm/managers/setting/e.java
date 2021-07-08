@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,24 +19,24 @@ import java.io.File;
 import java.io.FileWriter;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f40996a;
+    public JSONObject f38010a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f40997a;
+        public final String f38011a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f40998b;
+        public final T f38012b;
 
         public a(String str, T t) {
             Interceptable interceptable = $ic;
@@ -52,8 +53,8 @@ public class e {
                     return;
                 }
             }
-            this.f40997a = str;
-            this.f40998b = t;
+            this.f38011a = str;
+            this.f38012b = t;
         }
 
         public /* synthetic */ a(String str, Object obj, byte b2) {
@@ -63,13 +64,13 @@ public class e {
         public final String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40997a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38011a : (String) invokeV.objValue;
         }
 
         public final T b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40998b : (T) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38012b : (T) invokeV.objValue;
         }
     }
 
@@ -110,13 +111,13 @@ public class e {
         GDTLogger.d("Initialize " + simpleName + ",Json=" + str);
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.f40996a = new JSONObject(str);
+                this.f38010a = new JSONObject(str);
             } catch (JSONException e2) {
                 GDTLogger.e("JsonException While build" + simpleName + " Instance from JSON", e2);
             }
         }
-        if (this.f40996a == null) {
-            this.f40996a = new JSONObject();
+        if (this.f38010a == null) {
+            this.f38010a = new JSONObject();
         }
     }
 
@@ -163,7 +164,7 @@ public class e {
     public static boolean a(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, context, str, str2)) == null) ? a(context, "sdkCloudSetting", str, str2) : invokeLLL.booleanValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2)) == null) ? a(context, "sdkCloudSetting", str, str2) : invokeLLL.booleanValue;
     }
 
     public static final boolean a(Context context, String str, String str2, String str3) {

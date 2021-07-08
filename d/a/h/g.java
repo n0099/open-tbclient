@@ -10,19 +10,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.h.f;
 import d.a.h.h;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class g implements f.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final BDHttpDns.a f45542a;
+    public final BDHttpDns.a f42396a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BDHttpDns f45543b;
+    public final BDHttpDns f42397b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final h f45544c;
+    public final h f42398c;
 
     public g(Context context, BDHttpDns.a aVar) {
         Interceptable interceptable = $ic;
@@ -39,10 +39,10 @@ public class g implements f.a {
                 return;
             }
         }
-        this.f45542a = aVar;
+        this.f42396a = aVar;
         BDHttpDns j = BDHttpDns.j(context);
-        this.f45543b = j;
-        this.f45544c = j.d();
+        this.f42397b = j;
+        this.f42398c = j.d();
     }
 
     @Override // d.a.h.f.a
@@ -53,7 +53,7 @@ public class g implements f.a {
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), arrayList, arrayList2, Long.valueOf(j), str}) == null) {
             if (i2 == -1) {
                 k.a("Async resolve failed, host(%s), dns resolve failed", str);
-                aVar = this.f45542a;
+                aVar = this.f42396a;
                 if (aVar == null) {
                     return;
                 }
@@ -73,8 +73,8 @@ public class g implements f.a {
                 aVar2.e(System.currentTimeMillis() / 1000);
                 aVar2.b(arrayList);
                 aVar2.f(arrayList2);
-                this.f45544c.c(str, aVar2);
-                aVar = this.f45542a;
+                this.f42398c.c(str, aVar2);
+                aVar = this.f42396a;
                 if (aVar == null) {
                     return;
                 }

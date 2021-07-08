@@ -13,25 +13,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BasicTaskItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18492e;
+    public Context f18532e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f18493f;
+    public View f18533f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f18494g;
+    public TbImageView f18534g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f18495h;
+    public TextView f18535h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f18496i;
+    public TextView f18536i;
     public TextView j;
     public View k;
     public View l;
@@ -55,24 +55,24 @@ public class BasicTaskItemView extends LinearLayout {
                 return;
             }
         }
-        this.f18492e = context;
+        this.f18532e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f18492e).inflate(R.layout.index_task_item, this);
-            this.f18493f = inflate;
+            View inflate = LayoutInflater.from(this.f18532e).inflate(R.layout.index_task_item, this);
+            this.f18533f = inflate;
             this.l = inflate.findViewById(R.id.ly_desc);
-            this.f18494g = (TbImageView) this.f18493f.findViewById(R.id.task_icon);
-            this.f18495h = (TextView) this.f18493f.findViewById(R.id.txt_title);
-            this.f18496i = (TextView) this.f18493f.findViewById(R.id.txt_desc);
-            TextView textView = (TextView) this.f18493f.findViewById(R.id.txt_status);
+            this.f18534g = (TbImageView) this.f18533f.findViewById(R.id.task_icon);
+            this.f18535h = (TextView) this.f18533f.findViewById(R.id.txt_title);
+            this.f18536i = (TextView) this.f18533f.findViewById(R.id.txt_desc);
+            TextView textView = (TextView) this.f18533f.findViewById(R.id.txt_status);
             this.j = textView;
             textView.setOnClickListener(this.m);
             this.l.setOnClickListener(this.m);
-            this.k = this.f18493f.findViewById(R.id.divider_line);
+            this.k = this.f18533f.findViewById(R.id.divider_line);
         }
     }
 
@@ -102,7 +102,7 @@ public class BasicTaskItemView extends LinearLayout {
                 return;
             }
         }
-        this.f18492e = context;
+        this.f18532e = context;
         a();
     }
 
@@ -125,7 +125,7 @@ public class BasicTaskItemView extends LinearLayout {
                 return;
             }
         }
-        this.f18492e = context;
+        this.f18532e = context;
         a();
     }
 }

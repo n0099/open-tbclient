@@ -6,36 +6,36 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.b.a.i0.v;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final long[] f72248a;
+        public final long[] f69351a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int[] f72249b;
+        public final int[] f69352b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f72250c;
+        public final int f69353c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final long[] f72251d;
+        public final long[] f69354d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int[] f72252e;
+        public final int[] f69355e;
 
         public /* synthetic */ b(long[] jArr, int[] iArr, int i2, long[] jArr2, int[] iArr2, a aVar) {
             this(jArr, iArr, i2, jArr2, iArr2);
@@ -56,11 +56,11 @@ public final class d {
                     return;
                 }
             }
-            this.f72248a = jArr;
-            this.f72249b = iArr;
-            this.f72250c = i2;
-            this.f72251d = jArr2;
-            this.f72252e = iArr2;
+            this.f69351a = jArr;
+            this.f69352b = iArr;
+            this.f69353c = i2;
+            this.f69354d = jArr2;
+            this.f69355e = iArr2;
         }
     }
 

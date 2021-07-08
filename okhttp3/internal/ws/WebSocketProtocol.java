@@ -1,5 +1,6 @@
 package okhttp3.internal.ws;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -7,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import okio.Buffer;
 import okio.ByteString;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class WebSocketProtocol {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCEPT_MAGIC = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
@@ -96,7 +97,7 @@ public final class WebSocketProtocol {
     public static void validateCloseCode(int i2) {
         String closeCodeExceptionMessage;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(65540, null, i2) == null) && (closeCodeExceptionMessage = closeCodeExceptionMessage(i2)) != null) {
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2) == null) && (closeCodeExceptionMessage = closeCodeExceptionMessage(i2)) != null) {
             throw new IllegalArgumentException(closeCodeExceptionMessage);
         }
     }

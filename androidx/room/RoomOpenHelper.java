@@ -4,6 +4,7 @@ import android.database.Cursor;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
+import androidx.core.view.InputDeviceCompat;
 import androidx.room.migration.Migration;
 import androidx.sqlite.db.SimpleSQLiteQuery;
 import androidx.sqlite.db.SupportSQLiteDatabase;
@@ -117,7 +118,7 @@ public class RoomOpenHelper extends SupportSQLiteOpenHelper.Callback {
     public static boolean hasRoomMasterTable(SupportSQLiteDatabase supportSQLiteDatabase) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, supportSQLiteDatabase)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, supportSQLiteDatabase)) == null) {
             Cursor query = supportSQLiteDatabase.query("SELECT 1 FROM sqlite_master WHERE type = 'table' AND name='room_master_table'");
             try {
                 boolean z = false;

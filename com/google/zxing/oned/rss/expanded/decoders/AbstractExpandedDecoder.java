@@ -10,7 +10,7 @@ import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractExpandedDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

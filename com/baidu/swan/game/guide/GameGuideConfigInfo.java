@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a.k;
-import d.a.q0.f.j.o.a;
+import d.a.n0.a.k;
+import d.a.n0.f.j.o.a;
 import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class GameGuideConfigInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_APP_KEY = "app_key";
@@ -80,7 +80,7 @@ public class GameGuideConfigInfo implements Serializable {
     public String targetAppPackageId;
     public ViewInfo viewInfo;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class CloseInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TARGET_TYPE_GAME = 1;
@@ -161,7 +161,7 @@ public class GameGuideConfigInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class DialogInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -222,7 +222,7 @@ public class GameGuideConfigInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class RecommendGameInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -261,7 +261,7 @@ public class GameGuideConfigInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class ViewInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -340,7 +340,7 @@ public class GameGuideConfigInfo implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             if (jSONObject == null) {
-                if (k.f49133a) {
+                if (k.f45831a) {
                     Log.d(TAG, "data 为空");
                 }
                 return null;
@@ -362,7 +362,7 @@ public class GameGuideConfigInfo implements Serializable {
             }
             gameGuideConfigInfo.popupSelection = jSONObject.optInt(KEY_POPUP_SELECTION, 0);
             if (optInt == 0) {
-                if (k.f49133a) {
+                if (k.f45831a) {
                     Log.d(TAG, "配置数据标明不展示");
                 }
                 return gameGuideConfigInfo;

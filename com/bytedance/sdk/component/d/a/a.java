@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a implements ThreadFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ThreadGroup f28579a;
+    public final ThreadGroup f28689a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final AtomicInteger f28580b;
+    public final AtomicInteger f28690b;
 
     public a(@NonNull String str) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public class a implements ThreadFactory {
                 return;
             }
         }
-        this.f28580b = new AtomicInteger(1);
-        this.f28579a = new ThreadGroup("tt_img_" + str);
+        this.f28690b = new AtomicInteger(1);
+        this.f28689a = new ThreadGroup("tt_img_" + str);
     }
 
     @Override // java.util.concurrent.ThreadFactory
@@ -43,8 +43,8 @@ public class a implements ThreadFactory {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            ThreadGroup threadGroup = this.f28579a;
-            Thread thread = new Thread(threadGroup, runnable, "tt_img_" + this.f28580b.getAndIncrement());
+            ThreadGroup threadGroup = this.f28689a;
+            Thread thread = new Thread(threadGroup, runnable, "tt_img_" + this.f28690b.getAndIncrement());
             if (thread.isDaemon()) {
                 thread.setDaemon(false);
             }

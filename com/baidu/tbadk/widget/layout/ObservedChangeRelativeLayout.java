@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.b1.j.e;
-/* loaded from: classes4.dex */
+import d.a.o0.b1.j.e;
+/* loaded from: classes3.dex */
 public class ObservedChangeRelativeLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f13402e;
+    public e f13419e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ObservedChangeRelativeLayout(Context context) {
@@ -41,7 +41,7 @@ public class ObservedChangeRelativeLayout extends RelativeLayout {
     public e getOnSizeChangeListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13402e : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13419e : (e) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -49,7 +49,7 @@ public class ObservedChangeRelativeLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            e eVar = this.f13402e;
+            e eVar = this.f13419e;
             if (eVar != null) {
                 eVar.a(this, i2, i3, i4, i5);
             }
@@ -67,7 +67,7 @@ public class ObservedChangeRelativeLayout extends RelativeLayout {
     public void setOnSizeChangeListener(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
-            this.f13402e = eVar;
+            this.f13419e = eVar;
         }
     }
 

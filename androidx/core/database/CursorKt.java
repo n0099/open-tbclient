@@ -1,6 +1,7 @@
 package androidx.core.database;
 
 import android.database.Cursor;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,7 +64,7 @@ public final class CursorKt {
     public static final Long getLongOrNull(Cursor cursor, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, cursor, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, cursor, i2)) == null) {
             if (cursor.isNull(i2)) {
                 return null;
             }

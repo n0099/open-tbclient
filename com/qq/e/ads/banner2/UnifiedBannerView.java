@@ -29,34 +29,34 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplianceInterface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public UBVI f40679a;
+    public UBVI f37693a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f40680b;
+    public boolean f37694b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f40681c;
+    public boolean f37695c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f40682d;
+    public boolean f37696d;
 
     /* renamed from: e  reason: collision with root package name */
-    public DownAPPConfirmPolicy f40683e;
+    public DownAPPConfirmPolicy f37697e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicInteger f40684f;
+    public AtomicInteger f37698f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f40685g;
+    public int f37699g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LoadAdParams f40686h;
+    public LoadAdParams f37700h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public UnifiedBannerView(Activity activity, String str, UnifiedBannerADListener unifiedBannerADListener) {
@@ -97,12 +97,12 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
                 return;
             }
         }
-        this.f40680b = false;
-        this.f40681c = false;
-        this.f40682d = false;
-        this.f40684f = new AtomicInteger(0);
-        this.f40685g = 30;
-        this.f40686h = null;
+        this.f37694b = false;
+        this.f37695c = false;
+        this.f37696d = false;
+        this.f37698f = new AtomicInteger(0);
+        this.f37699g = 30;
+        this.f37700h = null;
         if (GDTADManager.getInstance().isInitialized()) {
             a(activity, GDTADManager.getInstance().getAppStatus().getAPPID(), str, unifiedBannerADListener, map);
             return;
@@ -152,12 +152,12 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
                 return;
             }
         }
-        this.f40680b = false;
-        this.f40681c = false;
-        this.f40682d = false;
-        this.f40684f = new AtomicInteger(0);
-        this.f40685g = 30;
-        this.f40686h = null;
+        this.f37694b = false;
+        this.f37695c = false;
+        this.f37696d = false;
+        this.f37698f = new AtomicInteger(0);
+        this.f37699g = 30;
+        this.f37700h = null;
         GDTLogger.w("此构造方法即将废弃，请在 Application 中初始化 SDK 后，使用不带 appId 的构造方法，详细请参考Demo");
         a(activity, str, str2, unifiedBannerADListener, map);
     }
@@ -169,34 +169,34 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
                 GDTLogger.e(String.format("UnifiedBannerView Constructor params error, appid=%s,posId=%s,context=%s,listener=%s", str, str2, activity, unifiedBannerADListener));
                 return;
             }
-            this.f40680b = true;
+            this.f37694b = true;
             if (!a.a(activity)) {
                 GDTLogger.e("Required Activity/Service/Permission Not Declared in AndroidManifest.xml");
                 return;
             }
-            this.f40681c = true;
+            this.f37695c = true;
             setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
             GDTADManager.INIT_EXECUTOR.execute(new Runnable(this, activity, str, str2, unifiedBannerADListener, map) { // from class: com.qq.e.ads.banner2.UnifiedBannerView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Activity f40687a;
+                public final /* synthetic */ Activity f37701a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f40688b;
+                public final /* synthetic */ String f37702b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f40689c;
+                public final /* synthetic */ String f37703c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ UnifiedBannerADListener f40690d;
+                public final /* synthetic */ UnifiedBannerADListener f37704d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Map f40691e;
+                public final /* synthetic */ Map f37705e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ UnifiedBannerView f40692f;
+                public final /* synthetic */ UnifiedBannerView f37706f;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -213,19 +213,19 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
                             return;
                         }
                     }
-                    this.f40692f = this;
-                    this.f40687a = activity;
-                    this.f40688b = str;
-                    this.f40689c = str2;
-                    this.f40690d = unifiedBannerADListener;
-                    this.f40691e = map;
+                    this.f37706f = this;
+                    this.f37701a = activity;
+                    this.f37702b = str;
+                    this.f37703c = str2;
+                    this.f37704d = unifiedBannerADListener;
+                    this.f37705e = map;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (!GDTADManager.getInstance().initWith(this.f40687a, this.f40688b)) {
+                        if (!GDTADManager.getInstance().initWith(this.f37701a, this.f37702b)) {
                             GDTLogger.e("Fail to init ADManager");
                             return;
                         }
@@ -235,10 +235,10 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public /* synthetic */ POFactory f40693a;
+                                public /* synthetic */ POFactory f37707a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public /* synthetic */ AnonymousClass1 f40694b;
+                                public /* synthetic */ AnonymousClass1 f37708b;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -255,8 +255,8 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
                                             return;
                                         }
                                     }
-                                    this.f40694b = this;
-                                    this.f40693a = r7;
+                                    this.f37708b = this;
+                                    this.f37707a = r7;
                                 }
 
                                 /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IGET, IGET, INVOKE, MOVE_EXCEPTION, CONST_STR, INVOKE, IGET, IGET, INVOKE, MOVE_EXCEPTION] complete} */
@@ -265,17 +265,17 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         try {
-                                            if (this.f40693a != null) {
-                                                this.f40694b.f40692f.f40679a = this.f40693a.getUnifiedBannerViewDelegate(this.f40694b.f40692f, this.f40694b.f40687a, this.f40694b.f40688b, this.f40694b.f40689c, this.f40694b.f40690d);
-                                                this.f40694b.f40692f.f40682d = true;
-                                                UnifiedBannerView.a(this.f40694b.f40692f, this.f40694b.f40691e, this.f40694b.f40689c);
-                                                if (this.f40694b.f40692f.f40683e != null) {
-                                                    this.f40694b.f40692f.setDownConfirmPolicy(this.f40694b.f40692f.f40683e);
+                                            if (this.f37707a != null) {
+                                                this.f37708b.f37706f.f37693a = this.f37707a.getUnifiedBannerViewDelegate(this.f37708b.f37706f, this.f37708b.f37701a, this.f37708b.f37702b, this.f37708b.f37703c, this.f37708b.f37704d);
+                                                this.f37708b.f37706f.f37696d = true;
+                                                UnifiedBannerView.a(this.f37708b.f37706f, this.f37708b.f37705e, this.f37708b.f37703c);
+                                                if (this.f37708b.f37706f.f37697e != null) {
+                                                    this.f37708b.f37706f.setDownConfirmPolicy(this.f37708b.f37706f.f37697e);
                                                 }
-                                                this.f40694b.f40692f.setRefresh(this.f40694b.f40692f.f40685g);
-                                                this.f40694b.f40692f.setLoadAdParams(this.f40694b.f40692f.f40686h);
-                                                while (this.f40694b.f40692f.f40684f.getAndDecrement() > 0) {
-                                                    this.f40694b.f40692f.loadAD();
+                                                this.f37708b.f37706f.setRefresh(this.f37708b.f37706f.f37699g);
+                                                this.f37708b.f37706f.setLoadAdParams(this.f37708b.f37706f.f37700h);
+                                                while (this.f37708b.f37706f.f37698f.getAndDecrement() > 0) {
+                                                    this.f37708b.f37706f.loadAD();
                                                 }
                                             }
                                         } finally {
@@ -310,7 +310,7 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
     public void destroy() {
         UBVI ubvi;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (ubvi = this.f40679a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (ubvi = this.f37693a) == null) {
             return;
         }
         ubvi.destroy();
@@ -321,7 +321,7 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            UBVI ubvi = this.f40679a;
+            UBVI ubvi = this.f37693a;
             if (ubvi != null) {
                 return ubvi.getApkInfoUrl();
             }
@@ -335,7 +335,7 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                if (this.f40679a != null) {
+                if (this.f37693a != null) {
                     return UBVI.ext;
                 }
                 return null;
@@ -350,12 +350,12 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
     public void loadAD() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (!this.f40680b || !this.f40681c) {
+            if (!this.f37694b || !this.f37695c) {
                 GDTLogger.e("UnifiedBannerView init Paras OR Context error,See More logs while new BannerView");
-            } else if (!this.f40682d) {
-                this.f40684f.incrementAndGet();
+            } else if (!this.f37696d) {
+                this.f37698f.incrementAndGet();
             } else {
-                UBVI ubvi = this.f40679a;
+                UBVI ubvi = this.f37693a;
                 if (ubvi != null) {
                     ubvi.fetchAd();
                 } else {
@@ -370,7 +370,7 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             super.onWindowFocusChanged(z);
-            UBVI ubvi = this.f40679a;
+            UBVI ubvi = this.f37693a;
             if (ubvi != null) {
                 ubvi.onWindowFocusChanged(z);
             }
@@ -381,8 +381,8 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
         UBVI ubvi;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, downAPPConfirmPolicy) == null) {
-            this.f40683e = downAPPConfirmPolicy;
-            if (downAPPConfirmPolicy == null || (ubvi = this.f40679a) == null) {
+            this.f37697e = downAPPConfirmPolicy;
+            if (downAPPConfirmPolicy == null || (ubvi = this.f37693a) == null) {
                 return;
             }
             ubvi.setDownAPPConfirmPolicy(downAPPConfirmPolicy);
@@ -393,7 +393,7 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
     public void setDownloadConfirmListener(DownloadConfirmListener downloadConfirmListener) {
         UBVI ubvi;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, downloadConfirmListener) == null) || (ubvi = this.f40679a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, downloadConfirmListener) == null) || (ubvi = this.f37693a) == null) {
             return;
         }
         ubvi.setDownloadConfirmListener(downloadConfirmListener);
@@ -402,8 +402,8 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
     public void setLoadAdParams(LoadAdParams loadAdParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, loadAdParams) == null) {
-            this.f40686h = loadAdParams;
-            UBVI ubvi = this.f40679a;
+            this.f37700h = loadAdParams;
+            UBVI ubvi = this.f37693a;
             if (ubvi != null) {
                 ubvi.setLoadAdParams(loadAdParams);
             }
@@ -413,8 +413,8 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
     public void setRefresh(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f40685g = i2;
-            UBVI ubvi = this.f40679a;
+            this.f37699g = i2;
+            UBVI ubvi = this.f37693a;
             if (ubvi != null) {
                 ubvi.setRefresh(i2);
             }

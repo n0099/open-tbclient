@@ -3,6 +3,7 @@ package com.baidu.ar.arrender;
 import android.content.Context;
 import android.graphics.PointF;
 import android.opengl.Matrix;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.DuMixInput;
 import com.baidu.ar.DuMixOutput;
 import com.baidu.ar.arplay.core.engine.rotate.Orientation;
@@ -203,7 +204,7 @@ public class b {
         InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, orientation)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, orientation)) == null) {
             HashMap hashMap = new HashMap();
             int i2 = AnonymousClass1.$SwitchMap$com$baidu$ar$arplay$core$engine$rotate$Orientation[orientation.ordinal()];
             if (i2 != 1) {

@@ -1,5 +1,6 @@
 package io.reactivex;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,7 +14,7 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.util.NotificationLite;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class Notification<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final Notification<Object> COMPLETE;
@@ -76,7 +77,7 @@ public final class Notification<T> {
     public static <T> Notification<T> createOnNext(@NonNull T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, t)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, t)) == null) {
             ObjectHelper.requireNonNull(t, "value is null");
             return new Notification<>(t);
         }

@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -25,12 +26,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.c.g.c;
-import d.a.r0.z0.f0;
-import d.a.r0.z0.i0;
-import d.a.s0.i1.k.b;
+import d.a.o0.z0.f0;
+import d.a.o0.z0.i0;
+import d.a.p0.i1.k.b;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class CommonGroupMsglistModel extends MsglistModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -158,7 +159,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     public boolean checkAckMsg(ResponseCommitGroupMessage responseCommitGroupMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, responseCommitGroupMessage)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, responseCommitGroupMessage)) == null) {
             if (responseCommitGroupMessage == null || this.mGroup == null) {
                 return false;
             }
@@ -270,11 +271,11 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // d.a.r0.z0.f0
+            @Override // d.a.o0.z0.f0
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(d.a.s0.i1.h.c.h().c(String.valueOf(this.this$0.mGroup.getGroupId()), String.valueOf(this.val$msg.getMsgId()))) : (Boolean) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(d.a.p0.i1.h.c.h().c(String.valueOf(this.this$0.mGroup.getGroupId()), String.valueOf(this.val$msg.getMsgId()))) : (Boolean) invokeV.objValue;
             }
         }, null);
     }
@@ -331,11 +332,11 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // d.a.r0.z0.f0
+            @Override // d.a.o0.z0.f0
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(d.a.s0.i1.h.c.h().m(String.valueOf(this.this$0.mGroup.getGroupId()), String.valueOf(this.val$msg.getMsgId()))) : (Boolean) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(d.a.p0.i1.h.c.h().m(String.valueOf(this.this$0.mGroup.getGroupId()), String.valueOf(this.val$msg.getMsgId()))) : (Boolean) invokeV.objValue;
             }
         }, null);
     }

@@ -14,16 +14,16 @@ import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.qrcodescanner.datamodel.QRCodeShortUrlResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a extends BaseBean<QRCodeShortUrlResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27161a;
+    public String f27271a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27162b;
+    public String f27272b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
@@ -48,14 +48,14 @@ public class a extends BaseBean<QRCodeShortUrlResponse> {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f27161a = str;
+            this.f27271a = str;
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f27162b = str;
+            this.f27272b = str;
         }
     }
 
@@ -74,8 +74,8 @@ public class a extends BaseBean<QRCodeShortUrlResponse> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new RestNameValuePair("output", "json"));
-            if (!TextUtils.isEmpty(this.f27161a)) {
-                arrayList.add(new RestNameValuePair("qrcode", this.f27161a));
+            if (!TextUtils.isEmpty(this.f27271a)) {
+                arrayList.add(new RestNameValuePair("qrcode", this.f27271a));
             }
             return arrayList;
         }
@@ -104,8 +104,8 @@ public class a extends BaseBean<QRCodeShortUrlResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!TextUtils.isEmpty(this.f27162b)) {
-                return this.f27162b;
+            if (!TextUtils.isEmpty(this.f27272b)) {
+                return this.f27272b;
             }
             return DomainConfig.getInstance().getAppPayHost() + "/facilepaycenter/tinyurl/scancode";
         }

@@ -1,5 +1,6 @@
 package com.baidu.searchbox.logsystem.logsys;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class LogType {
     public static final /* synthetic */ LogType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -87,7 +88,7 @@ public final class LogType {
     public static LogType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (LogType) Enum.valueOf(LogType.class, str) : (LogType) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (LogType) Enum.valueOf(LogType.class, str) : (LogType) invokeL.objValue;
     }
 
     public static LogType[] values() {

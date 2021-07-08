@@ -13,7 +13,7 @@ import com.yy.hiidostatis.api.HiidoSDK;
 import com.yy.hiidostatis.inner.util.DefaultPreference;
 import com.yy.hiidostatis.inner.util.log.ActLog;
 import com.yy.hiidostatis.inner.util.log.L;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static int MAX_DATA_CACHE_DAY = 62;

@@ -19,21 +19,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.v3.h.g.a;
-import d.a.s0.v3.h.g.b;
+import d.a.p0.v3.g.g.a;
+import d.a.p0.v3.g.g.b;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ScalableVideoView extends TextureView implements TextureView.SurfaceTextureListener, MediaPlayer.OnVideoSizeChangedListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public MediaPlayer f21541e;
+    public MediaPlayer f21587e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ScalableType f21542f;
+    public ScalableType f21588f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ScalableVideoView(Context context) {
@@ -67,9 +67,9 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f21541e == null) {
+            if (this.f21587e == null) {
                 MediaPlayer mediaPlayer = new MediaPlayer();
-                this.f21541e = mediaPlayer;
+                this.f21587e = mediaPlayer;
                 mediaPlayer.setOnVideoSizeChangedListener(this);
                 setSurfaceTextureListener(this);
                 return;
@@ -82,7 +82,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            MediaPlayer mediaPlayer = this.f21541e;
+            MediaPlayer mediaPlayer = this.f21587e;
             if (mediaPlayer == null) {
                 return false;
             }
@@ -94,7 +94,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public void c() {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (mediaPlayer = this.f21541e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (mediaPlayer = this.f21587e) == null) {
             return;
         }
         mediaPlayer.pause();
@@ -103,21 +103,21 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public void d(MediaPlayer.OnPreparedListener onPreparedListener) throws IOException, IllegalStateException {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, onPreparedListener) == null) || (mediaPlayer = this.f21541e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, onPreparedListener) == null) || (mediaPlayer = this.f21587e) == null) {
             return;
         }
         mediaPlayer.setOnPreparedListener(onPreparedListener);
-        this.f21541e.prepare();
+        this.f21587e.prepare();
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             f();
-            MediaPlayer mediaPlayer = this.f21541e;
+            MediaPlayer mediaPlayer = this.f21587e;
             if (mediaPlayer != null) {
                 mediaPlayer.release();
-                this.f21541e = null;
+                this.f21587e = null;
             }
         }
     }
@@ -125,7 +125,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public void f() {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (mediaPlayer = this.f21541e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (mediaPlayer = this.f21587e) == null) {
             return;
         }
         mediaPlayer.reset();
@@ -134,7 +134,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public final void g(int i2, int i3) {
         Matrix m;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) || i2 == 0 || i3 == 0 || (m = new a(new b(getWidth(), getHeight()), new b(i2, i3)).m(this.f21542f)) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) || i2 == 0 || i3 == 0 || (m = new a(new b(getWidth(), getHeight()), new b(i2, i3)).m(this.f21588f)) == null) {
             return;
         }
         setTransform(m);
@@ -144,7 +144,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            MediaPlayer mediaPlayer = this.f21541e;
+            MediaPlayer mediaPlayer = this.f21587e;
             if (mediaPlayer == null) {
                 return 0;
             }
@@ -157,7 +157,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            MediaPlayer mediaPlayer = this.f21541e;
+            MediaPlayer mediaPlayer = this.f21587e;
             if (mediaPlayer == null) {
                 return 0;
             }
@@ -170,7 +170,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            MediaPlayer mediaPlayer = this.f21541e;
+            MediaPlayer mediaPlayer = this.f21587e;
             if (mediaPlayer == null) {
                 return 0;
             }
@@ -183,7 +183,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            MediaPlayer mediaPlayer = this.f21541e;
+            MediaPlayer mediaPlayer = this.f21587e;
             if (mediaPlayer == null) {
                 return 0;
             }
@@ -195,7 +195,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public void h(int i2) {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || (mediaPlayer = this.f21541e) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || (mediaPlayer = this.f21587e) == null) {
             return;
         }
         mediaPlayer.seekTo(i2);
@@ -204,7 +204,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public void i() {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (mediaPlayer = this.f21541e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (mediaPlayer = this.f21587e) == null) {
             return;
         }
         mediaPlayer.start();
@@ -213,7 +213,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public void j() {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (mediaPlayer = this.f21541e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (mediaPlayer = this.f21587e) == null) {
             return;
         }
         mediaPlayer.stop();
@@ -224,7 +224,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onDetachedFromWindow();
-            if (this.f21541e == null) {
+            if (this.f21587e == null) {
                 return;
             }
             if (b()) {
@@ -240,8 +240,8 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
         if (interceptable == null || interceptable.invokeLII(1048591, this, surfaceTexture, i2, i3) == null) {
             try {
                 Surface surface = new Surface(surfaceTexture);
-                if (this.f21541e != null) {
-                    this.f21541e.setSurface(surface);
+                if (this.f21587e != null) {
+                    this.f21587e.setSurface(surface);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -291,7 +291,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public void setLooping(boolean z) {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048602, this, z) == null) || (mediaPlayer = this.f21541e) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048602, this, z) == null) || (mediaPlayer = this.f21587e) == null) {
             return;
         }
         mediaPlayer.setLooping(z);
@@ -300,7 +300,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public void setOnCompletionListener(MediaPlayer.OnCompletionListener onCompletionListener) {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048603, this, onCompletionListener) == null) || (mediaPlayer = this.f21541e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048603, this, onCompletionListener) == null) || (mediaPlayer = this.f21587e) == null) {
             return;
         }
         mediaPlayer.setOnCompletionListener(onCompletionListener);
@@ -309,7 +309,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public void setOnErrorListener(MediaPlayer.OnErrorListener onErrorListener) {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048604, this, onErrorListener) == null) || (mediaPlayer = this.f21541e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048604, this, onErrorListener) == null) || (mediaPlayer = this.f21587e) == null) {
             return;
         }
         mediaPlayer.setOnErrorListener(onErrorListener);
@@ -318,7 +318,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public void setOnInfoListener(MediaPlayer.OnInfoListener onInfoListener) {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048605, this, onInfoListener) == null) || (mediaPlayer = this.f21541e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048605, this, onInfoListener) == null) || (mediaPlayer = this.f21587e) == null) {
             return;
         }
         mediaPlayer.setOnInfoListener(onInfoListener);
@@ -334,7 +334,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public void setScalableType(ScalableType scalableType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, scalableType) == null) {
-            this.f21542f = scalableType;
+            this.f21588f = scalableType;
             g(getVideoWidth(), getVideoHeight());
         }
     }
@@ -342,7 +342,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public void setVolume(float f2, float f3) {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || (mediaPlayer = this.f21541e) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || (mediaPlayer = this.f21587e) == null) {
             return;
         }
         mediaPlayer.setVolume(f2, f3);
@@ -389,20 +389,20 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
                 return;
             }
         }
-        this.f21542f = ScalableType.NONE;
+        this.f21588f = ScalableType.NONE;
         if (attributeSet == null || (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.videoScaleStyle, 0, 0)) == null) {
             return;
         }
         int i5 = obtainStyledAttributes.getInt(R$styleable.videoScaleStyle_videoScalableType, ScalableType.NONE.ordinal());
         obtainStyledAttributes.recycle();
-        this.f21542f = ScalableType.values()[i5];
+        this.f21588f = ScalableType.values()[i5];
     }
 
     public void setDataSource(String str) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
             a();
-            this.f21541e.setDataSource(str);
+            this.f21587e.setDataSource(str);
         }
     }
 
@@ -410,7 +410,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048598, this, context, uri, map) == null) {
             a();
-            this.f21541e.setDataSource(context, uri, map);
+            this.f21587e.setDataSource(context, uri, map);
         }
     }
 
@@ -418,7 +418,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048597, this, context, uri) == null) {
             a();
-            this.f21541e.setDataSource(context, uri);
+            this.f21587e.setDataSource(context, uri);
         }
     }
 
@@ -426,7 +426,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{fileDescriptor, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             a();
-            this.f21541e.setDataSource(fileDescriptor, j, j2);
+            this.f21587e.setDataSource(fileDescriptor, j, j2);
         }
     }
 
@@ -434,7 +434,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, fileDescriptor) == null) {
             a();
-            this.f21541e.setDataSource(fileDescriptor);
+            this.f21587e.setDataSource(fileDescriptor);
         }
     }
 }

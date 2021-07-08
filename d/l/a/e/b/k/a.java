@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class a implements ThreadFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f74831e;
+    public final String f71883e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final AtomicInteger f74832f;
+    public final AtomicInteger f71884f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f74833g;
+    public final boolean f71885g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(String str) {
@@ -47,9 +47,9 @@ public class a implements ThreadFactory {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            int incrementAndGet = this.f74832f.incrementAndGet();
-            Thread thread = new Thread(runnable, this.f74831e + "-" + incrementAndGet);
-            if (!this.f74833g) {
+            int incrementAndGet = this.f71884f.incrementAndGet();
+            Thread thread = new Thread(runnable, this.f71883e + "-" + incrementAndGet);
+            if (!this.f71885g) {
                 if (thread.isDaemon()) {
                     thread.setDaemon(false);
                 }
@@ -77,8 +77,8 @@ public class a implements ThreadFactory {
                 return;
             }
         }
-        this.f74832f = new AtomicInteger();
-        this.f74831e = str;
-        this.f74833g = z;
+        this.f71884f = new AtomicInteger();
+        this.f71883e = str;
+        this.f71885g = z;
     }
 }

@@ -1,6 +1,7 @@
 package com.airbnb.lottie.parser;
 
 import android.graphics.PointF;
+import androidx.core.view.InputDeviceCompat;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.model.animatable.AnimatableFloatValue;
 import com.airbnb.lottie.model.animatable.AnimatableIntegerValue;
@@ -44,7 +45,7 @@ public class AnimatableTransformParser {
                 return;
             }
         }
-        NAMES = JsonReader.Options.of("a", "p", "s", "rz", r.f7745a, Config.OS, "so", "eo", ContentUtil.RESULT_KEY_SK, "sa");
+        NAMES = JsonReader.Options.of("a", "p", "s", "rz", r.f7762a, Config.OS, "so", "eo", ContentUtil.RESULT_KEY_SK, "sa");
         ANIMATABLE_NAMES = JsonReader.Options.of(Config.APP_KEY);
     }
 
@@ -77,7 +78,7 @@ public class AnimatableTransformParser {
     public static boolean isRotationIdentity(AnimatableFloatValue animatableFloatValue) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, animatableFloatValue)) == null) ? animatableFloatValue == null || (animatableFloatValue.isStatic() && ((Float) ((Keyframe) animatableFloatValue.getKeyframes().get(0)).startValue).floatValue() == 0.0f) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, animatableFloatValue)) == null) ? animatableFloatValue == null || (animatableFloatValue.isStatic() && ((Float) ((Keyframe) animatableFloatValue.getKeyframes().get(0)).startValue).floatValue() == 0.0f) : invokeL.booleanValue;
     }
 
     public static boolean isScaleIdentity(AnimatableScaleValue animatableScaleValue) {

@@ -17,7 +17,7 @@ import d.k.a.d;
 import d.k.a.h.a;
 import java.io.IOException;
 import okio.ByteString;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class AudioEntity extends Message<AudioEntity, Builder> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ProtoAdapter<AudioEntity> ADAPTER;
@@ -39,7 +39,7 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#INT32", tag = 5)
     public final Integer totalTime;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder extends Message.a<AudioEntity, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -123,7 +123,7 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ProtoAdapter_AudioEntity extends ProtoAdapter<AudioEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

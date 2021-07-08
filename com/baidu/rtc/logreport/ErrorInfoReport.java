@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ErrorInfoReport {
     public static /* synthetic */ Interceptable $ic;
     public static ErrorInfoReport instance;
@@ -38,7 +38,7 @@ public class ErrorInfoReport {
     public String version;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class ErrorCode {
         public static final /* synthetic */ ErrorCode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

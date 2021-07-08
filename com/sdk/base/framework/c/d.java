@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f41192a;
+    public String f38206a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f41193b;
+    public long f38207b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -30,40 +30,40 @@ public final class d {
                 return;
             }
         }
-        this.f41192a = "";
+        this.f38206a = "";
     }
 
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41192a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38206a : (String) invokeV.objValue;
     }
 
     public final void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.f41193b = j;
+            this.f38207b = j;
         }
     }
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f41192a = str;
+            this.f38206a = str;
         }
     }
 
     public final long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41193b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38207b : invokeV.longValue;
     }
 
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "_$101005Bean{url='" + this.f41192a + "', time=" + this.f41193b + '}';
+            return "_$101005Bean{url='" + this.f38206a + "', time=" + this.f38207b + '}';
         }
         return (String) invokeV.objValue;
     }

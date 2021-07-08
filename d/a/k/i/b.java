@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f45976a;
+    public long f42859a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public b() {
@@ -46,16 +46,16 @@ public class b {
                 return;
             }
         }
-        this.f45976a = j;
+        this.f42859a = j;
     }
 
     public boolean a(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            long j3 = this.f45976a;
+            long j3 = this.f42859a;
             long j4 = (j & j2) | ((~j2) & j3);
-            this.f45976a = j4;
+            this.f42859a = j4;
             return (j4 ^ j3) != 0;
         }
         return invokeCommon.booleanValue;

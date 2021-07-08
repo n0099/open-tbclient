@@ -3,6 +3,7 @@ package com.facebook.fresco.animation.factory;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +38,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 @DoNotStrip
 @NotThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AnimatedFactoryV2Impl implements AnimatedFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NUMBER_OF_FRAMES_TO_PREPARE = 3;
@@ -80,7 +81,7 @@ public class AnimatedFactoryV2Impl implements AnimatedFactory {
     private AnimatedImageFactory buildAnimatedImageFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) ? new AnimatedImageFactoryImpl(new AnimatedDrawableBackendProvider(this) { // from class: com.facebook.fresco.animation.factory.AnimatedFactoryV2Impl.6
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? new AnimatedImageFactoryImpl(new AnimatedDrawableBackendProvider(this) { // from class: com.facebook.fresco.animation.factory.AnimatedFactoryV2Impl.6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AnimatedFactoryV2Impl this$0;

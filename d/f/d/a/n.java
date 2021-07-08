@@ -1,10 +1,11 @@
 package d.f.d.a;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +57,7 @@ public final class n {
     public static String c(int i2, int i3, int i4) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65540, null, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3, i4)) == null) {
             if (i2 < 0 || i2 > i4) {
                 return b(i2, i4, "start index");
             }

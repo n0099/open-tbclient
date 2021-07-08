@@ -3,6 +3,7 @@ package com.baidu.android.pushservice.j;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.pushservice.i.a.b;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -89,7 +90,7 @@ public class j {
     public static boolean b(Context context, String str, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65540, null, context, str, z)) == null) ? context.getSharedPreferences("push_client_self_info", 4).getBoolean(str, z) : invokeLLZ.booleanValue;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, z)) == null) ? context.getSharedPreferences("push_client_self_info", 4).getBoolean(str, z) : invokeLLZ.booleanValue;
     }
 
     public static String c(Context context) {

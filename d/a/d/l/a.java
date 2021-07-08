@@ -15,38 +15,38 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.d.d;
-import d.a.s0.n1.o.l.f;
-import d.a.s0.n1.o.l.h;
-import d.a.s0.n1.o.l.k;
-import d.a.s0.u0.p2.c;
-import d.a.s0.w2.i0.e;
-import d.a.s0.w2.i0.g;
+import d.a.p0.n1.o.l.f;
+import d.a.p0.n1.o.l.h;
+import d.a.p0.n1.o.l.j;
+import d.a.p0.u0.p2.c;
+import d.a.p0.w2.i0.e;
+import d.a.p0.w2.i0.g;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends d.a.c.k.e.a<d, AdCardViewHolder> implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ICardInfo m;
     public d n;
     public TbPageContext o;
-    public d.a.s0.u0.h1.a p;
+    public d.a.p0.u0.h1.a p;
     public c q;
-    public k r;
-    public List<k> s;
+    public j r;
+    public List<j> s;
     public f t;
 
     /* renamed from: d.a.d.l.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public class C0610a implements d.a.s0.n1.o.a {
+    /* loaded from: classes7.dex */
+    public class C0568a implements d.a.p0.n1.o.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f45188a;
+        public final /* synthetic */ a f41990a;
 
-        public C0610a(a aVar) {
+        public C0568a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,21 +61,21 @@ public class a extends d.a.c.k.e.a<d, AdCardViewHolder> implements f {
                     return;
                 }
             }
-            this.f45188a = aVar;
+            this.f41990a = aVar;
         }
 
-        @Override // d.a.s0.n1.o.a
+        @Override // d.a.p0.n1.o.a
         public void a(int i2, HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, hashMap) == null) {
-                a aVar = this.f45188a;
-                aVar.j0(aVar.n, this.f45188a.n.e());
+                a aVar = this.f41990a;
+                aVar.j0(aVar.n, this.f41990a.n.e());
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, d.a.s0.u0.h1.a aVar, c cVar, f fVar) {
+    public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, d.a.p0.u0.h1.a aVar, c cVar, f fVar) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -100,14 +100,14 @@ public class a extends d.a.c.k.e.a<d, AdCardViewHolder> implements f {
         this.t = fVar;
     }
 
-    @Override // d.a.s0.n1.o.l.f
-    public void h(k kVar) {
+    @Override // d.a.p0.n1.o.l.f
+    public void h(j jVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, kVar) == null) {
-            this.r = kVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jVar) == null) {
+            this.r = jVar;
             f fVar = this.t;
             if (fVar != null) {
-                fVar.h(kVar);
+                fVar.h(jVar);
             }
         }
     }
@@ -130,9 +130,9 @@ public class a extends d.a.c.k.e.a<d, AdCardViewHolder> implements f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            k kVar = this.r;
-            if (kVar != null) {
-                return kVar.isPlaying();
+            j jVar = this.r;
+            if (jVar != null) {
+                return jVar.isPlaying();
             }
             return false;
         }
@@ -151,7 +151,7 @@ public class a extends d.a.c.k.e.a<d, AdCardViewHolder> implements f {
             i3 = 102;
         }
         e.b().d(g.b(q, i3, i2));
-        d.a.s0.n1.o.h.c.h(dVar);
+        d.a.p0.n1.o.h.c.h(dVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -159,16 +159,16 @@ public class a extends d.a.c.k.e.a<d, AdCardViewHolder> implements f {
     /* renamed from: k0 */
     public AdCardViewHolder Q(ViewGroup viewGroup) {
         InterceptResult invokeL;
-        d.a.s0.n1.o.l.e a2;
+        d.a.p0.n1.o.l.e a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
-            if (this.m == null || (a2 = d.a.s0.n1.o.b.h().a(this.o, this.m, 2)) == null) {
+            if (this.m == null || (a2 = d.a.p0.n1.o.b.h().a(this.o, this.m, 2)) == null) {
                 return null;
             }
-            if (a2 instanceof k) {
-                this.s.add((k) a2);
+            if (a2 instanceof j) {
+                this.s.add((j) a2);
             }
-            a2.setAfterClickSchemeListener(new C0610a(this));
+            a2.setAfterClickSchemeListener(new C0568a(this));
             return new AdCardViewHolder(a2);
         }
         return (AdCardViewHolder) invokeL.objValue;
@@ -194,9 +194,9 @@ public class a extends d.a.c.k.e.a<d, AdCardViewHolder> implements f {
     public void m0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            for (k kVar : this.s) {
-                if (kVar != null) {
-                    kVar.onDestroy();
+            for (j jVar : this.s) {
+                if (jVar != null) {
+                    jVar.onDestroy();
                 }
             }
         }
@@ -221,7 +221,7 @@ public class a extends d.a.c.k.e.a<d, AdCardViewHolder> implements f {
             dVar.o();
             if (adCardViewHolder.b() != null) {
                 adCardViewHolder.b().setPosition(i2);
-                adCardViewHolder.b().i(dVar.h());
+                adCardViewHolder.b().h(dVar.h());
             }
             return adCardViewHolder.a();
         }
@@ -229,20 +229,20 @@ public class a extends d.a.c.k.e.a<d, AdCardViewHolder> implements f {
     }
 
     public void q0() {
-        k kVar;
+        j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (kVar = this.r) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (jVar = this.r) == null) {
             return;
         }
-        kVar.pausePlay();
+        jVar.pausePlay();
     }
 
     public void s0() {
-        k kVar;
+        j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (kVar = this.r) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (jVar = this.r) == null) {
             return;
         }
-        kVar.stopPlay();
+        jVar.stopPlay();
     }
 }

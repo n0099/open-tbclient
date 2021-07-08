@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.d0.a;
+import d.a.o0.d0.a;
 /* loaded from: classes.dex */
 public class AlaNetRefreshView extends a {
     public static /* synthetic */ Interceptable $ic;

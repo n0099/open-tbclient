@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.k.c.c;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class m extends b<c.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AtomicBoolean f31149a;
+    public AtomicBoolean f31259a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f31150b;
+    public boolean f31260b;
 
     public m(boolean z) {
         Interceptable interceptable = $ic;
@@ -34,9 +34,9 @@ public class m extends b<c.a> {
                 return;
             }
         }
-        this.f31149a = new AtomicBoolean(false);
-        this.f31150b = true;
-        this.f31150b = z;
+        this.f31259a = new AtomicBoolean(false);
+        this.f31260b = true;
+        this.f31260b = z;
     }
 
     @Override // com.bytedance.sdk.openadsdk.e.b
@@ -49,10 +49,10 @@ public class m extends b<c.a> {
     @Override // com.bytedance.sdk.openadsdk.e.b
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f31149a.getAndSet(true)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f31259a.getAndSet(true)) {
             return;
         }
-        com.bytedance.sdk.openadsdk.multipro.c.a.a(this.f31150b);
+        com.bytedance.sdk.openadsdk.multipro.c.a.a(this.f31260b);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -60,11 +60,11 @@ public class m extends b<c.a> {
     public void a(@NonNull c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            if (!this.f31149a.get()) {
+            if (!this.f31259a.get()) {
                 a();
             }
-            if (this.f31149a.get()) {
-                com.bytedance.sdk.openadsdk.multipro.c.a.a(aVar.a(), this.f31150b);
+            if (this.f31259a.get()) {
+                com.bytedance.sdk.openadsdk.multipro.c.a.a(aVar.a(), this.f31260b);
             }
         }
     }

@@ -19,28 +19,28 @@ import java.io.Reader;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Reader f31721b;
+    public static final Reader f31831b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f31722c;
+    public static final Object f31832c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public Object[] f31723d;
+    public Object[] f31833d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f31724e;
+    public int f31834e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String[] f31725f;
+    public String[] f31835f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int[] f31726g;
+    public int[] f31836g;
 
     static {
         InterceptResult invokeClinit;
@@ -55,7 +55,7 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
                 return;
             }
         }
-        f31721b = new Reader() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.e.1
+        f31831b = new Reader() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.e.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -91,22 +91,22 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
                 return invokeLII.intValue;
             }
         };
-        f31722c = new Object();
+        f31832c = new Object();
     }
 
     private Object t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this.f31723d[this.f31724e - 1] : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this.f31833d[this.f31834e - 1] : invokeV.objValue;
     }
 
     private Object u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
-            Object[] objArr = this.f31723d;
-            int i2 = this.f31724e - 1;
-            this.f31724e = i2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            Object[] objArr = this.f31833d;
+            int i2 = this.f31834e - 1;
+            this.f31834e = i2;
             Object obj = objArr[i2];
             objArr[i2] = null;
             return obj;
@@ -127,9 +127,9 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
     public void a() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a(com.bytedance.sdk.openadsdk.preload.a.d.b.f31910a);
+            a(com.bytedance.sdk.openadsdk.preload.a.d.b.f32020a);
             a(((com.bytedance.sdk.openadsdk.preload.a.i) t()).iterator());
-            this.f31726g[this.f31724e - 1] = 0;
+            this.f31836g[this.f31834e - 1] = 0;
         }
     }
 
@@ -137,12 +137,12 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
     public void b() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a(com.bytedance.sdk.openadsdk.preload.a.d.b.f31911b);
+            a(com.bytedance.sdk.openadsdk.preload.a.d.b.f32021b);
             u();
             u();
-            int i2 = this.f31724e;
+            int i2 = this.f31834e;
             if (i2 > 0) {
-                int[] iArr = this.f31726g;
+                int[] iArr = this.f31836g;
                 int i3 = i2 - 1;
                 iArr[i3] = iArr[i3] + 1;
             }
@@ -153,7 +153,7 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
     public void c() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a(com.bytedance.sdk.openadsdk.preload.a.d.b.f31912c);
+            a(com.bytedance.sdk.openadsdk.preload.a.d.b.f32022c);
             a(((o) t()).n().iterator());
         }
     }
@@ -162,8 +162,8 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f31723d = new Object[]{f31722c};
-            this.f31724e = 1;
+            this.f31833d = new Object[]{f31832c};
+            this.f31834e = 1;
         }
     }
 
@@ -171,12 +171,12 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
     public void d() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            a(com.bytedance.sdk.openadsdk.preload.a.d.b.f31913d);
+            a(com.bytedance.sdk.openadsdk.preload.a.d.b.f32023d);
             u();
             u();
-            int i2 = this.f31724e;
+            int i2 = this.f31834e;
             if (i2 > 0) {
-                int[] iArr = this.f31726g;
+                int[] iArr = this.f31836g;
                 int i3 = i2 - 1;
                 iArr[i3] = iArr[i3] + 1;
             }
@@ -189,7 +189,7 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             com.bytedance.sdk.openadsdk.preload.a.d.b f2 = f();
-            return (f2 == com.bytedance.sdk.openadsdk.preload.a.d.b.f31913d || f2 == com.bytedance.sdk.openadsdk.preload.a.d.b.f31911b) ? false : true;
+            return (f2 == com.bytedance.sdk.openadsdk.preload.a.d.b.f32023d || f2 == com.bytedance.sdk.openadsdk.preload.a.d.b.f32021b) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -199,43 +199,43 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f31724e == 0) {
+            if (this.f31834e == 0) {
                 return com.bytedance.sdk.openadsdk.preload.a.d.b.j;
             }
             Object t = t();
             if (t instanceof Iterator) {
-                boolean z = this.f31723d[this.f31724e - 2] instanceof o;
+                boolean z = this.f31833d[this.f31834e - 2] instanceof o;
                 Iterator it = (Iterator) t;
                 if (!it.hasNext()) {
-                    return z ? com.bytedance.sdk.openadsdk.preload.a.d.b.f31913d : com.bytedance.sdk.openadsdk.preload.a.d.b.f31911b;
+                    return z ? com.bytedance.sdk.openadsdk.preload.a.d.b.f32023d : com.bytedance.sdk.openadsdk.preload.a.d.b.f32021b;
                 } else if (z) {
-                    return com.bytedance.sdk.openadsdk.preload.a.d.b.f31914e;
+                    return com.bytedance.sdk.openadsdk.preload.a.d.b.f32024e;
                 } else {
                     a(it.next());
                     return f();
                 }
             } else if (t instanceof o) {
-                return com.bytedance.sdk.openadsdk.preload.a.d.b.f31912c;
+                return com.bytedance.sdk.openadsdk.preload.a.d.b.f32022c;
             } else {
                 if (t instanceof com.bytedance.sdk.openadsdk.preload.a.i) {
-                    return com.bytedance.sdk.openadsdk.preload.a.d.b.f31910a;
+                    return com.bytedance.sdk.openadsdk.preload.a.d.b.f32020a;
                 }
                 if (t instanceof q) {
                     q qVar = (q) t;
                     if (qVar.p()) {
-                        return com.bytedance.sdk.openadsdk.preload.a.d.b.f31915f;
+                        return com.bytedance.sdk.openadsdk.preload.a.d.b.f32025f;
                     }
                     if (qVar.n()) {
-                        return com.bytedance.sdk.openadsdk.preload.a.d.b.f31917h;
+                        return com.bytedance.sdk.openadsdk.preload.a.d.b.f32027h;
                     }
                     if (qVar.o()) {
-                        return com.bytedance.sdk.openadsdk.preload.a.d.b.f31916g;
+                        return com.bytedance.sdk.openadsdk.preload.a.d.b.f32026g;
                     }
                     throw new AssertionError();
                 } else if (t instanceof com.bytedance.sdk.openadsdk.preload.a.n) {
-                    return com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i;
+                    return com.bytedance.sdk.openadsdk.preload.a.d.b.f32028i;
                 } else {
-                    if (t == f31722c) {
+                    if (t == f31832c) {
                         throw new IllegalStateException("JsonReader is closed");
                     }
                     throw new AssertionError();
@@ -250,10 +250,10 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            a(com.bytedance.sdk.openadsdk.preload.a.d.b.f31914e);
+            a(com.bytedance.sdk.openadsdk.preload.a.d.b.f32024e);
             Map.Entry entry = (Map.Entry) ((Iterator) t()).next();
             String str = (String) entry.getKey();
-            this.f31725f[this.f31724e - 1] = str;
+            this.f31835f[this.f31834e - 1] = str;
             a(entry.getValue());
             return str;
         }
@@ -266,13 +266,13 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             com.bytedance.sdk.openadsdk.preload.a.d.b f2 = f();
-            if (f2 != com.bytedance.sdk.openadsdk.preload.a.d.b.f31915f && f2 != com.bytedance.sdk.openadsdk.preload.a.d.b.f31916g) {
-                throw new IllegalStateException("Expected " + com.bytedance.sdk.openadsdk.preload.a.d.b.f31915f + " but was " + f2 + v());
+            if (f2 != com.bytedance.sdk.openadsdk.preload.a.d.b.f32025f && f2 != com.bytedance.sdk.openadsdk.preload.a.d.b.f32026g) {
+                throw new IllegalStateException("Expected " + com.bytedance.sdk.openadsdk.preload.a.d.b.f32025f + " but was " + f2 + v());
             }
             String b2 = ((q) u()).b();
-            int i2 = this.f31724e;
+            int i2 = this.f31834e;
             if (i2 > 0) {
-                int[] iArr = this.f31726g;
+                int[] iArr = this.f31836g;
                 int i3 = i2 - 1;
                 iArr[i3] = iArr[i3] + 1;
             }
@@ -286,11 +286,11 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            a(com.bytedance.sdk.openadsdk.preload.a.d.b.f31917h);
+            a(com.bytedance.sdk.openadsdk.preload.a.d.b.f32027h);
             boolean f2 = ((q) u()).f();
-            int i2 = this.f31724e;
+            int i2 = this.f31834e;
             if (i2 > 0) {
-                int[] iArr = this.f31726g;
+                int[] iArr = this.f31836g;
                 int i3 = i2 - 1;
                 iArr[i3] = iArr[i3] + 1;
             }
@@ -303,11 +303,11 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
     public void j() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            a(com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i);
+            a(com.bytedance.sdk.openadsdk.preload.a.d.b.f32028i);
             u();
-            int i2 = this.f31724e;
+            int i2 = this.f31834e;
             if (i2 > 0) {
-                int[] iArr = this.f31726g;
+                int[] iArr = this.f31836g;
                 int i3 = i2 - 1;
                 iArr[i3] = iArr[i3] + 1;
             }
@@ -320,17 +320,17 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             com.bytedance.sdk.openadsdk.preload.a.d.b f2 = f();
-            if (f2 != com.bytedance.sdk.openadsdk.preload.a.d.b.f31916g && f2 != com.bytedance.sdk.openadsdk.preload.a.d.b.f31915f) {
-                throw new IllegalStateException("Expected " + com.bytedance.sdk.openadsdk.preload.a.d.b.f31916g + " but was " + f2 + v());
+            if (f2 != com.bytedance.sdk.openadsdk.preload.a.d.b.f32026g && f2 != com.bytedance.sdk.openadsdk.preload.a.d.b.f32025f) {
+                throw new IllegalStateException("Expected " + com.bytedance.sdk.openadsdk.preload.a.d.b.f32026g + " but was " + f2 + v());
             }
             double c2 = ((q) t()).c();
             if (!q() && (Double.isNaN(c2) || Double.isInfinite(c2))) {
                 throw new NumberFormatException("JSON forbids NaN and infinities: " + c2);
             }
             u();
-            int i2 = this.f31724e;
+            int i2 = this.f31834e;
             if (i2 > 0) {
-                int[] iArr = this.f31726g;
+                int[] iArr = this.f31836g;
                 int i3 = i2 - 1;
                 iArr[i3] = iArr[i3] + 1;
             }
@@ -345,14 +345,14 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             com.bytedance.sdk.openadsdk.preload.a.d.b f2 = f();
-            if (f2 != com.bytedance.sdk.openadsdk.preload.a.d.b.f31916g && f2 != com.bytedance.sdk.openadsdk.preload.a.d.b.f31915f) {
-                throw new IllegalStateException("Expected " + com.bytedance.sdk.openadsdk.preload.a.d.b.f31916g + " but was " + f2 + v());
+            if (f2 != com.bytedance.sdk.openadsdk.preload.a.d.b.f32026g && f2 != com.bytedance.sdk.openadsdk.preload.a.d.b.f32025f) {
+                throw new IllegalStateException("Expected " + com.bytedance.sdk.openadsdk.preload.a.d.b.f32026g + " but was " + f2 + v());
             }
             long d2 = ((q) t()).d();
             u();
-            int i2 = this.f31724e;
+            int i2 = this.f31834e;
             if (i2 > 0) {
-                int[] iArr = this.f31726g;
+                int[] iArr = this.f31836g;
                 int i3 = i2 - 1;
                 iArr[i3] = iArr[i3] + 1;
             }
@@ -367,14 +367,14 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             com.bytedance.sdk.openadsdk.preload.a.d.b f2 = f();
-            if (f2 != com.bytedance.sdk.openadsdk.preload.a.d.b.f31916g && f2 != com.bytedance.sdk.openadsdk.preload.a.d.b.f31915f) {
-                throw new IllegalStateException("Expected " + com.bytedance.sdk.openadsdk.preload.a.d.b.f31916g + " but was " + f2 + v());
+            if (f2 != com.bytedance.sdk.openadsdk.preload.a.d.b.f32026g && f2 != com.bytedance.sdk.openadsdk.preload.a.d.b.f32025f) {
+                throw new IllegalStateException("Expected " + com.bytedance.sdk.openadsdk.preload.a.d.b.f32026g + " but was " + f2 + v());
             }
             int e2 = ((q) t()).e();
             u();
-            int i2 = this.f31724e;
+            int i2 = this.f31834e;
             if (i2 > 0) {
-                int[] iArr = this.f31726g;
+                int[] iArr = this.f31836g;
                 int i3 = i2 - 1;
                 iArr[i3] = iArr[i3] + 1;
             }
@@ -387,19 +387,19 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
     public void n() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            if (f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f31914e) {
+            if (f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f32024e) {
                 g();
-                this.f31725f[this.f31724e - 2] = StringUtil.NULL_STRING;
+                this.f31835f[this.f31834e - 2] = StringUtil.NULL_STRING;
             } else {
                 u();
-                int i2 = this.f31724e;
+                int i2 = this.f31834e;
                 if (i2 > 0) {
-                    this.f31725f[i2 - 1] = StringUtil.NULL_STRING;
+                    this.f31835f[i2 - 1] = StringUtil.NULL_STRING;
                 }
             }
-            int i3 = this.f31724e;
+            int i3 = this.f31834e;
             if (i3 > 0) {
-                int[] iArr = this.f31726g;
+                int[] iArr = this.f31836g;
                 int i4 = i3 - 1;
                 iArr[i4] = iArr[i4] + 1;
             }
@@ -409,7 +409,7 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
     public void o() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            a(com.bytedance.sdk.openadsdk.preload.a.d.b.f31914e);
+            a(com.bytedance.sdk.openadsdk.preload.a.d.b.f32024e);
             Map.Entry entry = (Map.Entry) ((Iterator) t()).next();
             a(entry.getValue());
             a(new q((String) entry.getKey()));
@@ -424,20 +424,20 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
             StringBuilder sb = new StringBuilder();
             sb.append('$');
             int i2 = 0;
-            while (i2 < this.f31724e) {
-                Object[] objArr = this.f31723d;
+            while (i2 < this.f31834e) {
+                Object[] objArr = this.f31833d;
                 if (objArr[i2] instanceof com.bytedance.sdk.openadsdk.preload.a.i) {
                     i2++;
                     if (objArr[i2] instanceof Iterator) {
                         sb.append('[');
-                        sb.append(this.f31726g[i2]);
+                        sb.append(this.f31836g[i2]);
                         sb.append(']');
                     }
                 } else if (objArr[i2] instanceof o) {
                     i2++;
                     if (objArr[i2] instanceof Iterator) {
                         sb.append(IStringUtil.EXTENSION_SEPARATOR);
-                        String[] strArr = this.f31725f;
+                        String[] strArr = this.f31835f;
                         if (strArr[i2] != null) {
                             sb.append(strArr[i2]);
                         }
@@ -468,17 +468,17 @@ public final class e extends com.bytedance.sdk.openadsdk.preload.a.d.a {
     private void a(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, obj) == null) {
-            int i2 = this.f31724e;
-            Object[] objArr = this.f31723d;
+            int i2 = this.f31834e;
+            Object[] objArr = this.f31833d;
             if (i2 == objArr.length) {
                 int i3 = i2 * 2;
-                this.f31723d = Arrays.copyOf(objArr, i3);
-                this.f31726g = Arrays.copyOf(this.f31726g, i3);
-                this.f31725f = (String[]) Arrays.copyOf(this.f31725f, i3);
+                this.f31833d = Arrays.copyOf(objArr, i3);
+                this.f31836g = Arrays.copyOf(this.f31836g, i3);
+                this.f31835f = (String[]) Arrays.copyOf(this.f31835f, i3);
             }
-            Object[] objArr2 = this.f31723d;
-            int i4 = this.f31724e;
-            this.f31724e = i4 + 1;
+            Object[] objArr2 = this.f31833d;
+            int i4 = this.f31834e;
+            this.f31834e = i4 + 1;
             objArr2[i4] = obj;
         }
     }

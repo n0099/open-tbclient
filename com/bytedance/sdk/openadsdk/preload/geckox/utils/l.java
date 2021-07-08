@@ -12,15 +12,15 @@ import java.io.InputStream;
 import java.util.Arrays;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static byte[] f32170a;
+    public static byte[] f32280a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f32171b;
+    public static byte[] f32281b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,8 +36,8 @@ public class l {
                 return;
             }
         }
-        f32170a = new byte[]{80, 75, 3, 4};
-        f32171b = new byte[]{80, 75, 5, 6};
+        f32280a = new byte[]{80, 75, 3, 4};
+        f32281b = new byte[]{80, 75, 5, 6};
     }
 
     /* JADX WARN: Multi-variable type inference failed */
@@ -124,7 +124,7 @@ public class l {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x001c, code lost:
-        if (java.util.Arrays.equals(com.bytedance.sdk.openadsdk.preload.geckox.utils.l.f32171b, r1) != false) goto L15;
+        if (java.util.Arrays.equals(com.bytedance.sdk.openadsdk.preload.geckox.utils.l.f32281b, r1) != false) goto L15;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -137,7 +137,7 @@ public class l {
                 byte[] bArr = new byte[4];
                 boolean z = false;
                 if (inputStream.read(bArr, 0, 4) == 4) {
-                    if (!Arrays.equals(f32170a, bArr)) {
+                    if (!Arrays.equals(f32280a, bArr)) {
                     }
                     z = true;
                     return z;

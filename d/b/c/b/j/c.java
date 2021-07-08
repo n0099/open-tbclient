@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.b.c.b.l;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<a> f71908a;
+    public List<a> f69011a;
 
     public c(Handler handler, Context context) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public final class c {
             }
         }
         ArrayList arrayList = new ArrayList(3);
-        this.f71908a = arrayList;
+        this.f69011a = arrayList;
         arrayList.add(new b(handler, 0L, 15000L));
     }
 
@@ -47,8 +47,8 @@ public final class c {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            l.k.a("[ScheduleTaskManager] execute, task size=" + this.f71908a.size());
-            for (a aVar : this.f71908a) {
+            l.k.a("[ScheduleTaskManager] execute, task size=" + this.f69011a.size());
+            for (a aVar : this.f69011a) {
                 try {
                     aVar.a();
                 } catch (Throwable unused) {

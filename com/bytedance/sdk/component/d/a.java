@@ -11,25 +11,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f28574a;
+    public long f28684a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28575b;
+    public int f28685b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f28576c;
+    public boolean f28686c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f28577d;
+    public boolean f28687d;
 
     /* renamed from: e  reason: collision with root package name */
-    public File f28578e;
+    public File f28688e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(int i2, long j, File file) {
@@ -65,19 +65,19 @@ public class a {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28574a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28684a : invokeV.longValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28575b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28685b : invokeV.intValue;
     }
 
     public File c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28578e : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28688e : (File) invokeV.objValue;
     }
 
     public a(int i2, long j, boolean z, boolean z2, File file) {
@@ -95,11 +95,11 @@ public class a {
                 return;
             }
         }
-        this.f28574a = j;
-        this.f28575b = i2;
-        this.f28576c = z;
-        this.f28577d = z2;
-        this.f28578e = file;
+        this.f28684a = j;
+        this.f28685b = i2;
+        this.f28686c = z;
+        this.f28687d = z2;
+        this.f28688e = file;
     }
 
     public static a a(Context context) {

@@ -1,5 +1,6 @@
 package com.baidu.android.common.security;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -103,7 +104,7 @@ public final class RSAUtil {
     public static byte[] encryptByPrivateKey(byte[] bArr, String str) throws Exception {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, bArr, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, str)) == null) {
             PrivateKey generatePrivate = KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(Base64.decode(str.getBytes())));
             Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
             cipher.init(1, generatePrivate);

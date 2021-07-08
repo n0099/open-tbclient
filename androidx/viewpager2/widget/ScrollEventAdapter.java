@@ -132,7 +132,7 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
     private int getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) ? this.mLayoutManager.findFirstVisibleItemPosition() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.mLayoutManager.findFirstVisibleItemPosition() : invokeV.intValue;
     }
 
     private boolean isInAnyDraggingState() {

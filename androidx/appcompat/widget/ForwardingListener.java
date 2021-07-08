@@ -7,6 +7,7 @@ import android.view.ViewConfiguration;
 import android.view.ViewParent;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.ShowableListMenu;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -203,7 +204,7 @@ public abstract class ForwardingListener implements View.OnTouchListener, View.O
     public static boolean pointInView(View view, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
             float f5 = -f4;
             return f2 >= f5 && f3 >= f5 && f2 < ((float) (view.getRight() - view.getLeft())) + f4 && f3 < ((float) (view.getBottom() - view.getTop())) + f4;
         }

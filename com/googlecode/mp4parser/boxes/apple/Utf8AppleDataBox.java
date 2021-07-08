@@ -16,7 +16,7 @@ import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class Utf8AppleDataBox extends AppleDataBox {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;

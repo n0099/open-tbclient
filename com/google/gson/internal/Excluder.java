@@ -26,7 +26,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Excluder implements TypeAdapterFactory, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Excluder DEFAULT;
@@ -104,7 +104,7 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
     private boolean isAnonymousOrLocal(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, this, cls)) == null) ? !Enum.class.isAssignableFrom(cls) && (cls.isAnonymousClass() || cls.isLocalClass()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, cls)) == null) ? !Enum.class.isAssignableFrom(cls) && (cls.isAnonymousClass() || cls.isLocalClass()) : invokeL.booleanValue;
     }
 
     private boolean isInnerClass(Class<?> cls) {

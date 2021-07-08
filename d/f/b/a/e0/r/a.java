@@ -1,6 +1,7 @@
 package d.f.b.a.e0.r;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -17,19 +18,19 @@ import d.f.b.a.i0.l;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f73163c;
+    public static final Pattern f70266c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final l f73164a;
+    public final l f70267a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final StringBuilder f73165b;
+    public final StringBuilder f70268b;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +45,7 @@ public final class a {
                 return;
             }
         }
-        f73163c = Pattern.compile("\\[voice=\"([^\"]*)\"\\]");
+        f70266c = Pattern.compile("\\[voice=\"([^\"]*)\"\\]");
     }
 
     public a() {
@@ -60,8 +61,8 @@ public final class a {
                 return;
             }
         }
-        this.f73164a = new l();
-        this.f73165b = new StringBuilder();
+        this.f70267a = new l();
+        this.f70268b = new StringBuilder();
     }
 
     public static boolean b(l lVar) {
@@ -72,7 +73,7 @@ public final class a {
         }
         int c2 = lVar.c();
         int d2 = lVar.d();
-        byte[] bArr = lVar.f73386a;
+        byte[] bArr = lVar.f70489a;
         if (c2 + 2 > d2) {
             return false;
         }
@@ -117,13 +118,13 @@ public final class a {
     public static String e(l lVar, StringBuilder sb) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, lVar, sb)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, lVar, sb)) == null) {
             boolean z = false;
             sb.setLength(0);
             int c2 = lVar.c();
             int d2 = lVar.d();
             while (c2 < d2 && !z) {
-                char c3 = (char) lVar.f73386a[c2];
+                char c3 = (char) lVar.f70489a[c2];
                 if ((c3 < 'A' || c3 > 'Z') && ((c3 < 'a' || c3 > 'z') && !((c3 >= '0' && c3 <= '9') || c3 == '#' || c3 == '-' || c3 == '.' || c3 == '_'))) {
                     z = true;
                 } else {
@@ -248,7 +249,7 @@ public final class a {
     public static char j(l lVar, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, lVar, i2)) == null) ? (char) lVar.f73386a[i2] : invokeLI.charValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, lVar, i2)) == null) ? (char) lVar.f70489a[i2] : invokeLI.charValue;
     }
 
     public static String k(l lVar) {
@@ -260,7 +261,7 @@ public final class a {
             boolean z = false;
             while (c2 < d2 && !z) {
                 int i2 = c2 + 1;
-                z = ((char) lVar.f73386a[c2]) == ')';
+                z = ((char) lVar.f70489a[c2]) == ')';
                 c2 = i2;
             }
             return lVar.u((c2 - 1) - lVar.c()).trim();
@@ -296,7 +297,7 @@ public final class a {
         }
         int indexOf = str.indexOf(91);
         if (indexOf != -1) {
-            Matcher matcher = f73163c.matcher(str.substring(indexOf));
+            Matcher matcher = f70266c.matcher(str.substring(indexOf));
             if (matcher.matches()) {
                 dVar.v(matcher.group(1));
             }
@@ -320,13 +321,13 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar)) == null) {
-            this.f73165b.setLength(0);
+            this.f70268b.setLength(0);
             int c2 = lVar.c();
             l(lVar);
-            this.f73164a.H(lVar.f73386a, lVar.c());
-            this.f73164a.J(c2);
-            String h2 = h(this.f73164a, this.f73165b);
-            if (h2 == null || !StringUtil.ARRAY_START.equals(f(this.f73164a, this.f73165b))) {
+            this.f70267a.H(lVar.f70489a, lVar.c());
+            this.f70267a.J(c2);
+            String h2 = h(this.f70267a, this.f70268b);
+            if (h2 == null || !StringUtil.ARRAY_START.equals(f(this.f70267a, this.f70268b))) {
                 return null;
             }
             d dVar = new d();
@@ -334,12 +335,12 @@ public final class a {
             String str = null;
             boolean z = false;
             while (!z) {
-                int c3 = this.f73164a.c();
-                str = f(this.f73164a, this.f73165b);
+                int c3 = this.f70267a.c();
+                str = f(this.f70267a, this.f70268b);
                 boolean z2 = str == null || "}".equals(str);
                 if (!z2) {
-                    this.f73164a.J(c3);
-                    i(this.f73164a, dVar, this.f73165b);
+                    this.f70267a.J(c3);
+                    i(this.f70267a, dVar, this.f70268b);
                 }
                 z = z2;
             }

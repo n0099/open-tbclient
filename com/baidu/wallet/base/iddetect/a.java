@@ -5,25 +5,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a implements Comparable<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f23956a;
+    public int f24066a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f23957b;
+    public int f24067b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f23958c;
+    public float f24068c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f23959d;
+    public float f24069d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f23960e;
+    public boolean f24070e;
 
     public a(int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -40,9 +40,9 @@ public class a implements Comparable<a> {
                 return;
             }
         }
-        this.f23960e = false;
-        this.f23956a = i2;
-        this.f23957b = i3;
+        this.f24070e = false;
+        this.f24066a = i2;
+        this.f24067b = i3;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -52,15 +52,15 @@ public class a implements Comparable<a> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            if (this.f23960e) {
-                return this.f23959d < aVar.f23959d ? -1 : 1;
+            if (this.f24070e) {
+                return this.f24069d < aVar.f24069d ? -1 : 1;
             }
-            int i2 = this.f23957b;
-            int i3 = aVar.f23957b;
+            int i2 = this.f24067b;
+            int i3 = aVar.f24067b;
             if (i2 < i3) {
                 return -1;
             }
-            return (i2 <= i3 && this.f23956a < aVar.f23956a) ? -1 : 1;
+            return (i2 <= i3 && this.f24066a < aVar.f24066a) ? -1 : 1;
         }
         return invokeL.intValue;
     }

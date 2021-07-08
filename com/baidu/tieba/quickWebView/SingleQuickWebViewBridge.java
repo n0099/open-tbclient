@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.u2.a;
-/* loaded from: classes5.dex */
+import d.a.p0.u2.a;
+/* loaded from: classes4.dex */
 public class SingleQuickWebViewBridge extends CommonTbJsBridge {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
         this.mProxy = aVar;
     }
 
-    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, d.a.s0.h3.l0.b
+    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, d.a.p0.h3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.asm;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
@@ -157,7 +158,7 @@ public class Type {
     private int getDimensions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             int i2 = 1;
             while (this.buf[this.off + i2] == '[') {
                 i2++;

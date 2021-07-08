@@ -6,37 +6,37 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class U {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f42478a;
+    public int[] f39492a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f42479b;
+    public int f39493b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f42480c;
+    public int f39494c;
 
     /* renamed from: d  reason: collision with root package name */
-    public T f42481d;
+    public T f39495d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List f42482e;
+    public List f39496e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42483f;
+    public int f39497f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f42484g;
+    public int f39498g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f42485h;
+    public boolean f39499h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f42486i;
+    public int f39500i;
     public int j;
     public int k;
     public int l;
@@ -55,10 +55,10 @@ public class U {
                 return;
             }
         }
-        this.f42478a = null;
-        this.f42479b = 0;
-        this.f42480c = 0;
-        this.f42482e = new ArrayList();
+        this.f39492a = null;
+        this.f39493b = 0;
+        this.f39494c = 0;
+        this.f39496e = new ArrayList();
         this.m = 0;
     }
 }

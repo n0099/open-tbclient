@@ -141,7 +141,7 @@ public class AwtCodec implements ObjectSerializer, ObjectDeserializer {
                     if (jSONLexer.token() == 2) {
                         int intValue = jSONLexer.intValue();
                         jSONLexer.nextToken();
-                        if (stringVal.equalsIgnoreCase(r.f7745a)) {
+                        if (stringVal.equalsIgnoreCase(r.f7762a)) {
                             i2 = intValue;
                         } else if (stringVal.equalsIgnoreCase("g")) {
                             i3 = intValue;
@@ -339,7 +339,7 @@ public class AwtCodec implements ObjectSerializer, ObjectDeserializer {
                 serializeWriter.writeFieldValue(',', "height", rectangle.height);
             } else if (obj instanceof Color) {
                 Color color = (Color) obj;
-                serializeWriter.writeFieldValue(writeClassName(serializeWriter, Color.class, '{'), r.f7745a, color.getRed());
+                serializeWriter.writeFieldValue(writeClassName(serializeWriter, Color.class, '{'), r.f7762a, color.getRed());
                 serializeWriter.writeFieldValue(',', "g", color.getGreen());
                 serializeWriter.writeFieldValue(',', "b", color.getBlue());
                 if (color.getAlpha() > 0) {

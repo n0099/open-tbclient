@@ -5,6 +5,7 @@ import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
+import androidx.core.view.InputDeviceCompat;
 import androidx.room.ColumnInfo;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
@@ -383,7 +384,7 @@ public class TableInfo {
     public static List<ForeignKeyWithSequence> readForeignKeyFieldMappings(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, cursor)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cursor)) == null) {
             int columnIndex = cursor.getColumnIndex("id");
             int columnIndex2 = cursor.getColumnIndex(IAdRequestParam.SEQ);
             int columnIndex3 = cursor.getColumnIndex("from");

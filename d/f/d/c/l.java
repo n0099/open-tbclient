@@ -7,13 +7,13 @@ import com.google.common.collect.ImmutableList;
 import java.util.AbstractList;
 import java.util.List;
 import java.util.RandomAccess;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class l<E> extends AbstractList<List<E>> implements RandomAccess {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final transient ImmutableList<List<E>> f73761e;
+    public final transient ImmutableList<List<E>> f70864e;
 
     public final int c(int i2, int i3) {
         InterceptResult invokeII;

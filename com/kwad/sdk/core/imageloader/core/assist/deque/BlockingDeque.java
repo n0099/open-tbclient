@@ -3,7 +3,7 @@ package com.kwad.sdk.core.imageloader.core.assist.deque;
 import java.util.Iterator;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface BlockingDeque<E> extends Deque<E>, BlockingQueue<E> {
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.Deque, java.util.Queue, java.util.Collection, java.util.concurrent.BlockingQueue
     boolean add(E e2);

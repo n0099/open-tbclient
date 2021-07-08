@@ -2,6 +2,7 @@ package com.baidu.cyberplayer.sdk.downloader;
 
 import android.os.Looper;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
 import com.baidu.cyberplayer.sdk.o;
@@ -20,12 +21,12 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a(String str, long j);
 
@@ -148,13 +149,13 @@ public class b {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f4868a;
+                    public final /* synthetic */ String f4885a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f4869b;
+                    public final /* synthetic */ String f4886b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f4870c;
+                    public final /* synthetic */ a f4887c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -171,16 +172,16 @@ public class b {
                                 return;
                             }
                         }
-                        this.f4868a = str4;
-                        this.f4869b = str;
-                        this.f4870c = aVar;
+                        this.f4885a = str4;
+                        this.f4886b = str;
+                        this.f4887c = aVar;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            b.b(this.f4868a, this.f4869b, this.f4870c);
+                            b.b(this.f4885a, this.f4886b, this.f4887c);
                         }
                     }
                 });
@@ -262,7 +263,7 @@ public class b {
     public static void b(String str, String str2, a aVar) {
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, null, str, str2, aVar) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, aVar) == null) {
             FileOutputStream fileOutputStream2 = null;
             try {
                 try {

@@ -7,15 +7,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.hl;
 import com.xiaomi.push.hm;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public /* synthetic */ class as {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f43583a;
+    public static final /* synthetic */ int[] f40597a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ int[] f43584b;
+    public static final /* synthetic */ int[] f40598b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,31 +32,31 @@ public /* synthetic */ class as {
             }
         }
         int[] iArr = new int[hm.values().length];
-        f43584b = iArr;
+        f40598b = iArr;
         try {
-            iArr[hm.f43277a.ordinal()] = 1;
+            iArr[hm.f40291a.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f43584b[hm.f43278b.ordinal()] = 2;
+            f40598b[hm.f40292b.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f43584b[hm.f43279c.ordinal()] = 3;
+            f40598b[hm.f40293c.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f43584b[hm.f43280d.ordinal()] = 4;
+            f40598b[hm.f40294d.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         int[] iArr2 = new int[hl.values().length];
-        f43583a = iArr2;
+        f40597a = iArr2;
         try {
-            iArr2[hl.f43275a.ordinal()] = 1;
+            iArr2[hl.f40289a.ordinal()] = 1;
         } catch (NoSuchFieldError unused5) {
         }
         try {
-            f43583a[hl.f43276b.ordinal()] = 2;
+            f40597a[hl.f40290b.ordinal()] = 2;
         } catch (NoSuchFieldError unused6) {
         }
     }

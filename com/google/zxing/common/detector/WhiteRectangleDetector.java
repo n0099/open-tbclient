@@ -1,5 +1,6 @@
 package com.google.zxing.common.detector;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitMatrix;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class WhiteRectangleDetector {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CORR = 1;
@@ -87,7 +88,7 @@ public final class WhiteRectangleDetector {
     private ResultPoint getBlackPointOnSegment(float f2, float f3, float f4, float f5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
             int round = MathUtils.round(MathUtils.distance(f2, f3, f4, f5));
             float f6 = round;
             float f7 = (f4 - f2) / f6;

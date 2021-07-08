@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringEncoder;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class DoubleMetaphone implements StringEncoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int maxCodeLen;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class DoubleMetaphoneResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

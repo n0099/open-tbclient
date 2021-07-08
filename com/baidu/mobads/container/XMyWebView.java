@@ -31,7 +31,7 @@ import java.util.Iterator;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class XMyWebView extends XSafeWebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public class XMyWebView extends XSafeWebView {
     public boolean isScrollY;
     public KeyDownListener mKeyDownListener;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class C {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String SEP = ",";
@@ -121,12 +121,12 @@ public class XMyWebView extends XSafeWebView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface KeyDownListener {
         boolean onKeyDown(int i2, KeyEvent keyEvent);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class ParameterInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -273,7 +273,7 @@ public class XMyWebView extends XSafeWebView {
     public static boolean hitExt(String[] strArr, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, strArr, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr, str)) == null) {
             if (str == null) {
                 return false;
             }

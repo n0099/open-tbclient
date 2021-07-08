@@ -15,16 +15,16 @@ import com.bytedance.sdk.openadsdk.dislike.TTDislikeListView;
 import com.bytedance.sdk.openadsdk.dislike.a.a;
 import com.bytedance.sdk.openadsdk.dislike.c.b;
 import com.bytedance.sdk.openadsdk.dislike.ui.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class TTDislikeDialogAbstract extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f28948a;
+    public View f29058a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f28949b;
+    public b f29059b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TTDislikeDialogAbstract(@NonNull Context context) {
@@ -48,16 +48,16 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f28949b == null || this.f28948a == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f29059b == null || this.f29058a == null) {
             return;
         }
         int[] tTDislikeListViewIds = getTTDislikeListViewIds();
         if (tTDislikeListViewIds != null && tTDislikeListViewIds.length > 0) {
             for (int i2 : tTDislikeListViewIds) {
-                View findViewById = this.f28948a.findViewById(i2);
+                View findViewById = this.f29058a.findViewById(i2);
                 if (findViewById != null) {
                     if (findViewById instanceof TTDislikeListView) {
-                        ((TTDislikeListView) findViewById).setDislikeInfo(this.f28949b);
+                        ((TTDislikeListView) findViewById).setDislikeInfo(this.f29059b);
                     } else {
                         throw new IllegalArgumentException("getTTDislikeListViewIds找到的view类型异常，请检查");
                     }
@@ -82,10 +82,10 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             View inflate = LayoutInflater.from(getContext()).inflate(getLayoutId(), (ViewGroup) null);
-            this.f28948a = inflate;
+            this.f29058a = inflate;
             if (inflate != null) {
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
-                View view = this.f28948a;
+                View view = this.f29058a;
                 if (layoutParams == null) {
                     layoutParams = new ViewGroup.LayoutParams(-1, -1);
                 }
@@ -100,7 +100,7 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     public void setDislikeModel(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.f28949b = bVar;
+            this.f29059b = bVar;
             a();
         }
     }
@@ -110,14 +110,14 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.show();
-            b bVar = this.f28949b;
+            b bVar = this.f29059b;
             if (bVar == null || bVar.a() == null) {
                 return;
             }
             if (this instanceof c) {
-                a.a().a(getContext(), this.f28949b, "ad_explation_show");
+                a.a().a(getContext(), this.f29059b, "ad_explation_show");
             } else {
-                a.a().a(getContext(), this.f28949b, "ad_explation_personality_show");
+                a.a().a(getContext(), this.f29059b, "ad_explation_personality_show");
             }
         }
     }
@@ -125,11 +125,11 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     public void startPersonalizePromptActivity() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (bVar = this.f28949b) == null || bVar.a() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (bVar = this.f29059b) == null || bVar.a() == null) {
             return;
         }
-        a.b().a(getContext(), this.f28949b, true);
-        a.a().a(getContext(), this.f28949b, "ad_explation_personality_click");
+        a.b().a(getContext(), this.f29059b, true);
+        a.a().a(getContext(), this.f29059b, "ad_explation_personality_click");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

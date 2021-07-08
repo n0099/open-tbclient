@@ -2,6 +2,7 @@ package com.baidu.searchbox.logsystem.basic.upload.identity;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.url.UrlUtil;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.util.Base64Encoder;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class LokiIdentityManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PARAM_APP_NAME = "appname";
@@ -93,7 +94,7 @@ public final class LokiIdentityManager {
 
     private void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             this.mContext = AppRuntime.getAppContext();
             this.mNetworkParam = new NetworkParam();
             this.mDeviceInfoParam = new DeviceInfoParam();

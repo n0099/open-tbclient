@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import org.webrtc.VideoFrame;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class WrappedNativeI420Buffer implements VideoFrame.I420Buffer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

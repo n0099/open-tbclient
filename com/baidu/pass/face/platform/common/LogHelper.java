@@ -1,6 +1,7 @@
 package com.baidu.pass.face.platform.common;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.face.platform.FaceStatusNewEnum;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LogHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "LogHelper";
@@ -77,7 +78,7 @@ public class LogHelper {
     public static void addLogWithKey(String str, Object obj) {
         HashMap<String, Object> hashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65540, null, str, obj) == null) || (hashMap = logMap) == null || hashMap.containsKey(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, obj) == null) || (hashMap = logMap) == null || hashMap.containsKey(str)) {
             return;
         }
         logMap.put(str, obj);

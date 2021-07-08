@@ -3,6 +3,7 @@ package com.faceunity.gles;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class GlUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float[] IDENTITY_MATRIX;
@@ -76,7 +77,7 @@ public class GlUtil {
     public static FloatBuffer createFloatBuffer(float[] fArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, fArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, fArr)) == null) {
             ByteBuffer allocateDirect = ByteBuffer.allocateDirect(fArr.length * 4);
             allocateDirect.order(ByteOrder.nativeOrder());
             FloatBuffer asFloatBuffer = allocateDirect.asFloatBuffer();

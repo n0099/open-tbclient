@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.framework.c.e;
 import com.sdk.base.framework.f.c.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BaseConfig implements e {
     public static /* synthetic */ Interceptable $ic = null;
     public static String apk = "com.cucc.sdk.api_key";
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f41252c = 36;
+    public static int f38266c = 36;
     public static String cm = "CUCC";
     public static String n = "SDKFactory";
     public static String v = "安卓3.9.1.3开放版K200113";

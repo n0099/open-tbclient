@@ -23,6 +23,7 @@ import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -48,7 +49,7 @@ import com.google.android.material.math.MathUtils;
 import java.util.ArrayList;
 import java.util.List;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class FabTransformationBehavior extends ExpandableTransformationBehavior {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +60,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
     public final RectF tmpRectF1;
     public final RectF tmpRectF2;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class FabTransformationSpec {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,7 +138,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
 
     private void calculateDependencyWindowBounds(@NonNull View view, @NonNull RectF rectF) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, this, view, rectF) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, view, rectF) == null) {
             calculateWindowBounds(view, rectF);
             rectF.offset(this.dependencyOriginalTranslationX, this.dependencyOriginalTranslationY);
         }

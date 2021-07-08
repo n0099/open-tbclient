@@ -1,5 +1,6 @@
 package com.baidu.fsg.base.restnet.http;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.container.util.SDKLogTypeConstants;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class HttpStatus {
     public static final /* synthetic */ HttpStatus[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -86,7 +87,7 @@ public final class HttpStatus {
     public final int value;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class Series {
         public static final /* synthetic */ Series[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -144,7 +145,7 @@ public final class HttpStatus {
         public static Series valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (Series) Enum.valueOf(Series.class, str) : (Series) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (Series) Enum.valueOf(Series.class, str) : (Series) invokeL.objValue;
         }
 
         public static Series[] values() {
@@ -288,7 +289,7 @@ public final class HttpStatus {
     public static HttpStatus[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (HttpStatus[]) $VALUES.clone() : (HttpStatus[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (HttpStatus[]) $VALUES.clone() : (HttpStatus[]) invokeV.objValue;
     }
 
     public String getReasonPhrase() {

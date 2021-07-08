@@ -2,6 +2,7 @@ package com.yy.hiidostatis.inner.implementation;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,7 +22,7 @@ import com.yy.hiidostatis.inner.util.hdid.ClientIdProxy;
 import com.yy.hiidostatis.inner.util.hdid.DeviceProxy;
 import com.yy.hiidostatis.inner.util.hdid.UuidManager;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class CommonFiller {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANDROID_OS = 2;
@@ -103,7 +104,7 @@ public class CommonFiller {
     public static BaseStatisContent fillCommonNew(Context context, BaseStatisContent baseStatisContent, String str, String str2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65540, null, context, baseStatisContent, str, str2)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, baseStatisContent, str, str2)) == null) {
             fillKey(baseStatisContent, str);
             baseStatisContent.put("imei", getIMEI(context));
             baseStatisContent.put("mac", getMacAddr(context));

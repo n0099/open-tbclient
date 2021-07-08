@@ -11,22 +11,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface d extends IInterface {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static abstract class a extends Binder implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.sso.n.d$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public static class C0169a implements d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f10542a;
+            public IBinder f10559a;
 
             public C0169a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public interface d extends IInterface {
                         return;
                     }
                 }
-                this.f10542a = iBinder;
+                this.f10559a = iBinder;
             }
 
             public String a() {
@@ -54,7 +54,7 @@ public interface d extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                        this.f10542a.transact(1, obtain, obtain2, 0);
+                        this.f10559a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -69,7 +69,7 @@ public interface d extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10542a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10559a : (IBinder) invokeV.objValue;
             }
         }
 

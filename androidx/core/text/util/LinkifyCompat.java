@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.core.util.PatternsCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -370,7 +371,7 @@ public final class LinkifyCompat {
 
     public static void addLinks(@NonNull TextView textView, @NonNull Pattern pattern, @Nullable String str, @Nullable Linkify.MatchFilter matchFilter, @Nullable Linkify.TransformFilter transformFilter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65540, null, textView, pattern, str, matchFilter, transformFilter) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, textView, pattern, str, matchFilter, transformFilter) == null) {
             if (shouldAddLinksFallbackToFramework()) {
                 Linkify.addLinks(textView, pattern, str, matchFilter, transformFilter);
             } else {

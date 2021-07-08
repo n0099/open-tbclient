@@ -1,5 +1,6 @@
 package org.apache.http.entity.mime.content;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,7 @@ import java.io.OutputStream;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class StringBody extends AbstractContentBody {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +52,7 @@ public class StringBody extends AbstractContentBody {
     public static StringBody create(String str, String str2, Charset charset) throws IllegalArgumentException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, str, str2, charset)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, charset)) == null) {
             try {
                 return new StringBody(str, str2, charset);
             } catch (UnsupportedEncodingException e2) {

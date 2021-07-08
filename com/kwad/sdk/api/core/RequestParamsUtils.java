@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class RequestParamsUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String USER_AGENT;
@@ -28,7 +28,7 @@ public final class RequestParamsUtils {
                 return;
             }
         }
-        USER_AGENT = getUserAgentParams() + "ksad-android-3.3.9";
+        USER_AGENT = getUserAgentParams() + "ksad-android-3.3.11";
     }
 
     public RequestParamsUtils() {

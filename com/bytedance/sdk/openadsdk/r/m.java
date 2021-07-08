@@ -3,6 +3,7 @@ package com.bytedance.sdk.openadsdk.r;
 import android.content.Context;
 import android.os.Environment;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,16 +20,16 @@ import java.io.StringWriter;
 import java.lang.Thread;
 import java.lang.reflect.Method;
 import java.util.Properties;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class m implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f32233a;
+    public Thread.UncaughtExceptionHandler f32343a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32234b;
+    public String f32344b;
 
     public m() {
         Interceptable interceptable = $ic;
@@ -43,7 +44,7 @@ public class m implements Thread.UncaughtExceptionHandler {
                 return;
             }
         }
-        this.f32233a = Thread.getDefaultUncaughtExceptionHandler();
+        this.f32343a = Thread.getDefaultUncaughtExceptionHandler();
         Thread.setDefaultUncaughtExceptionHandler(this);
         b();
     }
@@ -64,12 +65,12 @@ public class m implements Thread.UncaughtExceptionHandler {
         try {
             if ("mounted".equals(Environment.getExternalStorageState()) && (externalFilesDir = a2.getExternalFilesDir("TTCache")) != null) {
                 externalFilesDir.mkdirs();
-                this.f32234b = externalFilesDir.getPath();
+                this.f32344b = externalFilesDir.getPath();
             }
-            if (TextUtils.isEmpty(this.f32234b)) {
+            if (TextUtils.isEmpty(this.f32344b)) {
                 File file = new File(a2.getFilesDir(), "TTCache");
                 file.mkdirs();
-                this.f32234b = file.getPath();
+                this.f32344b = file.getPath();
             }
         } catch (Throwable unused) {
         }
@@ -77,7 +78,7 @@ public class m implements Thread.UncaughtExceptionHandler {
 
     private void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             try {
                 Method a2 = t.a("com.bytedance.sdk.openadsdk.TTC2Proxy", "a", Context.class);
                 if (a2 != null) {
@@ -134,7 +135,7 @@ public class m implements Thread.UncaughtExceptionHandler {
             if (z) {
                 a(thread, th);
             }
-            Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f32233a;
+            Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f32343a;
             if (uncaughtExceptionHandler == null || uncaughtExceptionHandler == this) {
                 return;
             }
@@ -167,17 +168,17 @@ public class m implements Thread.UncaughtExceptionHandler {
         }
         FileInputStream fileInputStream = null;
         try {
-            if (TextUtils.isEmpty(this.f32234b)) {
+            if (TextUtils.isEmpty(this.f32344b)) {
                 b();
             }
         } catch (Throwable th2) {
             th = th2;
             fileOutputStream = null;
         }
-        if (TextUtils.isEmpty(this.f32234b)) {
+        if (TextUtils.isEmpty(this.f32344b)) {
             return;
         }
-        File file = new File(this.f32234b, "tt_crash_count.properties");
+        File file = new File(this.f32344b, "tt_crash_count.properties");
         boolean z2 = true;
         if (file.exists() && file.isFile() && file.canRead()) {
             ?? properties = new Properties();

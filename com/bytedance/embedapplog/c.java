@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface c extends IInterface {
     String a();
 
@@ -18,7 +18,7 @@ public interface c extends IInterface {
 
     String b(String str);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static abstract class a extends Binder implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,13 +74,13 @@ public interface c extends IInterface {
         }
 
         /* renamed from: com.bytedance.embedapplog.c$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public static class C0308a implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f27579a;
+            public IBinder f27689a;
 
             public C0308a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public interface c extends IInterface {
                         return;
                     }
                 }
-                this.f27579a = iBinder;
+                this.f27689a = iBinder;
             }
 
             @Override // com.bytedance.embedapplog.c
@@ -109,7 +109,7 @@ public interface c extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
-                        this.f27579a.transact(1, obtain, obtain2, 0);
+                        this.f27689a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -124,7 +124,7 @@ public interface c extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27579a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27689a : (IBinder) invokeV.objValue;
             }
 
             @Override // com.bytedance.embedapplog.c
@@ -137,7 +137,7 @@ public interface c extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
                         obtain.writeString(str);
-                        this.f27579a.transact(3, obtain, obtain2, 0);
+                        this.f27689a.transact(3, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -158,7 +158,7 @@ public interface c extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
                         obtain.writeString(str);
-                        this.f27579a.transact(2, obtain, obtain2, 0);
+                        this.f27689a.transact(2, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {

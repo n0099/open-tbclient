@@ -15,24 +15,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.notification.DownloadNotificationService;
 import d.l.a.e.b.g.e;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DownloadReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f41508a;
+    public static final String f38522a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f41509e;
+        public final /* synthetic */ Context f38523e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f41510f;
+        public final /* synthetic */ String f38524f;
 
         public a(DownloadReceiver downloadReceiver, Context context, String str) {
             Interceptable interceptable = $ic;
@@ -49,8 +49,8 @@ public class DownloadReceiver extends BroadcastReceiver {
                     return;
                 }
             }
-            this.f41509e = context;
-            this.f41510f = str;
+            this.f38523e = context;
+            this.f38524f = str;
         }
 
         @Override // java.lang.Runnable
@@ -58,9 +58,9 @@ public class DownloadReceiver extends BroadcastReceiver {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    Intent intent = new Intent(this.f41509e, DownloadNotificationService.class);
-                    intent.setAction(this.f41510f);
-                    this.f41509e.startService(intent);
+                    Intent intent = new Intent(this.f38523e, DownloadNotificationService.class);
+                    intent.setAction(this.f38524f);
+                    this.f38523e.startService(intent);
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
@@ -81,7 +81,7 @@ public class DownloadReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        f41508a = DownloadReceiver.class.getSimpleName();
+        f38522a = DownloadReceiver.class.getSimpleName();
     }
 
     public DownloadReceiver() {
@@ -130,7 +130,7 @@ public class DownloadReceiver extends BroadcastReceiver {
         }
         if (action.equals("android.net.conn.CONNECTIVITY_CHANGE")) {
             if (d.l.a.e.b.c.a.e()) {
-                d.l.a.e.b.c.a.c(f41508a, "Received broadcast intent for android.net.conn.CONNECTIVITY_CHANGE");
+                d.l.a.e.b.c.a.c(f38522a, "Received broadcast intent for android.net.conn.CONNECTIVITY_CHANGE");
             }
             a(context, action);
         } else if (action.equals("android.intent.action.MEDIA_UNMOUNTED") || action.equals("android.intent.action.MEDIA_REMOVED") || action.equals("android.intent.action.MEDIA_BAD_REMOVAL") || action.equals("android.intent.action.MEDIA_EJECT")) {

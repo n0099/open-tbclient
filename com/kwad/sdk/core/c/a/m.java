@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.sdk.core.response.model.AdStyleInfo;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class m implements com.kwad.sdk.core.c<AdInfo.DownloadSafeInfo> {
+/* loaded from: classes6.dex */
+public class m implements com.kwad.sdk.core.d<AdStyleInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,37 +28,45 @@ public class m implements com.kwad.sdk.core.c<AdInfo.DownloadSafeInfo> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public JSONObject a(AdInfo.DownloadSafeInfo downloadSafeInfo) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.core.d
+    public void a(AdStyleInfo adStyleInfo, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadSafeInfo)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "permissionInfo", downloadSafeInfo.permissionInfo);
-            com.kwad.sdk.utils.o.a(jSONObject, "appPrivacyUrl", downloadSafeInfo.appPrivacyUrl);
-            com.kwad.sdk.utils.o.a(jSONObject, "windowPopType", downloadSafeInfo.windowPopType);
-            com.kwad.sdk.utils.o.a(jSONObject, "downloadPauseEnable", downloadSafeInfo.downloadPauseEnable);
-            com.kwad.sdk.utils.o.a(jSONObject, "windowPopUrl", downloadSafeInfo.windowPopUrl);
-            com.kwad.sdk.utils.o.a(jSONObject, "webPageTipbarSwitch", downloadSafeInfo.webPageTipbarSwitch);
-            com.kwad.sdk.utils.o.a(jSONObject, "webPageTipbarText", downloadSafeInfo.webPageTipbarText);
-            return jSONObject;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adStyleInfo, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return (JSONObject) invokeL.objValue;
+        AdStyleInfo.PlayDetailInfo playDetailInfo = new AdStyleInfo.PlayDetailInfo();
+        adStyleInfo.playDetailInfo = playDetailInfo;
+        playDetailInfo.parseJson(jSONObject.optJSONObject("playDetailInfo"));
+        AdStyleInfo.PlayEndInfo playEndInfo = new AdStyleInfo.PlayEndInfo();
+        adStyleInfo.playEndInfo = playEndInfo;
+        playEndInfo.parseJson(jSONObject.optJSONObject("playEndInfo"));
+        AdStyleInfo.FeedAdInfo feedAdInfo = new AdStyleInfo.FeedAdInfo();
+        adStyleInfo.feedAdInfo = feedAdInfo;
+        feedAdInfo.parseJson(jSONObject.optJSONObject("feedAdInfo"));
+        AdStyleInfo.AdBrowseInfo adBrowseInfo = new AdStyleInfo.AdBrowseInfo();
+        adStyleInfo.adBrowseInfo = adBrowseInfo;
+        adBrowseInfo.parseJson(jSONObject.optJSONObject("adBrowseInfo"));
+        AdStyleInfo.BannerAdInfo bannerAdInfo = new AdStyleInfo.BannerAdInfo();
+        adStyleInfo.bannerAdInfo = bannerAdInfo;
+        bannerAdInfo.parseJson(jSONObject.optJSONObject("bannerAdInfo"));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public void a(AdInfo.DownloadSafeInfo downloadSafeInfo, JSONObject jSONObject) {
+    @Override // com.kwad.sdk.core.d
+    public JSONObject b(AdStyleInfo adStyleInfo, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, downloadSafeInfo, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, adStyleInfo, jSONObject)) == null) {
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
+            }
+            com.kwad.sdk.utils.q.a(jSONObject, "playDetailInfo", adStyleInfo.playDetailInfo);
+            com.kwad.sdk.utils.q.a(jSONObject, "playEndInfo", adStyleInfo.playEndInfo);
+            com.kwad.sdk.utils.q.a(jSONObject, "feedAdInfo", adStyleInfo.feedAdInfo);
+            com.kwad.sdk.utils.q.a(jSONObject, "adBrowseInfo", adStyleInfo.adBrowseInfo);
+            com.kwad.sdk.utils.q.a(jSONObject, "bannerAdInfo", adStyleInfo.bannerAdInfo);
+            return jSONObject;
         }
-        downloadSafeInfo.permissionInfo = jSONObject.optString("permissionInfo");
-        downloadSafeInfo.appPrivacyUrl = jSONObject.optString("appPrivacyUrl");
-        downloadSafeInfo.windowPopType = jSONObject.optInt("windowPopType", new Integer("0").intValue());
-        downloadSafeInfo.downloadPauseEnable = jSONObject.optBoolean("downloadPauseEnable", new Boolean("false").booleanValue());
-        downloadSafeInfo.windowPopUrl = jSONObject.optString("windowPopUrl");
-        downloadSafeInfo.webPageTipbarSwitch = jSONObject.optBoolean("webPageTipbarSwitch", new Boolean("false").booleanValue());
-        downloadSafeInfo.webPageTipbarText = jSONObject.optString("webPageTipbarText");
+        return (JSONObject) invokeLL.objValue;
     }
 }

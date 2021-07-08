@@ -3,6 +3,7 @@ package com.bumptech.glide.gifdecoder;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,7 @@ import java.nio.BufferUnderflowException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class GifHeaderParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_FRAME_DELAY = 10;
@@ -109,7 +110,7 @@ public class GifHeaderParser {
 
     private void readBlock() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             int read = read();
             this.blockSize = read;
             if (read > 0) {

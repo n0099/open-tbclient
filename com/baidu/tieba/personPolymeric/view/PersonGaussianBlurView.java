@@ -10,22 +10,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.z0.i;
-/* loaded from: classes5.dex */
+import d.a.o0.z0.i;
+/* loaded from: classes4.dex */
 public class PersonGaussianBlurView extends PersonExpandImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f20222i;
+    public a f20262i;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends BdAsyncTask<Bitmap, String, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonGaussianBlurView f20223a;
+        public final /* synthetic */ PersonGaussianBlurView f20263a;
 
         public a(PersonGaussianBlurView personGaussianBlurView) {
             Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
                     return;
                 }
             }
-            this.f20223a = personGaussianBlurView;
+            this.f20263a = personGaussianBlurView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -96,7 +96,7 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
             if (interceptable == null || interceptable.invokeL(1048579, this, bitmap) == null) {
                 super.onPostExecute((a) bitmap);
                 if (c(bitmap)) {
-                    this.f20223a.setImageBitmap(bitmap);
+                    this.f20263a.setImageBitmap(bitmap);
                 }
             }
         }
@@ -128,12 +128,12 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) || bitmap == null || bitmap.isRecycled()) {
             return;
         }
-        a aVar = this.f20222i;
+        a aVar = this.f20262i;
         if (aVar != null) {
             aVar.cancel();
         }
         a aVar2 = new a(this);
-        this.f20222i = aVar2;
+        this.f20262i = aVar2;
         aVar2.execute(bitmap);
     }
 }

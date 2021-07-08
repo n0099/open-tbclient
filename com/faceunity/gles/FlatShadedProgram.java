@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.StatusCode;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FlatShadedProgram {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FRAGMENT_SHADER = "precision mediump float;uniform vec4 uColor;void main() {    gl_FragColor = uColor;}";

@@ -8,6 +8,7 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,12 +19,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.google.android.material.internal.ManufacturerUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, String> f39387a;
+    public static final Map<String, String> f36551a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,17 +41,17 @@ public class e {
             }
         }
         HashMap hashMap = new HashMap();
-        f39387a = hashMap;
+        f36551a = hashMap;
         hashMap.put("HUAWEI", "com.huawei.appmarket");
-        f39387a.put("OPPO", "com.oppo.market");
-        f39387a.put(RomUtils.MANUFACTURER_VIVO, "com.bbk.appstore");
-        f39387a.put(RomUtils.MANUFACTURER_XIAOMI, "com.xiaomi.market");
-        f39387a.put("OnePlus", "com.oppo.market");
-        f39387a.put("Meizu", "com.meizu.mstore");
-        f39387a.put(ManufacturerUtils.SAMSUNG, "com.sec.android.app.samsungapps");
-        f39387a.put("SMARTISAN", "com.smartisanos.appstore");
-        f39387a.put("Realme", "com.oppo.market");
-        f39387a.put("HONOR", "com.huawei.appmarket");
+        f36551a.put("OPPO", "com.oppo.market");
+        f36551a.put(RomUtils.MANUFACTURER_VIVO, "com.bbk.appstore");
+        f36551a.put(RomUtils.MANUFACTURER_XIAOMI, "com.xiaomi.market");
+        f36551a.put("OnePlus", "com.oppo.market");
+        f36551a.put("Meizu", "com.meizu.mstore");
+        f36551a.put(ManufacturerUtils.SAMSUNG, "com.sec.android.app.samsungapps");
+        f36551a.put("SMARTISAN", "com.smartisanos.appstore");
+        f36551a.put("Realme", "com.oppo.market");
+        f36551a.put("HONOR", "com.huawei.appmarket");
     }
 
     public static boolean a(Context context, String str) {
@@ -84,7 +85,7 @@ public class e {
                 str = "http://apps.samsung.com/appquery/appDetail.as?appId=" + str2;
             }
             try {
-                String str3 = f39387a.get(Build.BRAND);
+                String str3 = f36551a.get(Build.BRAND);
                 Intent parseUri = Intent.parseUri(str, 1);
                 parseUri.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                 for (ResolveInfo resolveInfo : context.getPackageManager().queryIntentActivities(parseUri, 0)) {
@@ -115,6 +116,6 @@ public class e {
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? "OPPO".equals(Build.BRAND) && "com.heytap.market".equals(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? "OPPO".equals(Build.BRAND) && "com.heytap.market".equals(str) : invokeL.booleanValue;
     }
 }

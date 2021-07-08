@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.googlecode.mp4parser.h264.Debug;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class CAVLCWriter extends BitstreamWriter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

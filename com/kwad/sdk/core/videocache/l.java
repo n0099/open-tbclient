@@ -2,6 +2,7 @@ package com.kwad.sdk.core.videocache;
 
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +14,7 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +72,7 @@ public class l {
     public static String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
                 return URLEncoder.encode(str, "utf-8");
             } catch (UnsupportedEncodingException e2) {

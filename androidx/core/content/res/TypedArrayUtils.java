@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleableRes;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -72,7 +73,7 @@ public class TypedArrayUtils {
     public static int getInt(@NonNull TypedArray typedArray, @StyleableRes int i2, @StyleableRes int i3, int i4) {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIII = interceptable.invokeLIII(65540, null, typedArray, i2, i3, i4)) == null) ? typedArray.getInt(i2, typedArray.getInt(i3, i4)) : invokeLIII.intValue;
+        return (interceptable == null || (invokeLIII = interceptable.invokeLIII(InputDeviceCompat.SOURCE_TRACKBALL, null, typedArray, i2, i3, i4)) == null) ? typedArray.getInt(i2, typedArray.getInt(i3, i4)) : invokeLIII.intValue;
     }
 
     public static boolean getNamedBoolean(@NonNull TypedArray typedArray, @NonNull XmlPullParser xmlPullParser, @NonNull String str, @StyleableRes int i2, boolean z) {

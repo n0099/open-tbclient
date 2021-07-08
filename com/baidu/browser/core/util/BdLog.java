@@ -2,6 +2,7 @@ package com.baidu.browser.core.util;
 
 import android.os.Environment;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.PathUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbConfig;
@@ -20,19 +21,19 @@ public final class BdLog {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f4316a = true;
+    public static boolean f4321a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static FileOutputStream f4317b;
+    public static FileOutputStream f4322b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f4318c;
+    public static boolean f4323c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f4319d;
+    public static String f4324d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f4320e;
+    public static String f4325e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -106,7 +107,7 @@ public final class BdLog {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f4321a;
+        public static final /* synthetic */ int[] f4326a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -123,25 +124,25 @@ public final class BdLog {
                 }
             }
             int[] iArr = new int[LogLevel.values().length];
-            f4321a = iArr;
+            f4326a = iArr;
             try {
                 iArr[LogLevel.DEBUG.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f4321a[LogLevel.ERROR.ordinal()] = 2;
+                f4326a[LogLevel.ERROR.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f4321a[LogLevel.INFO.ordinal()] = 3;
+                f4326a[LogLevel.INFO.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f4321a[LogLevel.VERBOSE.ordinal()] = 4;
+                f4326a[LogLevel.VERBOSE.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f4321a[LogLevel.WARN.ordinal()] = 5;
+                f4326a[LogLevel.WARN.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
@@ -160,13 +161,13 @@ public final class BdLog {
                 return;
             }
         }
-        f4319d = Environment.getExternalStorageDirectory() + File.separator + PathUtils.DIRCTORY_BAIDU + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
+        f4324d = Environment.getExternalStorageDirectory() + File.separator + PathUtils.DIRCTORY_BAIDU + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
         StringBuilder sb = new StringBuilder();
-        sb.append(f4319d);
+        sb.append(f4324d);
         sb.append("baiduliulanqi_log.txt");
-        f4320e = sb.toString();
+        f4325e = sb.toString();
         StringBuilder sb2 = new StringBuilder();
-        sb2.append(f4319d);
+        sb2.append(f4324d);
         sb2.append("baiduliulanqi_lasttime_log.txt");
         sb2.toString();
     }
@@ -183,7 +184,7 @@ public final class BdLog {
             if (str2 == null) {
                 str2 = "";
             }
-            int i2 = a.f4321a[logLevel.ordinal()];
+            int i2 = a.f4326a[logLevel.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
@@ -215,7 +216,7 @@ public final class BdLog {
             } else {
                 Log.d(str, str2, th);
             }
-            if (f4318c) {
+            if (f4323c) {
                 d(str, str2);
             }
         }
@@ -230,17 +231,17 @@ public final class BdLog {
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65540, null, str, str2) == null) && Environment.getExternalStorageState().equals("mounted")) {
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && Environment.getExternalStorageState().equals("mounted")) {
             try {
-                File file = new File(f4319d);
+                File file = new File(f4324d);
                 if (!file.exists()) {
                     file.mkdirs();
                 }
-                if (f4317b == null) {
-                    f4317b = new FileOutputStream(f4320e);
+                if (f4322b == null) {
+                    f4322b = new FileOutputStream(f4325e);
                 }
-                f4317b.write((str + ZeusCrashHandler.NAME_SEPERATOR + str2).getBytes("UTF-8"));
-                f4317b.write("\n".getBytes());
+                f4322b.write((str + ZeusCrashHandler.NAME_SEPERATOR + str2).getBytes("UTF-8"));
+                f4322b.write("\n".getBytes());
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -250,13 +251,13 @@ public final class BdLog {
     public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f4316a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f4321a : invokeV.booleanValue;
     }
 
     public static void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, null, z) == null) {
-            f4316a = z;
+            f4321a = z;
         }
     }
 }

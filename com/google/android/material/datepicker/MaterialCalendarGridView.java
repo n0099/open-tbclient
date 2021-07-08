@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 import java.util.Calendar;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MaterialCalendarGridView extends GridView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public final class MaterialCalendarGridView extends GridView {
     public static int horizontalMidPoint(@NonNull View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, view)) == null) ? view.getLeft() + (view.getWidth() / 2) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view)) == null) ? view.getLeft() + (view.getWidth() / 2) : invokeL.intValue;
     }
 
     public static boolean skipMonth(@Nullable Long l, @Nullable Long l2, @Nullable Long l3, @Nullable Long l4) {

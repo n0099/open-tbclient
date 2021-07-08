@@ -1,6 +1,7 @@
 package com.baidu.searchbox.ubcprocessor;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.sp.SharedPrefsWrapper;
 import com.baidu.pyramid.runtime.service.ServiceManager;
@@ -14,12 +15,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
-import d.a.u0.t;
-import d.a.u0.x;
+import d.a.r0.t;
+import d.a.r0.x;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UBCCloudControlProcessor implements ICloudControlProcessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_STATISTIC_DATA_COUNT = "count";
@@ -70,7 +71,7 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
     public static SharedPrefsWrapper sharedPrefsWrapper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? new SharedPrefsWrapper(SP_UBC_FILE_NAME) : (SharedPrefsWrapper) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new SharedPrefsWrapper(SP_UBC_FILE_NAME) : (SharedPrefsWrapper) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor
@@ -123,7 +124,7 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
                             this.val$step = r8;
                         }
 
-                        @Override // d.a.u0.t
+                        @Override // d.a.r0.t
                         public void setUBCConfigStatisticData(JSONObject jSONObject) {
                             ICloudControlUBCCallBack iCloudControlUBCCallBack2;
                             Interceptable interceptable2 = $ic;

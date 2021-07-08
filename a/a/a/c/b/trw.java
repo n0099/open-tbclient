@@ -7,9 +7,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.l.b.c.a;
+import d.a.l.b.c.b;
+import d.a.l.b.c.c;
 import java.util.concurrent.Executor;
 /* loaded from: classes.dex */
-public class trw implements d.a.l.b.c.c {
+public class trw implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -22,12 +25,12 @@ public class trw implements d.a.l.b.c.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final d.a.l.b.c.b f1450a;
+        public final b f1450a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final d.a.l.b.c.a f1451b;
+        public final a f1451b;
 
-        public bv(d.a.l.b.c.b bVar) {
+        public bv(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,7 +112,7 @@ public class trw implements d.a.l.b.c.c {
     }
 
     @Override // d.a.l.b.c.c
-    public void post(d.a.l.b.c.b bVar) {
+    public void post(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.f1449a.execute(new bv(bVar));

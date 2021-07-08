@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, String> f30482a;
+    public static final ConcurrentHashMap<String, String> f30592a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,13 +27,13 @@ public class a {
                 return;
             }
         }
-        f30482a = new ConcurrentHashMap<>();
+        f30592a = new ConcurrentHashMap<>();
     }
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            f30482a.put(str, str2);
+            f30592a.put(str, str2);
         }
     }
 }

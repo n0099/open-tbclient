@@ -17,19 +17,19 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.WeakHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a extends com.bytedance.sdk.component.adnet.b.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f31284b;
+    public static String f31394b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakHashMap<String, String> f31285c;
+    public WeakHashMap<String, String> f31395c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.d.a f31286d;
+    public final com.bytedance.sdk.openadsdk.d.a f31396d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -44,8 +44,8 @@ public class a extends com.bytedance.sdk.component.adnet.b.a {
                 return;
             }
         }
-        this.f31285c = new WeakHashMap<>();
-        this.f31286d = new com.bytedance.sdk.openadsdk.d.d();
+        this.f31395c = new WeakHashMap<>();
+        this.f31396d = new com.bytedance.sdk.openadsdk.d.d();
     }
 
     public static a a() {
@@ -128,7 +128,7 @@ public class a extends com.bytedance.sdk.component.adnet.b.a {
                     if (file2.exists() && file2.length() > 0) {
                         file2.renameTo(file);
                     }
-                    this.f31286d.a(file);
+                    this.f31396d.a(file);
                     fileOutputStream2.close();
                 } catch (Throwable th) {
                     th = th;
@@ -161,12 +161,12 @@ public class a extends com.bytedance.sdk.component.adnet.b.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (TextUtils.isEmpty(f31284b)) {
+            if (TextUtils.isEmpty(f31394b)) {
                 File file = new File(com.bytedance.sdk.component.adnet.a.b(o.a()), "diskImage");
                 file.mkdirs();
-                f31284b = file.getAbsolutePath();
+                f31394b = file.getAbsolutePath();
             }
-            return f31284b;
+            return f31394b;
         }
         return (String) invokeV.objValue;
     }
@@ -179,10 +179,10 @@ public class a extends com.bytedance.sdk.component.adnet.b.a {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            String str2 = this.f31285c.get(str);
+            String str2 = this.f31395c.get(str);
             if (TextUtils.isEmpty(str2)) {
                 String a2 = com.bytedance.sdk.component.utils.e.a(str);
-                this.f31285c.put(str, a2);
+                this.f31395c.put(str, a2);
                 return a2;
             }
             return str2;

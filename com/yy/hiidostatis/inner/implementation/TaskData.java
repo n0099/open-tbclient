@@ -12,7 +12,7 @@ import com.yy.hiidostatis.inner.util.cipher.Coder;
 import com.yy.hiidostatis.message.utils.NoNull;
 import java.io.Serializable;
 import java.util.UUID;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class TaskData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MAGIC_MD5 = "hd!@#$%";

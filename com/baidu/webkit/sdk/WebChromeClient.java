@@ -33,7 +33,7 @@ import java.lang.reflect.Method;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class WebChromeClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -56,12 +56,12 @@ public class WebChromeClient {
     public transient /* synthetic */ FieldHolder $fh;
     public WebView mWebView;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface CustomViewCallback {
         void onCustomViewHidden();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static abstract class FileChooserParams {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MODE_OPEN = 0;
@@ -195,7 +195,7 @@ public class WebChromeClient {
     private Class getClassFromJsonObject(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, obj)) == null) {
             Class<?> cls = obj.getClass();
             return cls == Integer.class ? Integer.TYPE : cls == Boolean.class ? Boolean.TYPE : String.class;
         }

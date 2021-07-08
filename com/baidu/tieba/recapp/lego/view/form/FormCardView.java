@@ -24,15 +24,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.e;
 import d.a.c.e.p.l;
-import d.a.r0.c.f;
-import d.a.s0.w2.w;
+import d.a.o0.c.f;
+import d.a.p0.w2.w;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FormCardView extends BaseLegoCardView<FormCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,13 +53,13 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
     public View y;
     public Activity z;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FormCardView f20531e;
+        public final /* synthetic */ FormCardView f20577e;
 
         public a(FormCardView formCardView) {
             Interceptable interceptable = $ic;
@@ -76,26 +76,26 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
                     return;
                 }
             }
-            this.f20531e = formCardView;
+            this.f20577e = formCardView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                FormCardView formCardView = this.f20531e;
-                formCardView.X(formCardView.B, this.f20531e.s.getPostUrl(), this.f20531e.C);
+                FormCardView formCardView = this.f20577e;
+                formCardView.X(formCardView.B, this.f20577e.s.getPostUrl(), this.f20577e.C);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends d.a.c.e.l.c<d.a.c.k.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FormCardView f20532a;
+        public final /* synthetic */ FormCardView f20578a;
 
         public b(FormCardView formCardView) {
             Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
                     return;
                 }
             }
-            this.f20532a = formCardView;
+            this.f20578a = formCardView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -129,44 +129,44 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
                             if (width == 0) {
                                 return;
                             }
-                            int i3 = (this.f20532a.D * height) / width;
-                            int i4 = this.f20532a.A.backgroundInfo.f20454c;
+                            int i3 = (this.f20578a.D * height) / width;
+                            int i4 = this.f20578a.A.backgroundInfo.f20500c;
                             if (i4 == 1) {
-                                this.f20532a.v.getLayoutParams().width = this.f20532a.D;
-                                this.f20532a.v.getLayoutParams().height = i3;
+                                this.f20578a.v.getLayoutParams().width = this.f20578a.D;
+                                this.f20578a.v.getLayoutParams().height = i3;
                             } else if (i4 == 2) {
-                                this.f20532a.v.getLayoutParams().width = this.f20532a.D;
-                                this.f20532a.v.getLayoutParams().height = this.f20532a.E;
+                                this.f20578a.v.getLayoutParams().width = this.f20578a.D;
+                                this.f20578a.v.getLayoutParams().height = this.f20578a.E;
                             }
-                            int b2 = d.a.s0.n1.o.k.b.b(this.f20532a.A.backgroundInfo.f20453b);
-                            if (!d.a.s0.n1.o.k.b.a(b2)) {
-                                this.f20532a.y.setBackgroundColor(b2);
+                            int b2 = d.a.p0.n1.o.k.b.b(this.f20578a.A.backgroundInfo.f20499b);
+                            if (!d.a.p0.n1.o.k.b.a(b2)) {
+                                this.f20578a.y.setBackgroundColor(b2);
                             }
-                            aVar.h(this.f20532a.v);
+                            aVar.h(this.f20578a.v);
                             return;
                         }
                     } catch (Exception unused) {
-                        this.f20532a.v.setImageBitmap(null);
-                        this.f20532a.v.setVisibility(8);
+                        this.f20578a.v.setImageBitmap(null);
+                        this.f20578a.v.setVisibility(8);
                         return;
                     } catch (OutOfMemoryError unused2) {
-                        this.f20532a.v.setImageBitmap(null);
-                        this.f20532a.v.setVisibility(8);
+                        this.f20578a.v.setImageBitmap(null);
+                        this.f20578a.v.setVisibility(8);
                         return;
                     }
                 }
-                this.f20532a.v.setVisibility(8);
+                this.f20578a.v.setVisibility(8);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FormCardView f20533a;
+        public final /* synthetic */ FormCardView f20579a;
 
         public c(FormCardView formCardView) {
             Interceptable interceptable = $ic;
@@ -183,7 +183,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
                     return;
                 }
             }
-            this.f20533a = formCardView;
+            this.f20579a = formCardView;
         }
 
         @Override // d.a.c.a.e
@@ -192,23 +192,23 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 if (obj instanceof f) {
                     f fVar = (f) obj;
-                    if (fVar.f55131a) {
-                        this.f20533a.A.setCommitState(true);
-                        this.f20533a.g0();
-                    } else if (!TextUtils.isEmpty(fVar.f55133c)) {
-                        new d.a.r0.r.f0.c().b(fVar.f55133c);
-                        this.f20533a.A.setCommitState(false);
+                    if (fVar.f51836a) {
+                        this.f20579a.A.setCommitState(true);
+                        this.f20579a.g0();
+                    } else if (!TextUtils.isEmpty(fVar.f51838c)) {
+                        new d.a.o0.r.f0.c().b(fVar.f51838c);
+                        this.f20579a.A.setCommitState(false);
                     } else {
-                        new d.a.r0.r.f0.c().d(R.drawable.icon_toast_game_error, R.string.form_commit_fail_string);
-                        this.f20533a.A.setCommitState(false);
+                        new d.a.o0.r.f0.c().d(R.drawable.icon_toast_game_error, R.string.form_commit_fail_string);
+                        this.f20579a.A.setCommitState(false);
                     }
                 }
-                this.f20533a.s.setClickable(true);
+                this.f20579a.s.setClickable(true);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface d {
         boolean a();
 
@@ -267,7 +267,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
             if (TextUtils.isEmpty(str)) {
                 this.s.setClickable(true);
             } else {
-                d.a.s0.w2.z.b.a().d(null, str, hashMap, new c(this));
+                d.a.p0.w2.z.b.a().d(null, str, hashMap, new c(this));
             }
         }
     }
@@ -278,8 +278,8 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
             this.y.setBackgroundResource(R.drawable.form_defalut_bg_image);
             if (this.A.backgroundInfo != null) {
                 this.v.setVisibility(0);
-                if (!TextUtils.isEmpty(this.A.backgroundInfo.f20452a)) {
-                    d.a.c.e.l.d.h().m(this.A.backgroundInfo.f20452a, 10, new b(this), this.F.getUniqueId());
+                if (!TextUtils.isEmpty(this.A.backgroundInfo.f20498a)) {
+                    d.a.c.e.l.d.h().m(this.A.backgroundInfo.f20498a, 10, new b(this), this.F.getUniqueId());
                     return;
                 }
             }
@@ -295,10 +295,10 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
             float dimension2 = this.m.getResources().getDimension(R.dimen.fontsize28);
             int color = this.m.getResources().getColor(R.color.form_font_color);
             if (fVar != null) {
-                this.w.setText(fVar.f20463a);
+                this.w.setText(fVar.f20509a);
                 this.w.setTextColor(-1);
                 this.w.setTextSize(0, dimension);
-                this.x.setText(fVar.f20464b);
+                this.x.setText(fVar.f20510b);
                 this.x.setTextColor(color);
                 this.x.setTextSize(0, dimension2);
             }
@@ -315,7 +315,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         for (int i2 = 0; i2 < size; i2++) {
             FormCard.b bVar = this.A.itemList.get(i2);
             if (bVar != null) {
-                switch (bVar.f20455a) {
+                switch (bVar.f20501a) {
                     case 1:
                         W(bVar, new TitleView(this.z), i2, size);
                         continue;
@@ -388,7 +388,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
             this.s.setClickable(false);
             return;
         }
-        new d.a.r0.r.f0.c().d(R.drawable.icon_toast_game_error, R.string.form_commit_error_string);
+        new d.a.o0.r.f0.c().d(R.drawable.icon_toast_game_error, R.string.form_commit_error_string);
         this.s.setClickable(true);
     }
 
@@ -434,7 +434,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         }
         this.r.g(formCard.titleInfo);
         this.s.g(formCard.commitInfo);
-        d.a.s0.w2.z.b.a().b(new d.a.s0.w2.z.a(this.s.getPostUrl()));
+        d.a.p0.w2.z.b.a().b(new d.a.p0.w2.z.a(this.s.getPostUrl()));
         S();
         U();
         T();
@@ -446,7 +446,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         if (formCard.mHasShown) {
             return;
         }
-        w.p().m().d(formCard.getShowExtra(), this.f18190e);
+        w.o().l().d(formCard.getShowExtra(), this.f18230e);
         formCard.mHasShown = true;
     }
 
@@ -456,7 +456,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
             if (this.B == null) {
                 this.B = new ArrayList();
             }
-            d.a.s0.n1.o.k.a.a(this.B, dVar);
+            d.a.p0.n1.o.k.a.a(this.B, dVar);
         }
     }
 
@@ -466,7 +466,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
             this.u.removeAllViews();
             List<d> list = this.B;
             if (list != null) {
-                d.a.s0.n1.o.k.a.c(list);
+                d.a.p0.n1.o.k.a.c(list);
             } else {
                 this.B = new ArrayList();
             }

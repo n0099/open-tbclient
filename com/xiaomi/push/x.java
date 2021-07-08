@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class x {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HashMap<String, String> f43704a;
+    public static final HashMap<String, String> f40718a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,12 +29,12 @@ public class x {
             }
         }
         HashMap<String, String> hashMap = new HashMap<>();
-        f43704a = hashMap;
+        f40718a = hashMap;
         hashMap.put("FFD8FF", "jpg");
-        f43704a.put("89504E47", "png");
-        f43704a.put("47494638", "gif");
-        f43704a.put("474946", "gif");
-        f43704a.put("424D", "bmp");
+        f40718a.put("89504E47", "png");
+        f40718a.put("47494638", "gif");
+        f40718a.put("474946", "gif");
+        f40718a.put("424D", "bmp");
     }
 
     public static long a(File file) {

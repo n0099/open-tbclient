@@ -6,6 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Handler;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.down.utils.Constants;
 import com.baidu.location.Jni;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -27,29 +28,29 @@ import java.io.RandomAccessFile;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class o extends com.baidu.location.e.e {
     public static /* synthetic */ Interceptable $ic;
     public static o q;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6632a;
+    public String f6649a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6633b;
+    public String f6650b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f6634c;
+    public String f6651c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f6635d;
+    public String f6652d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6636e;
+    public int f6653e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f6637f;
+    public Handler f6654f;
 
     static {
         InterceptResult invokeClinit;
@@ -79,13 +80,13 @@ public class o extends com.baidu.location.e.e {
                 return;
             }
         }
-        this.f6632a = null;
-        this.f6633b = null;
-        this.f6634c = null;
-        this.f6635d = null;
-        this.f6636e = 1;
-        this.f6637f = null;
-        this.f6637f = new Handler();
+        this.f6649a = null;
+        this.f6650b = null;
+        this.f6651c = null;
+        this.f6652d = null;
+        this.f6653e = 1;
+        this.f6654f = null;
+        this.f6654f = new Handler();
     }
 
     public static void a(File file, File file2) throws IOException {
@@ -137,14 +138,14 @@ public class o extends com.baidu.location.e.e {
     public boolean a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) {
             try {
                 NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
                 if (activeNetworkInfo == null || activeNetworkInfo.getType() != 0) {
                     return false;
                 }
                 String a2 = com.baidu.location.c.d.a(com.baidu.location.c.b.a().e());
-                if (a2.equals(com.baidu.apollon.statistics.g.f3983b)) {
+                if (a2.equals(com.baidu.apollon.statistics.g.f3986b)) {
                     return true;
                 }
                 return a2.equals("4G");
@@ -207,7 +208,7 @@ public class o extends com.baidu.location.e.e {
     private Handler d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) ? this.f6637f : (Handler) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) ? this.f6654f : (Handler) invokeV.objValue;
     }
 
     private void e() {
@@ -216,7 +217,7 @@ public class o extends com.baidu.location.e.e {
             try {
                 File file = new File(com.baidu.location.e.k.j() + "/grtcfrsa.dat");
                 if (!file.exists()) {
-                    File file2 = new File(com.baidu.location.e.j.f6790a);
+                    File file2 = new File(com.baidu.location.e.j.f6807a);
                     if (!file2.exists()) {
                         file2.mkdirs();
                     }
@@ -239,13 +240,13 @@ public class o extends com.baidu.location.e.e {
                 RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "rw");
                 randomAccessFile2.seek(200L);
                 randomAccessFile2.writeBoolean(true);
-                if (this.f6636e == 1) {
+                if (this.f6653e == 1) {
                     randomAccessFile2.writeBoolean(true);
                 } else {
                     randomAccessFile2.writeBoolean(false);
                 }
-                if (this.f6635d != null) {
-                    byte[] bytes2 = this.f6635d.getBytes();
+                if (this.f6652d != null) {
+                    byte[] bytes2 = this.f6652d.getBytes();
                     randomAccessFile2.writeInt(bytes2.length);
                     randomAccessFile2.write(bytes2);
                 } else if (Math.abs(com.baidu.location.f.getFrameVersion() - 7.93f) < 1.0E-8f) {
@@ -260,7 +261,7 @@ public class o extends com.baidu.location.e.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || this.f6632a == null) {
+        if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || this.f6649a == null) {
             return;
         }
         new s(this).start();
@@ -271,13 +272,13 @@ public class o extends com.baidu.location.e.e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
-            if (this.f6634c == null) {
+            if (this.f6651c == null) {
                 return true;
             }
-            if (new File(com.baidu.location.e.k.j() + File.separator + this.f6634c).exists()) {
+            if (new File(com.baidu.location.e.k.j() + File.separator + this.f6651c).exists()) {
                 return true;
             }
-            return a("http://" + this.f6632a + "/" + this.f6634c, this.f6634c);
+            return a("http://" + this.f6649a + "/" + this.f6651c, this.f6651c);
         }
         return invokeV.booleanValue;
     }
@@ -285,16 +286,16 @@ public class o extends com.baidu.location.e.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65550, this) == null) || this.f6633b == null) {
+        if (!(interceptable == null || interceptable.invokeV(65550, this) == null) || this.f6650b == null) {
             return;
         }
-        File file = new File(com.baidu.location.e.k.j() + File.separator + this.f6633b);
+        File file = new File(com.baidu.location.e.k.j() + File.separator + this.f6650b);
         if (file.exists()) {
             return;
         }
-        if (a("http://" + this.f6632a + "/" + this.f6633b, this.f6633b)) {
+        if (a("http://" + this.f6649a + "/" + this.f6650b, this.f6650b)) {
             String a2 = com.baidu.location.e.k.a(file, "SHA-256");
-            String str = this.f6635d;
+            String str = this.f6652d;
             if (str == null || a2 == null || !com.baidu.location.e.k.b(a2, str, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiP7BS5IjEOzrKGR9/Ww9oSDhdX1ir26VOsYjT1T6tk2XumRpkHRwZbrucDcNnvSB4QsqiEJnvTSRi7YMbh2H9sLMkcvHlMV5jAErNvnuskWfcvf7T2mq7EUZI/Hf4oVZhHV0hQJRFVdTcjWI6q2uaaKM3VMh+roDesiE7CR2biQIDAQAB")) {
                 return;
             }
@@ -323,12 +324,12 @@ public class o extends com.baidu.location.e.e {
             stringBuffer.append(com.baidu.location.f.getFrameVersion());
             stringBuffer.append("&suit=");
             stringBuffer.append(2);
-            if (com.baidu.location.e.b.a().f6756c == null) {
+            if (com.baidu.location.e.b.a().f6773c == null) {
                 stringBuffer.append("&im=");
-                str = com.baidu.location.e.b.a().f6754a;
+                str = com.baidu.location.e.b.a().f6771a;
             } else {
                 stringBuffer.append("&cu=");
-                str = com.baidu.location.e.b.a().f6756c;
+                str = com.baidu.location.e.b.a().f6773c;
             }
             stringBuffer.append(str);
             stringBuffer.append("&mb=");
@@ -358,8 +359,8 @@ public class o extends com.baidu.location.e.e {
                 stringBuffer.append(str3);
             }
             stringBuffer.append("&pack=");
-            stringBuffer.append(com.baidu.location.e.b.f6749e);
-            this.f6780h = com.baidu.location.e.k.f() + "?&it=" + Jni.en1(stringBuffer.toString());
+            stringBuffer.append(com.baidu.location.e.b.f6766e);
+            this.f6797h = com.baidu.location.e.k.f() + "?&it=" + Jni.en1(stringBuffer.toString());
         }
     }
 
@@ -370,20 +371,20 @@ public class o extends com.baidu.location.e.e {
             try {
                 JSONObject jSONObject = new JSONObject(this.j);
                 if ("up".equals(jSONObject.getString(UriUtil.LOCAL_RESOURCE_SCHEME))) {
-                    this.f6632a = jSONObject.getString("upath");
+                    this.f6649a = jSONObject.getString("upath");
                     if (jSONObject.has("u1")) {
-                        this.f6633b = jSONObject.getString("u1");
+                        this.f6650b = jSONObject.getString("u1");
                     }
                     if (jSONObject.has("u2")) {
-                        this.f6634c = jSONObject.getString("u2");
+                        this.f6651c = jSONObject.getString("u2");
                     }
                     if (jSONObject.has("u1_rsa")) {
-                        this.f6635d = jSONObject.getString("u1_rsa");
+                        this.f6652d = jSONObject.getString("u1_rsa");
                     }
                     d().post(new r(this));
                 }
                 if (jSONObject.has("ison")) {
-                    this.f6636e = jSONObject.getInt("ison");
+                    this.f6653e = jSONObject.getInt("ison");
                 }
                 e();
             } catch (Exception unused) {

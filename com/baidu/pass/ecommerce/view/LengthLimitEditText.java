@@ -6,6 +6,7 @@ import android.text.Spanned;
 import android.util.AttributeSet;
 import android.widget.EditText;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,14 +14,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LengthLimitEditText extends EditText implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mLengthLimit;
     public OnTextBeyondLengthLimitListener onTextBeyondLengthLimitListener;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface OnTextBeyondLengthLimitListener {
         void onBeyondLengthLimit();
     }
@@ -48,7 +49,7 @@ public class LengthLimitEditText extends EditText implements NoProguard {
 
     private void setLengthInputFilter() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             setFilters(new InputFilter[]{new InputFilter(this) { // from class: com.baidu.pass.ecommerce.view.LengthLimitEditText.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

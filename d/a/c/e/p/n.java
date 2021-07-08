@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Field;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, String> f44455a;
+    public static HashMap<String, String> f41471a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,19 +29,19 @@ public class n {
             }
         }
         HashMap<String, String> hashMap = new HashMap<>();
-        f44455a = hashMap;
+        f41471a = hashMap;
         hashMap.put("java.lang.String", "java.lang.String");
-        f44455a.put("java.lang.Integer", "java.lang.Integer");
-        f44455a.put("java.lang.Double", "java.lang.Double");
-        f44455a.put("java.lang.Float", "java.lang.Float");
-        f44455a.put("java.lang.Boolean", "java.lang.Boolean");
-        f44455a.put("java.lang.Character", "java.lang.Character");
-        f44455a.put("java.lang.Short", "java.lang.Short");
-        f44455a.put("java.lang.Long", "java.lang.Long");
-        f44455a.put("java.lang.Byte", "java.lang.Byte");
-        f44455a.put("java.util.Date", "java.util.Date");
-        f44455a.put("java.lang.Integer", "java.lang.Integer");
-        f44455a.put("java.lang.Integer", "java.lang.Integer");
+        f41471a.put("java.lang.Integer", "java.lang.Integer");
+        f41471a.put("java.lang.Double", "java.lang.Double");
+        f41471a.put("java.lang.Float", "java.lang.Float");
+        f41471a.put("java.lang.Boolean", "java.lang.Boolean");
+        f41471a.put("java.lang.Character", "java.lang.Character");
+        f41471a.put("java.lang.Short", "java.lang.Short");
+        f41471a.put("java.lang.Long", "java.lang.Long");
+        f41471a.put("java.lang.Byte", "java.lang.Byte");
+        f41471a.put("java.util.Date", "java.util.Date");
+        f41471a.put("java.lang.Integer", "java.lang.Integer");
+        f41471a.put("java.lang.Integer", "java.lang.Integer");
     }
 
     public static Object a(Object obj, Field field) {

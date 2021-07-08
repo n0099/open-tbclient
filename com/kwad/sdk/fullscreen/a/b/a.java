@@ -4,10 +4,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.core.config.c;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.reward.b.c.b.b;
 import com.kwad.sdk.reward.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,6 +27,6 @@ public class a extends d {
             }
         }
         a((Presenter) new com.kwad.sdk.reward.b.c.b.a());
-        a((Presenter) new b().a(false));
+        a((Presenter) new b(c.v() * 1000).a(false));
     }
 }

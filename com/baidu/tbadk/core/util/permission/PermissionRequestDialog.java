@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
 import d.a.c.a.f;
-import d.a.r0.r.s.a;
-/* loaded from: classes4.dex */
+import d.a.o0.r.s.a;
+/* loaded from: classes3.dex */
 public class PermissionRequestDialog extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class PermissionRequestDialog extends a {
     public ViewGroup mRootView;
     public TextView mTitleView;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface OnClickCallback {
         void onClickClose(Activity activity, String str);
 
@@ -79,7 +79,7 @@ public class PermissionRequestDialog extends a {
         }
     }
 
-    @Override // d.a.r0.r.s.a
+    @Override // d.a.o0.r.s.a
     public a create(f<?> fVar) {
         InterceptResult invokeL;
         char c2;

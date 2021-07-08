@@ -17,7 +17,7 @@ import d.k.a.d;
 import d.k.a.h.a;
 import java.io.IOException;
 import okio.ByteString;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Layout extends Message<Layout, Builder> {
     public static /* synthetic */ Interceptable $ic;
     public static final ProtoAdapter<Layout> ADAPTER;
@@ -36,7 +36,7 @@ public final class Layout extends Message<Layout, Builder> {
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
     public final Float y;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder extends Message.a<Layout, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public final class Layout extends Message<Layout, Builder> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ProtoAdapter_Layout extends ProtoAdapter<Layout> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

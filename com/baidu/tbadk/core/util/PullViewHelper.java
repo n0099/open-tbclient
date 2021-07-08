@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.h;
 import d.a.c.e.p.m;
 import d.a.c.e.p.q;
-import d.a.r0.r.d0.b;
+import d.a.o0.r.d0.b;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -32,7 +32,7 @@ import java.util.zip.ZipInputStream;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PullViewHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long CLOSE_PULLVIEW_DELAYED_TIME = 0;
@@ -55,12 +55,12 @@ public class PullViewHelper {
     public int pullview_backgroundColor_day;
     public int pullview_backgroundColor_night;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface CallBack {
         void result(boolean z);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class PullViewDrawable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

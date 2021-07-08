@@ -160,7 +160,7 @@ public class BIMConversation implements NoProGuard {
 
     private void handleUpload(RichMediaMsg richMediaMsg, ISendMessageListener iSendMessageListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, this, richMediaMsg, iSendMessageListener) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, richMediaMsg, iSendMessageListener) == null) {
             new AsyncChatTask(this.mContext, richMediaMsg, new IUploadTransferListener(this, richMediaMsg, iSendMessageListener) { // from class: com.baidu.android.imsdk.BIMConversation.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

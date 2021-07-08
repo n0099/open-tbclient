@@ -9,15 +9,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class l0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicBoolean f71696a;
+    public static final AtomicBoolean f68799a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f71697b;
+    public static String f68800b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,23 +33,23 @@ public final class l0 {
                 return;
             }
         }
-        f71696a = new AtomicBoolean(false);
-        f71697b = "";
+        f68799a = new AtomicBoolean(false);
+        f68800b = "";
     }
 
     public static String a(SharedPreferences sharedPreferences) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, sharedPreferences)) == null) {
-            if (f71696a.compareAndSet(false, true)) {
+            if (f68799a.compareAndSet(false, true)) {
                 String string = sharedPreferences.getString("cdid", "");
-                f71697b = string;
+                f68800b = string;
                 if (TextUtils.isEmpty(string)) {
-                    f71697b = UUID.randomUUID().toString();
-                    sharedPreferences.edit().putString("cdid", f71697b).apply();
+                    f68800b = UUID.randomUUID().toString();
+                    sharedPreferences.edit().putString("cdid", f68800b).apply();
                 }
             }
-            return f71697b;
+            return f68800b;
         }
         return (String) invokeL.objValue;
     }

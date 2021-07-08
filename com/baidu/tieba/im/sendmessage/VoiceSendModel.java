@@ -11,33 +11,33 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class VoiceSendModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f17626e;
+    public a f17665e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f17627f;
+    public b f17666f;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f17628a;
+        public String f17667a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ChatMessage f17629b;
+        public ChatMessage f17668b;
 
         /* renamed from: c  reason: collision with root package name */
-        public d.a.s0.i1.s.b f17630c;
+        public d.a.p0.i1.s.b f17669c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ VoiceSendModel f17631d;
+        public final /* synthetic */ VoiceSendModel f17670d;
 
         public a(VoiceSendModel voiceSendModel, String str, ChatMessage chatMessage) {
             Interceptable interceptable = $ic;
@@ -54,10 +54,10 @@ public class VoiceSendModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f17631d = voiceSendModel;
-            this.f17628a = str;
-            this.f17629b = chatMessage;
-            this.f17630c = new d.a.s0.i1.s.b();
+            this.f17670d = voiceSendModel;
+            this.f17667a = str;
+            this.f17668b = chatMessage;
+            this.f17669c = new d.a.p0.i1.s.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -67,7 +67,7 @@ public class VoiceSendModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
                 try {
-                    return this.f17630c.a(this.f17628a);
+                    return this.f17669c.a(this.f17667a);
                 } catch (Exception unused) {
                     return null;
                 }
@@ -81,14 +81,14 @@ public class VoiceSendModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
                 super.onPostExecute((a) str);
-                if (this.f17631d.f17627f != null) {
-                    this.f17631d.f17627f.a(str, this.f17629b);
+                if (this.f17670d.f17666f != null) {
+                    this.f17670d.f17666f.a(str, this.f17668b);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(String str, ChatMessage chatMessage);
     }
@@ -136,7 +136,7 @@ public class VoiceSendModel extends BdBaseModel {
     public void x(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f17627f = bVar;
+            this.f17666f = bVar;
         }
     }
 
@@ -144,7 +144,7 @@ public class VoiceSendModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, chatMessage) == null) {
             a aVar = new a(this, str, chatMessage);
-            this.f17626e = aVar;
+            this.f17665e = aVar;
             aVar.execute(new Object[0]);
         }
     }

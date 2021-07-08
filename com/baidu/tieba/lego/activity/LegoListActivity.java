@@ -31,18 +31,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.z0.o0;
-import d.a.s0.h3.v;
-import d.a.s0.n1.j;
-import d.a.s0.n1.o.l.n;
-import d.a.s0.n1.p.e;
-import d.a.s0.w2.w;
+import d.a.o0.z0.o0;
+import d.a.p0.h3.v;
+import d.a.p0.n1.j;
+import d.a.p0.n1.o.l.m;
+import d.a.p0.n1.p.e;
+import d.a.p0.w2.w;
 import java.lang.ref.WeakReference;
 import java.net.URLDecoder;
 import org.json.JSONObject;
 import tbclient.Lego.DataRes;
-/* loaded from: classes5.dex */
-public class LegoListActivity extends BaseFragmentActivity implements SwipeBackLayout.c, VoiceManager.j, d.a.s0.n1.b {
+/* loaded from: classes4.dex */
+public class LegoListActivity extends BaseFragmentActivity implements SwipeBackLayout.c, VoiceManager.j, d.a.p0.n1.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String animationInfo;
@@ -57,7 +57,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
     public LegoTabFragment legoTabFragment;
     public LegoBottomView mBottomView;
     public final View.OnClickListener mCommonOnClickListener;
-    public d.a.s0.n1.o.l.c mFloatVideoContainer;
+    public d.a.p0.n1.o.l.c mFloatVideoContainer;
     public boolean mIsResumed;
     public CustomMessageListener mShowComponentViewListener;
     public VoiceManager mVoiceManager;
@@ -71,13 +71,13 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
     public int rn;
     public WeakReference<Context> weakContext;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LegoListActivity f18107a;
+        public final /* synthetic */ LegoListActivity f18147a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(LegoListActivity legoListActivity, int i2) {
@@ -97,7 +97,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
                     return;
                 }
             }
-            this.f18107a = legoListActivity;
+            this.f18147a = legoListActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -115,24 +115,24 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.f18107a.showFloatButton(jSONObject);
-                this.f18107a.showBottomCard(jSONObject);
+                this.f18147a.showFloatButton(jSONObject);
+                this.f18147a.showBottomCard(jSONObject);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f18108e;
+        public final /* synthetic */ String f18148e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ LegoListActivity f18109f;
+        public final /* synthetic */ LegoListActivity f18149f;
 
         public b(LegoListActivity legoListActivity, String str) {
             Interceptable interceptable = $ic;
@@ -149,27 +149,27 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
                     return;
                 }
             }
-            this.f18109f = legoListActivity;
-            this.f18108e = str;
+            this.f18149f = legoListActivity;
+            this.f18148e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f18108e)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f18148e)) {
                 return;
             }
-            v.c(this.f18109f.getPageContext(), this.f18108e);
+            v.c(this.f18149f.getPageContext(), this.f18148e);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LegoListActivity f18110e;
+        public final /* synthetic */ LegoListActivity f18150e;
 
         public c(LegoListActivity legoListActivity) {
             Interceptable interceptable = $ic;
@@ -186,15 +186,15 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
                     return;
                 }
             }
-            this.f18110e = legoListActivity;
+            this.f18150e = legoListActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                LegoListActivity legoListActivity = this.f18110e;
-                if (view == legoListActivity.navigationBarViewHolder.f63752e) {
+                LegoListActivity legoListActivity = this.f18150e;
+                if (view == legoListActivity.navigationBarViewHolder.f60518e) {
                     legoListActivity.finish();
                 }
             }
@@ -236,14 +236,14 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
                 if (optJSONObject == null) {
                     return;
                 }
-                d.a.s0.n1.o.b.h();
-                ICardInfo j = d.a.s0.n1.o.b.j(optJSONObject);
+                d.a.p0.n1.o.b.h();
+                ICardInfo j = d.a.p0.n1.o.b.j(optJSONObject);
                 if (j != null && j.isValid()) {
-                    this.mBottomView.b((BaseCardView) d.a.s0.n1.o.b.h().a(getPageContext(), j, 5), j);
+                    this.mBottomView.b((BaseCardView) d.a.p0.n1.o.b.h().a(getPageContext(), j, 5), j);
                     this.mBottomView.setVisibility(0);
                     this.mBottomView.setIsShow(true);
                     if (this.legoListFragment != null) {
-                        this.legoListFragment.E1(this.mBottomView);
+                        this.legoListFragment.F1(this.mBottomView);
                         return;
                     }
                     return;
@@ -251,7 +251,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
                 this.mBottomView.setVisibility(8);
                 this.mBottomView.setIsShow(false);
                 if (this.legoListFragment != null) {
-                    this.legoListFragment.E1(null);
+                    this.legoListFragment.F1(null);
                 }
             } catch (CardParseException e2) {
                 e2.printStackTrace();
@@ -263,7 +263,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
     public void showFloatButton(JSONObject jSONObject) {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, this, jSONObject) == null) || (optJSONObject = jSONObject.optJSONObject("float_btn")) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONObject) == null) || (optJSONObject = jSONObject.optJSONObject("float_btn")) == null) {
             return;
         }
         String optString = optJSONObject.optString("icon_url");
@@ -299,39 +299,39 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             LegoListFragment legoListFragment = this.legoListFragment;
             if (legoListFragment != null) {
-                return legoListFragment.m1();
+                return legoListFragment.n1();
             }
             return null;
         }
         return (BaseAdapter) invokeV.objValue;
     }
 
-    @Override // d.a.s0.n1.b
-    public d.a.s0.n1.o.l.c getFloatVideoContainer() {
+    @Override // d.a.p0.n1.b
+    public d.a.p0.n1.o.l.c getFloatVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mFloatVideoContainer : (d.a.s0.n1.o.l.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mFloatVideoContainer : (d.a.p0.n1.o.l.c) invokeV.objValue;
     }
 
-    @Override // d.a.s0.n1.b
+    @Override // d.a.p0.n1.b
     public LegoListFragment getLegoListFragment() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.legoListFragment : (LegoListFragment) invokeV.objValue;
     }
 
-    @Override // d.a.s0.n1.b
-    public n getPlaySwitchController() {
+    @Override // d.a.p0.n1.b
+    public m getPlaySwitchController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             LegoListFragment legoListFragment = this.legoListFragment;
             if (legoListFragment != null) {
-                return legoListFragment.p1();
+                return legoListFragment.q1();
             }
             return null;
         }
-        return (n) invokeV.objValue;
+        return (m) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
@@ -369,7 +369,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             if (this.hasAnimation && !TextUtils.isEmpty(this.animationInfo) && (legoListFragment = this.legoListFragment) != null) {
-                legoListFragment.k1();
+                legoListFragment.l1();
             } else {
                 super.onBackPressed();
             }
@@ -380,7 +380,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.navigationBarViewHolder.f63748a.onChangeSkinType(getPageContext(), i2);
+            this.navigationBarViewHolder.f60514a.onChangeSkinType(getPageContext(), i2);
             if (this.pageType == 1) {
                 LegoTabFragment legoTabFragment = this.legoTabFragment;
                 if (legoTabFragment != null) {
@@ -464,10 +464,10 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             setContentView(R.layout.lego_list_activity);
             registerListener(this.mShowComponentViewListener);
             e eVar = new e();
-            eVar.f63903a = this.pageId;
-            eVar.f63904b = this.itemId;
-            eVar.f63906d = this.rn;
-            eVar.f63907e = this.params;
+            eVar.f60669a = this.pageId;
+            eVar.f60670b = this.itemId;
+            eVar.f60672d = this.rn;
+            eVar.f60673e = this.params;
             eVar.b();
             VoiceManager voiceManager = getVoiceManager();
             this.mVoiceManager = voiceManager;
@@ -476,7 +476,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             this.floatBtn = (TbImageView) findViewById(R.id.float_btn);
             this.mBottomView = (LegoBottomView) findViewById(R.id.lego_bottom_view);
             this.navi_landingpage = (RelativeLayout) findViewById(R.id.navi_landingpage);
-            d.a.s0.n1.o.l.c cVar = new d.a.s0.n1.o.l.c(getPageContext(), findViewById(R.id.layout_float_video));
+            d.a.p0.n1.o.l.c cVar = new d.a.p0.n1.o.l.c(getPageContext(), findViewById(R.id.layout_float_video));
             this.mFloatVideoContainer = cVar;
             cVar.E0(this);
             this.mFloatVideoContainer.j0();
@@ -484,26 +484,26 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             if (this.pageType == 1) {
                 LegoTabFragment legoTabFragment = new LegoTabFragment();
                 this.legoTabFragment = legoTabFragment;
-                legoTabFragment.Z0(this.navigationBarViewHolder);
-                this.legoTabFragment.a1(this.pageId);
-                this.legoTabFragment.Y0(this.itemId);
+                legoTabFragment.a1(this.navigationBarViewHolder);
+                this.legoTabFragment.b1(this.pageId);
+                this.legoTabFragment.Z0(this.itemId);
                 this.legoTabFragment.setPrimary(true);
                 beginTransaction.replace(R.id.fl_lego, this.legoTabFragment);
             } else {
-                LegoListFragment.s1();
+                LegoListFragment.t1();
                 LegoListFragment legoListFragment = new LegoListFragment();
                 this.legoListFragment = legoListFragment;
-                legoListFragment.D1(this.navigationBarViewHolder);
-                this.legoListFragment.B1(this.navi_landingpage);
-                this.legoListFragment.x1(this.mFloatVideoContainer);
-                this.legoListFragment.G1(this.pageId);
-                this.legoListFragment.A1(this.itemId);
-                this.legoListFragment.z1(this.isImmersive);
+                legoListFragment.E1(this.navigationBarViewHolder);
+                this.legoListFragment.C1(this.navi_landingpage);
+                this.legoListFragment.y1(this.mFloatVideoContainer);
+                this.legoListFragment.H1(this.pageId);
+                this.legoListFragment.B1(this.itemId);
+                this.legoListFragment.A1(this.isImmersive);
                 this.legoListFragment.setPrimary(true);
-                this.legoListFragment.F1(this.nextPage);
-                this.legoListFragment.w1(this.animationInfo, this.preLoad);
-                this.legoListFragment.y1(this.hasAnimation);
-                this.legoListFragment.C1(this.isLandingPage);
+                this.legoListFragment.G1(this.nextPage);
+                this.legoListFragment.x1(this.animationInfo, this.preLoad);
+                this.legoListFragment.z1(this.hasAnimation);
+                this.legoListFragment.D1(this.isLandingPage);
                 this.legoListFragment.setFrom(this.isFrom);
                 beginTransaction.replace(R.id.fl_lego, this.legoListFragment);
             }
@@ -518,7 +518,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            d.a.s0.n1.o.l.c cVar = this.mFloatVideoContainer;
+            d.a.p0.n1.o.l.c cVar = this.mFloatVideoContainer;
             if (cVar != null) {
                 cVar.V();
             }
@@ -538,7 +538,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         InterceptResult invokeIL;
-        d.a.s0.n1.o.l.c cVar;
+        d.a.p0.n1.o.l.c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048590, this, i2, keyEvent)) == null) {
             if (i2 == 4 && (cVar = this.mFloatVideoContainer) != null && cVar.m0() && !this.mFloatVideoContainer.e0()) {
@@ -562,7 +562,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             if (this.lastResumeTime == 0 || !this.isLandingPage) {
                 return;
             }
-            w.p().m().a(this.pageId, this.itemId, this.isFrom, System.currentTimeMillis() - this.lastResumeTime);
+            w.o().l().a(this.pageId, this.itemId, this.isFrom, System.currentTimeMillis() - this.lastResumeTime);
         }
     }
 

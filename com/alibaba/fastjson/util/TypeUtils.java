@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONException;
@@ -30,7 +31,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ABTestConstants;
-import com.kwai.video.player.KsMediaMeta;
 import com.vivo.push.PushClientConstants;
 import java.io.InputStream;
 import java.io.Reader;
@@ -247,7 +247,7 @@ public class TypeUtils {
     public static SerializeBeanInfo buildBeanInfo(Class<?> cls, Map<String, String> map, PropertyNamingStrategy propertyNamingStrategy) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, cls, map, propertyNamingStrategy)) == null) ? buildBeanInfo(cls, map, propertyNamingStrategy, false) : (SerializeBeanInfo) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, map, propertyNamingStrategy)) == null) ? buildBeanInfo(cls, map, propertyNamingStrategy, false) : (SerializeBeanInfo) invokeLLL.objValue;
     }
 
     public static byte byteValue(BigDecimal bigDecimal) {
@@ -2613,7 +2613,7 @@ public class TypeUtils {
                     return parserConfig.get(cls) != null ? (T) JSON.parseObject(JSON.toJSONString(jSONObject), cls) : (T) Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{cls}, jSONObject);
                 }
                 if (cls == Locale.class) {
-                    Object obj2 = map.get(KsMediaMeta.KSM_KEY_LANGUAGE);
+                    Object obj2 = map.get("language");
                     Object obj3 = map.get("country");
                     if (obj2 instanceof String) {
                         String str5 = (String) obj2;

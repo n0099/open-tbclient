@@ -70,7 +70,7 @@ public class ARAlgoJniClient {
     public static String getVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? nativeGetVersion() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? nativeGetVersion() : (String) invokeV.objValue;
     }
 
     private native int nativeAddTracker2D(long j, String str);

@@ -15,12 +15,12 @@ import java.nio.channels.FileLock;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class u {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Set<String> f43701a;
+    public static final Set<String> f40715a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -48,7 +48,7 @@ public final class u {
                 return;
             }
         }
-        f43701a = Collections.synchronizedSet(new HashSet());
+        f40715a = Collections.synchronizedSet(new HashSet());
     }
 
     public u(Context context) {
@@ -80,7 +80,7 @@ public final class u {
                 file2.getParentFile().mkdirs();
                 file2.createNewFile();
             }
-            if (f43701a.add(str)) {
+            if (f40715a.add(str)) {
                 u uVar = new u(context);
                 uVar.f988a = str;
                 try {
@@ -95,7 +95,7 @@ public final class u {
                         if (randomAccessFile2 != null) {
                             y.a(randomAccessFile2);
                         }
-                        f43701a.remove(uVar.f988a);
+                        f40715a.remove(uVar.f988a);
                     }
                 }
             }
@@ -120,7 +120,7 @@ public final class u {
             if (randomAccessFile != null) {
                 y.a(randomAccessFile);
             }
-            f43701a.remove(this.f988a);
+            f40715a.remove(this.f988a);
         }
     }
 }

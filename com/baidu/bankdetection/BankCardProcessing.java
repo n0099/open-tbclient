@@ -315,7 +315,7 @@ public class BankCardProcessing {
         InterceptResult invokeLL;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
             synchronized (BankCardProcessing.class) {
                 if (!UIThread.isUITread()) {
                     mApiKey = str;

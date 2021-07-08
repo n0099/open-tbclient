@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Environment;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -24,36 +25,36 @@ import d.l.a.a.a.c.u;
 import d.l.a.e.a.d;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final JSONObject f74333a;
+    public static final JSONObject f71385a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f74334b;
+    public static Context f71386b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static d.l.a.a.a.c.f f74335c;
+    public static d.l.a.a.a.c.f f71387c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static d.l.a.a.a.c.c f74336d;
+    public static d.l.a.a.a.c.c f71388d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static d.l.a.a.a.c.k f74337e;
+    public static d.l.a.a.a.c.k f71389e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static d.l.a.a.a.c.g f74338f;
+    public static d.l.a.a.a.c.g f71390f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static d.l.a.a.a.c.h f74339g;
+    public static d.l.a.a.a.c.h f71391g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static d.l.a.a.a.c.i f74340h;
+    public static d.l.a.a.a.c.i f71392h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static d.l.a.a.a.c.b f74341i;
+    public static d.l.a.a.a.c.b f71393i;
     public static d.j j;
     public static d.l.a.a.a.c.d k;
     public static d.l.a.a.a.c.e l;
@@ -68,7 +69,7 @@ public class l {
     public static s u;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class a implements d.l.a.a.a.c.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,7 +103,7 @@ public class l {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class b implements d.j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,7 +130,7 @@ public class l {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class c implements p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -156,7 +157,7 @@ public class l {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class d implements d.l.a.a.a.e.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -183,7 +184,7 @@ public class l {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class e implements s {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -223,7 +224,7 @@ public class l {
                 return;
             }
         }
-        f74333a = new JSONObject();
+        f71385a = new JSONObject();
     }
 
     public static d.l.a.a.a.c.d A() {
@@ -248,7 +249,7 @@ public class l {
     public static q D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? t : (q) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? t : (q) invokeV.objValue;
     }
 
     public static u E() {
@@ -303,14 +304,14 @@ public class l {
     public static boolean I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? (f74335c == null || f74338f == null || f74340h == null || f74341i == null || t == null) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? (f71387c == null || f71390f == null || f71392h == null || f71393i == null || t == null) ? false : true : invokeV.booleanValue;
     }
 
     public static Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            Context context = f74334b;
+            Context context = f71386b;
             if (context != null) {
                 return context;
             }
@@ -323,7 +324,7 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
             if (context != null && context.getApplicationContext() != null) {
-                f74334b = context.getApplicationContext();
+                f71386b = context.getApplicationContext();
                 return;
             }
             throw new IllegalArgumentException("Context is null");
@@ -333,42 +334,42 @@ public class l {
     public static void c(@NonNull d.l.a.a.a.c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, null, bVar) == null) {
-            f74341i = bVar;
+            f71393i = bVar;
         }
     }
 
     public static void d(@NonNull d.l.a.a.a.c.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, fVar) == null) {
-            f74335c = fVar;
+            f71387c = fVar;
         }
     }
 
     public static void e(@NonNull d.l.a.a.a.c.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, null, gVar) == null) {
-            f74338f = gVar;
+            f71390f = gVar;
         }
     }
 
     public static void f(@NonNull d.l.a.a.a.c.h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65551, null, hVar) == null) {
-            f74339g = hVar;
+            f71391g = hVar;
         }
     }
 
     public static void g(@NonNull d.l.a.a.a.c.i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, null, iVar) == null) {
-            f74340h = iVar;
+            f71392h = iVar;
         }
     }
 
     public static void h(@NonNull d.l.a.a.a.c.k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65553, null, kVar) == null) {
-            f74337e = kVar;
+            f71389e = kVar;
         }
     }
 
@@ -402,15 +403,15 @@ public class l {
     public static d.l.a.a.a.c.f m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? f74335c : (d.l.a.a.a.c.f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? f71387c : (d.l.a.a.a.c.f) invokeV.objValue;
     }
 
     public static void n(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65559, null, context) == null) || f74334b != null || context == null || context.getApplicationContext() == null) {
+        if (!(interceptable == null || interceptable.invokeL(65559, null, context) == null) || f71386b != null || context == null || context.getApplicationContext() == null) {
             return;
         }
-        f74334b = context.getApplicationContext();
+        f71386b = context.getApplicationContext();
     }
 
     @NonNull
@@ -418,10 +419,10 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
-            if (f74336d == null) {
-                f74336d = new a();
+            if (f71388d == null) {
+                f71388d = new a();
             }
-            return f74336d;
+            return f71388d;
         }
         return (d.l.a.a.a.c.c) invokeV.objValue;
     }
@@ -431,10 +432,10 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
-            if (f74337e == null) {
-                f74337e = new d.l.a.a.a.a.a();
+            if (f71389e == null) {
+                f71389e = new d.l.a.a.a.a.a();
             }
-            return f74337e;
+            return f71389e;
         }
         return (d.l.a.a.a.c.k) invokeV.objValue;
     }
@@ -442,7 +443,7 @@ public class l {
     public static d.l.a.a.a.c.g q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? f74338f : (d.l.a.a.a.c.g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? f71390f : (d.l.a.a.a.c.g) invokeV.objValue;
     }
 
     @NonNull
@@ -450,10 +451,10 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
-            if (f74339g == null) {
-                f74339g = new d.l.a.a.a.a.b();
+            if (f71391g == null) {
+                f71391g = new d.l.a.a.a.a.b();
             }
-            return f74339g;
+            return f71391g;
         }
         return (d.l.a.a.a.c.h) invokeV.objValue;
     }
@@ -494,11 +495,11 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
-            d.l.a.a.a.c.i iVar = f74340h;
+            d.l.a.a.a.c.i iVar = f71392h;
             if (iVar != null && iVar.a() != null) {
-                return f74340h.a();
+                return f71392h.a();
             }
-            return f74333a;
+            return f71385a;
         }
         return (JSONObject) invokeV.objValue;
     }
@@ -513,7 +514,7 @@ public class l {
     public static d.l.a.a.a.c.b x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) ? f74341i : (d.l.a.a.a.c.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) ? f71393i : (d.l.a.a.a.c.b) invokeV.objValue;
     }
 
     @Nullable

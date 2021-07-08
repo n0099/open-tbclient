@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class f<V> extends FutureTask<V> implements Comparable<f<V>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28773a;
+    public int f28883a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28774b;
+    public int f28884b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(Callable<V> callable, int i2, int i3) {
@@ -37,8 +37,8 @@ public class f<V> extends FutureTask<V> implements Comparable<f<V>> {
                 return;
             }
         }
-        this.f28773a = i2 == -1 ? 5 : i2;
-        this.f28774b = i3;
+        this.f28883a = i2 == -1 ? 5 : i2;
+        this.f28884b = i3;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,7 +59,7 @@ public class f<V> extends FutureTask<V> implements Comparable<f<V>> {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28773a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28883a : invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -81,7 +81,7 @@ public class f<V> extends FutureTask<V> implements Comparable<f<V>> {
                 return;
             }
         }
-        this.f28773a = i2 == -1 ? 5 : i2;
-        this.f28774b = i3;
+        this.f28883a = i2 == -1 ? 5 : i2;
+        this.f28884b = i3;
     }
 }

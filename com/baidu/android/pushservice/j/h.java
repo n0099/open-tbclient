@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import androidx.core.app.NotificationManagerCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -67,7 +68,7 @@ public class h {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
                 try {
                     Class.forName(NotificationManagerCompat.class.getName()).getMethod("areNotificationsEnabled", new Class[0]);

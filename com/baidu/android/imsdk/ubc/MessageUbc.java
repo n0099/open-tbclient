@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.ubc;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
@@ -112,7 +113,7 @@ public class MessageUbc {
     private JSONObject generateExt(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, str2)) == null) {
             JSONObject jSONObject = new JSONObject();
             if (this.mSendMsg != null) {
                 try {

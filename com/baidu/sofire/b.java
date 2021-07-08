@@ -1,5 +1,6 @@
 package com.baidu.sofire;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,18 +10,18 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.UnknownHostException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f10246a = -1;
+    public static int f10263a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ThreadLocal<StringBuilder> f10247b;
+    public static ThreadLocal<StringBuilder> f10264b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f10248c;
+    public static int f10265c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +37,7 @@ public final class b {
                 return;
             }
         }
-        f10247b = new ThreadLocal<>();
+        f10264b = new ThreadLocal<>();
     }
 
     public static String a(Throwable th) {
@@ -101,7 +102,7 @@ public final class b {
 
     public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
         }
     }
 }

@@ -6,10 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.contentalliance.coupon.model.ActivityInfo;
 import com.kwad.sdk.core.response.model.SdkConfigData;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class ad implements com.kwad.sdk.core.c<SdkConfigData.TemplateConfigMap> {
+/* loaded from: classes6.dex */
+public class ad implements com.kwad.sdk.core.d<SdkConfigData.CouponActiveConfig> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,27 +29,49 @@ public class ad implements com.kwad.sdk.core.c<SdkConfigData.TemplateConfigMap> 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public JSONObject a(SdkConfigData.TemplateConfigMap templateConfigMap) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.core.d
+    public void a(SdkConfigData.CouponActiveConfig couponActiveConfig, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, templateConfigMap)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "downloadPopWindowConfig", templateConfigMap.downloadPopWindowConfig);
-            return jSONObject;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, couponActiveConfig, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return (JSONObject) invokeL.objValue;
+        couponActiveConfig.popUpShowTimeSeconds = jSONObject.optInt("popUpShowTimeSeconds");
+        couponActiveConfig.title = jSONObject.optString("title");
+        couponActiveConfig.secondTitle = jSONObject.optString("secondTitle");
+        couponActiveConfig.bottomTitle = jSONObject.optString("bottomTitle");
+        couponActiveConfig.videoThreshold = jSONObject.optInt("videoThreshold");
+        couponActiveConfig.videoSeconds = jSONObject.optInt("videoSeconds");
+        SdkConfigData.TemplateConfig templateConfig = new SdkConfigData.TemplateConfig();
+        couponActiveConfig.couponOpenConfig = templateConfig;
+        templateConfig.parseJson(jSONObject.optJSONObject("couponOpenConfig"));
+        SdkConfigData.TemplateConfig templateConfig2 = new SdkConfigData.TemplateConfig();
+        couponActiveConfig.couponInfoConfig = templateConfig2;
+        templateConfig2.parseJson(jSONObject.optJSONObject("couponInfoConfig"));
+        ActivityInfo activityInfo = new ActivityInfo();
+        couponActiveConfig.activityInfo = activityInfo;
+        activityInfo.parseJson(jSONObject.optJSONObject("activityInfo"));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public void a(SdkConfigData.TemplateConfigMap templateConfigMap, JSONObject jSONObject) {
+    @Override // com.kwad.sdk.core.d
+    public JSONObject b(SdkConfigData.CouponActiveConfig couponActiveConfig, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, templateConfigMap, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, couponActiveConfig, jSONObject)) == null) {
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
+            }
+            com.kwad.sdk.utils.q.a(jSONObject, "popUpShowTimeSeconds", couponActiveConfig.popUpShowTimeSeconds);
+            com.kwad.sdk.utils.q.a(jSONObject, "title", couponActiveConfig.title);
+            com.kwad.sdk.utils.q.a(jSONObject, "secondTitle", couponActiveConfig.secondTitle);
+            com.kwad.sdk.utils.q.a(jSONObject, "bottomTitle", couponActiveConfig.bottomTitle);
+            com.kwad.sdk.utils.q.a(jSONObject, "videoThreshold", couponActiveConfig.videoThreshold);
+            com.kwad.sdk.utils.q.a(jSONObject, "videoSeconds", couponActiveConfig.videoSeconds);
+            com.kwad.sdk.utils.q.a(jSONObject, "couponOpenConfig", couponActiveConfig.couponOpenConfig);
+            com.kwad.sdk.utils.q.a(jSONObject, "couponInfoConfig", couponActiveConfig.couponInfoConfig);
+            com.kwad.sdk.utils.q.a(jSONObject, "activityInfo", couponActiveConfig.activityInfo);
+            return jSONObject;
         }
-        SdkConfigData.TemplateConfig templateConfig = new SdkConfigData.TemplateConfig();
-        templateConfigMap.downloadPopWindowConfig = templateConfig;
-        templateConfig.parseJson(jSONObject.optJSONObject("downloadPopWindowConfig"));
+        return (JSONObject) invokeLL.objValue;
     }
 }

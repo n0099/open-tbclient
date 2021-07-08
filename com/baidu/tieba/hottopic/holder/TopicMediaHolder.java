@@ -14,37 +14,37 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TopicMediaHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f17101a;
+    public int f17140a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ForeDrawableImageView f17102b;
+    public ForeDrawableImageView f17141b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TbCyberVideoView f17103c;
+    public TbCyberVideoView f17142c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TopicVideoControllerView f17104d;
+    public TopicVideoControllerView f17143d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TopicVideoProgressView f17105e;
+    public TopicVideoProgressView f17144e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f17106f;
+    public View f17145f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f17107g;
+    public TextView f17146g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f17108h;
+    public ImageView f17147h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f17109i;
+    public View f17148i;
     public View j;
     public TextView k;
     public View l;
@@ -68,22 +68,22 @@ public class TopicMediaHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f17101a = 3;
+        this.f17140a = 3;
         if (view == null) {
             return;
         }
         this.m = (RelativeLayout) view.findViewById(R.id.topic_layout_video_view);
-        this.f17102b = (ForeDrawableImageView) view.findViewById(R.id.topic_list_video_item_thumbnail);
+        this.f17141b = (ForeDrawableImageView) view.findViewById(R.id.topic_list_video_item_thumbnail);
         TbCyberVideoView tbCyberVideoView = new TbCyberVideoView(view.getContext());
-        this.f17103c = tbCyberVideoView;
+        this.f17142c = tbCyberVideoView;
         tbCyberVideoView.setStageType(null);
         b();
-        this.f17104d = (TopicVideoControllerView) view.findViewById(R.id.topic_video_controller);
-        this.f17105e = (TopicVideoProgressView) view.findViewById(R.id.topic_video_progress_view);
-        this.f17106f = view.findViewById(R.id.topic_replay_layout);
-        this.f17107g = (TextView) view.findViewById(R.id.textview_topic_replay);
-        this.f17108h = (ImageView) view.findViewById(R.id.topic_img_pause_play);
-        this.f17109i = view.findViewById(R.id.topic_layout_loading);
+        this.f17143d = (TopicVideoControllerView) view.findViewById(R.id.topic_video_controller);
+        this.f17144e = (TopicVideoProgressView) view.findViewById(R.id.topic_video_progress_view);
+        this.f17145f = view.findViewById(R.id.topic_replay_layout);
+        this.f17146g = (TextView) view.findViewById(R.id.textview_topic_replay);
+        this.f17147h = (ImageView) view.findViewById(R.id.topic_img_pause_play);
+        this.f17148i = view.findViewById(R.id.topic_layout_loading);
         this.j = view.findViewById(R.id.topic_video_cover_view);
         this.k = (TextView) view.findViewById(R.id.topic_vedio_title);
         this.l = view.findViewById(R.id.topic_vedio_line);
@@ -92,11 +92,11 @@ public class TopicMediaHolder extends TypeAdapter.ViewHolder {
     public final void b() {
         TbCyberVideoView tbCyberVideoView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tbCyberVideoView = this.f17103c) != null && tbCyberVideoView.getParent() == null) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tbCyberVideoView = this.f17142c) != null && tbCyberVideoView.getParent() == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             layoutParams.addRule(13);
-            this.m.addView(this.f17103c.getView(), 0);
-            this.f17103c.getView().setLayoutParams(layoutParams);
+            this.m.addView(this.f17142c.getView(), 0);
+            this.f17142c.getView().setLayoutParams(layoutParams);
         }
     }
 }

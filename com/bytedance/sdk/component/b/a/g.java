@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class g implements r {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final r f27986a;
+    public final r f28096a;
 
     public g(r rVar) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public abstract class g implements r {
             }
         }
         if (rVar != null) {
-            this.f27986a = rVar;
+            this.f28096a = rVar;
             return;
         }
         throw new IllegalArgumentException("delegate == null");
@@ -42,14 +42,14 @@ public abstract class g implements r {
     public t a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27986a.a() : (t) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28096a.a() : (t) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.component.b.a.r
     public void a_(c cVar, long j) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, j) == null) {
-            this.f27986a.a_(cVar, j);
+            this.f28096a.a_(cVar, j);
         }
     }
 
@@ -57,7 +57,7 @@ public abstract class g implements r {
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f27986a.close();
+            this.f28096a.close();
         }
     }
 
@@ -65,7 +65,7 @@ public abstract class g implements r {
     public void flush() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f27986a.flush();
+            this.f28096a.flush();
         }
     }
 
@@ -73,7 +73,7 @@ public abstract class g implements r {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return getClass().getSimpleName() + "(" + this.f27986a.toString() + SmallTailInfo.EMOTION_SUFFIX;
+            return getClass().getSimpleName() + "(" + this.f28096a.toString() + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

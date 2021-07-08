@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.z0.w;
+import d.a.o0.z0.w;
 import tbclient.HotForum.DataReq;
 import tbclient.HotForum.HotForumReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class HotForumNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

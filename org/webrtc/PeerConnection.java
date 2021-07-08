@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 import org.webrtc.DataChannel;
 import org.webrtc.MediaStreamTrack;
 import org.webrtc.RtpTransceiver;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class PeerConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,14 +31,14 @@ public class PeerConnection {
     public List<RtpTransceiver> transceivers;
 
     /* renamed from: org.webrtc.PeerConnection$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class AdapterType {
         public static final /* synthetic */ AdapterType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -106,7 +106,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class BundlePolicy {
         public static final /* synthetic */ BundlePolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -168,7 +168,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class CandidateNetworkPolicy {
         public static final /* synthetic */ CandidateNetworkPolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -228,7 +228,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class ContinualGatheringPolicy {
         public static final /* synthetic */ ContinualGatheringPolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -288,7 +288,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class IceConnectionState {
         public static final /* synthetic */ IceConnectionState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -360,12 +360,12 @@ public class PeerConnection {
         public static IceConnectionState[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (IceConnectionState[]) $VALUES.clone() : (IceConnectionState[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (IceConnectionState[]) $VALUES.clone() : (IceConnectionState[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class IceGatheringState {
         public static final /* synthetic */ IceGatheringState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -429,11 +429,11 @@ public class PeerConnection {
         public static IceGatheringState[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (IceGatheringState[]) $VALUES.clone() : (IceGatheringState[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (IceGatheringState[]) $VALUES.clone() : (IceGatheringState[]) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class IceServer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -447,7 +447,7 @@ public class PeerConnection {
         public final List<String> urls;
         public final String username;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes9.dex */
         public static class Builder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -651,12 +651,12 @@ public class PeerConnection {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, list, str2, str3, tlsCertPolicy, str4, list2, list3};
-                interceptable.invokeUnInit(65540, newInitContext);
+                interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65540, newInitContext);
+                    interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                     return;
                 }
             }
@@ -767,7 +767,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class IceTransportsType {
         public static final /* synthetic */ IceTransportsType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -830,7 +830,7 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class IntervalRange {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -872,7 +872,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class KeyType {
         public static final /* synthetic */ KeyType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -931,7 +931,7 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface Observer {
         @CalledByNative("Observer")
         void onAddStream(MediaStream mediaStream);
@@ -973,7 +973,7 @@ public class PeerConnection {
         void onTrack(RtpTransceiver rtpTransceiver);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public final /* synthetic */ class Observer_CC {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -994,7 +994,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class PeerConnectionState {
         public static final /* synthetic */ PeerConnectionState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1064,11 +1064,11 @@ public class PeerConnection {
         public static PeerConnectionState[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (PeerConnectionState[]) $VALUES.clone() : (PeerConnectionState[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (PeerConnectionState[]) $VALUES.clone() : (PeerConnectionState[]) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class RTCConfiguration {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1476,7 +1476,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class RtcpMuxPolicy {
         public static final /* synthetic */ RtcpMuxPolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1536,7 +1536,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class SdpSemantics {
         public static final /* synthetic */ SdpSemantics[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1596,7 +1596,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class SignalingState {
         public static final /* synthetic */ SignalingState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1666,12 +1666,12 @@ public class PeerConnection {
         public static SignalingState[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (SignalingState[]) $VALUES.clone() : (SignalingState[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (SignalingState[]) $VALUES.clone() : (SignalingState[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class TcpCandidatePolicy {
         public static final /* synthetic */ TcpCandidatePolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1731,7 +1731,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class TlsCertPolicy {
         public static final /* synthetic */ TlsCertPolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

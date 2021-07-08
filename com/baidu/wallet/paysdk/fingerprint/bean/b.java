@@ -19,13 +19,13 @@ import com.baidu.wallet.paysdk.fingerprint.datamodel.OpenFingerprintResponse;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b extends PayBaseBean<OpenFingerprintResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PwdRequest f26006a;
+    public PwdRequest f26116a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
@@ -45,7 +45,7 @@ public class b extends PayBaseBean<OpenFingerprintResponse> {
                 return;
             }
         }
-        this.f26006a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
+        this.f26116a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -62,11 +62,11 @@ public class b extends PayBaseBean<OpenFingerprintResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            PwdRequest pwdRequest = this.f26006a;
+            PwdRequest pwdRequest = this.f26116a;
             if (pwdRequest != null && !TextUtils.isEmpty(pwdRequest.mPayPass)) {
                 String seed = PasswordController.getSeed();
                 String encryptProxy = SafePay.getInstance().encryptProxy(seed);
-                arrayList.add(new RestNameValuePair("mobile_pwd", PasswordController.handlePwd(this.f26006a.mPayPass, seed)));
+                arrayList.add(new RestNameValuePair("mobile_pwd", PasswordController.handlePwd(this.f26116a.mPayPass, seed)));
                 arrayList.add(new RestNameValuePair("seed", encryptProxy));
             }
             return arrayList;

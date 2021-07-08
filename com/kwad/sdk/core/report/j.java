@@ -1,99 +1,77 @@
 package com.kwad.sdk.core.report;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.report.d;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes7.dex */
-public class j<T extends d> implements i<T> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+/* loaded from: classes6.dex */
+public class j extends SQLiteOpenHelper {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, T> f36541a;
+    public static int f34886a = 1;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    public j() {
+    /* renamed from: b  reason: collision with root package name */
+    public String f34887b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-615486217, "Lcom/kwad/sdk/core/report/j;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-615486217, "Lcom/kwad/sdk/core/report/j;");
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j(@Nullable Context context, int i2) {
+        super(context, "ksadrep.db", (SQLiteDatabase.CursorFactory) null, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f36541a = new LinkedHashMap();
+        this.f34887b = "CREATE TABLE IF NOT EXISTS ksad_actions (actionId varchar(60) primary key, aLog TEXT)";
     }
 
-    @Override // com.kwad.sdk.core.report.i
-    public synchronized long a() {
-        InterceptResult invokeV;
-        long j;
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                int size = this.f36541a.size();
-                com.kwad.sdk.core.d.a.a("MemReportCache", "size() = " + size);
-                j = size;
-            }
-            return j;
-        }
-        return invokeV.longValue;
-    }
-
-    public synchronized void a(@NonNull T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            synchronized (this) {
-                this.f36541a.put(t.f36535a, t);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
+            sQLiteDatabase.execSQL(this.f34887b);
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.kwad.sdk.core.report.j<T extends com.kwad.sdk.core.report.d> */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.kwad.sdk.core.report.i
-    public /* bridge */ /* synthetic */ void a(@NonNull Object obj) {
-        a((j<T>) ((d) obj));
-    }
-
-    @Override // com.kwad.sdk.core.report.i
-    public synchronized void a(List<T> list) {
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            synchronized (this) {
-                for (T t : list) {
-                    this.f36541a.remove(t.f36535a);
-                }
-            }
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
         }
-    }
-
-    @Override // com.kwad.sdk.core.report.i
-    public synchronized List<T> b() {
-        InterceptResult invokeV;
-        ArrayList arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                arrayList = new ArrayList(this.f36541a.size());
-                for (Map.Entry<String, T> entry : this.f36541a.entrySet()) {
-                    arrayList.add(entry.getValue());
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
     }
 }

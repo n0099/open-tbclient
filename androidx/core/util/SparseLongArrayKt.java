@@ -2,6 +2,7 @@ package androidx.core.util;
 
 import android.util.SparseLongArray;
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,7 +58,7 @@ public final class SparseLongArrayKt {
     public static final long getOrDefault(SparseLongArray sparseLongArray, int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{sparseLongArray, Integer.valueOf(i2), Long.valueOf(j)})) == null) ? sparseLongArray.get(i2, j) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{sparseLongArray, Integer.valueOf(i2), Long.valueOf(j)})) == null) ? sparseLongArray.get(i2, j) : invokeCommon.longValue;
     }
 
     @RequiresApi(18)

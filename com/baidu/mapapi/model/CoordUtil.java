@@ -1,5 +1,6 @@
 package com.baidu.mapapi.model;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.inner.GeoPoint;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CoordUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +59,7 @@ public class CoordUtil {
     public static List<List<LatLng>> decodeLocationList2D(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? com.baidu.mapsdkplatform.comapi.util.b.d(str) : (List) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? com.baidu.mapsdkplatform.comapi.util.b.d(str) : (List) invokeL.objValue;
     }
 
     public static LatLng decodeNodeLocation(String str) {

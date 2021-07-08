@@ -3,6 +3,7 @@ package com.baidu.searchbox.pms.init.request;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.cloudcontrol.CloudControlManager;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlRequestInfo;
@@ -33,7 +34,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class RequestDataUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -122,7 +123,7 @@ public class RequestDataUtils {
     public static JSONObject getEnvStr() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(PmsConstant.EnvParam.Key.CPU_ABI, CommonUtils.getCpuAbi());

@@ -2,6 +2,7 @@ package com.baidu.webkit.sdk.dumper;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ApisInteractWithMario;
 import com.baidu.webkit.sdk.WebViewFactory;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ZwDebug {
     public static /* synthetic */ Interceptable $ic;
     public static boolean debugModel;
@@ -52,7 +53,7 @@ public class ZwDebug {
 
     public static synchronized void init(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             synchronized (ZwDebug.class) {
                 try {
                     ApplicationInfo applicationInfo = context.getApplicationInfo();

@@ -43,43 +43,43 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.a0.d;
-import d.a.s0.p0.p;
-import d.a.s0.p0.r;
-import d.a.s0.p0.u;
-import d.a.s0.p0.v;
+import d.a.o0.a0.d;
+import d.a.p0.p0.p;
+import d.a.p0.p0.r;
+import d.a.p0.p0.u;
+import d.a.p0.p0.v;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FaceshopStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.tieba.faceshop.FaceshopStatic$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public class RunnableC0193a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f14970e;
+            public final /* synthetic */ int f15009e;
 
             /* renamed from: com.baidu.tieba.faceshop.FaceshopStatic$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes5.dex */
+            /* loaded from: classes4.dex */
             public class RunnableC0194a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ StringBuilder f14971e;
+                public final /* synthetic */ StringBuilder f15010e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ RunnableC0193a f14972f;
+                public final /* synthetic */ RunnableC0193a f15011f;
 
                 public RunnableC0194a(RunnableC0193a runnableC0193a, StringBuilder sb) {
                     Interceptable interceptable = $ic;
@@ -96,15 +96,15 @@ public class FaceshopStatic {
                             return;
                         }
                     }
-                    this.f14972f = runnableC0193a;
-                    this.f14971e = sb;
+                    this.f15011f = runnableC0193a;
+                    this.f15010e = sb;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(this.f14972f.f14970e, this.f14971e.toString()));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(this.f15011f.f15009e, this.f15010e.toString()));
                     }
                 }
             }
@@ -124,14 +124,14 @@ public class FaceshopStatic {
                         return;
                     }
                 }
-                this.f14970e = i2;
+                this.f15009e = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    List<MyEmotionGroupData> f2 = d.a.s0.c2.c.i().f();
+                    List<MyEmotionGroupData> f2 = d.a.p0.c2.c.i().f();
                     StringBuilder sb = new StringBuilder();
                     if (f2 != null) {
                         int size = f2.size();
@@ -172,12 +172,12 @@ public class FaceshopStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                d.a.s0.c2.a.b().a(new RunnableC0193a(this, ((Integer) customResponsedMessage.getData()).intValue()));
+                d.a.p0.c2.a.b().a(new RunnableC0193a(this, ((Integer) customResponsedMessage.getData()).intValue()));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class b implements CustomMessageTask.CustomRunnable<IntentConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -210,7 +210,7 @@ public class FaceshopStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class c implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -247,7 +247,7 @@ public class FaceshopStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -285,7 +285,7 @@ public class FaceshopStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -321,12 +321,12 @@ public class FaceshopStatic {
                 u.s().g((String) customResponsedMessage.getData(), null);
             } else if (customResponsedMessage.getData() instanceof d.a) {
                 d.a aVar = (d.a) customResponsedMessage.getData();
-                u.s().g(aVar.f54736a, aVar.f54737b);
+                u.s().g(aVar.f51438a, aVar.f51439b);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class f extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -348,14 +348,14 @@ public class FaceshopStatic {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null || TextUtils.isEmpty(intent.getStringExtra(d.a.r0.a0.d.f54731b)) || !TbadkCoreApplication.getInst().isMainProcess(false)) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null || TextUtils.isEmpty(intent.getStringExtra(d.a.o0.a0.d.f51433b)) || !TbadkCoreApplication.getInst().isMainProcess(false)) {
                 return;
             }
-            u.s().g(intent.getStringExtra(d.a.r0.a0.d.f54731b), intent.getStringExtra(d.a.r0.a0.d.f54732c));
+            u.s().g(intent.getStringExtra(d.a.o0.a0.d.f51433b), intent.getStringExtra(d.a.o0.a0.d.f51434c));
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class g implements CustomMessageTask.CustomRunnable<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -379,14 +379,14 @@ public class FaceshopStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                d.a.s0.c2.d.m().v();
+                d.a.p0.c2.d.m().v();
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class h implements CustomMessageTask.CustomRunnable<IntentConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -419,7 +419,7 @@ public class FaceshopStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class i implements CustomMessageTask.CustomRunnable<IntentConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -452,7 +452,7 @@ public class FaceshopStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class j implements CustomMessageTask.CustomRunnable<IntentConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -485,7 +485,7 @@ public class FaceshopStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class k implements CustomMessageTask.CustomRunnable<IntentConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -548,7 +548,7 @@ public class FaceshopStatic {
         MessageManager.getInstance().registerListener(new e(2004610));
         f fVar = new f();
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(d.a.r0.a0.d.f54730a);
+        intentFilter.addAction(d.a.o0.a0.d.f51432a);
         TbadkCoreApplication.getInst().registerReceiver(fVar, intentFilter);
         CustomMessageTask customMessageTask = new CustomMessageTask(2004611, new g());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -556,7 +556,7 @@ public class FaceshopStatic {
         MessageManager.getInstance().registerStickyMode(2001141);
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2004602, new ArrayList()));
         if (d.a.c.e.p.j.H() && TbadkCoreApplication.getCurrentAccount() != null) {
-            d.a.s0.c2.d.m().v();
+            d.a.p0.c2.d.m().v();
         }
         CustomMessageTask customMessageTask2 = new CustomMessageTask(2902013, new h());
         customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

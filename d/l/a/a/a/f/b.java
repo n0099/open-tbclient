@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f74044a;
+    public String f71096a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f74045b;
+    public String f71097b;
 
     public b(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -32,14 +32,14 @@ public class b {
                 return;
             }
         }
-        this.f74045b = str;
-        this.f74044a = str2;
+        this.f71097b = str;
+        this.f71096a = str2;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f74044a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71096a : (String) invokeV.objValue;
     }
 
     public void b(long j) {
@@ -51,20 +51,20 @@ public class b {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f74044a = str;
+            this.f71096a = str;
         }
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f74045b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f71097b : (String) invokeV.objValue;
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f74045b = str;
+            this.f71097b = str;
         }
     }
 

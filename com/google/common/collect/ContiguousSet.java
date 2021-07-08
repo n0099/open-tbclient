@@ -1,5 +1,6 @@
 package com.google.common.collect;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,7 @@ import java.util.Comparator;
 import java.util.NavigableSet;
 import java.util.NoSuchElementException;
 import java.util.SortedSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class ContiguousSet<C extends Comparable> extends ImmutableSortedSet<C> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +61,7 @@ public abstract class ContiguousSet<C extends Comparable> extends ImmutableSorte
     public static ContiguousSet<Integer> closedOpen(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65540, null, i2, i3)) == null) ? create(Range.closedOpen(Integer.valueOf(i2), Integer.valueOf(i3)), DiscreteDomain.integers()) : (ContiguousSet) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3)) == null) ? create(Range.closedOpen(Integer.valueOf(i2), Integer.valueOf(i3)), DiscreteDomain.integers()) : (ContiguousSet) invokeII.objValue;
     }
 
     public static <C extends Comparable> ContiguousSet<C> create(Range<C> range, DiscreteDomain<C> discreteDomain) {

@@ -45,6 +45,6 @@ public class trw extends we {
     public Object a(Class cls, File file) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, file)) == null) ? a.a((Class<?>) cls, (Class<?>[]) new Class[]{File.class}, new Object[]{file}) : invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, file)) == null) ? shuoy.a((Class<?>) cls, (Class<?>[]) new Class[]{File.class}, new Object[]{file}) : invokeLL.objValue;
     }
 }

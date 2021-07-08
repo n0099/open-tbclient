@@ -24,15 +24,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.subtitle.SubTitleConfig;
 import com.baidu.ugc.editvideo.subtitle.ninepatchchunk.NinePatchChunk;
 import com.baidu.ugc.utils.FileUtils;
-import d.a.y0.t.f;
-import d.a.y0.t.v;
+import d.a.v0.t.f;
+import d.a.v0.t.v;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class NewSubTitleCreater {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +52,7 @@ public class NewSubTitleCreater {
     public String savePath;
 
     /* renamed from: com.baidu.ugc.editvideo.subtitle.NewSubTitleCreater$2  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Paint$Align;
         public static /* synthetic */ Interceptable $ic;
@@ -88,7 +88,7 @@ public class NewSubTitleCreater {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface SubtitleCreaterCallBack {
         void onSubtitleBitmapCreated();
     }

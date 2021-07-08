@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatmessage.sync.SyncAllMessage;
@@ -1465,7 +1466,7 @@ public class DBVersionManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void createDb(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, sQLiteDatabase) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, sQLiteDatabase) == null) {
             if (dropTable(sQLiteDatabase) < 0) {
                 LogUtils.e(TAG, "drop table db failed when db upgrade or downgrade!");
             } else if (createTable(sQLiteDatabase) < 0) {

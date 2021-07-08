@@ -29,6 +29,7 @@ import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.common.others.lang.StringUtil;
@@ -51,7 +52,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class bj {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -863,7 +864,7 @@ public class bj {
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, str)) == null) {
             String a2 = ay.a().a(str);
             if (TextUtils.isEmpty(a2)) {
-                a2 = au.a().a(str, au.a.f8738a);
+                a2 = au.a().a(str, au.a.f8755a);
             }
             return a2 == null ? "" : a2;
         }
@@ -1232,7 +1233,7 @@ public class bj {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            String a2 = au.a().a(str, au.a.f8739b);
+            String a2 = au.a().a(str, au.a.f8756b);
             return a2 == null ? "" : a2;
         }
         return (String) invokeL.objValue;
@@ -1369,7 +1370,7 @@ public class bj {
         InterceptResult invokeL;
         ActivityInfo activityInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             if (context == null) {
                 return "";
             }

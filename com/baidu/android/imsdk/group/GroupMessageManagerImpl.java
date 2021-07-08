@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.group;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManager;
@@ -122,7 +123,7 @@ public class GroupMessageManagerImpl {
 
     private void handleAllowGroup(ChatMsg chatMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, chatMsg) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, chatMsg) == null) {
             String valueOf = String.valueOf(((GroupStarAlertMsg) chatMsg).getGroupid());
             int groupPermit = GroupInfoDAOImpl.setGroupPermit(mContext, valueOf, 0);
             String str = TAG;

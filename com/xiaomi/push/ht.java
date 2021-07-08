@@ -1,5 +1,6 @@
 package com.xiaomi.push;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,21 +9,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class ht {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ht f43321a;
+    public static final ht f40335a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ ht[] f554a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ht f43322b;
+    public static final ht f40336b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ht f43323c;
+    public static final ht f40337c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -41,11 +42,11 @@ public final class ht {
                 return;
             }
         }
-        f43321a = new ht("RegIdExpired", 0, 0);
-        f43322b = new ht("PackageUnregistered", 1, 1);
+        f40335a = new ht("RegIdExpired", 0, 0);
+        f40336b = new ht("PackageUnregistered", 1, 1);
         ht htVar = new ht("Init", 2, 2);
-        f43323c = htVar;
-        f554a = new ht[]{f43321a, f43322b, htVar};
+        f40337c = htVar;
+        f554a = new ht[]{f40335a, f40336b, htVar};
     }
 
     public ht(String str, int i2, int i3) {
@@ -78,11 +79,11 @@ public final class ht {
                     if (i2 != 2) {
                         return null;
                     }
-                    return f43323c;
+                    return f40337c;
                 }
-                return f43322b;
+                return f40336b;
             }
-            return f43321a;
+            return f40335a;
         }
         return (ht) invokeI.objValue;
     }
@@ -96,7 +97,7 @@ public final class ht {
     public static ht[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (ht[]) f554a.clone() : (ht[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ht[]) f554a.clone() : (ht[]) invokeV.objValue;
     }
 
     public int a() {

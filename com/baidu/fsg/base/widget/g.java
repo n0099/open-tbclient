@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class g implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SafeKeyBoardPopupWindow f5525a;
+    public final /* synthetic */ SafeKeyBoardPopupWindow f5542a;
 
     public g(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class g implements View.OnTouchListener {
                 return;
             }
         }
-        this.f5525a = safeKeyBoardPopupWindow;
+        this.f5542a = safeKeyBoardPopupWindow;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -41,17 +41,17 @@ public class g implements View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
             if (motionEvent.getAction() == 0) {
-                this.f5525a.d();
+                this.f5542a.d();
                 return false;
             } else if (motionEvent.getAction() == 1) {
-                this.f5525a.c();
+                this.f5542a.c();
                 return false;
             } else if (motionEvent.getAction() == 2) {
-                imageButton = this.f5525a.k;
+                imageButton = this.f5542a.k;
                 if (imageButton.isPressed()) {
                     return false;
                 }
-                this.f5525a.c();
+                this.f5542a.c();
                 return false;
             } else {
                 return false;

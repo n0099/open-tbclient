@@ -3,6 +3,7 @@ package com.facebook.imagepipeline.platform;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.MemoryFile;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,7 +26,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.Method;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class GingerbreadPurgeableDecoder extends DalvikPurgeableDecoder {
     public static /* synthetic */ Interceptable $ic;
     public static Method sGetFileDescriptorMethod;
@@ -162,7 +163,7 @@ public class GingerbreadPurgeableDecoder extends DalvikPurgeableDecoder {
     private FileDescriptor getMemoryFileDescriptor(MemoryFile memoryFile) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, memoryFile)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, memoryFile)) == null) {
             try {
                 return (FileDescriptor) getFileDescriptorMethod().invoke(memoryFile, new Object[0]);
             } catch (Exception e2) {

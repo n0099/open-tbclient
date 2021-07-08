@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MusicData extends MusicBaseBean {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MUSIC_DATA_KEY = "musicdata";
@@ -97,70 +97,72 @@ public class MusicData extends MusicBaseBean {
 
     public static MusicData parse(String str) {
         InterceptResult invokeL;
+        JSONObject jSONObject;
+        MusicData musicData;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, str)) != null) {
-            return (MusicData) invokeL.objValue;
-        }
-        MusicData musicData = null;
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            MusicData musicData2 = new MusicData();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            MusicData musicData2 = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
             try {
-                musicData2.id = jSONObject.optString(CloudMusicActivityConfig.MUSIC_ID);
-                musicData2.title = jSONObject.optString("music_title");
-                musicData2.singer = jSONObject.optString("music_singer");
-                musicData2.icon = jSONObject.optString("music_icon");
-                musicData2.url = jSONObject.optString("music_url");
-                musicData2.localPath = jSONObject.optString("music_local_path");
-                musicData2.sk = jSONObject.optString(ContentUtil.RESULT_KEY_SK);
-                musicData2.ext = jSONObject.optString("ext");
-                musicData2.startPosition = jSONObject.optInt("start_position");
-                musicData2.localTransCodePath = jSONObject.optString("music_local_transcode_path");
+                jSONObject = new JSONObject(str);
+                musicData = new MusicData();
+            } catch (Exception e2) {
+                e = e2;
+            }
+            try {
+                musicData.id = jSONObject.optString(CloudMusicActivityConfig.MUSIC_ID);
+                musicData.title = jSONObject.optString("music_title");
+                musicData.singer = jSONObject.optString("music_singer");
+                musicData.icon = jSONObject.optString("music_icon");
+                musicData.url = jSONObject.optString("music_url");
+                musicData.localPath = jSONObject.optString("music_local_path");
+                musicData.sk = jSONObject.optString(ContentUtil.RESULT_KEY_SK);
+                musicData.ext = jSONObject.optString("ext");
+                musicData.startPosition = jSONObject.optInt("start_position");
+                musicData.localTransCodePath = jSONObject.optString("music_local_transcode_path");
                 boolean z = true;
                 if (jSONObject.optInt(TiebaStatic.Params.IS_FOLLOW) != 1) {
                     z = false;
                 }
-                musicData2.isFollow = z;
-                musicData2.authorUk = jSONObject.optString("author_uk");
-                musicData2.musicName = jSONObject.optString("music_name");
-                musicData2.musicAuthor = jSONObject.optString("music_author");
-                musicData2.soundSrc = jSONObject.optString("sound_src");
-                musicData2.bgSound = jSONObject.optString("bg_sound");
-                musicData2.mVolume = (float) jSONObject.optDouble("volume", 1.0d);
-                musicData2.collectStatus = jSONObject.optString("collect_status");
-                musicData2.mProgress = jSONObject.optInt("progress");
-                musicData2.musicType = jSONObject.optInt("ai_switch");
-                musicData2.isLocalMusic = jSONObject.optBoolean("local_music");
-                musicData2.musicLoc = jSONObject.optString("music_loc");
-                musicData2.bgAccompanimentUrl = jSONObject.optString("bgAccompanimentUrl");
-                musicData2.bgAccompanimentLocalPath = jSONObject.optString("bgAccompanimentLocalPath");
-                musicData2.bgOriginalLocalPath = jSONObject.optString("bgOriginalLocalPath");
-                musicData2.bgKrcUrl = jSONObject.optString("bgKrcUrl");
-                musicData2.bgRepairSwitch = jSONObject.optBoolean("bgRepairSwitch");
-                musicData2.bgKrcLocalPath = jSONObject.optString("bgKrcLocalPath");
-                musicData2.useNum = jSONObject.optString("use_num");
-                musicData2.durationInt = jSONObject.optString("duration_int");
-                musicData2.refrainStartTime = jSONObject.optDouble("refrain_start_time", 0.0d);
-                musicData2.refrainEndTime = jSONObject.optDouble("refrain_end_time", 0.0d);
-                musicData2.mKaraokeStartTime = jSONObject.optDouble("karaoke_start_time", 0.0d);
-                musicData2.mKaraokeEndTime = jSONObject.optDouble("karaoke_end_time", 0.0d);
-                musicData2.bgOriginalUrl = jSONObject.optString("bgOriginalUrl");
-                musicData2.bgOriginalLocalPath = jSONObject.optString("bgOriginalLocalPath");
-                musicData2.played_web = jSONObject.optInt("played_web");
-                musicData2.isPlayedExceptH5 = jSONObject.optBoolean("isPlayedExceptH5", false);
-                return musicData2;
-            } catch (Exception e2) {
-                e = e2;
-                musicData = musicData2;
-                e.printStackTrace();
+                musicData.isFollow = z;
+                musicData.authorUk = jSONObject.optString("author_uk");
+                musicData.musicName = jSONObject.optString("music_name");
+                musicData.musicAuthor = jSONObject.optString("music_author");
+                musicData.soundSrc = jSONObject.optString("sound_src");
+                musicData.bgSound = jSONObject.optString("bg_sound");
+                musicData.mVolume = (float) jSONObject.optDouble("volume", 1.0d);
+                musicData.collectStatus = jSONObject.optString("collect_status");
+                musicData.mProgress = jSONObject.optInt("progress");
+                musicData.musicType = jSONObject.optInt("ai_switch");
+                musicData.isLocalMusic = jSONObject.optBoolean("local_music");
+                musicData.musicLoc = jSONObject.optString("music_loc");
+                musicData.bgAccompanimentUrl = jSONObject.optString("bgAccompanimentUrl");
+                musicData.bgAccompanimentLocalPath = jSONObject.optString("bgAccompanimentLocalPath");
+                musicData.bgOriginalLocalPath = jSONObject.optString("bgOriginalLocalPath");
+                musicData.bgKrcUrl = jSONObject.optString("bgKrcUrl");
+                musicData.bgRepairSwitch = jSONObject.optBoolean("bgRepairSwitch");
+                musicData.bgKrcLocalPath = jSONObject.optString("bgKrcLocalPath");
+                musicData.useNum = jSONObject.optString("use_num");
+                musicData.durationInt = jSONObject.optString("duration_int");
+                musicData.refrainStartTime = jSONObject.optDouble("refrain_start_time", 0.0d);
+                musicData.refrainEndTime = jSONObject.optDouble("refrain_end_time", 0.0d);
+                musicData.mKaraokeStartTime = jSONObject.optDouble("karaoke_start_time", 0.0d);
+                musicData.mKaraokeEndTime = jSONObject.optDouble("karaoke_end_time", 0.0d);
+                musicData.bgOriginalUrl = jSONObject.optString("bgOriginalUrl");
+                musicData.bgOriginalLocalPath = jSONObject.optString("bgOriginalLocalPath");
+                musicData.played_web = jSONObject.optInt("played_web");
+                musicData.isPlayedExceptH5 = jSONObject.optBoolean("isPlayedExceptH5", false);
                 return musicData;
+            } catch (Exception e3) {
+                e = e3;
+                musicData2 = musicData;
+                e.printStackTrace();
+                return musicData2;
             }
-        } catch (Exception e3) {
-            e = e3;
         }
+        return (MusicData) invokeL.objValue;
     }
 
     public static MusicData parseNetBean(JSONObject jSONObject) {

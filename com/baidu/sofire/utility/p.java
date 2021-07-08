@@ -6,6 +6,7 @@ import android.os.Environment;
 import android.os.Process;
 import android.provider.Settings;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,12 +21,12 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.UUID;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class p {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f10507a = "";
+    public static String f10524a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -61,11 +62,11 @@ public final class p {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(f10507a)) {
+            if (TextUtils.isEmpty(f10524a)) {
                 new p();
-                f10507a = b(context);
+                f10524a = b(context);
             }
-            return f10507a;
+            return f10524a;
         }
         return (String) invokeL.objValue;
     }
@@ -196,7 +197,7 @@ public final class p {
                 com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
                 String o = a2.o();
                 if (TextUtils.isEmpty(o)) {
-                    String string = a2.f10395c.getString("rpnewuid", "");
+                    String string = a2.f10412c.getString("rpnewuid", "");
                     if (TextUtils.isEmpty(string)) {
                         return "";
                     }
@@ -264,7 +265,7 @@ public final class p {
         InterceptResult invokeL;
         FileReader fileReader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, file)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
             try {
                 fileReader = new FileReader(file);
             } catch (Throwable unused) {

@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.k.e.n;
-import d.a.r0.r.q.h2;
-import d.a.r0.t.o;
+import d.a.o0.r.q.h2;
+import d.a.o0.t.o;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +40,7 @@ import tbclient.UserPics;
 import tbclient.UserVipInfo;
 import tbclient.VipCloseAd;
 import tbclient.VipShowInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class UserData extends MetaData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int USER_PICS_MAX_COUNT = 9;
@@ -105,7 +105,7 @@ public class UserData extends MetaData {
     public UserVipInfoData vipInfo;
     public int visitorNum;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class Permission extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TRUE = 1;
@@ -822,7 +822,7 @@ public class UserData extends MetaData {
         }
     }
 
-    @Override // com.baidu.tbadk.data.MetaData, d.a.r0.r.f0.s.a
+    @Override // com.baidu.tbadk.data.MetaData, d.a.o0.r.f0.t.a
     public void setLikeStatus(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048647, this, i2) == null) {

@@ -1,5 +1,6 @@
 package com.baidu.android.app.event;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -266,7 +267,7 @@ public class RxBus {
     private <T> d<T> createObservable(Object obj, Class<T> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, obj, cls)) == null) ? this.mRxBusSubject.r(cls).j(new TagKeeperOperator(this, obj, cls)).s().d(new b<T>(this, obj) { // from class: com.baidu.android.app.event.RxBus.1
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, obj, cls)) == null) ? this.mRxBusSubject.r(cls).j(new TagKeeperOperator(this, obj, cls)).s().d(new b<T>(this, obj) { // from class: com.baidu.android.app.event.RxBus.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ RxBus this$0;

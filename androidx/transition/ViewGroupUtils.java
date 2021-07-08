@@ -5,6 +5,7 @@ import android.os.Build;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -96,7 +97,7 @@ public class ViewGroupUtils {
     @SuppressLint({"NewApi"})
     public static void hiddenSuppressLayout(@NonNull ViewGroup viewGroup, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65540, null, viewGroup, z) == null) && sTryHiddenSuppressLayout) {
+        if ((interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup, z) == null) && sTryHiddenSuppressLayout) {
             try {
                 viewGroup.suppressLayout(z);
             } catch (NoSuchMethodError unused) {

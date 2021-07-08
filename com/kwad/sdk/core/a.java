@@ -15,31 +15,31 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap<String, DownloadParams> f35892a;
+    public ConcurrentHashMap<String, DownloadParams> f34148a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<String, AdTemplate> f35893b;
+    public ConcurrentHashMap<String, AdTemplate> f34149b;
 
     /* renamed from: com.kwad.sdk.core.a$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.kwad.sdk.core.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static final class C0422a {
+    /* loaded from: classes6.dex */
+    public static final class C0409a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f35894a;
+        public static final a f34150a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -55,7 +55,7 @@ public class a {
                     return;
                 }
             }
-            f35894a = new a(null);
+            f34150a = new a(null);
         }
     }
 
@@ -72,8 +72,8 @@ public class a {
                 return;
             }
         }
-        this.f35892a = new ConcurrentHashMap<>();
-        this.f35893b = new ConcurrentHashMap<>();
+        this.f34148a = new ConcurrentHashMap<>();
+        this.f34149b = new ConcurrentHashMap<>();
     }
 
     public /* synthetic */ a(AnonymousClass1 anonymousClass1) {
@@ -83,7 +83,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0422a.f35894a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0409a.f34150a : (a) invokeV.objValue;
     }
 
     public DownloadParams a(String str) {
@@ -93,7 +93,7 @@ public class a {
             if (KsAdSDKImpl.get().getContext() == null) {
                 return null;
             }
-            DownloadParams downloadParams = this.f35892a.get(str);
+            DownloadParams downloadParams = this.f34148a.get(str);
             if (downloadParams != null) {
                 return downloadParams;
             }
@@ -117,7 +117,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, downloadParams) == null) || KsAdSDKImpl.get().getContext() == null) {
             return;
         }
-        this.f35892a.put(str, downloadParams);
+        this.f34148a.put(str, downloadParams);
         KsAdSDKImpl.get().getContext().getSharedPreferences("ksadsdk_notification_download_complete", 0).edit().putString(str, downloadParams.toJson().toString()).apply();
     }
 
@@ -126,7 +126,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, adTemplate) == null) || KsAdSDKImpl.get().getContext() == null) {
             return;
         }
-        this.f35893b.put(str, adTemplate);
+        this.f34149b.put(str, adTemplate);
         KsAdSDKImpl.get().getContext().getSharedPreferences("ksadsdk_notification_download_complete", 0).edit().putString(str, adTemplate.toJson().toString()).apply();
     }
 
@@ -135,7 +135,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || KsAdSDKImpl.get().getContext() == null) {
             return;
         }
-        this.f35892a.remove(str);
+        this.f34148a.remove(str);
         KsAdSDKImpl.get().getContext().getSharedPreferences("ksadsdk_notification_download_complete", 0).edit().remove(str).apply();
     }
 
@@ -146,7 +146,7 @@ public class a {
             if (KsAdSDKImpl.get().getContext() == null) {
                 return null;
             }
-            AdTemplate adTemplate = this.f35893b.get(str);
+            AdTemplate adTemplate = this.f34149b.get(str);
             if (adTemplate != null) {
                 return adTemplate;
             }
@@ -170,7 +170,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || KsAdSDKImpl.get().getContext() == null) {
             return;
         }
-        this.f35893b.remove(str);
+        this.f34149b.remove(str);
         KsAdSDKImpl.get().getContext().getSharedPreferences("ksadsdk_notification_download_complete", 0).edit().remove(str).apply();
     }
 }

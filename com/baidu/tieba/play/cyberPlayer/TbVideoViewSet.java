@@ -1,5 +1,6 @@
 package com.baidu.tieba.play.cyberPlayer;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -16,21 +17,21 @@ import d.a.c.e.p.k;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TbVideoViewSet {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static TbVideoViewSet f20262c;
+    public static TbVideoViewSet f20308c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LRULinkedHashMap<String, TbCyberVideoView> f20263a;
+    public LRULinkedHashMap<String, TbCyberVideoView> f20309a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f20264b;
+    public boolean f20310b;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class LRULinkedHashMap<K extends String, V> extends LinkedHashMap<K, TbCyberVideoView> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MAX_PLAYERS = 3;
@@ -68,10 +69,9 @@ public class TbVideoViewSet {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, entry)) == null) {
                 boolean z = size() > 3;
                 if (z && (value = entry.getValue()) != null) {
-                    this.this$0.f20264b = true;
-                    value.G();
+                    this.this$0.f20310b = true;
                     value.stopPlayback();
-                    this.this$0.f20264b = false;
+                    this.this$0.f20310b = false;
                 }
                 return z;
             }
@@ -79,13 +79,13 @@ public class TbVideoViewSet {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbVideoViewSet f20265a;
+        public final /* synthetic */ TbVideoViewSet f20311a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(TbVideoViewSet tbVideoViewSet, int i2) {
@@ -105,7 +105,7 @@ public class TbVideoViewSet {
                     return;
                 }
             }
-            this.f20265a = tbVideoViewSet;
+            this.f20311a = tbVideoViewSet;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -113,12 +113,12 @@ public class TbVideoViewSet {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                this.f20265a.c();
+                this.f20311a.c();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a();
 
@@ -153,22 +153,22 @@ public class TbVideoViewSet {
                 return;
             }
         }
-        this.f20263a = new LRULinkedHashMap<>(this);
+        this.f20309a = new LRULinkedHashMap<>(this);
         MessageManager.getInstance().registerListener(new a(this, 2001011));
     }
 
     public static TbVideoViewSet d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
-            if (f20262c == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (f20308c == null) {
                 synchronized (TbVideoViewSet.class) {
-                    if (f20262c == null) {
-                        f20262c = new TbVideoViewSet();
+                    if (f20308c == null) {
+                        f20308c = new TbVideoViewSet();
                     }
                 }
             }
-            return f20262c;
+            return f20308c;
         }
         return (TbVideoViewSet) invokeV.objValue;
     }
@@ -176,15 +176,15 @@ public class TbVideoViewSet {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Iterator it = this.f20263a.entrySet().iterator();
+            Iterator it = this.f20309a.entrySet().iterator();
             while (it.hasNext()) {
                 Map.Entry entry = (Map.Entry) it.next();
                 if (entry != null) {
                     TbCyberVideoView tbCyberVideoView = (TbCyberVideoView) entry.getValue();
                     if (tbCyberVideoView != null) {
-                        this.f20264b = true;
+                        this.f20310b = true;
                         tbCyberVideoView.stopPlayback();
-                        this.f20264b = false;
+                        this.f20310b = false;
                     }
                     it.remove();
                 }
@@ -196,10 +196,10 @@ public class TbVideoViewSet {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (k.isEmpty(str) || !this.f20263a.containsKey(str)) {
+            if (k.isEmpty(str) || !this.f20309a.containsKey(str)) {
                 return null;
             }
-            return this.f20263a.get(str);
+            return this.f20309a.get(str);
         }
         return (TbCyberVideoView) invokeL.objValue;
     }
@@ -207,7 +207,7 @@ public class TbVideoViewSet {
     public void f(String str) {
         TbCyberVideoView remove;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.f20264b || !this.f20263a.containsKey(str) || (remove = this.f20263a.remove(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.f20310b || !this.f20309a.containsKey(str) || (remove = this.f20309a.remove(str)) == null) {
             return;
         }
         remove.stopPlayback();
@@ -216,14 +216,14 @@ public class TbVideoViewSet {
     public void g(TbCyberVideoView tbCyberVideoView, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, tbCyberVideoView, str) == null) {
-            if (this.f20263a.containsKey(str) && tbCyberVideoView != this.f20263a.get(str)) {
-                TbCyberVideoView tbCyberVideoView2 = this.f20263a.get(str);
+            if (this.f20309a.containsKey(str) && tbCyberVideoView != this.f20309a.get(str)) {
+                TbCyberVideoView tbCyberVideoView2 = this.f20309a.get(str);
                 if (tbCyberVideoView2 != null && tbCyberVideoView2.isPlaying()) {
                     tbCyberVideoView2.stopPlayback();
                 }
-            } else if (this.f20263a.containsValue(tbCyberVideoView)) {
+            } else if (this.f20309a.containsValue(tbCyberVideoView)) {
                 String str2 = null;
-                Iterator it = this.f20263a.entrySet().iterator();
+                Iterator it = this.f20309a.entrySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
@@ -234,11 +234,11 @@ public class TbVideoViewSet {
                         break;
                     }
                 }
-                if (!this.f20264b && !k.isEmpty(str2)) {
-                    this.f20263a.remove(str2);
+                if (!this.f20310b && !k.isEmpty(str2)) {
+                    this.f20309a.remove(str2);
                 }
             }
-            this.f20263a.put(str, tbCyberVideoView);
+            this.f20309a.put(str, tbCyberVideoView);
         }
     }
 }

@@ -31,7 +31,7 @@ import java.io.RandomAccessFile;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DownloadExecutor extends NetExecutor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SEGMENT_SIZE = 16384;

@@ -7,6 +7,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.bm;
@@ -24,30 +25,30 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f8955a;
+    public static f f8972a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8956b;
+    public String f8973b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f8957a;
+        public String f8974a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f8958b;
+        public String f8975b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f8959c;
+        public String f8976c;
 
         public a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -64,9 +65,9 @@ public class f {
                     return;
                 }
             }
-            this.f8957a = str == null ? "" : str;
-            this.f8958b = str2 == null ? "" : str2;
-            this.f8959c = str3 == null ? "" : str3;
+            this.f8974a = str == null ? "" : str;
+            this.f8975b = str2 == null ? "" : str2;
+            this.f8976c = str3 == null ? "" : str3;
         }
 
         public JSONObject a() {
@@ -75,9 +76,9 @@ public class f {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("n", this.f8957a);
-                    jSONObject.put("v", this.f8958b);
-                    jSONObject.put("w", this.f8959c);
+                    jSONObject.put("n", this.f8974a);
+                    jSONObject.put("v", this.f8975b);
+                    jSONObject.put("w", this.f8976c);
                     return jSONObject;
                 } catch (JSONException e2) {
                     bb.c().b(e2);
@@ -90,7 +91,7 @@ public class f {
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f8957a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f8974a : (String) invokeV.objValue;
         }
     }
 
@@ -107,7 +108,7 @@ public class f {
                 return;
             }
         }
-        f8955a = new f();
+        f8972a = new f();
     }
 
     public f() {
@@ -123,7 +124,7 @@ public class f {
                 return;
             }
         }
-        this.f8956b = "";
+        this.f8973b = "";
     }
 
     private boolean a(int i2) {
@@ -205,8 +206,8 @@ public class f {
         }
         if (z) {
             String b2 = a2.get(0).b();
-            if (a(b2, this.f8956b)) {
-                this.f8956b = b2;
+            if (a(b2, this.f8973b)) {
+                this.f8973b = b2;
             }
         }
         a(context, a2, z);
@@ -227,7 +228,7 @@ public class f {
     private boolean a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, str, str2)) == null) ? (TextUtils.isEmpty(str) || str.equals(this.f8956b)) ? false : true : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, str, str2)) == null) ? (TextUtils.isEmpty(str) || str.equals(this.f8973b)) ? false : true : invokeLL.booleanValue;
     }
 
     private String a(Context context, String str) {
@@ -253,7 +254,7 @@ public class f {
     private void a(Context context, ArrayList<a> arrayList, boolean z) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65540, this, context, arrayList, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, context, arrayList, z) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(System.currentTimeMillis() + "|");
             sb.append(z ? 1 : 0);
@@ -277,7 +278,7 @@ public class f {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            k.f8975c.a(System.currentTimeMillis(), str);
+            k.f8992c.a(System.currentTimeMillis(), str);
         }
     }
 

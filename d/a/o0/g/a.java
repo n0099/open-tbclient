@@ -1,92 +1,71 @@
 package d.a.o0.g;
 
-import android.content.Context;
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import d.a.o0.l.c;
-import d.a.o0.l.d;
-import d.a.o0.l.k;
-/* loaded from: classes8.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f46376a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f46377b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? d.a(context) : (String) invokeL.objValue;
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public String f52013a;
 
-    public static String b(Context context, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        String str;
+    /* renamed from: b  reason: collision with root package name */
+    public int f52014b;
+
+    public a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (!d.a.o0.b.a.h(context).e()) {
-                return k.c(String.valueOf(-1000), z2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if (z && !TextUtils.isEmpty(f46377b)) {
-                return f46377b;
-            }
-            if (d.a.o0.b.a.h(context).c()) {
-                str = d.a.o0.d.a.b(context);
-            } else if (c.o(context)) {
-                str = d.a.o0.d.a.b(context);
-            } else if (!z) {
-                return k.c(String.valueOf(-1002), z2);
-            } else {
-                str = "";
-            }
-            if (!TextUtils.isEmpty(str)) {
-                d.a.o0.b.a.h(context).m(str);
-            } else if (z) {
-                str = d.a.o0.b.a.h(context).O();
-            } else {
-                return k.c(String.valueOf(-1003), z2);
-            }
-            if (TextUtils.isEmpty(str)) {
-                return k.c(String.valueOf(-1003), z2);
-            }
-            f46377b = str;
-            return str;
         }
-        return (String) invokeCommon.objValue;
     }
 
-    public static String c(Context context) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? d.h(context) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52013a : (String) invokeV.objValue;
     }
 
-    public static String d(Context context, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (!d.a.o0.b.a.h(context).e()) {
-                return k.c(String.valueOf(-1000), z2);
-            }
-            if (z && !TextUtils.isEmpty(f46376a)) {
-                return f46376a;
-            }
-            if (!c.o(context)) {
-                return k.c(String.valueOf(-1002), z2);
-            }
-            String a2 = d.a.o0.m.a.b().a();
-            if (TextUtils.isEmpty(a2)) {
-                return k.c(String.valueOf(-1003), z2);
-            }
-            f46376a = a2;
-            return a2;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52014b : invokeV.intValue;
+    }
+
+    public void c(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            this.f52014b = i2;
         }
-        return (String) invokeCommon.objValue;
+    }
+
+    public a(String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f52013a = str;
+        this.f52014b = i2;
     }
 }

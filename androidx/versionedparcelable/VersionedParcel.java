@@ -174,7 +174,7 @@ public abstract class VersionedParcel {
     public static Throwable getRootCause(@NonNull Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, th)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th)) == null) {
             while (th.getCause() != null) {
                 th = th.getCause();
             }

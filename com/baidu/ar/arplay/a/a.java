@@ -338,7 +338,7 @@ public final class a {
     private C0069a a(MediaPlayer.OnCompletionListener onCompletionListener, MediaPlayer.OnErrorListener onErrorListener) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, onCompletionListener, onErrorListener)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, onCompletionListener, onErrorListener)) == null) {
             com.baidu.ar.arplay.c.b.b(TAG, "initMediaPlayerInMsg start()");
             try {
                 C0069a c0069a = new C0069a();

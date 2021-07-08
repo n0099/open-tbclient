@@ -17,22 +17,22 @@ import d.a.c.e.p.j;
 import java.net.InetAddress;
 import java.net.URL;
 import java.util.Calendar;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f44123d;
+    public static a f41139d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f44124a;
+    public long f41140a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f44125b;
+    public String f41141b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f44126c;
+    public long f41142c;
 
     static {
         InterceptResult invokeClinit;
@@ -62,27 +62,27 @@ public class a {
                 return;
             }
         }
-        this.f44124a = 0L;
-        this.f44125b = null;
-        this.f44126c = 0L;
+        this.f41140a = 0L;
+        this.f41141b = null;
+        this.f41142c = 0L;
         SharedPreferences a2 = a();
-        this.f44124a = a2.getLong(f("c.tieba.baidu.com"), 0L);
-        this.f44125b = a2.getString(e("c.tieba.baidu.com"), null);
-        this.f44126c = a2.getLong(d("c.tieba.baidu.com"), 0L);
+        this.f41140a = a2.getLong(f("c.tieba.baidu.com"), 0L);
+        this.f41141b = a2.getString(e("c.tieba.baidu.com"), null);
+        this.f41142c = a2.getLong(d("c.tieba.baidu.com"), 0L);
     }
 
     public static final a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f44123d == null) {
+            if (f41139d == null) {
                 synchronized (a.class) {
-                    if (f44123d == null) {
-                        f44123d = new a();
+                    if (f41139d == null) {
+                        f41139d = new a();
                     }
                 }
             }
-            return f44123d;
+            return f41139d;
         }
         return (a) invokeV.objValue;
     }
@@ -151,9 +151,9 @@ public class a {
                 }
                 if ("c.tieba.baidu.com".equals(host)) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    long j = this.f44124a;
-                    long j2 = this.f44126c;
-                    String str4 = this.f44125b;
+                    long j = this.f41140a;
+                    long j2 = this.f41142c;
+                    String str4 = this.f41141b;
                     if (currentTimeMillis - j > 43200000) {
                         h(host, str3, z, "12hour", z2);
                         return;
@@ -167,7 +167,7 @@ public class a {
                     } else if (System.currentTimeMillis() - j2 > 3600000) {
                         String b2 = TextUtils.isEmpty(str3) ? b(host) : str3;
                         if (TextUtils.equals(b2, str4) && str4 != null) {
-                            this.f44126c = System.currentTimeMillis();
+                            this.f41142c = System.currentTimeMillis();
                         } else {
                             h(host, b2, z, "ipchange", z2);
                         }
@@ -201,8 +201,8 @@ public class a {
         EditorHelper.putLong(a2, f(str), currentTimeMillis);
         EditorHelper.putString(a2, e(str), str2);
         EditorHelper.putLong(a2, d(str), currentTimeMillis2);
-        this.f44124a = currentTimeMillis;
-        this.f44126c = currentTimeMillis2;
-        this.f44125b = str2;
+        this.f41140a = currentTimeMillis;
+        this.f41142c = currentTimeMillis2;
+        this.f41141b = str2;
     }
 }

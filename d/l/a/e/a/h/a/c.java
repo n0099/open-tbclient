@@ -9,19 +9,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InputStream f74607a;
+    public InputStream f71659a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f74608b;
+    public boolean f71660b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f74609c;
+    public int f71661c;
 
     public c(InputStream inputStream, boolean z) {
         Interceptable interceptable = $ic;
@@ -47,13 +47,13 @@ public class c {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             if (i2 >= 0 && i2 <= 4) {
                 int i3 = 0;
-                if (this.f74608b) {
+                if (this.f71660b) {
                     for (int i4 = (i2 - 1) * 8; i4 >= 0; i4 -= 8) {
-                        int read = this.f74607a.read();
+                        int read = this.f71659a.read();
                         if (read == -1) {
                             throw new EOFException();
                         }
-                        this.f74609c++;
+                        this.f71661c++;
                         i3 |= read << i4;
                     }
                     return i3;
@@ -61,11 +61,11 @@ public class c {
                 int i5 = i2 * 8;
                 int i6 = 0;
                 while (i3 != i5) {
-                    int read2 = this.f74607a.read();
+                    int read2 = this.f71659a.read();
                     if (read2 == -1) {
                         throw new EOFException();
                     }
-                    this.f74609c++;
+                    this.f71661c++;
                     i6 |= read2 << i3;
                     i3 += 8;
                 }
@@ -79,7 +79,7 @@ public class c {
     public final void b() {
         InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (inputStream = this.f74607a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (inputStream = this.f71659a) == null) {
             return;
         }
         try {
@@ -92,9 +92,9 @@ public class c {
     public final void c(InputStream inputStream, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, inputStream, z) == null) {
-            this.f74607a = inputStream;
-            this.f74608b = z;
-            this.f74609c = 0;
+            this.f71659a = inputStream;
+            this.f71660b = z;
+            this.f71661c = 0;
         }
     }
 
@@ -139,8 +139,8 @@ public class c {
             return;
         }
         long j = i2;
-        long skip = this.f74607a.skip(j);
-        this.f74609c = (int) (this.f74609c + skip);
+        long skip = this.f71659a.skip(j);
+        this.f71661c = (int) (this.f71661c + skip);
         if (skip != j) {
             throw new EOFException();
         }

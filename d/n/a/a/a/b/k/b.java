@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class b implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public /* synthetic */ a f75124e;
+    public /* synthetic */ a f72161e;
 
     public b(a aVar) {
         Interceptable interceptable = $ic;
@@ -32,24 +32,30 @@ public final class b implements ServiceConnection {
                 return;
             }
         }
-        this.f75124e = aVar;
+        this.f72161e = aVar;
     }
 
     @Override // android.content.ServiceConnection
     public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         CountDownLatch countDownLatch;
         CountDownLatch countDownLatch2;
+        CountDownLatch countDownLatch3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             try {
-                this.f75124e.f75119a = com.yxcorp.kuaishou.addfp.a.b.j.b.a(iBinder);
-                countDownLatch = this.f75124e.f75122d;
-                if (countDownLatch != null) {
-                    countDownLatch2 = this.f75124e.f75122d;
-                    countDownLatch2.countDown();
+                this.f72161e.f72156a = com.yxcorp.kuaishou.addfp.a.b.j.b.a(iBinder);
+                countDownLatch3 = this.f72161e.f72159d;
+                if (countDownLatch3 == null) {
+                    return;
                 }
             } catch (Throwable unused) {
+                countDownLatch = this.f72161e.f72159d;
+                if (countDownLatch == null) {
+                    return;
+                }
             }
+            countDownLatch2 = this.f72161e.f72159d;
+            countDownLatch2.countDown();
         }
     }
 
@@ -57,7 +63,7 @@ public final class b implements ServiceConnection {
     public final void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.f75124e.f75119a = null;
+            this.f72161e.f72156a = null;
         }
     }
 }

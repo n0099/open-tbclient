@@ -13,16 +13,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class e extends com.bytedance.sdk.openadsdk.preload.b.d<String, Map<String, List<Pair<String, Long>>>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public File f32088d;
+    public File f32198d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<String> f32089e;
+    public List<String> f32199e;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -43,8 +43,8 @@ public class e extends com.bytedance.sdk.openadsdk.preload.b.d<String, Map<Strin
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr) == null) {
             super.a(objArr);
-            this.f32088d = (File) objArr[0];
-            this.f32089e = (List) objArr[1];
+            this.f32198d = (File) objArr[0];
+            this.f32199e = (List) objArr[1];
         }
     }
 
@@ -58,8 +58,8 @@ public class e extends com.bytedance.sdk.openadsdk.preload.b.d<String, Map<Strin
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bVar, str)) == null) {
             com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "get local channel version:", str);
             HashMap hashMap = new HashMap();
-            for (String str2 : this.f32089e) {
-                File file = new File(this.f32088d, str2);
+            for (String str2 : this.f32199e) {
+                File file = new File(this.f32198d, str2);
                 String[] list = file.list();
                 ArrayList arrayList = new ArrayList();
                 if (list != null && list.length > 0) {

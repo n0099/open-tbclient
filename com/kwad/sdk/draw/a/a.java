@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a extends Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f37034a;
+    public b f35433a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class a extends Presenter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
-            this.f37034a = (b) n();
+            this.f35433a = (b) l();
         }
     }
 }

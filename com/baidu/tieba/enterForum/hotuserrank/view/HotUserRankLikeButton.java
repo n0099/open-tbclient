@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.r0.r.f0.m.b;
-/* loaded from: classes5.dex */
+import d.a.o0.r.f0.n.b;
+/* loaded from: classes4.dex */
 public class HotUserRankLikeButton extends DynamicUserLikeButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tieba.view.DynamicUserLikeButton, d.a.r0.r.f0.s.b
+    @Override // com.baidu.tieba.view.DynamicUserLikeButton, d.a.o0.r.f0.t.b
     public void e(boolean z, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {

@@ -1,5 +1,6 @@
 package com.facebook.imageformat;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.ImmutableList;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class DefaultImageFormats {
     public static /* synthetic */ Interceptable $ic;
     public static final ImageFormat BMP;
@@ -100,6 +101,6 @@ public final class DefaultImageFormats {
     public static boolean isWebpFormat(ImageFormat imageFormat) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, imageFormat)) == null) ? isStaticWebpFormat(imageFormat) || imageFormat == WEBP_ANIMATED : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, imageFormat)) == null) ? isStaticWebpFormat(imageFormat) || imageFormat == WEBP_ANIMATED : invokeL.booleanValue;
     }
 }

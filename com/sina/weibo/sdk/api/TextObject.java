@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.utils.LogUtil;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class TextObject extends BaseMediaObject {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<TextObject> CREATOR;

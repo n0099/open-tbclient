@@ -1,0 +1,208 @@
+package d.a.u.a.a;
+
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
+import com.baidu.android.imsdk.upload.action.track.Connection;
+import com.baidu.android.imsdk.upload.action.track.Request;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public class e {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes8.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ IMPushPb.ActionType f67651e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ Context f67652f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ Object f67653g;
+
+        public a(IMPushPb.ActionType actionType, Context context, Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {actionType, context, obj};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f67651e = actionType;
+            this.f67652f = context;
+            this.f67653g = obj;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int i2 = b.f67654a[this.f67651e.ordinal()];
+                if (i2 == 1) {
+                    f.f(this.f67652f, (Connection) this.f67653g);
+                } else if (i2 != 2) {
+                } else {
+                    f.g(this.f67652f, (Request) this.f67653g);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class b {
+        public static /* synthetic */ Interceptable $ic;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f67654a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1960587021, "Ld/a/u/a/a/e$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1960587021, "Ld/a/u/a/a/e$b;");
+                    return;
+                }
+            }
+            int[] iArr = new int[IMPushPb.ActionType.values().length];
+            f67654a = iArr;
+            try {
+                iArr[IMPushPb.ActionType.CONNECTION.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f67654a[IMPushPb.ActionType.REQUEST.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public Context f67655a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public Request f67656b;
+
+        public c(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            Request request = new Request();
+            this.f67656b = request;
+            this.f67655a = context;
+            request.method = "";
+            request.requestId = "";
+            request.timestamp = -1L;
+            request.responseTime = -1L;
+            request.errorCode = -1L;
+            request.ext = "";
+            request.aliasId = -1L;
+        }
+
+        public c a(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+                this.f67656b.aliasId = j;
+                return this;
+            }
+            return (c) invokeJ.objValue;
+        }
+
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                e.b(this.f67655a, IMPushPb.ActionType.REQUEST, this.f67656b);
+            }
+        }
+
+        public c c(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+                this.f67656b.errorCode = j;
+                return this;
+            }
+            return (c) invokeJ.objValue;
+        }
+
+        public c d(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                this.f67656b.ext = str;
+                return this;
+            }
+            return (c) invokeL.objValue;
+        }
+
+        public c e(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+                this.f67656b.method = str;
+                return this;
+            }
+            return (c) invokeL.objValue;
+        }
+
+        public c f(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+                this.f67656b.requestId = str;
+                return this;
+            }
+            return (c) invokeL.objValue;
+        }
+    }
+
+    public static void b(Context context, IMPushPb.ActionType actionType, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, context, actionType, obj) == null) {
+            Context applicationContext = context.getApplicationContext();
+            if (g.f(applicationContext)) {
+                d.a.u.a.g.a.a(applicationContext).b(new a(actionType, applicationContext, obj));
+            }
+        }
+    }
+}

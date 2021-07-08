@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.boxes.apple;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,7 +20,7 @@ import java.util.Date;
 import java.util.TimeZone;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AppleRecordingYearBox extends AppleDataBox {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
@@ -82,7 +83,7 @@ public class AppleRecordingYearBox extends AppleDataBox {
     public static String rfc822toIso8601Date(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? str.replaceAll("\\+0000$", "Z") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? str.replaceAll("\\+0000$", "Z") : (String) invokeL.objValue;
     }
 
     @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox

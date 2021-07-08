@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.tbselector.selector.ColorSelector;
@@ -17,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TBSelector {
     public static /* synthetic */ Interceptable $ic;
     public static final float RESOURCE_ALPHA_DISABLE;
@@ -70,7 +71,7 @@ public class TBSelector {
     public static ShadowDrawable makeShadowDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? ShadowDrawable.make() : (ShadowDrawable) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? ShadowDrawable.make() : (ShadowDrawable) invokeV.objValue;
     }
 
     public static ColorSelector makeTextColorSelector() {

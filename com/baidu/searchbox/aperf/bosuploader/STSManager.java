@@ -3,6 +3,7 @@ package com.baidu.searchbox.aperf.bosuploader;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -19,7 +20,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class STSManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long RETRY_TIME_LIMIT_HOUR;
@@ -98,7 +99,7 @@ public class STSManager {
         FileInputStream fileInputStream;
         File file;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
                 file = new File(AppRuntime.getAppContext().getFilesDir(), STS_FILE_PATH);
             } catch (FileNotFoundException e2) {

@@ -17,6 +17,7 @@ import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapsdkplatform.comapi.map.r;
@@ -36,7 +37,7 @@ import java.util.Map;
 import org.xmlpull.v1.XmlPullParserException;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class FileProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ATTR_NAME = "name";
@@ -57,7 +58,7 @@ public class FileProvider extends ContentProvider {
 
     @KsAdSdkDynamicApi
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface PathStrategy {
         @KsAdSdkDynamicApi
         @Keep
@@ -68,7 +69,7 @@ public class FileProvider extends ContentProvider {
         Uri getUriForFile(File file);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class SimplePathStrategy implements PathStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -232,7 +233,7 @@ public class FileProvider extends ContentProvider {
     public static String[] copyOf(String[] strArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, strArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr, i2)) == null) {
             String[] strArr2 = new String[i2];
             System.arraycopy(strArr, 0, strArr2, 0, i2);
             return strArr2;
@@ -275,7 +276,7 @@ public class FileProvider extends ContentProvider {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (r.f7745a.equals(str)) {
+            if (r.f7762a.equals(str)) {
                 return Label.FORWARD_REFERENCE_TYPE_SHORT;
             }
             if ("w".equals(str) || "wt".equals(str)) {

@@ -1,5 +1,6 @@
 package com.alipay.sdk.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +14,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1956a = "alipaysdk";
+    public static final String f1957a = "alipaysdk";
     public transient /* synthetic */ FieldHolder $fh;
 
     public c() {
@@ -50,7 +51,7 @@ public class c {
 
     public static void a(Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65540, null, th) != null) || th == null) {
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) != null) || th == null) {
         }
     }
 

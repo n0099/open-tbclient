@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseArray<c> f44798a;
+    public SparseArray<c> f41814a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -28,13 +28,13 @@ public class a {
                 return;
             }
         }
-        this.f44798a = new SparseArray<>();
+        this.f41814a = new SparseArray<>();
     }
 
     public c a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f44798a.get(i2) : (c) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f41814a.get(i2) : (c) invokeI.objValue;
     }
 
     public boolean b(int i2) {
@@ -54,7 +54,7 @@ public class a {
             if (i3 <= 0 || i4 <= 0) {
                 return false;
             }
-            this.f44798a.put(i2, new c(i3, i4));
+            this.f41814a.put(i2, new c(i3, i4));
             return true;
         }
         return invokeIII.booleanValue;

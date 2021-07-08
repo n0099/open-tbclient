@@ -63,9 +63,16 @@ public class l extends a.a.a.a.c<KsSplashScreenAd> {
         }
 
         @Override // com.kwad.sdk.api.KsLoadManager.SplashScreenAdListener
+        public void onRequestResult(int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            }
+        }
+
+        @Override // com.kwad.sdk.api.KsLoadManager.SplashScreenAdListener
         public void onSplashScreenAdLoad(KsSplashScreenAd ksSplashScreenAd) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ksSplashScreenAd) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ksSplashScreenAd) == null) {
                 a.a.a.a.y.d.b("KSSplashAd onSplashScreenAdLoad", new Object[0]);
                 this.f1286b.f1017h.b();
                 l lVar = this.f1286b;

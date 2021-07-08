@@ -1,5 +1,6 @@
 package com.facebook.common.internal;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,7 @@ import java.io.Reader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class Closeables {
     public static /* synthetic */ Interceptable $ic;
     @VisibleForTesting
@@ -80,7 +81,7 @@ public final class Closeables {
 
     public static void closeQuietly(@Nullable Reader reader) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, reader) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, reader) == null) {
             try {
                 close(reader, true);
             } catch (IOException e2) {

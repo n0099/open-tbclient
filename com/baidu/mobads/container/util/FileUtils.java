@@ -2,6 +2,7 @@ package com.baidu.mobads.container.util;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +19,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IO_BUF_SIZE = 32768;
@@ -183,7 +184,7 @@ public class FileUtils {
     public static File deleteFileRecursive(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, file)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
             try {
                 if (file.isDirectory()) {
                     for (File file2 : file.listFiles()) {

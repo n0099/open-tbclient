@@ -57,7 +57,7 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 @Beta
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class ParallelFlowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +88,7 @@ public abstract class ParallelFlowable<T> {
     public static <T> ParallelFlowable<T> fromArray(@NonNull Publisher<T>... publisherArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, publisherArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, publisherArr)) == null) {
             if (publisherArr.length != 0) {
                 return RxJavaPlugins.onAssembly(new ParallelFromArray(publisherArr));
             }

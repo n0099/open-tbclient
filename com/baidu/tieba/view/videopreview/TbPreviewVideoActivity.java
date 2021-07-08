@@ -5,6 +5,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -21,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,13 +33,13 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
     public CustomVideoView videoView;
     public VideoControllerView videoViewController;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPreviewVideoActivity f22274e;
+        public final /* synthetic */ TbPreviewVideoActivity f22333e;
 
         public a(TbPreviewVideoActivity tbPreviewVideoActivity) {
             Interceptable interceptable = $ic;
@@ -55,27 +56,27 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
                     return;
                 }
             }
-            this.f22274e = tbPreviewVideoActivity;
+            this.f22333e = tbPreviewVideoActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f22274e.videoView == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f22333e.videoView == null) {
                 return;
             }
-            this.f22274e.videoView.stopPlayback();
-            this.f22274e.closeActivity();
+            this.f22333e.videoView.stopPlayback();
+            this.f22333e.closeActivity();
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements MediaPlayer.OnPreparedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPreviewVideoActivity f22275e;
+        public final /* synthetic */ TbPreviewVideoActivity f22334e;
 
         public b(TbPreviewVideoActivity tbPreviewVideoActivity) {
             Interceptable interceptable = $ic;
@@ -92,27 +93,27 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
                     return;
                 }
             }
-            this.f22275e = tbPreviewVideoActivity;
+            this.f22334e = tbPreviewVideoActivity;
         }
 
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                this.f22275e.videoView.start();
-                this.f22275e.videoViewController.o(0, this.f22275e.videoView.getDuration());
-                this.f22275e.videoViewController.s();
+                this.f22334e.videoView.start();
+                this.f22334e.videoViewController.o(0, this.f22334e.videoView.getDuration());
+                this.f22334e.videoViewController.s();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c implements MediaPlayer.OnCompletionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPreviewVideoActivity f22276e;
+        public final /* synthetic */ TbPreviewVideoActivity f22335e;
 
         public c(TbPreviewVideoActivity tbPreviewVideoActivity) {
             Interceptable interceptable = $ic;
@@ -129,15 +130,15 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
                     return;
                 }
             }
-            this.f22276e = tbPreviewVideoActivity;
+            this.f22335e = tbPreviewVideoActivity;
         }
 
         @Override // android.media.MediaPlayer.OnCompletionListener
         public void onCompletion(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                this.f22276e.videoView.start();
-                this.f22276e.videoViewController.s();
+                this.f22335e.videoView.start();
+                this.f22335e.videoViewController.s();
             }
         }
     }
@@ -159,7 +160,7 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
     private void initDataFromIntent() {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65540, this) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (intent = getIntent()) == null) {
             return;
         }
         Serializable serializableExtra = intent.getSerializableExtra(TbPreviewVideoActivityConfig.KEY_VIDEO_INFO);

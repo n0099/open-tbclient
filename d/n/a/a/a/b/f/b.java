@@ -8,13 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+import d.n.a.a.c.b.c;
+/* loaded from: classes8.dex */
 public final class b implements d.n.a.a.a.b.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f75083e;
+    public Context f72131e;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -31,7 +32,7 @@ public final class b implements d.n.a.a.a.b.b {
                 return;
             }
         }
-        this.f75083e = context;
+        this.f72131e = context;
     }
 
     @Override // d.n.a.a.a.b.b
@@ -43,7 +44,7 @@ public final class b implements d.n.a.a.a.b.b {
         try {
             aVar.a(c(), this);
         } catch (Throwable th) {
-            d.n.a.a.c.b.b.c(th);
+            c.c(th);
         }
     }
 
@@ -62,7 +63,7 @@ public final class b implements d.n.a.a.a.b.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String d2 = a.a(this.f75083e).d();
+            String d2 = a.a(this.f72131e).d();
             return TextUtils.isEmpty(d2) ? "" : d2;
         }
         return (String) invokeV.objValue;
@@ -72,7 +73,7 @@ public final class b implements d.n.a.a.a.b.b {
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a.a(this.f75083e).c() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a.a(this.f72131e).c() : invokeV.booleanValue;
     }
 
     @Override // d.n.a.a.a.b.b

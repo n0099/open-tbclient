@@ -1,5 +1,6 @@
 package com.google.zxing.oned;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,7 +17,7 @@ import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class CodaBarReader extends OneDReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char[] ALPHABET;
@@ -102,7 +103,7 @@ public final class CodaBarReader extends OneDReader {
     private int findStartPattern() throws NotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             for (int i2 = 1; i2 < this.counterLength; i2 += 2) {
                 int narrowWidePattern = toNarrowWidePattern(i2);
                 if (narrowWidePattern != -1 && arrayContains(STARTEND_ENCODING, ALPHABET[narrowWidePattern])) {

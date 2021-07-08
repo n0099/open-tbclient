@@ -11,22 +11,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class Circle extends Overlay {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LatLng f6885a;
+    public LatLng f6902a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f6886b;
+    public int f6903b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f6887c;
+    public int f6904c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Stroke f6888d;
+    public Stroke f6905d;
 
     public Circle() {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public final class Circle extends Overlay {
                 return;
             }
         }
-        this.type = com.baidu.mapsdkplatform.comapi.map.h.f7711h;
+        this.type = com.baidu.mapsdkplatform.comapi.map.h.f7728h;
     }
 
     @Override // com.baidu.mapapi.map.Overlay
@@ -50,16 +50,16 @@ public final class Circle extends Overlay {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
             super.a(bundle);
-            GeoPoint ll2mc = CoordUtil.ll2mc(this.f6885a);
+            GeoPoint ll2mc = CoordUtil.ll2mc(this.f6902a);
             bundle.putDouble("location_x", ll2mc.getLongitudeE6());
             bundle.putDouble("location_y", ll2mc.getLatitudeE6());
-            bundle.putInt("radius", CoordUtil.getMCDistanceByOneLatLngAndRadius(this.f6885a, this.f6887c));
-            Overlay.a(this.f6886b, bundle);
-            if (this.f6888d == null) {
+            bundle.putInt("radius", CoordUtil.getMCDistanceByOneLatLngAndRadius(this.f6902a, this.f6904c));
+            Overlay.a(this.f6903b, bundle);
+            if (this.f6905d == null) {
                 bundle.putInt("has_stroke", 0);
             } else {
                 bundle.putInt("has_stroke", 1);
-                bundle.putBundle("stroke", this.f6888d.a(new Bundle()));
+                bundle.putBundle("stroke", this.f6905d.a(new Bundle()));
             }
             return bundle;
         }
@@ -69,25 +69,25 @@ public final class Circle extends Overlay {
     public LatLng getCenter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6885a : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6902a : (LatLng) invokeV.objValue;
     }
 
     public int getFillColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f6886b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f6903b : invokeV.intValue;
     }
 
     public int getRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6887c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6904c : invokeV.intValue;
     }
 
     public Stroke getStroke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6888d : (Stroke) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6905d : (Stroke) invokeV.objValue;
     }
 
     public void setCenter(LatLng latLng) {
@@ -96,7 +96,7 @@ public final class Circle extends Overlay {
             if (latLng == null) {
                 throw new IllegalArgumentException("BDMapSDKException: circle center can not be null");
             }
-            this.f6885a = latLng;
+            this.f6902a = latLng;
             this.listener.b(this);
         }
     }
@@ -104,7 +104,7 @@ public final class Circle extends Overlay {
     public void setFillColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f6886b = i2;
+            this.f6903b = i2;
             this.listener.b(this);
         }
     }
@@ -112,7 +112,7 @@ public final class Circle extends Overlay {
     public void setRadius(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f6887c = i2;
+            this.f6904c = i2;
             this.listener.b(this);
         }
     }
@@ -120,7 +120,7 @@ public final class Circle extends Overlay {
     public void setStroke(Stroke stroke) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, stroke) == null) {
-            this.f6888d = stroke;
+            this.f6905d = stroke;
             this.listener.b(this);
         }
     }

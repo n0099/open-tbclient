@@ -1,5 +1,6 @@
 package com.google.zxing.oned;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,7 +21,7 @@ import com.google.zxing.common.BitArray;
 import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class OneDReader implements Reader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -204,7 +205,7 @@ public abstract class OneDReader implements Reader {
 
     public static void recordPatternInReverse(BitArray bitArray, int i2, int[] iArr) throws NotFoundException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65540, null, bitArray, i2, iArr) == null) {
+        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, bitArray, i2, iArr) == null) {
             int length = iArr.length;
             boolean z = bitArray.get(i2);
             while (i2 > 0 && length >= 0) {

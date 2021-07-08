@@ -1,5 +1,6 @@
 package io.reactivex.internal.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +10,7 @@ import io.reactivex.Observer;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class HalfSerializer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +45,7 @@ public final class HalfSerializer {
 
     public static void onError(Subscriber<?> subscriber, Throwable th, AtomicInteger atomicInteger, AtomicThrowable atomicThrowable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65540, null, subscriber, th, atomicInteger, atomicThrowable) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, subscriber, th, atomicInteger, atomicThrowable) == null) {
             if (atomicThrowable.addThrowable(th)) {
                 if (atomicInteger.getAndIncrement() == 0) {
                     subscriber.onError(atomicThrowable.terminate());

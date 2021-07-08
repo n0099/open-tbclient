@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.d.a.g;
 import d.f.d.a.k;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Functions$ConstantFunction<E> implements g<Object, E>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;

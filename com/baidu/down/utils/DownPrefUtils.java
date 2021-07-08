@@ -3,6 +3,7 @@ package com.baidu.down.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Environment;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,7 +16,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class DownPrefUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -95,7 +96,7 @@ public final class DownPrefUtils {
     public static int getInt(Context context, String str, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65540, null, context, str, i2)) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getInt(str, i2) : invokeLLI.intValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, i2)) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getInt(str, i2) : invokeLLI.intValue;
     }
 
     public static long getLong(Context context, String str, long j) {

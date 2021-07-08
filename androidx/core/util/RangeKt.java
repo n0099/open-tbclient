@@ -2,6 +2,7 @@ package androidx.core.util;
 
 import android.util.Range;
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -53,7 +54,7 @@ public final class RangeKt {
     public static final <T extends Comparable<? super T>> ClosedRange<T> toClosedRange(final Range<T> range) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, range)) == null) ? (ClosedRange<T>) new ClosedRange<T>(range) { // from class: androidx.core.util.RangeKt$toClosedRange$1
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, range)) == null) ? (ClosedRange<T>) new ClosedRange<T>(range) { // from class: androidx.core.util.RangeKt$toClosedRange$1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Range $this_toClosedRange;

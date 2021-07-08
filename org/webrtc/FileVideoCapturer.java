@@ -21,7 +21,7 @@ import java.nio.charset.Charset;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class FileVideoCapturer implements VideoCapturer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FileVideoCapturer";
@@ -31,14 +31,14 @@ public class FileVideoCapturer implements VideoCapturer {
     public final Timer timer;
     public final VideoReader videoReader;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface VideoReader {
         void close();
 
         VideoFrame getNextFrame();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class VideoReaderY4M implements VideoReader {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FRAME_DELIMETER_LENGTH = 6;
@@ -82,7 +82,7 @@ public class FileVideoCapturer implements VideoCapturer {
                     return;
                 }
             }
-            RandomAccessFile randomAccessFile = new RandomAccessFile(str, r.f7745a);
+            RandomAccessFile randomAccessFile = new RandomAccessFile(str, r.f7762a);
             this.mediaFile = randomAccessFile;
             this.mediaFileChannel = randomAccessFile.getChannel();
             StringBuilder sb = new StringBuilder();
@@ -100,21 +100,21 @@ public class FileVideoCapturer implements VideoCapturer {
                         if (charAt == 'C') {
                             str2 = str3.substring(1);
                         } else if (charAt == 'H') {
-                            i4 = Integer.parseInt(str3.substring(1));
-                        } else if (charAt == 'W') {
                             i5 = Integer.parseInt(str3.substring(1));
+                        } else if (charAt == 'W') {
+                            i4 = Integer.parseInt(str3.substring(1));
                         }
                     }
                     Logging.d(TAG, "Color space: " + str2);
                     if (!str2.equals("420") && !str2.equals("420mpeg2")) {
                         throw new IllegalArgumentException("Does not support any other color space than I420 or I420mpeg2");
                     }
-                    if (i5 % 2 == 1 || i4 % 2 == 1) {
+                    if (i4 % 2 == 1 || i5 % 2 == 1) {
                         throw new IllegalArgumentException("Does not support odd width or height");
                     }
-                    this.frameWidth = i5;
-                    this.frameHeight = i4;
-                    Logging.d(TAG, "frame dim: (" + i5 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + SmallTailInfo.EMOTION_SUFFIX);
+                    this.frameWidth = i4;
+                    this.frameHeight = i5;
+                    Logging.d(TAG, "frame dim: (" + i4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i5 + SmallTailInfo.EMOTION_SUFFIX);
                     return;
                 } else {
                     sb.append((char) read);

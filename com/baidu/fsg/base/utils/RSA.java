@@ -1,5 +1,6 @@
 package com.baidu.fsg.base.utils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,12 +12,12 @@ import java.security.PublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class RSA {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5391a = "RSA";
+    public static final String f5408a = "RSA";
     public transient /* synthetic */ FieldHolder $fh;
 
     public RSA() {
@@ -50,7 +51,7 @@ public class RSA {
     public static PrivateKey b(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
             try {
                 return KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(bArr));
             } catch (Exception e2) {

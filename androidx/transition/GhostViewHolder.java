@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -163,7 +164,7 @@ public class GhostViewHolder extends FrameLayout {
     public static boolean isOnTop(View view, View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, view, view2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, view, view2)) == null) {
             ViewGroup viewGroup = (ViewGroup) view.getParent();
             int childCount = viewGroup.getChildCount();
             if (Build.VERSION.SDK_INT >= 21 && view.getZ() != view2.getZ()) {

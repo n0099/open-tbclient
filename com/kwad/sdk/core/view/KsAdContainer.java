@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.s;
-/* loaded from: classes7.dex */
+import com.kwad.sdk.utils.v;
+/* loaded from: classes6.dex */
 public class KsAdContainer extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public s.a f36741a;
+    public v.a f35084a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KsAdContainer(Context context) {
@@ -38,7 +38,7 @@ public class KsAdContainer extends RelativeLayout {
                 return;
             }
         }
-        this.f36741a = new s.a();
+        this.f35084a = new v.a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -60,7 +60,7 @@ public class KsAdContainer extends RelativeLayout {
                 return;
             }
         }
-        this.f36741a = new s.a();
+        this.f35084a = new v.a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -82,7 +82,7 @@ public class KsAdContainer extends RelativeLayout {
                 return;
             }
         }
-        this.f36741a = new s.a();
+        this.f35084a = new v.a();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -92,11 +92,11 @@ public class KsAdContainer extends RelativeLayout {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                s.a aVar = new s.a(getWidth(), getHeight());
-                this.f36741a = aVar;
+                v.a aVar = new v.a(getWidth(), getHeight());
+                this.f35084a = aVar;
                 aVar.a(motionEvent.getX(), motionEvent.getY());
             } else if (action == 1) {
-                this.f36741a.b(motionEvent.getX(), motionEvent.getY());
+                this.f35084a.b(motionEvent.getX(), motionEvent.getY());
             }
             return super.dispatchTouchEvent(motionEvent);
         }
@@ -104,9 +104,9 @@ public class KsAdContainer extends RelativeLayout {
     }
 
     @MainThread
-    public s.a getTouchCoords() {
+    public v.a getTouchCoords() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36741a : (s.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35084a : (v.a) invokeV.objValue;
     }
 }

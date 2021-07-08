@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.icu.text.DateFormat;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,7 +20,7 @@ import java.util.Calendar;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class UtcDates {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String UTC = "UTC";
@@ -90,7 +91,7 @@ public class UtcDates {
     public static DateFormat getAbbrMonthDayFormat(Locale locale) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, locale)) == null) ? getAndroidFormat("MMMd", locale) : (DateFormat) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, locale)) == null) ? getAndroidFormat("MMMd", locale) : (DateFormat) invokeL.objValue;
     }
 
     @TargetApi(24)

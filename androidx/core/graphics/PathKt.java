@@ -2,6 +2,7 @@ package androidx.core.graphics;
 
 import android.graphics.Path;
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,7 +63,7 @@ public final class PathKt {
     public static final Path or(Path path, Path path2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, path, path2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, path, path2)) == null) {
             Path path3 = new Path(path);
             path3.op(path2, Path.Op.UNION);
             return path3;

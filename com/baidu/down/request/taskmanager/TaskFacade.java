@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class TaskFacade {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "TaskFacade";
@@ -82,7 +82,7 @@ public final class TaskFacade {
 
     public static synchronized void release() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             synchronized (TaskFacade.class) {
                 if (instance != null) {
                     instance.mBinaryTaskMng.release();

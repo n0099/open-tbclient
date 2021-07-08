@@ -13,6 +13,7 @@ import android.view.animation.DecelerateInterpolator;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 import androidx.core.content.res.TypedArrayUtils;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -313,7 +314,7 @@ public class Slide extends Visibility {
 
     private void captureValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, transitionValues) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, transitionValues) == null) {
             int[] iArr = new int[2];
             transitionValues.view.getLocationOnScreen(iArr);
             transitionValues.values.put(PROPNAME_SCREEN_POSITION, iArr);

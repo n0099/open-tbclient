@@ -1,5 +1,6 @@
 package com.kwad.sdk.crash.utils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,36 +22,36 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f37004a;
+    public static final Charset f35374a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Charset f37005b;
+    public static final Charset f35375b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final BigInteger f37006c;
+    public static final BigInteger f35376c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final BigInteger f37007d;
+    public static final BigInteger f35377d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final BigInteger f37008e;
+    public static final BigInteger f35378e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BigInteger f37009f;
+    public static final BigInteger f35379f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BigInteger f37010g;
+    public static final BigInteger f35380g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BigInteger f37011h;
+    public static final BigInteger f35381h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final char f37012i;
+    public static final char f35382i;
     public static final BigInteger j;
     public static final BigInteger k;
     public static final File[] l;
@@ -72,27 +73,27 @@ public class g {
                 return;
             }
         }
-        f37004a = Charset.forName("US-ASCII");
-        f37005b = Charset.forName("UTF-8");
+        f35374a = Charset.forName("US-ASCII");
+        f35375b = Charset.forName("UTF-8");
         BigInteger valueOf = BigInteger.valueOf(1024L);
-        f37006c = valueOf;
+        f35376c = valueOf;
         BigInteger multiply = valueOf.multiply(valueOf);
-        f37007d = multiply;
-        BigInteger multiply2 = f37006c.multiply(multiply);
-        f37008e = multiply2;
-        BigInteger multiply3 = f37006c.multiply(multiply2);
-        f37009f = multiply3;
-        BigInteger multiply4 = f37006c.multiply(multiply3);
-        f37010g = multiply4;
-        f37011h = f37006c.multiply(multiply4);
+        f35377d = multiply;
+        BigInteger multiply2 = f35376c.multiply(multiply);
+        f35378e = multiply2;
+        BigInteger multiply3 = f35376c.multiply(multiply2);
+        f35379f = multiply3;
+        BigInteger multiply4 = f35376c.multiply(multiply3);
+        f35380g = multiply4;
+        f35381h = f35376c.multiply(multiply4);
         BigInteger multiply5 = BigInteger.valueOf(1024L).multiply(BigInteger.valueOf(LockFreeTaskQueueCore.FROZEN_MASK));
         j = multiply5;
-        k = f37006c.multiply(multiply5);
+        k = f35376c.multiply(multiply5);
         l = new File[0];
         m = Character.toString(IStringUtil.EXTENSION_SEPARATOR);
         n = Charset.forName("UTF-8");
         o = File.separatorChar;
-        f37012i = a() ? '/' : '\\';
+        f35382i = a() ? '/' : '\\';
     }
 
     public static FileInputStream a(File file) {
@@ -157,7 +158,7 @@ public class g {
 
     public static void a(File file, File file2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, file, file2) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, file2) == null) {
             a(file, file2, true);
         }
     }

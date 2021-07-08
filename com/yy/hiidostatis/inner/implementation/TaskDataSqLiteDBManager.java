@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class TaskDataSqLiteDBManager extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DATABASE_VERSION = 2;
@@ -121,7 +121,7 @@ public class TaskDataSqLiteDBManager extends SQLiteOpenHelper {
     private String insertSql() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) ? "INSERT INTO TASK_DATA(_DATAID ,_ACT,_AID, _CONTENT , _TRYTIMES , _TIME, _ORDER , _VERIFYMD5 , _TYPE, _CREPID) VALUES(?,?,?,?,?,?,?,?,?,?)" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? "INSERT INTO TASK_DATA(_DATAID ,_ACT,_AID, _CONTENT , _TRYTIMES , _TIME, _ORDER , _VERIFYMD5 , _TYPE, _CREPID) VALUES(?,?,?,?,?,?,?,?,?,?)" : (String) invokeV.objValue;
     }
 
     private TaskData transToTaskData(Cursor cursor) {

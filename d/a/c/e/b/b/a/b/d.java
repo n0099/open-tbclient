@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class d implements h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public byte f44018a;
+    public byte f41034a;
 
     public d(byte b2) {
         Interceptable interceptable = $ic;
@@ -29,35 +29,35 @@ public class d implements h {
                 return;
             }
         }
-        this.f44018a = b2;
+        this.f41034a = b2;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object a(d.a.c.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? Byte.valueOf(this.f44018a) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? Byte.valueOf(this.f41034a) : invokeL.objValue;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object b(d.a.c.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) ? Byte.valueOf(this.f44018a) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) ? Byte.valueOf(this.f41034a) : invokeL.objValue;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object c(d.a.c.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) ? Byte.valueOf(this.f44018a) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) ? Byte.valueOf(this.f41034a) : invokeL.objValue;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object d(d.a.c.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) ? Byte.valueOf(this.f44018a) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) ? Byte.valueOf(this.f41034a) : invokeL.objValue;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
@@ -71,6 +71,6 @@ public class d implements h {
     public Object f(d.a.c.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cVar)) == null) ? Integer.valueOf(this.f44018a) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cVar)) == null) ? Integer.valueOf(this.f41034a) : invokeL.objValue;
     }
 }

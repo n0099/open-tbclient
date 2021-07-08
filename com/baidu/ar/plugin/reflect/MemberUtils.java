@@ -1,5 +1,6 @@
 package com.baidu.ar.plugin.reflect;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -115,7 +116,7 @@ public class MemberUtils {
         InterceptResult invokeLL;
         float f2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, cls, cls2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, cls2)) == null) {
             if (cls.isPrimitive()) {
                 f2 = 0.0f;
             } else {

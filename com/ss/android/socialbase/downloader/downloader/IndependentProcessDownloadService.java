@@ -8,7 +8,7 @@ import d.l.a.e.b.g.e;
 import d.l.a.e.b.g.p;
 import d.l.a.e.b.g.v;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class IndependentProcessDownloadService extends DownloadService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class IndependentProcessDownloadService extends DownloadService {
                 e.L(new v());
             }
             p O0 = e.O0();
-            this.f41512a = O0;
+            this.f38526a = O0;
             O0.c(new WeakReference(this));
         }
     }

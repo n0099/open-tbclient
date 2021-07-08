@@ -18,8 +18,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.s0.w2.w;
-/* loaded from: classes5.dex */
+import d.a.p0.w2.w;
+/* loaded from: classes4.dex */
 public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,16 +30,16 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
     public int v;
     public final int w;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LPBigImgCard f18208e;
+        public final /* synthetic */ LPBigImgCard f18248e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ LPBigImgCardView f18209f;
+        public final /* synthetic */ LPBigImgCardView f18249f;
 
         public a(LPBigImgCardView lPBigImgCardView, LPBigImgCard lPBigImgCard) {
             Interceptable interceptable = $ic;
@@ -56,30 +56,30 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
                     return;
                 }
             }
-            this.f18209f = lPBigImgCardView;
-            this.f18208e = lPBigImgCard;
+            this.f18249f = lPBigImgCardView;
+            this.f18248e = lPBigImgCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                UrlManager.getInstance().dealOneLink(this.f18209f.m, new String[]{this.f18208e.getBtnLink()});
-                w.p().m().c(this.f18208e.getsExtras(), this.f18209f.f18190e);
+                UrlManager.getInstance().dealOneLink(this.f18249f.m, new String[]{this.f18248e.getBtnLink()});
+                w.o().l().c(this.f18248e.getsExtras(), this.f18249f.f18230e);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LPBigImgCard f18210e;
+        public final /* synthetic */ LPBigImgCard f18250e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ LPBigImgCardView f18211f;
+        public final /* synthetic */ LPBigImgCardView f18251f;
 
         public b(LPBigImgCardView lPBigImgCardView, LPBigImgCard lPBigImgCard) {
             Interceptable interceptable = $ic;
@@ -96,16 +96,16 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
                     return;
                 }
             }
-            this.f18211f = lPBigImgCardView;
-            this.f18210e = lPBigImgCard;
+            this.f18251f = lPBigImgCardView;
+            this.f18250e = lPBigImgCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                UrlManager.getInstance().dealOneLink(this.f18211f.m, new String[]{this.f18210e.getBtnLink()});
-                w.p().m().c(this.f18210e.getsExtras(), this.f18211f.f18190e);
+                UrlManager.getInstance().dealOneLink(this.f18251f.m, new String[]{this.f18250e.getBtnLink()});
+                w.o().l().c(this.f18250e.getsExtras(), this.f18251f.f18230e);
             }
         }
     }
@@ -205,7 +205,7 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         if (lPBigImgCard.mHasShown) {
             return;
         }
-        w.p().m().d(lPBigImgCard.getShowExtra(), this.f18190e);
+        w.o().l().d(lPBigImgCard.getShowExtra(), this.f18230e);
         lPBigImgCard.mHasShown = true;
     }
 

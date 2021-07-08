@@ -13,31 +13,31 @@ public final class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final l f3536a;
+    public static final l f3539a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final l f3537b;
+    public static final l f3540b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final l f3538c;
+    public static final l f3541c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final l f3539d;
+    public static final l f3542d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final l f3540e;
+    public static final l f3543e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final l f3541f;
+    public static final l f3544f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final l f3542g;
+    public static final l f3545g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final l f3543h;
+    public static final l f3546h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final l f3544i;
+    public static final l f3547i;
     public static final l j;
     public static final l k;
     public static final l l;
@@ -58,20 +58,20 @@ public final class l {
                 return;
             }
         }
-        f3536a = new l("MSG_TYPE_INVALID", 0, -1);
-        f3537b = new l("MSG_TYPE_SINGLE_PRIVATE", 1, 0);
-        f3538c = new l("MSG_TYPE_MULTI_PRIVATE", 2, 1);
-        f3539d = new l("MSG_TYPE_SINGLE_PUBLIC", 3, 2);
-        f3540e = new l("MSG_TYPE_MULTI_PUBLIC", 4, 3);
-        f3541f = new l("MSG_TYPE_MULTI_PRIVATE_NOTIFICATION", 5, 5);
-        f3542g = new l("MSG_TYPE_PRIVATE_MESSAGE", 6, 6);
-        f3543h = new l("MSG_TYPE_CLEAR_MESSAGE", 7, 8);
-        f3544i = new l("MSG_TYPE_CROSS_PUSH", 8, 20);
+        f3539a = new l("MSG_TYPE_INVALID", 0, -1);
+        f3540b = new l("MSG_TYPE_SINGLE_PRIVATE", 1, 0);
+        f3541c = new l("MSG_TYPE_MULTI_PRIVATE", 2, 1);
+        f3542d = new l("MSG_TYPE_SINGLE_PUBLIC", 3, 2);
+        f3543e = new l("MSG_TYPE_MULTI_PUBLIC", 4, 3);
+        f3544f = new l("MSG_TYPE_MULTI_PRIVATE_NOTIFICATION", 5, 5);
+        f3545g = new l("MSG_TYPE_PRIVATE_MESSAGE", 6, 6);
+        f3546h = new l("MSG_TYPE_CLEAR_MESSAGE", 7, 8);
+        f3547i = new l("MSG_TYPE_CROSS_PUSH", 8, 20);
         j = new l("MSG_TYPE_APP_PRIORITY", 9, 30);
         k = new l("MSG_TYPE_INNERBIND", 10, 101);
         l lVar = new l("MSG_TYPE_APPSTAT_COMMAND", 11, 104);
         l = lVar;
-        n = new l[]{f3536a, f3537b, f3538c, f3539d, f3540e, f3541f, f3542g, f3543h, f3544i, j, k, lVar};
+        n = new l[]{f3539a, f3540b, f3541c, f3542d, f3543e, f3544f, f3545g, f3546h, f3547i, j, k, lVar};
     }
 
     public l(String str, int i2, int i3) {
@@ -98,7 +98,7 @@ public final class l {
     public static l a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 5 ? i2 != 6 ? i2 != 8 ? i2 != 20 ? i2 != 30 ? i2 != 101 ? i2 != 104 ? f3536a : l : k : j : f3544i : f3543h : f3542g : f3541f : f3540e : f3539d : f3538c : f3537b : (l) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 5 ? i2 != 6 ? i2 != 8 ? i2 != 20 ? i2 != 30 ? i2 != 101 ? i2 != 104 ? f3539a : l : k : j : f3547i : f3546h : f3545g : f3544f : f3543e : f3542d : f3541c : f3540b : (l) invokeI.objValue;
     }
 
     public static l[] a() {

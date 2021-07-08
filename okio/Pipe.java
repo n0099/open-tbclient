@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class Pipe {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,7 +18,7 @@ public final class Pipe {
     public final Source source;
     public boolean sourceClosed;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public final class PipeSink implements Sink {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,7 +112,7 @@ public final class Pipe {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public final class PipeSource implements Source {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

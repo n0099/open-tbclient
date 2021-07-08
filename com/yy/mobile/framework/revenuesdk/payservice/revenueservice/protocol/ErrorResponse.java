@@ -9,7 +9,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IBaseJsonResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ErrorResponse implements IBaseJsonResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

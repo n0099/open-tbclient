@@ -1,5 +1,6 @@
 package io.flutter.plugin.common;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class StandardMessageCodec implements MessageCodec<Object> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte BIGINT = 5;
@@ -42,7 +43,7 @@ public class StandardMessageCodec implements MessageCodec<Object> {
     public static final Charset UTF8;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class ExposedByteArrayOutputStream extends ByteArrayOutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -123,7 +124,7 @@ public class StandardMessageCodec implements MessageCodec<Object> {
     public static final int readSize(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, byteBuffer)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, byteBuffer)) == null) {
             if (byteBuffer.hasRemaining()) {
                 int i2 = byteBuffer.get() & 255;
                 if (i2 < 254) {

@@ -2351,13 +2351,13 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         if (interceptable == null || (invokeL = interceptable.invokeL(1048798, this, intent)) == null) {
             String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE);
             d.a c2 = stringExtra != null ? d.a.c.h.d.a().c(stringExtra) : null;
-            if (c2 != null && c2.f44638a != null) {
+            if (c2 != null && c2.f41654a != null) {
                 if (d.a.c.h.d.a().b() == 1) {
                     d.a.c.h.d.a().e(stringExtra);
-                    c2.f44638a.stopSelf();
+                    c2.f41654a.stopSelf();
                     return true;
                 }
-                c2.f44638a.onDestroy();
+                c2.f41654a.onDestroy();
                 d.a.c.h.d.a().e(stringExtra);
                 return true;
             }

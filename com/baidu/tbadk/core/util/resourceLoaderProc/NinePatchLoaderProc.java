@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.a.f.b;
 import d.a.c.e.a.f.c;
 import d.a.c.k.d.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class NinePatchLoaderProc extends AbstractImageLoaderProc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -10,13 +10,13 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class SubscriberCompletableObserver<T> implements CompletableObserver, Subscription {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public Disposable f75962d;
+    public Disposable f72996d;
     public final Subscriber<? super T> subscriber;
 
     public SubscriberCompletableObserver(Subscriber<? super T> subscriber) {
@@ -41,7 +41,7 @@ public final class SubscriberCompletableObserver<T> implements CompletableObserv
     public void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f75962d.dispose();
+            this.f72996d.dispose();
         }
     }
 
@@ -64,8 +64,8 @@ public final class SubscriberCompletableObserver<T> implements CompletableObserv
     @Override // io.reactivex.CompletableObserver
     public void onSubscribe(Disposable disposable) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f75962d, disposable)) {
-            this.f75962d = disposable;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f72996d, disposable)) {
+            this.f72996d = disposable;
             this.subscriber.onSubscribe(this);
         }
     }

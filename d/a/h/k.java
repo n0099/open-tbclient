@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f45556a;
+    public static boolean f42410a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public final class k {
 
     public static void a(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, str, objArr) == null) && f45556a) {
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, objArr) == null) && f42410a) {
             Log.v("BDHttpDns", String.format(str, objArr));
         }
     }
@@ -39,7 +39,7 @@ public final class k {
     public static void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
-            f45556a = z;
+            f42410a = z;
         }
     }
 }

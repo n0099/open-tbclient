@@ -38,36 +38,36 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static b f44360f;
+    public static b f41376f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.c.e.n.c f44361a;
+    public d.a.c.e.n.c f41377a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f44362b;
+    public String f41378b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f44363c;
+    public String f41379c;
 
     /* renamed from: d  reason: collision with root package name */
-    public C0592b f44364d;
+    public C0553b f41380d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f44365e;
+    public CustomMessageListener f41381e;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f44366a;
+        public final /* synthetic */ b f41382a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, int i2) {
@@ -87,7 +87,7 @@ public class b {
                     return;
                 }
             }
-            this.f44366a = bVar;
+            this.f41382a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -95,19 +95,19 @@ public class b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                this.f44366a.f();
+                this.f41382a.f();
             }
         }
     }
 
     /* renamed from: d.a.c.e.n.l.b$b  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public class C0592b extends BroadcastReceiver {
+    /* loaded from: classes7.dex */
+    public class C0553b extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b this$0;
 
-        public C0592b(b bVar) {
+        public C0553b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,21 +134,21 @@ public class b {
             this.this$0.o(intent.getStringExtra("intent_data_userid"), intent.getStringExtra("intent_data_username"), intent.getStringExtra("intent_data_bduss"));
         }
 
-        public /* synthetic */ C0592b(b bVar, a aVar) {
+        public /* synthetic */ C0553b(b bVar, a aVar) {
             this(bVar);
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class c extends BdAsyncTask<Object, Integer, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public d.a.c.e.n.h.a f44367a;
+        public d.a.c.e.n.h.a f41383a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f44368b;
+        public final /* synthetic */ b f41384b;
 
         public c(@NonNull b bVar, d.a.c.e.n.h.a aVar) {
             Interceptable interceptable = $ic;
@@ -165,9 +165,9 @@ public class b {
                     return;
                 }
             }
-            this.f44368b = bVar;
-            this.f44367a = null;
-            this.f44367a = aVar;
+            this.f41384b = bVar;
+            this.f41383a = null;
+            this.f41383a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -177,7 +177,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                d(this.f44367a);
+                d(this.f41383a);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -189,7 +189,7 @@ public class b {
         public void onPostExecute(Void r5) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r5) == null) {
-                this.f44367a.J(false);
+                this.f41383a.J(false);
             }
         }
 
@@ -205,7 +205,7 @@ public class b {
                     for (int i2 = size - 1; i2 >= 0; i2--) {
                         ArrayList<String> trackLogStringByIndex = b2.getTrackLogStringByIndex(i2);
                         if (trackLogStringByIndex != null && trackLogStringByIndex.size() != 0) {
-                            this.f44368b.i(aVar, trackLogStringByIndex, b2.get(i2));
+                            this.f41384b.i(aVar, trackLogStringByIndex, b2.get(i2));
                         }
                     }
                 } catch (Exception e2) {
@@ -215,19 +215,19 @@ public class b {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class d extends BdAsyncTask<Object, Integer, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public d.a.c.e.n.h.a f44369a;
+        public d.a.c.e.n.h.a f41385a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f44370b;
+        public String f41386b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f44371c;
+        public final /* synthetic */ b f41387c;
 
         public d(b bVar, d.a.c.e.n.h.a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -244,9 +244,9 @@ public class b {
                     return;
                 }
             }
-            this.f44371c = bVar;
-            this.f44369a = aVar;
-            this.f44370b = str;
+            this.f41387c = bVar;
+            this.f41385a = aVar;
+            this.f41386b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -256,33 +256,33 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                String e2 = d.a.c.e.n.l.d.e(this.f44369a, this.f44371c.f44361a);
-                String str = this.f44370b;
+                String e2 = d.a.c.e.n.l.d.e(this.f41385a, this.f41387c.f41377a);
+                String str = this.f41386b;
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(str);
                 BdLog.i("commonHeader = " + e2);
                 BdLog.i("cache = " + str);
-                this.f44369a.d();
-                this.f44371c.h(this.f44369a, e2, arrayList, null, true);
+                this.f41385a.d();
+                this.f41387c.h(this.f41385a, e2, arrayList, null, true);
                 return null;
             }
             return (Void) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class e extends BdAsyncTask<Object, Integer, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public d.a.c.e.n.h.a f44372a;
+        public d.a.c.e.n.h.a f41388a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f44373b;
+        public String f41389b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f44374c;
+        public final /* synthetic */ b f41390c;
 
         public e(b bVar, d.a.c.e.n.h.a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -299,9 +299,9 @@ public class b {
                     return;
                 }
             }
-            this.f44374c = bVar;
-            this.f44372a = aVar;
-            this.f44373b = str;
+            this.f41390c = bVar;
+            this.f41388a = aVar;
+            this.f41389b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -311,39 +311,39 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                String str = this.f44373b;
+                String str = this.f41389b;
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(str);
-                this.f44372a.f();
-                this.f44374c.i(this.f44372a, arrayList, null);
+                this.f41388a.f();
+                this.f41390c.i(this.f41388a, arrayList, null);
                 return null;
             }
             return (Void) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class f extends BdAsyncTask<Object, Integer, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public d.a.c.e.n.h.a f44375a;
+        public d.a.c.e.n.h.a f41391a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ArrayList<String> f44376b;
+        public ArrayList<String> f41392b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f44377c;
+        public boolean f41393c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f44378d;
+        public boolean f41394d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f44379e;
+        public boolean f41395e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f44380f;
+        public final /* synthetic */ b f41396f;
 
         public f(b bVar, d.a.c.e.n.h.a aVar, ArrayList<String> arrayList, boolean z, boolean z2, boolean z3) {
             Interceptable interceptable = $ic;
@@ -360,17 +360,17 @@ public class b {
                     return;
                 }
             }
-            this.f44380f = bVar;
-            this.f44375a = null;
-            this.f44376b = null;
-            this.f44377c = false;
-            this.f44378d = false;
-            this.f44379e = false;
-            this.f44375a = aVar;
-            this.f44376b = arrayList;
-            this.f44377c = z;
-            this.f44378d = z2;
-            this.f44379e = z3;
+            this.f41396f = bVar;
+            this.f41391a = null;
+            this.f41392b = null;
+            this.f41393c = false;
+            this.f41394d = false;
+            this.f41395e = false;
+            this.f41391a = aVar;
+            this.f41392b = arrayList;
+            this.f41393c = z;
+            this.f41394d = z2;
+            this.f41395e = z3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -380,7 +380,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                d(this.f44375a, this.f44377c, this.f44378d, this.f44379e);
+                d(this.f41391a, this.f41393c, this.f41394d, this.f41395e);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -392,7 +392,7 @@ public class b {
         public void onPostExecute(Void r5) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r5) == null) {
-                this.f44375a.K(false);
+                this.f41391a.K(false);
             }
         }
 
@@ -401,7 +401,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{aVar, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
                 try {
-                    String e2 = d.a.c.e.n.l.d.e(aVar, this.f44380f.f44361a);
+                    String e2 = d.a.c.e.n.l.d.e(aVar, this.f41396f.f41377a);
                     BdUploadingLogInfo b2 = d.a.c.e.n.l.a.b(aVar, z2);
                     int size = b2.size();
                     if (b2 == null || size <= 0) {
@@ -410,20 +410,20 @@ public class b {
                     if (!z) {
                         int i3 = 0;
                         while (i3 < size) {
-                            ArrayList<String> logStringByIndex = b2.getLogStringByIndex(i3, this.f44376b);
+                            ArrayList<String> logStringByIndex = b2.getLogStringByIndex(i3, this.f41392b);
                             if (logStringByIndex != null && logStringByIndex.size() != 0) {
                                 if (!z2) {
                                     i2 = i3;
-                                    this.f44380f.h(aVar, e2, logStringByIndex, b2.get(i2), z3);
+                                    this.f41396f.h(aVar, e2, logStringByIndex, b2.get(i2), z3);
                                 } else {
                                     ArrayList<d.a.c.e.n.h.d> arrayList = b2.get(i3);
                                     for (int i4 = 0; i4 < arrayList.size(); i4++) {
-                                        if (arrayList.get(i4).f44344b.contains("notUpload/")) {
-                                            arrayList.get(i4).f44344b = arrayList.get(i4).f44344b.replace("notUpload/", "");
+                                        if (arrayList.get(i4).f41360b.contains("notUpload/")) {
+                                            arrayList.get(i4).f41360b = arrayList.get(i4).f41360b.replace("notUpload/", "");
                                         }
                                     }
                                     i2 = i3;
-                                    this.f44380f.h(aVar, e2, logStringByIndex, arrayList, z3);
+                                    this.f41396f.h(aVar, e2, logStringByIndex, arrayList, z3);
                                 }
                                 i3 = i2 + 1;
                             }
@@ -434,22 +434,22 @@ public class b {
                     }
                     int i5 = 0;
                     for (int i6 = size - 1; i6 >= 0; i6--) {
-                        ArrayList<String> logStringByIndex2 = b2.getLogStringByIndex(i6, this.f44376b);
+                        ArrayList<String> logStringByIndex2 = b2.getLogStringByIndex(i6, this.f41392b);
                         if (logStringByIndex2 != null && logStringByIndex2.size() != 0) {
                             if (!j.H() && (i5 = i5 + logStringByIndex2.toString().length()) > 102400) {
                                 return;
                             }
                             int i7 = i5;
                             if (!z2) {
-                                this.f44380f.h(aVar, e2, logStringByIndex2, b2.get(i6), z3);
+                                this.f41396f.h(aVar, e2, logStringByIndex2, b2.get(i6), z3);
                             } else {
                                 ArrayList<d.a.c.e.n.h.d> arrayList2 = b2.get(i6);
                                 for (int i8 = 0; i8 < arrayList2.size(); i8++) {
-                                    if (arrayList2.get(i8).f44344b.contains("notUpload/")) {
-                                        arrayList2.get(i8).f44344b = arrayList2.get(i8).f44344b.replace("notUpload/", "");
+                                    if (arrayList2.get(i8).f41360b.contains("notUpload/")) {
+                                        arrayList2.get(i8).f41360b = arrayList2.get(i8).f41360b.replace("notUpload/", "");
                                     }
                                 }
-                                this.f44380f.h(aVar, e2, logStringByIndex2, arrayList2, z3);
+                                this.f41396f.h(aVar, e2, logStringByIndex2, arrayList2, z3);
                             }
                             i5 = i7;
                         }
@@ -489,21 +489,21 @@ public class b {
                 return;
             }
         }
-        this.f44365e = new a(this, 2000994);
+        this.f41381e = new a(this, 2000994);
     }
 
     public static b m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            if (f44360f == null) {
+            if (f41376f == null) {
                 synchronized (b.class) {
-                    if (f44360f == null) {
-                        f44360f = new b();
+                    if (f41376f == null) {
+                        f41376f = new b();
                     }
                 }
             }
-            return f44360f;
+            return f41376f;
         }
         return (b) invokeV.objValue;
     }
@@ -525,8 +525,8 @@ public class b {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f44361a.o = d.a.c.e.n.d.a(BdBaseApplication.getInst());
-            this.f44361a.p = String.valueOf(j.I());
+            this.f41377a.o = d.a.c.e.n.d.a(BdBaseApplication.getInst());
+            this.f41377a.p = String.valueOf(j.I());
         }
     }
 
@@ -585,14 +585,14 @@ public class b {
                         if (aVar.o().equals("pfmonitor") && BdStatisticsSwitchStatic.isOn()) {
                             try {
                                 d.a.c.e.j.a.e eVar = new d.a.c.e.j.a.e();
-                                String str4 = this.f44362b;
+                                String str4 = this.f41378b;
                                 if (z2 && str4.contains("c.tieba.baidu.com")) {
                                     str4 = str4.replace("c.tieba.baidu.com", "123.125.115.120");
                                     eVar.b().a("Host", "c.tieba.baidu.com");
                                 }
                                 eVar.b().s(str4);
                                 eVar.b().q(HttpMessageTask.HTTP_METHOD.POST);
-                                HashMap<String, Object> f2 = d.a.c.e.n.l.d.f(this.f44361a, z);
+                                HashMap<String, Object> f2 = d.a.c.e.n.l.d.f(this.f41377a, z);
                                 if (f2 != null) {
                                     eVar.b().r(new ArrayList(f2.entrySet()));
                                 }
@@ -625,15 +625,15 @@ public class b {
                 }
                 eVar2.b().s(str3);
                 eVar2.b().q(HttpMessageTask.HTTP_METHOD.POST);
-                HashMap<String, Object> f3 = d.a.c.e.n.l.d.f(this.f44361a, z);
+                HashMap<String, Object> f3 = d.a.c.e.n.l.d.f(this.f41377a, z);
                 if (f3 != null) {
                     eVar2.b().r(new ArrayList(f3.entrySet()));
                 }
                 eVar2.b().r(arrayList3);
                 try {
                     new d.a.c.e.j.a.c(eVar2).n(3, -1, -1);
-                    int i2 = eVar2.c().f44207b;
-                    byte[] bArr2 = eVar2.c().f44213h;
+                    int i2 = eVar2.c().f41223b;
+                    byte[] bArr2 = eVar2.c().f41229h;
                     if (bArr2 != null && i2 == 200) {
                         try {
                             if (new JSONObject(new String(bArr2, "utf-8")).optInt("error_code", -1) == 0) {
@@ -650,11 +650,11 @@ public class b {
                         StringBuilder sb = new StringBuilder();
                         for (int i3 = 0; i3 < d2.size(); i3++) {
                             d.a.c.e.j.a.d dVar = d2.get(i3);
-                            if (dVar != null && !TextUtils.isEmpty(dVar.f44193h)) {
+                            if (dVar != null && !TextUtils.isEmpty(dVar.f41209h)) {
                                 if (sb.length() > 0) {
                                     sb.append(",");
                                 }
-                                sb.append(dVar.f44193h);
+                                sb.append(dVar.f41209h);
                             }
                         }
                         if (sb.length() > 0) {
@@ -673,8 +673,8 @@ public class b {
 
     public final void h(d.a.c.e.n.h.a aVar, String str, ArrayList<String> arrayList, ArrayList<d.a.c.e.n.h.d> arrayList2, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{aVar, str, arrayList, arrayList2, Boolean.valueOf(z)}) == null) && g(this.f44362b, aVar, str, arrayList, arrayList2, z, false) != null && j.z()) {
-            String g2 = g(this.f44362b, aVar, str, arrayList, arrayList2, z, true);
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{aVar, str, arrayList, arrayList2, Boolean.valueOf(z)}) == null) && g(this.f41378b, aVar, str, arrayList, arrayList2, z, false) != null && j.z()) {
+            String g2 = g(this.f41378b, aVar, str, arrayList, arrayList2, z, true);
             if (g2 == null) {
                 d.a.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem.b("issuc", "true");
@@ -740,22 +740,22 @@ public class b {
             ArrayList arrayList3 = new ArrayList(hashMap.entrySet());
             d.a.c.e.j.a.e eVar = new d.a.c.e.j.a.e();
             eVar.b().a("Host", "c.tieba.baidu.com");
-            eVar.b().s(this.f44363c);
+            eVar.b().s(this.f41379c);
             eVar.b().q(HttpMessageTask.HTTP_METHOD.POST);
-            HashMap<String, Object> f2 = d.a.c.e.n.l.d.f(this.f44361a, false);
+            HashMap<String, Object> f2 = d.a.c.e.n.l.d.f(this.f41377a, false);
             if (f2 != null) {
                 eVar.b().r(new ArrayList(f2.entrySet()));
             }
             eVar.b().r(arrayList3);
             try {
                 new d.a.c.e.j.a.c(eVar).n(3, -1, -1);
-                if (eVar.c().f44207b == 200) {
+                if (eVar.c().f41223b == 200) {
                     try {
-                        if (new JSONObject(new String(eVar.c().f44213h, "utf-8")).optString("error_code").equals("0")) {
+                        if (new JSONObject(new String(eVar.c().f41229h, "utf-8")).optString("error_code").equals("0")) {
                             ArrayList arrayList4 = new ArrayList();
                             Iterator<d.a.c.e.n.h.d> it = arrayList2.iterator();
                             while (it.hasNext()) {
-                                arrayList4.add(it.next().f44344b);
+                                arrayList4.add(it.next().f41360b);
                             }
                             if (arrayList4.size() > 0) {
                                 d.a.c.e.n.h.c.a(arrayList4, aVar.C());
@@ -786,7 +786,7 @@ public class b {
         ArrayList arrayList2 = new ArrayList();
         Iterator<d.a.c.e.n.h.d> it = arrayList.iterator();
         while (it.hasNext()) {
-            arrayList2.add(it.next().f44344b);
+            arrayList2.add(it.next().f41360b);
         }
         if (arrayList2.size() > 0) {
             d.a.c.e.n.h.b.a(arrayList2, z);
@@ -829,7 +829,7 @@ public class b {
                     for (int i2 = 0; i2 < size; i2++) {
                         sb.append("&rec");
                         sb.append(i2);
-                        sb.append(com.alipay.sdk.encrypt.a.f1889h);
+                        sb.append(com.alipay.sdk.encrypt.a.f1890h);
                         try {
                             sb.append(URLEncoder.encode(arrayList.get(i2), "utf-8"));
                         } catch (UnsupportedEncodingException e2) {
@@ -849,25 +849,25 @@ public class b {
     public void n(d.a.c.e.n.c cVar, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar, str, str2) == null) {
-            this.f44362b = str;
-            this.f44363c = str2;
-            this.f44361a = cVar;
+            this.f41378b = str;
+            this.f41379c = str2;
+            this.f41377a = cVar;
             if (cVar != null) {
                 cVar.k = Build.MODEL;
                 cVar.q = Build.VERSION.RELEASE;
                 cVar.o = d.a.c.e.n.d.a(BdBaseApplication.getInst());
-                this.f44361a.p = String.valueOf(j.I());
+                this.f41377a.p = String.valueOf(j.I());
             }
             try {
-                MessageManager.getInstance().registerListener(this.f44365e);
+                MessageManager.getInstance().registerListener(this.f41381e);
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
-            if (this.f44364d == null) {
-                this.f44364d = new C0592b(this, null);
+            if (this.f41380d == null) {
+                this.f41380d = new C0553b(this, null);
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("adp.bdstatisticsmanager.account_changed");
-                BdBaseApplication.getInst().registerReceiver(this.f44364d, intentFilter);
+                BdBaseApplication.getInst().registerReceiver(this.f41380d, intentFilter);
             }
         }
     }
@@ -875,12 +875,12 @@ public class b {
     public void o(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048585, this, str, str2, str3) == null) {
-            if (this.f44361a.l == null && str == null) {
+            if (this.f41377a.l == null && str == null) {
                 return;
             }
-            String str4 = this.f44361a.l;
+            String str4 = this.f41377a.l;
             if (str4 == null || !str4.equals(str)) {
-                d.a.c.e.n.c cVar = this.f44361a;
+                d.a.c.e.n.c cVar = this.f41377a;
                 cVar.l = str;
                 cVar.m = str2;
                 cVar.n = str3;

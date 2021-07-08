@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.al;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class go {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static al f43209a;
+    public static al f40223a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,27 +27,27 @@ public class go {
                 return;
             }
         }
-        f43209a = new al(true, 20);
+        f40223a = new al(true, 20);
     }
 
     public static void a(al.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, bVar) == null) {
-            f43209a.a(bVar);
+            f40223a.a(bVar);
         }
     }
 
     public static void a(al.b bVar, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65538, null, bVar, j) == null) {
-            f43209a.a(bVar, j);
+            f40223a.a(bVar, j);
         }
     }
 
     public static void a(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            f43209a.a(new gp(runnable));
+            f40223a.a(new gp(runnable));
         }
     }
 }

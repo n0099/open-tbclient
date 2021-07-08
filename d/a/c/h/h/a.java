@@ -20,16 +20,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.h.j.g.d;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f44673b;
+    public static volatile a f41689b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, Integer> f44674a;
+    public HashMap<String, Integer> f41690a;
 
     static {
         InterceptResult invokeClinit;
@@ -59,7 +59,7 @@ public class a {
                 return;
             }
         }
-        this.f44674a = new HashMap<>();
+        this.f41690a = new HashMap<>();
     }
 
     public static synchronized a b() {
@@ -68,14 +68,14 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (a.class) {
-                if (f44673b == null) {
+                if (f41689b == null) {
                     synchronized (a.class) {
-                        if (f44673b == null) {
-                            f44673b = new a();
+                        if (f41689b == null) {
+                            f41689b = new a();
                         }
                     }
                 }
-                aVar = f44673b;
+                aVar = f41689b;
             }
             return aVar;
         }
@@ -87,10 +87,10 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
             return;
         }
-        for (Map.Entry<String, Integer> entry : this.f44674a.entrySet()) {
+        for (Map.Entry<String, Integer> entry : this.f41690a.entrySet()) {
             aVar.b(entry.getKey() + "_count", String.valueOf(entry.getValue()));
         }
-        this.f44674a.clear();
+        this.f41690a.clear();
     }
 
     public final d.a.c.e.n.a c() {
@@ -292,11 +292,11 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048593, this, str) == null) || str == null) {
             return;
         }
-        Integer num = this.f44674a.get(str);
+        Integer num = this.f41690a.get(str);
         if (num == null) {
             num = 0;
         }
-        this.f44674a.put(str, Integer.valueOf(num.intValue() + 1));
+        this.f41690a.put(str, Integer.valueOf(num.intValue() + 1));
     }
 
     public void t(String str, String str2) {
@@ -316,7 +316,7 @@ public class a {
 
     public void v() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || this.f44674a.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || this.f41690a.size() == 0) {
             return;
         }
         d.a.c.e.n.a c2 = c();

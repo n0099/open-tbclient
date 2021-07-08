@@ -4,6 +4,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.crabsdk.lite.a.f;
 import com.baidu.crabsdk.lite.a.h;
 import com.baidu.crabsdk.lite.a.k;
@@ -24,18 +25,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CrabLite {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f4685a = null;
+    public static Context f4702a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4686b = "-1";
+    public static String f4703b = "-1";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f4687c = "/sdcard";
+    public static String f4704c = "/sdcard";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -86,14 +87,14 @@ public class CrabLite {
             hashMap.put("sdk_pkgname", str2);
             hashMap.put("sdk_appvn", str3);
             hashMap.put("sdk_appvc", str4);
-            a.f4688a.put(str2, hashMap);
+            a.f4705a.put(str2, hashMap);
             if (context == null) {
                 str5 = "crab init error caused by applcation null value";
             } else {
-                f4685a = context;
-                f4687c = context.getFilesDir().getAbsolutePath();
-                com.baidu.crabsdk.lite.b.a.c(str2, "FILE_PATH IS : " + f4687c);
-                e(str2, f4685a);
+                f4702a = context;
+                f4704c = context.getFilesDir().getAbsolutePath();
+                com.baidu.crabsdk.lite.b.a.c(str2, "FILE_PATH IS : " + f4704c);
+                e(str2, f4702a);
                 long currentTimeMillis2 = System.currentTimeMillis();
                 a.k = false;
                 str5 = "crab init end: " + currentTimeMillis2 + ", cost: " + (currentTimeMillis2 - currentTimeMillis) + "ms";
@@ -104,7 +105,7 @@ public class CrabLite {
 
     public static void c(String str, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, str, context) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, context) == null) {
             l.a(context);
             n.a(str, context);
             f.b(str, context);
@@ -128,7 +129,7 @@ public class CrabLite {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, context) == null) {
             int myPid = Process.myPid();
-            com.baidu.crabsdk.lite.b.a.f(str, "CrabSDK.init from " + f4685a.getPackageName() + " with pid " + myPid);
+            com.baidu.crabsdk.lite.b.a.f(str, "CrabSDK.init from " + f4702a.getPackageName() + " with pid " + myPid);
             List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
             if (runningAppProcesses == null || runningAppProcesses.size() == 0) {
                 com.baidu.crabsdk.lite.b.a.f(str, "getRunningAppProcesses error!!");
@@ -172,7 +173,7 @@ public class CrabLite {
     public static void g(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
-            HashMap<String, Object> hashMap = a.f4688a.get(str);
+            HashMap<String, Object> hashMap = a.f4705a.get(str);
             if (hashMap != null) {
                 hashMap.put("sdk_channel", str2);
             } else {
@@ -184,7 +185,7 @@ public class CrabLite {
     public static void h(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65545, null, str, z) == null) {
-            HashMap<String, Object> hashMap = a.f4688a.get(str);
+            HashMap<String, Object> hashMap = a.f4705a.get(str);
             if (hashMap != null) {
                 hashMap.put("sdk_screenshot", Boolean.valueOf(z));
             } else {
@@ -196,7 +197,7 @@ public class CrabLite {
     public static void i(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65546, null, str, z) == null) {
-            HashMap<String, Object> hashMap = a.f4688a.get(str);
+            HashMap<String, Object> hashMap = a.f4705a.get(str);
             if (hashMap != null) {
                 hashMap.put("sdk_debug", Boolean.valueOf(z));
             } else {
@@ -208,7 +209,7 @@ public class CrabLite {
     public static void j(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65547, null, str, z) == null) {
-            HashMap<String, Object> hashMap = a.f4688a.get(str);
+            HashMap<String, Object> hashMap = a.f4705a.get(str);
             if (hashMap != null) {
                 hashMap.put("sdk_privacy", Boolean.valueOf(z));
             } else {
@@ -220,7 +221,7 @@ public class CrabLite {
     public static void k(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65548, null, str, z) == null) {
-            HashMap<String, Object> hashMap = a.f4688a.get(str);
+            HashMap<String, Object> hashMap = a.f4705a.get(str);
             if (hashMap != null) {
                 hashMap.put("sdk_upload_immediate", Boolean.valueOf(z));
             } else {
@@ -232,7 +233,7 @@ public class CrabLite {
     public static void l(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65549, null, str, i2) == null) {
-            HashMap<String, Object> hashMap = a.f4688a.get(str);
+            HashMap<String, Object> hashMap = a.f4705a.get(str);
             if (hashMap != null) {
                 hashMap.put("sdk_all_crash_limit", Integer.valueOf(i2));
             } else {
@@ -244,7 +245,7 @@ public class CrabLite {
     public static void m(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65550, null, str, i2) == null) {
-            HashMap<String, Object> hashMap = a.f4688a.get(str);
+            HashMap<String, Object> hashMap = a.f4705a.get(str);
             if (hashMap != null) {
                 hashMap.put("sdk_same_crash_limit", Integer.valueOf(i2));
             } else {

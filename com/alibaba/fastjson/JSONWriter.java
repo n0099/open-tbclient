@@ -108,7 +108,7 @@ public class JSONWriter implements Closeable, Flushable {
 
     private void endStructure() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             JSONStreamContext jSONStreamContext = this.context.parent;
             this.context = jSONStreamContext;
             if (jSONStreamContext == null) {

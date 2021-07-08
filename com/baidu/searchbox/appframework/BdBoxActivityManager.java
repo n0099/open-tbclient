@@ -1,6 +1,7 @@
 package com.baidu.searchbox.appframework;
 
 import android.app.Activity;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.appframework.BdBoxActivityLifecycle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.LinkedList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BdBoxActivityManager {
     public static /* synthetic */ Interceptable $ic;
     public static BdBoxActivityLifecycle sMainGlobalActivityLifecycle;
@@ -69,7 +70,7 @@ public class BdBoxActivityManager {
         InterceptResult invokeV;
         BdBoxActivityLifecycle bdBoxActivityLifecycle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (BdBoxActivityLifecycle.class) {
                 bdBoxActivityLifecycle = sMainGlobalActivityLifecycle;
             }

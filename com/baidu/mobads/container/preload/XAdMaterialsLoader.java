@@ -2,6 +2,7 @@ package com.baidu.mobads.container.preload;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.components.downloader.IDownloader;
 import com.baidu.mobads.container.components.downloader.OAdRemoteDownloadManager;
@@ -31,7 +32,7 @@ import java.util.Observer;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class XAdMaterialsLoader implements Observer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MATERIAL_SETTING_URL = "https://mobads.baidu.com/ads/preload.php";
@@ -44,7 +45,7 @@ public class XAdMaterialsLoader implements Observer {
     public List<XAdMaterialsInfo> materialsInfos;
     public String outputFolder;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class MyTask extends BaseTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,7 +132,7 @@ public class XAdMaterialsLoader implements Observer {
     private String getOutputFolderPath(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) {
             return context.getFilesDir().getPath() + File.separator + "__bidu_cache_dir" + File.separator;
         }
         return (String) invokeL.objValue;

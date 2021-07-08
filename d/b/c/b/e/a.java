@@ -21,13 +21,13 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f71845a;
+    public JSONObject f68948a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class a {
                 return;
             }
         }
-        this.f71845a = new JSONObject();
+        this.f68948a = new JSONObject();
     }
 
     public static a c(long j, Context context, @Nullable Thread thread, @NonNull Throwable th) {
@@ -79,8 +79,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, str)) == null) {
             try {
-                this.f71845a.put("miniapp_id", i2);
-                this.f71845a.put("miniapp_version", str);
+                this.f68948a.put("miniapp_id", i2);
+                this.f68948a.put("miniapp_version", str);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -161,7 +161,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, map)) == null) {
             JSONArray jSONArray = new JSONArray();
             if (map == null) {
-                this.f71845a.put("plugin_info", jSONArray);
+                this.f68948a.put("plugin_info", jSONArray);
                 return this;
             }
             for (String str : map.keySet()) {
@@ -170,7 +170,7 @@ public class a {
                 jSONObject.put("version_code", map.get(str));
                 jSONArray.put(jSONObject);
             }
-            this.f71845a.put("plugin_info", jSONArray);
+            this.f68948a.put("plugin_info", jSONArray);
             return this;
         }
         return (a) invokeL.objValue;
@@ -189,14 +189,14 @@ public class a {
     public JSONObject j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f71845a : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f68948a : (JSONObject) invokeV.objValue;
     }
 
     public void k(@NonNull String str, @Nullable Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, obj) == null) {
             try {
-                this.f71845a.put(str, obj);
+                this.f68948a.put(str, obj);
             } catch (Exception e2) {
                 l.k.c(e2);
             }
@@ -231,7 +231,7 @@ public class a {
                     }
                 }
                 try {
-                    this.f71845a.put("sdk_info", jSONObject);
+                    this.f68948a.put("sdk_info", jSONObject);
                 } catch (JSONException e3) {
                     e3.printStackTrace();
                 }
@@ -276,6 +276,6 @@ public class a {
                 return;
             }
         }
-        this.f71845a = jSONObject;
+        this.f68948a = jSONObject;
     }
 }

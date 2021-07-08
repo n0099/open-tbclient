@@ -14,15 +14,15 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final p f28488a;
+    public static final p f28598a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         p a(e eVar);
     }
@@ -40,7 +40,7 @@ public abstract class p {
                 return;
             }
         }
-        f28488a = new p() { // from class: com.bytedance.sdk.component.b.b.p.1
+        f28598a = new p() { // from class: com.bytedance.sdk.component.b.b.p.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -82,7 +82,7 @@ public abstract class p {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ p f28489a;
+            public final /* synthetic */ p f28599a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -99,14 +99,14 @@ public abstract class p {
                         return;
                     }
                 }
-                this.f28489a = pVar;
+                this.f28599a = pVar;
             }
 
             @Override // com.bytedance.sdk.component.b.b.p.a
             public p a(e eVar) {
                 InterceptResult invokeL2;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, eVar)) == null) ? this.f28489a : (p) invokeL2.objValue;
+                return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, eVar)) == null) ? this.f28599a : (p) invokeL2.objValue;
             }
         } : (a) invokeL.objValue;
     }

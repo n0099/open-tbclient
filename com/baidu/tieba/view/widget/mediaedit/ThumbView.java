@@ -13,25 +13,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ThumbView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f22349e;
+    public final int f22408e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f22350f;
+    public Drawable f22409f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f22351g;
+    public boolean f22410g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f22352h;
+    public int f22411h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f22353i;
+    public int f22412i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ThumbView(Context context, int i2, int i3, Drawable drawable) {
@@ -51,11 +51,11 @@ public class ThumbView extends View {
                 return;
             }
         }
-        this.f22352h = i2;
-        this.f22353i = i3;
-        this.f22350f = drawable;
-        this.f22349e = (int) TypedValue.applyDimension(1, 15.0f, context.getResources().getDisplayMetrics());
-        setBackgroundDrawable(this.f22350f);
+        this.f22411h = i2;
+        this.f22412i = i3;
+        this.f22409f = drawable;
+        this.f22408e = (int) TypedValue.applyDimension(1, 15.0f, context.getResources().getDisplayMetrics());
+        setBackgroundDrawable(this.f22409f);
     }
 
     public boolean a(int i2, int i3) {
@@ -65,7 +65,7 @@ public class ThumbView extends View {
             Rect rect = new Rect();
             getHitRect(rect);
             int i4 = rect.left;
-            int i5 = this.f22349e;
+            int i5 = this.f22408e;
             rect.left = i4 - i5;
             rect.right += i5;
             rect.top -= i5;
@@ -79,14 +79,14 @@ public class ThumbView extends View {
     public boolean isPressed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22351g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22410g : invokeV.booleanValue;
     }
 
     @Override // android.view.View
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            super.onMeasure(View.MeasureSpec.makeMeasureSpec(this.f22352h, 1073741824), View.MeasureSpec.makeMeasureSpec(this.f22353i, 1073741824));
+            super.onMeasure(View.MeasureSpec.makeMeasureSpec(this.f22411h, 1073741824), View.MeasureSpec.makeMeasureSpec(this.f22412i, 1073741824));
         }
     }
 
@@ -94,28 +94,28 @@ public class ThumbView extends View {
     public void setPressed(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f22351g = z;
+            this.f22410g = z;
         }
     }
 
     public void setThumbDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, drawable) == null) {
-            this.f22350f = drawable;
+            this.f22409f = drawable;
         }
     }
 
     public void setThumbHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f22353i = i2;
+            this.f22412i = i2;
         }
     }
 
     public void setThumbWidth(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f22352h = i2;
+            this.f22411h = i2;
         }
     }
 }

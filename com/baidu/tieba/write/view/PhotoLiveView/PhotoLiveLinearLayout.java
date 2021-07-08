@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PhotoLiveLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f22621e;
+    public a f22680e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a();
     }
@@ -39,7 +39,7 @@ public class PhotoLiveLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f22621e = null;
+        this.f22680e = null;
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
@@ -55,7 +55,7 @@ public class PhotoLiveLinearLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            a aVar = this.f22621e;
+            a aVar = this.f22680e;
             if (aVar != null) {
                 aVar.a();
             }
@@ -65,7 +65,7 @@ public class PhotoLiveLinearLayout extends LinearLayout {
     public void setOnChangeLayoutListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f22621e = aVar;
+            this.f22680e = aVar;
         }
     }
 
@@ -88,6 +88,6 @@ public class PhotoLiveLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f22621e = null;
+        this.f22680e = null;
     }
 }

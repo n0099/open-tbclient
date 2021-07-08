@@ -9,11 +9,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.r0.a.e0.a;
+import d.a.o0.a.e0.a;
 import tbclient.CompleteTask.CompleteTaskResIdl;
 import tbclient.CompleteTask.DataRes;
 import tbclient.Error;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CompleteTaskHTTPResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,23 +59,23 @@ public class CompleteTaskHTTPResMsg extends HttpResponsedMessage {
         if (completeTaskResIdl.data != null) {
             a aVar = new a();
             this.mData = aVar;
-            aVar.f54606c = completeTaskResIdl.data.show_type.intValue();
-            this.mData.f54607d = completeTaskResIdl.data.ahead_type.intValue();
+            aVar.f51308c = completeTaskResIdl.data.show_type.intValue();
+            this.mData.f51309d = completeTaskResIdl.data.ahead_type.intValue();
             a aVar2 = this.mData;
             DataRes dataRes = completeTaskResIdl.data;
-            aVar2.f54608e = dataRes.message;
-            aVar2.f54609f = dataRes.btn_text;
-            aVar2.f54610g = dataRes.btn_confirm;
-            aVar2.f54611h = dataRes.btn_cancel;
-            aVar2.f54612i = dataRes.toast_duration.intValue();
+            aVar2.f51310e = dataRes.message;
+            aVar2.f51311f = dataRes.btn_text;
+            aVar2.f51312g = dataRes.btn_confirm;
+            aVar2.f51313h = dataRes.btn_cancel;
+            aVar2.f51314i = dataRes.toast_duration.intValue();
             a aVar3 = this.mData;
             DataRes dataRes2 = completeTaskResIdl.data;
             aVar3.j = dataRes2.img_url;
             aVar3.k = dataRes2.url;
             aVar3.l = dataRes2.schema;
             aVar3.m = dataRes2.token;
-            aVar3.f54604a = dataRes2.activity_id.intValue();
-            this.mData.f54605b = completeTaskResIdl.data.mission_id.intValue();
+            aVar3.f51306a = dataRes2.activity_id.intValue();
+            this.mData.f51307b = completeTaskResIdl.data.mission_id.intValue();
             a aVar4 = this.mData;
             DataRes dataRes3 = completeTaskResIdl.data;
             aVar4.o = dataRes3.btn_color;

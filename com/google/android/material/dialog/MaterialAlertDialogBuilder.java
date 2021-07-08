@@ -40,7 +40,7 @@ import com.google.android.material.color.MaterialColors;
 import com.google.android.material.resources.MaterialAttributes;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
     public static /* synthetic */ Interceptable $ic;
     @AttrRes
@@ -109,7 +109,7 @@ public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
     public static int getMaterialAlertDialogThemeOverlay(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             TypedValue resolve = MaterialAttributes.resolve(context, MATERIAL_ALERT_DIALOG_THEME_OVERLAY);
             if (resolve == null) {
                 return 0;

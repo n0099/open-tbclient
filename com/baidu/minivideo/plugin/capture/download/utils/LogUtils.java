@@ -1,11 +1,12 @@
 package com.baidu.minivideo.plugin.capture.download.utils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LogUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "LogUtils";
@@ -46,7 +47,7 @@ public class LogUtils {
 
     public static void i(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
             i(TAG, str);
         }
     }

@@ -25,37 +25,37 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class OfficialSecondMenuPopupWindow extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f17638e;
+    public int f17677e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f17639f;
+    public int f17678f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f17640g;
+    public int f17679g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f17641h;
+    public int f17680h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f17642i;
+    public Context f17681i;
     public b j;
     public int k;
     public int l;
     public c m;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ OfficialSecondMenuPopupWindow f17643e;
+        public final /* synthetic */ OfficialSecondMenuPopupWindow f17682e;
 
         public a(OfficialSecondMenuPopupWindow officialSecondMenuPopupWindow) {
             Interceptable interceptable = $ic;
@@ -72,42 +72,42 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
                     return;
                 }
             }
-            this.f17643e = officialSecondMenuPopupWindow;
+            this.f17682e = officialSecondMenuPopupWindow;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-                Object item = this.f17643e.j.getItem(i2);
-                if (item instanceof d.a.s0.i1.g.b) {
-                    d.a.s0.i1.g.b bVar = (d.a.s0.i1.g.b) item;
-                    if (this.f17643e.m != null) {
-                        this.f17643e.m.onItemClick(this.f17643e.k, bVar);
+                Object item = this.f17682e.j.getItem(i2);
+                if (item instanceof d.a.p0.i1.g.b) {
+                    d.a.p0.i1.g.b bVar = (d.a.p0.i1.g.b) item;
+                    if (this.f17682e.m != null) {
+                        this.f17682e.m.onItemClick(this.f17682e.k, bVar);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class b extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Context f17644e;
+        public Context f17683e;
 
         /* renamed from: f  reason: collision with root package name */
-        public List<d.a.s0.i1.g.b> f17645f;
+        public List<d.a.p0.i1.g.b> f17684f;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public class a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public TextView f17646a;
+            public TextView f17685a;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -126,7 +126,7 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
             }
         }
 
-        public b(Context context, List<d.a.s0.i1.g.b> list) {
+        public b(Context context, List<d.a.p0.i1.g.b> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -141,8 +141,8 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
                     return;
                 }
             }
-            this.f17644e = context;
-            this.f17645f = list;
+            this.f17683e = context;
+            this.f17684f = list;
         }
 
         @Override // android.widget.Adapter
@@ -150,7 +150,7 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                List<d.a.s0.i1.g.b> list = this.f17645f;
+                List<d.a.p0.i1.g.b> list = this.f17684f;
                 if (list == null) {
                     return 0;
                 }
@@ -165,9 +165,9 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
                 int itemId = (int) getItemId(i2);
-                List<d.a.s0.i1.g.b> list = this.f17645f;
+                List<d.a.p0.i1.g.b> list = this.f17684f;
                 if (list != null && itemId >= 0 && itemId < list.size()) {
-                    return this.f17645f.get(itemId);
+                    return this.f17684f.get(itemId);
                 }
                 return null;
             }
@@ -205,26 +205,26 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
                 if (view == null) {
                     a aVar = new a(this);
                     if (itemViewType == 0) {
-                        TextView textView = new TextView(this.f17644e);
-                        textView.setLayoutParams(new AbsListView.LayoutParams(-1, d.a.s0.i1.w.c.d(this.f17644e, R.dimen.ds96)));
-                        textView.setTextSize(0, d.a.s0.i1.w.c.d(this.f17644e, R.dimen.ds32));
-                        textView.setTextColor(this.f17644e.getResources().getColor(R.color.CAM_X0105));
+                        TextView textView = new TextView(this.f17683e);
+                        textView.setLayoutParams(new AbsListView.LayoutParams(-1, d.a.p0.i1.w.c.d(this.f17683e, R.dimen.ds96)));
+                        textView.setTextSize(0, d.a.p0.i1.w.c.d(this.f17683e, R.dimen.ds32));
+                        textView.setTextColor(this.f17683e.getResources().getColor(R.color.CAM_X0105));
                         textView.setGravity(17);
                         textView.setBackgroundResource(R.drawable.official_bar_menu_text_bg);
                         textView.setSingleLine();
                         textView.setEllipsize(TextUtils.TruncateAt.END);
-                        aVar.f17646a = textView;
+                        aVar.f17685a = textView;
                         linearLayout = textView;
                     } else {
                         linearLayout = view;
                         if (itemViewType == 1) {
-                            LinearLayout linearLayout2 = new LinearLayout(this.f17644e);
-                            linearLayout2.setLayoutParams(new AbsListView.LayoutParams(-1, d.a.s0.i1.w.c.d(this.f17644e, R.dimen.ds1)));
-                            ImageView imageView = new ImageView(this.f17644e);
+                            LinearLayout linearLayout2 = new LinearLayout(this.f17683e);
+                            linearLayout2.setLayoutParams(new AbsListView.LayoutParams(-1, d.a.p0.i1.w.c.d(this.f17683e, R.dimen.ds1)));
+                            ImageView imageView = new ImageView(this.f17683e);
                             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-                            layoutParams.setMargins(d.a.s0.i1.w.c.d(this.f17644e, R.dimen.ds30), 0, d.a.s0.i1.w.c.d(this.f17644e, R.dimen.ds30), 0);
+                            layoutParams.setMargins(d.a.p0.i1.w.c.d(this.f17683e, R.dimen.ds30), 0, d.a.p0.i1.w.c.d(this.f17683e, R.dimen.ds30), 0);
                             imageView.setLayoutParams(layoutParams);
-                            imageView.setBackgroundColor(this.f17644e.getResources().getColor(R.color.CAM_X0204));
+                            imageView.setBackgroundColor(this.f17683e.getResources().getColor(R.color.CAM_X0204));
                             linearLayout2.addView(imageView);
                             linearLayout = linearLayout2;
                         }
@@ -234,7 +234,7 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
                 }
                 a aVar2 = (a) view2.getTag();
                 if (itemViewType == 0) {
-                    aVar2.f17646a.setText(((d.a.s0.i1.g.b) getItem(i2)).d());
+                    aVar2.f17685a.setText(((d.a.p0.i1.g.b) getItem(i2)).d());
                 }
                 return view2;
             }
@@ -252,9 +252,9 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface c {
-        void onItemClick(int i2, d.a.s0.i1.g.b bVar);
+        void onItemClick(int i2, d.a.p0.i1.g.b bVar);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -275,39 +275,39 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
                 return;
             }
         }
-        this.f17642i = context;
+        this.f17681i = context;
         addView(e(new ArrayList<>(), -2));
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 80;
-        layoutParams.bottomMargin = d.a.s0.i1.w.c.d(this.f17642i, R.dimen.ds14);
+        layoutParams.bottomMargin = d.a.p0.i1.w.c.d(this.f17681i, R.dimen.ds14);
         setLayoutParams(layoutParams);
         setBackgroundResource(R.drawable.bg_bottombar_meun_float);
-        this.f17638e = d.a.s0.i1.w.c.d(this.f17642i, R.dimen.ds36);
-        this.f17640g = d.a.s0.i1.w.c.d(this.f17642i, R.dimen.ds200);
-        this.f17639f = d.a.s0.i1.w.c.d(this.f17642i, R.dimen.ds504);
+        this.f17677e = d.a.p0.i1.w.c.d(this.f17681i, R.dimen.ds36);
+        this.f17679g = d.a.p0.i1.w.c.d(this.f17681i, R.dimen.ds200);
+        this.f17678f = d.a.p0.i1.w.c.d(this.f17681i, R.dimen.ds504);
     }
 
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (z) {
-                startAnimation(AnimationUtils.loadAnimation(this.f17642i, R.anim.sub_menu_up));
+                startAnimation(AnimationUtils.loadAnimation(this.f17681i, R.anim.sub_menu_up));
             } else {
-                startAnimation(AnimationUtils.loadAnimation(this.f17642i, R.anim.sub_menu_down));
+                startAnimation(AnimationUtils.loadAnimation(this.f17681i, R.anim.sub_menu_down));
             }
         }
     }
 
-    public final ListView e(List<d.a.s0.i1.g.b> list, int i2) {
+    public final ListView e(List<d.a.p0.i1.g.b> list, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, i2)) == null) {
-            ListView listView = new ListView(this.f17642i);
+            ListView listView = new ListView(this.f17681i);
             listView.setLayoutParams(new RelativeLayout.LayoutParams(i2, -2));
-            listView.setCacheColorHint(this.f17642i.getResources().getColor(17170445));
+            listView.setCacheColorHint(this.f17681i.getResources().getColor(17170445));
             listView.setDivider(null);
             listView.setDividerHeight(0);
-            b bVar = new b(this.f17642i, list);
+            b bVar = new b(this.f17681i, list);
             this.j = bVar;
             listView.setAdapter((ListAdapter) bVar);
             listView.setOnItemClickListener(new a(this));
@@ -316,13 +316,13 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
         return (ListView) invokeLI.objValue;
     }
 
-    public final int f(List<d.a.s0.i1.g.b> list) {
+    public final int f(List<d.a.p0.i1.g.b> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
             Paint paint = new Paint(1);
-            paint.setColor(this.f17642i.getResources().getColor(17170443));
-            paint.setTextSize(d.a.s0.i1.w.c.d(this.f17642i, R.dimen.ds32));
+            paint.setColor(this.f17681i.getResources().getColor(17170443));
+            paint.setTextSize(d.a.p0.i1.w.c.d(this.f17681i, R.dimen.ds32));
             float f2 = 0.0f;
             for (int i2 = 0; i2 < list.size(); i2++) {
                 float measureText = paint.measureText(list.get(i2).d());
@@ -330,7 +330,7 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
                     f2 = measureText;
                 }
             }
-            return (int) Math.min(Math.max((this.f17638e * 2) + f2, this.f17640g), this.f17639f);
+            return (int) Math.min(Math.max((this.f17677e * 2) + f2, this.f17679g), this.f17678f);
         }
         return invokeL.intValue;
     }
@@ -358,12 +358,12 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
         }
         int[] iArr = new int[2];
         view.getLocationOnScreen(iArr);
-        int width = (iArr[0] + (view.getWidth() / 2)) - (this.f17641h / 2);
+        int width = (iArr[0] + (view.getWidth() / 2)) - (this.f17680h / 2);
         if (this.k == this.l - 1) {
-            width = ((iArr[0] + view.getWidth()) - d.a.s0.i1.w.c.d(this.f17642i, R.dimen.ds20)) - this.f17641h;
+            width = ((iArr[0] + view.getWidth()) - d.a.p0.i1.w.c.d(this.f17681i, R.dimen.ds20)) - this.f17680h;
         }
         if (width <= 0) {
-            width = d.a.s0.i1.w.c.d(this.f17642i, R.dimen.ds20);
+            width = d.a.p0.i1.w.c.d(this.f17681i, R.dimen.ds20);
         }
         layoutParams.leftMargin = width;
         setLayoutParams(layoutParams);
@@ -371,16 +371,16 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
         d(true);
     }
 
-    public void setData(int i2, int i3, List<d.a.s0.i1.g.b> list) {
+    public void setData(int i2, int i3, List<d.a.p0.i1.g.b> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeIIL(1048582, this, i2, i3, list) == null) || list == null) {
             return;
         }
         this.l = i2;
         this.k = i3;
-        this.f17641h = f(list);
+        this.f17680h = f(list);
         removeAllViews();
-        addView(e(list, this.f17641h));
+        addView(e(list, this.f17680h));
     }
 
     public void setOnItemClickListener(c cVar) {

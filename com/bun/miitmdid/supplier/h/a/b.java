@@ -9,6 +9,7 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import android.os.SystemClock;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,36 +19,36 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f27534a;
+    public static Context f27644a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f27535b;
+    public static boolean f27645b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f27536c;
+    public static b f27646c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f27537d;
+    public static a f27647d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static c f27538e;
+    public static c f27648e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static c f27539f;
+    public static c f27649f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static c f27540g;
+    public static c f27650g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static Object f27541h;
+    public static Object f27651h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static HandlerThread f27542i;
+    public static HandlerThread f27652i;
     public static Handler j;
     public static String k;
     public static String l;
@@ -68,7 +69,7 @@ public class b {
                 return;
             }
         }
-        f27541h = new Object();
+        f27651h = new Object();
     }
 
     public b() {
@@ -89,14 +90,14 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f27536c == null) {
-                f27536c = new b();
-                f27534a = context;
+            if (f27646c == null) {
+                f27646c = new b();
+                f27644a = context;
                 f();
-                f27537d = new a(f27534a);
+                f27647d = new a(f27644a);
                 c();
             }
-            return f27536c;
+            return f27646c;
         }
         return (b) invokeL.objValue;
     }
@@ -125,24 +126,24 @@ public class b {
         Uri parse;
         c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65540, null, context, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2, str) == null) {
             if (i2 == 0) {
-                f27538e = new c(f27536c, 0, null);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, f27538e);
+                f27648e = new c(f27646c, 0, null);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, f27648e);
                 return;
             }
             if (i2 == 1) {
-                f27539f = new c(f27536c, 1, str);
+                f27649f = new c(f27646c, 1, str);
                 contentResolver = context.getContentResolver();
                 parse = Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/VAID_" + str);
-                cVar = f27539f;
+                cVar = f27649f;
             } else if (i2 != 2) {
                 return;
             } else {
-                f27540g = new c(f27536c, 2, str);
+                f27650g = new c(f27646c, 2, str);
                 contentResolver = context.getContentResolver();
                 parse = Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/AAID_" + str);
-                cVar = f27540g;
+                cVar = f27650g;
             }
             contentResolver.registerContentObserver(parse, false, cVar);
         }
@@ -166,7 +167,7 @@ public class b {
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            f27535b = "1".equals(a("persist.sys.identifierid.supported", "0"));
+            f27645b = "1".equals(a("persist.sys.identifierid.supported", "0"));
         }
     }
 
@@ -174,9 +175,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, null) == null) {
             HandlerThread handlerThread = new HandlerThread("SqlWorkThread");
-            f27542i = handlerThread;
+            f27652i = handlerThread;
             handlerThread.start();
-            j = new Handler(f27542i.getLooper()) { // from class: com.bun.miitmdid.supplier.h.a.b.1
+            j = new Handler(f27652i.getLooper()) { // from class: com.bun.miitmdid.supplier.h.a.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -209,13 +210,13 @@ public class b {
                             return;
                         }
                         try {
-                            String unused = b.k = b.f27537d.a(message.getData().getInt("type"), message.getData().getString("appid"));
+                            String unused = b.k = b.f27647d.a(message.getData().getInt("type"), message.getData().getString("appid"));
                         } catch (Exception e2) {
                             String unused2 = b.k = "";
                             com.bun.miitmdid.utils.a.a("VMS_IDLG_SDK_Client", "exception", e2);
                         }
-                        synchronized (b.f27541h) {
-                            b.f27541h.notify();
+                        synchronized (b.f27651h) {
+                            b.f27651h.notify();
                         }
                     }
                 }
@@ -233,8 +234,8 @@ public class b {
                     return str2;
                 }
                 a(1, str);
-                if (f27539f == null && m != null) {
-                    a(f27534a, 1, str);
+                if (f27649f == null && m != null) {
+                    a(f27644a, 1, str);
                 }
                 return m;
             }
@@ -248,11 +249,11 @@ public class b {
         String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-            synchronized (f27541h) {
+            synchronized (f27651h) {
                 b(i2, str);
                 long uptimeMillis = SystemClock.uptimeMillis();
                 try {
-                    f27541h.wait(2000L);
+                    f27651h.wait(2000L);
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }
@@ -287,7 +288,7 @@ public class b {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f27535b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f27645b : invokeV.booleanValue;
     }
 
     public String b() {
@@ -300,8 +301,8 @@ public class b {
                     return str;
                 }
                 a(0, (String) null);
-                if (f27538e == null) {
-                    a(f27534a, 0, null);
+                if (f27648e == null) {
+                    a(f27644a, 0, null);
                 }
                 return l;
             }
@@ -320,8 +321,8 @@ public class b {
                     return str2;
                 }
                 a(2, str);
-                if (f27540g == null && n != null) {
-                    a(f27534a, 2, str);
+                if (f27650g == null && n != null) {
+                    a(f27644a, 2, str);
                 }
                 return n;
             }

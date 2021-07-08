@@ -46,7 +46,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdBaseFragmentActivity f2137e;
+        public final /* synthetic */ BdBaseFragmentActivity f2138e;
 
         public a(BdBaseFragmentActivity bdBaseFragmentActivity) {
             Interceptable interceptable = $ic;
@@ -63,14 +63,14 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
                     return;
                 }
             }
-            this.f2137e = bdBaseFragmentActivity;
+            this.f2138e = bdBaseFragmentActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdBaseFragmentActivity bdBaseFragmentActivity = this.f2137e;
+                BdBaseFragmentActivity bdBaseFragmentActivity = this.f2138e;
                 bdBaseFragmentActivity.onPreLoad(bdBaseFragmentActivity.onGetPreLoadListView());
             }
         }

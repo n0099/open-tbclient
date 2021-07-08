@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ExternalCache {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SCENE_ASYNC_CACHE_OVERTIME = 8;
@@ -50,7 +50,7 @@ public class ExternalCache {
     public int mScene;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static final class NetType {
         public static final /* synthetic */ NetType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -217,7 +217,7 @@ public class ExternalCache {
     private List<String> getIpCNMobile(Map<String, List<String>> map, NetType netType) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, map, netType)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, map, netType)) == null) {
             LinkedList linkedList = new LinkedList();
             try {
                 List<String> list = map.get(String.valueOf(netType.getValue()));

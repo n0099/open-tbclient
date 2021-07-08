@@ -4,13 +4,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class p implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ o f6638a;
+    public final /* synthetic */ o f6655a;
 
     public p(o oVar) {
         Interceptable interceptable = $ic;
@@ -27,7 +27,7 @@ public class p implements Runnable {
                 return;
             }
         }
-        this.f6638a = oVar;
+        this.f6655a = oVar;
     }
 
     @Override // java.lang.Runnable
@@ -36,12 +36,12 @@ public class p implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!com.baidu.location.c.i.i()) {
-                a2 = this.f6638a.a(com.baidu.location.f.getServiceContext());
+                a2 = this.f6655a.a(com.baidu.location.f.getServiceContext());
                 if (!a2) {
                     return;
                 }
             }
-            this.f6638a.a(v.a().c());
+            this.f6655a.a(v.a().c());
         }
     }
 }

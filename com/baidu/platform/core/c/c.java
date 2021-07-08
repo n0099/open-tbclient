@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,25 +34,25 @@ public class c extends com.baidu.platform.base.e {
     private void a(PoiIndoorOption poiIndoorOption) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, poiIndoorOption) == null) {
-            this.f9391a.a("qt", "indoor_s");
-            this.f9391a.a("x", "0");
-            this.f9391a.a("y", "0");
-            this.f9391a.a("from", "android_map_sdk");
+            this.f9408a.a("qt", "indoor_s");
+            this.f9408a.a("x", "0");
+            this.f9408a.a("y", "0");
+            this.f9408a.a("from", "android_map_sdk");
             String str = poiIndoorOption.bid;
             if (str != null && !str.equals("")) {
-                this.f9391a.a("bid", str);
+                this.f9408a.a("bid", str);
             }
             String str2 = poiIndoorOption.wd;
             if (str2 != null && !str2.equals("")) {
-                this.f9391a.a(ActVideoSetting.WIFI_DISPLAY, str2);
+                this.f9408a.a(ActVideoSetting.WIFI_DISPLAY, str2);
             }
             String str3 = poiIndoorOption.floor;
             if (str3 != null && !str3.equals("")) {
-                this.f9391a.a("floor", str3);
+                this.f9408a.a("floor", str3);
             }
-            com.baidu.platform.util.a aVar = this.f9391a;
+            com.baidu.platform.util.a aVar = this.f9408a;
             aVar.a(ProgressInfo.JSON_KEY_CURRENT, poiIndoorOption.currentPage + "");
-            com.baidu.platform.util.a aVar2 = this.f9391a;
+            com.baidu.platform.util.a aVar2 = this.f9408a;
             aVar2.a("pageSize", poiIndoorOption.pageSize + "");
         }
     }

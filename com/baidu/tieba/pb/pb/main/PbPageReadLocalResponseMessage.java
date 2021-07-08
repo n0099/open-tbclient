@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.h2.h.e;
+import d.a.p0.h2.h.e;
 import tbclient.PbPage.PbPageResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

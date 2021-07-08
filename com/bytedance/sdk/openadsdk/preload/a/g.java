@@ -14,37 +14,37 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.a.b.d f31942a;
+    public com.bytedance.sdk.openadsdk.preload.a.b.d f32052a;
 
     /* renamed from: b  reason: collision with root package name */
-    public u f31943b;
+    public u f32053b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f31944c;
+    public e f32054c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<Type, h<?>> f31945d;
+    public final Map<Type, h<?>> f32055d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<w> f31946e;
+    public final List<w> f32056e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<w> f31947f;
+    public final List<w> f32057f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f31948g;
+    public boolean f32058g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f31949h;
+    public String f32059h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f31950i;
+    public int f32060i;
     public int j;
     public boolean k;
     public boolean l;
@@ -66,14 +66,14 @@ public final class g {
                 return;
             }
         }
-        this.f31942a = com.bytedance.sdk.openadsdk.preload.a.b.d.f31841a;
-        this.f31943b = u.f31955a;
-        this.f31944c = d.f31894a;
-        this.f31945d = new HashMap();
-        this.f31946e = new ArrayList();
-        this.f31947f = new ArrayList();
-        this.f31948g = false;
-        this.f31950i = 2;
+        this.f32052a = com.bytedance.sdk.openadsdk.preload.a.b.d.f31951a;
+        this.f32053b = u.f32065a;
+        this.f32054c = d.f32004a;
+        this.f32055d = new HashMap();
+        this.f32056e = new ArrayList();
+        this.f32057f = new ArrayList();
+        this.f32058g = false;
+        this.f32060i = 2;
         this.j = 2;
         this.k = false;
         this.l = false;
@@ -90,13 +90,13 @@ public final class g {
             boolean z = obj instanceof s;
             com.bytedance.sdk.openadsdk.preload.a.b.a.a(z || (obj instanceof k) || (obj instanceof h) || (obj instanceof v));
             if (obj instanceof h) {
-                this.f31945d.put(type, (h) obj);
+                this.f32055d.put(type, (h) obj);
             }
             if (z || (obj instanceof k)) {
-                this.f31946e.add(com.bytedance.sdk.openadsdk.preload.a.b.a.l.a(com.bytedance.sdk.openadsdk.preload.a.c.a.a(type), obj));
+                this.f32056e.add(com.bytedance.sdk.openadsdk.preload.a.b.a.l.a(com.bytedance.sdk.openadsdk.preload.a.c.a.a(type), obj));
             }
             if (obj instanceof v) {
-                this.f31946e.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.a(com.bytedance.sdk.openadsdk.preload.a.c.a.a(type), (v) obj));
+                this.f32056e.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.a(com.bytedance.sdk.openadsdk.preload.a.c.a.a(type), (v) obj));
             }
             return this;
         }
@@ -107,14 +107,14 @@ public final class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<w> arrayList = new ArrayList<>(this.f31946e.size() + this.f31947f.size() + 3);
-            arrayList.addAll(this.f31946e);
+            List<w> arrayList = new ArrayList<>(this.f32056e.size() + this.f32057f.size() + 3);
+            arrayList.addAll(this.f32056e);
             Collections.reverse(arrayList);
-            ArrayList arrayList2 = new ArrayList(this.f31947f);
+            ArrayList arrayList2 = new ArrayList(this.f32057f);
             Collections.reverse(arrayList2);
             arrayList.addAll(arrayList2);
-            a(this.f31949h, this.f31950i, this.j, arrayList);
-            return new f(this.f31942a, this.f31944c, this.f31945d, this.f31948g, this.k, this.o, this.m, this.n, this.p, this.l, this.f31943b, this.f31949h, this.f31950i, this.j, this.f31946e, this.f31947f, arrayList);
+            a(this.f32059h, this.f32060i, this.j, arrayList);
+            return new f(this.f32052a, this.f32054c, this.f32055d, this.f32058g, this.k, this.o, this.m, this.n, this.p, this.l, this.f32053b, this.f32059h, this.f32060i, this.j, this.f32056e, this.f32057f, arrayList);
         }
         return (f) invokeV.objValue;
     }

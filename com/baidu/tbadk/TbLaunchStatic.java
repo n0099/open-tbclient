@@ -1,5 +1,6 @@
 package com.baidu.tbadk;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -26,12 +27,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.d0.b;
-import d.a.s0.i1.c;
-import d.a.s0.i1.v.a.d;
-import d.a.s0.i1.v.a.e;
-import d.a.s0.i1.v.a.f;
-/* loaded from: classes4.dex */
+import d.a.o0.r.d0.b;
+import d.a.p0.i1.c;
+import d.a.p0.i1.v.a.d;
+import d.a.p0.i1.v.a.e;
+import d.a.p0.i1.v.a.f;
+/* loaded from: classes3.dex */
 public class TbLaunchStatic {
     public static /* synthetic */ Interceptable $ic = null;
     public static String Tag = "tag";
@@ -123,7 +124,7 @@ public class TbLaunchStatic {
 
     public static void initRegisterTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             c.b(202004, ResponseDelSystemMessage.class, false);
             c.b(103112, ResponseRemoveMembersMessage.class, false);
             c.b(202001, ResponseCommitGroupMessage.class, false);

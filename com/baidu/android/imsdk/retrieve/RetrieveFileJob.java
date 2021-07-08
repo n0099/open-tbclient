@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.retrieve;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManager;
 import com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener;
 import com.baidu.android.imsdk.chatmessage.request.IMGenBosObjectUrlRequest;
@@ -227,7 +228,7 @@ public class RetrieveFileJob extends IRetrieveJob {
 
     private void deleteZip(Context context, List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, this, context, list) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, list) == null) {
             File file = new File(context.getFilesDir(), FETCH_FILE_ZIP);
             if (file.exists()) {
                 FileUtils.deleteFile(file);

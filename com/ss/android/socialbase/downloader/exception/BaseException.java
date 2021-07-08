@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BaseException extends Exception implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<BaseException> CREATOR;
@@ -22,7 +22,7 @@ public class BaseException extends Exception implements Parcelable {
     public String errorMsg;
     public String extraInfo;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Parcelable.Creator<BaseException> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -194,14 +194,14 @@ public class BaseException extends Exception implements Parcelable {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {Integer.valueOf(i2), th};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }

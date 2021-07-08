@@ -2,6 +2,7 @@ package com.kwad.sdk.core.video.a;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,23 +12,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.crash.utils.AbiUtil;
-import com.kwai.sodler.lib.a.b;
+import com.kwad.sdk.utils.AbiUtil;
 import com.kwai.sodler.lib.ext.PluginError;
 import com.kwai.sodler.lib.ext.b;
 import com.kwai.sodler.lib.g;
 import com.kwai.sodler.lib.h;
-import com.kwai.video.ksvodplayerkit.j;
+import com.kwai.video.ksvodplayerkit.KSVodPlayerCoreInitConfig;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicBoolean f36622a;
+    public static final AtomicBoolean f34968a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static AtomicBoolean f36623b;
+    public static AtomicBoolean f34969b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,14 +43,14 @@ public class e {
                 return;
             }
         }
-        f36622a = new AtomicBoolean(false);
+        f34968a = new AtomicBoolean(false);
     }
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            com.kwad.sdk.core.d.a.b("KwaiPlayHelper", "initConfigSync()");
-            j.a(com.kwad.sdk.core.config.c.o());
+            com.kwad.sdk.core.d.a.a("kp init");
+            KSVodPlayerCoreInitConfig.updatePlayerConfig(com.kwad.sdk.core.config.c.j());
             if (!b()) {
                 d(context);
             }
@@ -62,20 +62,23 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            AtomicBoolean atomicBoolean = f36623b;
+            AtomicBoolean atomicBoolean = f34969b;
             if (atomicBoolean != null) {
                 return atomicBoolean.get();
             }
-            try {
-                if (Class.forName("com.kwai.video.player.KsMediaMeta") != null) {
-                    f36623b = new AtomicBoolean(true);
-                    return true;
+            f34969b = new AtomicBoolean(true);
+            if (com.kwad.sdk.d.f35393a == 2) {
+                try {
+                    if (Class.forName("com.kwai.video.player.KsMediaMeta") != null) {
+                        f34969b = new AtomicBoolean(true);
+                        return true;
+                    }
+                } catch (Throwable th) {
+                    com.kwad.sdk.core.d.a.b(th);
+                    f34969b = new AtomicBoolean(false);
                 }
-            } catch (Throwable th) {
-                com.kwad.sdk.core.d.a.b(th);
             }
-            f36623b = new AtomicBoolean(false);
-            return false;
+            return f34969b.get();
         }
         return invokeV.booleanValue;
     }
@@ -83,7 +86,7 @@ public class e {
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? f36622a.get() || KsAdSDKImpl.get().getIsExternal() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f34968a.get() || KsAdSDKImpl.get().getIsExternal() : invokeV.booleanValue;
     }
 
     public static void c(Context context) {
@@ -98,75 +101,36 @@ public class e {
     }
 
     public static void d(Context context) {
-        String Z;
+        String x;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
             if (AbiUtil.b()) {
-                Z = com.kwad.sdk.core.config.c.aa();
-                if (TextUtils.isEmpty(Z)) {
-                    Z = "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/ks_so-kwaiPlayerArm64v8aRelease-3.3.9.apk";
+                x = com.kwad.sdk.core.config.c.y();
+                if (TextUtils.isEmpty(x)) {
+                    x = "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/ks_so-kwaiPlayerArm64v8aRelease-3.3.10.3.apk";
                 }
                 str = "kwaiplayer-v8a";
             } else {
-                Z = com.kwad.sdk.core.config.c.Z();
-                if (TextUtils.isEmpty(Z)) {
-                    Z = "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/ks_so-kwaiPlayerArmeabiv7aRelease-3.3.9.apk";
+                x = com.kwad.sdk.core.config.c.x();
+                if (TextUtils.isEmpty(x)) {
+                    x = "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/ks_so-kwaiPlayerArmeabiv7aRelease-3.3.10.3.apk";
                 }
                 str = "kwaiplayer-v7a";
             }
             com.kwai.sodler.a.b.a(context);
-            com.kwai.sodler.a.b.a(new b.a(Z, str) { // from class: com.kwad.sdk.core.video.a.e.1
+            com.kwai.sodler.lib.b.b bVar = new com.kwai.sodler.lib.b.b();
+            bVar.f36981c = x;
+            bVar.f36983e = true;
+            bVar.f36979a = str;
+            bVar.f36980b = "3.2";
+            bVar.f36985g = true;
+            com.kwai.sodler.a.b.a(str, bVar, new b.a(context) { // from class: com.kwad.sdk.core.video.a.e.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f36624a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f36625b;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {Z, str};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f36624a = Z;
-                    this.f36625b = str;
-                }
-
-                @Override // com.kwai.sodler.lib.a.b.a
-                public com.kwai.sodler.lib.b.b a(String str2) {
-                    InterceptResult invokeL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, str2)) == null) {
-                        com.kwai.sodler.lib.b.b bVar = new com.kwai.sodler.lib.b.b();
-                        bVar.f39773c = this.f36624a;
-                        bVar.f39775e = true;
-                        bVar.f39771a = this.f36625b;
-                        bVar.f39772b = "3.0";
-                        bVar.f39777g = true;
-                        return bVar;
-                    }
-                    return (com.kwai.sodler.lib.b.b) invokeL.objValue;
-                }
-            });
-            com.kwai.sodler.a.b.a(str, new b.a(context) { // from class: com.kwad.sdk.core.video.a.e.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f36626a;
+                public final /* synthetic */ Context f34970a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -183,7 +147,7 @@ public class e {
                             return;
                         }
                     }
-                    this.f36626a = context;
+                    this.f34970a = context;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -192,7 +156,7 @@ public class e {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, hVar) == null) {
                         super.a(hVar);
-                        e.f36622a.set(false);
+                        e.f34968a.set(false);
                     }
                 }
 
@@ -201,7 +165,7 @@ public class e {
                 public void a(h hVar, PluginError pluginError) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048580, this, hVar, pluginError) == null) {
-                        e.f36622a.set(false);
+                        e.f34968a.set(false);
                     }
                 }
 
@@ -210,8 +174,8 @@ public class e {
                 public void a(h hVar, g gVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048581, this, hVar, gVar) == null) {
-                        e.f36622a.set(true);
-                        e.c(this.f36626a);
+                        e.f34968a.set(true);
+                        e.c(this.f34970a);
                         e.e();
                     }
                 }

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Environment;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,15 +24,15 @@ import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.URL;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class bo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Proxy f8855a;
+    public static final Proxy f8872a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Proxy f8856b;
+    public static final Proxy f8873b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,8 +48,8 @@ public final class bo {
                 return;
             }
         }
-        f8855a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
-        f8856b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
+        f8872a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
+        f8873b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
     }
 
     public static String a() {
@@ -264,7 +265,7 @@ public final class bo {
         InterceptResult invokeLLII;
         HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65540, null, context, str, i2, i3)) == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, i2, i3)) == null) {
             URL url = new URL(str);
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             NetworkInfo networkInfo = connectivityManager.getNetworkInfo(0);
@@ -277,10 +278,10 @@ public final class bo {
                     String lowerCase = extraInfo != null ? extraInfo.toLowerCase() : "";
                     if (!lowerCase.startsWith(ConectivityUtils.APN_CMWAP) && !lowerCase.startsWith(ConectivityUtils.APN_UNIWAP) && !lowerCase.startsWith(ConectivityUtils.APN_3GWAP)) {
                         if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
-                            httpURLConnection = (HttpURLConnection) url.openConnection(f8856b);
+                            httpURLConnection = (HttpURLConnection) url.openConnection(f8873b);
                         }
                     } else {
-                        httpURLConnection = (HttpURLConnection) url.openConnection(f8855a);
+                        httpURLConnection = (HttpURLConnection) url.openConnection(f8872a);
                     }
                 }
                 httpURLConnection = null;

@@ -167,7 +167,7 @@ public class LottieComposition {
         public static LottieComposition fromInputStreamSync(InputStream inputStream) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, inputStream)) == null) ? LottieCompositionFactory.fromJsonInputStreamSync(inputStream, null).getValue() : (LottieComposition) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream)) == null) ? LottieCompositionFactory.fromJsonInputStreamSync(inputStream, null).getValue() : (LottieComposition) invokeL.objValue;
         }
 
         @Deprecated

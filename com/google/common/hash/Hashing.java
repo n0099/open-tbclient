@@ -1,5 +1,6 @@
 package com.google.common.hash;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,16 +14,16 @@ import d.f.d.d.g;
 import java.util.zip.Adler32;
 import java.util.zip.CRC32;
 import java.util.zip.Checksum;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Hashing {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f33394a;
+    public static final int f33504a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class ChecksumType implements g<Checksum> {
         public static final /* synthetic */ ChecksumType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -127,7 +128,7 @@ public final class Hashing {
         public static ChecksumType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (ChecksumType[]) $VALUES.clone() : (ChecksumType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ChecksumType[]) $VALUES.clone() : (ChecksumType[]) invokeV.objValue;
         }
 
         @Override // d.f.d.a.r
@@ -155,7 +156,7 @@ public final class Hashing {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -174,7 +175,7 @@ public final class Hashing {
                 return;
             }
         }
-        f33394a = (int) System.currentTimeMillis();
+        f33504a = (int) System.currentTimeMillis();
     }
 
     public static e a() {

@@ -1,5 +1,6 @@
 package io.reactivex.internal.disposables;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,7 +17,7 @@ import io.reactivex.SingleObserver;
 import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.fuseable.QueueDisposable;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class EmptyDisposable implements QueueDisposable<Object> {
     public static final /* synthetic */ EmptyDisposable[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -64,7 +65,7 @@ public final class EmptyDisposable implements QueueDisposable<Object> {
 
     public static void complete(Observer<?> observer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, observer) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, observer) == null) {
             observer.onSubscribe(INSTANCE);
             observer.onComplete();
         }

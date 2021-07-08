@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.core.video.nativevideo;
 import android.graphics.SurfaceTexture;
 import android.view.SurfaceHolder;
 import android.view.View;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface a {
     void a(b bVar, int i2);
 

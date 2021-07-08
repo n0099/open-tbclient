@@ -35,7 +35,8 @@ import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+import org.webrtc.MediaStreamTrack;
+/* loaded from: classes3.dex */
 public class EmotionUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean CACHE_DEBUG = false;
@@ -59,7 +60,7 @@ public class EmotionUtils {
     public Semaphore mSync;
 
     /* renamed from: com.baidu.spswitch.emotion.EmotionUtils$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$spswitch$emotion$EmotionType;
         public static /* synthetic */ Interceptable $ic;
@@ -87,7 +88,7 @@ public class EmotionUtils {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class EmotionClassic {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -184,7 +185,7 @@ public class EmotionUtils {
         List<String> list;
         Map<String, EmotionClassic> map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65540, this) == null) || (list = this.mEmotionPanelList) == null || list.isEmpty() || (map = this.mEmotionClassicList) == null || map.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (list = this.mEmotionPanelList) == null || list.isEmpty() || (map = this.mEmotionClassicList) == null || map.isEmpty()) {
             return;
         }
         ArrayList arrayList = new ArrayList(this.mEmotionPanelList);
@@ -455,7 +456,7 @@ public class EmotionUtils {
         MediaPlayer mediaPlayer;
         int streamVolume;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (mediaPlayer = this.mMediaPlayer) == null || mediaPlayer.isPlaying() || (streamVolume = ((AudioManager) AppRuntime.getAppContext().getSystemService("audio")).getStreamVolume(2)) <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (mediaPlayer = this.mMediaPlayer) == null || mediaPlayer.isPlaying() || (streamVolume = ((AudioManager) AppRuntime.getAppContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).getStreamVolume(2)) <= 0) {
             return;
         }
         float f2 = streamVolume;

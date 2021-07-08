@@ -11,7 +11,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.net.HttpURLConnection;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

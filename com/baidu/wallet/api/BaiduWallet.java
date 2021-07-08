@@ -23,24 +23,24 @@ import com.baidu.wallet.router.LocalRouter;
 import com.baidu.wallet.router.RouterProvider;
 import java.lang.reflect.Proxy;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class BaiduWallet implements IWalletFacade {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.api.BaiduWallet$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final IWalletFacade f23757a;
+        public static final IWalletFacade f23867a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -56,7 +56,7 @@ public final class BaiduWallet implements IWalletFacade {
                     return;
                 }
             }
-            f23757a = (IWalletFacade) Proxy.newProxyInstance(BaiduWallet.class.getClassLoader(), new Class[]{IWalletFacade.class}, new WalletFacadeAOP(new BaiduWallet(null)));
+            f23867a = (IWalletFacade) Proxy.newProxyInstance(BaiduWallet.class.getClassLoader(), new Class[]{IWalletFacade.class}, new WalletFacadeAOP(new BaiduWallet(null)));
         }
     }
 
@@ -95,7 +95,7 @@ public final class BaiduWallet implements IWalletFacade {
     public static IWalletFacade getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f23757a : (IWalletFacade) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f23867a : (IWalletFacade) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.api.IWalletPayFacade

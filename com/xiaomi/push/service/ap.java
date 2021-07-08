@@ -7,18 +7,19 @@ import android.content.Intent;
 import android.os.Build;
 import android.provider.Settings;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ap {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f43581a;
+    public static String f40595a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final String[] f897a;
@@ -82,7 +83,7 @@ public class ap {
 
     public static void a(Notification notification, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, notification, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, notification, str) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 19 && notification.extras != null) {
                     notification.extras.putString("target_package", str);
@@ -102,7 +103,7 @@ public class ap {
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, intent) == null) {
             int i2 = -1;
             while (true) {
-                str = i2 < 0 ? f43581a : f897a[i2];
+                str = i2 < 0 ? f40595a : f897a[i2];
                 if (!TextUtils.isEmpty(str)) {
                     intent.setPackage(str);
                     try {
@@ -120,7 +121,7 @@ public class ap {
                 }
             }
             intent.setPackage(str);
-            f43581a = str;
+            f40595a = str;
         }
     }
 

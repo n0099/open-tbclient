@@ -22,8 +22,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogSimplePlayer;
 import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
 import com.google.gson.reflect.TypeToken;
-import d.a.y0.j.b;
-import d.a.y0.t.h;
+import d.a.v0.j.b;
+import d.a.v0.t.h;
 import java.io.Serializable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MultiMediaData implements Parcelable, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<MultiMediaData> CREATOR;
@@ -85,7 +85,7 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
     public float y;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public @interface MultiMediaType {
         public static final int TYPE_IMAGE = 0;
         public static final int TYPE_VIDEO = 1;
@@ -247,7 +247,7 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
     public static List<String> getExtList(List<MultiMediaData> list, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, list, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, str)) == null) {
             if (h.e(list) || TextUtils.isEmpty(str)) {
                 return null;
             }

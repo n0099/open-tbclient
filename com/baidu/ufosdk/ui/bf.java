@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class bf implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f23360a;
+    public final /* synthetic */ FeedbackInputActivity f23470a;
 
     public bf(FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public final class bf implements View.OnClickListener {
                 return;
             }
         }
-        this.f23360a = feedbackInputActivity;
+        this.f23470a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -36,16 +36,16 @@ public final class bf implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             try {
-                if (!com.baidu.ufosdk.b.d.c(this.f23360a.getApplicationContext())) {
+                if (!com.baidu.ufosdk.b.d.c(this.f23470a.getApplicationContext())) {
                     com.baidu.ufosdk.f.c.b("Network is not avaiable!");
                     return;
                 }
-                this.f23360a.f23291b.setVisibility(8);
-                this.f23360a.k.setVisibility(0);
-                if (this.f23360a.f23294e == null || this.f23360a.f23294e.length() <= 0) {
+                this.f23470a.f23401b.setVisibility(8);
+                this.f23470a.k.setVisibility(0);
+                if (this.f23470a.f23404e == null || this.f23470a.f23404e.length() <= 0) {
                     return;
                 }
-                this.f23360a.l.execute(new bg(this));
+                this.f23470a.l.execute(new bg(this));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

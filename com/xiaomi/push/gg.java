@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class gg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f43187a;
+    public int f40201a;
 
     /* renamed from: a  reason: collision with other field name */
     public String f435a;
@@ -29,44 +29,44 @@ public class gg {
     public List<fz> f436a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43188b;
+    public String f40202b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f43189c;
+    public String f40203c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f43190d;
+    public String f40204d;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f43191a;
+        public static final a f40205a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f43192b;
+        public static final a f40206b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f43193c;
+        public static final a f40207c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f43194d;
+        public static final a f40208d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f43195e;
+        public static final a f40209e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final a f43196f;
+        public static final a f40210f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final a f43197g;
+        public static final a f40211g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final a f43198h;
+        public static final a f40212h;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final a f43199i;
+        public static final a f40213i;
         public static final a j;
         public static final a k;
         public static final a l;
@@ -100,15 +100,15 @@ public class gg {
                     return;
                 }
             }
-            f43191a = new a("internal-server-error");
-            f43192b = new a("forbidden");
-            f43193c = new a("bad-request");
-            f43194d = new a("conflict");
-            f43195e = new a("feature-not-implemented");
-            f43196f = new a("gone");
-            f43197g = new a("item-not-found");
-            f43198h = new a("jid-malformed");
-            f43199i = new a("not-acceptable");
+            f40205a = new a("internal-server-error");
+            f40206b = new a("forbidden");
+            f40207c = new a("bad-request");
+            f40208d = new a("conflict");
+            f40209e = new a("feature-not-implemented");
+            f40210f = new a("gone");
+            f40211g = new a("item-not-found");
+            f40212h = new a("jid-malformed");
+            f40213i = new a("not-acceptable");
             j = new a("not-allowed");
             k = new a("not-authorized");
             l = new a("payment-required");
@@ -167,11 +167,11 @@ public class gg {
             }
         }
         this.f436a = null;
-        this.f43187a = i2;
+        this.f40201a = i2;
         this.f435a = str;
-        this.f43189c = str2;
-        this.f43188b = str3;
-        this.f43190d = str4;
+        this.f40203c = str2;
+        this.f40202b = str3;
+        this.f40204d = str4;
         this.f436a = list;
     }
 
@@ -191,13 +191,13 @@ public class gg {
             }
         }
         this.f436a = null;
-        this.f43187a = bundle.getInt("ext_err_code");
+        this.f40201a = bundle.getInt("ext_err_code");
         if (bundle.containsKey("ext_err_type")) {
             this.f435a = bundle.getString("ext_err_type");
         }
-        this.f43188b = bundle.getString("ext_err_cond");
-        this.f43189c = bundle.getString("ext_err_reason");
-        this.f43190d = bundle.getString("ext_err_msg");
+        this.f40202b = bundle.getString("ext_err_cond");
+        this.f40203c = bundle.getString("ext_err_reason");
+        this.f40204d = bundle.getString("ext_err_msg");
         Parcelable[] parcelableArray = bundle.getParcelableArray("ext_exts");
         if (parcelableArray != null) {
             this.f436a = new ArrayList(parcelableArray.length);
@@ -227,13 +227,13 @@ public class gg {
         }
         this.f436a = null;
         a(aVar);
-        this.f43190d = null;
+        this.f40204d = null;
     }
 
     private void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, aVar) == null) {
-            this.f43188b = aVar.f437a;
+            this.f40202b = aVar.f437a;
         }
     }
 
@@ -246,16 +246,16 @@ public class gg {
             if (str != null) {
                 bundle.putString("ext_err_type", str);
             }
-            bundle.putInt("ext_err_code", this.f43187a);
-            String str2 = this.f43189c;
+            bundle.putInt("ext_err_code", this.f40201a);
+            String str2 = this.f40203c;
             if (str2 != null) {
                 bundle.putString("ext_err_reason", str2);
             }
-            String str3 = this.f43188b;
+            String str3 = this.f40202b;
             if (str3 != null) {
                 bundle.putString("ext_err_cond", str3);
             }
-            String str4 = this.f43190d;
+            String str4 = this.f40204d;
             if (str4 != null) {
                 bundle.putString("ext_err_msg", str4);
             }
@@ -284,27 +284,27 @@ public class gg {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("<error code=\"");
-            sb.append(this.f43187a);
+            sb.append(this.f40201a);
             sb.append("\"");
             if (this.f435a != null) {
                 sb.append(" type=\"");
                 sb.append(this.f435a);
                 sb.append("\"");
             }
-            if (this.f43189c != null) {
+            if (this.f40203c != null) {
                 sb.append(" reason=\"");
-                sb.append(this.f43189c);
+                sb.append(this.f40203c);
                 sb.append("\"");
             }
             sb.append(">");
-            if (this.f43188b != null) {
+            if (this.f40202b != null) {
                 sb.append("<");
-                sb.append(this.f43188b);
+                sb.append(this.f40202b);
                 sb.append(" xmlns=\"urn:ietf:params:xml:ns:xmpp-stanzas\"/>");
             }
-            if (this.f43190d != null) {
+            if (this.f40204d != null) {
                 sb.append("<text xml:lang=\"en\" xmlns=\"urn:ietf:params:xml:ns:xmpp-stanzas\">");
-                sb.append(this.f43190d);
+                sb.append(this.f40204d);
                 sb.append("</text>");
             }
             for (fz fzVar : m348a()) {
@@ -333,16 +333,16 @@ public class gg {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            String str = this.f43188b;
+            String str = this.f40202b;
             if (str != null) {
                 sb.append(str);
             }
             sb.append("(");
-            sb.append(this.f43187a);
+            sb.append(this.f40201a);
             sb.append(SmallTailInfo.EMOTION_SUFFIX);
-            if (this.f43190d != null) {
+            if (this.f40204d != null) {
                 sb.append(" ");
-                sb.append(this.f43190d);
+                sb.append(this.f40204d);
             }
             return sb.toString();
         }

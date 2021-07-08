@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class h {
                 jSONObject.put(Config.CUID_SEC, bw.a(2, context));
                 jSONObject.put("w", bw.c(context));
                 jSONObject.put("h", bw.d(context));
-                jSONObject.put("ly", ab.f8600c);
+                jSONObject.put("ly", ab.f8617c);
                 jSONObject.put("pv", SoUtils.SO_EVENT_ID_DEFAULT);
                 try {
                     PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);

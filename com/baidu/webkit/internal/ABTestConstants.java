@@ -1,5 +1,6 @@
 package com.baidu.webkit.internal;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -7,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.IABTestInterface;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class ABTestConstants implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ADBLOCK2_ON = 1;
@@ -294,7 +295,7 @@ public final class ABTestConstants implements INoProGuard {
     public static boolean isAdBlock4On(IABTestInterface iABTestInterface) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, iABTestInterface)) == null) ? iABTestInterface != null && iABTestInterface.getSwitch(IBLOCK_OPT_KEY, 1) == 1 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, iABTestInterface)) == null) ? iABTestInterface != null && iABTestInterface.getSwitch(IBLOCK_OPT_KEY, 1) == 1 : invokeL.booleanValue;
     }
 
     public static boolean isMagicFilterOn(IABTestInterface iABTestInterface) {

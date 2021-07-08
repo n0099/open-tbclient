@@ -7,6 +7,7 @@ import android.graphics.Point;
 import android.graphics.PointF;
 import androidx.annotation.ColorInt;
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -115,7 +116,7 @@ public final class BitmapKt {
     public static final Bitmap createBitmap(int i2, int i3, Bitmap.Config config, boolean z, ColorSpace colorSpace) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), config, Boolean.valueOf(z), colorSpace})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), config, Boolean.valueOf(z), colorSpace})) == null) {
             Bitmap createBitmap = Bitmap.createBitmap(i2, i3, config, z, colorSpace);
             Intrinsics.checkExpressionValueIsNotNull(createBitmap, "Bitmap.createBitmap(widt…ig, hasAlpha, colorSpace)");
             return createBitmap;

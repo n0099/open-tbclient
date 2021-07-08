@@ -110,7 +110,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class App2Activity implements IActivityImpl, View.OnTouchListener, NativePlayerJsBridgeHandler.PlayerCallBack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTIONBAR_VIEW_ID = 1001;
@@ -216,7 +216,7 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
     public LpVideoView videoView;
     public RelativeLayout wvTool;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class CustomProgressBar extends View {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -271,12 +271,12 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface PageFinishedListener {
         void onPageFinished(WebView webView);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class Redirect38Class {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2938,7 +2938,7 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
         StateMachine.event(this.mAdUniqueId, str, str2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class ActionBarColorTheme {
         public static /* synthetic */ Interceptable $ic;
         public static final ActionBarColorTheme ACTION_BAR_BLACK_THEME;

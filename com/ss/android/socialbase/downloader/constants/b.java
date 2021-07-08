@@ -8,24 +8,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f41447a;
+    public static final b f38461a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final b f41448b;
+    public static final b f38462b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final b f41449c;
+    public static final b f38463c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final b f41450d;
+    public static final b f38464d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final /* synthetic */ b[] f41451e;
+    public static final /* synthetic */ b[] f38465e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,12 +41,12 @@ public final class b {
                 return;
             }
         }
-        f41447a = new b("BYTE_INVALID_RETRY_STATUS_NONE", 0);
-        f41448b = new b("BYTE_INVALID_RETRY_STATUS_RESTART", 1);
-        f41449c = new b("BYTE_INVALID_RETRY_STATUS_DOWNLOADING", 2);
+        f38461a = new b("BYTE_INVALID_RETRY_STATUS_NONE", 0);
+        f38462b = new b("BYTE_INVALID_RETRY_STATUS_RESTART", 1);
+        f38463c = new b("BYTE_INVALID_RETRY_STATUS_DOWNLOADING", 2);
         b bVar = new b("BYTE_INVALID_RETRY_STATUS_DOWNLOADED", 3);
-        f41450d = bVar;
-        f41451e = new b[]{f41447a, f41448b, f41449c, bVar};
+        f38464d = bVar;
+        f38465e = new b[]{f38461a, f38462b, f38463c, bVar};
     }
 
     public b(String str, int i2) {
@@ -77,6 +77,6 @@ public final class b {
     public static b[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f41451e.clone() : (b[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f38465e.clone() : (b[]) invokeV.objValue;
     }
 }

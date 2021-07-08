@@ -14,15 +14,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.q.b2;
-/* loaded from: classes8.dex */
-public class t extends a<d.a.r0.r.q.a> {
+import d.a.o0.r.q.b2;
+/* loaded from: classes7.dex */
+public class t extends a<d.a.o0.r.q.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View j;
     public ThreadLinkView k;
     public TextView l;
-    public d.a.r0.r.q.a m;
+    public d.a.o0.r.q.a m;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t(Context context) {
@@ -58,13 +58,13 @@ public class t extends a<d.a.r0.r.q.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.j.p
     /* renamed from: o */
-    public void a(d.a.r0.r.q.a aVar) {
+    public void a(d.a.o0.r.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             if (aVar != null && aVar.getThreadData() != null) {
                 this.m = aVar;
                 b2 threadData = aVar.getThreadData();
-                d.a.s0.a0.m.j(threadData, this.l);
+                d.a.p0.a0.m.j(threadData, this.l);
                 this.k.setData(threadData);
                 return;
             }
@@ -77,11 +77,11 @@ public class t extends a<d.a.r0.r.q.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) {
             this.k.b();
-            d.a.r0.r.q.a aVar = this.m;
+            d.a.o0.r.q.a aVar = this.m;
             if (aVar == null || aVar.getThreadData() == null) {
                 return;
             }
-            d.a.s0.a0.m.l(this.l, this.m.getThreadData().c0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            d.a.p0.a0.m.l(this.l, this.m.getThreadData().c0(), R.color.CAM_X0105, R.color.CAM_X0109);
         }
     }
 }

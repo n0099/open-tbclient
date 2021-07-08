@@ -6,6 +6,7 @@ import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
 import android.text.style.UnderlineSpan;
 import androidx.core.graphics.TypefaceCompatApi28Impl;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,7 +23,7 @@ import d.f.b.a.i0.l;
 import d.f.b.a.i0.v;
 import java.nio.charset.Charset;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class a extends c {
     public static /* synthetic */ Interceptable $ic;
     public static final int u;
@@ -92,7 +93,7 @@ public final class a extends c {
 
     public static void C(SpannableStringBuilder spannableStringBuilder, int i2, int i3, int i4, int i5, int i6) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{spannableStringBuilder, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) || i2 == i3) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{spannableStringBuilder, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) || i2 == i3) {
             return;
         }
         int i7 = i6 | 33;
@@ -183,7 +184,7 @@ public final class a extends c {
             this.n.H(bArr, i2);
             String F = F(this.n);
             if (F.isEmpty()) {
-                return b.f73161f;
+                return b.f70264f;
             }
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(F);
             C(spannableStringBuilder, this.p, 0, 0, spannableStringBuilder.length(), 16711680);

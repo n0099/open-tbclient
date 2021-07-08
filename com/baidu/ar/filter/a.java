@@ -25,7 +25,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public DefaultParams f4223d;
+    public DefaultParams f4226d;
     public String mCasePath;
     public l qh;
     public FilterStateListener qi;
@@ -92,7 +92,7 @@ public class a {
         this.qj = new HashMap<>();
         this.qk = new HashMap<>();
         this.ql = new HashMap<>();
-        this.f4223d = defaultParams;
+        this.f4226d = defaultParams;
         HashMap<FilterNode, Boolean> hashMap = this.qj;
         if (hashMap != null) {
             hashMap.put(FilterNode.lutFilter, Boolean.FALSE);
@@ -103,9 +103,9 @@ public class a {
         HashMap<FilterNode, Boolean> hashMap2 = this.qk;
         if (hashMap2 != null) {
             hashMap2.put(FilterNode.lutFilter, Boolean.TRUE);
-            this.qk.put(FilterNode.skinFilter, Boolean.valueOf(this.f4223d.isUseBeautyFilter()));
-            this.qk.put(FilterNode.faceFilter, Boolean.valueOf(this.f4223d.isUseFaceFilter()));
-            this.qk.put(FilterNode.makeupFilter, Boolean.valueOf(this.f4223d.isUseMakeupFilter()));
+            this.qk.put(FilterNode.skinFilter, Boolean.valueOf(this.f4226d.isUseBeautyFilter()));
+            this.qk.put(FilterNode.faceFilter, Boolean.valueOf(this.f4226d.isUseFaceFilter()));
+            this.qk.put(FilterNode.makeupFilter, Boolean.valueOf(this.f4226d.isUseMakeupFilter()));
         }
     }
 
@@ -321,7 +321,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             synchronized (this) {
-                this.f4223d = null;
+                this.f4226d = null;
                 this.qh = null;
                 this.qi = null;
                 if (this.qj != null) {

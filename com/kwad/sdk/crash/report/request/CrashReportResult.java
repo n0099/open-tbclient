@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.network.BaseResultData;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class CrashReportResult extends BaseResultData implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public class CrashReportResult extends BaseResultData implements com.kwad.sdk.co
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.result : invokeV.longValue;
     }
 
-    @Override // com.kwad.sdk.core.network.BaseResultData
+    @Override // com.kwad.sdk.core.network.BaseResultData, com.kwad.sdk.core.b
     public void parseJson(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {

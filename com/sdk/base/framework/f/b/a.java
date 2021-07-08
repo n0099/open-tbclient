@@ -3,6 +3,7 @@ package com.sdk.base.framework.f.b;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,15 +16,15 @@ import com.sdk.base.framework.c.f;
 import com.sdk.base.framework.f.i.c;
 import java.nio.charset.Charset;
 @SuppressLint({"ApplySharedPref"})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f41216a = "com.sdk.base.framework.f.b.a";
+    public static final String f38230a = "com.sdk.base.framework.f.b.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f41217b;
+    public static final Boolean f38231b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +40,7 @@ public class a {
                 return;
             }
         }
-        f41217b = Boolean.valueOf(f.f41195b);
+        f38231b = Boolean.valueOf(f.f38209b);
     }
 
     public a() {
@@ -65,7 +66,7 @@ public class a {
                 str2 = context.getSharedPreferences("ZzxCache", 0).getString(str, "");
                 return new String(c.a(str2), Charset.defaultCharset());
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(f41216a, e2.getMessage(), f41217b);
+                com.sdk.base.framework.a.a.c.b(f38230a, e2.getMessage(), f38231b);
                 return str2;
             }
         }
@@ -80,7 +81,7 @@ public class a {
                 edit.putLong(str, l.longValue());
                 edit.commit();
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(f41216a, e2.getMessage(), f41217b);
+                com.sdk.base.framework.a.a.c.b(f38230a, e2.getMessage(), f38231b);
             }
         }
     }
@@ -88,13 +89,13 @@ public class a {
     public static boolean a(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, context, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2)) == null) {
             try {
                 SharedPreferences.Editor edit = context.getSharedPreferences("ZzxCache", 0).edit();
                 edit.putString(str, c.a(str2.getBytes(Charset.defaultCharset())));
                 return edit.commit();
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(f41216a, e2.getMessage(), f41217b);
+                com.sdk.base.framework.a.a.c.b(f38230a, e2.getMessage(), f38231b);
                 return false;
             }
         }
@@ -108,7 +109,7 @@ public class a {
             try {
                 return context.getSharedPreferences("ZzxCache", 0).getString(str, "");
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(f41216a, e2.getMessage(), f41217b);
+                com.sdk.base.framework.a.a.c.b(f38230a, e2.getMessage(), f38231b);
                 return "";
             }
         }
@@ -124,7 +125,7 @@ public class a {
                 edit.putString(str, str2);
                 return edit.commit();
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(f41216a, e2.getMessage(), f41217b);
+                com.sdk.base.framework.a.a.c.b(f38230a, e2.getMessage(), f38231b);
                 return false;
             }
         }
@@ -139,7 +140,7 @@ public class a {
             try {
                 j = context.getSharedPreferences("ZzxCache", 0).getLong(str, 0L);
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(f41216a, e2.getMessage(), f41217b);
+                com.sdk.base.framework.a.a.c.b(f38230a, e2.getMessage(), f38231b);
             }
             return Long.valueOf(j);
         }

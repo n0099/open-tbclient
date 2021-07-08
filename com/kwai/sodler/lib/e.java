@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,16 +15,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.sodler.lib.a.g;
 import com.kwai.sodler.lib.ext.PluginError;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class e implements com.kwai.sodler.lib.a.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f39786a;
+    public final Context f36994a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g.a f39787b;
+    public g.a f36995b;
 
     public e(Context context) {
         Interceptable interceptable = $ic;
@@ -40,7 +41,7 @@ public class e implements com.kwai.sodler.lib.a.g {
                 return;
             }
         }
-        this.f39786a = context.getApplicationContext();
+        this.f36994a = context.getApplicationContext();
     }
 
     @TargetApi(11)
@@ -57,18 +58,18 @@ public class e implements com.kwai.sodler.lib.a.g {
                 return;
             }
             a.a("Sodler.update", "Using online plugin.");
-            com.kwai.sodler.lib.b.b a2 = f.a(this.f39786a, fVar);
+            com.kwai.sodler.lib.b.b a2 = f.a(this.f36994a, fVar);
             if (a2 == null) {
                 a.a("Sodler.update", "No available plugin, abort.");
                 fVar.a(-3);
                 return;
             }
-            a.a("Sodler.update", "Download new plugin, version = " + a2.f39772b + ", url = " + a2.f39773c);
+            a.a("Sodler.update", "Download new plugin, version = " + a2.f36980b + ", url = " + a2.f36981c);
             fVar.a(3);
-            fVar.g(a2.f39773c);
-            fVar.a(a2.f39774d);
-            fVar.f(a2.f39776f);
-            fVar.b(a2.f39772b);
+            fVar.g(a2.f36981c);
+            fVar.a(a2.f36982d);
+            fVar.f(a2.f36984f);
+            fVar.b(a2.f36980b);
         }
     }
 
@@ -86,7 +87,7 @@ public class e implements com.kwai.sodler.lib.a.g {
     private void a(com.kwai.sodler.lib.a.f fVar, File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, fVar, file) == null) {
-            g.a aVar = this.f39787b;
+            g.a aVar = this.f36995b;
             if (aVar == null) {
                 throw new RuntimeException("not yet supported!");
             }
@@ -96,7 +97,7 @@ public class e implements com.kwai.sodler.lib.a.g {
 
     private void c(com.kwai.sodler.lib.a.f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, fVar) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, fVar) == null) {
             a.c("Sodler.update", "onPreUpdate state = " + fVar.c());
             fVar.b().g().c(fVar);
         }
@@ -177,7 +178,7 @@ public class e implements com.kwai.sodler.lib.a.g {
                         fVar.b(fVar.b().b().a());
                         while (!fVar.f()) {
                             try {
-                                com.kwai.sodler.lib.c.a.a(this.f39786a, fVar.o(), d3);
+                                com.kwai.sodler.lib.c.a.a(this.f36994a, fVar.o(), d3);
                                 a.a("Sodler.update", "Extract plugin from assets success.");
                                 fVar.d(d3.getAbsolutePath());
                                 fVar.a(1);
@@ -224,7 +225,7 @@ public class e implements com.kwai.sodler.lib.a.g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            this.f39787b = aVar;
+            this.f36995b = aVar;
             return this;
         }
         return (com.kwai.sodler.lib.a.g) invokeL.objValue;

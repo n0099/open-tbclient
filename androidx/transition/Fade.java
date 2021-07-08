@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.core.content.res.TypedArrayUtils;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -147,7 +148,7 @@ public class Fade extends Visibility {
         InterceptResult invokeLF;
         Float f3;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65540, null, transitionValues, f2)) == null) ? (transitionValues == null || (f3 = (Float) transitionValues.values.get(PROPNAME_TRANSITION_ALPHA)) == null) ? f2 : f3.floatValue() : invokeLF.floatValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TRACKBALL, null, transitionValues, f2)) == null) ? (transitionValues == null || (f3 = (Float) transitionValues.values.get(PROPNAME_TRANSITION_ALPHA)) == null) ? f2 : f3.floatValue() : invokeLF.floatValue;
     }
 
     @Override // androidx.transition.Visibility, androidx.transition.Transition

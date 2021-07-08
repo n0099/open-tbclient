@@ -1,5 +1,6 @@
 package com.yy.hiidostatis.inner.util.cipher;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,7 +15,7 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class Coder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHARSET = "UTF-8";
@@ -67,7 +68,7 @@ public final class Coder {
     public static String decryptBASE64(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? bytesToString(Base64Util.decode(str)) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? bytesToString(Base64Util.decode(str)) : (String) invokeL.objValue;
     }
 
     public static String decryptDES(String str, String str2) throws Exception {

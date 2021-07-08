@@ -1,5 +1,6 @@
 package com.google.protobuf;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.WireInput;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class InvalidProtocolBufferException extends IOException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -1616151763072450476L;
@@ -58,7 +59,7 @@ public class InvalidProtocolBufferException extends IOException {
     public static InvalidProtocolBufferException malformedVarint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? new InvalidProtocolBufferException("CodedInputStream encountered a malformed varint.") : (InvalidProtocolBufferException) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new InvalidProtocolBufferException("CodedInputStream encountered a malformed varint.") : (InvalidProtocolBufferException) invokeV.objValue;
     }
 
     public static InvalidProtocolBufferException negativeSize() {

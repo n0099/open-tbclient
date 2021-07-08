@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
 import okhttp3.internal.http.HttpHeaders;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class CacheControl {
     public static /* synthetic */ Interceptable $ic;
     public static final CacheControl FORCE_CACHE;
@@ -36,7 +36,7 @@ public final class CacheControl {
     public final boolean onlyIfCached;
     public final int sMaxAgeSeconds;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -281,7 +281,7 @@ public final class CacheControl {
         int i3;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, headers)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, headers)) == null) {
             Headers headers2 = headers;
             int size = headers.size();
             int i4 = 0;

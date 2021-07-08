@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CardUserLikeButton extends EntelechyUserLikeButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,19 +37,19 @@ public class CardUserLikeButton extends EntelechyUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, d.a.r0.r.f0.s.b
+    @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, d.a.o0.r.f0.t.b
     public void e(boolean z, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            this.f12741g = z;
+            this.f12758g = z;
             setVisibility(0);
             if (z) {
                 setClickable(false);
-                setText(this.f12739e);
+                setText(this.f12756e);
                 setPadding(0, 0, 0, 0);
             } else {
                 setClickable(true);
-                setText(this.f12740f);
+                setText(this.f12757f);
                 setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds16), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds8), 0);
             }
             g(TbadkCoreApplication.getInst().getSkinType());
@@ -69,7 +69,7 @@ public class CardUserLikeButton extends EntelechyUserLikeButton {
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (this.f12741g) {
+            if (this.f12758g) {
                 setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
                 SkinManager.setViewTextColor(this, R.color.CAM_X0110, 1, i2);
                 setBackgroundDrawable(null);

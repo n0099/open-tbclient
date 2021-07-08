@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
 import androidx.collection.ArrayMap;
 import androidx.core.content.res.TypedArrayUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
@@ -190,7 +191,7 @@ public class TransitionInflater {
     private TransitionManager createTransitionManagerFromXml(XmlPullParser xmlPullParser, AttributeSet attributeSet, ViewGroup viewGroup) throws XmlPullParserException, IOException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, this, xmlPullParser, attributeSet, viewGroup)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, xmlPullParser, attributeSet, viewGroup)) == null) {
             int depth = xmlPullParser.getDepth();
             TransitionManager transitionManager = null;
             while (true) {

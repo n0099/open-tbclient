@@ -12,6 +12,7 @@ import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleableRes;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.TintTypedArray;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MaterialResources {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +80,7 @@ public class MaterialResources {
         int resourceId;
         Drawable drawable;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65540, null, context, typedArray, i2)) == null) ? (!typedArray.hasValue(i2) || (resourceId = typedArray.getResourceId(i2, 0)) == 0 || (drawable = AppCompatResources.getDrawable(context, resourceId)) == null) ? typedArray.getDrawable(i2) : drawable : (Drawable) invokeLLI.objValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, typedArray, i2)) == null) ? (!typedArray.hasValue(i2) || (resourceId = typedArray.getResourceId(i2, 0)) == 0 || (drawable = AppCompatResources.getDrawable(context, resourceId)) == null) ? typedArray.getDrawable(i2) : drawable : (Drawable) invokeLLI.objValue;
     }
 
     @StyleableRes

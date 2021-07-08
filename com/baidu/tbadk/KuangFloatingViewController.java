@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -31,8 +32,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.s0.t3.c;
-/* loaded from: classes4.dex */
+import d.a.p0.t3.c;
+/* loaded from: classes3.dex */
 public class KuangFloatingViewController {
     public static /* synthetic */ Interceptable $ic = null;
     public static String STORY_PACKAGE = "com.baidu.tieba.story";
@@ -153,7 +154,7 @@ public class KuangFloatingViewController {
     public static KuangFloatingViewController getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (instance == null) {
                 instance = new KuangFloatingViewController();
             }

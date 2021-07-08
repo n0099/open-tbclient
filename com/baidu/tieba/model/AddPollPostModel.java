@@ -16,27 +16,27 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AddPollPostModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f18632e;
+    public b f18672e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f18633f;
+    public long f18673f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.c.c.g.a f18634g;
+    public d.a.c.c.g.a f18674g;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends d.a.c.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AddPollPostModel f18635a;
+        public final /* synthetic */ AddPollPostModel f18675a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AddPollPostModel addPollPostModel, int i2, int i3) {
@@ -57,14 +57,14 @@ public class AddPollPostModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f18635a = addPollPostModel;
+            this.f18675a = addPollPostModel;
         }
 
         @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String str;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && (responsedMessage.getOrginalMessage().getExtra() instanceof AddPollPostRequestNetMessage) && this.f18635a.f18633f == ((AddPollPostRequestNetMessage) responsedMessage.getOrginalMessage().getExtra()).getThreadId()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && (responsedMessage.getOrginalMessage().getExtra() instanceof AddPollPostRequestNetMessage) && this.f18675a.f18673f == ((AddPollPostRequestNetMessage) responsedMessage.getOrginalMessage().getExtra()).getThreadId()) {
                 boolean z = responsedMessage instanceof AddPollPostHttpResponseMessage;
                 if (z || (responsedMessage instanceof AddPollPostSocketResponseMessage)) {
                     AddPollPostHttpResponseMessage addPollPostHttpResponseMessage = z ? (AddPollPostHttpResponseMessage) responsedMessage : null;
@@ -82,15 +82,15 @@ public class AddPollPostModel extends BdBaseModel {
                         i2 = addPollPostSocketResponseMessage.getIdl().data.error_code.intValue();
                         str = addPollPostSocketResponseMessage.getIdl().data.error_msg;
                     }
-                    if (this.f18635a.f18632e != null) {
-                        this.f18635a.f18632e.a(i2, str);
+                    if (this.f18675a.f18672e != null) {
+                        this.f18675a.f18672e.a(i2, str);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(int i2, String str);
     }
@@ -113,21 +113,21 @@ public class AddPollPostModel extends BdBaseModel {
                 return;
             }
         }
-        this.f18634g = new a(this, CmdConfigHttp.CMD_ADD_POLL_POST, 309006);
+        this.f18674g = new a(this, CmdConfigHttp.CMD_ADD_POLL_POST, 309006);
         z();
     }
 
     public void A(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f18632e = bVar;
+            this.f18672e = bVar;
         }
     }
 
     public void B(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.f18633f = j;
+            this.f18673f = j;
         }
     }
 
@@ -154,14 +154,14 @@ public class AddPollPostModel extends BdBaseModel {
     public void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            registerListener(this.f18634g);
+            registerListener(this.f18674g);
         }
     }
 
     public void unRegisterListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f18634g);
+            MessageManager.getInstance().unRegisterListener(this.f18674g);
         }
     }
 
@@ -179,8 +179,8 @@ public class AddPollPostModel extends BdBaseModel {
     public final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            d.a.s0.h3.d0.a.h(309006, AddPollPostSocketResponseMessage.class, false, false);
-            d.a.s0.h3.d0.a.c(309006, CmdConfigHttp.CMD_ADD_POLL_POST, TbConfig.VOTE_ADD, AddPollPostHttpResponseMessage.class, false, false, false, false);
+            d.a.p0.h3.d0.a.h(309006, AddPollPostSocketResponseMessage.class, false, false);
+            d.a.p0.h3.d0.a.c(309006, CmdConfigHttp.CMD_ADD_POLL_POST, TbConfig.VOTE_ADD, AddPollPostHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.webrtc.VideoFrame;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final /* synthetic */ class CameraSession_CC {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

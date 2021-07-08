@@ -1,5 +1,6 @@
 package com.google.zxing.aztec.encoder;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,7 +13,7 @@ import com.google.zxing.common.BitArray;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.reedsolomon.GenericGF;
 import com.google.zxing.common.reedsolomon.ReedSolomonEncoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Encoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_AZTEC_LAYERS = 0;
@@ -101,7 +102,7 @@ public final class Encoder {
 
     public static void drawModeMessage(BitMatrix bitMatrix, boolean z, int i2, BitArray bitArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{bitMatrix, Boolean.valueOf(z), Integer.valueOf(i2), bitArray}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bitMatrix, Boolean.valueOf(z), Integer.valueOf(i2), bitArray}) == null) {
             int i3 = i2 / 2;
             int i4 = 0;
             if (z) {

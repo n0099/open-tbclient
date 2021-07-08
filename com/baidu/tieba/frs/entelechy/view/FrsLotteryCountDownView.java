@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.e;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FrsLotteryCountDownView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final long p;
@@ -32,19 +32,19 @@ public class FrsLotteryCountDownView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f15558e;
+    public Context f15597e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f15559f;
+    public View f15598f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f15560g;
+    public TextView f15599g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f15561h;
+    public TextView f15600h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f15562i;
+    public TextView f15601i;
     public TextView j;
     public TextView k;
     public TextView l;
@@ -52,19 +52,19 @@ public class FrsLotteryCountDownView extends LinearLayout {
     public TextView n;
     public CountDownTimer o;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final WeakReference<CountDownTimer> f15563e;
+        public final WeakReference<CountDownTimer> f15602e;
 
         public /* synthetic */ b(WeakReference weakReference, a aVar) {
             this(weakReference);
@@ -74,7 +74,7 @@ public class FrsLotteryCountDownView extends LinearLayout {
         public void run() {
             CountDownTimer countDownTimer;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (countDownTimer = this.f15563e.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (countDownTimer = this.f15602e.get()) == null) {
                 return;
             }
             countDownTimer.cancel();
@@ -95,17 +95,17 @@ public class FrsLotteryCountDownView extends LinearLayout {
                     return;
                 }
             }
-            this.f15563e = weakReference;
+            this.f15602e = weakReference;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class c extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<FrsLotteryCountDownView> f15564a;
+        public final WeakReference<FrsLotteryCountDownView> f15603a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(WeakReference<FrsLotteryCountDownView> weakReference, long j, long j2) {
@@ -126,14 +126,14 @@ public class FrsLotteryCountDownView extends LinearLayout {
                     return;
                 }
             }
-            this.f15564a = weakReference;
+            this.f15603a = weakReference;
         }
 
         @Override // android.os.CountDownTimer
         public void onFinish() {
             FrsLotteryCountDownView frsLotteryCountDownView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (frsLotteryCountDownView = this.f15564a.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (frsLotteryCountDownView = this.f15603a.get()) == null) {
                 return;
             }
             frsLotteryCountDownView.m.setText("0");
@@ -143,10 +143,10 @@ public class FrsLotteryCountDownView extends LinearLayout {
         public void onTick(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                FrsLotteryCountDownView frsLotteryCountDownView = this.f15564a.get();
+                FrsLotteryCountDownView frsLotteryCountDownView = this.f15603a.get();
                 if (frsLotteryCountDownView != null) {
-                    frsLotteryCountDownView.f15560g.setText(StringUtils.string(Long.valueOf(j / FrsLotteryCountDownView.p)));
-                    frsLotteryCountDownView.f15562i.setText(StringUtils.string(Long.valueOf((j % FrsLotteryCountDownView.p) / FrsLotteryCountDownView.q)));
+                    frsLotteryCountDownView.f15599g.setText(StringUtils.string(Long.valueOf(j / FrsLotteryCountDownView.p)));
+                    frsLotteryCountDownView.f15601i.setText(StringUtils.string(Long.valueOf((j % FrsLotteryCountDownView.p) / FrsLotteryCountDownView.q)));
                     frsLotteryCountDownView.k.setText(StringUtils.string(Long.valueOf(((j % FrsLotteryCountDownView.p) % FrsLotteryCountDownView.q) / FrsLotteryCountDownView.r)));
                     frsLotteryCountDownView.m.setText(StringUtils.string(Long.valueOf((((j % FrsLotteryCountDownView.p) % FrsLotteryCountDownView.q) % FrsLotteryCountDownView.r) / FrsLotteryCountDownView.s)));
                     return;
@@ -193,37 +193,37 @@ public class FrsLotteryCountDownView extends LinearLayout {
                 return;
             }
         }
-        this.f15558e = null;
+        this.f15597e = null;
         this.o = null;
-        this.f15558e = context;
+        this.f15597e = context;
         i();
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f15558e).inflate(R.layout.frs_lottery_count_down, (ViewGroup) this, true);
-            this.f15559f = inflate;
-            this.f15560g = (TextView) inflate.findViewById(R.id.lottery_count_day);
-            this.f15561h = (TextView) this.f15559f.findViewById(R.id.lottery_count_day_txt);
-            this.f15562i = (TextView) this.f15559f.findViewById(R.id.lottery_count_hour);
-            this.j = (TextView) this.f15559f.findViewById(R.id.lottery_count_hour_txt);
-            this.k = (TextView) this.f15559f.findViewById(R.id.lottery_count_minute);
-            this.l = (TextView) this.f15559f.findViewById(R.id.lottery_count_minute_txt);
-            this.m = (TextView) this.f15559f.findViewById(R.id.lottery_count_second);
-            this.n = (TextView) this.f15559f.findViewById(R.id.lottery_count_second_txt);
+            View inflate = LayoutInflater.from(this.f15597e).inflate(R.layout.frs_lottery_count_down, (ViewGroup) this, true);
+            this.f15598f = inflate;
+            this.f15599g = (TextView) inflate.findViewById(R.id.lottery_count_day);
+            this.f15600h = (TextView) this.f15598f.findViewById(R.id.lottery_count_day_txt);
+            this.f15601i = (TextView) this.f15598f.findViewById(R.id.lottery_count_hour);
+            this.j = (TextView) this.f15598f.findViewById(R.id.lottery_count_hour_txt);
+            this.k = (TextView) this.f15598f.findViewById(R.id.lottery_count_minute);
+            this.l = (TextView) this.f15598f.findViewById(R.id.lottery_count_minute_txt);
+            this.m = (TextView) this.f15598f.findViewById(R.id.lottery_count_second);
+            this.n = (TextView) this.f15598f.findViewById(R.id.lottery_count_second_txt);
         }
     }
 
     public void setData(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            SkinManager.setViewTextColor(this.f15560g, R.color.CAM_X0111);
-            SkinManager.setViewTextColor(this.f15561h, R.color.CAM_X0108);
-            SkinManager.setBackgroundColor(this.f15560g, R.color.common_color_10060);
-            SkinManager.setViewTextColor(this.f15562i, R.color.CAM_X0111);
+            SkinManager.setViewTextColor(this.f15599g, R.color.CAM_X0111);
+            SkinManager.setViewTextColor(this.f15600h, R.color.CAM_X0108);
+            SkinManager.setBackgroundColor(this.f15599g, R.color.common_color_10060);
+            SkinManager.setViewTextColor(this.f15601i, R.color.CAM_X0111);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0108);
-            SkinManager.setBackgroundColor(this.f15562i, R.color.common_color_10060);
+            SkinManager.setBackgroundColor(this.f15601i, R.color.common_color_10060);
             SkinManager.setViewTextColor(this.k, R.color.CAM_X0111);
             SkinManager.setViewTextColor(this.l, R.color.CAM_X0108);
             SkinManager.setBackgroundColor(this.k, R.color.common_color_10060);
@@ -231,18 +231,18 @@ public class FrsLotteryCountDownView extends LinearLayout {
             SkinManager.setViewTextColor(this.n, R.color.CAM_X0108);
             SkinManager.setBackgroundColor(this.m, R.color.common_color_10060);
             if (j <= s) {
-                this.f15560g.setText("0");
-                this.f15562i.setText("0");
+                this.f15599g.setText("0");
+                this.f15601i.setText("0");
                 this.k.setText("0");
                 this.m.setText("0");
                 return;
             }
             if (j / p <= 0) {
-                this.f15560g.setVisibility(8);
-                this.f15561h.setVisibility(8);
+                this.f15599g.setVisibility(8);
+                this.f15600h.setVisibility(8);
             } else {
-                this.f15560g.setVisibility(0);
-                this.f15561h.setVisibility(0);
+                this.f15599g.setVisibility(0);
+                this.f15600h.setVisibility(0);
             }
             CountDownTimer countDownTimer = this.o;
             if (countDownTimer != null) {
@@ -271,9 +271,9 @@ public class FrsLotteryCountDownView extends LinearLayout {
                 return;
             }
         }
-        this.f15558e = null;
+        this.f15597e = null;
         this.o = null;
-        this.f15558e = context;
+        this.f15597e = context;
         i();
     }
 
@@ -296,9 +296,9 @@ public class FrsLotteryCountDownView extends LinearLayout {
                 return;
             }
         }
-        this.f15558e = null;
+        this.f15597e = null;
         this.o = null;
-        this.f15558e = context;
+        this.f15597e = context;
         i();
     }
 }

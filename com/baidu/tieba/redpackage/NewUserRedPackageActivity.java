@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
@@ -23,8 +24,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.l.d;
 import d.a.c.e.p.l;
-import d.a.r0.a.u;
-/* loaded from: classes5.dex */
+import d.a.o0.a.u;
+/* loaded from: classes4.dex */
 public class NewUserRedPackageActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,13 +36,13 @@ public class NewUserRedPackageActivity extends BaseActivity {
     public View.OnClickListener mOnClickListener;
     public RoundRelativeLayout mRoundCornerLayout;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewUserRedPackageActivity f20627e;
+        public final /* synthetic */ NewUserRedPackageActivity f20673e;
 
         public a(NewUserRedPackageActivity newUserRedPackageActivity) {
             Interceptable interceptable = $ic;
@@ -58,31 +59,31 @@ public class NewUserRedPackageActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f20627e = newUserRedPackageActivity;
+            this.f20673e = newUserRedPackageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view.getId() != this.f20627e.mCloseBtnImage.getId()) {
-                    if (view.getId() == this.f20627e.mBgImage.getId()) {
+                if (view.getId() != this.f20673e.mCloseBtnImage.getId()) {
+                    if (view.getId() == this.f20673e.mBgImage.getId()) {
                         TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 2));
                         if (TbadkCoreApplication.isLogin()) {
-                            if (this.f20627e.mData != null) {
-                                UrlManager.getInstance().dealOneLink(this.f20627e.getPageContext(), new String[]{this.f20627e.mData.clickUrl});
-                                this.f20627e.finish();
+                            if (this.f20673e.mData != null) {
+                                UrlManager.getInstance().dealOneLink(this.f20673e.getPageContext(), new String[]{this.f20673e.mData.clickUrl});
+                                this.f20673e.finish();
                                 return;
                             }
                             return;
                         }
-                        this.f20627e.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f20627e.getActivity(), true, 25046)));
+                        this.f20673e.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f20673e.getActivity(), true, 25046)));
                         return;
                     }
                     return;
                 }
                 TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 3));
-                this.f20627e.finish();
+                this.f20673e.finish();
             }
         }
     }
@@ -106,7 +107,7 @@ public class NewUserRedPackageActivity extends BaseActivity {
     private void setData() {
         d.a.c.k.d.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65540, this) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || getIntent() == null) {
             return;
         }
         NewUserRedPackageData newUserRedPackageData = (NewUserRedPackageData) getIntent().getSerializableExtra("key_data");

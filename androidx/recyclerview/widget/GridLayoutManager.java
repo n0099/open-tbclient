@@ -357,7 +357,7 @@ public class GridLayoutManager extends LinearLayoutManager {
 
     private void cachePreLayoutSpanMapping() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             int childCount = getChildCount();
             for (int i2 = 0; i2 < childCount; i2++) {
                 LayoutParams layoutParams = (LayoutParams) getChildAt(i2).getLayoutParams();
@@ -796,7 +796,7 @@ public class GridLayoutManager extends LinearLayoutManager {
      */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r5v0 */
-    /* JADX WARN: Type inference failed for: r5v1, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r5v1, types: [boolean, int] */
     /* JADX WARN: Type inference failed for: r5v19 */
     @Override // androidx.recyclerview.widget.LinearLayoutManager
     /*
@@ -1496,13 +1496,13 @@ public class GridLayoutManager extends LinearLayoutManager {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {layoutParams};
-                interceptable.invokeUnInit(65540, newInitContext);
+                interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     super((RecyclerView.LayoutParams) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65540, newInitContext);
+                    interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                     return;
                 }
             }

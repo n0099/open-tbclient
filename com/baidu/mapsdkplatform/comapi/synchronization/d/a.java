@@ -1,18 +1,19 @@
 package com.baidu.mapsdkplatform.comapi.synchronization.d;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f7837a = true;
+    public static boolean f7854a = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,22 +43,22 @@ public final class a {
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && f7837a) {
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && f7854a) {
             Log.d(str, str2);
         }
     }
 
     public static void a(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65539, null, str, str2, th) == null) && f7837a) {
+        if ((interceptable == null || interceptable.invokeLLL(65539, null, str, str2, th) == null) && f7854a) {
             Log.e(str, str2, th);
         }
     }
 
     public static void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65540, null, z) == null) {
-            f7837a = z;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
+            f7854a = z;
         }
     }
 
@@ -69,7 +70,7 @@ public final class a {
 
     public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) && f7837a) {
+        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) && f7854a) {
             Log.e(str, str2);
         }
     }

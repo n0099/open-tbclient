@@ -27,7 +27,7 @@ import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateProtocol, IVlogEditManager, IVlogEditViewManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_ERROR = -1;

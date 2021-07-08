@@ -8,6 +8,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.connect.ConnectManager;
 import com.baidu.apollon.statistics.g;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -136,7 +137,7 @@ public class NetWorkUtils {
     public static String getBSSID(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) ? getBSSID() : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? getBSSID() : (String) invokeL.objValue;
     }
 
     @Deprecated
@@ -389,7 +390,7 @@ public class NetWorkUtils {
                         case 12:
                         case 14:
                         case 15:
-                            return g.f3983b;
+                            return g.f3986b;
                         case 13:
                             return "4G";
                         default:

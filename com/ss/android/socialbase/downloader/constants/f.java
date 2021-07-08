@@ -8,21 +8,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final f f41456a;
+    public static final f f38470a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final f f41457b;
+    public static final f f38471b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final f f41458c;
+    public static final f f38472c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ f[] f41459d;
+    public static final /* synthetic */ f[] f38473d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,11 +38,11 @@ public final class f {
                 return;
             }
         }
-        f41456a = new f("ENQUEUE_NONE", 0);
-        f41457b = new f("ENQUEUE_HEAD", 1);
+        f38470a = new f("ENQUEUE_NONE", 0);
+        f38471b = new f("ENQUEUE_HEAD", 1);
         f fVar = new f("ENQUEUE_TAIL", 2);
-        f41458c = fVar;
-        f41459d = new f[]{f41456a, f41457b, fVar};
+        f38472c = fVar;
+        f38473d = new f[]{f38470a, f38471b, fVar};
     }
 
     public f(String str, int i2) {
@@ -73,6 +73,6 @@ public final class f {
     public static f[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f[]) f41459d.clone() : (f[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f[]) f38473d.clone() : (f[]) invokeV.objValue;
     }
 }

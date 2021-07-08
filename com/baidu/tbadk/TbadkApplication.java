@@ -37,12 +37,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.c;
 import d.a.c.h.h.b;
 import d.a.c.h.j.g.d;
-import d.a.r0.m0.l;
+import d.a.o0.m0.l;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TbadkApplication extends TbadkCoreApplication {
     public static /* synthetic */ Interceptable $ic = null;
     public static String mForumName = "armcv";
@@ -196,7 +196,7 @@ public class TbadkApplication extends TbadkCoreApplication {
 
     private void prepareForDefaultAlertTime() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             Calendar calendar = Calendar.getInstance();
             setSignAlertTime(calendar.get(11), calendar.get(12));
         }
@@ -292,7 +292,7 @@ public class TbadkApplication extends TbadkCoreApplication {
                 boolean z3 = Build.VERSION.SDK_INT < 28 ? isXiaomiPushSdkShouldOpen : false;
                 if (!this.isKeepLiveProcess) {
                     if (!this.mPluginIsInited) {
-                        PluginPackageManager.O().i0(d.a.r0.o0.c.n(), new d.a.r0.o0.d(), z3, null);
+                        PluginPackageManager.O().i0(d.a.o0.o0.c.n(), new d.a.o0.o0.d(), z3, null);
                     }
                     PluginSettings l = d.k().l();
                     if (l != null) {
@@ -407,7 +407,7 @@ public class TbadkApplication extends TbadkCoreApplication {
             return;
         }
         super.loadPatchs();
-        int k = d.a.r0.r.d0.b.j().k("plugin_patch_hook_failed_count", 0);
+        int k = d.a.o0.r.d0.b.j().k("plugin_patch_hook_failed_count", 0);
         PluginPackageManager.O().v0(k);
         if (checkSyncPatchBlacklist() && d.a.c.h.g.d.l() && k == 0 && PluginPackageManager.O().n0()) {
             long currentTimeMillis = System.currentTimeMillis();
@@ -425,7 +425,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     public void loginShareRemove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            d.a.r0.r.d0.b.j().C("account_share");
+            d.a.o0.r.d0.b.j().C("account_share");
         }
     }
 

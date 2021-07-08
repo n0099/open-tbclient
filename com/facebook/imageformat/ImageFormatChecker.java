@@ -1,5 +1,6 @@
 package com.facebook.imageformat;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +18,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ImageFormatChecker {
     public static /* synthetic */ Interceptable $ic;
     public static ImageFormatChecker sInstance;
@@ -67,7 +68,7 @@ public class ImageFormatChecker {
         InterceptResult invokeV;
         ImageFormatChecker imageFormatChecker;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (ImageFormatChecker.class) {
                 if (sInstance == null) {
                     sInstance = new ImageFormatChecker();

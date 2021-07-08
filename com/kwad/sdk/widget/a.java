@@ -1,11 +1,8 @@
 package com.kwad.sdk.widget;
 
-import android.content.Context;
 import android.graphics.Rect;
-import android.util.AttributeSet;
+import android.view.View;
 import android.view.ViewTreeObserver;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -14,158 +11,117 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.feed.widget.base.RatioFrameLayout;
-import com.kwad.sdk.utils.ah;
-import com.kwad.sdk.utils.an;
-/* loaded from: classes7.dex */
-public class a extends RatioFrameLayout {
+import com.kwad.sdk.utils.ap;
+import com.kwad.sdk.utils.au;
+/* loaded from: classes6.dex */
+public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f39444a;
+    public final View f36658a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f39445b;
+    public final c f36659b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f39446c;
+    public final au f36660c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f39447d;
+    public final int f36661d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewTreeObserver.OnScrollChangedListener f39448e;
+    public float f36662e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewTreeObserver f39449f;
+    public boolean f36663f;
 
     /* renamed from: g  reason: collision with root package name */
-    public an f39450g;
+    public boolean f36664g;
 
     /* renamed from: h  reason: collision with root package name */
-    public InterfaceC0486a f39451h;
+    public boolean f36665h;
 
-    /* renamed from: com.kwad.sdk.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0486a {
-        void a();
-    }
+    /* renamed from: i  reason: collision with root package name */
+    public ViewTreeObserver.OnScrollChangedListener f36666i;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(@NonNull Context context) {
-        super(context);
+    public a(View view, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {view, cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f39444a = 500L;
-        this.f39446c = true;
-        b();
+        this.f36662e = 0.1f;
+        this.f36665h = true;
+        this.f36658a = view;
+        this.f36659b = cVar;
+        this.f36660c = new au(view);
+        this.f36661d = ap.l(view.getContext());
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
+    private void d() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.f36665h) {
+            e();
+        }
+    }
+
+    private void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            if (g()) {
+                f();
                 return;
             }
-        }
-        this.f39444a = 500L;
-        this.f39446c = true;
-        b();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.f39444a = 500L;
-        this.f39446c = true;
-        b();
-    }
-
-    private void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
-            this.f39450g = new an(this);
-            this.f39447d = ah.h(getContext());
-            this.f39446c = i();
+            i();
+            h();
         }
     }
 
-    private void c() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            if (d()) {
-                a();
-            } else {
-                e();
+            i();
+            c cVar = this.f36659b;
+            if (cVar != null) {
+                cVar.a(this.f36658a);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean d() {
+    public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
-            if (!this.f39450g.a() || Math.abs(this.f39450g.f39369a.height() - getHeight()) > getHeight() * 0.9f || getHeight() <= 0 || getWidth() <= 0) {
+            if (!this.f36660c.a() || Math.abs(this.f36660c.f36531a.height() - this.f36658a.getHeight()) > this.f36658a.getHeight() * (1.0f - this.f36662e) || this.f36658a.getHeight() <= 0 || this.f36658a.getWidth() <= 0) {
                 return false;
             }
-            Rect rect = this.f39450g.f39369a;
-            return rect.bottom > 0 && rect.top < this.f39447d;
+            Rect rect = this.f36660c.f36531a;
+            return rect.bottom > 0 && rect.top < this.f36661d;
         }
         return invokeV.booleanValue;
     }
 
-    private void e() {
+    private void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65543, this) == null) && this.f39448e == null) {
-            this.f39448e = new ViewTreeObserver.OnScrollChangedListener(this) { // from class: com.kwad.sdk.widget.a.1
+        if ((interceptable == null || interceptable.invokeV(65543, this) == null) && this.f36666i == null) {
+            this.f36666i = new ViewTreeObserver.OnScrollChangedListener(this) { // from class: com.kwad.sdk.widget.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f39452a;
+                public final /* synthetic */ a f36667a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -182,114 +138,91 @@ public class a extends RatioFrameLayout {
                             return;
                         }
                     }
-                    this.f39452a = this;
+                    this.f36667a = this;
                 }
 
                 @Override // android.view.ViewTreeObserver.OnScrollChangedListener
                 public void onScrollChanged() {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f39452a.d()) {
-                        this.f39452a.a();
+                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f36667a.g()) {
+                        this.f36667a.f();
                     }
                 }
             };
-            ViewTreeObserver viewTreeObserver = getViewTreeObserver();
-            this.f39449f = viewTreeObserver;
+            ViewTreeObserver viewTreeObserver = this.f36658a.getViewTreeObserver();
             if (viewTreeObserver != null) {
-                viewTreeObserver.addOnScrollChangedListener(this.f39448e);
+                viewTreeObserver.addOnScrollChangedListener(this.f36666i);
             }
         }
     }
 
-    public void a() {
+    private void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            k();
-            InterfaceC0486a interfaceC0486a = this.f39451h;
-            if (interfaceC0486a != null) {
-                interfaceC0486a.a();
+        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || this.f36666i == null) {
+            return;
+        }
+        try {
+            ViewTreeObserver viewTreeObserver = this.f36658a.getViewTreeObserver();
+            if (viewTreeObserver != null) {
+                viewTreeObserver.removeOnScrollChangedListener(this.f36666i);
             }
+            this.f36666i = null;
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.a(e2);
         }
     }
 
-    public boolean i() {
+    public float a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36662e : invokeV.floatValue;
     }
 
-    public void j() {
+    public void a(float f2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f39446c) {
-            c();
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
+            this.f36662e = f2;
         }
     }
 
-    public void k() {
+    public void a(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            try {
-                if (this.f39448e != null && this.f39449f != null && this.f39449f.isAlive()) {
-                    this.f39449f.removeOnScrollChangedListener(this.f39448e);
-                }
-                this.f39448e = null;
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.a(e2);
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
+            this.f36664g = false;
+            if (this.f36663f || (i4 | i5) != 0 || (i2 | i3) == 0) {
+                return;
             }
+            this.f36664g = true;
+            this.f36663f = true;
         }
     }
 
-    public void l() {
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.f36665h = z;
+        }
+    }
+
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            k();
-            e();
+            h();
         }
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
+    public void b(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.onAttachedToWindow();
-            e();
+        if ((interceptable == null || interceptable.invokeIIII(1048581, this, i2, i3, i4, i5) == null) && this.f36664g) {
+            d();
         }
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.onDetachedFromWindow();
-            k();
-            this.f39445b = false;
-        }
-    }
-
-    @Override // android.view.View
-    public void onSizeChanged(int i2, int i3, int i4, int i5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048583, this, i2, i3, i4, i5) == null) {
-            boolean z = true;
-            if (this.f39445b || (i4 | i5) != 0 || (i2 | i3) == 0) {
-                z = false;
-            } else {
-                this.f39445b = true;
-            }
-            super.onSizeChanged(i2, i3, i4, i5);
-            if (z) {
-                j();
-            }
-        }
-    }
-
-    public void setVisibleListener(InterfaceC0486a interfaceC0486a) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, interfaceC0486a) == null) {
-            this.f39451h = interfaceC0486a;
+            i();
+            this.f36663f = false;
         }
     }
 }

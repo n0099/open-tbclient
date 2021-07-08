@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class HitResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f32851a;
+    public long f32961a;
 
     public HitResult() {
         Interceptable interceptable = $ic;
@@ -27,7 +27,7 @@ public class HitResult {
                 return;
             }
         }
-        this.f32851a = 0L;
+        this.f32961a = 0L;
     }
 
     private native long nativeCreateAnchor(long j, long j2);
@@ -41,13 +41,13 @@ public class HitResult {
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj != null && obj.getClass() == HitResult.class && ((HitResult) obj).f32851a == this.f32851a : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj != null && obj.getClass() == HitResult.class && ((HitResult) obj).f32961a == this.f32961a : invokeL.booleanValue;
     }
 
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long j = this.f32851a;
+            long j = this.f32961a;
             if (j != 0) {
                 nativeDestroyHitResult(j);
             }
@@ -58,7 +58,7 @@ public class HitResult {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Long.valueOf(this.f32851a).hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Long.valueOf(this.f32961a).hashCode() : invokeV.intValue;
     }
 
     public native long nativeAcquireTrackable(long j, long j2);

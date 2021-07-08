@@ -1,6 +1,7 @@
 package com.yy.mobile.framework.revenuesdk.baseapi.log;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class RLog {
     public static /* synthetic */ Interceptable $ic;
     public static CopyOnWriteArrayList<IRLogDelegate> logDelegates;
@@ -244,7 +245,7 @@ public class RLog {
 
     public static void debug(Object obj, String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, null, obj, str, th) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str, th) == null) {
             if (!logDelegates.isEmpty()) {
                 Iterator<IRLogDelegate> it = logDelegates.iterator();
                 while (it.hasNext()) {

@@ -9,13 +9,13 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class f implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f6782a;
+    public final /* synthetic */ e f6799a;
 
     public f(e eVar) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class f implements Runnable {
                 return;
             }
         }
-        this.f6782a = eVar;
+        this.f6799a = eVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:114:0x011d A[EDGE_INSN: B:114:0x011d->B:83:0x011d ?: BREAK  , SYNTHETIC] */
@@ -51,22 +51,22 @@ public class f implements Runnable {
         InputStream inputStream2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f6782a.f6780h = k.e();
-            this.f6782a.b();
-            this.f6782a.a();
-            int i2 = this.f6782a.f6781i;
+            this.f6799a.f6797h = k.e();
+            this.f6799a.b();
+            this.f6799a.a();
+            int i2 = this.f6799a.f6798i;
             InputStream inputStream3 = null;
             HttpURLConnection httpURLConnection = null;
             while (i2 > 0) {
                 try {
-                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.f6782a.f6780h).openConnection();
+                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.f6799a.f6797h).openConnection();
                     try {
                         httpURLConnection2.setRequestMethod("GET");
                         httpURLConnection2.setDoInput(true);
                         httpURLConnection2.setDoOutput(true);
                         httpURLConnection2.setUseCaches(false);
-                        httpURLConnection2.setConnectTimeout(a.f6741b);
-                        httpURLConnection2.setReadTimeout(a.f6741b);
+                        httpURLConnection2.setConnectTimeout(a.f6758b);
+                        httpURLConnection2.setReadTimeout(a.f6758b);
                         httpURLConnection2.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
                         httpURLConnection2.setRequestProperty("Accept-Charset", "UTF-8");
                         if (k.ax != null) {
@@ -87,15 +87,15 @@ public class f implements Runnable {
                                     }
                                     inputStream2.close();
                                     byteArrayOutputStream.close();
-                                    this.f6782a.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
-                                    this.f6782a.a(true);
+                                    this.f6799a.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                                    this.f6799a.a(true);
                                     httpURLConnection2.disconnect();
                                     z = true;
                                 } catch (Exception unused) {
                                     inputStream = inputStream2;
                                     httpURLConnection = httpURLConnection2;
                                     try {
-                                        Log.d(a.f6740a, "NetworkCommunicationException!");
+                                        Log.d(a.f6757a, "NetworkCommunicationException!");
                                         if (httpURLConnection != null) {
                                             httpURLConnection.disconnect();
                                         }
@@ -205,7 +205,7 @@ public class f implements Runnable {
                 return;
             }
             e.p++;
-            e eVar = this.f6782a;
+            e eVar = this.f6799a;
             eVar.j = null;
             eVar.a(false);
         }

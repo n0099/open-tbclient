@@ -30,7 +30,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_FORUM_NUM = 3;
@@ -46,18 +46,18 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
     public TransmitSelectAdapter mSelectAdapter;
     public View mTopView;
     public TextView mTransmitConfirmButton;
-    public d.a.s0.a4.q.a mTransmitForumCallback;
+    public d.a.p0.a4.q.a mTransmitForumCallback;
     public TextView mTransmitSubTitle;
     public TextView mTransmitTipsView;
     public TextView mTransmitTitle;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitForumActivity f22559e;
+        public final /* synthetic */ TransmitForumActivity f22618e;
 
         public a(TransmitForumActivity transmitForumActivity) {
             Interceptable interceptable = $ic;
@@ -74,7 +74,7 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
                     return;
                 }
             }
-            this.f22559e = transmitForumActivity;
+            this.f22618e = transmitForumActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -83,29 +83,29 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
                 return;
             }
-            if (view.getId() != this.f22559e.mTransmitConfirmButton.getId()) {
-                if (view.getId() == this.f22559e.mBackView.getId() || view.getId() == this.f22559e.mTopView.getId()) {
-                    this.f22559e.setResult(0);
-                    this.f22559e.startExitAnimation();
+            if (view.getId() != this.f22618e.mTransmitConfirmButton.getId()) {
+                if (view.getId() == this.f22618e.mBackView.getId() || view.getId() == this.f22618e.mTopView.getId()) {
+                    this.f22618e.setResult(0);
+                    this.f22618e.startExitAnimation();
                     return;
                 }
                 return;
             }
-            ArrayList<TransmitForumData> selectedList = this.f22559e.getSelectedList();
+            ArrayList<TransmitForumData> selectedList = this.f22618e.getSelectedList();
             Intent intent = new Intent();
-            intent.putExtra(TransmitForumActivityConfig.KEY_FORUM_LIST_SELECTED, this.f22559e.generateSelectResult(selectedList));
-            this.f22559e.setResult(-1, intent);
-            this.f22559e.startExitAnimation();
+            intent.putExtra(TransmitForumActivityConfig.KEY_FORUM_LIST_SELECTED, this.f22618e.generateSelectResult(selectedList));
+            this.f22618e.setResult(-1, intent);
+            this.f22618e.startExitAnimation();
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements d.a.s0.a4.q.a {
+    /* loaded from: classes4.dex */
+    public class b implements d.a.p0.a4.q.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TransmitForumActivity f22560a;
+        public final /* synthetic */ TransmitForumActivity f22619a;
 
         public b(TransmitForumActivity transmitForumActivity) {
             Interceptable interceptable = $ic;
@@ -122,40 +122,40 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
                     return;
                 }
             }
-            this.f22560a = transmitForumActivity;
+            this.f22619a = transmitForumActivity;
         }
 
-        @Override // d.a.s0.a4.q.a
+        @Override // d.a.p0.a4.q.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f22560a.setTransmitConfirmButtonText();
+                this.f22619a.setTransmitConfirmButtonText();
             }
         }
 
-        @Override // d.a.s0.a4.q.a
+        @Override // d.a.p0.a4.q.a
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f22560a.showToast(R.string.transmit_max_commit);
+                this.f22619a.showToast(R.string.transmit_max_commit);
             }
         }
 
-        @Override // d.a.s0.a4.q.a
+        @Override // d.a.p0.a4.q.a
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ListUtils.getCount(this.f22560a.getSelectedList()) >= 3 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ListUtils.getCount(this.f22619a.getSelectedList()) >= 3 : invokeV.booleanValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TransmitForumActivity f22561a;
+        public final /* synthetic */ TransmitForumActivity f22620a;
 
         public c(TransmitForumActivity transmitForumActivity) {
             Interceptable interceptable = $ic;
@@ -172,14 +172,14 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
                     return;
                 }
             }
-            this.f22561a = transmitForumActivity;
+            this.f22620a = transmitForumActivity;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f22561a.finish();
+                this.f22620a.finish();
             }
         }
 
@@ -371,9 +371,9 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
             } else {
                 arrayList = null;
             }
-            this.mDataList.add(new d.a.s0.a4.q.c());
+            this.mDataList.add(new d.a.p0.a4.q.c());
             this.mForumAdapter = new TransmitForumAdapter(getPageContext().getPageActivity(), TransmitForumData.ID_TRANSMIT_SELECT_DATA);
-            this.mSelectAdapter = new TransmitSelectAdapter(getPageContext().getPageActivity(), d.a.s0.a4.q.c.f57556e, getUniqueId(), arrayList);
+            this.mSelectAdapter = new TransmitSelectAdapter(getPageContext().getPageActivity(), d.a.p0.a4.q.c.f54301e, getUniqueId(), arrayList);
             this.mForumAdapter.i0(this.mTransmitForumCallback);
             this.mAdapters.add(this.mForumAdapter);
             this.mAdapters.add(this.mSelectAdapter);

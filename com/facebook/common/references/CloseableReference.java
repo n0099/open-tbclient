@@ -22,7 +22,7 @@ import java.util.Collection;
 import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class CloseableReference<T> implements Cloneable, Closeable {
     public static /* synthetic */ Interceptable $ic;
     public static final ResourceReleaser<Closeable> DEFAULT_CLOSEABLE_RELEASER;
@@ -34,7 +34,7 @@ public final class CloseableReference<T> implements Cloneable, Closeable {
     public final LeakHandler mLeakHandler;
     public final SharedReference<T> mSharedReference;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface LeakHandler {
         void reportLeak(SharedReference<Object> sharedReference);
     }
@@ -301,7 +301,7 @@ public final class CloseableReference<T> implements Cloneable, Closeable {
     public static <T> CloseableReference<T> cloneOrNull(@Nullable CloseableReference<T> closeableReference) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, closeableReference)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, closeableReference)) == null) {
             if (closeableReference != null) {
                 return closeableReference.cloneOrNull();
             }

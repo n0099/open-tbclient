@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.graphics.ColorUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RippleUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] ENABLED_PRESSED_STATE_SET;
@@ -115,7 +116,7 @@ public class RippleUtils {
     public static int getColorForState(@Nullable ColorStateList colorStateList, int[] iArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, colorStateList, iArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, colorStateList, iArr)) == null) {
             int colorForState = colorStateList != null ? colorStateList.getColorForState(iArr, colorStateList.getDefaultColor()) : 0;
             return USE_FRAMEWORK_RIPPLE ? doubleAlpha(colorForState) : colorForState;
         }

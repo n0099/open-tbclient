@@ -1,5 +1,6 @@
 package org.apache.http.impl.cookie;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
 import java.util.TimeZone;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class DateUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final TimeZone GMT = null;
@@ -63,7 +64,7 @@ public final class DateUtils {
     public static Date parseDate(String str) throws DateParseException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (Date) invokeL.objValue;

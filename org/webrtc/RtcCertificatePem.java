@@ -1,5 +1,6 @@
 package org.webrtc;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -7,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.PeerConnection;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class RtcCertificatePem {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_EXPIRY = 2592000;
@@ -56,7 +57,7 @@ public class RtcCertificatePem {
     public static RtcCertificatePem generateCertificate(PeerConnection.KeyType keyType, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65540, null, keyType, j)) == null) ? nativeGenerateCertificate(keyType, j) : (RtcCertificatePem) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, keyType, j)) == null) ? nativeGenerateCertificate(keyType, j) : (RtcCertificatePem) invokeLJ.objValue;
     }
 
     public static native RtcCertificatePem nativeGenerateCertificate(PeerConnection.KeyType keyType, long j);

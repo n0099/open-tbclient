@@ -15,12 +15,12 @@ import com.baidu.ugc.editvideo.player.IPlayer;
 import com.baidu.ugc.editvideo.player.VideoPlayData;
 import com.baidu.ugc.editvideo.record.source.IDataSourceView;
 import com.baidu.ugc.editvideo.record.source.IMediaDataSource;
-import d.a.y0.t.c;
-import d.a.y0.t.h;
-import d.a.y0.t.w;
+import d.a.v0.t.c;
+import d.a.v0.t.h;
+import d.a.v0.t.w;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_IDLE = 0;
@@ -45,7 +45,7 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
     public int mVideoWidth;
     public OnPlayStateListener onPlayStateListener;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnPlayStateListener {
         void pause();
 

@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class bx extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bu f42899a;
+    public final /* synthetic */ bu f39913a;
 
     public bx(bu buVar) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class bx extends ai.a {
                 return;
             }
         }
-        this.f42899a = buVar;
+        this.f39913a = buVar;
     }
 
     @Override // com.xiaomi.push.ai.a
@@ -50,12 +50,12 @@ public class bx extends ai.a {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ckVar = this.f42899a.f163a;
+            ckVar = this.f39913a.f163a;
             if (ckVar != null) {
-                ckVar2 = this.f42899a.f163a;
-                context = this.f42899a.f160a;
+                ckVar2 = this.f39913a.f163a;
+                context = this.f39913a.f160a;
                 ckVar2.b(context);
-                this.f42899a.b(DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM);
+                this.f39913a.b(DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM);
             }
         }
     }

@@ -2,6 +2,7 @@ package com.google.android.exoplayer2.metadata.scte35;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.b.a.i0.l;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class PrivateCommand extends SpliceCommand {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<PrivateCommand> CREATOR;
@@ -20,7 +21,7 @@ public final class PrivateCommand extends SpliceCommand {
     public final long identifier;
     public final long ptsAdjustment;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Parcelable.Creator<PrivateCommand> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +82,7 @@ public final class PrivateCommand extends SpliceCommand {
     public static PrivateCommand parseFromSection(l lVar, int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{lVar, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{lVar, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
             long z = lVar.z();
             int i3 = i2 - 4;
             byte[] bArr = new byte[i3];

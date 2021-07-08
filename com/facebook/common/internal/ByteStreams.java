@@ -1,5 +1,6 @@
 package com.facebook.common.internal;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,20 +13,20 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class ByteStreams {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUF_SIZE = 4096;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.common.internal.ByteStreams$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class FastByteArrayOutputStream extends ByteArrayOutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -124,7 +125,7 @@ public final class ByteStreams {
     public static byte[] toByteArray(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, inputStream)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream)) == null) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             copy(inputStream, byteArrayOutputStream);
             return byteArrayOutputStream.toByteArray();

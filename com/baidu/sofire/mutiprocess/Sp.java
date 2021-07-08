@@ -2,6 +2,7 @@ package com.baidu.sofire.mutiprocess;
 
 import android.content.Context;
 import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class Sp {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +51,7 @@ public class Sp {
     public static Bundle mainProcessRequestCallPlugin(int i2, Bundle bundle) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65540, null, i2, bundle)) == null) ? b.a(i2, bundle) : (Bundle) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, bundle)) == null) ? b.a(i2, bundle) : (Bundle) invokeIL.objValue;
     }
 
     public static Map<Integer, Integer> mainProcessStartAllPlugin(String str) {

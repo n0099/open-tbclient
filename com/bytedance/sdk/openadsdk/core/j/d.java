@@ -16,13 +16,13 @@ import com.bytedance.sdk.openadsdk.r.o;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d extends com.bytedance.sdk.component.e.g {
     public static /* synthetic */ Interceptable $ic;
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f30182a;
+    public static volatile d f30292a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -60,9 +60,9 @@ public class d extends com.bytedance.sdk.component.e.g {
                 jSONObject.put("ua", o.b());
                 jSONObject.put("vendor", Build.MANUFACTURER);
                 jSONObject.put("model", Build.MODEL);
-                jSONObject.put("ad_package_name", eVar.f30185c);
-                jSONObject.put("action", eVar.f30183a);
-                jSONObject.put("service", eVar.f30184b);
+                jSONObject.put("ad_package_name", eVar.f30295c);
+                jSONObject.put("action", eVar.f30293a);
+                jSONObject.put("service", eVar.f30294b);
                 com.bytedance.sdk.openadsdk.n.a.a(jSONObject);
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -76,14 +76,14 @@ public class d extends com.bytedance.sdk.component.e.g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f30182a == null) {
+            if (f30292a == null) {
                 synchronized (f.class) {
-                    if (f30182a == null) {
-                        f30182a = new d();
+                    if (f30292a == null) {
+                        f30292a = new d();
                     }
                 }
             }
-            return f30182a;
+            return f30292a;
         }
         return (d) invokeV.objValue;
     }
@@ -130,11 +130,11 @@ public class d extends com.bytedance.sdk.component.e.g {
                 if (eVar != null) {
                     try {
                         long currentTimeMillis = System.currentTimeMillis();
-                        if (eVar.f30184b != null && eVar.f30185c != null && currentTimeMillis - com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_push_time", eVar.f30185c, 0L) > eVar.f30186d * 1000) {
-                            com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_push_time", eVar.f30185c, Long.valueOf(currentTimeMillis));
+                        if (eVar.f30294b != null && eVar.f30295c != null && currentTimeMillis - com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_push_time", eVar.f30295c, 0L) > eVar.f30296d * 1000) {
+                            com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_push_time", eVar.f30295c, Long.valueOf(currentTimeMillis));
                             Intent intent = new Intent();
-                            intent.setAction(eVar.f30183a);
-                            intent.setPackage(eVar.f30185c);
+                            intent.setAction(eVar.f30293a);
+                            intent.setPackage(eVar.f30295c);
                             com.bytedance.sdk.openadsdk.core.o.a().startService(intent);
                             a(eVar, 1);
                         }

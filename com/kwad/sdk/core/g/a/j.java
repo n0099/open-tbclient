@@ -1,32 +1,21 @@
 package com.kwad.sdk.core.g.a;
 
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.utils.o;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import com.kwad.sdk.utils.q;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class j implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f36156a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f36157b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f36158c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public List<Long> f36159d;
+    public h f34493a;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -38,54 +27,25 @@ public class j implements com.kwad.sdk.core.b {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.f36159d = new ArrayList();
     }
 
-    public j(int i2) {
+    public static j a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            j jVar = new j();
+            jVar.f34493a = h.a();
+            return jVar;
         }
-        this.f36159d = new ArrayList();
-        this.f36156a = true;
-        this.f36157b = i2;
+        return (j) invokeV.objValue;
     }
 
-    public j(List<AdTemplate> list) {
+    @Override // com.kwad.sdk.core.b
+    public void parseJson(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.f36159d = new ArrayList();
-        this.f36156a = false;
-        if (list != null) {
-            this.f36158c = list.size();
-            for (AdTemplate adTemplate : list) {
-                this.f36159d.add(Long.valueOf(com.kwad.sdk.core.response.b.c.z(adTemplate)));
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
         }
     }
 
@@ -93,19 +53,9 @@ public class j implements com.kwad.sdk.core.b {
     public JSONObject toJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, "preload", this.f36156a);
-            if (this.f36156a) {
-                o.a(jSONObject, "requestVideoCount", this.f36157b);
-            } else {
-                o.a(jSONObject, "preloadedVideoCount", this.f36158c);
-                JSONArray jSONArray = new JSONArray();
-                for (Long l : this.f36159d) {
-                    jSONArray.put(l);
-                }
-                o.a(jSONObject, "preloadedVideoList", jSONArray);
-            }
+            q.a(jSONObject, "modeInfo", this.f34493a);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

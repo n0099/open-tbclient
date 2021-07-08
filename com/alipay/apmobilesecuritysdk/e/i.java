@@ -1,6 +1,7 @@
 package com.alipay.apmobilesecuritysdk.e;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,22 +15,22 @@ public final class i {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1717a = "";
+    public static String f1718a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f1718b = "";
+    public static String f1719b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f1719c = "";
+    public static String f1720c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f1720d = "";
+    public static String f1721d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f1721e = "";
+    public static String f1722e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public static Map<String, String> f1722f;
+    public static Map<String, String> f1723f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,7 +46,7 @@ public final class i {
                 return;
             }
         }
-        f1722f = new HashMap();
+        f1723f = new HashMap();
     }
 
     public static synchronized String a(String str) {
@@ -54,8 +55,8 @@ public final class i {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             synchronized (i.class) {
                 String str2 = "apdidTokenCache" + str;
-                if (f1722f.containsKey(str2)) {
-                    String str3 = f1722f.get(str2);
+                if (f1723f.containsKey(str2)) {
+                    String str3 = f1723f.get(str2);
                     if (com.alipay.security.mobile.module.a.a.b(str3)) {
                         return str3;
                     }
@@ -79,9 +80,9 @@ public final class i {
         if (interceptable == null || interceptable.invokeL(65539, null, bVar) == null) {
             synchronized (i.class) {
                 if (bVar != null) {
-                    f1717a = bVar.f1703a;
-                    f1718b = bVar.f1704b;
-                    f1719c = bVar.f1705c;
+                    f1718a = bVar.f1704a;
+                    f1719b = bVar.f1705b;
+                    f1720c = bVar.f1706c;
                 }
             }
         }
@@ -89,14 +90,14 @@ public final class i {
 
     public static synchronized void a(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cVar) == null) {
             synchronized (i.class) {
                 if (cVar != null) {
-                    f1717a = cVar.f1706a;
-                    f1718b = cVar.f1707b;
-                    f1720d = cVar.f1709d;
-                    f1721e = cVar.f1710e;
-                    f1719c = cVar.f1708c;
+                    f1718a = cVar.f1707a;
+                    f1719b = cVar.f1708b;
+                    f1721d = cVar.f1710d;
+                    f1722e = cVar.f1711e;
+                    f1720c = cVar.f1709c;
                 }
             }
         }
@@ -107,10 +108,10 @@ public final class i {
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) {
             synchronized (i.class) {
                 String str3 = "apdidTokenCache" + str;
-                if (f1722f.containsKey(str3)) {
-                    f1722f.remove(str3);
+                if (f1723f.containsKey(str3)) {
+                    f1723f.remove(str3);
                 }
-                f1722f.put(str3, str2);
+                f1723f.put(str3, str2);
             }
         }
     }
@@ -148,7 +149,7 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             synchronized (i.class) {
-                str = f1717a;
+                str = f1718a;
             }
             return str;
         }
@@ -158,7 +159,7 @@ public final class i {
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            f1717a = str;
+            f1718a = str;
         }
     }
 
@@ -168,7 +169,7 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             synchronized (i.class) {
-                str = f1718b;
+                str = f1719b;
             }
             return str;
         }
@@ -178,7 +179,7 @@ public final class i {
     public static void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            f1718b = str;
+            f1719b = str;
         }
     }
 
@@ -188,7 +189,7 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
             synchronized (i.class) {
-                str = f1720d;
+                str = f1721d;
             }
             return str;
         }
@@ -198,7 +199,7 @@ public final class i {
     public static void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
-            f1719c = str;
+            f1720c = str;
         }
     }
 
@@ -208,7 +209,7 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
             synchronized (i.class) {
-                str = f1721e;
+                str = f1722e;
             }
             return str;
         }
@@ -218,7 +219,7 @@ public final class i {
     public static void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, null, str) == null) {
-            f1720d = str;
+            f1721d = str;
         }
     }
 
@@ -228,7 +229,7 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
             synchronized (i.class) {
-                str = f1719c;
+                str = f1720c;
             }
             return str;
         }
@@ -238,7 +239,7 @@ public final class i {
     public static void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
-            f1721e = str;
+            f1722e = str;
         }
     }
 
@@ -248,7 +249,7 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
             synchronized (i.class) {
-                cVar = new c(f1717a, f1718b, f1719c, f1720d, f1721e);
+                cVar = new c(f1718a, f1719b, f1720c, f1721d, f1722e);
             }
             return cVar;
         }
@@ -258,12 +259,12 @@ public final class i {
     public static void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, null) == null) {
-            f1722f.clear();
-            f1717a = "";
-            f1718b = "";
-            f1720d = "";
-            f1721e = "";
-            f1719c = "";
+            f1723f.clear();
+            f1718a = "";
+            f1719b = "";
+            f1721d = "";
+            f1722e = "";
+            f1720c = "";
         }
     }
 }

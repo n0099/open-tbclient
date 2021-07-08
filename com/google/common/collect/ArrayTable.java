@@ -20,7 +20,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -33,13 +33,13 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
     public final ImmutableList<R> rowList;
     public transient ArrayTable<R, C, V>.h rowMap;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a extends d.f.d.c.a<k1.a<R, C, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ArrayTable f33022g;
+        public final /* synthetic */ ArrayTable f33132g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ArrayTable arrayTable, int i2) {
@@ -59,7 +59,7 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
                     return;
                 }
             }
-            this.f33022g = arrayTable;
+            this.f33132g = arrayTable;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,26 +68,26 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
         public k1.a<R, C, V> a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f33022g.getCell(i2) : (k1.a) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f33132g.getCell(i2) : (k1.a) invokeI.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class b extends Tables.b<R, C, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f33023e;
+        public final int f33133e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f33024f;
+        public final int f33134f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f33025g;
+        public final /* synthetic */ int f33135g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ ArrayTable f33026h;
+        public final /* synthetic */ ArrayTable f33136h;
 
         public b(ArrayTable arrayTable, int i2) {
             Interceptable interceptable = $ic;
@@ -104,41 +104,41 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
                     return;
                 }
             }
-            this.f33026h = arrayTable;
-            this.f33025g = i2;
-            this.f33023e = this.f33025g / this.f33026h.columnList.size();
-            this.f33024f = this.f33025g % this.f33026h.columnList.size();
+            this.f33136h = arrayTable;
+            this.f33135g = i2;
+            this.f33133e = this.f33135g / this.f33136h.columnList.size();
+            this.f33134f = this.f33135g % this.f33136h.columnList.size();
         }
 
         @Override // d.f.d.c.k1.a
         public C getColumnKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (C) this.f33026h.columnList.get(this.f33024f) : (C) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (C) this.f33136h.columnList.get(this.f33134f) : (C) invokeV.objValue;
         }
 
         @Override // d.f.d.c.k1.a
         public R getRowKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (R) this.f33026h.rowList.get(this.f33023e) : (R) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (R) this.f33136h.rowList.get(this.f33133e) : (R) invokeV.objValue;
         }
 
         @Override // d.f.d.c.k1.a
         public V getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (V) this.f33026h.at(this.f33023e, this.f33024f) : (V) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (V) this.f33136h.at(this.f33133e, this.f33134f) : (V) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class c extends d.f.d.c.a<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ArrayTable f33027g;
+        public final /* synthetic */ ArrayTable f33137g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(ArrayTable arrayTable, int i2) {
@@ -158,35 +158,35 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
                     return;
                 }
             }
-            this.f33027g = arrayTable;
+            this.f33137g = arrayTable;
         }
 
         @Override // d.f.d.c.a
         public V a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (V) this.f33027g.getValue(i2) : (V) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (V) this.f33137g.getValue(i2) : (V) invokeI.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class d<K, V> extends Maps.p<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final ImmutableMap<K, Integer> f33028e;
+        public final ImmutableMap<K, Integer> f33138e;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public class a extends d.f.d.c.b<K, V> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f33029e;
+            public final /* synthetic */ int f33139e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d f33030f;
+            public final /* synthetic */ d f33140f;
 
             public a(d dVar, int i2) {
                 Interceptable interceptable = $ic;
@@ -203,39 +203,39 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
                         return;
                     }
                 }
-                this.f33030f = dVar;
-                this.f33029e = i2;
+                this.f33140f = dVar;
+                this.f33139e = i2;
             }
 
             @Override // d.f.d.c.b, java.util.Map.Entry
             public K getKey() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (K) this.f33030f.c(this.f33029e) : (K) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (K) this.f33140f.c(this.f33139e) : (K) invokeV.objValue;
             }
 
             @Override // d.f.d.c.b, java.util.Map.Entry
             public V getValue() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (V) this.f33030f.e(this.f33029e) : (V) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (V) this.f33140f.e(this.f33139e) : (V) invokeV.objValue;
             }
 
             @Override // d.f.d.c.b, java.util.Map.Entry
             public V setValue(V v) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, v)) == null) ? (V) this.f33030f.f(this.f33029e, v) : (V) invokeL.objValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, v)) == null) ? (V) this.f33140f.f(this.f33139e, v) : (V) invokeL.objValue;
             }
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public class b extends d.f.d.c.a<Map.Entry<K, V>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ d f33031g;
+            public final /* synthetic */ d f33141g;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public b(d dVar, int i2) {
@@ -255,7 +255,7 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
                         return;
                     }
                 }
-                this.f33031g = dVar;
+                this.f33141g = dVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -264,7 +264,7 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
             public Map.Entry<K, V> a(int i2) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f33031g.b(i2) : (Map.Entry) invokeI.objValue;
+                return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f33141g.b(i2) : (Map.Entry) invokeI.objValue;
             }
         }
 
@@ -292,7 +292,7 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
         public K c(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f33028e.keySet().asList().get(i2) : (K) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f33138e.keySet().asList().get(i2) : (K) invokeI.objValue;
         }
 
         @Override // com.google.common.collect.Maps.p, java.util.AbstractMap, java.util.Map
@@ -307,7 +307,7 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
         public boolean containsKey(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) ? this.f33028e.containsKey(obj) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) ? this.f33138e.containsKey(obj) : invokeL.booleanValue;
         }
 
         public abstract String d();
@@ -321,7 +321,7 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) {
-                Integer num = this.f33028e.get(obj);
+                Integer num = this.f33138e.get(obj);
                 if (num == null) {
                     return null;
                 }
@@ -334,14 +334,14 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
         public boolean isEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f33028e.isEmpty() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f33138e.isEmpty() : invokeV.booleanValue;
         }
 
         @Override // java.util.AbstractMap, java.util.Map
         public Set<K> keySet() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f33028e.keySet() : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f33138e.keySet() : (Set) invokeV.objValue;
         }
 
         @Override // java.util.AbstractMap, java.util.Map
@@ -349,11 +349,11 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, k, v)) == null) {
-                Integer num = this.f33028e.get(k);
+                Integer num = this.f33138e.get(k);
                 if (num != null) {
                     return f(num.intValue(), v);
                 }
-                throw new IllegalArgumentException(d() + " " + k + " not in " + this.f33028e.keySet());
+                throw new IllegalArgumentException(d() + " " + k + " not in " + this.f33138e.keySet());
             }
             return (V) invokeLL.objValue;
         }
@@ -372,7 +372,7 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f33028e.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f33138e.size() : invokeV.intValue;
         }
 
         public d(ImmutableMap<K, Integer> immutableMap) {
@@ -390,20 +390,20 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
                     return;
                 }
             }
-            this.f33028e = immutableMap;
+            this.f33138e = immutableMap;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class e extends d<R, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f33032f;
+        public final int f33142f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ArrayTable f33033g;
+        public final /* synthetic */ ArrayTable f33143g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(ArrayTable arrayTable, int i2) {
@@ -424,8 +424,8 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
                     return;
                 }
             }
-            this.f33033g = arrayTable;
-            this.f33032f = i2;
+            this.f33143g = arrayTable;
+            this.f33142f = i2;
         }
 
         @Override // com.google.common.collect.ArrayTable.d
@@ -439,24 +439,24 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
         public V e(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (V) this.f33033g.at(i2, this.f33032f) : (V) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (V) this.f33143g.at(i2, this.f33142f) : (V) invokeI.objValue;
         }
 
         @Override // com.google.common.collect.ArrayTable.d
         public V f(int i2, V v) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, v)) == null) ? (V) this.f33033g.set(i2, this.f33032f, v) : (V) invokeIL.objValue;
+            return (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, v)) == null) ? (V) this.f33143g.set(i2, this.f33142f, v) : (V) invokeIL.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class f extends d<C, Map<R, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ArrayTable f33034f;
+        public final /* synthetic */ ArrayTable f33144f;
 
         public /* synthetic */ f(ArrayTable arrayTable, a aVar) {
             this(arrayTable);
@@ -481,7 +481,7 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
         public Map<R, V> e(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? new e(this.f33034f, i2) : (Map) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? new e(this.f33144f, i2) : (Map) invokeI.objValue;
         }
 
         public Map<R, V> h(C c2, Map<R, V> map) {
@@ -527,20 +527,20 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
                     return;
                 }
             }
-            this.f33034f = arrayTable;
+            this.f33144f = arrayTable;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class g extends d<C, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f33035f;
+        public final int f33145f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ArrayTable f33036g;
+        public final /* synthetic */ ArrayTable f33146g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(ArrayTable arrayTable, int i2) {
@@ -561,8 +561,8 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
                     return;
                 }
             }
-            this.f33036g = arrayTable;
-            this.f33035f = i2;
+            this.f33146g = arrayTable;
+            this.f33145f = i2;
         }
 
         @Override // com.google.common.collect.ArrayTable.d
@@ -576,24 +576,24 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
         public V e(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (V) this.f33036g.at(this.f33035f, i2) : (V) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (V) this.f33146g.at(this.f33145f, i2) : (V) invokeI.objValue;
         }
 
         @Override // com.google.common.collect.ArrayTable.d
         public V f(int i2, V v) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, v)) == null) ? (V) this.f33036g.set(this.f33035f, i2, v) : (V) invokeIL.objValue;
+            return (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, v)) == null) ? (V) this.f33146g.set(this.f33145f, i2, v) : (V) invokeIL.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class h extends d<R, Map<C, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ArrayTable f33037f;
+        public final /* synthetic */ ArrayTable f33147f;
 
         public /* synthetic */ h(ArrayTable arrayTable, a aVar) {
             this(arrayTable);
@@ -618,7 +618,7 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
         public Map<C, V> e(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? new g(this.f33037f, i2) : (Map) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? new g(this.f33147f, i2) : (Map) invokeI.objValue;
         }
 
         public Map<C, V> h(R r, Map<C, V> map) {
@@ -664,7 +664,7 @@ public final class ArrayTable<R, C, V> extends i<R, C, V> implements Serializabl
                     return;
                 }
             }
-            this.f33037f = arrayTable;
+            this.f33147f = arrayTable;
         }
     }
 

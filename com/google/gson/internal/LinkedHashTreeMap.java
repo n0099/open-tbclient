@@ -22,7 +22,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements Serializable {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -37,7 +37,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     public Node<K, V>[] table;
     public int threshold;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class AvlBuilder<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,7 +145,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class AvlIterator<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -205,7 +205,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class EntrySet extends AbstractSet<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -306,7 +306,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class KeySet extends AbstractSet<K> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -398,7 +398,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public abstract class LinkedTreeMapIterator<T> implements Iterator<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -976,7 +976,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     public static <K, V> Node<K, V>[] doubleCapacity(Node<K, V>[] nodeArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, nodeArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, nodeArr)) == null) {
             int length = nodeArr.length;
             Node<K, V>[] nodeArr2 = new Node[length * 2];
             AvlIterator avlIterator = new AvlIterator();
@@ -1020,7 +1020,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         return (Node[]) invokeL.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Node<K, V> implements Map.Entry<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -27,14 +27,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.u0.i0;
-import d.a.s0.u0.j0;
-/* loaded from: classes5.dex */
+import d.a.p0.u0.i0;
+import d.a.p0.u0.j0;
+/* loaded from: classes4.dex */
 public class AlaFrsLiveStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,8 +69,8 @@ public class AlaFrsLiveStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof j0) {
                 j0 j0Var = (j0) data;
-                d.a.s0.v.e.c.a aVar = new d.a.s0.v.e.c.a(true);
-                aVar.getFragmentTabStructure().f55255e = 2;
+                d.a.p0.v.e.c.a aVar = new d.a.p0.v.e.c.a(true);
+                aVar.getFragmentTabStructure().f51960e = 2;
                 aVar.b(j0Var.c());
                 aVar.c(j0Var.d());
                 aVar.a(j0Var.b());
@@ -81,7 +81,7 @@ public class AlaFrsLiveStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,8 +116,8 @@ public class AlaFrsLiveStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof i0) {
                 i0 i0Var = (i0) data;
-                d.a.s0.v.e.c.a aVar = new d.a.s0.v.e.c.a(true);
-                aVar.getFragmentTabStructure().f55255e = 9;
+                d.a.p0.v.e.c.a aVar = new d.a.p0.v.e.c.a(true);
+                aVar.getFragmentTabStructure().f51960e = 9;
                 aVar.b(i0Var.d());
                 aVar.c(i0Var.e());
                 aVar.a(i0Var.c());
@@ -130,7 +130,7 @@ public class AlaFrsLiveStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -165,8 +165,8 @@ public class AlaFrsLiveStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof j0) {
                 j0 j0Var = (j0) data;
-                d.a.s0.v.e.c.a aVar = new d.a.s0.v.e.c.a(false);
-                aVar.getFragmentTabStructure().f55255e = 1;
+                d.a.p0.v.e.c.a aVar = new d.a.p0.v.e.c.a(false);
+                aVar.getFragmentTabStructure().f51960e = 1;
                 aVar.b(j0Var.c());
                 aVar.c(j0Var.d());
                 aVar.a(j0Var.b());
@@ -177,7 +177,7 @@ public class AlaFrsLiveStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -212,8 +212,8 @@ public class AlaFrsLiveStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof j0) {
                 j0 j0Var = (j0) data;
-                d.a.s0.v.g.a.a aVar = new d.a.s0.v.g.a.a();
-                aVar.getFragmentTabStructure().f55255e = 3;
+                d.a.p0.v.g.a.a aVar = new d.a.p0.v.g.a.a();
+                aVar.getFragmentTabStructure().f51960e = 3;
                 aVar.a(j0Var.c());
                 aVar.b(j0Var.d());
                 aVar.c(false);
@@ -222,7 +222,7 @@ public class AlaFrsLiveStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -257,9 +257,9 @@ public class AlaFrsLiveStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof i0) {
                 i0 i0Var = (i0) data;
-                d.a.s0.v.g.a.a aVar = new d.a.s0.v.g.a.a();
-                aVar.getFragmentTabStructure().f55255e = 8;
-                aVar.getFragmentTabStructure().f55252b = R.string.ala_video;
+                d.a.p0.v.g.a.a aVar = new d.a.p0.v.g.a.a();
+                aVar.getFragmentTabStructure().f51960e = 8;
+                aVar.getFragmentTabStructure().f51957b = R.string.ala_video;
                 aVar.a(i0Var.d());
                 aVar.b(i0Var.e());
                 aVar.c(true);
@@ -270,7 +270,7 @@ public class AlaFrsLiveStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class f extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -305,7 +305,7 @@ public class AlaFrsLiveStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof i0) {
                 i0 i0Var = (i0) data;
-                d.a.s0.v.f.a aVar = new d.a.s0.v.f.a();
+                d.a.p0.v.f.a aVar = new d.a.p0.v.f.a();
                 aVar.c(i0Var.d());
                 aVar.d(i0Var.e());
                 aVar.b(i0Var.c());
@@ -314,7 +314,7 @@ public class AlaFrsLiveStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class g implements CustomMessageTask.CustomRunnable<AlaAllGameLiveEntryActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

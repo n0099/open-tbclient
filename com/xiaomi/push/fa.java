@@ -16,18 +16,18 @@ import com.xiaomi.push.du;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class fa {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f43096a;
+    public static long f40110a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final byte[] f359a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f43097b;
+    public static String f40111b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -58,8 +58,8 @@ public class fa {
                 return;
             }
         }
-        f43097b = gn.a(5) + "-";
-        f43096a = 0L;
+        f40111b = gn.a(5) + "-";
+        f40110a = 0L;
         f359a = new byte[0];
     }
 
@@ -144,7 +144,7 @@ public class fa {
     public static fa a(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, byteBuffer)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, byteBuffer)) == null) {
             try {
                 ByteBuffer slice = byteBuffer.slice();
                 short s = slice.getShort(0);
@@ -171,9 +171,9 @@ public class fa {
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
             synchronized (fa.class) {
                 StringBuilder sb2 = new StringBuilder();
-                sb2.append(f43097b);
-                long j = f43096a;
-                f43096a = 1 + j;
+                sb2.append(f40111b);
+                long j = f40110a;
+                f40110a = 1 + j;
                 sb2.append(Long.toString(j));
                 sb = sb2.toString();
             }

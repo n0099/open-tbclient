@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class ShimPluginRegistry implements PluginRegistry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ShimPluginRegistry";
@@ -27,7 +27,7 @@ public class ShimPluginRegistry implements PluginRegistry {
     public final ShimRegistrarAggregate shimRegistrarAggregate;
 
     /* renamed from: io.flutter.embedding.engine.plugins.shim.ShimPluginRegistry$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +85,7 @@ public class ShimPluginRegistry implements PluginRegistry {
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? (T) this.pluginMap.get(str) : (T) invokeL.objValue;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class ShimRegistrarAggregate implements FlutterPlugin, ActivityAware {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

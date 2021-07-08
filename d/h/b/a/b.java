@@ -2,11 +2,12 @@ package d.h.b.a;
 
 import android.content.Context;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Method;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,7 +17,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             d b2 = d.b();
-            return b2.c(context.getApplicationContext(), b2.f73922a);
+            return b2.c(context.getApplicationContext(), b2.f70974a);
         }
         return (String) invokeL.objValue;
     }
@@ -46,7 +47,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             d b2 = d.b();
-            return b2.c(context.getApplicationContext(), b2.f73923b);
+            return b2.c(context.getApplicationContext(), b2.f70975b);
         }
         return (String) invokeL.objValue;
     }
@@ -56,7 +57,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             d b2 = d.b();
-            return b2.c(context.getApplicationContext(), b2.f73925d);
+            return b2.c(context.getApplicationContext(), b2.f70977d);
         }
         return (String) invokeL.objValue;
     }
@@ -64,9 +65,9 @@ public class b {
     public static String e(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             d b2 = d.b();
-            return b2.c(context.getApplicationContext(), b2.f73924c);
+            return b2.c(context.getApplicationContext(), b2.f70976c);
         }
         return (String) invokeL.objValue;
     }

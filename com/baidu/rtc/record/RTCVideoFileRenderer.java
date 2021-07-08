@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.util.Log;
 import android.view.Surface;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.rtc.RTCAudioSamples;
@@ -15,8 +16,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.video.player.KsMediaMeta;
-import com.kwai.video.player.misc.IMediaFormat;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
@@ -26,7 +25,7 @@ import org.webrtc.GlRectDrawer;
 import org.webrtc.VideoFrame;
 import org.webrtc.VideoFrameDrawer;
 import org.webrtc.VideoSink;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemoteSamplesReadyCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PRE_PREIOD_AUDIO_BUFFER_SIZE = 3840;
@@ -255,15 +254,15 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
 
     private void initStartAudioEncoder(RTCAudioSamples rTCAudioSamples) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, rTCAudioSamples) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, rTCAudioSamples) == null) {
             try {
                 this.encodeParams.setAudioSampleRate(rTCAudioSamples.getSampleRate());
                 this.audioEncoder = MediaCodec.createEncoderByType(this.encodeParams.getAudioCodec());
                 MediaFormat mediaFormat = new MediaFormat();
-                mediaFormat.setString(IMediaFormat.KEY_MIME, this.encodeParams.getAudioCodec());
+                mediaFormat.setString("mime", this.encodeParams.getAudioCodec());
                 mediaFormat.setInteger("channel-count", this.encodeParams.getAudioChannel());
                 mediaFormat.setInteger("sample-rate", this.encodeParams.getAudioSampleRate());
-                mediaFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, this.encodeParams.getAudioBitrate());
+                mediaFormat.setInteger("bitrate", this.encodeParams.getAudioBitrate());
                 mediaFormat.setInteger("aac-profile", 2);
                 mediaFormat.setInteger("max-input-size", 3840);
                 this.audioEncoder.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
@@ -281,7 +280,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
             MediaFormat createVideoFormat = MediaFormat.createVideoFormat(this.encodeParams.getVideoCodec(), this.encodeParams.getVideoWidth(), this.encodeParams.getVideoHeight());
             createVideoFormat.setInteger("color-format", 2130708361);
-            createVideoFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, this.encodeParams.getVideoBitrate());
+            createVideoFormat.setInteger("bitrate", this.encodeParams.getVideoBitrate());
             createVideoFormat.setInteger("frame-rate", this.encodeParams.getVideoFrameRate());
             createVideoFormat.setInteger("i-frame-interval", this.encodeParams.getVideoIFrameInterval());
             try {

@@ -206,7 +206,7 @@ public class AppCompatViewInflater {
     private View createViewFromTag(Context context, String str, AttributeSet attributeSet) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, this, context, str, attributeSet)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, str, attributeSet)) == null) {
             if (str.equals("view")) {
                 str = attributeSet.getAttributeValue(null, DealIntentService.KEY_CLASS);
             }

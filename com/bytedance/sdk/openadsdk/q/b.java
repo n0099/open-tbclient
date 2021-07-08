@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,31 +22,31 @@ import com.bytedance.sdk.openadsdk.r.i;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b implements com.bytedance.sdk.openadsdk.q.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f32172a;
+    public final Context f32282a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final f f32173b;
+    public final f f32283b;
 
     @SuppressLint({"StaticFieldLeak"})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends com.bytedance.sdk.component.e.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f32178a;
+        public final /* synthetic */ b f32288a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final e f32179b;
+        public final e f32289b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f32180c;
+        public final String f32290c;
 
         private String c(String str) {
             InterceptResult invokeL;
@@ -58,8 +59,8 @@ public class b implements com.bytedance.sdk.openadsdk.q.a {
                     long currentTimeMillis = System.currentTimeMillis();
                     str = str.replace("{TS}", String.valueOf(currentTimeMillis)).replace("__TS__", String.valueOf(currentTimeMillis));
                 }
-                if ((str.contains("{UID}") || str.contains("__UID__")) && !TextUtils.isEmpty(this.f32180c)) {
-                    str = str.replace("{UID}", this.f32180c).replace("__UID__", this.f32180c);
+                if ((str.contains("{UID}") || str.contains("__UID__")) && !TextUtils.isEmpty(this.f32290c)) {
+                    str = str.replace("{UID}", this.f32290c).replace("__UID__", this.f32290c);
                 }
                 String a2 = i.a();
                 return ((str.contains("{OAID}") || str.contains("__OAID__")) && !TextUtils.isEmpty(a2)) ? str.replace("{OAID}", a2).replace("__OAID__", a2) : str;
@@ -93,23 +94,23 @@ public class b implements com.bytedance.sdk.openadsdk.q.a {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && com.bytedance.sdk.openadsdk.core.j.g.a() && a(this.f32179b.b())) {
-                if (this.f32179b.d() == 0) {
-                    this.f32178a.f32173b.c(this.f32179b);
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && com.bytedance.sdk.openadsdk.core.j.g.a() && a(this.f32289b.b())) {
+                if (this.f32289b.d() == 0) {
+                    this.f32288a.f32283b.c(this.f32289b);
                     return;
                 }
-                while (this.f32179b.d() > 0) {
+                while (this.f32289b.d() > 0) {
                     try {
-                        if (this.f32179b.d() == 5) {
-                            this.f32178a.f32173b.a(this.f32179b);
+                        if (this.f32289b.d() == 5) {
+                            this.f32288a.f32283b.a(this.f32289b);
                         }
                     } catch (Throwable unused) {
                     }
-                    if (!m.a(this.f32178a.b())) {
+                    if (!m.a(this.f32288a.b())) {
                         return;
                     }
-                    String c2 = c(this.f32179b.b());
-                    if (this.f32179b.c()) {
+                    String c2 = c(this.f32289b.b());
+                    if (this.f32289b.c()) {
                         c2 = b(c2);
                     }
                     GetExecutor getExecutor = com.bytedance.sdk.openadsdk.l.e.b().c().getGetExecutor();
@@ -120,26 +121,26 @@ public class b implements com.bytedance.sdk.openadsdk.q.a {
                     } catch (Throwable unused2) {
                     }
                     if (netResponse != null && netResponse.isSuccess()) {
-                        this.f32178a.f32173b.c(this.f32179b);
+                        this.f32288a.f32283b.c(this.f32289b);
                         if (j.c()) {
-                            j.c("trackurl", "track success : " + this.f32179b.b());
+                            j.c("trackurl", "track success : " + this.f32289b.b());
                             return;
                         }
                         return;
                     }
                     if (j.c()) {
-                        j.c("trackurl", "track fail : " + this.f32179b.b());
+                        j.c("trackurl", "track fail : " + this.f32289b.b());
                     }
-                    this.f32179b.a(this.f32179b.d() - 1);
-                    if (this.f32179b.d() == 0) {
-                        this.f32178a.f32173b.c(this.f32179b);
+                    this.f32289b.a(this.f32289b.d() - 1);
+                    if (this.f32289b.d() == 0) {
+                        this.f32288a.f32283b.c(this.f32289b);
                         if (j.c()) {
-                            j.c("trackurl", "track fail and delete : " + this.f32179b.b());
+                            j.c("trackurl", "track fail and delete : " + this.f32289b.b());
                             return;
                         }
                         return;
                     }
-                    this.f32178a.f32173b.b(this.f32179b);
+                    this.f32288a.f32283b.b(this.f32289b);
                 }
             }
         }
@@ -162,9 +163,9 @@ public class b implements com.bytedance.sdk.openadsdk.q.a {
                     return;
                 }
             }
-            this.f32178a = bVar;
-            this.f32179b = eVar;
-            this.f32180c = str;
+            this.f32288a = bVar;
+            this.f32289b = eVar;
+            this.f32290c = str;
         }
     }
 
@@ -183,14 +184,14 @@ public class b implements com.bytedance.sdk.openadsdk.q.a {
                 return;
             }
         }
-        this.f32172a = context;
-        this.f32173b = fVar;
+        this.f32282a = context;
+        this.f32283b = fVar;
     }
 
     public static com.bytedance.sdk.openadsdk.q.a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? d.b() : (com.bytedance.sdk.openadsdk.q.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d.b() : (com.bytedance.sdk.openadsdk.q.a) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.q.a
@@ -204,7 +205,7 @@ public class b implements com.bytedance.sdk.openadsdk.q.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Context context = this.f32172a;
+            Context context = this.f32282a;
             return context == null ? o.a() : context;
         }
         return (Context) invokeV.objValue;
@@ -229,10 +230,10 @@ public class b implements com.bytedance.sdk.openadsdk.q.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f32174a;
+                public final /* synthetic */ String f32284a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f32175b;
+                public final /* synthetic */ b f32285b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -252,23 +253,23 @@ public class b implements com.bytedance.sdk.openadsdk.q.a {
                             return;
                         }
                     }
-                    this.f32175b = this;
-                    this.f32174a = str;
+                    this.f32285b = this;
+                    this.f32284a = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        new Handler(Looper.getMainLooper()).post(new Runnable(this, this.f32175b.f32173b.a()) { // from class: com.bytedance.sdk.openadsdk.q.b.1.1
+                        new Handler(Looper.getMainLooper()).post(new Runnable(this, this.f32285b.f32283b.a()) { // from class: com.bytedance.sdk.openadsdk.q.b.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ List f32176a;
+                            public final /* synthetic */ List f32286a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f32177b;
+                            public final /* synthetic */ AnonymousClass1 f32287b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -285,16 +286,16 @@ public class b implements com.bytedance.sdk.openadsdk.q.a {
                                         return;
                                     }
                                 }
-                                this.f32177b = this;
-                                this.f32176a = r7;
+                                this.f32287b = this;
+                                this.f32286a = r7;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    AnonymousClass1 anonymousClass1 = this.f32177b;
-                                    anonymousClass1.f32175b.a(this.f32176a, anonymousClass1.f32174a);
+                                    AnonymousClass1 anonymousClass1 = this.f32287b;
+                                    anonymousClass1.f32285b.a(this.f32286a, anonymousClass1.f32284a);
                                 }
                             }
                         });

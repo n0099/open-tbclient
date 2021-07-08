@@ -3,6 +3,7 @@ package com.baidu.minivideo.plugin.capture.utils;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.preference.PreferenceManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.minivideo.plugin.capture.Application;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PreferenceUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +63,7 @@ public class PreferenceUtils {
     public static boolean getBoolean(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? getBoolean(str, false) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? getBoolean(str, false) : invokeL.booleanValue;
     }
 
     public static float getFloat(String str) {

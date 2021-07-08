@@ -18,6 +18,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,29 +26,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.g0.f;
-import d.a.g0.g;
+import d.a.d0.f;
+import d.a.d0.g;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PayWebActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f9435i;
+    public ImageView f9452i;
     public boolean j;
     public String k;
     public Bundle l;
     public WebView webView;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PayWebActivity f9436e;
+        public final /* synthetic */ PayWebActivity f9453e;
 
         public a(PayWebActivity payWebActivity) {
             Interceptable interceptable = $ic;
@@ -64,15 +65,15 @@ public class PayWebActivity extends Activity {
                     return;
                 }
             }
-            this.f9436e = payWebActivity;
+            this.f9453e = payWebActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f9436e.setResult(0);
-                this.f9436e.finish();
+                this.f9453e.setResult(0);
+                this.f9453e.finish();
             }
         }
     }
@@ -106,7 +107,7 @@ public class PayWebActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             ImageView imageView = (ImageView) findViewById(f.iv_pay_back);
-            this.f9435i = imageView;
+            this.f9452i = imageView;
             imageView.setOnClickListener(new a(this));
             WebView webView = (WebView) findViewById(f.webView);
             this.webView = webView;
@@ -128,7 +129,7 @@ public class PayWebActivity extends Activity {
     public boolean m(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return true;
             }
@@ -201,13 +202,13 @@ public class PayWebActivity extends Activity {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PayWebActivity f9437a;
+        public final /* synthetic */ PayWebActivity f9454a;
 
         public b(PayWebActivity payWebActivity) {
             Interceptable interceptable = $ic;
@@ -224,7 +225,7 @@ public class PayWebActivity extends Activity {
                     return;
                 }
             }
-            this.f9437a = payWebActivity;
+            this.f9454a = payWebActivity;
         }
 
         @Override // android.webkit.WebViewClient
@@ -261,7 +262,7 @@ public class PayWebActivity extends Activity {
                 } catch (UnsupportedEncodingException e2) {
                     e2.printStackTrace();
                 }
-                return this.f9437a.m(str);
+                return this.f9454a.m(str);
             }
             return invokeLL.booleanValue;
         }
@@ -278,7 +279,7 @@ public class PayWebActivity extends Activity {
                     } catch (UnsupportedEncodingException e2) {
                         e2.printStackTrace();
                     }
-                    return this.f9437a.m(uri);
+                    return this.f9454a.m(uri);
                 }
                 return true;
             }

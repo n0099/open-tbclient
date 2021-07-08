@@ -11,20 +11,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.filedownloader.w;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f39711a;
+    public final b f36919a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final p f39712a;
+        public static final p f36920a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -40,21 +40,21 @@ public class p {
                     return;
                 }
             }
-            f39712a = new p();
+            f36920a = new p();
             com.kwai.filedownloader.message.e.a().a(new z());
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ThreadPoolExecutor f39713a;
+        public ThreadPoolExecutor f36921a;
 
         /* renamed from: b  reason: collision with root package name */
-        public LinkedBlockingQueue<Runnable> f39714b;
+        public LinkedBlockingQueue<Runnable> f36922b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -76,36 +76,36 @@ public class p {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65537, this) == null) {
                 LinkedBlockingQueue<Runnable> linkedBlockingQueue = new LinkedBlockingQueue<>();
-                this.f39714b = linkedBlockingQueue;
-                this.f39713a = com.kwai.filedownloader.f.b.a(3, linkedBlockingQueue, "LauncherTask");
+                this.f36922b = linkedBlockingQueue;
+                this.f36921a = com.kwai.filedownloader.f.b.a(3, linkedBlockingQueue, "LauncherTask");
             }
         }
 
         public void a(w.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-                this.f39713a.execute(new c(bVar));
+                this.f36921a.execute(new c(bVar));
             }
         }
 
         public void b(w.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-                this.f39714b.remove(bVar);
+                this.f36922b.remove(bVar);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final w.b f39715a;
+        public final w.b f36923a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f39716b;
+        public boolean f36924b;
 
         public c(w.b bVar) {
             Interceptable interceptable = $ic;
@@ -122,23 +122,23 @@ public class p {
                     return;
                 }
             }
-            this.f39715a = bVar;
-            this.f39716b = false;
+            this.f36923a = bVar;
+            this.f36924b = false;
         }
 
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? super.equals(obj) || obj == this.f39715a : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? super.equals(obj) || obj == this.f36923a : invokeL.booleanValue;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f39716b) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f36924b) {
                 return;
             }
-            this.f39715a.p();
+            this.f36923a.p();
         }
     }
 
@@ -155,20 +155,20 @@ public class p {
                 return;
             }
         }
-        this.f39711a = new b();
+        this.f36919a = new b();
     }
 
     public static p a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f39712a : (p) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f36920a : (p) invokeV.objValue;
     }
 
     public synchronized void a(w.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             synchronized (this) {
-                this.f39711a.a(bVar);
+                this.f36919a.a(bVar);
             }
         }
     }
@@ -177,7 +177,7 @@ public class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             synchronized (this) {
-                this.f39711a.b(bVar);
+                this.f36919a.b(bVar);
             }
         }
     }

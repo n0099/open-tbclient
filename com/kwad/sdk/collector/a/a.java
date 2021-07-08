@@ -1,68 +1,28 @@
 package com.kwad.sdk.collector.a;
 
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.mode.CommandMessage;
-import com.kwad.sdk.core.network.d;
-import com.kwad.sdk.utils.o;
 import java.util.List;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class a extends d {
+/* loaded from: classes6.dex */
+public abstract class a implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* renamed from: a  reason: collision with root package name */
+    public boolean f33992a;
+
     /* renamed from: b  reason: collision with root package name */
-    public C0407a f34284b;
+    public List<b> f33993b;
 
-    /* renamed from: com.kwad.sdk.collector.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0407a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public List<String> f34285a;
-
-        public C0407a(List<String> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {list};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f34285a = list;
-        }
-
-        public JSONObject a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                o.a(jSONObject, "packageName", this.f34285a);
-                return jSONObject;
-            }
-            return (JSONObject) invokeV.objValue;
-        }
-    }
-
-    public a(List<String> list) {
+    public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -72,17 +32,65 @@ public class a extends d {
                 return;
             }
         }
-        C0407a c0407a = new C0407a(list);
-        this.f34284b = c0407a;
-        a("targetAppInfo", c0407a.a());
-        b(CommandMessage.SDK_VERSION, "3.3.9");
-        a("sdkVersionCode", 3030900);
+        this.f33992a = true;
     }
 
-    @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
-    public String a() {
+    public a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f33992a = z;
+    }
+
+    public List<b> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwad.sdk.d.t() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33993b : (List) invokeV.objValue;
+    }
+
+    @Override // com.kwad.sdk.collector.a.b
+    public boolean a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            if (this.f33992a) {
+                List<b> a2 = a();
+                if (a2 == null || a2.size() <= 0) {
+                    try {
+                        return b(context);
+                    } catch (Throwable unused) {
+                        return false;
+                    }
+                }
+                for (b bVar : a2) {
+                    if (bVar.a(context)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

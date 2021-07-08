@@ -5,6 +5,7 @@ import android.os.Handler;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,13 +16,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.embedding.engine.loader.FlutterLoader;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class FlutterMain {
     public static /* synthetic */ Interceptable $ic;
     public static boolean isRunningInRobolectricTest;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class Settings {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +106,7 @@ public class FlutterMain {
     public static String findAppBundlePath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? FlutterLoader.getInstance().findAppBundlePath() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? FlutterLoader.getInstance().findAppBundlePath() : (String) invokeV.objValue;
     }
 
     @NonNull

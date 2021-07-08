@@ -29,7 +29,7 @@ import com.baidu.wallet.core.utils.VerSig;
 import com.baidu.wallet.utils.BdWalletUtils;
 import java.util.ArrayList;
 import org.json.JSONException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class BaseBean<T> extends NetworkBean<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COMET_BEAN = 1;

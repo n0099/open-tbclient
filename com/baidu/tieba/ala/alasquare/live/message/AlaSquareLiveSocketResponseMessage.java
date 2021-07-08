@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import d.a.c.e.d.l;
-import d.a.s0.v.d.a.b;
-import d.a.s0.v.d.b.b.a;
+import d.a.p0.v.d.a.b;
+import d.a.p0.v.d.b.b.a;
 import java.util.LinkedList;
 import tbclient.LiveSquare.DataRes;
 import tbclient.LiveSquare.FunctionListInfo;
 import tbclient.LiveSquare.HeadLiveInfo;
 import tbclient.LiveSquare.LiveSquareResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AlaSquareLiveSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

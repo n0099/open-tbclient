@@ -12,7 +12,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.PaysSettingInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
 import java.util.List;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ProductListResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

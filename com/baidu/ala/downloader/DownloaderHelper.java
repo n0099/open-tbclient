@@ -1,6 +1,7 @@
 package com.baidu.ala.downloader;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.AlaSharedPrefHelper;
@@ -112,7 +113,7 @@ public class DownloaderHelper {
     public static ArrayList<String> getAllFileMd5Set(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65540, null, str)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) != null) {
             return (ArrayList) invokeL.objValue;
         }
         ArrayList<String> arrayList = null;

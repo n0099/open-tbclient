@@ -1,11 +1,12 @@
 package com.tencent.mm.opensdk.utils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Log {
     public static /* synthetic */ Interceptable $ic;
     public static ILog logImpl;
@@ -63,7 +64,7 @@ public class Log {
 
     public static void setLogImpl(ILog iLog) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, iLog) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, iLog) == null) {
             logImpl = iLog;
         }
     }

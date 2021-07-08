@@ -4,6 +4,7 @@ import android.content.Context;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.android.VersionUtils;
 import com.baidu.android.util.io.FileUtils;
@@ -25,7 +26,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = SchemeDescPatchListener.DESC_PATCH_ACTION, module = "scheme")
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SchemeDescPatchListener extends JSONObjectCommandListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -109,7 +110,7 @@ public class SchemeDescPatchListener extends JSONObjectCommandListener {
     public static int compareVersion(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             if (str == null && str2 == null) {
                 return 0;
             }

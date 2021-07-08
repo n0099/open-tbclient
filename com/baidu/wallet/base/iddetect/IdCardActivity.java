@@ -53,7 +53,7 @@ import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class IdCardActivity extends BeanActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_IMG_PATH = "card_img_path";
@@ -70,31 +70,31 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     public final Handler D;
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f23918a;
+    public Activity f24028a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f23919b;
+    public View f24029b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f23920c;
+    public View f24030c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f23921d;
+    public LinearLayout f24031d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LaserScannerForScan f23922e;
+    public LaserScannerForScan f24032e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SurfaceViewForScan f23923f;
+    public SurfaceViewForScan f24033f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f23924g;
+    public TextView f24034g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f23925h;
+    public float f24035h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f23926i;
+    public float f24036i;
     public int j;
     public int k;
     public int l;
@@ -113,13 +113,13 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     public int y;
     public String z;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<IdCardActivity> f23935a;
+        public final WeakReference<IdCardActivity> f24045a;
 
         public a(IdCardActivity idCardActivity) {
             Interceptable interceptable = $ic;
@@ -136,14 +136,14 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                     return;
                 }
             }
-            this.f23935a = new WeakReference<>(idCardActivity);
+            this.f24045a = new WeakReference<>(idCardActivity);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             IdCardActivity idCardActivity;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (idCardActivity = this.f23935a.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (idCardActivity = this.f24045a.get()) == null) {
                 return;
             }
             int i2 = message.what;
@@ -155,12 +155,12 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                 LogUtil.i(IdCardActivity.TAG, "失败" + idCardActivity.y);
                 idCardActivity.v = true;
                 idCardActivity.u = false;
-                idCardActivity.f23923f.autoFocus();
+                idCardActivity.f24033f.autoFocus();
             } else if (i2 == 2) {
                 idCardActivity.t = true;
             } else if (i2 == 3) {
                 if (idCardActivity.A) {
-                    idCardActivity.f23924g.setText(idCardActivity.z);
+                    idCardActivity.f24034g.setText(idCardActivity.z);
                 }
             } else if (i2 == 5) {
                 PayStatisticsUtil.onEvent(StatServiceEvent.IDCARD_DETECT_EVENTID_FAIL_TIMEOUT);
@@ -199,8 +199,8 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                 return;
             }
         }
-        this.f23925h = -1.0f;
-        this.f23926i = -1.0f;
+        this.f24035h = -1.0f;
+        this.f24036i = -1.0f;
         this.p = "";
         this.t = false;
         this.u = false;
@@ -277,7 +277,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, view) == null) && view.getId() == ResUtils.id(this.f23918a, "back_btn")) {
+        if ((interceptable == null || interceptable.invokeL(1048582, this, view) == null) && view.getId() == ResUtils.id(this.f24028a, "back_btn")) {
             PayStatisticsUtil.onEventWithValue(StatServiceEvent.IDCARD_DETECT_EVENTID_FAIL_TIMES, "" + this.y);
             this.D.sendEmptyMessage(7);
         }
@@ -288,7 +288,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f23918a = getActivity();
+            this.f24028a = getActivity();
             a(getActivity());
             setIsMultiWindowAvailable(false);
             setIsShowMultiWindowTips(true);
@@ -325,7 +325,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ IdCardActivity f23927a;
+                    public final /* synthetic */ IdCardActivity f24037a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -342,7 +342,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                                 return;
                             }
                         }
-                        this.f23927a = this;
+                        this.f24037a = this;
                     }
 
                     @Override // android.content.DialogInterface.OnDismissListener
@@ -350,13 +350,13 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
                             Bundle bundle = new Bundle();
-                            if (PermissionManager.checkCallingPermission(this.f23927a.getActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
+                            if (PermissionManager.checkCallingPermission(this.f24037a.getActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
                                 IdCardController.getInstance().fail(3, null);
                             } else {
                                 bundle.putString(IdCardActivity.RESULT_PERMISSION_KEY, "访问相机的权限");
                                 IdCardController.getInstance().fail(2, bundle);
                             }
-                            this.f23927a.finish();
+                            this.f24037a.finish();
                         }
                     }
                 });
@@ -545,16 +545,16 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65556, this) == null) {
-            SurfaceViewForScan surfaceViewForScan = (SurfaceViewForScan) findViewById(ResUtils.id(this.f23918a, "surface_view"));
-            this.f23923f = surfaceViewForScan;
+            SurfaceViewForScan surfaceViewForScan = (SurfaceViewForScan) findViewById(ResUtils.id(this.f24028a, "surface_view"));
+            this.f24033f = surfaceViewForScan;
             surfaceViewForScan.setAttachedActivity(this);
-            LaserScannerForScan laserScannerForScan = (LaserScannerForScan) findViewById(ResUtils.id(this.f23918a, "frame"));
-            this.f23922e = laserScannerForScan;
+            LaserScannerForScan laserScannerForScan = (LaserScannerForScan) findViewById(ResUtils.id(this.f24028a, "frame"));
+            this.f24032e = laserScannerForScan;
             laserScannerForScan.setAttachedActivity(this);
-            this.f23919b = findViewById(ResUtils.id(this.f23918a, "view_top"));
-            this.f23920c = findViewById(ResUtils.id(this.f23918a, "view_left"));
-            this.f23921d = (LinearLayout) findViewById(ResUtils.id(this.f23918a, "title_bar"));
-            this.f23924g = (TextView) findViewById(ResUtils.id(this.f23918a, TrackReferenceTypeBox.TYPE1));
+            this.f24029b = findViewById(ResUtils.id(this.f24028a, "view_top"));
+            this.f24030c = findViewById(ResUtils.id(this.f24028a, "view_left"));
+            this.f24031d = (LinearLayout) findViewById(ResUtils.id(this.f24028a, "title_bar"));
+            this.f24034g = (TextView) findViewById(ResUtils.id(this.f24028a, TrackReferenceTypeBox.TYPE1));
             View findViewById = findViewById(ResUtils.id(getActivity(), "title_bar_margin"));
             this.C = findViewById;
             setTop(findViewById);
@@ -564,14 +564,14 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65558, this) == null) {
-            this.f23922e.startScan();
-            findViewById(ResUtils.id(this.f23918a, "back_btn")).setOnClickListener(this);
-            this.f23923f.setPreviewCallback(new SurfaceViewForScan.a(this) { // from class: com.baidu.wallet.base.iddetect.IdCardActivity.5
+            this.f24032e.startScan();
+            findViewById(ResUtils.id(this.f24028a, "back_btn")).setOnClickListener(this);
+            this.f24033f.setPreviewCallback(new SurfaceViewForScan.a(this) { // from class: com.baidu.wallet.base.iddetect.IdCardActivity.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ IdCardActivity f23934a;
+                public final /* synthetic */ IdCardActivity f24044a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -588,17 +588,17 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                             return;
                         }
                     }
-                    this.f23934a = this;
+                    this.f24044a = this;
                 }
 
                 @Override // com.baidu.wallet.base.iddetect.view.SurfaceViewForScan.a
                 public void a(byte[] bArr, int i2, int i3, int i4) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeLIII(1048576, this, bArr, i2, i3, i4) == null) && this.f23934a.t && this.f23934a.w && this.f23934a.v) {
+                    if ((interceptable2 == null || interceptable2.invokeLIII(1048576, this, bArr, i2, i3, i4) == null) && this.f24044a.t && this.f24044a.w && this.f24044a.v) {
                         long currentTimeMillis = System.currentTimeMillis();
-                        if (currentTimeMillis - this.f23934a.x >= 200) {
-                            this.f23934a.x = currentTimeMillis;
-                            this.f23934a.a(bArr, i2, i3, i4);
+                        if (currentTimeMillis - this.f24044a.x >= 200) {
+                            this.f24044a.x = currentTimeMillis;
+                            this.f24044a.a(bArr, i2, i3, i4);
                         }
                     }
                 }
@@ -613,9 +613,9 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65559, this) == null) {
-            this.f23922e.stopScan();
-            this.f23923f.setPreviewCallback(null);
-            this.f23923f.releaseSource();
+            this.f24032e.stopScan();
+            this.f24033f.setPreviewCallback(null);
+            this.f24033f.releaseSource();
         }
     }
 
@@ -634,7 +634,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
             try {
-                setContentView(ResUtils.layout(this.f23918a, "wallet_base_id_detect"));
+                setContentView(ResUtils.layout(this.f24028a, "wallet_base_id_detect"));
                 d();
                 e();
             } catch (Exception unused) {
@@ -656,10 +656,10 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Activity f23928a;
+                        public final /* synthetic */ Activity f24038a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ IdCardActivity f23929b;
+                        public final /* synthetic */ IdCardActivity f24039b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -676,8 +676,8 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                                     return;
                                 }
                             }
-                            this.f23929b = this;
-                            this.f23928a = activity;
+                            this.f24039b = this;
+                            this.f24038a = activity;
                         }
 
                         @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
@@ -685,12 +685,12 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
                                 if (bool.booleanValue()) {
-                                    if (PermissionManager.checkCallingOrSelfPermission(this.f23928a, new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION}, 1)) {
+                                    if (PermissionManager.checkCallingOrSelfPermission(this.f24038a, new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION}, 1)) {
                                         return;
                                     }
-                                    this.f23929b.b();
+                                    this.f24039b.b();
                                 } else if (Build.VERSION.SDK_INT >= 23) {
-                                    this.f23929b.onRequestPermissionsResult(1, new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION}, new int[]{-1});
+                                    this.f24039b.onRequestPermissionsResult(1, new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION}, new int[]{-1});
                                 }
                             }
                         }
@@ -717,10 +717,10 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Activity f23930a;
+                public final /* synthetic */ Activity f24040a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ IdCardActivity f23931b;
+                public final /* synthetic */ IdCardActivity f24041b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -737,8 +737,8 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                             return;
                         }
                     }
-                    this.f23931b = this;
-                    this.f23930a = activity;
+                    this.f24041b = this;
+                    this.f24040a = activity;
                 }
 
                 @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
@@ -746,12 +746,12 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
                         if (bool.booleanValue()) {
-                            if (PermissionManager.checkCallingOrSelfPermission(this.f23930a, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 3)) {
+                            if (PermissionManager.checkCallingOrSelfPermission(this.f24040a, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 3)) {
                                 return;
                             }
-                            this.f23931b.a();
+                            this.f24041b.a();
                         } else if (Build.VERSION.SDK_INT >= 23) {
-                            this.f23931b.onRequestPermissionsResult(3, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, new int[]{-1});
+                            this.f24041b.onRequestPermissionsResult(3, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, new int[]{-1});
                         }
                     }
                 }
@@ -784,10 +784,10 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Activity f23932a;
+                    public final /* synthetic */ Activity f24042a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ IdCardActivity f23933b;
+                    public final /* synthetic */ IdCardActivity f24043b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -804,8 +804,8 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                                 return;
                             }
                         }
-                        this.f23933b = this;
-                        this.f23932a = activity;
+                        this.f24043b = this;
+                        this.f24042a = activity;
                     }
 
                     @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
@@ -813,12 +813,12 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
                             if (bool.booleanValue()) {
-                                if (PermissionManager.checkCallingOrSelfPermission(this.f23932a, new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION}, 1)) {
+                                if (PermissionManager.checkCallingOrSelfPermission(this.f24042a, new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION}, 1)) {
                                     return;
                                 }
-                                this.f23933b.b();
+                                this.f24043b.b();
                             } else if (Build.VERSION.SDK_INT >= 23) {
-                                this.f23933b.onRequestPermissionsResult(1, new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION}, new int[]{-1});
+                                this.f24043b.onRequestPermissionsResult(1, new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION}, new int[]{-1});
                             }
                         }
                     }
@@ -870,7 +870,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
         Bitmap a3 = a(a2);
         this.s = a3;
         a(a3, this.p, "IdCard");
-        com.baidu.wallet.base.iddetect.beans.a aVar = (com.baidu.wallet.base.iddetect.beans.a) IDDetectBeanFactory.getInstance().getBean((Context) this.f23918a, IDDetectBeanFactory.BEAN_ID_ID_DETECT, TAG);
+        com.baidu.wallet.base.iddetect.beans.a aVar = (com.baidu.wallet.base.iddetect.beans.a) IDDetectBeanFactory.getInstance().getBean((Context) this.f24028a, IDDetectBeanFactory.BEAN_ID_ID_DETECT, TAG);
         aVar.a(com.baidu.wallet.base.iddetect.utils.a.a(this.s));
         aVar.setResponseCallback(this);
         aVar.execBean();
@@ -880,19 +880,19 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     private Bitmap a(byte[] bArr, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65540, this, bArr, i2, i3)) == null) ? Bitmap.createBitmap(e.a(bArr, i2, i3), i2, i3, Bitmap.Config.ARGB_8888) : (Bitmap) invokeLII.objValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, this, bArr, i2, i3)) == null) ? Bitmap.createBitmap(e.a(bArr, i2, i3), i2, i3, Bitmap.Config.ARGB_8888) : (Bitmap) invokeLII.objValue;
     }
 
     private void a(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(AdIconUtil.BAIDU_LOGO_ID, this, i2, i3) == null) {
-            this.f23925h = (i3 * 1.0f) / this.f23923f.getHeight();
-            float width = (i2 * 1.0f) / this.f23923f.getWidth();
-            this.f23926i = width;
-            this.j = (int) (width * this.f23920c.getWidth());
-            this.k = (int) (this.f23925h * (this.f23919b.getHeight() + this.f23921d.getHeight()));
-            this.l = (int) (this.f23926i * this.f23922e.getWidth());
-            this.m = (int) (this.f23925h * this.f23922e.getHeight());
+            this.f24035h = (i3 * 1.0f) / this.f24033f.getHeight();
+            float width = (i2 * 1.0f) / this.f24033f.getWidth();
+            this.f24036i = width;
+            this.j = (int) (width * this.f24030c.getWidth());
+            this.k = (int) (this.f24035h * (this.f24029b.getHeight() + this.f24031d.getHeight()));
+            this.l = (int) (this.f24036i * this.f24032e.getWidth());
+            this.m = (int) (this.f24035h * this.f24032e.getHeight());
         }
     }
 
@@ -900,7 +900,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, bitmap)) == null) {
-            if (this.f23925h == -1.0f) {
+            if (this.f24035h == -1.0f) {
                 a(bitmap.getWidth(), bitmap.getHeight());
             }
             return Bitmap.createBitmap(bitmap, this.j, this.k, this.l, this.m);
@@ -921,7 +921,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                 file.delete();
             }
             System.out.println(str3);
-            com.baidu.wallet.base.iddetect.utils.a.a(this.f23918a, bitmap, str3, Bitmap.CompressFormat.JPEG, 70);
+            com.baidu.wallet.base.iddetect.utils.a.a(this.f24028a, bitmap, str3, Bitmap.CompressFormat.JPEG, 70);
             this.q = str3;
         }
     }

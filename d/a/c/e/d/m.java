@@ -11,33 +11,33 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.d.e;
 import d.a.c.e.d.l;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class m<T> implements l.c<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f44109a;
+    public boolean f41125a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final k<T> f44110b;
+    public final k<T> f41126b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f44111c;
+    public final String f41127c;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f44112e;
+        public final /* synthetic */ String f41128e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ l.a f44113f;
+        public final /* synthetic */ l.a f41129f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ m f44114g;
+        public final /* synthetic */ m f41130g;
 
         public a(m mVar, String str, l.a aVar) {
             Interceptable interceptable = $ic;
@@ -54,9 +54,9 @@ public class m<T> implements l.c<T> {
                     return;
                 }
             }
-            this.f44114g = mVar;
-            this.f44112e = str;
-            this.f44113f = aVar;
+            this.f41130g = mVar;
+            this.f41128e = str;
+            this.f41129f = aVar;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: d.a.c.e.d.l$a */
@@ -65,27 +65,27 @@ public class m<T> implements l.c<T> {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f44113f.a(this.f44112e, this.f44114g.get(this.f44112e));
+                this.f41129f.a(this.f41128e, this.f41130g.get(this.f41128e));
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f44115e;
+        public final /* synthetic */ String f41131e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Object f44116f;
+        public final /* synthetic */ Object f41132f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f44117g;
+        public final /* synthetic */ long f41133g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ m f44118h;
+        public final /* synthetic */ m f41134h;
 
         public b(m mVar, String str, Object obj, long j) {
             Interceptable interceptable = $ic;
@@ -102,10 +102,10 @@ public class m<T> implements l.c<T> {
                     return;
                 }
             }
-            this.f44118h = mVar;
-            this.f44115e = str;
-            this.f44116f = obj;
-            this.f44117g = j;
+            this.f41134h = mVar;
+            this.f41131e = str;
+            this.f41132f = obj;
+            this.f41133g = j;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: d.a.c.e.d.m */
@@ -114,21 +114,21 @@ public class m<T> implements l.c<T> {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f44118h.e(this.f44115e, this.f44116f, this.f44117g);
+                this.f41134h.e(this.f41131e, this.f41132f, this.f41133g);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f44119e;
+        public final /* synthetic */ String f41135e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ m f44120f;
+        public final /* synthetic */ m f41136f;
 
         public c(m mVar, String str) {
             Interceptable interceptable = $ic;
@@ -145,15 +145,15 @@ public class m<T> implements l.c<T> {
                     return;
                 }
             }
-            this.f44120f = mVar;
-            this.f44119e = str;
+            this.f41136f = mVar;
+            this.f41135e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f44120f.remove(this.f44119e);
+                this.f41136f.remove(this.f41135e);
             }
         }
     }
@@ -173,9 +173,9 @@ public class m<T> implements l.c<T> {
                 return;
             }
         }
-        this.f44109a = false;
-        this.f44111c = str;
-        this.f44110b = kVar;
+        this.f41125a = false;
+        this.f41127c = str;
+        this.f41126b = kVar;
     }
 
     @Override // d.a.c.e.d.l
@@ -190,7 +190,7 @@ public class m<T> implements l.c<T> {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f44110b.g(this.f44111c);
+            this.f41126b.g(this.f41127c);
             l();
         }
     }
@@ -199,7 +199,7 @@ public class m<T> implements l.c<T> {
     public k<T> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f44110b : (k) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41126b : (k) invokeV.objValue;
     }
 
     @Override // d.a.c.e.d.l
@@ -220,7 +220,7 @@ public class m<T> implements l.c<T> {
                 }
                 long j2 = j;
                 if (BdBaseApplication.getInst().isDebugMode() && d.a.c.e.p.l.C()) {
-                    if (!this.f44109a) {
+                    if (!this.f41125a) {
                         BdLog.detailException("access db in main thread!", new Exception());
                     } else {
                         throw new RuntimeException("access db in main thread!");
@@ -230,7 +230,7 @@ public class m<T> implements l.c<T> {
                     remove(str);
                     return;
                 } else {
-                    this.f44110b.f(this.f44111c, str, t, j2);
+                    this.f41126b.f(this.f41127c, str, t, j2);
                     return;
                 }
             }
@@ -260,13 +260,13 @@ public class m<T> implements l.c<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
             if (BdBaseApplication.getInst().isDebugMode() && d.a.c.e.p.l.C()) {
-                if (!this.f44109a) {
+                if (!this.f41125a) {
                     BdLog.detailException("access db in main thread!", new Exception());
                 } else {
                     throw new RuntimeException("access db in main thread!");
                 }
             }
-            return this.f44110b.e(this.f44111c, str);
+            return this.f41126b.e(this.f41127c, str);
         }
         return (T) invokeL.objValue;
     }
@@ -277,13 +277,13 @@ public class m<T> implements l.c<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
             if (BdBaseApplication.getInst().isDebugMode() && d.a.c.e.p.l.C()) {
-                if (!this.f44109a) {
+                if (!this.f41125a) {
                     BdLog.detailException("access db in main thread!", new Exception());
                 } else {
                     throw new RuntimeException("access db in main thread!");
                 }
             }
-            return this.f44110b.d(this.f44111c, str);
+            return this.f41126b.d(this.f41127c, str);
         }
         return (l.b) invokeL.objValue;
     }
@@ -300,13 +300,13 @@ public class m<T> implements l.c<T> {
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f44111c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f41127c : (String) invokeV.objValue;
     }
 
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f44110b.a(this.f44111c);
+            this.f41126b.a(this.f41127c);
         }
     }
 
@@ -325,13 +325,13 @@ public class m<T> implements l.c<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             if (BdBaseApplication.getInst().isDebugMode() && d.a.c.e.p.l.C()) {
-                if (!this.f44109a) {
+                if (!this.f41125a) {
                     BdLog.detailException("access db in main thread!", new Exception());
                 } else {
                     throw new RuntimeException("access db in main thread!");
                 }
             }
-            this.f44110b.c(this.f44111c, str);
+            this.f41126b.c(this.f41127c, str);
         }
     }
 }

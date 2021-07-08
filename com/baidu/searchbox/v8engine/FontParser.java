@@ -1,6 +1,7 @@
 package com.baidu.searchbox.v8engine;
 
 import android.util.Xml;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,7 +19,7 @@ import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FontParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_FALLBACK = "/system/fonts/DroidSansFallback.ttf";
@@ -40,7 +41,7 @@ public class FontParser {
     public static Map<String, String> sSystemFontMap;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Alias {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +64,7 @@ public class FontParser {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Axis {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +91,7 @@ public class FontParser {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Config {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,7 +116,7 @@ public class FontParser {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Family {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -146,7 +147,7 @@ public class FontParser {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Font {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -256,7 +257,7 @@ public class FontParser {
     public static Axis readAxis(XmlPullParser xmlPullParser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, xmlPullParser)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, xmlPullParser)) == null) {
             String attributeValue = xmlPullParser.getAttributeValue(null, "tag");
             if (attributeValue != null && TAG_PATTERN.matcher(attributeValue).matches()) {
                 int charAt = (attributeValue.charAt(0) << 24) + (attributeValue.charAt(1) << 16) + (attributeValue.charAt(2) << '\b') + attributeValue.charAt(3);

@@ -1,5 +1,6 @@
 package com.google.zxing.oned.rss.expanded.decoders;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,7 +19,7 @@ import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
 import kotlin.text.Typography;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class GeneralAppIdDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -153,7 +154,7 @@ public final class GeneralAppIdDecoder {
                         c2 = Typography.less;
                         break;
                     case GDiffPatcher.DATA_INT /* 248 */:
-                        c2 = a.f1889h;
+                        c2 = a.f1890h;
                         break;
                     case 249:
                         c2 = Typography.greater;
@@ -482,7 +483,7 @@ public final class GeneralAppIdDecoder {
     public static int extractNumericValueFromBitArray(BitArray bitArray, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65540, null, bitArray, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bitArray, i2, i3)) == null) {
             int i4 = 0;
             for (int i5 = 0; i5 < i3; i5++) {
                 if (bitArray.get(i2 + i5)) {

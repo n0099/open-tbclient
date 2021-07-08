@@ -12,18 +12,18 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class b implements Comparator<l.b<?>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,8 +49,8 @@ public class p {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bVar, bVar2)) == null) {
-                long j = bVar.f44108c;
-                long j2 = bVar2.f44108c;
+                long j = bVar.f41124c;
+                long j2 = bVar2.f41124c;
                 if (j == j2) {
                     return 0;
                 }
@@ -83,10 +83,10 @@ public class p {
             while (cursor.moveToNext()) {
                 try {
                     l.b bVar = new l.b();
-                    bVar.f44106a = cursor.getString(cursor.getColumnIndex("m_key"));
-                    bVar.f44108c = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    bVar.f41122a = cursor.getString(cursor.getColumnIndex("m_key"));
+                    bVar.f41124c = cursor.getLong(cursor.getColumnIndex("saveTime"));
                     cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    bVar.f44107b = cursor.getBlob(cursor.getColumnIndex("m_value"));
+                    bVar.f41123b = cursor.getBlob(cursor.getColumnIndex("m_value"));
                     linkedList.add(bVar);
                 } catch (Throwable th2) {
                     th = th2;
@@ -126,10 +126,10 @@ public class p {
             while (cursor.moveToNext()) {
                 try {
                     l.b bVar = new l.b();
-                    bVar.f44106a = cursor.getString(cursor.getColumnIndex("m_key"));
-                    bVar.f44108c = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    bVar.f41122a = cursor.getString(cursor.getColumnIndex("m_key"));
+                    bVar.f41124c = cursor.getLong(cursor.getColumnIndex("saveTime"));
                     cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    bVar.f44107b = cursor.getString(cursor.getColumnIndex("m_value"));
+                    bVar.f41123b = cursor.getString(cursor.getColumnIndex("m_value"));
                     linkedList.add(bVar);
                 } catch (Throwable th2) {
                     th = th2;

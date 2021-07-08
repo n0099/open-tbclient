@@ -1,5 +1,6 @@
 package rx.schedulers;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,22 +19,22 @@ import h.r.c;
 import h.r.f;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class Schedulers {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final AtomicReference<Schedulers> f76277d;
+    public static final AtomicReference<Schedulers> f73311d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final g f76278a;
+    public final g f73312a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final g f76279b;
+    public final g f73313b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final g f76280c;
+    public final g f73314c;
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +49,7 @@ public final class Schedulers {
                 return;
             }
         }
-        f76277d = new AtomicReference<>();
+        f73311d = new AtomicReference<>();
     }
 
     public Schedulers() {
@@ -67,21 +68,21 @@ public final class Schedulers {
         h.r.g f2 = f.c().f();
         g g2 = f2.g();
         if (g2 != null) {
-            this.f76278a = g2;
+            this.f73312a = g2;
         } else {
-            this.f76278a = h.r.g.a();
+            this.f73312a = h.r.g.a();
         }
         g i4 = f2.i();
         if (i4 != null) {
-            this.f76279b = i4;
+            this.f73313b = i4;
         } else {
-            this.f76279b = h.r.g.c();
+            this.f73313b = h.r.g.c();
         }
         g j = f2.j();
         if (j != null) {
-            this.f76280c = j;
+            this.f73314c = j;
         } else {
-            this.f76280c = h.r.g.e();
+            this.f73314c = h.r.g.e();
         }
     }
 
@@ -92,12 +93,12 @@ public final class Schedulers {
             return (Schedulers) invokeV.objValue;
         }
         while (true) {
-            Schedulers schedulers = f76277d.get();
+            Schedulers schedulers = f73311d.get();
             if (schedulers != null) {
                 return schedulers;
             }
             Schedulers schedulers2 = new Schedulers();
-            if (f76277d.compareAndSet(null, schedulers2)) {
+            if (f73311d.compareAndSet(null, schedulers2)) {
                 return schedulers2;
             }
             schedulers2.b();
@@ -107,37 +108,37 @@ public final class Schedulers {
     public static g computation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.f(a().f76278a) : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.f(a().f73312a) : (g) invokeV.objValue;
     }
 
     public static g from(Executor executor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, executor)) == null) ? new h.o.c.c(executor) : (g) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, executor)) == null) ? new h.o.c.c(executor) : (g) invokeL.objValue;
     }
 
     public static g immediate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? e.f75590a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? e.f72624a : (g) invokeV.objValue;
     }
 
     public static g io() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? c.k(a().f76279b) : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? c.k(a().f73313b) : (g) invokeV.objValue;
     }
 
     public static g newThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? c.l(a().f76280c) : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? c.l(a().f73314c) : (g) invokeV.objValue;
     }
 
     public static void reset() {
         Schedulers andSet;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || (andSet = f76277d.getAndSet(null)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || (andSet = f73311d.getAndSet(null)) == null) {
             return;
         }
         andSet.b();
@@ -149,7 +150,7 @@ public final class Schedulers {
             Schedulers a2 = a();
             a2.b();
             synchronized (a2) {
-                d.f75587h.shutdown();
+                d.f72621h.shutdown();
             }
         }
     }
@@ -160,7 +161,7 @@ public final class Schedulers {
             Schedulers a2 = a();
             a2.c();
             synchronized (a2) {
-                d.f75587h.start();
+                d.f72621h.start();
             }
         }
     }
@@ -174,21 +175,21 @@ public final class Schedulers {
     public static g trampoline() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? j.f75602a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? j.f72636a : (g) invokeV.objValue;
     }
 
     public synchronized void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                if (this.f76278a instanceof h) {
-                    ((h) this.f76278a).shutdown();
+                if (this.f73312a instanceof h) {
+                    ((h) this.f73312a).shutdown();
                 }
-                if (this.f76279b instanceof h) {
-                    ((h) this.f76279b).shutdown();
+                if (this.f73313b instanceof h) {
+                    ((h) this.f73313b).shutdown();
                 }
-                if (this.f76280c instanceof h) {
-                    ((h) this.f76280c).shutdown();
+                if (this.f73314c instanceof h) {
+                    ((h) this.f73314c).shutdown();
                 }
             }
         }
@@ -198,14 +199,14 @@ public final class Schedulers {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                if (this.f76278a instanceof h) {
-                    ((h) this.f76278a).start();
+                if (this.f73312a instanceof h) {
+                    ((h) this.f73312a).start();
                 }
-                if (this.f76279b instanceof h) {
-                    ((h) this.f76279b).start();
+                if (this.f73313b instanceof h) {
+                    ((h) this.f73313b).start();
                 }
-                if (this.f76280c instanceof h) {
-                    ((h) this.f76280c).start();
+                if (this.f73314c instanceof h) {
+                    ((h) this.f73314c).start();
                 }
             }
         }

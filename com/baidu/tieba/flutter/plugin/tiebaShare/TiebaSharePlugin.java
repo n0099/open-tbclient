@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -25,15 +26,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
-import d.a.r0.r.q.b2;
-import d.a.s0.e0.f;
-import d.a.s0.q0.a.i.c;
+import d.a.o0.r.q.b2;
+import d.a.p0.e0.f;
+import d.a.p0.q0.a.i.c;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.net.URLEncoder;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTiebaShare {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -162,7 +163,7 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
 
     private void showShareDetailsDialog(String str, String str2, String str3, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65540, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) || str == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) || str == null) {
             return;
         }
         ShareItem shareItem = new ShareItem();
@@ -272,7 +273,7 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
             shareItem.J = str3;
             shareItem.p = str2;
             shareItem.K = str6;
-            shareItem.f12826f = true;
+            shareItem.f12843f = true;
             shareItem.o = 6;
             shareItem.E = 8;
             shareItem.M = stateThreadType;
@@ -326,7 +327,7 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
         shareItem2.J = str3;
         shareItem2.p = str2;
         shareItem2.K = str6;
-        shareItem2.f12826f = true;
+        shareItem2.f12843f = true;
         shareItem2.o = 6;
         shareItem2.E = 8;
         shareItem2.M = stateThreadType2;

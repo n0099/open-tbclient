@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class WebsocketNotConnectedException extends RuntimeException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -785314021592982715L;

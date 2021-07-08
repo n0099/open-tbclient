@@ -1,5 +1,5 @@
 package com.baidu.rtc;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface OnJoined {
     void onJoined(JanusHandle janusHandle);
 }

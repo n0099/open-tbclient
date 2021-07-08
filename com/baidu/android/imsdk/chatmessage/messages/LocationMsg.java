@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.chatmessage.messages;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.Base64;
 import com.baidu.android.imsdk.utils.LogUtils;
@@ -100,7 +101,7 @@ public class LocationMsg extends RichMediaMsg implements Parcelable, NoProGuard 
     private String getLocationContent(String str, double d2, double d3, byte[] bArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, this, new Object[]{str, Double.valueOf(d2), Double.valueOf(d3), bArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, Double.valueOf(d2), Double.valueOf(d3), bArr})) == null) {
             if (TextUtils.isEmpty(str)) {
                 return "";
             }

@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.d.c.o1;
 import java.io.Serializable;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ImmutableMapValues<K, V> extends ImmutableCollection<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ImmutableMap<K, V> map;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class SerializedForm<V> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -47,16 +47,16 @@ public final class ImmutableMapValues<K, V> extends ImmutableCollection<V> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a extends o1<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final o1<Map.Entry<K, V>> f33101e;
+        public final o1<Map.Entry<K, V>> f33211e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ImmutableMapValues f33102f;
+        public final /* synthetic */ ImmutableMapValues f33212f;
 
         public a(ImmutableMapValues immutableMapValues) {
             Interceptable interceptable = $ic;
@@ -73,22 +73,22 @@ public final class ImmutableMapValues<K, V> extends ImmutableCollection<V> {
                     return;
                 }
             }
-            this.f33102f = immutableMapValues;
-            this.f33101e = this.f33102f.map.entrySet().iterator();
+            this.f33212f = immutableMapValues;
+            this.f33211e = this.f33212f.map.entrySet().iterator();
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33101e.hasNext() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33211e.hasNext() : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
         public V next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33101e.next().getValue() : (V) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33211e.next().getValue() : (V) invokeV.objValue;
         }
     }
 

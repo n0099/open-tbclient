@@ -113,7 +113,7 @@ public class AlgoHandleController {
     /* JADX INFO: Access modifiers changed from: private */
     public void da() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             this.mm = false;
             if (this.ml.size() > 0) {
                 try {
@@ -364,7 +364,7 @@ public class AlgoHandleController {
             public final /* synthetic */ long mr;
 
             /* renamed from: ms  reason: collision with root package name */
-            public final /* synthetic */ String f4219ms;
+            public final /* synthetic */ String f4222ms;
             public final /* synthetic */ AlgoHandleController mt;
 
             {
@@ -385,7 +385,7 @@ public class AlgoHandleController {
                 this.mt = this;
                 this.mq = lVar;
                 this.mr = j;
-                this.f4219ms = str;
+                this.f4222ms = str;
             }
 
             @Override // java.lang.Runnable
@@ -395,7 +395,7 @@ public class AlgoHandleController {
                 if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (lVar2 = this.mq) == null) {
                     return;
                 }
-                lVar2.a(this.mr, this.f4219ms);
+                lVar2.a(this.mr, this.f4222ms);
             }
         });
     }

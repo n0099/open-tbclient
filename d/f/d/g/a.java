@@ -1,5 +1,6 @@
 package d.f.d.g;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,15 +11,15 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f73838a;
+    public static final Map<Class<?>, Class<?>> f70941a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f73839b;
+    public static final Map<Class<?>, Class<?>> f70942b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,8 +46,8 @@ public final class a {
         a(linkedHashMap, linkedHashMap2, Long.TYPE, Long.class);
         a(linkedHashMap, linkedHashMap2, Short.TYPE, Short.class);
         a(linkedHashMap, linkedHashMap2, Void.TYPE, Void.class);
-        f73838a = Collections.unmodifiableMap(linkedHashMap);
-        f73839b = Collections.unmodifiableMap(linkedHashMap2);
+        f70941a = Collections.unmodifiableMap(linkedHashMap);
+        f70942b = Collections.unmodifiableMap(linkedHashMap2);
     }
 
     public static void a(Map<Class<?>, Class<?>> map, Map<Class<?>, Class<?>> map2, Class<?> cls, Class<?> cls2) {
@@ -60,7 +61,7 @@ public final class a {
     public static Set<Class<?>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f73839b.keySet() : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f70942b.keySet() : (Set) invokeV.objValue;
     }
 
     public static <T> Class<T> c(Class<T> cls) {
@@ -68,7 +69,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
             n.p(cls);
-            Class<T> cls2 = (Class<T>) f73839b.get(cls);
+            Class<T> cls2 = (Class<T>) f70942b.get(cls);
             return cls2 == null ? cls : cls2;
         }
         return (Class) invokeL.objValue;
@@ -77,9 +78,9 @@ public final class a {
     public static <T> Class<T> d(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, cls)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls)) == null) {
             n.p(cls);
-            Class<T> cls2 = (Class<T>) f73838a.get(cls);
+            Class<T> cls2 = (Class<T>) f70941a.get(cls);
             return cls2 == null ? cls : cls2;
         }
         return (Class) invokeL.objValue;

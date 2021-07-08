@@ -4,6 +4,7 @@ import android.media.audiofx.AcousticEchoCanceler;
 import android.media.audiofx.AudioEffect;
 import android.media.audiofx.NoiseSuppressor;
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiOptions;
@@ -18,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.UUID;
 import javax.annotation.Nullable;
 import org.webrtc.Logging;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class WebRtcAudioEffects {
     public static /* synthetic */ Interceptable $ic = null;
     public static final UUID AOSP_ACOUSTIC_ECHO_CANCELER;
@@ -91,7 +92,7 @@ public class WebRtcAudioEffects {
     public static AudioEffect.Descriptor[] getAvailableEffects() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             AudioEffect.Descriptor[] descriptorArr = cachedEffects;
             if (descriptorArr != null) {
                 return descriptorArr;

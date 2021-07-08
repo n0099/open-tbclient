@@ -5,6 +5,7 @@ import android.media.AudioManager;
 import android.media.AudioRecord;
 import android.media.AudioTrack;
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +14,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.CalledByNative;
 import org.webrtc.Logging;
-/* loaded from: classes10.dex */
+import org.webrtc.MediaStreamTrack;
+/* loaded from: classes9.dex */
 public class WebRtcAudioManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BITS_PER_SAMPLE = 16;
@@ -40,7 +42,7 @@ public class WebRtcAudioManager {
     public static AudioManager getAudioManager(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? (AudioManager) context.getSystemService("audio") : (AudioManager) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND) : (AudioManager) invokeL.objValue;
     }
 
     @CalledByNative
@@ -66,7 +68,7 @@ public class WebRtcAudioManager {
     public static int getMinInputFrameSize(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65540, null, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3)) == null) {
             return AudioRecord.getMinBufferSize(i2, i3 == 1 ? 16 : 12, 2) / (i3 * 2);
         }
         return invokeII.intValue;

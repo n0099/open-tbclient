@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class c extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public final class c extends e {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            JSONObject optJSONObject = this.f40996a.optJSONObject(str2);
+            JSONObject optJSONObject = this.f38010a.optJSONObject(str2);
             if (optJSONObject != null) {
                 return optJSONObject.opt(str);
             }

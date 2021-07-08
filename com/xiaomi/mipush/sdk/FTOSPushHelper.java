@@ -3,6 +3,7 @@ package com.xiaomi.mipush.sdk;
 import android.content.Context;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,12 +13,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class FTOSPushHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f42737a;
+    public static long f39751a;
 
     /* renamed from: a  reason: collision with other field name */
     public static volatile boolean f45a;
@@ -55,7 +56,7 @@ public class FTOSPushHelper {
     public static void a(Context context) {
         AbstractPushManager a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, context) == null) || (a2 = f.a(context).a(e.f42790d)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, context) == null) || (a2 = f.a(context).a(e.f39804d)) == null) {
             return;
         }
         com.xiaomi.channel.commonutils.logger.b.m70a("ASSEMBLE_PUSH :  register fun touch os when network change!");
@@ -67,9 +68,9 @@ public class FTOSPushHelper {
         if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             if (getNeedRegister()) {
-                long j = f42737a;
+                long j = f39751a;
                 if (j <= 0 || j + 300000 <= elapsedRealtime) {
-                    f42737a = elapsedRealtime;
+                    f39751a = elapsedRealtime;
                     a(context);
                 }
             }
@@ -79,7 +80,7 @@ public class FTOSPushHelper {
     public static boolean getNeedRegister() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? f45a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f45a : invokeV.booleanValue;
     }
 
     public static boolean hasNetwork(Context context) {
@@ -114,7 +115,7 @@ public class FTOSPushHelper {
     public static void uploadToken(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, context, str) == null) {
-            i.a(context, e.f42790d, str);
+            i.a(context, e.f39804d, str);
         }
     }
 }

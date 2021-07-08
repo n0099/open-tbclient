@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ElasticTask implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean DEBUG = false;
@@ -25,7 +25,7 @@ public class ElasticTask implements Runnable {
     public long timeOnExecute;
     public long timeOnQueue;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface ElasticTaskCallback {
         void afterExecuteTask();
 
@@ -33,7 +33,7 @@ public class ElasticTask implements Runnable {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class Status {
         public static final /* synthetic */ Status[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

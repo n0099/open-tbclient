@@ -10,15 +10,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class HomeWatcherReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f28782a;
+    public a f28892a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a();
 
@@ -42,7 +42,7 @@ public class HomeWatcherReceiver extends BroadcastReceiver {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f28782a = aVar;
+            this.f28892a = aVar;
         }
     }
 
@@ -59,13 +59,13 @@ public class HomeWatcherReceiver extends BroadcastReceiver {
             Log.i("HomeReceiver", "reason: " + stringExtra);
             if ("homekey".equals(stringExtra)) {
                 Log.i("HomeReceiver", "homekey");
-                a aVar = this.f28782a;
+                a aVar = this.f28892a;
                 if (aVar != null) {
                     aVar.a();
                 }
             } else if (PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_RECENT_APPS.equals(stringExtra)) {
                 Log.i("HomeReceiver", "long press home key or activity switch");
-                a aVar2 = this.f28782a;
+                a aVar2 = this.f28892a;
                 if (aVar2 != null) {
                     aVar2.b();
                 }

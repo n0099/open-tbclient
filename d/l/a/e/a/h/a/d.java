@@ -6,6 +6,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tieba.service.AsInstallService;
@@ -21,7 +22,7 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -298,7 +299,7 @@ public class d {
     public static String e(a aVar, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, aVar, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar, i2)) == null) {
             int f2 = aVar.f(i2);
             int g2 = aVar.g(i2);
             if (f2 == 3) {

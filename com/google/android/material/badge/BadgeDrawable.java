@@ -46,7 +46,7 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDrawableDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BADGE_NUMBER_NONE = -1;
@@ -87,7 +87,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
     public final TextDrawableHelper textDrawableHelper;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public @interface BadgeGravity {
     }
 
@@ -179,7 +179,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
     public static BadgeDrawable createFromAttributes(@NonNull Context context, AttributeSet attributeSet, @AttrRes int i2, @StyleRes int i3) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65540, null, context, attributeSet, i2, i3)) == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(InputDeviceCompat.SOURCE_TRACKBALL, null, context, attributeSet, i2, i3)) == null) {
             BadgeDrawable badgeDrawable = new BadgeDrawable(context);
             badgeDrawable.loadDefaultStateFromAttributes(context, attributeSet, i2, i3);
             return badgeDrawable;
@@ -632,7 +632,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class SavedState implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;

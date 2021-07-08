@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AppActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public static String activityName;
@@ -78,7 +78,7 @@ public class AppActivity extends Activity {
     public static Class<?> getActivityClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (TextUtils.isEmpty(activityName)) {
                 return AppActivity.class;
             }
@@ -415,7 +415,7 @@ public class AppActivity extends Activity {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class ActionBarColorTheme implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final ActionBarColorTheme ACTION_BAR_BLACK_THEME;

@@ -23,18 +23,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class g extends RequestParams.Channel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class b implements IDataInterceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,12 +116,12 @@ public class g extends RequestParams.Channel {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class c extends DefaultDownloadCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes7.dex */
         public class a implements f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -145,7 +145,7 @@ public class g extends RequestParams.Channel {
             @Override // d.a.c.j.f
             public void a(String str, int i2, String str2) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, str2) == null) && d.a.c.j.a.f44765a) {
+                if ((interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, str2) == null) && d.a.c.j.a.f41781a) {
                     Log.d(TitanDownloadService.TAG, "install " + str + " result: " + i2);
                 }
             }

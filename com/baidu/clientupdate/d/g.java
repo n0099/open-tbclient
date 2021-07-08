@@ -1,5 +1,6 @@
 package com.baidu.clientupdate.d;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,12 +12,12 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static char[] f4653a;
+    public static char[] f4670a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +33,7 @@ public class g {
                 return;
             }
         }
-        f4653a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f4670a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
     public static String a(File file) {
@@ -81,7 +82,7 @@ public class g {
     public static String a(byte[] bArr, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65540, null, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i2, i3)) == null) {
             StringBuffer stringBuffer = new StringBuffer(i3 * 2);
             int i4 = i3 + i2;
             while (i2 < i4) {
@@ -96,7 +97,7 @@ public class g {
     public static void a(byte b2, StringBuffer stringBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Byte.valueOf(b2), stringBuffer}) == null) {
-            char[] cArr = f4653a;
+            char[] cArr = f4670a;
             char c2 = cArr[(b2 & 240) >> 4];
             char c3 = cArr[b2 & 15];
             stringBuffer.append(c2);

@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcel;
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -58,7 +59,7 @@ public class MediaDescriptionCompatApi21 {
 
         public static void setExtras(Object obj, Bundle bundle) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65540, null, obj, bundle) == null) {
+            if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, bundle) == null) {
                 ((MediaDescription.Builder) obj).setExtras(bundle);
             }
         }
@@ -134,7 +135,7 @@ public class MediaDescriptionCompatApi21 {
     public static Bitmap getIconBitmap(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, obj)) == null) ? ((MediaDescription) obj).getIconBitmap() : (Bitmap) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) ? ((MediaDescription) obj).getIconBitmap() : (Bitmap) invokeL.objValue;
     }
 
     public static Uri getIconUri(Object obj) {

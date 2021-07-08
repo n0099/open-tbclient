@@ -1,5 +1,6 @@
 package com.google.common.collect;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -28,7 +29,7 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implements e1<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -37,7 +38,7 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
     public transient ImmutableSet<Map.Entry<K, V>> entries;
     public transient ImmutableSetMultimap<V, K> inverse;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class EntrySet<K, V> extends ImmutableSet<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +102,7 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class a<K, V> extends ImmutableMultimap.c<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -146,12 +147,12 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                Collection entrySet = this.f33110a.entrySet();
-                Comparator<? super K> comparator = this.f33111b;
+                Collection entrySet = this.f33220a.entrySet();
+                Comparator<? super K> comparator = this.f33221b;
                 if (comparator != null) {
                     entrySet = Ordering.from(comparator).onKeys().immutableSortedCopy(entrySet);
                 }
-                return ImmutableSetMultimap.fromMapEntries(entrySet, this.f33112c);
+                return ImmutableSetMultimap.fromMapEntries(entrySet, this.f33222c);
             }
             return (ImmutableSetMultimap) invokeV.objValue;
         }
@@ -187,12 +188,12 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d1.b<ImmutableSetMultimap> f33131a;
+        public static final d1.b<ImmutableSetMultimap> f33241a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -208,7 +209,7 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
                     return;
                 }
             }
-            f33131a = d1.a(ImmutableSetMultimap.class, "emptySet");
+            f33241a = d1.a(ImmutableSetMultimap.class, "emptySet");
         }
     }
 
@@ -337,9 +338,9 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
                     }
                 }
                 try {
-                    ImmutableMultimap.d.f33113a.b(this, builder.a());
-                    ImmutableMultimap.d.f33114b.a(this, i2);
-                    b.f33131a.b(this, emptySet(comparator));
+                    ImmutableMultimap.d.f33223a.b(this, builder.a());
+                    ImmutableMultimap.d.f33224b.a(this, i2);
+                    b.f33241a.b(this, emptySet(comparator));
                     return;
                 } catch (IllegalArgumentException e2) {
                     throw ((InvalidObjectException) new InvalidObjectException(e2.getMessage()).initCause(e2));
@@ -543,7 +544,7 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
     public static <K, V> ImmutableSetMultimap<K, V> copyOf(Iterable<? extends Map.Entry<? extends K, ? extends V>> iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, iterable)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, iterable)) == null) {
             a aVar = new a();
             aVar.i(iterable);
             return aVar.f();

@@ -3,6 +3,7 @@ package com.baidu.wallet.paysdk;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.armor.SafePay;
 import com.baidu.apollon.restnet.RestNameValuePair;
 import com.baidu.apollon.utils.Md5Utils;
@@ -25,7 +26,7 @@ import java.util.List;
 import java.util.Map;
 import kotlin.text.Typography;
 @SuppressLint({"UseSparseArrays"})
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class PayUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_CARD_NO = "card_no";
@@ -35,16 +36,16 @@ public final class PayUtils {
     public static final String KEY_VALID_DATE = "valid_date";
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f25730a = "PayUtils";
+    public static String f25840a = "PayUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f25731b = "";
+    public static final String f25841b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static ArrayList<String> f25732c;
+    public static ArrayList<String> f25842c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Comparator<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,12 +88,12 @@ public final class PayUtils {
             }
         }
         ArrayList<String> arrayList = new ArrayList<>();
-        f25732c = arrayList;
+        f25842c = arrayList;
         arrayList.add("card_no");
-        f25732c.add("valid_date");
-        f25732c.add("cvv2");
-        f25732c.add("identity_code");
-        f25732c.add("phone_number");
+        f25842c.add("valid_date");
+        f25842c.add("cvv2");
+        f25842c.add("identity_code");
+        f25842c.add("phone_number");
     }
 
     public PayUtils() {
@@ -129,9 +130,9 @@ public final class PayUtils {
     public static String encrypt(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             LogUtil.d(str + "加密=" + str2);
-            if (f25732c.contains(str)) {
+            if (f25842c.contains(str)) {
                 if (TextUtils.isEmpty(str2)) {
                     return "";
                 }
@@ -270,7 +271,7 @@ public final class PayUtils {
                         value = "";
                     }
                     sb.append(name);
-                    sb.append(com.alipay.sdk.encrypt.a.f1889h);
+                    sb.append(com.alipay.sdk.encrypt.a.f1890h);
                     sb.append(value);
                     sb.append(Typography.amp);
                 }

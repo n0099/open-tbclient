@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class w extends p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,10 +41,10 @@ public class w extends p {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cursor)) == null) {
-            this.f71720e = cursor.getLong(0);
-            this.f71721f = cursor.getLong(1);
-            this.f71722g = cursor.getString(2);
-            this.f71723h = cursor.getString(3);
+            this.f68823e = cursor.getLong(0);
+            this.f68824f = cursor.getLong(1);
+            this.f68825g = cursor.getString(2);
+            this.f68826h = cursor.getString(3);
             this.o = cursor.getString(4);
             this.n = cursor.getString(5);
             this.m = cursor.getLong(6);
@@ -58,10 +58,10 @@ public class w extends p {
     public void d(@NonNull ContentValues contentValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, contentValues) == null) {
-            contentValues.put("local_time_ms", Long.valueOf(this.f71720e));
-            contentValues.put("tea_event_index", Long.valueOf(this.f71721f));
-            contentValues.put("session_id", this.f71722g);
-            contentValues.put("user_unique_id", this.f71723h);
+            contentValues.put("local_time_ms", Long.valueOf(this.f68823e));
+            contentValues.put("tea_event_index", Long.valueOf(this.f68824f));
+            contentValues.put("session_id", this.f68825g);
+            contentValues.put("user_unique_id", this.f68826h);
             contentValues.put("page_key", this.o);
             contentValues.put("refer_page_key", this.n);
             contentValues.put("duration", Long.valueOf(this.m));
@@ -76,9 +76,9 @@ public class w extends p {
             jSONObject.put("page_key", this.o);
             jSONObject.put("refer_page_key", this.n);
             jSONObject.put("duration", this.m);
-            jSONObject.put("local_time_ms", this.f71720e);
-            jSONObject.put("session_id", this.f71722g);
-            jSONObject.put("tea_event_index", this.f71721f);
+            jSONObject.put("local_time_ms", this.f68823e);
+            jSONObject.put("session_id", this.f68825g);
+            jSONObject.put("tea_event_index", this.f68824f);
             jSONObject.put("is_back", this.p);
         }
     }
@@ -95,9 +95,9 @@ public class w extends p {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
-            this.f71720e = jSONObject.optLong("local_time_ms", 0L);
-            this.f71721f = jSONObject.optLong("tea_event_index", 0L);
-            this.f71722g = jSONObject.optString("session_id", null);
+            this.f68823e = jSONObject.optLong("local_time_ms", 0L);
+            this.f68824f = jSONObject.optLong("tea_event_index", 0L);
+            this.f68825g = jSONObject.optString("session_id", null);
             this.o = jSONObject.optString("page_key", null);
             this.n = jSONObject.optString("refer_page_key", null);
             this.m = jSONObject.optLong("duration", 0L);
@@ -113,11 +113,11 @@ public class w extends p {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("local_time_ms", this.f71720e);
-            jSONObject.put("tea_event_index", this.f71721f);
-            jSONObject.put("session_id", this.f71722g);
-            if (!TextUtils.isEmpty(this.f71723h)) {
-                jSONObject.put("user_unique_id", this.f71723h);
+            jSONObject.put("local_time_ms", this.f68823e);
+            jSONObject.put("tea_event_index", this.f68824f);
+            jSONObject.put("session_id", this.f68825g);
+            if (!TextUtils.isEmpty(this.f68826h)) {
+                jSONObject.put("user_unique_id", this.f68826h);
             }
             jSONObject.put("event", "bav2b_page");
             jSONObject.put("is_bav", 1);

@@ -24,7 +24,7 @@ import java.net.URLEncoder;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

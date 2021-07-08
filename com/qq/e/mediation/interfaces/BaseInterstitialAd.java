@@ -10,7 +10,7 @@ import com.qq.e.ads.cfg.DownAPPConfirmPolicy;
 import com.qq.e.ads.cfg.VideoOption;
 import com.qq.e.ads.interstitial2.UnifiedInterstitialADListener;
 import com.qq.e.ads.interstitial2.UnifiedInterstitialMediaListener;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseInterstitialAd {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_PRIORITY = -1;

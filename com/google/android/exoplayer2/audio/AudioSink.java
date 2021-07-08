@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.b.a.p;
 import d.f.b.a.x.b;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface AudioSink {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class ConfigurationException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public interface AudioSink {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class InitializationException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public interface AudioSink {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class WriteException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,7 +115,7 @@ public interface AudioSink {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(int i2);
 

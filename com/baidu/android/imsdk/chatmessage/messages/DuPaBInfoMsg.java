@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.chatmessage.messages;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -87,7 +88,7 @@ public class DuPaBInfoMsg extends ChatMsg {
     private String getBInfoContentJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 if (this.action == 1) {

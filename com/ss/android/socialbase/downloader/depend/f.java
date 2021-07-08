@@ -13,28 +13,28 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface f extends IInterface {
     void a(DownloadInfo downloadInfo, BaseException baseException, int i2) throws RemoteException;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a extends Binder implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.f$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public static class C0535a implements f {
+        /* loaded from: classes6.dex */
+        public static class C0496a implements f {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static f f41488a;
+            public static f f38502a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f41489b;
+            public IBinder f38503b;
 
-            public C0535a(IBinder iBinder) {
+            public C0496a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,7 +49,7 @@ public interface f extends IInterface {
                         return;
                     }
                 }
-                this.f41489b = iBinder;
+                this.f38503b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.f
@@ -73,7 +73,7 @@ public interface f extends IInterface {
                             obtain.writeInt(0);
                         }
                         obtain.writeInt(i2);
-                        if (!this.f41489b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f38503b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                             a.a().a(downloadInfo, baseException, i2);
                         } else {
                             obtain2.readException();
@@ -89,7 +89,7 @@ public interface f extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41489b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38503b : (IBinder) invokeV.objValue;
             }
         }
 
@@ -120,7 +120,7 @@ public interface f extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof f)) {
                     return (f) queryLocalInterface;
                 }
-                return new C0535a(iBinder);
+                return new C0496a(iBinder);
             }
             return (f) invokeL.objValue;
         }
@@ -155,7 +155,7 @@ public interface f extends IInterface {
         public static f a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0535a.f41488a : (f) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0496a.f38502a : (f) invokeV.objValue;
         }
     }
 }

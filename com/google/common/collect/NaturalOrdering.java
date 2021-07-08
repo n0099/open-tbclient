@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.d.a.n;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class NaturalOrdering extends Ordering<Comparable> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final NaturalOrdering INSTANCE;

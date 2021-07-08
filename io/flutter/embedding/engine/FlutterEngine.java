@@ -32,7 +32,7 @@ import io.flutter.embedding.engine.systemchannels.TextInputChannel;
 import io.flutter.plugin.platform.PlatformViewsController;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class FlutterEngine {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterEngine";
@@ -70,7 +70,7 @@ public class FlutterEngine {
     @NonNull
     public final TextInputChannel textInputChannel;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface EngineLifecycleListener {
         void onPreEngineRestart();
     }
@@ -276,14 +276,14 @@ public class FlutterEngine {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, strArr};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (FlutterLoader) objArr2[1], (FlutterJNI) objArr2[2], (String[]) objArr2[3], ((Boolean) objArr2[4]).booleanValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }

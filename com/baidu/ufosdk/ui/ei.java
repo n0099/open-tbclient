@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class ei extends AsyncTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackReportActivity f23492a;
+    public final /* synthetic */ FeedbackReportActivity f23602a;
 
     public ei(FeedbackReportActivity feedbackReportActivity) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class ei extends AsyncTask {
                 return;
             }
         }
-        this.f23492a = feedbackReportActivity;
+        this.f23602a = feedbackReportActivity;
     }
 
     public static Integer a() {
@@ -56,10 +56,10 @@ public final class ei extends AsyncTask {
 
     @Override // android.os.AsyncTask
     public final /* synthetic */ void onPostExecute(Object obj) {
-        this.f23492a.finish();
+        this.f23602a.finish();
         try {
             com.baidu.ufosdk.f.c.d("执行动画...");
-            this.f23492a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.f23492a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.f23492a.getApplicationContext(), "ufo_slide_out_to_right"));
+            this.f23602a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.f23602a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.f23602a.getApplicationContext(), "ufo_slide_out_to_right"));
         } catch (Exception unused) {
             com.baidu.ufosdk.f.c.d("执行动画失败！！");
         }
@@ -68,10 +68,10 @@ public final class ei extends AsyncTask {
     @Override // android.os.AsyncTask
     public final void onPreExecute() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f23492a.getCurrentFocus() == null || this.f23492a.getCurrentFocus().getWindowToken() == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f23602a.getCurrentFocus() == null || this.f23602a.getCurrentFocus().getWindowToken() == null) {
             return;
         }
-        ((InputMethodManager) this.f23492a.getSystemService("input_method")).hideSoftInputFromWindow(this.f23492a.getCurrentFocus().getWindowToken(), 2);
+        ((InputMethodManager) this.f23602a.getSystemService("input_method")).hideSoftInputFromWindow(this.f23602a.getCurrentFocus().getWindowToken(), 2);
     }
 
     @Override // android.os.AsyncTask

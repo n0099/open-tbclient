@@ -10,14 +10,14 @@ import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.observers.BasicIntQueueDisposable;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class ObservableRangeLong extends Observable<Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long count;
     public final long start;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class RangeDisposable extends BasicIntQueueDisposable<Long> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 396518478098735504L;

@@ -15,7 +15,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.RandomAccess;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class LazyStringArrayList extends AbstractList<String> implements LazyStringList, RandomAccess {
     public static /* synthetic */ Interceptable $ic;
     public static final LazyStringList EMPTY;
@@ -57,7 +57,7 @@ public class LazyStringArrayList extends AbstractList<String> implements LazyStr
     private String asString(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, obj)) == null) {
             if (obj instanceof String) {
                 return (String) obj;
             }

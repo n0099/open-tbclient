@@ -439,7 +439,7 @@ public class ConstraintWidget {
 
     private void addAnchors() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             this.mAnchors.add(this.mLeft);
             this.mAnchors.add(this.mTop);
             this.mAnchors.add(this.mRight);

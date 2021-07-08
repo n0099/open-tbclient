@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @TargetApi(8)
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnScaleGestureListener, View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float o = 12.0f;
@@ -32,31 +32,31 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f10057a;
+    public float f10074a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final float[] f10058b;
+    public final float[] f10075b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f10059c;
+    public boolean f10076c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ScaleGestureDetector f10060d;
+    public ScaleGestureDetector f10077d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Matrix f10061e;
+    public final Matrix f10078e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f10062f;
+    public int f10079f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f10063g;
+    public float f10080g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f10064h;
+    public float f10081h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f10065i;
+    public boolean f10082i;
     public double j;
     public boolean k;
     public boolean l;
@@ -116,7 +116,7 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
             if (f10 < f11 && this.k) {
                 f4 = f11 - f10;
             }
-            this.f10061e.postTranslate(f4, f5);
+            this.f10078e.postTranslate(f4, f5);
         }
     }
 
@@ -130,7 +130,7 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
     public static ZoomImageView getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             ZoomImageView zoomImageView = p;
             if (zoomImageView != null) {
                 return zoomImageView;
@@ -178,10 +178,10 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
                     r5 = f14 - f13;
                 }
             }
-            this.f10061e.postTranslate(f4, r5);
+            this.f10078e.postTranslate(f4, r5);
             if (matrixRectF.width() < f5 || matrixRectF.height() < f10) {
                 float max = Math.max(f5 / matrixRectF.width(), f10 / matrixRectF.height());
-                this.f10061e.postScale(max, max, f2, f3);
+                this.f10078e.postScale(max, max, f2, f3);
             }
         }
     }
@@ -190,7 +190,7 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Matrix matrix = this.f10061e;
+            Matrix matrix = this.f10078e;
             RectF rectF = new RectF();
             Drawable drawable = getDrawable();
             if (drawable != null) {
@@ -206,8 +206,8 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.f10061e.getValues(this.f10058b);
-            return this.f10058b[0];
+            this.f10078e.getValues(this.f10075b);
+            return this.f10075b[0];
         }
         return invokeV.floatValue;
     }
@@ -237,7 +237,7 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
         float height;
         float f2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.f10059c && (drawable = getDrawable()) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.f10076c && (drawable = getDrawable()) != null) {
             this.m = (int) TypedValue.applyDimension(1, this.m, getResources().getDisplayMetrics());
             this.n = (getHeight() - (getWidth() - (this.m * 2))) / 2;
             int width = getWidth();
@@ -252,18 +252,18 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
                 f2 = intrinsicHeight;
             } else {
                 max = Math.max(((getWidth() * 1.0f) - (this.m * 2)) / intrinsicWidth, ((getHeight() * 1.0f) - (this.n * 2)) / intrinsicHeight);
-                this.f10057a = max;
-                this.f10061e.postTranslate((width - intrinsicWidth) / 2, (height2 - intrinsicHeight) / 2);
-                this.f10061e.postScale(max, max, width / 2, height2 / 2);
-                setImageMatrix(this.f10061e);
-                this.f10059c = false;
+                this.f10074a = max;
+                this.f10078e.postTranslate((width - intrinsicWidth) / 2, (height2 - intrinsicHeight) / 2);
+                this.f10078e.postScale(max, max, width / 2, height2 / 2);
+                setImageMatrix(this.f10078e);
+                this.f10076c = false;
             }
             max = height / f2;
-            this.f10057a = max;
-            this.f10061e.postTranslate((width - intrinsicWidth) / 2, (height2 - intrinsicHeight) / 2);
-            this.f10061e.postScale(max, max, width / 2, height2 / 2);
-            setImageMatrix(this.f10061e);
-            this.f10059c = false;
+            this.f10074a = max;
+            this.f10078e.postTranslate((width - intrinsicWidth) / 2, (height2 - intrinsicHeight) / 2);
+            this.f10078e.postScale(max, max, width / 2, height2 / 2);
+            setImageMatrix(this.f10078e);
+            this.f10076c = false;
         }
     }
 
@@ -281,9 +281,9 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
                 if (scaleFactor * scale > 12.0f) {
                     scaleFactor = 12.0f / scale;
                 }
-                this.f10061e.postScale(scaleFactor, scaleFactor, scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
+                this.f10078e.postScale(scaleFactor, scaleFactor, scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
                 a(scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
-                setImageMatrix(this.f10061e);
+                setImageMatrix(this.f10078e);
             }
             return true;
         }
@@ -319,7 +319,7 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
         Rect rect;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, view, motionEvent)) == null) {
-            this.f10060d.onTouchEvent(motionEvent);
+            this.f10077d.onTouchEvent(motionEvent);
             int pointerCount = motionEvent.getPointerCount();
             float f2 = 0.0f;
             float f3 = 0.0f;
@@ -331,21 +331,21 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
             float f5 = pointerCount;
             float f6 = f4 / f5;
             float f7 = f3 / f5;
-            if (pointerCount != this.f10062f) {
-                this.f10065i = false;
-                this.f10063g = f6;
-                this.f10064h = f7;
+            if (pointerCount != this.f10079f) {
+                this.f10082i = false;
+                this.f10080g = f6;
+                this.f10081h = f7;
             }
-            this.f10062f = pointerCount;
+            this.f10079f = pointerCount;
             int action = motionEvent.getAction();
             if (action != 1) {
                 if (action == 2) {
-                    float f8 = f6 - this.f10063g;
-                    float f9 = f7 - this.f10064h;
-                    if (!this.f10065i) {
-                        this.f10065i = Math.sqrt((double) ((f8 * f8) + (f9 * f9))) >= this.j;
+                    float f8 = f6 - this.f10080g;
+                    float f9 = f7 - this.f10081h;
+                    if (!this.f10082i) {
+                        this.f10082i = Math.sqrt((double) ((f8 * f8) + (f9 * f9))) >= this.j;
                     }
-                    if (this.f10065i) {
+                    if (this.f10082i) {
                         RectF matrixRectF = getMatrixRectF();
                         if (getDrawable() != null) {
                             this.k = true;
@@ -365,17 +365,17 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
                             } else {
                                 f2 = f9;
                             }
-                            this.f10061e.postTranslate(f8, f2);
+                            this.f10078e.postTranslate(f8, f2);
                             b();
-                            setImageMatrix(this.f10061e);
+                            setImageMatrix(this.f10078e);
                         }
                     }
-                    this.f10063g = f6;
-                    this.f10064h = f7;
+                    this.f10080g = f6;
+                    this.f10081h = f7;
                 }
                 return true;
             }
-            this.f10062f = 0;
+            this.f10079f = 0;
             return true;
         }
         return invokeLL.booleanValue;
@@ -400,16 +400,16 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
                 return;
             }
         }
-        this.f10057a = 1.0f;
-        this.f10058b = new float[9];
-        this.f10059c = true;
-        this.f10061e = new Matrix();
-        this.f10062f = 0;
-        this.f10063g = 0.0f;
-        this.f10064h = 0.0f;
+        this.f10074a = 1.0f;
+        this.f10075b = new float[9];
+        this.f10076c = true;
+        this.f10078e = new Matrix();
+        this.f10079f = 0;
+        this.f10080g = 0.0f;
+        this.f10081h = 0.0f;
         this.m = 22;
         super.setScaleType(ImageView.ScaleType.MATRIX);
-        this.f10060d = new ScaleGestureDetector(context, this);
+        this.f10077d = new ScaleGestureDetector(context, this);
         this.j = ViewConfiguration.get(context).getScaledTouchSlop();
         setOnTouchListener(this);
         if (p == null) {

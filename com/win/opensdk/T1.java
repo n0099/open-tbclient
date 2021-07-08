@@ -1,7 +1,7 @@
 package com.win.opensdk;
 
 import android.graphics.Bitmap;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface T1 {
     void a(int i2, String str, String str2);
 

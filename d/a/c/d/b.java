@@ -2,7 +2,7 @@ package d.a.c.d;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public interface b {
     boolean a(Bitmap bitmap, Canvas canvas);
 

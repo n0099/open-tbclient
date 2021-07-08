@@ -1,5 +1,6 @@
 package d.f.d.c;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -7,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Array;
 import java.util.Collection;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class u0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +62,7 @@ public final class u0 {
     public static Object[] e(Iterable<?> iterable, Object[] objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, iterable, objArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, iterable, objArr)) == null) {
             Iterator<?> it = iterable.iterator();
             int i2 = 0;
             while (it.hasNext()) {

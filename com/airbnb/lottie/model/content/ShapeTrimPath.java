@@ -1,5 +1,6 @@
 package com.airbnb.lottie.model.content;
 
+import androidx.core.view.InputDeviceCompat;
 import com.airbnb.lottie.LottieDrawable;
 import com.airbnb.lottie.animation.content.Content;
 import com.airbnb.lottie.animation.content.TrimPathContent;
@@ -95,7 +96,7 @@ public class ShapeTrimPath implements ContentModel {
         public static Type[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (Type[]) $VALUES.clone() : (Type[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (Type[]) $VALUES.clone() : (Type[]) invokeV.objValue;
         }
     }
 

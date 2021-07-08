@@ -14,12 +14,12 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 @Keep
 @JProtect
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class v1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f76112a;
+    public static final String f73146a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class v1 {
                 return;
             }
         }
-        f76112a = (String) h.a(16777217, 0, 0L, "ac2d00", new byte[]{126, 96, 15, 19, 21, 43});
+        f73146a = (String) h.a(16777217, 0, 0L, "ac2d00", new byte[]{126, 96, 15, 19, 21, 43});
     }
 
     /* JADX WARN: Removed duplicated region for block: B:35:0x00c5  */
@@ -55,7 +55,7 @@ public class v1 {
         int i3 = 3;
         ByteArrayOutputStream byteArrayOutputStream = null;
         try {
-            String str = context.getFilesDir().getAbsolutePath() + ((String) h.a(16777217, 0, 0L, "eacb92", new byte[]{59})) + f76112a;
+            String str = context.getFilesDir().getAbsolutePath() + ((String) h.a(16777217, 0, 0L, "eacb92", new byte[]{59})) + f73146a;
             File file = new File(str);
             if (file.exists()) {
                 try {
@@ -82,7 +82,7 @@ public class v1 {
                     }
                 }
             }
-            inputStream = context.getResources().getAssets().open(f76112a);
+            inputStream = context.getResources().getAssets().open(f73146a);
             try {
                 ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
                 try {

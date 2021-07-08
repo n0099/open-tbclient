@@ -10,6 +10,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.appframework.BdBoxActivityManager;
@@ -23,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.net.tnc.TNCManager;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class TraceManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TO_BACKGROUND = "To background";
@@ -65,7 +66,7 @@ public class TraceManager {
     public static TraceManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (sInstance == null) {
                 synchronized (TraceManager.class) {
                     if (sInstance == null) {

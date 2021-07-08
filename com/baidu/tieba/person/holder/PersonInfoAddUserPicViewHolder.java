@@ -14,29 +14,29 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.k.e.n;
-import d.a.s0.j2.i.c;
-/* loaded from: classes5.dex */
+import d.a.p0.j2.i.c;
+/* loaded from: classes4.dex */
 public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f19939a;
+    public View f19979a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f19940b;
+    public ImageView f19980b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f19941c;
+    public TextView f19981c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f19942d;
+    public int f19982d;
 
     /* renamed from: e  reason: collision with root package name */
-    public n f19943e;
+    public n f19983e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f19944f;
+    public View.OnClickListener f19984f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonInfoAddUserPicViewHolder(View view) {
@@ -56,22 +56,22 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f19942d = 3;
-        this.f19939a = view.findViewById(R.id.add_pic_root);
-        this.f19940b = (ImageView) view.findViewById(R.id.add_image_view);
-        this.f19941c = (TextView) view.findViewById(R.id.tip_left_count_view);
+        this.f19982d = 3;
+        this.f19979a = view.findViewById(R.id.add_pic_root);
+        this.f19980b = (ImageView) view.findViewById(R.id.add_image_view);
+        this.f19981c = (TextView) view.findViewById(R.id.tip_left_count_view);
     }
 
     public void b(n nVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, nVar) == null) && (nVar instanceof c)) {
-            this.f19943e = nVar;
+            this.f19983e = nVar;
             c cVar = (c) nVar;
-            SkinManager.setImageResource(this.f19940b, R.drawable.icon_mine_pic_add);
+            SkinManager.setImageResource(this.f19980b, R.drawable.icon_mine_pic_add);
             if (cVar.b() > 0) {
-                this.f19941c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.have_left_some_picture_upload), Integer.valueOf(cVar.b())));
+                this.f19981c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.have_left_some_picture_upload), Integer.valueOf(cVar.b())));
             }
-            a().setOnClickListener(this.f19944f);
+            a().setOnClickListener(this.f19984f);
             d(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -79,23 +79,23 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
     public n c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19943e : (n) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19983e : (n) invokeV.objValue;
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f19942d == i2) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f19982d == i2) {
             return;
         }
-        SkinManager.setViewTextColor(this.f19941c, R.color.CAM_X0110, 1);
+        SkinManager.setViewTextColor(this.f19981c, R.color.CAM_X0110, 1);
         SkinManager.setBackgroundColor(a(), R.color.CAM_X0205);
-        this.f19942d = i2;
+        this.f19982d = i2;
     }
 
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f19944f = onClickListener;
+            this.f19984f = onClickListener;
         }
     }
 }

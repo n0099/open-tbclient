@@ -1,5 +1,6 @@
 package io.reactivex.internal.operators.maybe;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,7 +13,7 @@ import io.reactivex.MaybeSource;
 import io.reactivex.functions.Function;
 import org.reactivestreams.Publisher;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class MaybeToPublisher implements Function<MaybeSource<Object>, Publisher<Object>> {
     public static final /* synthetic */ MaybeToPublisher[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -71,7 +72,7 @@ public final class MaybeToPublisher implements Function<MaybeSource<Object>, Pub
     public static MaybeToPublisher[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (MaybeToPublisher[]) $VALUES.clone() : (MaybeToPublisher[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (MaybeToPublisher[]) $VALUES.clone() : (MaybeToPublisher[]) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

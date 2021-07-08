@@ -1,6 +1,7 @@
 package com.alipay.apmobilesecuritysdk.otherid;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.alipay.security.mobile.module.a.a;
 import com.alipay.security.mobile.module.b.d;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -81,7 +82,7 @@ public class UmidSdkWrapper {
     public static String startUmidTaskSync(Context context, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, context, i2)) == null) ? "" : (String) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2)) == null) ? "" : (String) invokeLI.objValue;
     }
 
     public static synchronized void updateLocalUmidToken(Context context, String str) {

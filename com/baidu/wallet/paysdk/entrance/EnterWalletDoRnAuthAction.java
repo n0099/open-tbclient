@@ -10,7 +10,7 @@ import com.baidu.wallet.rnauth.RNAuthCallBack;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class EnterWalletDoRnAuthAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,10 +37,10 @@ public class EnterWalletDoRnAuthAction implements RouterAction {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RouterCallback f25963a;
+                public final /* synthetic */ RouterCallback f26073a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ EnterWalletDoRnAuthAction f25964b;
+                public final /* synthetic */ EnterWalletDoRnAuthAction f26074b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -57,20 +57,20 @@ public class EnterWalletDoRnAuthAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f25964b = this;
-                    this.f25963a = routerCallback;
+                    this.f26074b = this;
+                    this.f26073a = routerCallback;
                 }
 
                 @Override // com.baidu.wallet.rnauth.RNAuthCallBack
                 public void onRNAuthResult(int i2, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || this.f25963a == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || this.f26073a == null) {
                         return;
                     }
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put("statusCode", Integer.valueOf(i2));
                     hashMap2.put("authDesc", str);
-                    this.f25963a.onResult(0, hashMap2);
+                    this.f26073a.onResult(0, hashMap2);
                 }
             });
         }

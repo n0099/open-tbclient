@@ -1,6 +1,7 @@
 package com.heytap.mcssdk.utils;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class LogUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "mcssdk---";
@@ -68,7 +69,7 @@ public class LogUtil {
 
     public static void e(Exception exc) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65540, null, exc) == null) && sE) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, exc) == null) && sE) {
             exc.printStackTrace();
         }
     }

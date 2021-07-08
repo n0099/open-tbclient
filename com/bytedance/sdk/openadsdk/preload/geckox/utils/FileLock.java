@@ -1,6 +1,7 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.utils;
 
 import android.os.Process;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,19 +14,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FileLock {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Integer> f32160a;
+    public static final Map<String, Integer> f32270a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f32161b;
+    public final int f32271b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f32162c;
+    public final String f32272c;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +41,7 @@ public class FileLock {
                 return;
             }
         }
-        f32160a = new HashMap();
+        f32270a = new HashMap();
         g.a("file_lock_pg");
     }
 
@@ -59,8 +60,8 @@ public class FileLock {
                 return;
             }
         }
-        this.f32162c = str;
-        this.f32161b = i2;
+        this.f32272c = str;
+        this.f32271b = i2;
     }
 
     public static FileLock a(String str) {
@@ -81,7 +82,7 @@ public class FileLock {
     public static FileLock b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
                 int d2 = d(str);
                 if (nTryLock(d2)) {
@@ -118,12 +119,12 @@ public class FileLock {
         Integer num;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
-            synchronized (f32160a) {
-                num = f32160a.get(str);
+            synchronized (f32270a) {
+                num = f32270a.get(str);
                 if (num == null) {
                     new File(str).getParentFile().mkdirs();
                     num = Integer.valueOf(nGetFD(str));
-                    f32160a.put(str, num);
+                    f32270a.put(str, num);
                 }
             }
             return num.intValue();
@@ -162,13 +163,13 @@ public class FileLock {
         Integer remove;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (f32160a) {
-                remove = f32160a.remove(this.f32162c);
+            synchronized (f32270a) {
+                remove = f32270a.remove(this.f32272c);
             }
             try {
                 nRelease(remove.intValue());
             } catch (Exception e2) {
-                throw new RuntimeException("release lock failed, file:" + this.f32162c + " caused by:" + e2.getMessage());
+                throw new RuntimeException("release lock failed, file:" + this.f32272c + " caused by:" + e2.getMessage());
             }
         }
     }
@@ -177,9 +178,9 @@ public class FileLock {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                nUnlockFile(this.f32161b);
+                nUnlockFile(this.f32271b);
             } catch (Exception unused) {
-                throw new RuntimeException("release lock failed，path:" + this.f32162c);
+                throw new RuntimeException("release lock failed，path:" + this.f32272c);
             }
         }
     }

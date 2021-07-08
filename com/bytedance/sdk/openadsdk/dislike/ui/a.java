@@ -23,47 +23,47 @@ import com.bytedance.sdk.openadsdk.TTAdDislike;
 import java.lang.ref.SoftReference;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a implements TTAdDislike {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f30953a;
+    public final Context f31063a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.dislike.c.b f30954b;
+    public com.bytedance.sdk.openadsdk.dislike.c.b f31064b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f30955c;
+    public c f31065c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f30956d;
+    public b f31066d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TTDislikeToast f30957e;
+    public TTDislikeToast f31067e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicBoolean f30958f;
+    public AtomicBoolean f31068f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f30959g;
+    public boolean f31069g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SoftReference<View> f30960h;
+    public SoftReference<View> f31070h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HandlerC0347a f30961i;
+    public HandlerC0347a f31071i;
     public TTAdDislike.DislikeInteractionCallback j;
 
     /* renamed from: com.bytedance.sdk.openadsdk.dislike.ui.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class HandlerC0347a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<Context> f30966a;
+        public WeakReference<Context> f31076a;
 
         public HandlerC0347a(Context context) {
             Interceptable interceptable = $ic;
@@ -80,7 +80,7 @@ public class a implements TTAdDislike {
                     return;
                 }
             }
-            this.f30966a = new WeakReference<>(context);
+            this.f31076a = new WeakReference<>(context);
         }
     }
 
@@ -99,13 +99,13 @@ public class a implements TTAdDislike {
                 return;
             }
         }
-        this.f30958f = new AtomicBoolean(false);
+        this.f31068f = new AtomicBoolean(false);
         bVar.b(str);
         bVar.a("other");
         n.a(context, "Dislike 初始化必须使用activity,请在TTAdManager.createAdNative(activity)中传入");
-        this.f30953a = context;
-        this.f30954b = bVar;
-        this.f30959g = z;
+        this.f31063a = context;
+        this.f31064b = bVar;
+        this.f31069g = z;
         a();
     }
 
@@ -114,9 +114,9 @@ public class a implements TTAdDislike {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            c cVar = this.f30955c;
+            c cVar = this.f31065c;
             boolean isShowing = cVar != null ? cVar.isShowing() : false;
-            b bVar = this.f30956d;
+            b bVar = this.f31066d;
             return bVar != null ? isShowing | bVar.isShowing() : isShowing;
         }
         return invokeV.booleanValue;
@@ -126,15 +126,15 @@ public class a implements TTAdDislike {
     public void resetDislikeStatus() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            b bVar = this.f30956d;
+            b bVar = this.f31066d;
             if (bVar != null) {
                 bVar.a();
             }
-            TTDislikeToast tTDislikeToast = this.f30957e;
+            TTDislikeToast tTDislikeToast = this.f31067e;
             if (tTDislikeToast != null) {
                 tTDislikeToast.c();
             }
-            this.f30958f.set(false);
+            this.f31068f.set(false);
         }
     }
 
@@ -150,7 +150,7 @@ public class a implements TTAdDislike {
     public void setDislikeSource(String str) {
         com.bytedance.sdk.openadsdk.dislike.c.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (bVar = this.f30954b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (bVar = this.f31064b) == null) {
             return;
         }
         bVar.a(str);
@@ -161,19 +161,19 @@ public class a implements TTAdDislike {
         TTDislikeToast tTDislikeToast;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            Context context = this.f30953a;
+            Context context = this.f31063a;
             boolean z = (context instanceof Activity) && !((Activity) context).isFinishing();
-            if (this.f30958f.get() && this.f30959g && (tTDislikeToast = this.f30957e) != null) {
+            if (this.f31068f.get() && this.f31069g && (tTDislikeToast = this.f31067e) != null) {
                 tTDislikeToast.b();
                 return;
             }
-            com.bytedance.sdk.openadsdk.dislike.c.b bVar = this.f30954b;
-            if (bVar != null && "interaction".equals(bVar.i()) && this.f30958f.get()) {
-                Context context2 = this.f30953a;
+            com.bytedance.sdk.openadsdk.dislike.c.b bVar = this.f31064b;
+            if (bVar != null && "interaction".equals(bVar.i()) && this.f31068f.get()) {
+                Context context2 = this.f31063a;
                 Toast.makeText(context2, r.a(context2, "tt_dislike_feedback_repeat"), 0).show();
             } else if (!z || isShow()) {
             } else {
-                this.f30955c.show();
+                this.f31065c.show();
             }
         }
     }
@@ -181,14 +181,14 @@ public class a implements TTAdDislike {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            c cVar = new c(this.f30953a, this.f30954b);
-            this.f30955c = cVar;
+            c cVar = new c(this.f31063a, this.f31064b);
+            this.f31065c = cVar;
             cVar.a(new com.bytedance.sdk.openadsdk.dislike.b.d(this) { // from class: com.bytedance.sdk.openadsdk.dislike.ui.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f30962a;
+                public final /* synthetic */ a f31072a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -205,14 +205,14 @@ public class a implements TTAdDislike {
                             return;
                         }
                     }
-                    this.f30962a = this;
+                    this.f31072a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.dislike.b.d
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f30962a.b();
+                        this.f31072a.b();
                     }
                 }
 
@@ -221,8 +221,8 @@ public class a implements TTAdDislike {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
                         j.b("TTAdDislikeImpl", "onDislikeShow: ");
-                        if (this.f30962a.j != null) {
-                            this.f30962a.j.onShow();
+                        if (this.f31072a.j != null) {
+                            this.f31072a.j.onShow();
                         }
                     }
                 }
@@ -233,10 +233,10 @@ public class a implements TTAdDislike {
                     if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
                         j.f("TTAdDislikeImpl", "onDislikeHide: ");
                         try {
-                            if (this.f30962a.j == null || this.f30962a.isShow()) {
+                            if (this.f31072a.j == null || this.f31072a.isShow()) {
                                 return;
                             }
-                            this.f30962a.j.onCancel();
+                            this.f31072a.j.onCancel();
                         } catch (Throwable th) {
                             j.c("TTAdDislikeImpl", "dislike callback cancel error: ", th);
                         }
@@ -249,14 +249,14 @@ public class a implements TTAdDislike {
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, filterWord) == null) {
                         try {
                             if (!filterWord.hasSecondOptions()) {
-                                if (this.f30962a.j != null) {
-                                    this.f30962a.j.onSelected(i2, filterWord.getName(), this.f30962a.f30954b != null ? this.f30962a.f30954b.j() : false);
+                                if (this.f31072a.j != null) {
+                                    this.f31072a.j.onSelected(i2, filterWord.getName(), this.f31072a.f31064b != null ? this.f31072a.f31064b.j() : false);
                                 }
-                                this.f30962a.f30958f.set(true);
-                                if (this.f30962a.f30957e != null) {
-                                    this.f30962a.f30957e.a();
+                                this.f31072a.f31068f.set(true);
+                                if (this.f31072a.f31067e != null) {
+                                    this.f31072a.f31067e.a();
                                 }
-                                this.f30962a.c();
+                                this.f31072a.c();
                             }
                             j.f("TTAdDislikeImpl", "onDislikeSelected: " + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + filterWord.getName());
                         } catch (Throwable th) {
@@ -273,14 +273,14 @@ public class a implements TTAdDislike {
                     }
                 }
             });
-            b bVar = new b(this.f30953a, this.f30954b);
-            this.f30956d = bVar;
+            b bVar = new b(this.f31063a, this.f31064b);
+            this.f31066d = bVar;
             bVar.a(new com.bytedance.sdk.openadsdk.dislike.b.b(this) { // from class: com.bytedance.sdk.openadsdk.dislike.ui.a.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f30963a;
+                public final /* synthetic */ a f31073a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -297,7 +297,7 @@ public class a implements TTAdDislike {
                             return;
                         }
                     }
-                    this.f30963a = this;
+                    this.f31073a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.dislike.b.b
@@ -314,10 +314,10 @@ public class a implements TTAdDislike {
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                         j.b("TTAdDislikeImpl", "onDislikeCommentHide: ");
                         try {
-                            if (this.f30963a.f30958f.get()) {
+                            if (this.f31073a.f31068f.get()) {
                                 return;
                             }
-                            this.f30963a.f30955c.show();
+                            this.f31073a.f31065c.show();
                         } catch (Throwable th) {
                             j.c("TTAdDislikeImpl", "dislike callback selected error: ", th);
                         }
@@ -332,23 +332,23 @@ public class a implements TTAdDislike {
                             if (filterWord.hasSecondOptions()) {
                                 return;
                             }
-                            if (this.f30963a.j != null) {
-                                this.f30963a.j.onSelected(i2, filterWord.getName(), this.f30963a.f30954b != null ? this.f30963a.f30954b.j() : false);
+                            if (this.f31073a.j != null) {
+                                this.f31073a.j.onSelected(i2, filterWord.getName(), this.f31073a.f31064b != null ? this.f31073a.f31064b.j() : false);
                             }
-                            this.f30963a.f30958f.set(true);
-                            if (this.f30963a.f30957e != null) {
-                                this.f30963a.f30957e.a();
+                            this.f31073a.f31068f.set(true);
+                            if (this.f31073a.f31067e != null) {
+                                this.f31073a.f31067e.a();
                             }
-                            this.f30963a.c();
+                            this.f31073a.c();
                         } catch (Throwable th) {
                             j.c("TTAdDislikeImpl", "comment callback selected error: ", th);
                         }
                     }
                 }
             });
-            if ((this.f30953a instanceof Activity) && this.f30959g) {
-                this.f30957e = new TTDislikeToast(this.f30953a);
-                ((FrameLayout) ((Activity) this.f30953a).findViewById(16908290)).addView(this.f30957e);
+            if ((this.f31063a instanceof Activity) && this.f31069g) {
+                this.f31067e = new TTDislikeToast(this.f31063a);
+                ((FrameLayout) ((Activity) this.f31063a).findViewById(16908290)).addView(this.f31067e);
             }
         }
     }
@@ -357,11 +357,11 @@ public class a implements TTAdDislike {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            Context context = this.f30953a;
-            if (!((context instanceof Activity) && !((Activity) context).isFinishing()) || this.f30956d.isShowing()) {
+            Context context = this.f31063a;
+            if (!((context instanceof Activity) && !((Activity) context).isFinishing()) || this.f31066d.isShowing()) {
                 return;
             }
-            this.f30956d.show();
+            this.f31066d.show();
         }
     }
 
@@ -369,26 +369,26 @@ public class a implements TTAdDislike {
     public void c() {
         com.bytedance.sdk.openadsdk.dislike.c.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || (bVar = this.f30954b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || (bVar = this.f31064b) == null) {
             return;
         }
         String i2 = bVar.i();
         if ("slide_banner_ad".equals(i2) || "banner_ad".equals(i2) || "embeded_ad".equals(i2)) {
-            if (this.f30960h.get() != null && this.f30954b.j()) {
-                this.f30960h.get().setVisibility(8);
+            if (this.f31070h.get() != null && this.f31064b.j()) {
+                this.f31070h.get().setVisibility(8);
             }
-            if (this.f30961i == null) {
-                this.f30961i = new HandlerC0347a(this.f30953a);
+            if (this.f31071i == null) {
+                this.f31071i = new HandlerC0347a(this.f31063a);
             }
-            this.f30961i.postDelayed(new Runnable(this, i2) { // from class: com.bytedance.sdk.openadsdk.dislike.ui.a.3
+            this.f31071i.postDelayed(new Runnable(this, i2) { // from class: com.bytedance.sdk.openadsdk.dislike.ui.a.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f30964a;
+                public final /* synthetic */ String f31074a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f30965b;
+                public final /* synthetic */ a f31075b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -405,21 +405,21 @@ public class a implements TTAdDislike {
                             return;
                         }
                     }
-                    this.f30965b = this;
-                    this.f30964a = i2;
+                    this.f31075b = this;
+                    this.f31074a = i2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f30965b.f30954b.b("dislike");
-                        if (this.f30965b.f30960h == null || this.f30965b.f30960h.get() == null || !((View) this.f30965b.f30960h.get()).isShown()) {
-                            com.bytedance.sdk.openadsdk.dislike.a.a.a().a(this.f30965b.f30953a, this.f30965b.f30954b, "close_success");
+                        this.f31075b.f31064b.b("dislike");
+                        if (this.f31075b.f31070h == null || this.f31075b.f31070h.get() == null || !((View) this.f31075b.f31070h.get()).isShown()) {
+                            com.bytedance.sdk.openadsdk.dislike.a.a.a().a(this.f31075b.f31063a, this.f31075b.f31064b, "close_success");
                         } else {
-                            com.bytedance.sdk.openadsdk.dislike.a.a.a().a(this.f30965b.f30953a, this.f30965b.f30954b, "close_fail");
+                            com.bytedance.sdk.openadsdk.dislike.a.a.a().a(this.f31075b.f31063a, this.f31075b.f31064b, "close_fail");
                         }
-                        this.f30965b.f30954b.b(this.f30964a);
+                        this.f31075b.f31064b.b(this.f31074a);
                     }
                 }
             }, 500L);
@@ -452,14 +452,14 @@ public class a implements TTAdDislike {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) || bVar == null) {
             return;
         }
-        this.f30955c.setDislikeModel(bVar);
-        this.f30956d.a(bVar);
+        this.f31065c.setDislikeModel(bVar);
+        this.f31066d.a(bVar);
     }
 
     public void a(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f30960h = new SoftReference<>(view);
+            this.f31070h = new SoftReference<>(view);
         }
     }
 }

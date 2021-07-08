@@ -3,6 +3,7 @@ package com.baidu.rtc;
 import android.os.Environment;
 import android.util.Log;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.RTCAudioSamples;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +17,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class RtcAudioDumper implements RTCAudioSamples.RTCSamplesReadyCallback, RTCAudioSamples.RTCRemoteSamplesReadyCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long MAX_FILE_SIZE_IN_BYTES = 58348800;
@@ -101,7 +102,7 @@ public class RtcAudioDumper implements RTCAudioSamples.RTCSamplesReadyCallback, 
 
     private void openRawAudioOutputFile(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65540, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, i3) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(Environment.getExternalStorageDirectory().getPath());
             sb.append(File.separator);

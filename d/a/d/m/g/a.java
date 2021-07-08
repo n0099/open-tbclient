@@ -4,37 +4,37 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f45222a;
+    public int f42024a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f45223b;
+    public String f42025b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f45224c;
+    public int f42026c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f45225d;
+    public String f42027d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f45226e;
+    public int f42028e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f45227f;
+    public int f42029f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f45228g;
+    public int f42030g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f45229h;
+    public int f42031h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f45230i;
+    public int f42032i;
     public String j;
     public int k;
     public int l;
@@ -52,6 +52,6 @@ public class a {
                 return;
             }
         }
-        this.f45230i = 3;
+        this.f42032i = 3;
     }
 }

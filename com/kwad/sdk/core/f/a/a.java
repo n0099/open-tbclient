@@ -13,19 +13,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.f.b.a;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f36081a;
+    public Context f34406a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f36082b;
+    public final LinkedBlockingQueue<IBinder> f34407b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f36083c;
+    public ServiceConnection f34408c;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -42,13 +42,13 @@ public class a {
                 return;
             }
         }
-        this.f36082b = new LinkedBlockingQueue<>(1);
-        this.f36083c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.a.a.1
+        this.f34407b = new LinkedBlockingQueue<>(1);
+        this.f34408c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.a.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f36084a;
+            public final /* synthetic */ a f34409a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -65,7 +65,7 @@ public class a {
                         return;
                     }
                 }
-                this.f36084a = this;
+                this.f34409a = this;
             }
 
             @Override // android.content.ServiceConnection
@@ -73,7 +73,7 @@ public class a {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
                     try {
-                        this.f36084a.f36082b.put(iBinder);
+                        this.f34409a.f34407b.put(iBinder);
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.a(e2);
                     }
@@ -87,7 +87,7 @@ public class a {
                 }
             }
         };
-        this.f36081a = context;
+        this.f34406a = context;
     }
 
     public String a() {
@@ -101,21 +101,21 @@ public class a {
                 Intent intent = new Intent();
                 intent.setAction("com.asus.msa.action.ACCESS_DID");
                 intent.setComponent(new ComponentName("com.asus.msa.SupplementaryDID", "com.asus.msa.SupplementaryDID.SupplementaryDIDService"));
-                if (this.f36081a.bindService(intent, this.f36083c, 1)) {
+                if (this.f34406a.bindService(intent, this.f34408c, 1)) {
                     try {
-                        str = new a.C0429a(this.f36082b.take()).a();
-                        com.kwad.sdk.core.d.a.b("ASUSDeviceIDHelper", "getOAID oaid:" + str);
-                        context = this.f36081a;
-                        serviceConnection = this.f36083c;
+                        str = new a.C0415a(this.f34407b.take()).a();
+                        com.kwad.sdk.core.d.a.c("ASUSDeviceIDHelper", "getOAID oaid:" + str);
+                        context = this.f34406a;
+                        serviceConnection = this.f34408c;
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.a(e2);
-                        context = this.f36081a;
-                        serviceConnection = this.f36083c;
+                        context = this.f34406a;
+                        serviceConnection = this.f34408c;
                     }
                     context.unbindService(serviceConnection);
                 }
             } catch (Exception e3) {
-                com.kwad.sdk.core.d.a.b("ASUSDeviceIDHelper", "getOAID asus service not found;");
+                com.kwad.sdk.core.d.a.c("ASUSDeviceIDHelper", "getOAID asus service not found;");
                 com.kwad.sdk.core.d.a.a(e3);
             }
             return str;

@@ -15,13 +15,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.video.player.KsMediaMeta;
-import d.a.s0.x1.a;
-import d.a.s0.x1.g;
-import d.a.s0.x1.k;
+import d.a.p0.x1.a;
+import d.a.p0.x1.g;
+import d.a.p0.x1.k;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class VideoEncoderCore {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MIME_TYPE = "video/avc";
@@ -65,7 +64,7 @@ public class VideoEncoderCore {
         this.mBufferInfo = new MediaCodec.BufferInfo();
         MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i2, i3);
         createVideoFormat.setInteger("color-format", 2130708361);
-        createVideoFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, i4);
+        createVideoFormat.setInteger("bitrate", i4);
         createVideoFormat.setInteger("frame-rate", 20);
         createVideoFormat.setInteger("i-frame-interval", 1);
         MediaCodec createEncoderByType = MediaCodec.createEncoderByType("video/avc");

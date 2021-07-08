@@ -1,6 +1,7 @@
 package com.baidu.ar.imu;
 
 import android.hardware.SensorManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.representation.Matrix;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -111,7 +112,7 @@ public class h implements Observer {
 
     private void h(float[] fArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, fArr) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, fArr) == null) {
             Matrix.invertM(this.sj, 0, fArr, 0);
             Matrix.multiplyMM(this.sp, 0, sf, 0, this.sj, 0);
             float j = j(this.sp);

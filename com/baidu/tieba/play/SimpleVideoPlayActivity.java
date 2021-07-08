@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.n2.q.e;
-/* loaded from: classes5.dex */
+import d.a.p0.n2.q.e;
+/* loaded from: classes4.dex */
 public class SimpleVideoPlayActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,13 +27,13 @@ public class SimpleVideoPlayActivity extends BaseActivity {
     public e videoContainer;
     public String videoUrl;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SimpleVideoPlayActivity f20241e;
+        public final /* synthetic */ SimpleVideoPlayActivity f20287e;
 
         public a(SimpleVideoPlayActivity simpleVideoPlayActivity) {
             Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public class SimpleVideoPlayActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f20241e = simpleVideoPlayActivity;
+            this.f20287e = simpleVideoPlayActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f20241e.finish();
+                this.f20287e.finish();
             }
         }
     }

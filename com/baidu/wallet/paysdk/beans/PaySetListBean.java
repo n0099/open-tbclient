@@ -14,7 +14,7 @@ import com.baidu.wallet.paysdk.datamodel.PaySetResponse;
 import com.baidu.wallet.paysdk.fingerprint.WalletFingerprint;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PaySetListBean extends PayBaseBean<PaySetResponse> implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

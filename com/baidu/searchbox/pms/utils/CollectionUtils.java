@@ -1,5 +1,6 @@
 package com.baidu.searchbox.pms.utils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.pms.bean.PackageParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CollectionUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,6 +65,6 @@ public class CollectionUtils {
     public static boolean isEmpty(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, map)) == null) ? map == null || map.size() == 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map)) == null) ? map == null || map.size() == 0 : invokeL.booleanValue;
     }
 }

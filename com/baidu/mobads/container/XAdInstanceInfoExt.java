@@ -27,7 +27,7 @@ import java.util.Random;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class XAdInstanceInfoExt implements IXAdInstanceInfo, Cloneable, Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<XAdInstanceInfoExt> CREATOR;
@@ -1651,12 +1651,12 @@ public class XAdInstanceInfoExt implements IXAdInstanceInfo, Cloneable, Parcelab
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
             Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }

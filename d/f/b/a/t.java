@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class t {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final t f73516b;
+    public static final t f70619b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f73517a;
+    public final int f70620a;
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +32,7 @@ public final class t {
                 return;
             }
         }
-        f73516b = new t(0);
+        f70619b = new t(0);
     }
 
     public t(int i2) {
@@ -50,7 +50,7 @@ public final class t {
                 return;
             }
         }
-        this.f73517a = i2;
+        this.f70620a = i2;
     }
 
     public boolean equals(Object obj) {
@@ -60,7 +60,7 @@ public final class t {
             if (this == obj) {
                 return true;
             }
-            return obj != null && t.class == obj.getClass() && this.f73517a == ((t) obj).f73517a;
+            return obj != null && t.class == obj.getClass() && this.f70620a == ((t) obj).f70620a;
         }
         return invokeL.booleanValue;
     }
@@ -68,6 +68,6 @@ public final class t {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73517a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70620a : invokeV.intValue;
     }
 }

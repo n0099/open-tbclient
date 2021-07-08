@@ -26,7 +26,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class OAdURLConnection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_TYPE_APPLICATION_JSON = "application/json";
@@ -51,7 +51,7 @@ public class OAdURLConnection {
     public boolean mUseCaches;
     public String mUserAgent;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class LoadUrlRunnable extends BaseTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,14 +88,14 @@ public class OAdURLConnection {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface OnAdRequestListener {
         void onFail(String str, int i2);
 
         void onSuccess(String str, String str2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface OnImageRequestListener {
         void onFail(String str, int i2);
 
@@ -128,7 +128,7 @@ public class OAdURLConnection {
     public void connect() {
         HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             try {
                 try {
                     this.mHttpURLConnection.connect();

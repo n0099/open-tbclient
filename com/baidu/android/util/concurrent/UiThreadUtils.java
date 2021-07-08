@@ -2,6 +2,7 @@ package com.baidu.android.util.concurrent;
 
 import android.os.Handler;
 import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -74,7 +75,7 @@ public class UiThreadUtils {
 
     public static void runOnUiThread(Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65540, null, runnable, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable, j) == null) {
             if (j > 0) {
                 getMainHandler().postDelayed(runnable, j);
             } else {

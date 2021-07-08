@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class q extends c<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f44122h;
+    public String f41138h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(d.a.c.a.k.b bVar, String str) {
@@ -35,7 +35,7 @@ public class q extends c<String> {
                 return;
             }
         }
-        this.f44122h = str;
+        this.f41138h = str;
     }
 
     @Override // d.a.c.e.d.c
@@ -44,10 +44,10 @@ public class q extends c<String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
-                this.f44075a.f().delete(this.f44076b, "m_ns = ?", new String[]{str});
+                this.f41091a.f().delete(this.f41092b, "m_ns = ?", new String[]{str});
                 return true;
             } catch (Throwable th) {
-                this.f44075a.i(th, "clearData");
+                this.f41091a.i(th, "clearData");
                 return false;
             }
         }
@@ -74,19 +74,19 @@ public class q extends c<String> {
         }
         Cursor cursor = null;
         try {
-            Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.f44076b + " where m_key = ?", new String[]{str});
+            Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.f41092b + " where m_key = ?", new String[]{str});
             try {
                 if (!rawQuery.moveToNext()) {
                     d.a.c.e.m.a.a(rawQuery);
                     return null;
                 }
                 g<String> gVar = new g<>();
-                gVar.f44089a = rawQuery.getString(0);
-                gVar.f44091c = rawQuery.getString(1);
-                gVar.f44092d = rawQuery.getLong(2);
-                gVar.f44093e = rawQuery.getLong(3);
-                gVar.f44094f = rawQuery.getLong(4);
-                gVar.f44090b = rawQuery.getString(5);
+                gVar.f41105a = rawQuery.getString(0);
+                gVar.f41107c = rawQuery.getString(1);
+                gVar.f41108d = rawQuery.getLong(2);
+                gVar.f41109e = rawQuery.getLong(3);
+                gVar.f41110f = rawQuery.getLong(4);
+                gVar.f41106b = rawQuery.getString(5);
                 d.a.c.e.m.a.a(rawQuery);
                 return gVar;
             } catch (Throwable th) {
@@ -112,9 +112,9 @@ public class q extends c<String> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.f44075a.d("CREATE TABLE IF NOT EXISTS " + this.f44122h + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
-            this.f44075a.d("CREATE INDEX if not exists idx_mi_ns ON " + this.f44122h + "(m_ns)");
-            return this.f44122h;
+            this.f41091a.d("CREATE TABLE IF NOT EXISTS " + this.f41138h + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
+            this.f41091a.d("CREATE INDEX if not exists idx_mi_ns ON " + this.f41138h + "(m_ns)");
+            return this.f41138h;
         }
         return (String) invokeL.objValue;
     }
@@ -125,12 +125,12 @@ public class q extends c<String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, gVar)) == null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("m_key", gVar.f44089a);
-            contentValues.put("m_ns", gVar.f44091c);
-            contentValues.put("m_value", gVar.f44090b);
-            contentValues.put("saveTime", Long.valueOf(gVar.f44092d));
-            contentValues.put("lastHitTime", Long.valueOf(gVar.f44093e));
-            contentValues.put("timeToExpire", Long.valueOf(gVar.f44094f));
+            contentValues.put("m_key", gVar.f41105a);
+            contentValues.put("m_ns", gVar.f41107c);
+            contentValues.put("m_value", gVar.f41106b);
+            contentValues.put("saveTime", Long.valueOf(gVar.f41108d));
+            contentValues.put("lastHitTime", Long.valueOf(gVar.f41109e));
+            contentValues.put("timeToExpire", Long.valueOf(gVar.f41110f));
             return contentValues;
         }
         return (ContentValues) invokeL.objValue;
@@ -141,7 +141,7 @@ public class q extends c<String> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, str)) == null) {
-            return sQLiteDatabase.rawQuery("select * from " + this.f44076b + " where m_ns = ?", new String[]{str});
+            return sQLiteDatabase.rawQuery("select * from " + this.f41092b + " where m_ns = ?", new String[]{str});
         }
         return (Cursor) invokeLL.objValue;
     }

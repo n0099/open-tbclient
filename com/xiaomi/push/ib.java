@@ -15,36 +15,36 @@ import io.flutter.plugin.common.StandardMessageCodec;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.util.BitSet;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ib implements iq<ib, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f43376a;
+    public static final iy f40390a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final jg f630a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f43377b;
+    public static final iy f40391b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f43378c;
+    public static final iy f40392c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f43379d;
+    public static final iy f40393d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f43380e;
+    public static final iy f40394e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f43381f;
+    public static final iy f40395f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f43382g;
+    public static final iy f40396g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final iy f43383h;
+    public static final iy f40397h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -88,14 +88,14 @@ public class ib implements iq<ib, Object>, Serializable, Cloneable {
             }
         }
         f630a = new jg("XmPushActionContainer");
-        f43376a = new iy("", (byte) 8, (short) 1);
-        f43377b = new iy("", (byte) 2, (short) 2);
-        f43378c = new iy("", (byte) 2, (short) 3);
-        f43379d = new iy("", (byte) 11, (short) 4);
-        f43380e = new iy("", (byte) 11, (short) 5);
-        f43381f = new iy("", (byte) 11, (short) 6);
-        f43382g = new iy("", StandardMessageCodec.LIST, (short) 7);
-        f43383h = new iy("", StandardMessageCodec.LIST, (short) 8);
+        f40390a = new iy("", (byte) 8, (short) 1);
+        f40391b = new iy("", (byte) 2, (short) 2);
+        f40392c = new iy("", (byte) 2, (short) 3);
+        f40393d = new iy("", (byte) 11, (short) 4);
+        f40394e = new iy("", (byte) 11, (short) 5);
+        f40395f = new iy("", (byte) 11, (short) 6);
+        f40396g = new iy("", StandardMessageCodec.LIST, (short) 7);
+        f40397h = new iy("", StandardMessageCodec.LIST, (short) 8);
     }
 
     public ib() {
@@ -300,7 +300,7 @@ public class ib implements iq<ib, Object>, Serializable, Cloneable {
         jbVar.m524a();
         while (true) {
             iy m520a = jbVar.m520a();
-            byte b2 = m520a.f43494a;
+            byte b2 = m520a.f40508a;
             if (b2 == 0) {
                 jbVar.f();
                 if (!c()) {
@@ -484,38 +484,38 @@ public class ib implements iq<ib, Object>, Serializable, Cloneable {
             m452a();
             jbVar.a(f630a);
             if (this.f631a != null) {
-                jbVar.a(f43376a);
+                jbVar.a(f40390a);
                 jbVar.a(this.f631a.a());
                 jbVar.b();
             }
-            jbVar.a(f43377b);
+            jbVar.a(f40391b);
             jbVar.a(this.f637a);
             jbVar.b();
-            jbVar.a(f43378c);
+            jbVar.a(f40392c);
             jbVar.a(this.f639b);
             jbVar.b();
             if (this.f635a != null) {
-                jbVar.a(f43379d);
+                jbVar.a(f40393d);
                 jbVar.a(this.f635a);
                 jbVar.b();
             }
             if (this.f634a != null && f()) {
-                jbVar.a(f43380e);
+                jbVar.a(f40394e);
                 jbVar.a(this.f634a);
                 jbVar.b();
             }
             if (this.f638b != null && g()) {
-                jbVar.a(f43381f);
+                jbVar.a(f40395f);
                 jbVar.a(this.f638b);
                 jbVar.b();
             }
             if (this.f633a != null) {
-                jbVar.a(f43382g);
+                jbVar.a(f40396g);
                 this.f633a.b(jbVar);
                 jbVar.b();
             }
             if (this.f632a != null && i()) {
-                jbVar.a(f43383h);
+                jbVar.a(f40397h);
                 this.f632a.b(jbVar);
                 jbVar.b();
             }

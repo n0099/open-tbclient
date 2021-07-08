@@ -1,5 +1,6 @@
 package rx.internal.producers;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,7 +19,7 @@ import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.MissingBackpressureException;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class QueuedProducer<T> extends AtomicLong implements f, e<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object NULL_SENTINEL;
@@ -94,7 +95,7 @@ public final class QueuedProducer<T> extends AtomicLong implements f, e<T> {
 
     private void drain() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65540, this) == null) && this.wip.getAndIncrement() == 0) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.wip.getAndIncrement() == 0) {
             j<? super T> jVar = this.child;
             Queue<Object> queue = this.queue;
             while (!checkTerminated(this.done, queue.isEmpty())) {

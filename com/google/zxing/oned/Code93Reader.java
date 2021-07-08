@@ -1,5 +1,6 @@
 package com.google.zxing.oned;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.container.util.SDKLogTypeConstants;
@@ -24,7 +25,7 @@ import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
 import java.util.Arrays;
 import java.util.Map;
 import org.apache.http.HttpStatus;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Code93Reader extends OneDReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char[] ALPHABET;
@@ -103,7 +104,7 @@ public final class Code93Reader extends OneDReader {
         int i2;
         char c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, charSequence)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, charSequence)) == null) {
             int length = charSequence.length();
             StringBuilder sb = new StringBuilder(length);
             int i3 = 0;

@@ -2,6 +2,7 @@ package androidx.constraintlayout.solver.widgets;
 
 import androidx.constraintlayout.solver.widgets.ConstraintAnchor;
 import androidx.constraintlayout.solver.widgets.ConstraintWidget;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -116,7 +117,7 @@ public class Analyzer {
         int i8;
         int i9;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{constraintWidget, Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{constraintWidget, Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)})) == null) {
             int i10 = 0;
             if (constraintWidget.mOptimizerMeasurable) {
                 boolean z2 = constraintWidget.mBaseline.mTarget != null && i2 == 1;

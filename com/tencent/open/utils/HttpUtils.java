@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.loopj.android.http.AsyncHttpClient;
@@ -98,12 +99,12 @@ import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class HttpUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class HttpStatusException extends Exception {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ERROR_INFO = "http status code error:";
@@ -130,7 +131,7 @@ public class HttpUtils {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class NetworkUnavailableException extends Exception {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ERROR_INFO = "network unavailable";
@@ -157,13 +158,13 @@ public class HttpUtils {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a extends SSLSocketFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final SSLContext f41975a;
+        public final SSLContext f38989a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(KeyStore keyStore) throws NoSuchAlgorithmException, KeyManagementException, KeyStoreException, UnrecoverableKeyException {
@@ -184,37 +185,37 @@ public class HttpUtils {
                     return;
                 }
             }
-            this.f41975a = SSLContext.getInstance("TLS");
+            this.f38989a = SSLContext.getInstance("TLS");
             try {
                 bVar = new b();
             } catch (Exception unused) {
                 bVar = null;
             }
-            this.f41975a.init(null, new TrustManager[]{bVar}, null);
+            this.f38989a.init(null, new TrustManager[]{bVar}, null);
         }
 
         @Override // org.apache.http.conn.ssl.SSLSocketFactory, org.apache.http.conn.scheme.LayeredSocketFactory
         public Socket createSocket(Socket socket, String str, int i2, boolean z) throws IOException, UnknownHostException {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{socket, str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? this.f41975a.getSocketFactory().createSocket(socket, str, i2, z) : (Socket) invokeCommon.objValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{socket, str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? this.f38989a.getSocketFactory().createSocket(socket, str, i2, z) : (Socket) invokeCommon.objValue;
         }
 
         @Override // org.apache.http.conn.ssl.SSLSocketFactory, org.apache.http.conn.scheme.SocketFactory
         public Socket createSocket() throws IOException {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41975a.getSocketFactory().createSocket() : (Socket) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38989a.getSocketFactory().createSocket() : (Socket) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class b implements X509TrustManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public X509TrustManager f41976a;
+        public X509TrustManager f38990a;
 
         public b() throws Exception {
             KeyStore keyStore;
@@ -265,7 +266,7 @@ public class HttpUtils {
             }
             for (int i4 = 0; i4 < trustManagers.length; i4++) {
                 if (trustManagers[i4] instanceof X509TrustManager) {
-                    this.f41976a = (X509TrustManager) trustManagers[i4];
+                    this.f38990a = (X509TrustManager) trustManagers[i4];
                     return;
                 }
             }
@@ -276,7 +277,7 @@ public class HttpUtils {
         public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, x509CertificateArr, str) == null) {
-                this.f41976a.checkClientTrusted(x509CertificateArr, str);
+                this.f38990a.checkClientTrusted(x509CertificateArr, str);
             }
         }
 
@@ -284,7 +285,7 @@ public class HttpUtils {
         public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509CertificateArr, str) == null) {
-                this.f41976a.checkServerTrusted(x509CertificateArr, str);
+                this.f38990a.checkServerTrusted(x509CertificateArr, str);
             }
         }
 
@@ -292,20 +293,20 @@ public class HttpUtils {
         public X509Certificate[] getAcceptedIssuers() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41976a.getAcceptedIssuers() : (X509Certificate[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38990a.getAcceptedIssuers() : (X509Certificate[]) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f41977a;
+        public final String f38991a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f41978b;
+        public final int f38992b;
 
         public c(String str, int i2) {
             Interceptable interceptable = $ic;
@@ -322,8 +323,8 @@ public class HttpUtils {
                     return;
                 }
             }
-            this.f41977a = str;
-            this.f41978b = i2;
+            this.f38991a = str;
+            this.f38992b = i2;
         }
     }
 
@@ -353,7 +354,7 @@ public class HttpUtils {
     public static String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             if (Build.VERSION.SDK_INT < 11) {
                 if (context != null) {
                     String host = Proxy.getHost(context);
@@ -598,7 +599,7 @@ public class HttpUtils {
             DefaultHttpClient defaultHttpClient = new DefaultHttpClient(new ThreadSafeClientConnManager(basicHttpParams, schemeRegistry), basicHttpParams);
             c proxy = getProxy(context);
             if (proxy != null) {
-                defaultHttpClient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(proxy.f41977a, proxy.f41978b));
+                defaultHttpClient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(proxy.f38991a, proxy.f38992b));
             }
             return defaultHttpClient;
         }
@@ -832,7 +833,7 @@ public class HttpUtils {
             r11 = r21
             r12 = r22
             com.tencent.open.utils.j$a r0 = openUrl2(r1, r2, r12, r11)     // Catch: org.json.JSONException -> Le0 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
-            java.lang.String r13 = r0.f42020a     // Catch: org.json.JSONException -> Le0 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
+            java.lang.String r13 = r0.f39034a     // Catch: org.json.JSONException -> Le0 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
             org.json.JSONObject r3 = com.tencent.open.utils.j.d(r13)     // Catch: org.json.JSONException -> Le0 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
             java.lang.String r13 = "ret"
             int r13 = r3.getInt(r13)     // Catch: org.json.JSONException -> Ld5 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
@@ -840,8 +841,8 @@ public class HttpUtils {
         Ld5:
             r13 = -4
         Ld6:
-            long r14 = r0.f42021b     // Catch: org.json.JSONException -> Le0 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
-            long r0 = r0.f42022c     // Catch: org.json.JSONException -> Le0 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
+            long r14 = r0.f39035b     // Catch: org.json.JSONException -> Le0 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
+            long r0 = r0.f39036c     // Catch: org.json.JSONException -> Le0 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
             r9 = r0
             r0 = r3
             r11 = r13
@@ -962,22 +963,22 @@ public class HttpUtils {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ QQToken f41969a;
+                public final /* synthetic */ QQToken f38983a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f41970b;
+                public final /* synthetic */ Context f38984b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f41971c;
+                public final /* synthetic */ String f38985c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ Bundle f41972d;
+                public final /* synthetic */ Bundle f38986d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f41973e;
+                public final /* synthetic */ String f38987e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ IRequestListener f41974f;
+                public final /* synthetic */ IRequestListener f38988f;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -994,12 +995,12 @@ public class HttpUtils {
                             return;
                         }
                     }
-                    this.f41969a = qQToken;
-                    this.f41970b = context;
-                    this.f41971c = str;
-                    this.f41972d = bundle;
-                    this.f41973e = str2;
-                    this.f41974f = iRequestListener;
+                    this.f38983a = qQToken;
+                    this.f38984b = context;
+                    this.f38985c = str;
+                    this.f38986d = bundle;
+                    this.f38987e = str2;
+                    this.f38988f = iRequestListener;
                 }
 
                 @Override // java.lang.Thread, java.lang.Runnable
@@ -1007,55 +1008,55 @@ public class HttpUtils {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            JSONObject request = HttpUtils.request(this.f41969a, this.f41970b, this.f41971c, this.f41972d, this.f41973e);
-                            if (this.f41974f != null) {
-                                this.f41974f.onComplete(request);
+                            JSONObject request = HttpUtils.request(this.f38983a, this.f38984b, this.f38985c, this.f38986d, this.f38987e);
+                            if (this.f38988f != null) {
+                                this.f38988f.onComplete(request);
                                 com.tencent.open.a.f.b("openSDK_LOG.HttpUtils", "OpenApi onComplete");
                             }
                         } catch (HttpStatusException e2) {
-                            IRequestListener iRequestListener2 = this.f41974f;
+                            IRequestListener iRequestListener2 = this.f38988f;
                             if (iRequestListener2 != null) {
                                 iRequestListener2.onHttpStatusException(e2);
                                 com.tencent.open.a.f.b("openSDK_LOG.HttpUtils", "OpenApi requestAsync onHttpStatusException", e2);
                             }
                         } catch (NetworkUnavailableException e3) {
-                            IRequestListener iRequestListener3 = this.f41974f;
+                            IRequestListener iRequestListener3 = this.f38988f;
                             if (iRequestListener3 != null) {
                                 iRequestListener3.onNetworkUnavailableException(e3);
                                 com.tencent.open.a.f.b("openSDK_LOG.HttpUtils", "OpenApi requestAsync onNetworkUnavailableException", e3);
                             }
                         } catch (MalformedURLException e4) {
-                            IRequestListener iRequestListener4 = this.f41974f;
+                            IRequestListener iRequestListener4 = this.f38988f;
                             if (iRequestListener4 != null) {
                                 iRequestListener4.onMalformedURLException(e4);
                                 com.tencent.open.a.f.b("openSDK_LOG.HttpUtils", "OpenApi requestAsync MalformedURLException", e4);
                             }
                         } catch (SocketTimeoutException e5) {
-                            IRequestListener iRequestListener5 = this.f41974f;
+                            IRequestListener iRequestListener5 = this.f38988f;
                             if (iRequestListener5 != null) {
                                 iRequestListener5.onSocketTimeoutException(e5);
                                 com.tencent.open.a.f.b("openSDK_LOG.HttpUtils", "OpenApi requestAsync onSocketTimeoutException", e5);
                             }
                         } catch (ConnectTimeoutException e6) {
-                            IRequestListener iRequestListener6 = this.f41974f;
+                            IRequestListener iRequestListener6 = this.f38988f;
                             if (iRequestListener6 != null) {
                                 iRequestListener6.onConnectTimeoutException(e6);
                                 com.tencent.open.a.f.b("openSDK_LOG.HttpUtils", "OpenApi requestAsync onConnectTimeoutException", e6);
                             }
                         } catch (IOException e7) {
-                            IRequestListener iRequestListener7 = this.f41974f;
+                            IRequestListener iRequestListener7 = this.f38988f;
                             if (iRequestListener7 != null) {
                                 iRequestListener7.onIOException(e7);
                                 com.tencent.open.a.f.b("openSDK_LOG.HttpUtils", "OpenApi requestAsync IOException", e7);
                             }
                         } catch (JSONException e8) {
-                            IRequestListener iRequestListener8 = this.f41974f;
+                            IRequestListener iRequestListener8 = this.f38988f;
                             if (iRequestListener8 != null) {
                                 iRequestListener8.onJSONException(e8);
                                 com.tencent.open.a.f.b("openSDK_LOG.HttpUtils", "OpenApi requestAsync JSONException", e8);
                             }
                         } catch (Exception e9) {
-                            IRequestListener iRequestListener9 = this.f41974f;
+                            IRequestListener iRequestListener9 = this.f38988f;
                             if (iRequestListener9 != null) {
                                 iRequestListener9.onUnknowException(e9);
                                 com.tencent.open.a.f.b("openSDK_LOG.HttpUtils", "OpenApi requestAsync onUnknowException", e9);

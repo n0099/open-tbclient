@@ -13,16 +13,16 @@ import d.f.b.a.a0.t.w;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class e implements w.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f72418a;
+    public final int f69521a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<Format> f72419b;
+    public final List<Format> f69522b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public e(int i2) {
@@ -52,18 +52,18 @@ public final class e implements w.c {
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, bVar)) == null) {
             if (i2 != 2) {
                 if (i2 == 3 || i2 == 4) {
-                    return new p(new n(bVar.f72577b));
+                    return new p(new n(bVar.f69680b));
                 }
                 if (i2 == 15) {
                     if (d(2)) {
                         return null;
                     }
-                    return new p(new d(false, bVar.f72577b));
+                    return new p(new d(false, bVar.f69680b));
                 } else if (i2 == 17) {
                     if (d(2)) {
                         return null;
                     }
-                    return new p(new m(bVar.f72577b));
+                    return new p(new m(bVar.f69680b));
                 } else if (i2 != 21) {
                     if (i2 == 27) {
                         if (d(4)) {
@@ -85,11 +85,11 @@ public final class e implements w.c {
                                         }
                                     }
                                 }
-                                return new p(new b(bVar.f72577b));
+                                return new p(new b(bVar.f69680b));
                             }
-                            return new p(new f(bVar.f72577b));
+                            return new p(new f(bVar.f69680b));
                         }
-                        return new p(new g(bVar.f72578c));
+                        return new p(new g(bVar.f69681c));
                     } else {
                         return new p(new k(c(bVar)));
                     }
@@ -116,10 +116,10 @@ public final class e implements w.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) {
             if (d(32)) {
-                return new t(this.f72419b);
+                return new t(this.f69522b);
             }
-            d.f.b.a.i0.l lVar = new d.f.b.a.i0.l(bVar.f72579d);
-            List<Format> list = this.f72419b;
+            d.f.b.a.i0.l lVar = new d.f.b.a.i0.l(bVar.f69682d);
+            List<Format> list = this.f69522b;
             while (lVar.a() > 0) {
                 int x = lVar.x();
                 int c2 = lVar.c() + lVar.x();
@@ -150,7 +150,7 @@ public final class e implements w.c {
     public final boolean d(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? (i2 & this.f72418a) != 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? (i2 & this.f69521a) != 0 : invokeI.booleanValue;
     }
 
     public e(int i2, List<Format> list) {
@@ -168,10 +168,10 @@ public final class e implements w.c {
                 return;
             }
         }
-        this.f72418a = i2;
+        this.f69521a = i2;
         if (!d(32) && list.isEmpty()) {
             list = Collections.singletonList(Format.createTextSampleFormat(null, "application/cea-608", 0, null));
         }
-        this.f72419b = list;
+        this.f69522b = list;
     }
 }

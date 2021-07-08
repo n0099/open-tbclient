@@ -4,6 +4,7 @@ import android.content.Context;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,10 +19,12 @@ import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.loader.Wrapper;
 import com.kwad.sdk.api.loader.c;
 import com.kwad.sdk.api.loader.q;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.util.concurrent.atomic.AtomicBoolean;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class KsAdSDK {
     public static /* synthetic */ Interceptable $ic;
     public static String sAppTag;
@@ -29,6 +32,14 @@ public class KsAdSDK {
     @Keep
     public static IKsAdSDK sSdk;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Keep
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes6.dex */
+    public @interface KsThemeModeType {
+        public static final int NIGHT = 1;
+        public static final int NORMAL = 0;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -91,7 +102,7 @@ public class KsAdSDK {
     public static String getAppName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             IKsAdSDK iKsAdSDK = sSdk;
             if (iKsAdSDK != null) {
                 return iKsAdSDK.getAppName();
@@ -153,7 +164,7 @@ public class KsAdSDK {
     public static String getSDKVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? "3.3.9" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? "3.3.11" : (String) invokeV.objValue;
     }
 
     @KsAdSdkApi
@@ -170,8 +181,8 @@ public class KsAdSDK {
                     IKsAdSDK ksAdSDKImpl = Loader.get().getKsAdSDKImpl();
                     sSdk = ksAdSDKImpl;
                     if (ksAdSDKImpl != null) {
-                        ksAdSDKImpl.setApiVersion("3.3.9");
-                        sSdk.setApiVersionCode(3030900);
+                        ksAdSDKImpl.setApiVersion("3.3.11");
+                        sSdk.setApiVersionCode(3031100);
                         sSdk.setAppTag(sAppTag);
                         sSdk.init(Wrapper.wrapContextIfNeed(a2), sdkConfig);
                     }
@@ -179,7 +190,7 @@ public class KsAdSDK {
                     if (sdkConfig != null) {
                         q.a(a2, "sdkconfig", sdkConfig.toJson());
                     }
-                    if (b.f34152a.booleanValue()) {
+                    if (b.f33765a.booleanValue()) {
                         Loader.get().checkUpdate();
                     }
                     z = sInited.get();
@@ -207,9 +218,31 @@ public class KsAdSDK {
 
     @KsAdSdkApi
     @Keep
+    public static void pauseCurrentPlayer() {
+        IKsAdSDK iKsAdSDK;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65547, null) == null) || (iKsAdSDK = sSdk) == null) {
+            return;
+        }
+        iKsAdSDK.pauseCurrentPlayer();
+    }
+
+    @KsAdSdkApi
+    @Keep
+    public static void resumeCurrentPlayer() {
+        IKsAdSDK iKsAdSDK;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65548, null) == null) || (iKsAdSDK = sSdk) == null) {
+            return;
+        }
+        iKsAdSDK.resumeCurrentPlayer();
+    }
+
+    @KsAdSdkApi
+    @Keep
     public static void setAppTag(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
             IKsAdSDK iKsAdSDK = sSdk;
             if (iKsAdSDK != null) {
                 iKsAdSDK.setAppTag(str);
@@ -221,9 +254,29 @@ public class KsAdSDK {
 
     @KsAdSdkApi
     @Keep
+    public static void setPersonalRecommend(boolean z) {
+        IKsAdSDK iKsAdSDK;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(65550, null, z) == null) || (iKsAdSDK = sSdk) == null) {
+            return;
+        }
+        iKsAdSDK.setPersonalRecommend(z);
+    }
+
+    public static void setThemeMode(int i2) {
+        IKsAdSDK iKsAdSDK;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(65551, null, i2) == null) || (iKsAdSDK = sSdk) == null) {
+            return;
+        }
+        iKsAdSDK.setThemeMode(i2);
+    }
+
+    @KsAdSdkApi
+    @Keep
     public static void unInit() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65552, null) == null) {
             IKsAdSDK iKsAdSDK = sSdk;
             if (iKsAdSDK != null) {
                 iKsAdSDK.unInit();

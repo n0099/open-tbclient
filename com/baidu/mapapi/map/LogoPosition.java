@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class LogoPosition {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ LogoPosition[] f6954a;
+    public static final /* synthetic */ LogoPosition[] f6971a;
     public static final LogoPosition logoPostionCenterBottom;
     public static final LogoPosition logoPostionCenterTop;
     public static final LogoPosition logoPostionRightBottom;
@@ -42,7 +42,7 @@ public final class LogoPosition {
         logoPostionRightBottom = new LogoPosition("logoPostionRightBottom", 4);
         LogoPosition logoPosition = new LogoPosition("logoPostionRightTop", 5);
         logoPostionRightTop = logoPosition;
-        f6954a = new LogoPosition[]{logoPostionleftBottom, logoPostionleftTop, logoPostionCenterBottom, logoPostionCenterTop, logoPostionRightBottom, logoPosition};
+        f6971a = new LogoPosition[]{logoPostionleftBottom, logoPostionleftTop, logoPostionCenterBottom, logoPostionCenterTop, logoPostionRightBottom, logoPosition};
     }
 
     public LogoPosition(String str, int i2) {
@@ -73,6 +73,6 @@ public final class LogoPosition {
     public static LogoPosition[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LogoPosition[]) f6954a.clone() : (LogoPosition[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LogoPosition[]) f6971a.clone() : (LogoPosition[]) invokeV.objValue;
     }
 }

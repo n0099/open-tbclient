@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.activitys.H5Activity;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PBVideo implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42437a;
+    public String f39451a;
 
     /* renamed from: b  reason: collision with root package name */
-    public I1 f42438b;
+    public I1 f39452b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PBVideoListener f42439c;
+    public PBVideoListener f39453c;
 
     public PBVideo(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -38,20 +38,20 @@ public class PBVideo implements d {
             }
         }
         Context applicationContext = context.getApplicationContext();
-        this.f42437a = str;
+        this.f39451a = str;
         I1 i1 = new I1(applicationContext, str);
-        this.f42438b = i1;
-        i1.f42367h = new o(this);
+        this.f39452b = i1;
+        i1.f39381h = new o(this);
     }
 
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            I1 i1 = this.f42438b;
-            i1.f42364e = false;
-            i1.f42362c = false;
-            i1.f42363d = false;
-            K0 k0 = i1.f42368i;
+            I1 i1 = this.f39452b;
+            i1.f39378e = false;
+            i1.f39376c = false;
+            i1.f39377d = false;
+            K0 k0 = i1.f39382i;
             if (k0 != null) {
                 k0.a();
             }
@@ -61,16 +61,16 @@ public class PBVideo implements d {
     public String getPid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42437a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39451a : (String) invokeV.objValue;
     }
 
     public boolean isReady() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            I1 i1 = this.f42438b;
+            I1 i1 = this.f39452b;
             if (!i1.a()) {
-                if (!(i1.f42363d && !i1.f42364e && i1.b() && !i1.f42365f.isShown() && i1.f42365f.isEffective())) {
+                if (!(i1.f39377d && !i1.f39378e && i1.b() && !i1.f39379f.isShown() && i1.f39379f.isEffective())) {
                     return false;
                 }
             }
@@ -82,42 +82,42 @@ public class PBVideo implements d {
     public void load() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            I1 i1 = this.f42438b;
-            if (i1.b() && i1.f42365f.isEffective() && !i1.f42365f.isShown()) {
-                i1.a(i1.f42365f);
+            I1 i1 = this.f39452b;
+            if (i1.b() && i1.f39379f.isEffective() && !i1.f39379f.isShown()) {
+                i1.a(i1.f39379f);
                 return;
             }
-            if (i1.f42368i == null) {
-                i1.f42368i = new K0(i1.f42361b, i1.f42360a, y.f42705d);
+            if (i1.f39382i == null) {
+                i1.f39382i = new K0(i1.f39375b, i1.f39374a, y.f39719d);
             }
-            i1.f42368i.f42385g = new G1(i1);
-            i1.f42368i.b();
+            i1.f39382i.f39399g = new G1(i1);
+            i1.f39382i.b();
         }
     }
 
     public void setVideoListener(PBVideoListener pBVideoListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, pBVideoListener) == null) {
-            this.f42439c = pBVideoListener;
+            this.f39453c = pBVideoListener;
         }
     }
 
     public void show() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            I1 i1 = this.f42438b;
-            if (!z.e(i1.f42361b)) {
-                PBVideoListener pBVideoListener = i1.f42367h;
+            I1 i1 = this.f39452b;
+            if (!z.e(i1.f39375b)) {
+                PBVideoListener pBVideoListener = i1.f39381h;
                 if (pBVideoListener != null) {
                     pBVideoListener.onRewardedShowFail(PBError.NO_NETWORK.getMsg());
                 }
             } else if (i1.c() && i1.a() && i1.b()) {
-                i1.f42362c = false;
-                W1.a().a(W1.a(i1.f42365f.getTraceid(), i1.f42365f.getId(), i1.f42365f.getPid()), i1.f42366g);
-                i1.f42365f.setShown(true);
-                x.a().a(W1.a(i1.f42365f.getTraceid(), i1.f42365f.getId(), i1.f42360a), i1.f42365f);
-                H5Activity.a(i1.f42361b, i1.f42365f, i1.f42360a);
-                f1.a(i1.f42365f.getId() + i1.f42360a, i1);
+                i1.f39376c = false;
+                W1.a().a(W1.a(i1.f39379f.getTraceid(), i1.f39379f.getId(), i1.f39379f.getPid()), i1.f39380g);
+                i1.f39379f.setShown(true);
+                x.a().a(W1.a(i1.f39379f.getTraceid(), i1.f39379f.getId(), i1.f39374a), i1.f39379f);
+                H5Activity.a(i1.f39375b, i1.f39379f, i1.f39374a);
+                f1.a(i1.f39379f.getId() + i1.f39374a, i1);
             }
         }
     }

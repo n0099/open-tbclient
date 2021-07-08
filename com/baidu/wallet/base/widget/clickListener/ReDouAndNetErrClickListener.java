@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class ReDouAndNetErrClickListener implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,10 +36,10 @@ public abstract class ReDouAndNetErrClickListener implements View.OnClickListene
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ View f24343a;
+                public final /* synthetic */ View f24453a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ReDouAndNetErrClickListener f24344b;
+                public final /* synthetic */ ReDouAndNetErrClickListener f24454b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -56,8 +56,8 @@ public abstract class ReDouAndNetErrClickListener implements View.OnClickListene
                             return;
                         }
                     }
-                    this.f24344b = this;
-                    this.f24343a = view;
+                    this.f24454b = this;
+                    this.f24453a = view;
                 }
 
                 @Override // com.baidu.wallet.base.widget.clickListener.ReDoubleOnClickListener
@@ -69,7 +69,7 @@ public abstract class ReDouAndNetErrClickListener implements View.OnClickListene
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f24345a;
+                            public final /* synthetic */ AnonymousClass1 f24455a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -86,17 +86,17 @@ public abstract class ReDouAndNetErrClickListener implements View.OnClickListene
                                         return;
                                     }
                                 }
-                                this.f24345a = this;
+                                this.f24455a = this;
                             }
 
                             @Override // com.baidu.wallet.base.widget.clickListener.ReNetErrorClickListener
                             public void doClick(View view3) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, view3) == null) {
-                                    this.f24345a.f24344b.doClick(view3);
+                                    this.f24455a.f24454b.doClick(view3);
                                 }
                             }
-                        }.onClick(this.f24343a);
+                        }.onClick(this.f24453a);
                     }
                 }
             }.onClick(view);

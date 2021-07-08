@@ -1,5 +1,6 @@
 package d.a.c.e.j.a.j;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +25,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -299,7 +300,7 @@ public class d {
         InputStream inputStream;
         byte[] bArr3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             ?? r0 = "http://tb.hiphotos.baidu.com/album/%3Bq%3D90/sign=b0a01f07223fb80e409d69de06d12ffb/dcc451da81cb39db07b47460d3160924ab18308b.jpg";
             StringBuilder sb = new StringBuilder();
             long currentTimeMillis = System.currentTimeMillis();

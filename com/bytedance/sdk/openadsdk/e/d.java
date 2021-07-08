@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiOptions;
@@ -28,7 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +96,7 @@ public class d {
 
     public static void a(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, context, mVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, mVar) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 JSONObject jSONObject2 = new JSONObject();
@@ -342,19 +343,19 @@ public class d {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f31079a;
+                public final /* synthetic */ Context f31189a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f31080b;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f31190b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f31081c;
+                public final /* synthetic */ String f31191c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ Map f31082d;
+                public final /* synthetic */ Map f31192d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ float f31083e;
+                public final /* synthetic */ float f31193e;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -374,18 +375,18 @@ public class d {
                             return;
                         }
                     }
-                    this.f31079a = context;
-                    this.f31080b = mVar;
-                    this.f31081c = str;
-                    this.f31082d = map;
-                    this.f31083e = floatValue;
+                    this.f31189a = context;
+                    this.f31190b = mVar;
+                    this.f31191c = str;
+                    this.f31192d = map;
+                    this.f31193e = floatValue;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        d.b(this.f31079a, this.f31080b, this.f31081c, this.f31082d, this.f31083e);
+                        d.b(this.f31189a, this.f31190b, this.f31191c, this.f31192d, this.f31193e);
                     }
                 }
             });
@@ -415,28 +416,28 @@ public class d {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f31087a;
+                public final /* synthetic */ Context f31197a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f31088b;
+                public final /* synthetic */ String f31198b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f31089c;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f31199c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.f f31090d;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.f f31200d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f31091e;
+                public final /* synthetic */ String f31201e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ boolean f31092f;
+                public final /* synthetic */ boolean f31202f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ Map f31093g;
+                public final /* synthetic */ Map f31203g;
 
                 /* renamed from: h  reason: collision with root package name */
-                public final /* synthetic */ float f31094h;
+                public final /* synthetic */ float f31204h;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -456,21 +457,21 @@ public class d {
                             return;
                         }
                     }
-                    this.f31087a = context;
-                    this.f31088b = str;
-                    this.f31089c = mVar;
-                    this.f31090d = fVar;
-                    this.f31091e = str2;
-                    this.f31092f = z;
-                    this.f31093g = map;
-                    this.f31094h = floatValue;
+                    this.f31197a = context;
+                    this.f31198b = str;
+                    this.f31199c = mVar;
+                    this.f31200d = fVar;
+                    this.f31201e = str2;
+                    this.f31202f = z;
+                    this.f31203g = map;
+                    this.f31204h = floatValue;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        d.b(this.f31087a, this.f31088b, this.f31089c, this.f31090d, this.f31091e, this.f31092f, this.f31093g, this.f31094h);
+                        d.b(this.f31197a, this.f31198b, this.f31199c, this.f31200d, this.f31201e, this.f31202f, this.f31203g, this.f31204h);
                     }
                 }
             });
@@ -528,13 +529,13 @@ public class d {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f31084a;
+                    public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f31194a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f31085b;
+                    public final /* synthetic */ String f31195b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ long f31086c;
+                    public final /* synthetic */ long f31196c;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -554,16 +555,16 @@ public class d {
                                 return;
                             }
                         }
-                        this.f31084a = mVar;
-                        this.f31085b = str;
-                        this.f31086c = j;
+                        this.f31194a = mVar;
+                        this.f31195b = str;
+                        this.f31196c = j;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            d.c(this.f31084a, this.f31085b, this.f31086c);
+                            d.c(this.f31194a, this.f31195b, this.f31196c);
                         }
                     }
                 });
@@ -622,25 +623,25 @@ public class d {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f31095a;
+                    public final /* synthetic */ String f31205a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f31096b;
+                    public final /* synthetic */ String f31206b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ String f31097c;
+                    public final /* synthetic */ String f31207c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ long f31098d;
+                    public final /* synthetic */ long f31208d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ long f31099e;
+                    public final /* synthetic */ long f31209e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ JSONObject f31100f;
+                    public final /* synthetic */ JSONObject f31210f;
 
                     /* renamed from: g  reason: collision with root package name */
-                    public final /* synthetic */ float f31101g;
+                    public final /* synthetic */ float f31211g;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -660,20 +661,20 @@ public class d {
                                 return;
                             }
                         }
-                        this.f31095a = str;
-                        this.f31096b = str2;
-                        this.f31097c = str3;
-                        this.f31098d = j;
-                        this.f31099e = j2;
-                        this.f31100f = jSONObject;
-                        this.f31101g = floatValue;
+                        this.f31205a = str;
+                        this.f31206b = str2;
+                        this.f31207c = str3;
+                        this.f31208d = j;
+                        this.f31209e = j2;
+                        this.f31210f = jSONObject;
+                        this.f31211g = floatValue;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            d.b(this.f31095a, this.f31096b, this.f31097c, this.f31098d, this.f31099e, this.f31100f, this.f31101g);
+                            d.b(this.f31205a, this.f31206b, this.f31207c, this.f31208d, this.f31209e, this.f31210f, this.f31211g);
                         }
                     }
                 });
@@ -1062,7 +1063,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

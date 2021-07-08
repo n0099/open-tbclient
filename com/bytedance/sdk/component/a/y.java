@@ -20,17 +20,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class y extends a {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ boolean j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f27711h;
+    public String f27821h;
 
     /* renamed from: i  reason: collision with root package name */
-    public WebView f27712i;
+    public WebView f27822i;
 
     static {
         InterceptResult invokeClinit;
@@ -68,11 +68,11 @@ public class y extends a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jVar)) == null) {
-            Context context = jVar.f27651e;
+            Context context = jVar.f27761e;
             if (context != null) {
                 return context;
             }
-            WebView webView = jVar.f27647a;
+            WebView webView = jVar.f27757a;
             if (webView != null) {
                 return webView.getContext();
             }
@@ -86,8 +86,8 @@ public class y extends a {
     public void b(j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, jVar) == null) {
-            this.f27712i = jVar.f27647a;
-            this.f27711h = jVar.f27649c;
+            this.f27822i = jVar.f27757a;
+            this.f27821h = jVar.f27759c;
             if (Build.VERSION.SDK_INT < 17 || jVar.n) {
                 return;
             }
@@ -99,17 +99,17 @@ public class y extends a {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (!j && this.f27712i == null) {
+            if (!j && this.f27822i == null) {
                 throw new AssertionError();
             }
-            this.f27712i.addJavascriptInterface(this, this.f27711h);
+            this.f27822i.addJavascriptInterface(this, this.f27821h);
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f27712i.removeJavascriptInterface(this.f27711h);
+            this.f27822i.removeJavascriptInterface(this.f27821h);
         }
     }
 
@@ -126,7 +126,7 @@ public class y extends a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27712i.getUrl() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27822i.getUrl() : (String) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.component.a.a
@@ -142,8 +142,8 @@ public class y extends a {
     public void a(String str, @Nullable p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, pVar) == null) {
-            if (pVar != null && !TextUtils.isEmpty(pVar.f27663h)) {
-                String str2 = pVar.f27663h;
+            if (pVar != null && !TextUtils.isEmpty(pVar.f27773h)) {
+                String str2 = pVar.f27773h;
                 a(str, String.format("javascript:(function(){   const iframe = document.querySelector(atob('%s'));   if (iframe && iframe.contentWindow) {        iframe.contentWindow.postMessage(%s, atob('%s'));   }})()", Base64.encodeToString(String.format("iframe[src=\"%s\"", str2).getBytes(), 2), str, Base64.encodeToString(str2.getBytes(), 2)));
                 return;
             }
@@ -155,13 +155,13 @@ public class y extends a {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            a(str, "javascript:" + this.f27711h + "._handleMessageFromToutiao(" + str + SmallTailInfo.EMOTION_SUFFIX);
+            a(str, "javascript:" + this.f27821h + "._handleMessageFromToutiao(" + str + SmallTailInfo.EMOTION_SUFFIX);
         }
     }
 
     private void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, this, str, str2) == null) || this.f27615f || TextUtils.isEmpty(str2)) {
+        if (!(interceptable == null || interceptable.invokeLL(65538, this, str, str2) == null) || this.f27725f || TextUtils.isEmpty(str2)) {
             return;
         }
         Runnable runnable = new Runnable(this, str2) { // from class: com.bytedance.sdk.component.a.y.1
@@ -169,10 +169,10 @@ public class y extends a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f27713a;
+            public final /* synthetic */ String f27823a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ y f27714b;
+            public final /* synthetic */ y f27824b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -189,28 +189,28 @@ public class y extends a {
                         return;
                     }
                 }
-                this.f27714b = this;
-                this.f27713a = str2;
+                this.f27824b = this;
+                this.f27823a = str2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f27714b.f27615f) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f27824b.f27725f) {
                     return;
                 }
                 if (Build.VERSION.SDK_INT >= 19) {
-                    i.a("Invoking Jsb using evaluateJavascript: " + this.f27713a);
-                    this.f27714b.f27712i.evaluateJavascript(this.f27713a, null);
+                    i.a("Invoking Jsb using evaluateJavascript: " + this.f27823a);
+                    this.f27824b.f27822i.evaluateJavascript(this.f27823a, null);
                     return;
                 }
-                i.a("Invoking Jsb using loadUrl: " + this.f27713a);
-                this.f27714b.f27712i.loadUrl(this.f27713a);
+                i.a("Invoking Jsb using loadUrl: " + this.f27823a);
+                this.f27824b.f27822i.loadUrl(this.f27823a);
             }
         };
         if (Looper.myLooper() != Looper.getMainLooper()) {
             i.a("Received call on sub-thread, posting to main thread: " + str2);
-            this.f27613d.post(runnable);
+            this.f27723d.post(runnable);
             return;
         }
         runnable.run();

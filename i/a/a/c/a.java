@@ -26,33 +26,33 @@ import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static OkHttpClient f75727b;
+    public static OkHttpClient f72761b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f75728c;
+    public static volatile a f72762c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f75729d;
+    public static String f72763d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, List<Cookie>> f75730a;
+    public final HashMap<String, List<Cookie>> f72764a;
 
     /* renamed from: i.a.a.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public class C2114a implements CookieJar {
+    /* loaded from: classes8.dex */
+    public class C2082a implements CookieJar {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f75731a;
+        public final /* synthetic */ a f72765a;
 
-        public C2114a(a aVar) {
+        public C2082a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,7 +67,7 @@ public class a {
                     return;
                 }
             }
-            this.f75731a = aVar;
+            this.f72765a = aVar;
         }
 
         @Override // okhttp3.CookieJar
@@ -75,7 +75,7 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpUrl)) == null) {
-                List<Cookie> list = (List) this.f75731a.f75730a.get(httpUrl.host());
+                List<Cookie> list = (List) this.f72765a.f72764a.get(httpUrl.host());
                 return list != null ? list : new ArrayList();
             }
             return (List) invokeL.objValue;
@@ -85,21 +85,21 @@ public class a {
         public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpUrl, list) == null) {
-                this.f75731a.f75730a.put(httpUrl.host(), list);
+                this.f72765a.f72764a.put(httpUrl.host(), list);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class b implements Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i.a.a.c.b.a f75732a;
+        public final /* synthetic */ i.a.a.c.b.a f72766a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Request f75733b;
+        public final /* synthetic */ Request f72767b;
 
         public b(a aVar, i.a.a.c.b.a aVar2, Request request) {
             Interceptable interceptable = $ic;
@@ -116,15 +116,15 @@ public class a {
                     return;
                 }
             }
-            this.f75732a = aVar2;
-            this.f75733b = request;
+            this.f72766a = aVar2;
+            this.f72767b = request;
         }
 
         @Override // okhttp3.Callback
         public void onFailure(Call call, IOException iOException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                this.f75732a.a(this.f75733b, iOException);
+                this.f72766a.a(this.f72767b, iOException);
                 RLog.error("HttpCore", "HttpCore -- enqueuePost--1-onFailure:" + iOException.getMessage(), new Object[0]);
             }
         }
@@ -133,10 +133,10 @@ public class a {
         public void onResponse(Call call, Response response) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                String unused = a.f75729d = response.body().string();
+                String unused = a.f72763d = response.body().string();
                 try {
-                    this.f75732a.b(a.f75729d);
-                    RLog.debug("HttpCore", "HttpCore -- enqueuePost-onResponse:" + a.f75729d);
+                    this.f72766a.b(a.f72763d);
+                    RLog.debug("HttpCore", "HttpCore -- enqueuePost-onResponse:" + a.f72763d);
                 } catch (Exception e2) {
                     RLog.error("HttpCore", "HttpCore -- enqueuePost--2-onFailure:" + e2.getMessage(), new Object[0]);
                     e2.printStackTrace();
@@ -176,10 +176,10 @@ public class a {
                 return;
             }
         }
-        this.f75730a = new HashMap<>();
-        OkHttpClient.Builder cookieJar = new OkHttpClient.Builder().addInterceptor(new i.a.a.c.d.a(3)).connectTimeout(10L, TimeUnit.SECONDS).readTimeout(10L, TimeUnit.SECONDS).writeTimeout(10L, TimeUnit.SECONDS).cookieJar(new C2114a(this));
+        this.f72764a = new HashMap<>();
+        OkHttpClient.Builder cookieJar = new OkHttpClient.Builder().addInterceptor(new i.a.a.c.d.a(3)).connectTimeout(10L, TimeUnit.SECONDS).readTimeout(10L, TimeUnit.SECONDS).writeTimeout(10L, TimeUnit.SECONDS).cookieJar(new C2082a(this));
         cookieJar.dns(i.a.a.c.c.a.b());
-        f75727b = cookieJar.build();
+        f72761b = cookieJar.build();
         RLog.info("HttpCore", "HttpCore -- init");
     }
 
@@ -187,14 +187,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            if (f75728c == null) {
+            if (f72762c == null) {
                 synchronized (a.class) {
-                    if (f75728c == null) {
-                        f75728c = new a();
+                    if (f72762c == null) {
+                        f72762c = new a();
                     }
                 }
             }
-            return f75728c;
+            return f72762c;
         }
         return (a) invokeV.objValue;
     }
@@ -245,12 +245,12 @@ public class a {
             Request.Builder url = new Request.Builder().url(g2);
             Request build2 = url.addHeader("X-AppId", i2 + "").addHeader("traceid", str2).addHeader("version", str3).addHeader("pakagename", str4).addHeader("X-HostId", str5).addHeader("X-AuthType", String.valueOf(i3)).post(build).build();
             try {
-                f75727b.newCall(build2).enqueue(new b(this, aVar, build2));
+                f72761b.newCall(build2).enqueue(new b(this, aVar, build2));
             } catch (Exception e2) {
                 e2.printStackTrace();
                 RLog.error("HttpCore", "HttpCore -- enqueuePost--3-onFailure:" + e2.getMessage(), new Object[0]);
             }
-            return f75729d;
+            return f72763d;
         }
         return (String) invokeCommon.objValue;
     }

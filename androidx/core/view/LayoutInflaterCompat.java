@@ -145,7 +145,7 @@ public final class LayoutInflaterCompat {
 
     public static void setFactory2(@NonNull LayoutInflater layoutInflater, @NonNull LayoutInflater.Factory2 factory2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, layoutInflater, factory2) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, layoutInflater, factory2) == null) {
             layoutInflater.setFactory2(factory2);
             if (Build.VERSION.SDK_INT < 21) {
                 LayoutInflater.Factory factory = layoutInflater.getFactory();

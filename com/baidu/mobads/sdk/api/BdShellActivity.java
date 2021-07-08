@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BdShellActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public static boolean canShowWhenLock;
@@ -77,7 +77,7 @@ public class BdShellActivity extends Activity {
     public static Class<?> getActivityClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? BdShellActivity.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? BdShellActivity.class : (Class) invokeV.objValue;
     }
 
     public static boolean getLpShowWhenLocked() {
@@ -389,7 +389,7 @@ public class BdShellActivity extends Activity {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class ActionBarColorTheme implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final ActionBarColorTheme ACTION_BAR_BLACK_THEME;

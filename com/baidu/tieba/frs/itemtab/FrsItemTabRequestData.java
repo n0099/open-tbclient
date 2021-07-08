@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.r0.g0.b.g;
-import d.a.r0.z0.w;
+import d.a.o0.g0.b.g;
+import d.a.o0.z0.w;
 import java.util.HashMap;
 import tbclient.ItemPage.DataReq;
 import tbclient.ItemPage.ItemPageReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FrsItemTabRequestData extends OrmObject implements g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class FrsItemTabRequestData extends OrmObject implements g {
         }
     }
 
-    @Override // d.a.r0.g0.b.i
+    @Override // d.a.o0.g0.b.i
     public Object b(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class FrsItemTabRequestData extends OrmObject implements g {
         return invokeZ.objValue;
     }
 
-    @Override // d.a.r0.g0.b.f
+    @Override // d.a.o0.g0.b.f
     public HashMap<String, Object> s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class FrsItemTabRequestData extends OrmObject implements g {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // d.a.r0.g0.b.f
+    @Override // d.a.o0.g0.b.f
     public HashMap<String, String> u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -15,7 +15,7 @@ import com.heytap.mcssdk.mode.AppMessage;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.heytap.mcssdk.mode.SptDataMessage;
 import com.heytap.mcssdk.utils.LogUtil;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PushService extends Service implements MessageCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

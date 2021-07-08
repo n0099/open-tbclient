@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class x implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f42809a;
+    public final /* synthetic */ Context f39823a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ Intent f99a;
@@ -32,7 +32,7 @@ public final class x implements Runnable {
                 return;
             }
         }
-        this.f42809a = context;
+        this.f39823a = context;
         this.f99a = intent;
     }
 
@@ -41,7 +41,7 @@ public final class x implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                this.f42809a.startService(this.f99a);
+                this.f39823a.startService(this.f99a);
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.m70a(e2.getMessage());
             }

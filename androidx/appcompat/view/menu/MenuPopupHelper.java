@@ -71,7 +71,7 @@ public class MenuPopupHelper implements MenuHelper {
         InterceptResult invokeV;
         MenuPopup standardMenuPopup;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             Display defaultDisplay = ((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay();
             Point point = new Point();
             if (Build.VERSION.SDK_INT >= 17) {

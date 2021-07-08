@@ -12,37 +12,37 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.SimpleDateFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class y {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static y f9004a;
+    public static y f9021a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f9005b;
+    public Context f9022b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f9006c;
+    public JSONObject f9023c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f9007d;
+    public long f9024d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f9008e;
+    public long f9025e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f9009f;
+    public long f9026f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f9010g;
+    public long f9027g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f9011h;
+    public long f9028h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f9012i;
+    public long f9029i;
     public long j;
     public long k;
     public long l;
@@ -67,13 +67,13 @@ public class y {
                 return;
             }
         }
-        this.f9006c = new JSONObject();
-        this.f9007d = 24L;
-        this.f9008e = 0L;
-        this.f9009f = 0L;
-        this.f9010g = 0L;
-        this.f9011h = 5L;
-        this.f9012i = 24L;
+        this.f9023c = new JSONObject();
+        this.f9024d = 24L;
+        this.f9025e = 0L;
+        this.f9026f = 0L;
+        this.f9027g = 0L;
+        this.f9028h = 5L;
+        this.f9029i = 24L;
         this.j = 15L;
         this.k = 15L;
         this.l = 30L;
@@ -82,7 +82,7 @@ public class y {
         this.o = 24L;
         this.p = "";
         this.q = "";
-        this.f9005b = context;
+        this.f9022b = context;
         m();
         j();
         k();
@@ -92,14 +92,14 @@ public class y {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f9004a == null) {
+            if (f9021a == null) {
                 synchronized (y.class) {
-                    if (f9004a == null) {
-                        f9004a = new y(context);
+                    if (f9021a == null) {
+                        f9021a = new y(context);
                     }
                 }
             }
-            return f9004a;
+            return f9021a;
         }
         return (y) invokeL.objValue;
     }
@@ -112,7 +112,7 @@ public class y {
                 if (TextUtils.isEmpty(b2)) {
                     return;
                 }
-                this.f9006c = new JSONObject(b2);
+                this.f9023c = new JSONObject(b2);
             } catch (Exception unused) {
             }
         }
@@ -121,13 +121,13 @@ public class y {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f9009f != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f9026f != 0 : invokeV.booleanValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f9007d * 60 * 60 * 1000 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f9024d * 60 * 60 * 1000 : invokeV.longValue;
     }
 
     public long d() {
@@ -139,13 +139,13 @@ public class y {
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f9011h * 60 * 1000 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f9028h * 60 * 1000 : invokeV.longValue;
     }
 
     public long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f9012i * 60 * 60 * 1000 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f9029i * 60 * 60 * 1000 : invokeV.longValue;
     }
 
     public long g() {
@@ -170,23 +170,23 @@ public class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             try {
-                String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f9005b, ".config2").getBytes())));
+                String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f9022b, ".config2").getBytes())));
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
                 JSONObject jSONObject = new JSONObject(str);
                 try {
-                    this.f9008e = jSONObject.getLong("c");
+                    this.f9025e = jSONObject.getLong("c");
                 } catch (JSONException e2) {
                     bb.c().b(e2);
                 }
                 try {
-                    this.f9011h = jSONObject.getLong("d");
+                    this.f9028h = jSONObject.getLong("d");
                 } catch (JSONException e3) {
                     bb.c().b(e3);
                 }
                 try {
-                    this.f9012i = jSONObject.getLong("e");
+                    this.f9029i = jSONObject.getLong("e");
                 } catch (JSONException e4) {
                     bb.c().b(e4);
                 }
@@ -196,7 +196,7 @@ public class y {
                     bb.c().b(e5);
                 }
                 try {
-                    this.f9007d = jSONObject.getLong("f");
+                    this.f9024d = jSONObject.getLong("f");
                 } catch (JSONException e6) {
                     bb.c().b(e6);
                 }
@@ -226,12 +226,12 @@ public class y {
                     bb.c().b(e11);
                 }
                 try {
-                    this.f9009f = jSONObject.getLong(Config.DEVICE_MAC_ID);
+                    this.f9026f = jSONObject.getLong(Config.DEVICE_MAC_ID);
                 } catch (JSONException e12) {
                     bb.c().b(e12);
                 }
                 try {
-                    this.f9010g = jSONObject.getLong("lsc");
+                    this.f9027g = jSONObject.getLong("lsc");
                 } catch (JSONException e13) {
                     bb.c().b(e13);
                 }
@@ -245,7 +245,7 @@ public class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             try {
-                String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f9005b, ".sign").getBytes())));
+                String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f9022b, ".sign").getBytes())));
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
@@ -271,7 +271,7 @@ public class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long a2 = a(g.f8967h);
+            long a2 = a(g.f8984h);
             long d2 = d();
             bb c2 = bb.c();
             c2.a("canSend now=" + currentTimeMillis + ";lastSendTime=" + a2 + ";sendLogTimeInterval=" + d2);
@@ -283,7 +283,7 @@ public class y {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            bo.a(this.f9005b, ".sign", str, false);
+            bo.a(this.f9022b, ".sign", str, false);
             k();
         }
     }
@@ -309,13 +309,13 @@ public class y {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f9008e != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f9025e != 0 : invokeV.booleanValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            bo.a(this.f9005b, ".config2", str, false);
+            bo.a(this.f9022b, ".config2", str, false);
             j();
         }
     }
@@ -327,8 +327,8 @@ public class y {
             long j = gVar.j;
             try {
                 String str = gVar.toString();
-                if (this.f9006c.has(str)) {
-                    j = this.f9006c.getLong(str);
+                if (this.f9023c.has(str)) {
+                    j = this.f9023c.getLong(str);
                 }
             } catch (Exception e2) {
                 bb.c().a(e2);
@@ -343,12 +343,12 @@ public class y {
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar, j) == null) {
             gVar.j = j;
             try {
-                this.f9006c.put(gVar.toString(), j);
+                this.f9023c.put(gVar.toString(), j);
             } catch (Exception e2) {
                 bb.c().a(e2);
             }
             try {
-                bo.a("backups/system/.timestamp", this.f9006c.toString(), false);
+                bo.a("backups/system/.timestamp", this.f9023c.toString(), false);
             } catch (Exception e3) {
                 bb.c().a(e3);
             }

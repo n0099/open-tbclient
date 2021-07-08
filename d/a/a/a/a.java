@@ -12,13 +12,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f43759a;
+    public String f40775a;
 
     public a(File file) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class a {
                 return;
             }
         }
-        this.f43759a = null;
-        this.f43759a = file.getAbsolutePath();
+        this.f40775a = null;
+        this.f40775a = file.getAbsolutePath();
     }
 
     public boolean a() {
@@ -59,12 +59,12 @@ public class a {
         if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
             return invokeV.booleanValue;
         }
-        if (TextUtils.isEmpty(this.f43759a)) {
+        if (TextUtils.isEmpty(this.f40775a)) {
             return false;
         }
         ZipInputStream zipInputStream2 = null;
         try {
-            fileInputStream = new FileInputStream(new File(this.f43759a));
+            fileInputStream = new FileInputStream(new File(this.f40775a));
         } catch (Exception e3) {
             fileInputStream = null;
             e2 = e3;

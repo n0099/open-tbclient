@@ -14,36 +14,36 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f32674a;
+    public static Context f32784a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f32675b;
+    public static boolean f32785b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static q f32676c;
+    public static q f32786c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Object f32677d;
+    public static Object f32787d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static HandlerThread f32678e;
+    public static HandlerThread f32788e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Handler f32679f;
+    public static Handler f32789f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f32680g;
+    public static String f32790g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f32681h;
+    public static String f32791h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile p f32682i;
+    public static volatile p f32792i;
     public static volatile n j;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -60,7 +60,7 @@ public class p {
                 return;
             }
         }
-        f32677d = new Object();
+        f32787d = new Object();
     }
 
     public p() {
@@ -88,13 +88,13 @@ public class p {
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     str = "0";
-                    f32675b = "1".equals(str);
+                    f32785b = "1".equals(str);
                 }
             } catch (Throwable unused) {
                 str = "0";
-                f32675b = "1".equals(str);
+                f32785b = "1".equals(str);
             }
-            f32675b = "1".equals(str);
+            f32785b = "1".equals(str);
         }
     }
 
@@ -102,24 +102,24 @@ public class p {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f32682i == null) {
+            if (f32792i == null) {
                 synchronized (p.class) {
-                    f32674a = context.getApplicationContext();
-                    f32682i = new p();
+                    f32784a = context.getApplicationContext();
+                    f32792i = new p();
                 }
             }
             if (j == null) {
                 synchronized (p.class) {
-                    f32674a = context.getApplicationContext();
+                    f32784a = context.getApplicationContext();
                     HandlerThread handlerThread = new HandlerThread("SqlWorkThread");
-                    f32678e = handlerThread;
+                    f32788e = handlerThread;
                     handlerThread.start();
-                    f32679f = new o(f32678e.getLooper());
-                    j = new n(f32674a);
+                    f32789f = new o(f32788e.getLooper());
+                    j = new n(f32784a);
                     a();
                 }
             }
-            return f32682i;
+            return f32792i;
         }
         return (p) invokeL.objValue;
     }
@@ -127,8 +127,8 @@ public class p {
     public void a(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-            synchronized (f32677d) {
-                Message obtainMessage = f32679f.obtainMessage();
+            synchronized (f32787d) {
+                Message obtainMessage = f32789f.obtainMessage();
                 obtainMessage.what = 11;
                 Bundle bundle = new Bundle();
                 bundle.putInt("type", i2);
@@ -136,29 +136,29 @@ public class p {
                     bundle.putString("appid", str);
                 }
                 obtainMessage.setData(bundle);
-                f32679f.sendMessage(obtainMessage);
+                f32789f.sendMessage(obtainMessage);
                 long uptimeMillis = SystemClock.uptimeMillis();
                 try {
-                    f32677d.wait(2000L);
+                    f32787d.wait(2000L);
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }
                 if (SystemClock.uptimeMillis() - uptimeMillis < 2000) {
                     if (i2 == 0) {
-                        f32681h = f32680g;
+                        f32791h = f32790g;
                     } else if (i2 != 1) {
                         if (i2 != 2) {
                             if (i2 != 4) {
                             }
-                        } else if (f32680g != null) {
-                            f32680g = null;
+                        } else if (f32790g != null) {
+                            f32790g = null;
                         } else {
                             Log.e("VMS_IDLG_SDK_Client", "get aaid failed");
                         }
-                    } else if (f32680g == null) {
+                    } else if (f32790g == null) {
                         Log.e("VMS_IDLG_SDK_Client", "get vaid failed");
                     }
-                    f32680g = null;
+                    f32790g = null;
                 } else {
                     Log.d("VMS_IDLG_SDK_Client", "query timeout");
                 }

@@ -1,261 +1,232 @@
 package com.kwad.sdk.utils;
 
+import android.os.Build;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes7.dex */
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.Reader;
+import java.io.StringWriter;
+import java.io.Writer;
+import java.nio.charset.Charset;
+/* loaded from: classes6.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f39400a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final Class<? extends T> f39401a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final T f39402b;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1510835322, "Lcom/kwad/sdk/utils/n;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1510835322, "Lcom/kwad/sdk/utils/n;");
-                return;
-            }
-        }
-        HashMap hashMap = new HashMap();
-        f39400a = hashMap;
-        hashMap.put(Boolean.class, Boolean.TYPE);
-        f39400a.put(Byte.class, Byte.TYPE);
-        f39400a.put(Character.class, Character.TYPE);
-        f39400a.put(Short.class, Short.TYPE);
-        f39400a.put(Integer.class, Integer.TYPE);
-        f39400a.put(Float.class, Float.TYPE);
-        f39400a.put(Long.class, Long.TYPE);
-        f39400a.put(Double.class, Double.TYPE);
-        Map<Class<?>, Class<?>> map = f39400a;
-        Class<?> cls = Boolean.TYPE;
-        map.put(cls, cls);
-        Map<Class<?>, Class<?>> map2 = f39400a;
-        Class<?> cls2 = Byte.TYPE;
-        map2.put(cls2, cls2);
-        Map<Class<?>, Class<?>> map3 = f39400a;
-        Class<?> cls3 = Character.TYPE;
-        map3.put(cls3, cls3);
-        Map<Class<?>, Class<?>> map4 = f39400a;
-        Class<?> cls4 = Short.TYPE;
-        map4.put(cls4, cls4);
-        Map<Class<?>, Class<?>> map5 = f39400a;
-        Class<?> cls5 = Integer.TYPE;
-        map5.put(cls5, cls5);
-        Map<Class<?>, Class<?>> map6 = f39400a;
-        Class<?> cls6 = Float.TYPE;
-        map6.put(cls6, cls6);
-        Map<Class<?>, Class<?>> map7 = f39400a;
-        Class<?> cls7 = Long.TYPE;
-        map7.put(cls7, cls7);
-        Map<Class<?>, Class<?>> map8 = f39400a;
-        Class<?> cls8 = Double.TYPE;
-        map8.put(cls8, cls8);
-    }
-
-    public static <T> T a(Class<?> cls, String str, Object... objArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, str, objArr)) == null) ? (T) a(cls, str, a(objArr)).invoke(null, b(objArr)) : (T) invokeLLL.objValue;
-    }
-
-    public static <T> T a(Object obj, String str) {
+    public static int a(Reader reader, Writer writer) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, str)) == null) {
-            try {
-                return (T) b(obj, str);
-            } catch (Throwable th) {
-                throw a(th);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, reader, writer)) == null) {
+            long b2 = b(reader, writer);
+            if (b2 > 2147483647L) {
+                return -1;
             }
+            return (int) b2;
         }
-        return (T) invokeLL.objValue;
+        return invokeLL.intValue;
     }
 
-    public static <T> T a(Object obj, String str, Object... objArr) {
+    public static long a(Reader reader, Writer writer, char[] cArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, obj, str, objArr)) == null) {
-            try {
-                return (T) b(obj, str, objArr);
-            } catch (Throwable th) {
-                throw a(th);
-            }
+        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65537, null, reader, writer, cArr)) != null) {
+            return invokeLLL.longValue;
         }
-        return (T) invokeLLL.objValue;
+        long j = 0;
+        while (true) {
+            int read = reader.read(cArr);
+            if (-1 == read) {
+                return j;
+            }
+            writer.write(cArr, 0, read);
+            j += read;
+        }
     }
 
-    public static <T> T a(String str, String str2, Object... objArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, str, str2, objArr)) == null) {
-            try {
-                return (T) a(Class.forName(str), str2, objArr);
-            } catch (Throwable th) {
-                throw a(th);
-            }
-        }
-        return (T) invokeLLL.objValue;
-    }
-
-    public static RuntimeException a(Throwable th) {
+    public static FileInputStream a(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, th)) == null) ? th instanceof RuntimeException ? (RuntimeException) th : new RuntimeException(th) : (RuntimeException) invokeL.objValue;
-    }
-
-    public static Method a(Class<?> cls, String str, Class<?>... clsArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, cls, str, clsArr)) == null) {
-            Method a2 = a(cls.getDeclaredMethods(), str, clsArr);
-            if (a2 != null) {
-                a2.setAccessible(true);
-                return a2;
-            } else if (cls.getSuperclass() != null) {
-                return a((Class<?>) cls.getSuperclass(), str, clsArr);
-            } else {
-                throw new NoSuchMethodException();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
+            if (file.exists() && !file.isDirectory() && file.canRead()) {
+                return new FileInputStream(file);
             }
+            return null;
         }
-        return (Method) invokeLLL.objValue;
+        return (FileInputStream) invokeL.objValue;
     }
 
-    public static Method a(Method[] methodArr, String str, Class<?>[] clsArr) {
-        InterceptResult invokeLLL;
+    @Nullable
+    public static FileOutputStream a(File file, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, methodArr, str, clsArr)) == null) {
-            if (str != null) {
-                for (Method method : methodArr) {
-                    if (method.getName().equals(str) && a(method.getParameterTypes(), clsArr)) {
-                        return method;
-                    }
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, file, z)) == null) {
+            if (!file.exists()) {
+                File parentFile = file.getParentFile();
+                if (parentFile != null && !parentFile.mkdirs() && !parentFile.isDirectory()) {
+                    return null;
                 }
+            } else if (file.isDirectory() || !file.canWrite()) {
                 return null;
             }
-            throw new NullPointerException("Method name must not be null.");
+            return new FileOutputStream(file, z);
         }
-        return (Method) invokeLLL.objValue;
+        return (FileOutputStream) invokeLZ.objValue;
     }
 
-    public static boolean a(Class<?>[] clsArr, Class<?>[] clsArr2) {
+    @Nullable
+    public static String a(File file, Charset charset) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, clsArr, clsArr2)) == null) {
-            if (clsArr == null) {
-                return clsArr2 == null || clsArr2.length == 0;
-            } else if (clsArr2 == null) {
-                return clsArr.length == 0;
-            } else if (clsArr.length != clsArr2.length) {
-                return false;
-            } else {
-                for (int i2 = 0; i2 < clsArr.length; i2++) {
-                    if (!clsArr[i2].isAssignableFrom(clsArr2[i2]) && (!f39400a.containsKey(clsArr[i2]) || !f39400a.get(clsArr[i2]).equals(f39400a.get(clsArr2[i2])))) {
-                        return false;
-                    }
-                }
-                return true;
-            }
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, charset)) != null) {
+            return (String) invokeLL.objValue;
         }
-        return invokeLL.booleanValue;
+        FileInputStream fileInputStream = null;
+        try {
+            FileInputStream a2 = a(file);
+            if (a2 == null) {
+                a(a2);
+                return null;
+            }
+            try {
+                String a3 = a(a2, a(charset));
+                a(a2);
+                return a3;
+            } catch (Throwable th) {
+                th = th;
+                fileInputStream = a2;
+                a(fileInputStream);
+                throw th;
+            }
+        } catch (Throwable th2) {
+            th = th2;
+        }
     }
 
-    public static Class<?>[] a(Object... objArr) {
+    @Nullable
+    public static String a(InputStream inputStream, Charset charset) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, inputStream, charset)) == null) {
+            if (inputStream == null) {
+                return null;
+            }
+            StringWriter stringWriter = new StringWriter();
+            a(inputStream, stringWriter, charset);
+            return stringWriter.toString();
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, objArr)) == null) {
-            if (objArr == null || objArr.length <= 0) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                return new String(com.kwad.sdk.core.b.c.a().a(l.a(b(new File(str)))));
             }
-            Class<?>[] clsArr = new Class[objArr.length];
-            for (int i2 = 0; i2 < objArr.length; i2++) {
-                Object obj = objArr[i2];
-                if (obj == null || !(obj instanceof a)) {
-                    clsArr[i2] = obj == null ? null : obj.getClass();
-                } else {
-                    clsArr[i2] = ((a) obj).f39401a;
-                }
-            }
-            return clsArr;
+            return null;
         }
-        return (Class[]) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static <T> T b(Object obj, String str) {
-        InterceptResult invokeLL;
+    public static Charset a(Charset charset) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, obj, str)) == null) {
-            Class<?> cls = obj.getClass();
-            Field field = null;
-            while (field == null) {
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, charset)) == null) ? charset == null ? Charset.defaultCharset() : charset : (Charset) invokeL.objValue;
+    }
+
+    public static void a(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65544, null, closeable) == null) || closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (Exception unused) {
+        }
+    }
+
+    public static void a(File file, String str, Charset charset, boolean z) {
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeCommon(65545, null, new Object[]{file, str, charset, Boolean.valueOf(z)}) != null) {
+            return;
+        }
+        try {
+            fileOutputStream = a(file, z);
+            if (fileOutputStream != null) {
                 try {
-                    field = cls.getDeclaredField(str);
-                    field.setAccessible(true);
-                    continue;
-                } catch (NoSuchFieldException unused) {
-                    cls = cls.getSuperclass();
-                    continue;
-                }
-                if (cls == null) {
-                    throw new NoSuchFieldException();
+                    a(str, fileOutputStream, charset);
+                } catch (Throwable th) {
+                    th = th;
+                    a(fileOutputStream);
+                    throw th;
                 }
             }
-            field.setAccessible(true);
-            return (T) field.get(obj);
+            a(fileOutputStream);
+        } catch (Throwable th2) {
+            th = th2;
+            fileOutputStream = null;
         }
-        return (T) invokeLL.objValue;
     }
 
-    public static <T> T b(Object obj, String str, Object... objArr) {
-        InterceptResult invokeLLL;
+    public static void a(InputStream inputStream, Writer writer, Charset charset) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, obj, str, objArr)) == null) ? (T) a(obj.getClass(), str, a(objArr)).invoke(obj, b(objArr)) : (T) invokeLLL.objValue;
+        if (interceptable == null || interceptable.invokeLLL(65546, null, inputStream, writer, charset) == null) {
+            a(new InputStreamReader(inputStream, a(charset)), writer);
+        }
     }
 
-    public static Object[] b(Object... objArr) {
+    public static void a(String str, OutputStream outputStream, Charset charset) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65547, null, str, outputStream, charset) == null) || outputStream == null || str == null) {
+            return;
+        }
+        outputStream.write(str.getBytes(a(charset)));
+    }
+
+    public static long b(Reader reader, Writer writer) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, reader, writer)) == null) ? a(reader, writer, new char[4096]) : invokeLL.longValue;
+    }
+
+    public static byte[] b(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, objArr)) == null) {
-            if (objArr == null || objArr.length <= 0) {
-                return null;
-            }
-            Object[] objArr2 = new Object[objArr.length];
-            for (int i2 = 0; i2 < objArr.length; i2++) {
-                Object obj = objArr[i2];
-                if (obj == null || !(obj instanceof a)) {
-                    objArr2[i2] = obj;
-                } else {
-                    objArr2[i2] = ((a) obj).f39402b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, file)) == null) {
+            byte[] bArr = new byte[(int) file.length()];
+            FileInputStream fileInputStream = null;
+            try {
+                FileInputStream fileInputStream2 = new FileInputStream(file);
+                try {
+                    fileInputStream2.read(bArr);
+                    com.kwad.sdk.crash.utils.b.a((InputStream) fileInputStream2);
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream = fileInputStream2;
+                    try {
+                        com.kwad.sdk.core.d.a.a(th);
+                        return bArr;
+                    } finally {
+                        com.kwad.sdk.crash.utils.b.a((InputStream) fileInputStream);
+                    }
                 }
+            } catch (Throwable th2) {
+                th = th2;
             }
-            return objArr2;
+            return bArr;
         }
-        return (Object[]) invokeL.objValue;
+        return (byte[]) invokeL.objValue;
     }
 }

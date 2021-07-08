@@ -17,13 +17,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import kotlin.text.Typography;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class u0 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f42651a;
+    public final /* synthetic */ Context f39665a;
 
     public u0(Context context) {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public final class u0 implements Runnable {
                 return;
             }
         }
-        this.f42651a = context;
+        this.f39665a = context;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:27:0x006f A[Catch: Exception -> 0x0072, TRY_LEAVE, TryCatch #4 {Exception -> 0x0072, blocks: (B:25:0x0069, B:27:0x006f), top: B:69:0x0069 }] */
@@ -62,11 +62,11 @@ public final class u0 implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                q1.a(this.f42651a).d();
+                q1.a(this.f39665a).d();
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            Context context = this.f42651a;
+            Context context = this.f39665a;
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
                 ApplicationInfo applicationInfo = packageInfo.applicationInfo;
@@ -92,7 +92,7 @@ public final class u0 implements Runnable {
                     if (Build.VERSION.SDK_INT >= 21) {
                     }
                     String arrays = Arrays.toString(strArr2);
-                    Context context2 = this.f42651a;
+                    Context context2 = this.f39665a;
                     currentTimeMillis = System.currentTimeMillis() - s1.c(context2);
                     if (currentTimeMillis < 0) {
                     }
@@ -102,13 +102,13 @@ public final class u0 implements Runnable {
                     str4 = null;
                     if (!TextUtils.isEmpty(str4)) {
                     }
-                    Context context3 = this.f42651a;
+                    Context context3 = this.f39665a;
                     long currentTimeMillis2 = System.currentTimeMillis();
                     SharedPreferences.Editor edit = context3.getSharedPreferences("_prefs", 0).edit();
                     edit.putLong("bdts", currentTimeMillis2);
                     edit.apply();
-                    w0 a2 = x0.a(this.f42651a);
-                    a2.f42684c = "{\"e\":\"bd\",\"apk_dir\":\"" + str7 + Typography.quote + ",\"istl_ts\":\"" + str5 + Typography.quote + ",\"udt_ts\":\"" + str6 + Typography.quote + ",\"open_ts\":\"" + valueOf + Typography.quote + ",\"cpu_abi\":\"" + arrays + Typography.quote + ",\"app_list\":\"" + str8 + Typography.quote + '}';
+                    w0 a2 = x0.a(this.f39665a);
+                    a2.f39698c = "{\"e\":\"bd\",\"apk_dir\":\"" + str7 + Typography.quote + ",\"istl_ts\":\"" + str5 + Typography.quote + ",\"udt_ts\":\"" + str6 + Typography.quote + ",\"open_ts\":\"" + valueOf + Typography.quote + ",\"cpu_abi\":\"" + arrays + Typography.quote + ",\"app_list\":\"" + str8 + Typography.quote + '}';
                     a2.a();
                 }
             } catch (Exception e5) {
@@ -130,7 +130,7 @@ public final class u0 implements Runnable {
                 e6.printStackTrace();
             }
             String arrays2 = Arrays.toString(strArr22);
-            Context context22 = this.f42651a;
+            Context context22 = this.f39665a;
             currentTimeMillis = System.currentTimeMillis() - s1.c(context22);
             if (currentTimeMillis < 0) {
                 long currentTimeMillis3 = System.currentTimeMillis();
@@ -170,26 +170,26 @@ public final class u0 implements Runnable {
                             str82 = str4;
                         }
                     }
-                    Context context32 = this.f42651a;
+                    Context context32 = this.f39665a;
                     long currentTimeMillis22 = System.currentTimeMillis();
                     SharedPreferences.Editor edit5 = context32.getSharedPreferences("_prefs", 0).edit();
                     edit5.putLong("bdts", currentTimeMillis22);
                     edit5.apply();
-                    w0 a22 = x0.a(this.f42651a);
-                    a22.f42684c = "{\"e\":\"bd\",\"apk_dir\":\"" + str72 + Typography.quote + ",\"istl_ts\":\"" + str52 + Typography.quote + ",\"udt_ts\":\"" + str62 + Typography.quote + ",\"open_ts\":\"" + valueOf2 + Typography.quote + ",\"cpu_abi\":\"" + arrays2 + Typography.quote + ",\"app_list\":\"" + str82 + Typography.quote + '}';
+                    w0 a22 = x0.a(this.f39665a);
+                    a22.f39698c = "{\"e\":\"bd\",\"apk_dir\":\"" + str72 + Typography.quote + ",\"istl_ts\":\"" + str52 + Typography.quote + ",\"udt_ts\":\"" + str62 + Typography.quote + ",\"open_ts\":\"" + valueOf2 + Typography.quote + ",\"cpu_abi\":\"" + arrays2 + Typography.quote + ",\"app_list\":\"" + str82 + Typography.quote + '}';
                     a22.a();
                 }
             }
             str4 = null;
             if (!TextUtils.isEmpty(str4)) {
             }
-            Context context322 = this.f42651a;
+            Context context322 = this.f39665a;
             long currentTimeMillis222 = System.currentTimeMillis();
             SharedPreferences.Editor edit52 = context322.getSharedPreferences("_prefs", 0).edit();
             edit52.putLong("bdts", currentTimeMillis222);
             edit52.apply();
-            w0 a222 = x0.a(this.f42651a);
-            a222.f42684c = "{\"e\":\"bd\",\"apk_dir\":\"" + str72 + Typography.quote + ",\"istl_ts\":\"" + str52 + Typography.quote + ",\"udt_ts\":\"" + str62 + Typography.quote + ",\"open_ts\":\"" + valueOf2 + Typography.quote + ",\"cpu_abi\":\"" + arrays2 + Typography.quote + ",\"app_list\":\"" + str82 + Typography.quote + '}';
+            w0 a222 = x0.a(this.f39665a);
+            a222.f39698c = "{\"e\":\"bd\",\"apk_dir\":\"" + str72 + Typography.quote + ",\"istl_ts\":\"" + str52 + Typography.quote + ",\"udt_ts\":\"" + str62 + Typography.quote + ",\"open_ts\":\"" + valueOf2 + Typography.quote + ",\"cpu_abi\":\"" + arrays2 + Typography.quote + ",\"app_list\":\"" + str82 + Typography.quote + '}';
             a222.a();
         }
     }

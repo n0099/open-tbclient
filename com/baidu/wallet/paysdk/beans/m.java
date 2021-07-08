@@ -12,7 +12,7 @@ import com.baidu.wallet.core.beans.BaseBean;
 import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.paysdk.datamodel.FindPwdCardCheckResponse;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class m extends BaseBean<m> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

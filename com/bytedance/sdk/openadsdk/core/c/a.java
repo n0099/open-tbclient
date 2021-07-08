@@ -2,6 +2,7 @@ package com.bytedance.sdk.openadsdk.core.c;
 
 import android.os.Handler;
 import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,40 +15,40 @@ import com.bytedance.sdk.openadsdk.core.o;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f29782a;
+    public static volatile a f29892a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f29783b;
+    public static volatile boolean f29893b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile long f29784c;
+    public static volatile long f29894c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Queue<C0336a> f29785d;
+    public final Queue<C0336a> f29895d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f29786e;
+    public Handler f29896e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final h f29787f;
+    public final h f29897f;
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class C0336a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final long f29789a;
+        public final long f29899a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f29790b;
+        public final String f29900b;
 
         public C0336a(long j, String str) {
             Interceptable interceptable = $ic;
@@ -64,8 +65,8 @@ public class a {
                     return;
                 }
             }
-            this.f29789a = j;
-            this.f29790b = str;
+            this.f29899a = j;
+            this.f29900b = str;
         }
     }
 
@@ -82,8 +83,8 @@ public class a {
                 return;
             }
         }
-        this.f29785d = new LinkedList();
-        this.f29787f = o.h();
+        this.f29895d = new LinkedList();
+        this.f29897f = o.h();
     }
 
     private synchronized boolean b(String str) {
@@ -92,18 +93,18 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) {
             synchronized (this) {
                 long currentTimeMillis = System.currentTimeMillis();
-                int l = this.f29787f.l();
-                long k = this.f29787f.k();
-                if (this.f29785d.size() > 0 && this.f29785d.size() >= l) {
-                    long abs = Math.abs(currentTimeMillis - this.f29785d.peek().f29789a);
+                int l = this.f29897f.l();
+                long k = this.f29897f.k();
+                if (this.f29895d.size() > 0 && this.f29895d.size() >= l) {
+                    long abs = Math.abs(currentTimeMillis - this.f29895d.peek().f29899a);
                     if (abs <= k) {
                         b(k - abs);
                         return true;
                     }
-                    this.f29785d.poll();
-                    this.f29785d.offer(new C0336a(currentTimeMillis, str));
+                    this.f29895d.poll();
+                    this.f29895d.offer(new C0336a(currentTimeMillis, str));
                 } else {
-                    this.f29785d.offer(new C0336a(currentTimeMillis, str));
+                    this.f29895d.offer(new C0336a(currentTimeMillis, str));
                 }
                 return false;
             }
@@ -118,11 +119,11 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
                 HashMap hashMap = new HashMap();
-                for (C0336a c0336a : this.f29785d) {
-                    if (hashMap.containsKey(c0336a.f29790b)) {
-                        hashMap.put(c0336a.f29790b, Integer.valueOf(((Integer) hashMap.get(c0336a.f29790b)).intValue() + 1));
+                for (C0336a c0336a : this.f29895d) {
+                    if (hashMap.containsKey(c0336a.f29900b)) {
+                        hashMap.put(c0336a.f29900b, Integer.valueOf(((Integer) hashMap.get(c0336a.f29900b)).intValue() + 1));
                     } else {
-                        hashMap.put(c0336a.f29790b, 1);
+                        hashMap.put(c0336a.f29900b, 1);
                     }
                 }
                 int i2 = Integer.MIN_VALUE;
@@ -144,14 +145,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f29782a == null) {
+            if (f29892a == null) {
                 synchronized (a.class) {
-                    if (f29782a == null) {
-                        f29782a = new a();
+                    if (f29892a == null) {
+                        f29892a = new a();
                     }
                 }
             }
-            return f29782a;
+            return f29892a;
         }
         return (a) invokeV.objValue;
     }
@@ -164,11 +165,11 @@ public class a {
             synchronized (this) {
                 if (b(str)) {
                     a(true);
-                    a(f29784c);
+                    a(f29894c);
                 } else {
                     a(false);
                 }
-                z = f29783b;
+                z = f29893b;
             }
             return z;
         }
@@ -179,15 +180,15 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65538, this, j) == null) {
             synchronized (this) {
-                if (this.f29786e == null) {
-                    this.f29786e = new Handler(Looper.getMainLooper());
+                if (this.f29896e == null) {
+                    this.f29896e = new Handler(Looper.getMainLooper());
                 }
-                this.f29786e.postDelayed(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.core.c.a.1
+                this.f29896e.postDelayed(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.core.c.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f29788a;
+                    public final /* synthetic */ a f29898a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -204,14 +205,14 @@ public class a {
                                 return;
                             }
                         }
-                        this.f29788a = this;
+                        this.f29898a = this;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f29788a.a(false);
+                            this.f29898a.a(false);
                         }
                     }
                 }, j);
@@ -225,7 +226,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                z = f29783b;
+                z = f29893b;
             }
             return z;
         }
@@ -236,7 +237,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, this, j) == null) {
             synchronized (this) {
-                f29784c = j;
+                f29894c = j;
             }
         }
     }
@@ -244,9 +245,9 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65540, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, this, z) == null) {
             synchronized (this) {
-                f29783b = z;
+                f29893b = z;
             }
         }
     }

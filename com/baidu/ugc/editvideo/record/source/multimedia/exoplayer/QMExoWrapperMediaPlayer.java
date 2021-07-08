@@ -17,13 +17,13 @@ import com.baidu.ugc.editvideo.player.VideoPlayData;
 import com.baidu.ugc.editvideo.record.source.DefaultAMediaPlayer;
 import com.baidu.ugc.editvideo.record.source.MediaInfo;
 import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
-import d.a.y0.b;
-import d.a.y0.c;
+import d.a.v0.b;
+import d.a.v0.c;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSeekCompleteListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class j extends s1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final y1 f71683e;
+    public final y1 f68786e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(y1 y1Var) {
@@ -34,7 +34,7 @@ public class j extends s1 {
                 return;
             }
         }
-        this.f71683e = y1Var;
+        this.f68786e = y1Var;
     }
 
     @Override // d.b.a.s1
@@ -42,7 +42,7 @@ public class j extends s1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            SharedPreferences D = this.f71683e.D();
+            SharedPreferences D = this.f68786e.D();
             String string = D.getString("install_id", null);
             String string2 = D.getString("device_id", null);
             String string3 = D.getString("ssid", null);

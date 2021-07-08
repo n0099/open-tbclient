@@ -1,5 +1,6 @@
 package com.baidu.apollon.restnet.rest;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -27,16 +28,16 @@ public final class a implements HostnameVerifier {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f3871a;
+    public static final a f3874a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f3872b;
+    public static final Pattern f3875b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3873c = 2;
+    public static final int f3876c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f3874d = 7;
+    public static final int f3877d = 7;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -52,8 +53,8 @@ public final class a implements HostnameVerifier {
                 return;
             }
         }
-        f3871a = new a();
-        f3872b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+        f3874a = new a();
+        f3875b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
     }
 
     public a() {
@@ -132,7 +133,7 @@ public final class a implements HostnameVerifier {
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? f3872b.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f3875b.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static List<String> a(X509Certificate x509Certificate) {

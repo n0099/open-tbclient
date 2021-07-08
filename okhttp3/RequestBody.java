@@ -1,5 +1,6 @@
 package okhttp3;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +17,7 @@ import okio.BufferedSink;
 import okio.ByteString;
 import okio.Okio;
 import okio.Source;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class RequestBody {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +120,7 @@ public abstract class RequestBody {
     public static RequestBody create(@Nullable MediaType mediaType, byte[] bArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, mediaType, bArr)) == null) ? create(mediaType, bArr, 0, bArr.length) : (RequestBody) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaType, bArr)) == null) ? create(mediaType, bArr, 0, bArr.length) : (RequestBody) invokeLL.objValue;
     }
 
     public static RequestBody create(@Nullable MediaType mediaType, byte[] bArr, int i2, int i3) {

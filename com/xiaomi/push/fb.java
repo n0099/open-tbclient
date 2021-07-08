@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.fe;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class fb {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43098a;
+    public static final boolean f40112a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,7 +28,7 @@ public class fb {
                 return;
             }
         }
-        f43098a = Log.isLoggable("BCompressed", 3);
+        f40112a = Log.isLoggable("BCompressed", 3);
     }
 
     public static byte[] a(fa faVar, byte[] bArr) {
@@ -37,7 +37,7 @@ public class fb {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, faVar, bArr)) == null) {
             try {
                 byte[] a2 = fe.a.a(bArr);
-                if (f43098a) {
+                if (f40112a) {
                     com.xiaomi.channel.commonutils.logger.b.m71a("BCompressed", "decompress " + bArr.length + " to " + a2.length + " for " + faVar);
                     if (faVar.f360a == 1) {
                         com.xiaomi.channel.commonutils.logger.b.m71a("BCompressed", "decompress not support upStream");

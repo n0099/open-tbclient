@@ -1,6 +1,7 @@
 package com.baidu.mobads.sdk.internal;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,7 +14,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ReflectionUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "com.baidu.mobads.sdk.internal.ReflectionUtils";
@@ -319,7 +320,7 @@ public class ReflectionUtils {
     public static Field getDeclaredField(Class<?> cls, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, cls, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, str)) == null) {
             while (cls != Object.class) {
                 try {
                     return cls.getDeclaredField(str);

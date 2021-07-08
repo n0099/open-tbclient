@@ -11,13 +11,13 @@ import java.lang.reflect.Type;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class q implements h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseArray<?> f44030a;
+    public SparseArray<?> f41046a;
 
     public q(SparseArray<?> sparseArray) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class q implements h {
                 return;
             }
         }
-        this.f44030a = sparseArray;
+        this.f41046a = sparseArray;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
@@ -58,14 +58,14 @@ public class q implements h {
     public Object b(d.a.c.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) ? this.f44030a : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) ? this.f41046a : invokeL.objValue;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object c(d.a.c.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) ? this.f44030a : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) ? this.f41046a : invokeL.objValue;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
@@ -96,10 +96,10 @@ public class q implements h {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cVar)) == null) {
             Type[] b2 = cVar.b();
             JSONObject jSONObject = new JSONObject();
-            int size = this.f44030a.size();
+            int size = this.f41046a.size();
             for (int i2 = 0; i2 < size; i2++) {
-                int keyAt = this.f44030a.keyAt(i2);
-                Object obj = this.f44030a.get(keyAt);
+                int keyAt = this.f41046a.keyAt(i2);
+                Object obj = this.f41046a.get(keyAt);
                 if (obj != null) {
                     if (b2 != null && b2.length >= 1) {
                         Object f2 = d.a.c.e.b.b.a.e.f.a(obj).f(new d.a.c.e.b.b.a.e.c(b2[0]));

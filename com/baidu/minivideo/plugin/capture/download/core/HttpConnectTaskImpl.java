@@ -2,6 +2,7 @@ package com.baidu.minivideo.plugin.capture.download.core;
 
 import android.os.Process;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.plugin.capture.download.base.HttpConnectTask;
 import com.baidu.minivideo.plugin.capture.download.exception.DownloadException;
@@ -15,7 +16,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class HttpConnectTaskImpl implements HttpConnectTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -156,7 +157,7 @@ public class HttpConnectTaskImpl implements HttpConnectTask {
     private void parseResponse(HttpURLConnection httpURLConnection, boolean z) throws DownloadException {
         long contentLength;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65540, this, httpURLConnection, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, httpURLConnection, z) == null) {
             String headerField = httpURLConnection.getHeaderField("Content-Length");
             if (!TextUtils.isEmpty(headerField) && !headerField.equals("0") && !headerField.equals("-1")) {
                 contentLength = Long.parseLong(headerField);

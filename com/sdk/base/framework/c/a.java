@@ -1,6 +1,7 @@
 package com.sdk.base.framework.c;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,18 +13,18 @@ import com.sdk.base.framework.bean.PInfo;
 import com.sdk.base.framework.bean.SInfo;
 import com.sdk.base.module.config.BaseConfig;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f41181a = false;
+    public static boolean f38195a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f41182b = "";
+    public static String f38196b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f41183c = "";
+    public static String f38197c = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -68,7 +69,7 @@ public final class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             SInfo sInfo = new SInfo();
             sInfo.setN(BaseConfig.n);
-            sInfo.setC(BaseConfig.f41252c);
+            sInfo.setC(BaseConfig.f38266c);
             sInfo.setV(BaseConfig.v);
             sInfo.setCm(BaseConfig.cm);
             return sInfo;
@@ -79,7 +80,7 @@ public final class a {
     public static PInfo c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             PInfo pInfo = new PInfo();
             pInfo.setOs("Android");
             return pInfo;

@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabaseCorruptException;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.upload.action.IMTrack;
@@ -79,7 +80,7 @@ public class DBResource {
     public static DBResource getInstance(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             if (mContext == null) {
                 mContext = context.getApplicationContext();
             }

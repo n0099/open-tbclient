@@ -28,25 +28,25 @@ import d.f.b.a.i0.v;
 import d.f.b.a.k;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class d implements l, Loader.a<o<d.f.b.a.d0.x.e.a>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Uri f72993e;
+    public final Uri f70096e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final e.a f72994f;
+    public final e.a f70097f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final b.a f72995g;
+    public final b.a f70098g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f72996h;
+    public final int f70099h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final long f72997i;
+    public final long f70100i;
     public final b.a j;
     public final o.a<? extends d.f.b.a.d0.x.e.a> k;
     public final ArrayList<c> l;
@@ -58,13 +58,13 @@ public final class d implements l, Loader.a<o<d.f.b.a.d0.x.e.a>> {
     public d.f.b.a.d0.x.e.a r;
     public Handler s;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f72998e;
+        public final /* synthetic */ d f70101e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -81,14 +81,14 @@ public final class d implements l, Loader.a<o<d.f.b.a.d0.x.e.a>> {
                     return;
                 }
             }
-            this.f72998e = dVar;
+            this.f70101e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f72998e.o();
+                this.f70101e.o();
             }
         }
     }
@@ -140,7 +140,7 @@ public final class d implements l, Loader.a<o<d.f.b.a.d0.x.e.a>> {
                 j();
                 return;
             }
-            this.n = this.f72994f.a();
+            this.n = this.f70097f.a();
             Loader loader = new Loader("Loader:Manifest");
             this.o = loader;
             this.p = loader;
@@ -162,8 +162,8 @@ public final class d implements l, Loader.a<o<d.f.b.a.d0.x.e.a>> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bVar, bVar2)) == null) {
-            d.f.b.a.i0.a.a(bVar.f72709a == 0);
-            c cVar = new c(this.r, this.f72995g, this.f72996h, this.j, this.p, bVar2);
+            d.f.b.a.i0.a.a(bVar.f69812a == 0);
+            c cVar = new c(this.r, this.f70098g, this.f70099h, this.j, this.p, bVar2);
             this.l.add(cVar);
             return cVar;
         }
@@ -206,7 +206,7 @@ public final class d implements l, Loader.a<o<d.f.b.a.d0.x.e.a>> {
     public void l(o<d.f.b.a.d0.x.e.a> oVar, long j, long j2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{oVar, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            this.j.i(oVar.f73334a, oVar.f73335b, j, j2, oVar.d());
+            this.j.i(oVar.f70437a, oVar.f70438b, j, j2, oVar.d());
         }
     }
 
@@ -216,7 +216,7 @@ public final class d implements l, Loader.a<o<d.f.b.a.d0.x.e.a>> {
     public void m(o<d.f.b.a.d0.x.e.a> oVar, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{oVar, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.j.i(oVar.f73334a, oVar.f73335b, j, j2, oVar.d());
+            this.j.i(oVar.f70437a, oVar.f70438b, j, j2, oVar.d());
             this.r = oVar.e();
             this.q = j - j2;
             j();
@@ -232,7 +232,7 @@ public final class d implements l, Loader.a<o<d.f.b.a.d0.x.e.a>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{oVar, Long.valueOf(j), Long.valueOf(j2), iOException})) == null) {
             boolean z = iOException instanceof ParserException;
-            this.j.k(oVar.f73334a, oVar.f73335b, j, j2, oVar.d(), iOException, z);
+            this.j.k(oVar.f70437a, oVar.f70438b, j, j2, oVar.d(), iOException, z);
             return z ? 3 : 0;
         }
         return invokeCommon.intValue;
@@ -248,30 +248,30 @@ public final class d implements l, Loader.a<o<d.f.b.a.d0.x.e.a>> {
             }
             long j = Long.MIN_VALUE;
             long j2 = Long.MAX_VALUE;
-            for (a.b bVar : this.r.f73001c) {
-                if (bVar.f73009d > 0) {
+            for (a.b bVar : this.r.f70104c) {
+                if (bVar.f70112d > 0) {
                     j2 = Math.min(j2, bVar.d(0));
-                    j = Math.max(j, bVar.d(bVar.f73009d - 1) + bVar.b(bVar.f73009d - 1));
+                    j = Math.max(j, bVar.d(bVar.f70112d - 1) + bVar.b(bVar.f70112d - 1));
                 }
             }
             if (j2 == Long.MAX_VALUE) {
-                rVar = new r(this.r.f72999a ? -9223372036854775807L : 0L, 0L, 0L, 0L, true, this.r.f72999a);
+                rVar = new r(this.r.f70102a ? -9223372036854775807L : 0L, 0L, 0L, 0L, true, this.r.f70102a);
             } else {
                 d.f.b.a.d0.x.e.a aVar = this.r;
-                if (aVar.f72999a) {
-                    long j3 = aVar.f73003e;
+                if (aVar.f70102a) {
+                    long j3 = aVar.f70106e;
                     if (j3 != -9223372036854775807L && j3 > 0) {
                         j2 = Math.max(j2, j - j3);
                     }
                     long j4 = j2;
                     long j5 = j - j4;
-                    long a2 = j5 - d.f.b.a.b.a(this.f72997i);
+                    long a2 = j5 - d.f.b.a.b.a(this.f70100i);
                     if (a2 < 5000000) {
                         a2 = Math.min(5000000L, j5 / 2);
                     }
                     rVar = new r(-9223372036854775807L, j5, j4, a2, true, true);
                 } else {
-                    long j6 = aVar.f73002d;
+                    long j6 = aVar.f70105d;
                     long j7 = j6 != -9223372036854775807L ? j6 : j - j2;
                     rVar = new r(j2 + j7, j7, j2, 0L, true, false);
                 }
@@ -282,7 +282,7 @@ public final class d implements l, Loader.a<o<d.f.b.a.d0.x.e.a>> {
 
     public final void k() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.r.f72999a) {
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.r.f70102a) {
             this.s.postDelayed(new a(this), Math.max(0L, (this.q + 5000) - SystemClock.elapsedRealtime()));
         }
     }
@@ -290,8 +290,8 @@ public final class d implements l, Loader.a<o<d.f.b.a.d0.x.e.a>> {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            o oVar = new o(this.n, this.f72993e, 4, this.k);
-            this.j.m(oVar.f73334a, oVar.f73335b, this.o.k(oVar, this, this.f72996h));
+            o oVar = new o(this.n, this.f70096e, 4, this.k);
+            this.j.m(oVar.f70437a, oVar.f70438b, this.o.k(oVar, this, this.f70099h));
         }
     }
 
@@ -343,28 +343,28 @@ public final class d implements l, Loader.a<o<d.f.b.a.d0.x.e.a>> {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar, uri, aVar2, aVar3, aVar4, Integer.valueOf(i2), Long.valueOf(j), handler, bVar};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }
-        d.f.b.a.i0.a.f(aVar == null || !aVar.f72999a);
+        d.f.b.a.i0.a.f(aVar == null || !aVar.f70102a);
         this.r = aVar;
         if (uri == null) {
             uri = null;
         } else if (!v.J(uri.getLastPathSegment()).matches("manifest(\\(.+\\))?")) {
             uri = Uri.withAppendedPath(uri, "Manifest");
         }
-        this.f72993e = uri;
-        this.f72994f = aVar2;
+        this.f70096e = uri;
+        this.f70097f = aVar2;
         this.k = aVar3;
-        this.f72995g = aVar4;
-        this.f72996h = i2;
-        this.f72997i = j;
+        this.f70098g = aVar4;
+        this.f70099h = i2;
+        this.f70100i = j;
         this.j = new b.a(handler, bVar);
         this.l = new ArrayList<>();
     }

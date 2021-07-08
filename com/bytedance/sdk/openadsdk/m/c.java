@@ -8,34 +8,34 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final c f31364a;
+    public static final c f31474a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f31365b;
+    public static final c f31475b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c f31366c;
+    public static final c f31476c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final c f31367d;
+    public static final c f31477d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final c f31368e;
+    public static final c f31478e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final c f31369f;
+    public static final c f31479f;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final /* synthetic */ c[] f31370h;
+    public static final /* synthetic */ c[] f31480h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f31371g;
+    public String f31481g;
 
     static {
         InterceptResult invokeClinit;
@@ -50,14 +50,14 @@ public final class c {
                 return;
             }
         }
-        f31364a = new c("TYPE_2G", 0, "2g");
-        f31365b = new c("TYPE_3G", 1, "3g");
-        f31366c = new c("TYPE_4G", 2, "4g");
-        f31367d = new c("TYPE_5G", 3, "5g");
-        f31368e = new c("TYPE_WIFI", 4, "wifi");
+        f31474a = new c("TYPE_2G", 0, "2g");
+        f31475b = new c("TYPE_3G", 1, "3g");
+        f31476c = new c("TYPE_4G", 2, "4g");
+        f31477d = new c("TYPE_5G", 3, "5g");
+        f31478e = new c("TYPE_WIFI", 4, "wifi");
         c cVar = new c("TYPE_UNKNOWN", 5, "mobile");
-        f31369f = cVar;
-        f31370h = new c[]{f31364a, f31365b, f31366c, f31367d, f31368e, cVar};
+        f31479f = cVar;
+        f31480h = new c[]{f31474a, f31475b, f31476c, f31477d, f31478e, cVar};
     }
 
     public c(String str, int i2, String str2) {
@@ -78,7 +78,7 @@ public final class c {
                 return;
             }
         }
-        this.f31371g = str2;
+        this.f31481g = str2;
     }
 
     public static c valueOf(String str) {
@@ -90,13 +90,13 @@ public final class c {
     public static c[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (c[]) f31370h.clone() : (c[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (c[]) f31480h.clone() : (c[]) invokeV.objValue;
     }
 
     @Override // java.lang.Enum
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31371g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31481g : (String) invokeV.objValue;
     }
 }

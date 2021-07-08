@@ -47,7 +47,7 @@ import com.baidu.wallet.util.StatHelper;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PwdPayPresenterForCashdesk extends PwdPayContract.Presenter implements PwdPayContract.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public class PwdPayPresenterForCashdesk extends PwdPayContract.Presenter impleme
     public String pwdword;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class CheckForWhat {
         public static final /* synthetic */ CheckForWhat[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

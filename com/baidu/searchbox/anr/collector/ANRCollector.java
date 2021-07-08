@@ -1,6 +1,7 @@
 package com.baidu.searchbox.anr.collector;
 
 import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.anr.impl.ANRMonitor;
 import com.baidu.searchbox.anr.utils.Utils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +14,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ANRCollector {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_TRACE_PATH = "/data/anr/traces.txt";
@@ -173,7 +174,7 @@ public class ANRCollector {
         String readLine2;
         String readLine3;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = (r5 = interceptable).invokeL(65540, null, str)) != null) {
+        if (interceptable != null && (invokeL = (r5 = interceptable).invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) != null) {
             return (String) invokeL.objValue;
         }
         if (str == null) {

@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.h2.h.m;
-/* loaded from: classes4.dex */
+import d.a.p0.h2.h.m;
+/* loaded from: classes3.dex */
 public class PbPostShareDialogConfig extends ShareDialogConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

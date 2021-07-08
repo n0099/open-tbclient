@@ -1,5 +1,6 @@
 package com.yy.hiidostatis.inner.util.cipher;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class TextUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final ThreadLocal<MessageDigest> MD5_DIGEST;
@@ -109,7 +110,7 @@ public class TextUtils {
     public static String encodeBase64(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, bArr)) == null) ? Base64Util.encode(bArr) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) ? Base64Util.encode(bArr) : (String) invokeL.objValue;
     }
 
     public static String format8length(int i2) {

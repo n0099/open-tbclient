@@ -2,6 +2,7 @@ package com.baidu.swan.apps.env;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.process.SwanAppIPCData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SwanAppDeleteInfo extends SwanAppIPCData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<SwanAppDeleteInfo> CREATOR;
@@ -22,7 +23,7 @@ public class SwanAppDeleteInfo extends SwanAppIPCData {
     public int mCheckHisAndFavor;
     public int mPurgerScenes;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<SwanAppDeleteInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -151,12 +152,12 @@ public class SwanAppDeleteInfo extends SwanAppIPCData {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {str, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }

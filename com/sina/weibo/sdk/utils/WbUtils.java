@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +16,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URLDecoder;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class WbUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_CHARSET = "UTF-8";
@@ -80,7 +81,7 @@ public class WbUtils {
     public static Bundle parseUri(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
                 return decodeUrl(new URI(str).getQuery());
             } catch (Exception unused) {

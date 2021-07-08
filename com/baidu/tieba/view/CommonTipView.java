@@ -18,33 +18,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.e;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CommonTipView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21965e;
+    public int f22022e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Animation f21966f;
+    public Animation f22023f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TranslateAnimation f21967g;
+    public TranslateAnimation f22024g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Runnable f21968h;
+    public Runnable f22025h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Runnable f21969i;
+    public Runnable f22026i;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CommonTipView f21970e;
+        public final /* synthetic */ CommonTipView f22027e;
 
         public a(CommonTipView commonTipView) {
             Interceptable interceptable = $ic;
@@ -61,25 +61,25 @@ public class CommonTipView extends TextView {
                     return;
                 }
             }
-            this.f21970e = commonTipView;
+            this.f22027e = commonTipView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f21970e.f();
+                this.f22027e.f();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CommonTipView f21971e;
+        public final /* synthetic */ CommonTipView f22028e;
 
         public b(CommonTipView commonTipView) {
             Interceptable interceptable = $ic;
@@ -96,27 +96,27 @@ public class CommonTipView extends TextView {
                     return;
                 }
             }
-            this.f21971e = commonTipView;
+            this.f22028e = commonTipView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             ViewGroup viewGroup;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (viewGroup = (ViewGroup) this.f21971e.getParent()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (viewGroup = (ViewGroup) this.f22028e.getParent()) == null) {
                 return;
             }
-            viewGroup.removeView(this.f21971e);
+            viewGroup.removeView(this.f22028e);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonTipView f21972a;
+        public final /* synthetic */ CommonTipView f22029a;
 
         public c(CommonTipView commonTipView) {
             Interceptable interceptable = $ic;
@@ -133,16 +133,16 @@ public class CommonTipView extends TextView {
                     return;
                 }
             }
-            this.f21972a = commonTipView;
+            this.f22029a = commonTipView;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f21972a.i();
-                this.f21972a.setVisibility(8);
-                e.a().postDelayed(this.f21972a.f21969i, 600L);
+                this.f22029a.i();
+                this.f22029a.setVisibility(8);
+                e.a().postDelayed(this.f22029a.f22026i, 600L);
             }
         }
 
@@ -161,13 +161,13 @@ public class CommonTipView extends TextView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonTipView f21973a;
+        public final /* synthetic */ CommonTipView f22030a;
 
         public d(CommonTipView commonTipView) {
             Interceptable interceptable = $ic;
@@ -184,15 +184,15 @@ public class CommonTipView extends TextView {
                     return;
                 }
             }
-            this.f21973a = commonTipView;
+            this.f22030a = commonTipView;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                CommonTipView commonTipView = this.f21973a;
-                commonTipView.postDelayed(commonTipView.f21968h, this.f21973a.f21965e);
+                CommonTipView commonTipView = this.f22030a;
+                commonTipView.postDelayed(commonTipView.f22025h, this.f22030a.f22022e);
             }
         }
 
@@ -229,11 +229,11 @@ public class CommonTipView extends TextView {
                 return;
             }
         }
-        this.f21965e = 4000;
-        this.f21966f = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
-        this.f21967g = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
-        this.f21968h = new a(this);
-        this.f21969i = new b(this);
+        this.f22022e = 4000;
+        this.f22023f = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
+        this.f22024g = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
+        this.f22025h = new a(this);
+        this.f22026i = new b(this);
         g();
     }
 
@@ -249,9 +249,9 @@ public class CommonTipView extends TextView {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            removeCallbacks(this.f21968h);
+            removeCallbacks(this.f22025h);
             if (getParent() != null) {
-                startAnimation(this.f21966f);
+                startAnimation(this.f22023f);
             }
         }
     }
@@ -261,9 +261,9 @@ public class CommonTipView extends TextView {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds24));
             setGravity(17);
-            this.f21966f.setAnimationListener(new c(this));
-            this.f21967g.setDuration(400L);
-            this.f21967g.setAnimationListener(new d(this));
+            this.f22023f.setAnimationListener(new c(this));
+            this.f22024g.setDuration(400L);
+            this.f22024g.setAnimationListener(new d(this));
         }
     }
 
@@ -278,8 +278,8 @@ public class CommonTipView extends TextView {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            removeCallbacks(this.f21968h);
-            e.a().removeCallbacks(this.f21969i);
+            removeCallbacks(this.f22025h);
+            e.a().removeCallbacks(this.f22026i);
             e();
         }
     }
@@ -293,7 +293,7 @@ public class CommonTipView extends TextView {
         layoutParams.setMargins(0, 0, 0, 0);
         frameLayout.addView(this, layoutParams);
         h(i2);
-        startAnimation(this.f21967g);
+        startAnimation(this.f22024g);
     }
 
     public void k(LinearLayout linearLayout, int i2) {
@@ -305,7 +305,7 @@ public class CommonTipView extends TextView {
         layoutParams.gravity = 48;
         linearLayout.addView(this, layoutParams);
         h(i2);
-        startAnimation(this.f21967g);
+        startAnimation(this.f22024g);
     }
 
     public void setTipDuration(int i2) {
@@ -313,7 +313,7 @@ public class CommonTipView extends TextView {
         if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || i2 <= 0) {
             return;
         }
-        this.f21965e = i2;
+        this.f22022e = i2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -335,11 +335,11 @@ public class CommonTipView extends TextView {
                 return;
             }
         }
-        this.f21965e = 4000;
-        this.f21966f = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
-        this.f21967g = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
-        this.f21968h = new a(this);
-        this.f21969i = new b(this);
+        this.f22022e = 4000;
+        this.f22023f = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
+        this.f22024g = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
+        this.f22025h = new a(this);
+        this.f22026i = new b(this);
         g();
     }
 
@@ -362,11 +362,11 @@ public class CommonTipView extends TextView {
                 return;
             }
         }
-        this.f21965e = 4000;
-        this.f21966f = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
-        this.f21967g = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
-        this.f21968h = new a(this);
-        this.f21969i = new b(this);
+        this.f22022e = 4000;
+        this.f22023f = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
+        this.f22024g = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
+        this.f22025h = new a(this);
+        this.f22026i = new b(this);
         g();
     }
 }

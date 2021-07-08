@@ -25,36 +25,36 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.AgreeBanner;
 import tbclient.SimpleUser;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FrsHeaderPraiseView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f15551e;
+    public View f15590e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f15552f;
+    public View f15591f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f15553g;
+    public TextView f15592g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FrameLayout f15554h;
+    public FrameLayout f15593h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f15555i;
+    public ImageView f15594i;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AgreeBanner f15556e;
+        public final /* synthetic */ AgreeBanner f15595e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FrsHeaderPraiseView f15557f;
+        public final /* synthetic */ FrsHeaderPraiseView f15596f;
 
         public a(FrsHeaderPraiseView frsHeaderPraiseView, AgreeBanner agreeBanner) {
             Interceptable interceptable = $ic;
@@ -71,17 +71,17 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                     return;
                 }
             }
-            this.f15557f = frsHeaderPraiseView;
-            this.f15556e = agreeBanner;
+            this.f15596f = frsHeaderPraiseView;
+            this.f15595e = agreeBanner;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f15556e.url)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f15595e.url)) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f15557f.getContext(), null, this.f15556e.url, true)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f15596f.getContext(), null, this.f15595e.url, true)));
         }
     }
 
@@ -109,12 +109,12 @@ public class FrsHeaderPraiseView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f15551e = findViewById(R.id.divider_top);
-            this.f15552f = findViewById(R.id.divider_bottom);
-            this.f15553g = (TextView) findViewById(R.id.frs_praise_title);
-            this.f15554h = (FrameLayout) findViewById(R.id.frs_praise_portrait);
+            this.f15590e = findViewById(R.id.divider_top);
+            this.f15591f = findViewById(R.id.divider_bottom);
+            this.f15592g = (TextView) findViewById(R.id.frs_praise_title);
+            this.f15593h = (FrameLayout) findViewById(R.id.frs_praise_portrait);
             ImageView imageView = (ImageView) findViewById(R.id.frs_praise_more);
-            this.f15555i = imageView;
+            this.f15594i = imageView;
             SkinManager.setImageResource(imageView, R.drawable.icon_arrow_more_gray_n);
         }
     }
@@ -127,9 +127,9 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                 return;
             }
             setVisibility(0);
-            this.f15553g.setText(agreeBanner.text);
+            this.f15592g.setText(agreeBanner.text);
             List<SimpleUser> list = agreeBanner.top_agree_user;
-            this.f15554h.removeAllViews();
+            this.f15593h.removeAllViews();
             if (list != null) {
                 ArrayList arrayList = new ArrayList();
                 if (list.size() > 5) {
@@ -139,7 +139,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                 } else {
                     arrayList.addAll(list);
                 }
-                for (int size = arrayList.size() - 1; size >= 0 && this.f15554h.getChildCount() != 5; size--) {
+                for (int size = arrayList.size() - 1; size >= 0 && this.f15593h.getChildCount() != 5; size--) {
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.ds40), getResources().getDimensionPixelSize(R.dimen.ds40));
                     HeadImageView headImageView = new HeadImageView(getContext());
                     headImageView.setDefaultResource(17170445);
@@ -152,7 +152,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                         layoutParams.rightMargin = (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.ds40)) - (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.ds8));
                     }
                     layoutParams.gravity = 5;
-                    this.f15554h.addView(headImageView, layoutParams);
+                    this.f15593h.addView(headImageView, layoutParams);
                 }
             }
             setOnClickListener(new a(this, agreeBanner));

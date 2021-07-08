@@ -1,6 +1,7 @@
 package com.bumptech.glide.load.engine.cache;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,7 +13,7 @@ import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.cache.DiskCache;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DiskLruCacheWrapper implements DiskCache {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP_VERSION = 1;
@@ -89,7 +90,7 @@ public class DiskLruCacheWrapper implements DiskCache {
 
     private synchronized void resetDiskCache() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             synchronized (this) {
                 this.diskLruCache = null;
             }

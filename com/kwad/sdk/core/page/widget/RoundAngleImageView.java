@@ -12,19 +12,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RoundAngleImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Path f36438a;
+    public Path f34790a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f36439b;
+    public float[] f34791b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RectF f36440c;
+    public RectF f34792c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RoundAngleImageView(Context context) {
@@ -87,15 +87,16 @@ public class RoundAngleImageView extends ImageView {
                 return;
             }
         }
-        this.f36438a = new Path();
-        this.f36440c = new RectF();
+        this.f34790a = new Path();
+        this.f34792c = new RectF();
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            if (this.f36439b == 0.0f) {
+            float[] fArr = this.f34791b;
+            if (fArr == null || fArr.length != 8) {
                 super.onDraw(canvas);
                 return;
             }
@@ -104,19 +105,16 @@ public class RoundAngleImageView extends ImageView {
             }
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
-            float f2 = this.f36439b;
-            float f3 = f2 * 2.0f;
-            float f4 = f2 * 2.0f;
-            float f5 = measuredWidth;
-            if (f5 >= f3) {
-                float f6 = measuredHeight;
-                if (f6 > f4) {
-                    this.f36440c.set(0.0f, 0.0f, f5, f6);
-                    Path path = this.f36438a;
-                    RectF rectF = this.f36440c;
-                    float f7 = this.f36439b;
-                    path.addRoundRect(rectF, f7, f7, Path.Direction.CW);
-                    canvas.clipPath(this.f36438a);
+            float[] fArr2 = this.f34791b;
+            float f2 = fArr2[1] + fArr2[7];
+            this.f34790a.rewind();
+            float f3 = measuredWidth;
+            if (f3 >= fArr2[0] + fArr2[3]) {
+                float f4 = measuredHeight;
+                if (f4 > f2) {
+                    this.f34792c.set(0.0f, 0.0f, f3, f4);
+                    this.f34790a.addRoundRect(this.f34792c, this.f34791b, Path.Direction.CW);
+                    canvas.clipPath(this.f34790a);
                 }
             }
             super.onDraw(canvas);
@@ -125,8 +123,35 @@ public class RoundAngleImageView extends ImageView {
 
     public void setRadius(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-            this.f36439b = f2;
+        if (interceptable != null && interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) != null) {
+            return;
+        }
+        this.f34791b = new float[8];
+        int i2 = 0;
+        while (true) {
+            float[] fArr = this.f34791b;
+            if (i2 >= fArr.length) {
+                return;
+            }
+            fArr[i2] = f2;
+            i2++;
+        }
+    }
+
+    public void setRadius(float[] fArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fArr) != null) {
+            return;
+        }
+        this.f34791b = new float[8];
+        int i2 = 0;
+        while (true) {
+            float[] fArr2 = this.f34791b;
+            if (i2 >= fArr2.length) {
+                return;
+            }
+            fArr2[i2] = fArr[i2];
+            i2++;
         }
     }
 }

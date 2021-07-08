@@ -11,7 +11,7 @@ import com.yy.hiidostatis.defs.obj.ShareType;
 import com.yy.hiidostatis.message.Packer;
 import java.util.Date;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public interface IStatisApi extends IStatisAPI {
     void addActAdditionListener(ActListener actListener);
 

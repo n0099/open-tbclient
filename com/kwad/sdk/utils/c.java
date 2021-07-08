@@ -12,7 +12,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public class c {
             try {
                 byte[] a2 = a(file);
                 if (a2 != null && a2.length != 0) {
-                    return t.a(a2, 0, a2.length);
+                    return w.a(a2, 0, a2.length);
                 }
                 return null;
             } catch (IOException | NoSuchAlgorithmException e2) {

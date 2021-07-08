@@ -12,25 +12,25 @@ import com.google.android.exoplayer2.extractor.flv.TagPayloadReader;
 import d.f.b.a.a0.m;
 import d.f.b.a.i0.j;
 import d.f.b.a.i0.l;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class d extends TagPayloadReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final l f72144b;
+    public final l f69247b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final l f72145c;
+    public final l f69248c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f72146d;
+    public int f69249d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f72147e;
+    public boolean f69250e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f72148f;
+    public int f69251f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(m mVar) {
@@ -50,8 +50,8 @@ public final class d extends TagPayloadReader {
                 return;
             }
         }
-        this.f72144b = new l(j.f73366a);
-        this.f72145c = new l(4);
+        this.f69247b = new l(j.f70469a);
+        this.f69248c = new l(4);
     }
 
     @Override // com.google.android.exoplayer2.extractor.flv.TagPayloadReader
@@ -63,7 +63,7 @@ public final class d extends TagPayloadReader {
             int i2 = (x >> 4) & 15;
             int i3 = x & 15;
             if (i3 == 7) {
-                this.f72148f = i2;
+                this.f69251f = i2;
                 return i2 != 5;
             }
             throw new TagPayloadReader.UnsupportedFormatException("Video format not supported: " + i3);
@@ -77,30 +77,30 @@ public final class d extends TagPayloadReader {
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar, j) == null) {
             int x = lVar.x();
             long j2 = j + (lVar.j() * 1000);
-            if (x == 0 && !this.f72147e) {
+            if (x == 0 && !this.f69250e) {
                 l lVar2 = new l(new byte[lVar.a()]);
-                lVar.g(lVar2.f73386a, 0, lVar.a());
+                lVar.g(lVar2.f70489a, 0, lVar.a());
                 d.f.b.a.j0.a b2 = d.f.b.a.j0.a.b(lVar2);
-                this.f72146d = b2.f73442b;
-                this.f32722a.b(Format.createVideoSampleFormat(null, "video/avc", null, -1, -1, b2.f73443c, b2.f73444d, -1.0f, b2.f73441a, -1, b2.f73445e, null));
-                this.f72147e = true;
-            } else if (x == 1 && this.f72147e) {
-                byte[] bArr = this.f72145c.f73386a;
+                this.f69249d = b2.f70545b;
+                this.f32832a.b(Format.createVideoSampleFormat(null, "video/avc", null, -1, -1, b2.f70546c, b2.f70547d, -1.0f, b2.f70544a, -1, b2.f70548e, null));
+                this.f69250e = true;
+            } else if (x == 1 && this.f69250e) {
+                byte[] bArr = this.f69248c.f70489a;
                 bArr[0] = 0;
                 bArr[1] = 0;
                 bArr[2] = 0;
-                int i2 = 4 - this.f72146d;
+                int i2 = 4 - this.f69249d;
                 int i3 = 0;
                 while (lVar.a() > 0) {
-                    lVar.g(this.f72145c.f73386a, i2, this.f72146d);
-                    this.f72145c.J(0);
-                    int B = this.f72145c.B();
-                    this.f72144b.J(0);
-                    this.f32722a.a(this.f72144b, 4);
-                    this.f32722a.a(lVar, B);
+                    lVar.g(this.f69248c.f70489a, i2, this.f69249d);
+                    this.f69248c.J(0);
+                    int B = this.f69248c.B();
+                    this.f69247b.J(0);
+                    this.f32832a.a(this.f69247b, 4);
+                    this.f32832a.a(lVar, B);
                     i3 = i3 + 4 + B;
                 }
-                this.f32722a.c(j2, this.f72148f == 1 ? 1 : 0, i3, 0, null);
+                this.f32832a.c(j2, this.f69251f == 1 ? 1 : 0, i3, 0, null);
             }
         }
     }

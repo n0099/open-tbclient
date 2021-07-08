@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d extends a<Object> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f5173a;
+    public static final Charset f5190a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class d extends a<Object> {
                 return;
             }
         }
-        f5173a = Charset.forName("UTF-8");
+        f5190a = Charset.forName("UTF-8");
     }
 
     public d() {
@@ -59,7 +59,7 @@ public class d extends a<Object> {
             if (aVar != null && !TextUtils.isEmpty(aVar.j())) {
                 return Charset.forName(aVar.j());
             }
-            return f5173a;
+            return f5190a;
         }
         return (Charset) invokeL.objValue;
     }

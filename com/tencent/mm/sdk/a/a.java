@@ -12,27 +12,27 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.channel.MMessageActV2;
 import com.tencent.mm.sdk.a.a.b;
 import com.tencent.mm.sdk.b.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.tencent.mm.sdk.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0559a {
+    /* loaded from: classes6.dex */
+    public static class C0520a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int flags;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f41835h;
+        public String f38849h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f41836i;
+        public String f38850i;
         public String j;
         public Bundle k;
 
-        public C0559a() {
+        public C0520a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,33 +49,33 @@ public final class a {
         }
     }
 
-    public static boolean a(Context context, C0559a c0559a) {
+    public static boolean a(Context context, C0520a c0520a) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, c0559a)) == null) {
-            if (context == null || c0559a == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, c0520a)) == null) {
+            if (context == null || c0520a == null) {
                 com.tencent.mm.sdk.b.a.a(MMessageActV2.TAG, "send fail, invalid argument");
                 return false;
-            } else if (c.a(c0559a.f41835h)) {
-                com.tencent.mm.sdk.b.a.a(MMessageActV2.TAG, "send fail, invalid targetPkgName, targetPkgName = " + c0559a.f41835h);
+            } else if (c.a(c0520a.f38849h)) {
+                com.tencent.mm.sdk.b.a.a(MMessageActV2.TAG, "send fail, invalid targetPkgName, targetPkgName = " + c0520a.f38849h);
                 return false;
             } else {
-                if (c.a(c0559a.f41836i)) {
-                    c0559a.f41836i = c0559a.f41835h + MMessageActV2.DEFAULT_ENTRY_CLASS_NAME;
+                if (c.a(c0520a.f38850i)) {
+                    c0520a.f38850i = c0520a.f38849h + MMessageActV2.DEFAULT_ENTRY_CLASS_NAME;
                 }
-                com.tencent.mm.sdk.b.a.c(MMessageActV2.TAG, "send, targetPkgName = " + c0559a.f41835h + ", targetClassName = " + c0559a.f41836i);
+                com.tencent.mm.sdk.b.a.c(MMessageActV2.TAG, "send, targetPkgName = " + c0520a.f38849h + ", targetClassName = " + c0520a.f38850i);
                 Intent intent = new Intent();
-                intent.setClassName(c0559a.f41835h, c0559a.f41836i);
-                Bundle bundle = c0559a.k;
+                intent.setClassName(c0520a.f38849h, c0520a.f38850i);
+                Bundle bundle = c0520a.k;
                 if (bundle != null) {
                     intent.putExtras(bundle);
                 }
                 String packageName = context.getPackageName();
                 intent.putExtra("_mmessage_sdkVersion", 570490883);
                 intent.putExtra("_mmessage_appPackage", packageName);
-                intent.putExtra("_mmessage_content", c0559a.j);
-                intent.putExtra("_mmessage_checksum", b.a(c0559a.j, 570490883, packageName));
-                int i2 = c0559a.flags;
+                intent.putExtra("_mmessage_content", c0520a.j);
+                intent.putExtra("_mmessage_checksum", b.a(c0520a.j, 570490883, packageName));
+                int i2 = c0520a.flags;
                 if (i2 == -1) {
                     intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT).addFlags(134217728);
                 } else {

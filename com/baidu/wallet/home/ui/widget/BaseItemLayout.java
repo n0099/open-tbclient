@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.home.WalletNewHomeActivity;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class BaseItemLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f24897d;
+    public int f25007d;
     public HomeCfgResponse.ConfigData mConfigData;
     public b mWalletHomeInterface;
 
@@ -41,7 +41,7 @@ public abstract class BaseItemLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f24897d = -1;
+        this.f25007d = -1;
     }
 
     public void dispatchShowPoint(String str) {
@@ -101,11 +101,11 @@ public abstract class BaseItemLayout extends RelativeLayout {
     public void setConfigData(HomeCfgResponse.ConfigData configData, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, configData, bVar) == null) {
-            if (this.mConfigData == null || ((bVar instanceof WalletNewHomeActivity.r) && ((WalletNewHomeActivity.r) bVar).f24851a.f24832a > this.f24897d)) {
+            if (this.mConfigData == null || ((bVar instanceof WalletNewHomeActivity.r) && ((WalletNewHomeActivity.r) bVar).f24961a.f24942a > this.f25007d)) {
                 this.mConfigData = configData;
                 this.mWalletHomeInterface = bVar;
                 if (bVar instanceof WalletNewHomeActivity.r) {
-                    this.f24897d = ((WalletNewHomeActivity.r) bVar).f24851a.f24832a;
+                    this.f25007d = ((WalletNewHomeActivity.r) bVar).f24961a.f24942a;
                 }
                 if (!isDataValid() || this.mWalletHomeInterface == null) {
                     return;
@@ -136,6 +136,6 @@ public abstract class BaseItemLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f24897d = -1;
+        this.f25007d = -1;
     }
 }

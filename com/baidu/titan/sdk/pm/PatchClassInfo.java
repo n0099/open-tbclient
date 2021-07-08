@@ -13,7 +13,7 @@ import java.util.zip.ZipFile;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PatchClassInfo {
     public HashSet<String> instantClassNames;
     public HashSet<String> lazyClassNames;

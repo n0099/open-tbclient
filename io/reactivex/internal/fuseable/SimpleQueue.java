@@ -2,7 +2,7 @@ package io.reactivex.internal.fuseable;
 
 import io.reactivex.annotations.NonNull;
 import io.reactivex.annotations.Nullable;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public interface SimpleQueue<T> {
     void clear();
 

@@ -83,7 +83,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 @ViewPager.DecorView
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class TabLayout extends HorizontalScrollView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANIMATION_DURATION = 300;
@@ -164,7 +164,7 @@ public class TabLayout extends HorizontalScrollView {
     @Nullable
     public ViewPager viewPager;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class AdapterChangeListener implements ViewPager.OnAdapterChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -209,7 +209,7 @@ public class TabLayout extends HorizontalScrollView {
     }
 
     @Deprecated
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface BaseOnTabSelectedListener<T extends Tab> {
         void onTabReselected(T t);
 
@@ -218,21 +218,21 @@ public class TabLayout extends HorizontalScrollView {
         void onTabUnselected(T t);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface LabelVisibility {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface Mode {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface OnTabSelectedListener extends BaseOnTabSelectedListener<Tab> {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class PagerAdapterObserver extends DataSetObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -273,7 +273,7 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class SlidingTabIndicator extends LinearLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -340,7 +340,7 @@ public class TabLayout extends HorizontalScrollView {
             int i2;
             int i3;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
                 View childAt = getChildAt(this.selectedPosition);
                 if (childAt == null || childAt.getWidth() <= 0) {
                     i2 = -1;
@@ -686,17 +686,17 @@ public class TabLayout extends HorizontalScrollView {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface TabGravity {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface TabIndicatorGravity {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class TabLayoutOnPageChangeListener implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -763,7 +763,7 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class TabView extends LinearLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1401,7 +1401,7 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ViewPagerOnTabSelectedListener implements OnTabSelectedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2415,7 +2415,7 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Tab {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int INVALID_POSITION = -1;

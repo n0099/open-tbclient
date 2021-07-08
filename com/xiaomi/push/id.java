@@ -15,12 +15,12 @@ import io.flutter.plugin.common.StandardMessageCodec;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class id implements iq<id, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f43385a;
+    public static final iy f40399a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final jg f642a;
@@ -43,7 +43,7 @@ public class id implements iq<id, Object>, Serializable, Cloneable {
             }
         }
         f642a = new jg("XmPushActionNormalConfig");
-        f43385a = new iy("", (byte) 15, (short) 1);
+        f40399a = new iy("", (byte) 15, (short) 1);
     }
 
     public id() {
@@ -106,7 +106,7 @@ public class id implements iq<id, Object>, Serializable, Cloneable {
         jbVar.m524a();
         while (true) {
             iy m520a = jbVar.m520a();
-            byte b2 = m520a.f43494a;
+            byte b2 = m520a.f40508a;
             if (b2 == 0) {
                 jbVar.f();
                 m462a();
@@ -160,7 +160,7 @@ public class id implements iq<id, Object>, Serializable, Cloneable {
             m462a();
             jbVar.a(f642a);
             if (this.f643a != null) {
-                jbVar.a(f43385a);
+                jbVar.a(f40399a);
                 jbVar.a(new iz(StandardMessageCodec.LIST, this.f643a.size()));
                 for (ho hoVar : this.f643a) {
                     hoVar.b(jbVar);

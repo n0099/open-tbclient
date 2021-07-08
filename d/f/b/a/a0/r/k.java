@@ -1,6 +1,7 @@
 package d.f.b.a.a0.r;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,12 +11,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.ParserException;
 import d.f.b.a.i0.l;
 import java.util.Arrays;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +38,7 @@ public final class k {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,13 +60,13 @@ public final class k {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final boolean f72374a;
+        public final boolean f69477a;
 
         public c(boolean z, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
@@ -82,32 +83,32 @@ public final class k {
                     return;
                 }
             }
-            this.f72374a = z;
+            this.f69477a = z;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f72375a;
+        public final int f69478a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f72376b;
+        public final long f69479b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f72377c;
+        public final int f69480c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f72378d;
+        public final int f69481d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f72379e;
+        public final int f69482e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final byte[] f72380f;
+        public final byte[] f69483f;
 
         public d(long j, int i2, long j2, int i3, int i4, int i5, int i6, int i7, boolean z, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -124,12 +125,12 @@ public final class k {
                     return;
                 }
             }
-            this.f72375a = i2;
-            this.f72376b = j2;
-            this.f72377c = i4;
-            this.f72378d = i6;
-            this.f72379e = i7;
-            this.f72380f = bArr;
+            this.f69478a = i2;
+            this.f69479b = j2;
+            this.f69480c = i4;
+            this.f69481d = i6;
+            this.f69482e = i7;
+            this.f69483f = bArr;
         }
     }
 
@@ -269,7 +270,7 @@ public final class k {
 
     public static void e(int i2, i iVar) throws ParserException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65540, null, i2, iVar) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, iVar) == null) {
             int d2 = iVar.d(6) + 1;
             for (int i3 = 0; i3 < d2; i3++) {
                 int d3 = iVar.d(16);
@@ -380,7 +381,7 @@ public final class k {
             int l2 = lVar.l();
             int l3 = lVar.l();
             int x2 = lVar.x();
-            return new d(n, x, n2, l, l2, l3, (int) Math.pow(2.0d, x2 & 15), (int) Math.pow(2.0d, (x2 & 240) >> 4), (lVar.x() & 1) > 0, Arrays.copyOf(lVar.f73386a, lVar.d()));
+            return new d(n, x, n2, l, l2, l3, (int) Math.pow(2.0d, x2 & 15), (int) Math.pow(2.0d, (x2 & 240) >> 4), (lVar.x() & 1) > 0, Arrays.copyOf(lVar.f70489a, lVar.d()));
         }
         return (d) invokeL.objValue;
     }
@@ -391,7 +392,7 @@ public final class k {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, lVar, i2)) == null) {
             k(5, lVar, false);
             int x = lVar.x() + 1;
-            i iVar = new i(lVar.f73386a);
+            i iVar = new i(lVar.f70489a);
             iVar.e(lVar.c() * 8);
             for (int i3 = 0; i3 < x; i3++) {
                 c(iVar);

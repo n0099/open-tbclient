@@ -23,13 +23,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.b;
 import d.a.c.e.p.l;
-import d.a.r0.b.d;
-import d.a.r0.b.g.a;
-import d.a.r0.r.q.b2;
-import d.a.r0.z0.c0;
-import d.a.s0.u0.n2.k;
-import d.a.s0.w2.w;
-/* loaded from: classes4.dex */
+import d.a.o0.b.d;
+import d.a.o0.b.g.a;
+import d.a.o0.r.q.b2;
+import d.a.o0.z0.c0;
+import d.a.p0.u0.n2.k;
+import d.a.p0.w2.w;
+/* loaded from: classes3.dex */
 public class FrsActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_IS_ONLIVING = "ala_is_living";
@@ -192,7 +192,7 @@ public class FrsActivityConfig extends IntentConfig {
             } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
                 i2 = 6;
             }
-            if (d.n() && a.f54805c != a.d()) {
+            if (d.x() && a.f51510c != a.d()) {
                 frsRequestData.H(k.d(a.d()));
             }
             frsRequestData.setSortType(k.d(i2));
@@ -228,9 +228,9 @@ public class FrsActivityConfig extends IntentConfig {
             frsRequestData.I(longExtra);
             k.e(i2, frsRequestData);
             frsRequestData.Q(1);
-            if (b2.B3.get() && w.p().b() != null) {
-                int d2 = w.p().b().d(stringExtra, false);
-                int e2 = w.p().b().e(stringExtra, false);
+            if (b2.B3.get() && w.o().b() != null) {
+                int d2 = w.o().b().d(stringExtra, false);
+                int e2 = w.o().b().e(stringExtra, false);
                 if (frsRequestData.A() == 1) {
                     d2++;
                 } else if (frsRequestData.A() == 2) {

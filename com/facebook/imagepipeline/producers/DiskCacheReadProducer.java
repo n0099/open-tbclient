@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.producers;
 
+import androidx.core.view.InputDeviceCompat;
 import c.d;
 import c.e;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,7 +21,7 @@ import java.util.Map;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DiskCacheReadProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENCODED_IMAGE_SIZE = "encodedImageSize";
@@ -73,7 +74,7 @@ public class DiskCacheReadProducer implements Producer<EncodedImage> {
     public static boolean isTaskCancelled(e<?> eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, eVar)) == null) ? eVar.p() || (eVar.r() && (eVar.m() instanceof CancellationException)) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, eVar)) == null) ? eVar.p() || (eVar.r() && (eVar.m() instanceof CancellationException)) : invokeL.booleanValue;
     }
 
     private void maybeStartInputProducer(Consumer<EncodedImage> consumer, ProducerContext producerContext) {

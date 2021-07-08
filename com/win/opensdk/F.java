@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class F implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ G f42344a;
+    public final /* synthetic */ G f39358a;
 
     public F(G g2) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public class F implements Runnable {
                 return;
             }
         }
-        this.f42344a = g2;
+        this.f39358a = g2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Toast.makeText(this.f42344a.f42348b.getApplicationContext(), R.string.win_toast_network_error2, 0).show();
+            Toast.makeText(this.f39358a.f39362b.getApplicationContext(), R.string.win_toast_network_error2, 0).show();
         }
     }
 }

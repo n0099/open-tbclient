@@ -1,5 +1,6 @@
 package com.baidu.mobads.cid.cesium.a;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.webkit.internal.utils.UtilsBlink;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +41,7 @@ public final class d {
     public static byte[] e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? new byte[]{10, 28, -53, -126, 11, -111, 68, -11, -28, Constants.SHORT_PING_CMD_TYPE, 81, 41, 59, -1, 98, -58, -25, -60, -55, 70, 66, 51, -63, -79, -96, 37, 70, 7, 108, 59, -79, -65} : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new byte[]{10, 28, -53, -126, 11, -111, 68, -11, -28, Constants.SHORT_PING_CMD_TYPE, 81, 41, 59, -1, 98, -58, -25, -60, -55, 70, 66, 51, -63, -79, -96, 37, 70, 7, 108, 59, -79, -65} : (byte[]) invokeV.objValue;
     }
 
     public static byte[] f() {

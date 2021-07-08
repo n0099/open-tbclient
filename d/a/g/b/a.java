@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.w.m;
-/* loaded from: classes8.dex */
+import d.a.o0.w.m;
+/* loaded from: classes7.dex */
 public class a extends m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,10 +36,10 @@ public class a extends m {
                 return;
             }
         }
-        this.f56773b = TbadkCoreApplication.getInst().getResources().getString(R.string.switch_to_voice);
-        this.f56775d = R.drawable.icon_pure_post_speak24;
-        this.f56778g = false;
-        this.f56779h = true;
+        this.f53494b = TbadkCoreApplication.getInst().getResources().getString(R.string.switch_to_voice);
+        this.f53496d = R.drawable.icon_pure_post_speak24;
+        this.f53499g = false;
+        this.f53500h = true;
         this.m = true;
         this.l = 5;
         this.k = new SendVoiceView(context);

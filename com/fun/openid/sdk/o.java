@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class o extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,17 +70,17 @@ public final class o extends Handler {
                 str2 = "content://com.vivo.vms.IdProvider/IdentifierId/AAID_";
             } else if (i2 != 4) {
                 parse = null;
-                query = nVar.f32673a.getContentResolver().query(parse, null, null, null, null);
+                query = nVar.f32783a.getContentResolver().query(parse, null, null, null, null);
                 if (query == null) {
                     r2 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
                     query.close();
                 } else {
                     Log.d("VMS_IDLG_SDK_DB", "return cursor is null,return");
                 }
-                p.f32680g = r2;
-                Context context = p.f32674a;
-                synchronized (p.f32677d) {
-                    p.f32677d.notify();
+                p.f32790g = r2;
+                Context context = p.f32784a;
+                synchronized (p.f32787d) {
+                    p.f32787d.notify();
                 }
                 return;
             } else {
@@ -93,12 +93,12 @@ public final class o extends Handler {
             str = "content://com.vivo.vms.IdProvider/IdentifierId/OAID";
         }
         parse = Uri.parse(str);
-        query = nVar.f32673a.getContentResolver().query(parse, null, null, null, null);
+        query = nVar.f32783a.getContentResolver().query(parse, null, null, null, null);
         if (query == null) {
         }
-        p.f32680g = r2;
-        Context context2 = p.f32674a;
-        synchronized (p.f32677d) {
+        p.f32790g = r2;
+        Context context2 = p.f32784a;
+        synchronized (p.f32787d) {
         }
     }
 }

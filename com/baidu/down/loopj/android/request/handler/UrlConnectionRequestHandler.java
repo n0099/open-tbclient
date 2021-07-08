@@ -36,7 +36,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UrlConnectionRequestHandler implements ICommonRequestHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -148,7 +148,7 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
 
     private void requestConnect(String str) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) {
             if (this.mAsyncUrlConnection.usingDNSProxy()) {
                 try {
                     this.mRequestHeader.put("Host", new URI(str).getHost());

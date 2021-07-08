@@ -12,6 +12,7 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -92,7 +93,7 @@ public final class ComplexColorCompat {
     public static ComplexColorCompat from(@NonNull Shader shader) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, shader)) == null) ? new ComplexColorCompat(shader, null, 0) : (ComplexColorCompat) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, shader)) == null) ? new ComplexColorCompat(shader, null, 0) : (ComplexColorCompat) invokeL.objValue;
     }
 
     @Nullable

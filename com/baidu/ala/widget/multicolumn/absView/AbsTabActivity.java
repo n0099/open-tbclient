@@ -2,6 +2,7 @@ package com.baidu.ala.widget.multicolumn.absView;
 
 import android.content.res.Resources;
 import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
@@ -89,21 +90,21 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this);
-        bVar.f12348c = fragment;
-        bVar.f12346a = i2;
+        bVar.f12365c = fragment;
+        bVar.f12363a = i2;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.setTextColorResId(R.color.ala_sub_list_game_live_tab_txt_color);
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
         fragmentTabIndicator.setIsSupportNight(this.isSupportNight);
         fragmentTabIndicator.setContentWidthWrapContent();
-        bVar.f12347b = fragmentTabIndicator;
+        bVar.f12364b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 
     private void initTabSpec() {
         AbsTabPagerAdapter adapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65540, this) == null) || (adapter = getAdapter()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (adapter = getAdapter()) == null) {
             return;
         }
         int count = adapter.getCount();

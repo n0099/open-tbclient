@@ -1,7 +1,7 @@
 package com.google.android.material.expandable;
 
 import androidx.annotation.IdRes;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface ExpandableTransformationWidget extends ExpandableWidget {
     @IdRes
     int getExpandedComponentIdHint();

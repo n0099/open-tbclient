@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PBMediaView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public K f42425a;
+    public K f39439a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PBMediaView(Context context) {
@@ -78,8 +78,8 @@ public class PBMediaView extends FrameLayout {
                 return;
             }
         }
-        this.f42425a = new K(context);
-        addView(this.f42425a.f42376c, new FrameLayout.LayoutParams(-1, -1));
+        this.f39439a = new K(context);
+        addView(this.f39439a.f39390c, new FrameLayout.LayoutParams(-1, -1));
         try {
             ImageView imageView = new ImageView(context);
             int i5 = (int) ((context.getResources().getDisplayMetrics().density * 15.0f) + 0.5f);
@@ -94,6 +94,6 @@ public class PBMediaView extends FrameLayout {
     public K getHtmlWebView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42425a : (K) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39439a : (K) invokeV.objValue;
     }
 }

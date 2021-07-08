@@ -1,4 +1,4 @@
 package com.bytedance.sdk.component.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface b extends com.bytedance.sdk.component.d.c.a.a<String, byte[]> {
 }

@@ -34,12 +34,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import com.kwai.video.player.PlayerPostEvent;
-import d.a.r0.z0.q;
-import d.a.s0.q0.a.d.e;
+import d.a.o0.z0.q;
+import d.a.p0.q0.a.d.e;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostImagePicker {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION = "com.tieba.action.ImagePickerPlugin";
@@ -53,7 +52,7 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
     public PostAsyncTask.PostCallback callback;
     public CustomMessageListener mAlbumResultListener;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class BroadcastReciver extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -213,14 +212,14 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
                     return;
                 }
                 if (ImagePickerPlugin.isEditHeadImage) {
-                    EditHeadActivityConfig editHeadActivityConfig = new EditHeadActivityConfig((Context) ImagePickerPlugin.currentActivity, (int) PlayerPostEvent.MEDIA_REP_CHANGE_END, 12009, intent.getData(), TbadkCoreApplication.getCurrentAccountObj(), 0, writeImagesInfo.getChosedFiles().get(0).getFilePath(), (float) ImagePickerPlugin.scaleRate, true);
+                    EditHeadActivityConfig editHeadActivityConfig = new EditHeadActivityConfig((Context) ImagePickerPlugin.currentActivity, 12002, 12009, intent.getData(), TbadkCoreApplication.getCurrentAccountObj(), 0, writeImagesInfo.getChosedFiles().get(0).getFilePath(), (float) ImagePickerPlugin.scaleRate, true);
                     editHeadActivityConfig.setWaterMaskType(3);
                     editHeadActivityConfig.setFromWhere(EditHeadActivityConfig.FROM_FLUTTER_IMAGEPICKER);
                     editHeadActivityConfig.setNeedPaste(true);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, editHeadActivityConfig));
                     return;
                 }
-                EditHeadActivityConfig editHeadActivityConfig2 = new EditHeadActivityConfig((Context) ImagePickerPlugin.currentActivity, (int) PlayerPostEvent.MEDIA_REP_CHANGE_END, 12009, intent.getData(), TbadkCoreApplication.getCurrentAccountObj(), 4, writeImagesInfo.getChosedFiles().get(0).getFilePath(), (float) ImagePickerPlugin.scaleRate, true);
+                EditHeadActivityConfig editHeadActivityConfig2 = new EditHeadActivityConfig((Context) ImagePickerPlugin.currentActivity, 12002, 12009, intent.getData(), TbadkCoreApplication.getCurrentAccountObj(), 4, writeImagesInfo.getChosedFiles().get(0).getFilePath(), (float) ImagePickerPlugin.scaleRate, true);
                 editHeadActivityConfig2.setWaterMaskType(3);
                 editHeadActivityConfig2.setFromWhere(EditHeadActivityConfig.FROM_FLUTTER_IMAGEPICKER);
                 editHeadActivityConfig2.setNeedPaste(false);
@@ -257,7 +256,7 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
                 this.this$0 = this;
             }
 
-            @Override // d.a.r0.z0.q.a
+            @Override // d.a.o0.z0.q.a
             public void onError(int i2, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
@@ -265,7 +264,7 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
                 }
             }
 
-            @Override // d.a.r0.z0.q.a
+            @Override // d.a.o0.z0.q.a
             public void onSuccess(String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2) == null) {
@@ -348,7 +347,7 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
             isEditHeadImage = true;
             AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) currentActivity, new WriteImagesInfo().toJsonString(), true);
             albumActivityConfig.getIntent().putExtra("from", AlbumActivityConfig.FROM_FLUTTER);
-            albumActivityConfig.setRequestCode(PlayerPostEvent.MEDIA_REP_CHANGE_END);
+            albumActivityConfig.setRequestCode(12002);
             albumActivityConfig.setIntentAction(IntentAction.ActivityForResult);
             albumActivityConfig.setResourceType(2);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
@@ -383,7 +382,7 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
                 barId = hostParam.getBarId();
             }
             AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) currentActivity, new WriteImagesInfo().toJsonString(), true);
-            albumActivityConfig.setRequestCode(PlayerPostEvent.MEDIA_REP_CHANGE_END);
+            albumActivityConfig.setRequestCode(12002);
             albumActivityConfig.setIntentAction(IntentAction.ActivityForResult);
             albumActivityConfig.setCanEditImage(false);
             albumActivityConfig.getIntent().putExtra("from", AlbumActivityConfig.FROM_FLUTTER);

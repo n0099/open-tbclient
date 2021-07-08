@@ -9,22 +9,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class A {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static A f42301d;
+    public static A f39315d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ThreadPoolExecutor f42302a;
+    public ThreadPoolExecutor f39316a;
 
     /* renamed from: b  reason: collision with root package name */
-    public E f42303b;
+    public E f39317b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f42304c;
+    public boolean f39318c;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public class A {
                 return;
             }
         }
-        f42301d = new A();
+        f39315d = new A();
     }
 
     public A() {
@@ -55,7 +55,7 @@ public class A {
                 return;
             }
         }
-        this.f42304c = false;
-        this.f42302a = (ThreadPoolExecutor) Executors.newCachedThreadPool();
+        this.f39318c = false;
+        this.f39316a = (ThreadPoolExecutor) Executors.newCachedThreadPool();
     }
 }

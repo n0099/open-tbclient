@@ -1,5 +1,6 @@
 package com.baidubce;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +12,7 @@ import com.baidubce.util.CheckUtils;
 import java.util.Arrays;
 import java.util.List;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class Region {
     public static final /* synthetic */ Region[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -86,7 +87,7 @@ public final class Region {
     public static Region[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (Region[]) $VALUES.clone() : (Region[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (Region[]) $VALUES.clone() : (Region[]) invokeV.objValue;
     }
 
     @Override // java.lang.Enum

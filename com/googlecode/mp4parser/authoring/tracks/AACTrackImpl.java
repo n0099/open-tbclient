@@ -40,7 +40,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import org.apache.commons.codec.digest4util.PureJavaCrc32C;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AACTrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public static Map<Integer, String> audioObjectTypes;
@@ -56,7 +56,7 @@ public class AACTrackImpl extends AbstractTrack {
     public List<Sample> samples;
     public TrackMetaData trackMetaData;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class AdtsHeader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -296,7 +296,7 @@ public class AACTrackImpl extends AbstractTrack {
     private AdtsHeader readADTSHeader(DataSource dataSource) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, dataSource)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, dataSource)) == null) {
             AdtsHeader adtsHeader = new AdtsHeader(this);
             ByteBuffer allocate = ByteBuffer.allocate(7);
             while (allocate.position() < 7) {

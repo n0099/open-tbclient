@@ -2,6 +2,7 @@ package com.baidu.swan.apps.core.prefetch.resource.task;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.adrequest.AdParamInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,9 +11,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a.k;
+import d.a.n0.a.k;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class ResType {
     public static final /* synthetic */ ResType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -85,7 +86,7 @@ public final class ResType {
                 }
                 i2++;
             }
-            if (k.f49133a) {
+            if (k.f45831a) {
                 Log.d("ResType", "res type - " + resType.name());
             }
             return resType;
@@ -102,6 +103,6 @@ public final class ResType {
     public static ResType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (ResType[]) $VALUES.clone() : (ResType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ResType[]) $VALUES.clone() : (ResType[]) invokeV.objValue;
     }
 }

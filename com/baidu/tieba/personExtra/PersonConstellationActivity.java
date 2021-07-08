@@ -20,9 +20,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.r0.b1.o.a.d.e;
+import d.a.o0.b1.o.a.d.e;
 import java.util.Date;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PersonConstellationActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTIVITY_INTENT_BIRTHDAY = "constellation_birthday";
@@ -45,16 +45,16 @@ public class PersonConstellationActivity extends BaseActivity {
     public TextView mShowStatusTipView;
     public BdSwitchView.b mSwitchChangeListener;
     public BdSwitchView mSwitchView;
-    public d.a.r0.b1.o.a.f.b mTimePickerView;
+    public d.a.o0.b1.o.a.f.b mTimePickerView;
     public e mTimeSelectListener;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements BdSwitchView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonConstellationActivity f20084e;
+        public final /* synthetic */ PersonConstellationActivity f20124e;
 
         public a(PersonConstellationActivity personConstellationActivity) {
             Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public class PersonConstellationActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f20084e = personConstellationActivity;
+            this.f20124e = personConstellationActivity;
         }
 
         @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
@@ -79,21 +79,21 @@ public class PersonConstellationActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, view, switchState) == null) {
                 if (switchState == BdSwitchView.SwitchState.OFF) {
-                    this.f20084e.mShowStatus = 2;
+                    this.f20124e.mShowStatus = 2;
                 } else {
-                    this.f20084e.mShowStatus = 1;
+                    this.f20124e.mShowStatus = 1;
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonConstellationActivity f20085e;
+        public final /* synthetic */ PersonConstellationActivity f20125e;
 
         public b(PersonConstellationActivity personConstellationActivity) {
             Interceptable interceptable = $ic;
@@ -110,41 +110,41 @@ public class PersonConstellationActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f20085e = personConstellationActivity;
+            this.f20125e = personConstellationActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view == this.f20085e.mCompleteLayout) {
-                    this.f20085e.finishActivity();
-                } else if (view != this.f20085e.mBackImg) {
-                    if (view == this.f20085e.mBirthdayLayout) {
-                        this.f20085e.showTimePicker();
+                if (view == this.f20125e.mCompleteLayout) {
+                    this.f20125e.finishActivity();
+                } else if (view != this.f20125e.mBackImg) {
+                    if (view == this.f20125e.mBirthdayLayout) {
+                        this.f20125e.showTimePicker();
                     }
                 } else {
-                    this.f20085e.finish();
+                    this.f20125e.finish();
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements d.a.r0.b1.o.a.d.a {
+    /* loaded from: classes4.dex */
+    public class c implements d.a.o0.b1.o.a.d.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonConstellationActivity f20086a;
+        public final /* synthetic */ PersonConstellationActivity f20126a;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f20087e;
+            public final /* synthetic */ c f20127e;
 
             public a(c cVar) {
                 Interceptable interceptable = $ic;
@@ -161,26 +161,26 @@ public class PersonConstellationActivity extends BaseActivity {
                         return;
                     }
                 }
-                this.f20087e = cVar;
+                this.f20127e = cVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f20087e.f20086a.mTimePickerView == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f20127e.f20126a.mTimePickerView == null) {
                     return;
                 }
-                this.f20087e.f20086a.mTimePickerView.f();
+                this.f20127e.f20126a.mTimePickerView.f();
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public class b implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f20088e;
+            public final /* synthetic */ c f20128e;
 
             public b(c cVar) {
                 Interceptable interceptable = $ic;
@@ -197,17 +197,17 @@ public class PersonConstellationActivity extends BaseActivity {
                         return;
                     }
                 }
-                this.f20088e = cVar;
+                this.f20128e = cVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f20088e.f20086a.mTimePickerView == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f20128e.f20126a.mTimePickerView == null) {
                     return;
                 }
-                this.f20088e.f20086a.mTimePickerView.B();
-                this.f20088e.f20086a.mTimePickerView.f();
+                this.f20128e.f20126a.mTimePickerView.A();
+                this.f20128e.f20126a.mTimePickerView.f();
             }
         }
 
@@ -226,10 +226,10 @@ public class PersonConstellationActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f20086a = personConstellationActivity;
+            this.f20126a = personConstellationActivity;
         }
 
-        @Override // d.a.r0.b1.o.a.d.a
+        @Override // d.a.o0.b1.o.a.d.a
         public void a(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
@@ -244,13 +244,13 @@ public class PersonConstellationActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d implements e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonConstellationActivity f20089a;
+        public final /* synthetic */ PersonConstellationActivity f20129a;
 
         public d(PersonConstellationActivity personConstellationActivity) {
             Interceptable interceptable = $ic;
@@ -267,29 +267,29 @@ public class PersonConstellationActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f20089a = personConstellationActivity;
+            this.f20129a = personConstellationActivity;
         }
 
-        @Override // d.a.r0.b1.o.a.d.e
+        @Override // d.a.o0.b1.o.a.d.e
         public void a(Date date, View view) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, date, view) == null) || date == null) {
                 return;
             }
             if (date.getTime() > System.currentTimeMillis()) {
-                this.f20089a.showToast(R.string.person_center_birthday_time_limit);
+                this.f20129a.showToast(R.string.person_center_birthday_time_limit);
                 return;
             }
-            this.f20089a.mConsNameView.setText(StringHelper.dateToConstellation(date));
-            this.f20089a.mBirthdayView.setText(StringHelper.getDateStringYearMonthDay(date));
-            this.f20089a.mBirthdayTime = date.getTime() / 1000;
-            if (this.f20089a.mSwitchView.getVisibility() != 0) {
-                this.f20089a.mShowStatusTipView.setVisibility(8);
-                this.f20089a.mSwitchView.setVisibility(0);
-                if (this.f20089a.mShowStatus == 1) {
-                    this.f20089a.mSwitchView.i();
+            this.f20129a.mConsNameView.setText(StringHelper.dateToConstellation(date));
+            this.f20129a.mBirthdayView.setText(StringHelper.getDateStringYearMonthDay(date));
+            this.f20129a.mBirthdayTime = date.getTime() / 1000;
+            if (this.f20129a.mSwitchView.getVisibility() != 0) {
+                this.f20129a.mShowStatusTipView.setVisibility(8);
+                this.f20129a.mSwitchView.setVisibility(0);
+                if (this.f20129a.mShowStatus == 1) {
+                    this.f20129a.mSwitchView.i();
                 } else {
-                    this.f20089a.mSwitchView.f();
+                    this.f20129a.mSwitchView.f();
                 }
             }
         }
@@ -421,7 +421,7 @@ public class PersonConstellationActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.mTimePickerView == null) {
-                d.a.r0.b1.o.a.b.a aVar = new d.a.r0.b1.o.a.b.a(getActivity(), this.mTimeSelectListener);
+                d.a.o0.b1.o.a.b.a aVar = new d.a.o0.b1.o.a.b.a(getActivity(), this.mTimeSelectListener);
                 aVar.k(R.layout.person_birthday_select_layout, new c(this));
                 aVar.f(18);
                 aVar.p(new boolean[]{true, true, true, false, false, false});
@@ -438,7 +438,7 @@ public class PersonConstellationActivity extends BaseActivity {
                 aVar.h(this.mRootView);
                 this.mTimePickerView = aVar.a();
             }
-            this.mTimePickerView.v();
+            this.mTimePickerView.u();
         }
     }
 }

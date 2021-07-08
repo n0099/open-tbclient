@@ -37,38 +37,38 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class g implements d.l.a.d.b.h, h.s.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String t = "g";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final h.s f74300a;
+    public final h.s f71352a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.l.a.d.b.i f74301b;
+    public d.l.a.d.b.i f71353b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.l.a.d.b.f f74302c;
+    public d.l.a.d.b.f f71354c;
 
     /* renamed from: d  reason: collision with root package name */
-    public WeakReference<Context> f74303d;
+    public WeakReference<Context> f71355d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Map<Integer, Object> f74304e;
+    public final Map<Integer, Object> f71356e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.l.a.a.a.f.e f74305f;
+    public d.l.a.a.a.f.e f71357f;
 
     /* renamed from: g  reason: collision with root package name */
-    public DownloadInfo f74306g;
+    public DownloadInfo f71358g;
 
     /* renamed from: h  reason: collision with root package name */
-    public h f74307h;
+    public h f71359h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final d.l.a.e.b.f.b f74308i;
+    public final d.l.a.e.b.f.b f71360i;
     public boolean j;
     public long k;
     public long l;
@@ -80,13 +80,13 @@ public class g implements d.l.a.d.b.h, h.s.a {
     public final boolean r;
     public SoftReference<d.l.a.a.a.c.n> s;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f74309e;
+        public final /* synthetic */ g f71361e;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -103,33 +103,33 @@ public class g implements d.l.a.d.b.h, h.s.a {
                     return;
                 }
             }
-            this.f74309e = gVar;
+            this.f71361e = gVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (d.l.a.a.a.d.e eVar : d.l.a.d.b.i.d(this.f74309e.f74304e)) {
-                    eVar.b(this.f74309e.U());
+                for (d.l.a.a.a.d.e eVar : d.l.a.d.b.i.d(this.f71361e.f71356e)) {
+                    eVar.b(this.f71361e.U());
                 }
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class b implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f74310a;
+        public final /* synthetic */ int f71362a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f74311b;
+        public final /* synthetic */ int f71363b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ g f74312c;
+        public final /* synthetic */ g f71364c;
 
         public b(g gVar, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -146,41 +146,41 @@ public class g implements d.l.a.d.b.h, h.s.a {
                     return;
                 }
             }
-            this.f74312c = gVar;
-            this.f74310a = i2;
-            this.f74311b = i3;
+            this.f71364c = gVar;
+            this.f71362a = i2;
+            this.f71363b = i3;
         }
 
         @Override // d.l.a.d.b.g.f
         public void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f74312c.f74302c.n()) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f71364c.f71354c.n()) {
                 return;
             }
-            g gVar = this.f74312c;
-            gVar.n(this.f74310a, this.f74311b, gVar.f74306g);
+            g gVar = this.f71364c;
+            gVar.n(this.f71362a, this.f71363b, gVar.f71358g);
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class c implements f.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f74313a;
+        public final /* synthetic */ boolean f71365a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d.l.a.b.a.c.b f74314b;
+        public final /* synthetic */ d.l.a.b.a.c.b f71366b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f74315c;
+        public final /* synthetic */ int f71367c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f74316d;
+        public final /* synthetic */ int f71368d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f74317e;
+        public final /* synthetic */ g f71369e;
 
         public c(g gVar, boolean z, d.l.a.b.a.c.b bVar, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -197,39 +197,39 @@ public class g implements d.l.a.d.b.h, h.s.a {
                     return;
                 }
             }
-            this.f74317e = gVar;
-            this.f74313a = z;
-            this.f74314b = bVar;
-            this.f74315c = i2;
-            this.f74316d = i3;
+            this.f71369e = gVar;
+            this.f71365a = z;
+            this.f71366b = bVar;
+            this.f71367c = i2;
+            this.f71368d = i3;
         }
 
         @Override // d.l.a.d.b.f.i
         public void a(d.l.a.b.a.c.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-                this.f74317e.f74301b.k(this.f74317e.f74306g, this.f74313a);
-                if (d.l.a.e.b.l.f.g0(l.a()) && this.f74317e.f74306g.isPauseReserveOnWifi()) {
-                    this.f74317e.f74306g.stopPauseReserveOnWifi();
-                    e.c.a().v("pause_reserve_wifi_cancel_on_wifi", this.f74314b);
+                this.f71369e.f71353b.k(this.f71369e.f71358g, this.f71365a);
+                if (d.l.a.e.b.l.f.g0(l.a()) && this.f71369e.f71358g.isPauseReserveOnWifi()) {
+                    this.f71369e.f71358g.stopPauseReserveOnWifi();
+                    e.c.a().v("pause_reserve_wifi_cancel_on_wifi", this.f71366b);
                     return;
                 }
-                g gVar = this.f74317e;
-                gVar.n(this.f74315c, this.f74316d, gVar.f74306g);
+                g gVar = this.f71369e;
+                gVar.n(this.f71367c, this.f71368d, gVar.f71358g);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class e implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f74320a;
+        public final /* synthetic */ boolean f71372a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ g f74321b;
+        public final /* synthetic */ g f71373b;
 
         public e(g gVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -246,38 +246,38 @@ public class g implements d.l.a.d.b.h, h.s.a {
                     return;
                 }
             }
-            this.f74321b = gVar;
-            this.f74320a = z;
+            this.f71373b = gVar;
+            this.f71372a = z;
         }
 
         @Override // d.l.a.d.b.g.f
         public void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f74321b.f74302c.n()) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f71373b.f71354c.n()) {
                 return;
             }
-            this.f74321b.I(this.f74320a);
+            this.f71373b.I(this.f71372a);
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface f {
         void a();
     }
 
     /* renamed from: d.l.a.d.b.g$g  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC2055g {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC2023g {
         void a(long j);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class h extends AsyncTask<String, Void, DownloadInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f74322a;
+        public final /* synthetic */ g f71374a;
 
         public h(g gVar) {
             Interceptable interceptable = $ic;
@@ -294,7 +294,7 @@ public class g implements d.l.a.d.b.h, h.s.a {
                     return;
                 }
             }
-            this.f74322a = gVar;
+            this.f71374a = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -308,8 +308,8 @@ public class g implements d.l.a.d.b.h, h.s.a {
                 if (strArr != null) {
                     if (strArr.length < 1 || !TextUtils.isEmpty(strArr[0])) {
                         String str = strArr[0];
-                        if (this.f74322a.m != null && !TextUtils.isEmpty(this.f74322a.m.n())) {
-                            downloadInfo = d.l.a.e.b.g.a.H(l.a()).g(str, this.f74322a.m.n());
+                        if (this.f71374a.m != null && !TextUtils.isEmpty(this.f71374a.m.n())) {
+                            downloadInfo = d.l.a.e.b.g.a.H(l.a()).g(str, this.f71374a.m.n());
                         }
                         return downloadInfo == null ? d.l.a.e.a.e.G().e(l.a(), str) : downloadInfo;
                     }
@@ -327,51 +327,51 @@ public class g implements d.l.a.d.b.h, h.s.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo) == null) {
                 super.onPostExecute(downloadInfo);
-                if (isCancelled() || this.f74322a.m == null) {
+                if (isCancelled() || this.f71374a.m == null) {
                     return;
                 }
                 try {
-                    c.d j = h.r.j(this.f74322a.m.v(), this.f74322a.m.r(), this.f74322a.m.s());
-                    c.i.a().b(this.f74322a.m.r(), j.c(), c.g.e().c(downloadInfo));
+                    c.d j = h.r.j(this.f71374a.m.v(), this.f71374a.m.r(), this.f71374a.m.s());
+                    c.i.a().b(this.f71374a.m.r(), j.c(), c.g.e().c(downloadInfo));
                     boolean b2 = j.b();
                     if (downloadInfo != null && downloadInfo.getId() != 0 && (b2 || !d.l.a.e.b.g.a.H(l.a()).s(downloadInfo))) {
                         d.l.a.e.b.g.a.H(l.a()).x(downloadInfo.getId());
-                        if (this.f74322a.f74306g == null || this.f74322a.f74306g.getStatus() != -4) {
-                            this.f74322a.f74306g = downloadInfo;
-                            if (this.f74322a.r) {
-                                d.l.a.e.b.g.a.H(l.a()).E(this.f74322a.f74306g.getId(), this.f74322a.f74308i, false);
+                        if (this.f71374a.f71358g == null || this.f71374a.f71358g.getStatus() != -4) {
+                            this.f71374a.f71358g = downloadInfo;
+                            if (this.f71374a.r) {
+                                d.l.a.e.b.g.a.H(l.a()).E(this.f71374a.f71358g.getId(), this.f71374a.f71360i, false);
                             } else {
-                                d.l.a.e.b.g.a.H(l.a()).D(this.f74322a.f74306g.getId(), this.f74322a.f74308i);
+                                d.l.a.e.b.g.a.H(l.a()).D(this.f71374a.f71358g.getId(), this.f71374a.f71360i);
                             }
                         } else {
-                            this.f74322a.f74306g = null;
+                            this.f71374a.f71358g = null;
                         }
-                        this.f74322a.f74301b.j(this.f74322a.f74306g, this.f74322a.U(), d.l.a.d.b.i.d(this.f74322a.f74304e));
+                        this.f71374a.f71353b.j(this.f71374a.f71358g, this.f71374a.U(), d.l.a.d.b.i.d(this.f71374a.f71356e));
                     } else {
                         if (downloadInfo != null && d.l.a.e.b.g.a.H(l.a()).s(downloadInfo)) {
                             d.l.a.e.b.p.b.a().m(downloadInfo.getId());
-                            this.f74322a.f74306g = null;
+                            this.f71374a.f71358g = null;
                         }
-                        if (this.f74322a.f74306g != null) {
-                            d.l.a.e.b.g.a.H(l.a()).x(this.f74322a.f74306g.getId());
-                            if (this.f74322a.r) {
-                                d.l.a.e.b.g.a.H(this.f74322a.O()).E(this.f74322a.f74306g.getId(), this.f74322a.f74308i, false);
+                        if (this.f71374a.f71358g != null) {
+                            d.l.a.e.b.g.a.H(l.a()).x(this.f71374a.f71358g.getId());
+                            if (this.f71374a.r) {
+                                d.l.a.e.b.g.a.H(this.f71374a.O()).E(this.f71374a.f71358g.getId(), this.f71374a.f71360i, false);
                             } else {
-                                d.l.a.e.b.g.a.H(this.f74322a.O()).D(this.f74322a.f74306g.getId(), this.f74322a.f74308i);
+                                d.l.a.e.b.g.a.H(this.f71374a.O()).D(this.f71374a.f71358g.getId(), this.f71374a.f71360i);
                             }
                         }
                         if (!b2) {
-                            for (d.l.a.a.a.d.e eVar : d.l.a.d.b.i.d(this.f74322a.f74304e)) {
+                            for (d.l.a.a.a.d.e eVar : d.l.a.d.b.i.d(this.f71374a.f71356e)) {
                                 eVar.a();
                             }
-                            this.f74322a.f74306g = null;
+                            this.f71374a.f71358g = null;
                         } else {
-                            this.f74322a.f74306g = new DownloadInfo.b(this.f74322a.m.a()).E();
-                            this.f74322a.f74306g.setStatus(-3);
-                            this.f74322a.f74301b.j(this.f74322a.f74306g, this.f74322a.U(), d.l.a.d.b.i.d(this.f74322a.f74304e));
+                            this.f71374a.f71358g = new DownloadInfo.b(this.f71374a.m.a()).E();
+                            this.f71374a.f71358g.setStatus(-3);
+                            this.f71374a.f71353b.j(this.f71374a.f71358g, this.f71374a.U(), d.l.a.d.b.i.d(this.f71374a.f71356e));
                         }
                     }
-                    this.f74322a.f74301b.t(this.f74322a.f74306g);
+                    this.f71374a.f71353b.t(this.f71374a.f71358g);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -383,7 +383,7 @@ public class g implements d.l.a.d.b.h, h.s.a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -423,23 +423,23 @@ public class g implements d.l.a.d.b.h, h.s.a {
                 return;
             }
         }
-        this.f74300a = new h.s(Looper.getMainLooper(), this);
-        this.f74304e = new ConcurrentHashMap();
-        this.f74308i = new i.d(this.f74300a);
+        this.f71352a = new h.s(Looper.getMainLooper(), this);
+        this.f71356e = new ConcurrentHashMap();
+        this.f71360i = new i.d(this.f71352a);
         this.l = -1L;
         this.m = null;
         this.n = null;
         this.o = null;
-        this.f74301b = new d.l.a.d.b.i(this);
-        this.f74302c = new d.l.a.d.b.f(this.f74300a);
+        this.f71353b = new d.l.a.d.b.i(this);
+        this.f71354c = new d.l.a.d.b.f(this.f71352a);
         this.r = d.l.a.e.b.j.a.r().l("ttdownloader_callback_twice");
     }
 
     public final void A(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if (h.k.g(this.m).m("notification_opt_2") == 1 && this.f74306g != null) {
-                d.l.a.e.b.p.b.a().m(this.f74306g.getId());
+            if (h.k.g(this.m).m("notification_opt_2") == 1 && this.f71358g != null) {
+                d.l.a.e.b.p.b.a().m(this.f71358g.getId());
             }
             C(z);
         }
@@ -454,13 +454,13 @@ public class g implements d.l.a.d.b.h, h.s.a {
             h.q.b(t, "performButtonClickWithNewDownloader", null);
             if (S()) {
                 c.f v = c.g.e().v(this.l);
-                DownloadInfo downloadInfo = this.f74306g;
+                DownloadInfo downloadInfo = this.f71358g;
                 if (downloadInfo != null && downloadInfo.getStatus() != 0) {
                     r(z, true);
                     return;
                 } else if (this.q) {
                     if (this.m.t() && this.s != null) {
-                        if (V() && (bVar2 = v.f74227d) != null && bVar2.f()) {
+                        if (V() && (bVar2 = v.f71279d) != null && bVar2.f()) {
                             r(z, true);
                             return;
                         }
@@ -468,7 +468,7 @@ public class g implements d.l.a.d.b.h, h.s.a {
                     }
                     r(z, true);
                     return;
-                } else if (this.m.t() && (bVar = v.f74227d) != null && bVar.e() && v.f74225b != null && d.l.a.d.b.e.b.a().e(v.f74225b) && d.l.a.d.b.e.b.a().f(v)) {
+                } else if (this.m.t() && (bVar = v.f71279d) != null && bVar.e() && v.f71277b != null && d.l.a.d.b.e.b.a().e(v.f71277b) && d.l.a.d.b.e.b.a().f(v)) {
                     return;
                 } else {
                     r(z, true);
@@ -476,69 +476,69 @@ public class g implements d.l.a.d.b.h, h.s.a {
                 }
             }
             String str = t;
-            h.q.b(str, "performButtonClickWithNewDownloader continue download, status:" + this.f74306g.getStatus(), null);
-            DownloadInfo downloadInfo2 = this.f74306g;
+            h.q.b(str, "performButtonClickWithNewDownloader continue download, status:" + this.f71358g.getStatus(), null);
+            DownloadInfo downloadInfo2 = this.f71358g;
             if (downloadInfo2 != null && (dVar = this.m) != null) {
                 downloadInfo2.setOnlyWifi(dVar.m());
             }
-            int status = this.f74306g.getStatus();
-            int id = this.f74306g.getId();
-            d.l.a.b.a.c.b c2 = c.g.e().c(this.f74306g);
+            int status = this.f71358g.getStatus();
+            int id = this.f71358g.getId();
+            d.l.a.b.a.c.b c2 = c.g.e().c(this.f71358g);
             if (status != -2 && status != -1) {
                 if (n.c(status)) {
                     if (this.m.L()) {
-                        this.f74302c.m(true);
+                        this.f71354c.m(true);
                         d.k.a().g(c.g.e().u(this.l));
                         f.l.a().b(c2, status, new c(this, z, c2, id, status));
                         return;
                     }
                     return;
                 }
-                this.f74301b.k(this.f74306g, z);
-                n(id, status, this.f74306g);
+                this.f71353b.k(this.f71358g, z);
+                n(id, status, this.f71358g);
                 return;
             }
-            this.f74301b.k(this.f74306g, z);
+            this.f71353b.k(this.f71358g, z);
             if (c2 != null) {
                 c2.K0(System.currentTimeMillis());
-                c2.O0(this.f74306g.getCurBytes());
+                c2.O0(this.f71358g.getCurBytes());
             }
-            this.f74306g.setDownloadFromReserveWifi(false);
-            this.f74302c.j(new c.f(this.l, this.m, P(), Q()));
-            this.f74302c.f(id, this.f74306g.getCurBytes(), this.f74306g.getTotalBytes(), new b(this, id, status));
+            this.f71358g.setDownloadFromReserveWifi(false);
+            this.f71354c.j(new c.f(this.l, this.m, P(), Q()));
+            this.f71354c.f(id, this.f71358g.getCurBytes(), this.f71358g.getTotalBytes(), new b(this, id, status));
         }
     }
 
     public boolean D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? l.v().optInt("quick_app_enable_switch", 0) == 0 && this.m.B() != null && !TextUtils.isEmpty(this.m.B().a()) && d.l.a.d.b.d.e(this.f74306g) && h.r.t(O(), new Intent("android.intent.action.VIEW", Uri.parse(this.m.B().a()))) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? l.v().optInt("quick_app_enable_switch", 0) == 0 && this.m.B() != null && !TextUtils.isEmpty(this.m.B().a()) && d.l.a.d.b.d.e(this.f71358g) && h.r.t(O(), new Intent("android.intent.action.VIEW", Uri.parse(this.m.B().a()))) : invokeV.booleanValue;
     }
 
     public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f74300a.post(new a(this));
+            this.f71352a.post(new a(this));
         }
     }
 
     public final void G(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f74302c.j(new c.f(this.l, this.m, P(), Q()));
-            this.f74302c.f(0, 0L, 0L, new e(this, z));
+            this.f71354c.j(new c.f(this.l, this.m, P(), Q()));
+            this.f71354c.f(0, 0L, 0L, new e(this, z));
         }
     }
 
     public void H() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f74304e.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f71356e.size() == 0) {
             return;
         }
-        for (d.l.a.a.a.d.e eVar : d.l.a.d.b.i.d(this.f74304e)) {
+        for (d.l.a.a.a.d.e eVar : d.l.a.d.b.i.d(this.f71356e)) {
             eVar.a();
         }
-        DownloadInfo downloadInfo = this.f74306g;
+        DownloadInfo downloadInfo = this.f71358g;
         if (downloadInfo != null) {
             downloadInfo.setStatus(-4);
         }
@@ -547,17 +547,17 @@ public class g implements d.l.a.d.b.h, h.s.a {
     public final void I(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            for (d.l.a.a.a.d.e eVar : d.l.a.d.b.i.d(this.f74304e)) {
+            for (d.l.a.a.a.d.e eVar : d.l.a.d.b.i.d(this.f71356e)) {
                 eVar.a(this.m, Q());
             }
-            int a2 = this.f74301b.a(l.a(), this.f74308i);
+            int a2 = this.f71353b.a(l.a(), this.f71360i);
             String str = t;
             h.q.b(str, "beginDownloadWithNewDownloader id:" + a2, null);
             if (a2 != 0) {
-                if (this.f74306g != null && !d.l.a.e.b.j.a.r().l("fix_click_start")) {
-                    this.f74301b.k(this.f74306g, false);
+                if (this.f71358g != null && !d.l.a.e.b.j.a.r().l("fix_click_start")) {
+                    this.f71353b.k(this.f71358g, false);
                 } else if (z) {
-                    this.f74301b.e();
+                    this.f71353b.e();
                 }
             } else {
                 DownloadInfo E = new DownloadInfo.b(this.m.a()).E();
@@ -566,7 +566,7 @@ public class g implements d.l.a.d.b.h, h.s.a {
                 e.c.a().e(this.l, new BaseException(2, "start download failed, id=0"));
                 f.e.b().g("beginDownloadWithNewDownloader");
             }
-            if (this.f74301b.n(x())) {
+            if (this.f71353b.n(x())) {
                 String str2 = t;
                 h.q.b(str2, "beginDownloadWithNewDownloader onItemClick id:" + a2, null);
                 N();
@@ -591,9 +591,9 @@ public class g implements d.l.a.d.b.h, h.s.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            WeakReference<Context> weakReference = this.f74303d;
+            WeakReference<Context> weakReference = this.f71355d;
             if (weakReference != null && weakReference.get() != null) {
-                return this.f74303d.get();
+                return this.f71355d.get();
             }
             return l.a();
         }
@@ -628,7 +628,7 @@ public class g implements d.l.a.d.b.h, h.s.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             h.q.b(t, "performItemClickWithNewDownloader", null);
-            if (this.f74301b.w(this.f74306g)) {
+            if (this.f71353b.w(this.f71358g)) {
                 h.q.b(t, "performItemClickWithNewDownloader ButtonClick", null);
                 C(false);
                 return;
@@ -643,20 +643,20 @@ public class g implements d.l.a.d.b.h, h.s.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             if (d.l.a.e.b.j.a.r().l("fix_click_start")) {
-                DownloadInfo downloadInfo = this.f74306g;
+                DownloadInfo downloadInfo = this.f71358g;
                 if (downloadInfo == null) {
                     return true;
                 }
-                if ((downloadInfo.getStatus() == -3 && this.f74306g.getCurBytes() <= 0) || this.f74306g.getStatus() == 0 || this.f74306g.getStatus() == -4) {
+                if ((downloadInfo.getStatus() == -3 && this.f71358g.getCurBytes() <= 0) || this.f71358g.getStatus() == 0 || this.f71358g.getStatus() == -4) {
                     return true;
                 }
-                return d.l.a.e.b.l.f.I(this.f74306g.getStatus(), this.f74306g.getSavePath(), this.f74306g.getName());
+                return d.l.a.e.b.l.f.I(this.f71358g.getStatus(), this.f71358g.getSavePath(), this.f71358g.getName());
             }
-            DownloadInfo downloadInfo2 = this.f74306g;
+            DownloadInfo downloadInfo2 = this.f71358g;
             if (downloadInfo2 == null) {
                 return true;
             }
-            return !(downloadInfo2.getStatus() == -3 || d.l.a.e.b.g.a.H(l.a()).a(this.f74306g.getId())) || this.f74306g.getStatus() == 0;
+            return !(downloadInfo2.getStatus() == -3 || d.l.a.e.b.g.a.H(l.a()).a(this.f71358g.getId())) || this.f71358g.getStatus() == 0;
         }
         return invokeV.booleanValue;
     }
@@ -664,13 +664,13 @@ public class g implements d.l.a.d.b.h, h.s.a {
     public final void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            h hVar = this.f74307h;
+            h hVar = this.f71359h;
             if (hVar != null && hVar.getStatus() != AsyncTask.Status.FINISHED) {
-                this.f74307h.cancel(true);
+                this.f71359h.cancel(true);
             }
             h hVar2 = new h(this, null);
-            this.f74307h = hVar2;
-            h.C2065h.a(hVar2, this.m.a(), this.m.v());
+            this.f71359h = hVar2;
+            h.C2033h.a(hVar2, this.m.a(), this.m.v());
         }
     }
 
@@ -678,10 +678,10 @@ public class g implements d.l.a.d.b.h, h.s.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (this.f74305f == null) {
-                this.f74305f = new d.l.a.a.a.f.e();
+            if (this.f71357f == null) {
+                this.f71357f = new d.l.a.a.a.f.e();
             }
-            return this.f74305f;
+            return this.f71357f;
         }
         return (d.l.a.a.a.f.e) invokeV.objValue;
     }
@@ -762,9 +762,9 @@ public class g implements d.l.a.d.b.h, h.s.a {
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048607, this, i2, eVar)) == null) {
             if (eVar != null) {
                 if (l.v().optInt("back_use_softref_listener") == 1) {
-                    this.f74304e.put(Integer.valueOf(i2), eVar);
+                    this.f71356e.put(Integer.valueOf(i2), eVar);
                 } else {
-                    this.f74304e.put(Integer.valueOf(i2), new SoftReference(eVar));
+                    this.f71356e.put(Integer.valueOf(i2), new SoftReference(eVar));
                 }
             }
             return this;
@@ -777,7 +777,7 @@ public class g implements d.l.a.d.b.h, h.s.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, context)) == null) {
             if (context != null) {
-                this.f74303d = new WeakReference<>(context);
+                this.f71355d = new WeakReference<>(context);
             }
             l.n(context);
             return this;
@@ -869,7 +869,7 @@ public class g implements d.l.a.d.b.h, h.s.a {
             Message obtain = Message.obtain();
             obtain.what = 3;
             obtain.obj = downloadInfo;
-            this.f74300a.sendMessage(obtain);
+            this.f71352a.sendMessage(obtain);
         }
     }
 
@@ -880,11 +880,11 @@ public class g implements d.l.a.d.b.h, h.s.a {
                 e.c.a().c(this.l, 2);
             }
             if (!h.p.e(StorageUtils.EXTERNAL_STORAGE_PERMISSION) && !Q().g()) {
-                this.m.a(this.f74301b.p());
+                this.m.a(this.f71353b.p());
             }
             if (h.k.k(this.m) == 0) {
                 h.q.b(t, "performButtonClickWithNewDownloader not start", null);
-                this.f74301b.h(new d(this, z2));
+                this.f71353b.h(new d(this, z2));
                 return;
             }
             G(z2);
@@ -912,7 +912,7 @@ public class g implements d.l.a.d.b.h, h.s.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
-            DownloadInfo downloadInfo = this.f74306g;
+            DownloadInfo downloadInfo = this.f71358g;
             return (downloadInfo == null || downloadInfo.getStatus() == 0) ? false : true;
         }
         return invokeV.booleanValue;
@@ -951,16 +951,16 @@ public class g implements d.l.a.d.b.h, h.s.a {
         return invokeI.booleanValue;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class d implements t {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f74318a;
+        public final /* synthetic */ boolean f71370a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ g f74319b;
+        public final /* synthetic */ g f71371b;
 
         public d(g gVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -977,8 +977,8 @@ public class g implements d.l.a.d.b.h, h.s.a {
                     return;
                 }
             }
-            this.f74319b = gVar;
-            this.f74318a = z;
+            this.f71371b = gVar;
+            this.f71370a = z;
         }
 
         @Override // d.l.a.a.a.c.t
@@ -986,7 +986,7 @@ public class g implements d.l.a.d.b.h, h.s.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 h.q.b(g.t, "performButtonClickWithNewDownloader start download", null);
-                this.f74319b.G(this.f74318a);
+                this.f71371b.G(this.f71370a);
             }
         }
 
@@ -1006,9 +1006,9 @@ public class g implements d.l.a.d.b.h, h.s.a {
             this.j = true;
             c.g.e().h(this.l, P());
             c.g.e().g(this.l, Q());
-            this.f74301b.f(this.l);
+            this.f71353b.f(this.l);
             T();
-            if (l.v().optInt("enable_empty_listener", 1) == 1 && this.f74304e.get(Integer.MIN_VALUE) == null) {
+            if (l.v().optInt("enable_empty_listener", 1) == 1 && this.f71356e.get(Integer.MIN_VALUE) == null) {
                 g(Integer.MIN_VALUE, new d.l.a.a.a.c.a());
             }
         }
@@ -1049,11 +1049,11 @@ public class g implements d.l.a.d.b.h, h.s.a {
             if (i2 != 1 && i2 != 2) {
                 throw new IllegalArgumentException("error actionType");
             }
-            this.f74301b.f(this.l);
+            this.f71353b.f(this.l);
             if (!c.g.e().v(this.l).y()) {
                 f.e.b().d("handleDownload ModelBox !isStrictValid");
             }
-            if (this.f74301b.m(O(), i2, this.q)) {
+            if (this.f71353b.m(O(), i2, this.q)) {
                 return;
             }
             boolean y = y(i2);
@@ -1078,34 +1078,34 @@ public class g implements d.l.a.d.b.h, h.s.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) {
             if (i2 == 0) {
-                this.f74304e.clear();
+                this.f71356e.clear();
             } else {
-                this.f74304e.remove(Integer.valueOf(i2));
+                this.f71356e.remove(Integer.valueOf(i2));
             }
-            if (this.f74304e.isEmpty()) {
+            if (this.f71356e.isEmpty()) {
                 this.j = false;
                 this.k = System.currentTimeMillis();
-                if (this.f74306g != null) {
-                    d.l.a.e.b.g.a.H(l.a()).x(this.f74306g.getId());
+                if (this.f71358g != null) {
+                    d.l.a.e.b.g.a.H(l.a()).x(this.f71358g.getId());
                 }
-                h hVar = this.f74307h;
+                h hVar = this.f71359h;
                 if (hVar != null && hVar.getStatus() != AsyncTask.Status.FINISHED) {
-                    this.f74307h.cancel(true);
+                    this.f71359h.cancel(true);
                 }
-                this.f74301b.i(this.f74306g);
+                this.f71353b.i(this.f71358g);
                 String str = t;
                 StringBuilder sb = new StringBuilder();
                 sb.append("onUnbind removeCallbacksAndMessages, downloadUrl:");
-                DownloadInfo downloadInfo = this.f74306g;
+                DownloadInfo downloadInfo = this.f71358g;
                 sb.append(downloadInfo == null ? "" : downloadInfo.getUrl());
                 h.q.b(str, sb.toString(), null);
-                this.f74300a.removeCallbacksAndMessages(null);
-                this.f74305f = null;
-                this.f74306g = null;
+                this.f71352a.removeCallbacksAndMessages(null);
+                this.f71357f = null;
+                this.f71358g = null;
                 return true;
             }
-            if (this.f74304e.size() == 1 && this.f74304e.containsKey(Integer.MIN_VALUE)) {
-                this.f74301b.s(this.f74306g);
+            if (this.f71356e.size() == 1 && this.f71356e.containsKey(Integer.MIN_VALUE)) {
+                this.f71353b.s(this.f71358g);
             }
             return false;
         }
@@ -1115,20 +1115,20 @@ public class g implements d.l.a.d.b.h, h.s.a {
     @Override // d.l.a.d.b.h
     public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048596, this, z) == null) || this.f74306g == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048596, this, z) == null) || this.f71358g == null) {
             return;
         }
         if (z) {
             d.f u = d.l.a.e.a.e.G().u();
             if (u != null) {
-                u.a(this.f74306g);
+                u.a(this.f71358g);
             }
-            d.l.a.e.b.g.a.H(d.l.a.e.b.g.e.n()).c(this.f74306g.getId(), true);
+            d.l.a.e.b.g.a.H(d.l.a.e.b.g.e.n()).c(this.f71358g.getId(), true);
             return;
         }
         Intent intent = new Intent(l.a(), DownloadHandlerService.class);
         intent.setAction("android.ss.intent.action.DOWNLOAD_DELETE");
-        intent.putExtra("extra_click_download_ids", this.f74306g.getId());
+        intent.putExtra("extra_click_download_ids", this.f71358g.getId());
         l.a().startService(intent);
     }
 
@@ -1142,7 +1142,7 @@ public class g implements d.l.a.d.b.h, h.s.a {
                 if (a2 != null) {
                     this.m = a2;
                     this.l = j;
-                    this.f74301b.f(j);
+                    this.f71353b.f(j);
                 }
             } else {
                 f.e.b().e(false, "setModelId");
@@ -1156,8 +1156,8 @@ public class g implements d.l.a.d.b.h, h.s.a {
     public void a(Message message) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048595, this, message) == null) && message != null && this.j && message.what == 3) {
-            this.f74306g = (DownloadInfo) message.obj;
-            this.f74301b.g(message, U(), this.f74304e);
+            this.f71358g = (DownloadInfo) message.obj;
+            this.f71353b.g(message, U(), this.f71356e);
         }
     }
 }

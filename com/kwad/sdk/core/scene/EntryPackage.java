@@ -8,9 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.o;
+import com.kwad.sdk.utils.q;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class EntryPackage extends URLPackage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 8251709184937662571L;
@@ -56,7 +56,7 @@ public class EntryPackage extends URLPackage {
         this.entryPageSource = "unknown";
     }
 
-    @Override // com.kwad.sdk.core.scene.URLPackage
+    @Override // com.kwad.sdk.core.response.a.a, com.kwad.sdk.core.b
     public void parseJson(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
@@ -69,14 +69,14 @@ public class EntryPackage extends URLPackage {
         }
     }
 
-    @Override // com.kwad.sdk.core.scene.URLPackage, com.kwad.sdk.core.b
+    @Override // com.kwad.sdk.core.response.a.a, com.kwad.sdk.core.b
     public JSONObject toJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject json = super.toJson();
-            o.a(json, "entryPageSource", this.entryPageSource);
-            o.a(json, "entryId", this.entryId);
+            q.a(json, "entryPageSource", this.entryPageSource);
+            q.a(json, "entryId", this.entryId);
             return json;
         }
         return (JSONObject) invokeV.objValue;

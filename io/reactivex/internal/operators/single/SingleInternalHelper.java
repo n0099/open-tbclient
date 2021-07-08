@@ -1,5 +1,6 @@
 package io.reactivex.internal.operators.single;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,13 +17,13 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.concurrent.Callable;
 import org.reactivestreams.Publisher;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class SingleInternalHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class NoSuchElementCallable implements Callable<NoSuchElementException> {
         public static final /* synthetic */ NoSuchElementCallable[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -88,7 +89,7 @@ public final class SingleInternalHelper {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class ToFlowable implements Function<SingleSource, Publisher> {
         public static final /* synthetic */ ToFlowable[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -153,7 +154,7 @@ public final class SingleInternalHelper {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class ToFlowableIterable<T> implements Iterable<Flowable<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -185,7 +186,7 @@ public final class SingleInternalHelper {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class ToFlowableIterator<T> implements Iterator<Flowable<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -234,7 +235,7 @@ public final class SingleInternalHelper {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class ToObservable implements Function<SingleSource, Observable> {
         public static final /* synthetic */ ToObservable[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -336,6 +337,6 @@ public final class SingleInternalHelper {
     public static <T> Function<SingleSource<? extends T>, Observable<? extends T>> toObservable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? ToObservable.INSTANCE : (Function) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? ToObservable.INSTANCE : (Function) invokeV.objValue;
     }
 }

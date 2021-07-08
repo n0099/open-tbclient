@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.util;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.o.a.a;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TiebaStaticHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final HashMap<String, String> mActivityNames;
@@ -68,7 +69,7 @@ public class TiebaStaticHelper {
     public static String getCurrentActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? mCurrentActivityName : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? mCurrentActivityName : (String) invokeV.objValue;
     }
 
     public static String getCurrentActivityAllName() {

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.ExtendableMessage;
 import com.squareup.wire.Message;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Extension<T extends ExtendableMessage<?>, E> implements Comparable<Extension<?, ?>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +62,7 @@ public final class Extension<T extends ExtendableMessage<?>, E> implements Compa
     public static <T extends ExtendableMessage<?>> Builder<T, Double> doubleExtending(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, cls)) == null) ? new Builder<>(cls, Message.Datatype.DOUBLE, null) : (Builder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls)) == null) ? new Builder<>(cls, Message.Datatype.DOUBLE, null) : (Builder) invokeL.objValue;
     }
 
     public static <T extends ExtendableMessage<?>, E extends Enum & ProtoEnum> Builder<T, E> enumExtending(Class<E> cls, Class<T> cls2) {
@@ -262,7 +262,7 @@ public final class Extension<T extends ExtendableMessage<?>, E> implements Compa
         return invokeL.intValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder<T extends ExtendableMessage<?>, E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -300,7 +300,7 @@ public final class Extension<T extends ExtendableMessage<?>, E> implements Compa
 
         private void validate() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
                 if (this.extendedType != null) {
                     if (this.name != null) {
                         Message.Datatype datatype = this.datatype;

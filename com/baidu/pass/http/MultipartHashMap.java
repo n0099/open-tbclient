@@ -6,28 +6,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class MultipartHashMap extends HttpHashMap implements com.baidu.pass.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a fileWrapper;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f9309a;
+        public String f9326a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f9310b;
+        public String f9327b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f9311c;
+        public String f9328c;
 
         /* renamed from: d  reason: collision with root package name */
-        public InputStream f9312d;
+        public InputStream f9329d;
 
         public a(String str, InputStream inputStream, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -44,17 +44,17 @@ public class MultipartHashMap extends HttpHashMap implements com.baidu.pass.a {
                     return;
                 }
             }
-            this.f9309a = str;
-            this.f9312d = inputStream;
-            this.f9310b = str2;
-            this.f9311c = str3;
+            this.f9326a = str;
+            this.f9329d = inputStream;
+            this.f9327b = str2;
+            this.f9328c = str3;
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                String str = this.f9310b;
+                String str = this.f9327b;
                 return str != null ? str : "nofilename";
             }
             return (String) invokeV.objValue;

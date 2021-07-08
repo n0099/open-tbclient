@@ -8,39 +8,39 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class a extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<C2011a> f72946c;
+    public final List<C1980a> f70049c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<C2011a> f72947d;
+    public final List<C1980a> f70050d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<C2011a> f72948e;
+    public final List<C1980a> f70051e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Format f72949f;
+    public final Format f70052f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final List<Format> f72950g;
+    public final List<Format> f70053g;
 
     /* renamed from: d.f.b.a.d0.w.o.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static final class C2011a {
+    /* loaded from: classes8.dex */
+    public static final class C1980a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f72951a;
+        public final String f70054a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Format f72952b;
+        public final Format f70055b;
 
-        public C2011a(String str, Format format) {
+        public C1980a(String str, Format format) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,19 +55,19 @@ public final class a extends c {
                     return;
                 }
             }
-            this.f72951a = str;
-            this.f72952b = format;
+            this.f70054a = str;
+            this.f70055b = format;
         }
 
-        public static C2011a a(String str) {
+        public static C1980a a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new C2011a(str, Format.createContainerFormat("0", "application/x-mpegURL", null, null, -1, 0, null)) : (C2011a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new C1980a(str, Format.createContainerFormat("0", "application/x-mpegURL", null, null, -1, 0, null)) : (C1980a) invokeL.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(String str, List<String> list, List<C2011a> list2, List<C2011a> list3, List<C2011a> list4, Format format, List<Format> list5) {
+    public a(String str, List<String> list, List<C1980a> list2, List<C1980a> list3, List<C1980a> list4, Format format, List<Format> list5) {
         super(str, list);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -85,18 +85,18 @@ public final class a extends c {
                 return;
             }
         }
-        this.f72946c = Collections.unmodifiableList(list2);
-        this.f72947d = Collections.unmodifiableList(list3);
-        this.f72948e = Collections.unmodifiableList(list4);
-        this.f72949f = format;
-        this.f72950g = list5 != null ? Collections.unmodifiableList(list5) : null;
+        this.f70049c = Collections.unmodifiableList(list2);
+        this.f70050d = Collections.unmodifiableList(list3);
+        this.f70051e = Collections.unmodifiableList(list4);
+        this.f70052f = format;
+        this.f70053g = list5 != null ? Collections.unmodifiableList(list5) : null;
     }
 
     public static a a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            List singletonList = Collections.singletonList(C2011a.a(str));
+            List singletonList = Collections.singletonList(C1980a.a(str));
             List emptyList = Collections.emptyList();
             return new a(null, Collections.emptyList(), singletonList, emptyList, emptyList, null, null);
         }

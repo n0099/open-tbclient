@@ -18,7 +18,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import kotlin.text.Typography;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class HttpUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +99,7 @@ public class HttpUtils {
                     }
                     StringBuilder sb = new StringBuilder();
                     sb.append(name);
-                    sb.append(a.f1889h);
+                    sb.append(a.f1890h);
                     sb.append(value);
                     if (i2 != arrayList.size() - 1) {
                         sb.append(Typography.amp);

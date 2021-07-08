@@ -11,26 +11,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class TransitBaseInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<TransitBaseInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7255a;
+    public String f7272a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7256b;
+    public String f7273b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7257c;
+    public String f7274c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f7258d;
+    public String f7275d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f7259e;
+    public String f7276e;
 
     static {
         InterceptResult invokeClinit;
@@ -77,11 +77,11 @@ public class TransitBaseInfo implements Parcelable {
                 return;
             }
         }
-        this.f7255a = parcel.readString();
-        this.f7256b = parcel.readString();
-        this.f7257c = parcel.readString();
-        this.f7258d = parcel.readString();
-        this.f7259e = parcel.readString();
+        this.f7272a = parcel.readString();
+        this.f7273b = parcel.readString();
+        this.f7274c = parcel.readString();
+        this.f7275d = parcel.readString();
+        this.f7276e = parcel.readString();
     }
 
     @Override // android.os.Parcelable
@@ -97,65 +97,65 @@ public class TransitBaseInfo implements Parcelable {
     public String getArriveStation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7257c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7274c : (String) invokeV.objValue;
     }
 
     public String getArriveTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7259e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7276e : (String) invokeV.objValue;
     }
 
     public String getDepartureStation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7256b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7273b : (String) invokeV.objValue;
     }
 
     public String getDepartureTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7258d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7275d : (String) invokeV.objValue;
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f7255a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f7272a : (String) invokeV.objValue;
     }
 
     public void setArriveStation(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f7257c = str;
+            this.f7274c = str;
         }
     }
 
     public void setArriveTime(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f7259e = str;
+            this.f7276e = str;
         }
     }
 
     public void setDepartureStation(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f7256b = str;
+            this.f7273b = str;
         }
     }
 
     public void setDepartureTime(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f7258d = str;
+            this.f7275d = str;
         }
     }
 
     public void setName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f7255a = str;
+            this.f7272a = str;
         }
     }
 
@@ -163,11 +163,11 @@ public class TransitBaseInfo implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i2) == null) {
-            parcel.writeString(this.f7255a);
-            parcel.writeString(this.f7256b);
-            parcel.writeString(this.f7257c);
-            parcel.writeString(this.f7258d);
-            parcel.writeString(this.f7259e);
+            parcel.writeString(this.f7272a);
+            parcel.writeString(this.f7273b);
+            parcel.writeString(this.f7274c);
+            parcel.writeString(this.f7275d);
+            parcel.writeString(this.f7276e);
         }
     }
 }

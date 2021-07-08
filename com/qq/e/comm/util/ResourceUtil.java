@@ -3,6 +3,7 @@ package com.qq.e.comm.util;
 import android.content.Context;
 import android.content.res.Resources;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ResourceUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +73,7 @@ public class ResourceUtil {
         InterceptResult invokeLL;
         Resources resources;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
             if (context == null || TextUtils.isEmpty(str) || (resources = context.getResources()) == null) {
                 return -1;
             }

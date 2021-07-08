@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
 import com.bun.miitmdid.utils.sysParamters;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b implements InnerIdSupplier {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f27551a;
+    public Context f27661a;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class b implements InnerIdSupplier {
                 return;
             }
         }
-        this.f27551a = context;
+        this.f27661a = context;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -59,7 +59,7 @@ public class b implements InnerIdSupplier {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String c2 = a.c(this.f27551a);
+            String c2 = a.c(this.f27661a);
             return TextUtils.isEmpty(c2) ? sysParamters.f() : c2;
         }
         return (String) invokeV.objValue;
@@ -70,7 +70,7 @@ public class b implements InnerIdSupplier {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String a2 = a.a(this.f27551a);
+            String a2 = a.a(this.f27661a);
             return a2 == null ? "" : a2;
         }
         return (String) invokeV.objValue;
@@ -88,7 +88,7 @@ public class b implements InnerIdSupplier {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            String b2 = a.b(this.f27551a);
+            String b2 = a.b(this.f27661a);
             return b2 == null ? "" : b2;
         }
         return (String) invokeV.objValue;

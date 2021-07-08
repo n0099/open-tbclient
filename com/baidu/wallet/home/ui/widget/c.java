@@ -19,25 +19,25 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.home.ui.widget.WalletMenuLayout;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c extends BdMenu {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HomeCfgResponse.TitleItemData[] f24970a;
+    public HomeCfgResponse.TitleItemData[] f25080a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24971b;
+    public String f25081b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f24972c;
+    public Context f25082c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f24973d;
+    public d f25083d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f24974e;
+    public String f25084e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(View view) {
@@ -57,14 +57,14 @@ public class c extends BdMenu {
                 return;
             }
         }
-        this.f24972c = view.getContext();
+        this.f25082c = view.getContext();
         setDismissOnClick(true);
         setMenuItemClickListener(new BdMenuItem.OnItemClickListener(this) { // from class: com.baidu.wallet.home.ui.widget.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c f24975a;
+            public final /* synthetic */ c f25085a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -81,7 +81,7 @@ public class c extends BdMenu {
                         return;
                     }
                 }
-                this.f24975a = this;
+                this.f25085a = this;
             }
 
             @Override // com.baidu.wallet.base.widget.BdMenuItem.OnItemClickListener
@@ -98,13 +98,13 @@ public class c extends BdMenu {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, list) == null) {
             WalletHomeMenuView walletHomeMenuView = (WalletHomeMenuView) view;
-            walletHomeMenuView.layoutMenu(this.f24971b, this.f24970a);
+            walletHomeMenuView.layoutMenu(this.f25081b, this.f25080a);
             walletHomeMenuView.setMenuSelectListener(new WalletMenuLayout.a(this) { // from class: com.baidu.wallet.home.ui.widget.c.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f24976a;
+                public final /* synthetic */ c f25086a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -121,20 +121,20 @@ public class c extends BdMenu {
                             return;
                         }
                     }
-                    this.f24976a = this;
+                    this.f25086a = this;
                 }
 
                 @Override // com.baidu.wallet.home.ui.widget.WalletMenuLayout.a
                 public void a(HomeCfgResponse.TitleItemData titleItemData) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, titleItemData) == null) {
-                        if (this.f24976a.f24973d != null && this.f24976a.f24973d.a(titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr)) {
+                        if (this.f25086a.f25083d != null && this.f25086a.f25083d.a(titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr)) {
                             DXMSdkSAUtils.onEventWithValues("clickHomeMenu", Arrays.asList(titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr));
                             PayStatisticsUtil.onEventWithValues("clickHomeMenu", Arrays.asList(titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr));
                         } else {
-                            com.baidu.wallet.home.a.a().a(this.f24976a.f24972c, titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr, titleItemData.getPrevlogin(), this.f24976a.f24974e);
+                            com.baidu.wallet.home.a.a().a(this.f25086a.f25082c, titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr, titleItemData.getPrevlogin(), this.f25086a.f25084e);
                         }
-                        this.f24976a.dismiss();
+                        this.f25086a.dismiss();
                     }
                 }
             });
@@ -166,21 +166,21 @@ public class c extends BdMenu {
         if (interceptable != null && interceptable.invokeLLL(1048576, this, str, titleItemDataArr, str2) != null) {
             return;
         }
-        this.f24974e = str2;
+        this.f25084e = str2;
         removeAllItem();
-        this.f24971b = str;
-        this.f24970a = titleItemDataArr;
+        this.f25081b = str;
+        this.f25080a = titleItemDataArr;
         if (titleItemDataArr == null || titleItemDataArr.length <= 0) {
             return;
         }
         int i2 = 0;
         while (true) {
-            HomeCfgResponse.TitleItemData[] titleItemDataArr2 = this.f24970a;
+            HomeCfgResponse.TitleItemData[] titleItemDataArr2 = this.f25080a;
             if (i2 >= titleItemDataArr2.length) {
                 return;
             }
             if (!TextUtils.isEmpty(titleItemDataArr2[i2].setting_name)) {
-                add(i2, this.f24970a[i2].setting_name);
+                add(i2, this.f25080a[i2].setting_name);
             }
             i2++;
         }

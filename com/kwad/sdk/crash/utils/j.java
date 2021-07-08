@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.text.SimpleDateFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f37022a;
+    public static SimpleDateFormat f35392a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,7 +27,7 @@ public class j {
                 return;
             }
         }
-        f37022a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        f35392a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     }
 
     public static String a(long j) {

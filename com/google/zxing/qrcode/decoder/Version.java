@@ -1,5 +1,6 @@
 package com.google.zxing.qrcode.decoder;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.FormatException;
 import com.google.zxing.common.BitMatrix;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Version {
     public static /* synthetic */ Interceptable $ic;
     public static final Version[] VERSIONS;
@@ -24,7 +25,7 @@ public final class Version {
     public final int totalCodewords;
     public final int versionNumber;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ECB {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +64,7 @@ public final class Version {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ECBlocks {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -204,7 +205,7 @@ public final class Version {
     public static Version getProvisionalVersionForDimension(int i2) throws FormatException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             if (i2 % 4 == 1) {
                 try {
                     return getVersionForNumber((i2 - 17) / 4);

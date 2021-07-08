@@ -8,10 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.o;
+import com.kwad.sdk.utils.an;
+import com.kwad.sdk.utils.q;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseResultData implements com.kwad.sdk.core.b, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CODE_RESULT_OK = 1;
@@ -52,6 +53,7 @@ public abstract class BaseResultData implements com.kwad.sdk.core.b, Serializabl
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.result == 1 : invokeV.booleanValue;
     }
 
+    @Override // com.kwad.sdk.core.b
     public void parseJson(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
@@ -61,7 +63,7 @@ public abstract class BaseResultData implements com.kwad.sdk.core.b, Serializabl
         this.result = jSONObject.optInt("result");
         this.errorMsg = jSONObject.optString("errorMsg");
         String optString = jSONObject.optString("extra");
-        if (!TextUtils.isEmpty(optString)) {
+        if (!an.a(optString)) {
             this.extra = com.kwad.sdk.core.b.d.b(optString);
         }
         String optString2 = jSONObject.optString("cookie");
@@ -78,11 +80,11 @@ public abstract class BaseResultData implements com.kwad.sdk.core.b, Serializabl
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, "llsid", this.llsid);
-            o.a(jSONObject, "extra", this.extra);
-            o.a(jSONObject, "result", this.result);
-            o.a(jSONObject, "errorMsg", this.errorMsg);
-            o.a(jSONObject, "cookie", this.cookie);
+            q.a(jSONObject, "llsid", this.llsid);
+            q.a(jSONObject, "extra", this.extra);
+            q.a(jSONObject, "result", this.result);
+            q.a(jSONObject, "errorMsg", this.errorMsg);
+            q.a(jSONObject, "cookie", this.cookie);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

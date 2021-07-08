@@ -11,12 +11,12 @@ import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class WXNontaxPay {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Req extends BaseReq {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "MicroMsg.SDK.WXNontaxPay.Req";
@@ -85,7 +85,7 @@ public class WXNontaxPay {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Resp extends BaseResp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

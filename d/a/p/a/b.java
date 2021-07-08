@@ -8,7 +8,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.ref.WeakReference;
-/* loaded from: classes8.dex */
+import org.webrtc.MediaStreamTrack;
+/* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +36,7 @@ public class b {
             if (weakReference == null || weakReference.get() == null) {
                 return false;
             }
-            AudioManager audioManager = (AudioManager) weakReference.get().getSystemService("audio");
+            AudioManager audioManager = (AudioManager) weakReference.get().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
             if (z) {
                 if (audioManager.requestAudioFocus(null, 3, 2) != 1) {
                     return false;

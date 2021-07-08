@@ -13,12 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.RecordConstants;
-import com.kwai.video.player.KsMediaMeta;
-import com.kwai.video.player.misc.IMediaFormat;
-import d.a.y0.t.m;
+import d.a.v0.t.m;
 import java.nio.ByteBuffer;
 @TargetApi(18)
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class InnerAudioProcessor extends InnerMediaProcessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "InnerAudioProcessor";
@@ -405,12 +403,12 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
                 MediaFormat trackFormat = mediaExtractor.getTrackFormat(m.e(mediaExtractor));
                 if (this.mDoDecode) {
                     MediaFormat mediaFormat = new MediaFormat();
-                    mediaFormat.setString(IMediaFormat.KEY_MIME, "audio/mp4a-latm");
+                    mediaFormat.setString("mime", "audio/mp4a-latm");
                     mediaFormat.setInteger("aac-profile", 2);
                     mediaFormat.setInteger("max-input-size", 8192);
                     m.n(trackFormat, mediaFormat, "sample-rate", RecordConstants.AUDIO_ENCODE_SAMPLE_RATE);
                     m.n(trackFormat, mediaFormat, "channel-count", 1);
-                    m.n(trackFormat, mediaFormat, KsMediaMeta.KSM_KEY_BITRATE, RecordConstants.AUDIO_ENCODE_BIT_RATE);
+                    m.n(trackFormat, mediaFormat, "bitrate", RecordConstants.AUDIO_ENCODE_BIT_RATE);
                     mediaCodec3 = MediaCodec.createByCodecName(m.getName());
                     try {
                         mediaCodec2 = m.a(trackFormat);

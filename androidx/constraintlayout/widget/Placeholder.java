@@ -9,6 +9,7 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -49,7 +50,7 @@ public class Placeholder extends View {
 
     private void init(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, attributeSet) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, attributeSet) == null) {
             super.setVisibility(this.mEmptyVisibility);
             this.mContentId = -1;
             if (attributeSet != null) {

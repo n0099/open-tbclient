@@ -20,13 +20,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CommonPromotionView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f24348a;
+    public final int f24458a;
     public NetImageView leftDraw;
     public View mView;
     public TextView promotionTxt;
@@ -50,7 +50,7 @@ public class CommonPromotionView extends FrameLayout {
                 return;
             }
         }
-        this.f24348a = 33;
+        this.f24458a = 33;
         initViews();
     }
 
@@ -137,7 +137,7 @@ public class CommonPromotionView extends FrameLayout {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ CommonPromotionView f24349a;
+                public final /* synthetic */ CommonPromotionView f24459a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -154,14 +154,14 @@ public class CommonPromotionView extends FrameLayout {
                             return;
                         }
                     }
-                    this.f24349a = this;
+                    this.f24459a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f24349a.setVisibility(8);
+                        this.f24459a.setVisibility(8);
                     }
                 }
             });
@@ -249,7 +249,7 @@ public class CommonPromotionView extends FrameLayout {
                 return;
             }
         }
-        this.f24348a = 33;
+        this.f24458a = 33;
         initViews();
     }
 
@@ -272,7 +272,7 @@ public class CommonPromotionView extends FrameLayout {
                 return;
             }
         }
-        this.f24348a = 33;
+        this.f24458a = 33;
         initViews();
     }
 }

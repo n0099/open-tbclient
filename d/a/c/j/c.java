@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.Thread;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f44766e;
+    public Thread.UncaughtExceptionHandler f41782e;
 
     public c(Thread.UncaughtExceptionHandler uncaughtExceptionHandler) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class c implements Thread.UncaughtExceptionHandler {
                 return;
             }
         }
-        this.f44766e = uncaughtExceptionHandler;
+        this.f41782e = uncaughtExceptionHandler;
     }
 
     @Override // java.lang.Thread.UncaughtExceptionHandler
@@ -38,7 +38,7 @@ public class c implements Thread.UncaughtExceptionHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, thread, th) == null) {
             TitanDownloadService.startServiceIfNeeded(BdBaseApplication.getInst().getContext());
-            Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f44766e;
+            Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f41782e;
             if (uncaughtExceptionHandler != null) {
                 uncaughtExceptionHandler.uncaughtException(thread, th);
             }

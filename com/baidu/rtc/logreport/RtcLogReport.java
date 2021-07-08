@@ -7,6 +7,7 @@ import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.util.Base64;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.statistics.g;
@@ -25,7 +26,7 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class RtcLogReport {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_HOST = "https://rtc-log.cdn.bcebos.com/collect?message=";
@@ -88,7 +89,7 @@ public class RtcLogReport {
         NetworkInfo activeNetworkInfo;
         NetworkInfo.State state;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             if (context == null || (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null || !activeNetworkInfo.isAvailable()) {
                 return StringUtil.NULL_STRING;
             }
@@ -110,7 +111,7 @@ public class RtcLogReport {
                     case 12:
                     case 14:
                     case 15:
-                        return g.f3983b;
+                        return g.f3986b;
                     case 13:
                         return "4G";
                     default:

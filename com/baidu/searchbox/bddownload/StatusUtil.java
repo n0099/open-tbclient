@@ -2,6 +2,7 @@ package com.baidu.searchbox.bddownload;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.bddownload.DownloadTask;
@@ -16,13 +17,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class StatusUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class Status {
         public static final /* synthetic */ Status[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -118,7 +119,7 @@ public class StatusUtil {
     public static Status getStatus(@NonNull DownloadTask downloadTask) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, downloadTask)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, downloadTask)) == null) {
             Status isCompletedOrUnknown = isCompletedOrUnknown(downloadTask);
             Status status = Status.COMPLETED;
             if (isCompletedOrUnknown == status) {

@@ -60,7 +60,7 @@ import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BaseWXApiImplV10 implements IWXAPI {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MicroMsg.SDK.WXApiImplV10";
@@ -137,7 +137,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
     private boolean createChatroom(Context context, Bundle bundle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, context, bundle)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, bundle)) == null) {
             launchWXIfNeed();
             Cursor query = context.getContentResolver().query(Uri.parse("content://com.tencent.mm.sdk.comm.provider/createChatroom"), null, null, new String[]{this.appId, bundle.getString("_wxapi_basereq_transaction", ""), bundle.getString("_wxapi_create_chatroom_group_id", ""), bundle.getString("_wxapi_create_chatroom_chatroom_name", ""), bundle.getString("_wxapi_create_chatroom_chatroom_nickname", ""), bundle.getString("_wxapi_create_chatroom_ext_msg", ""), bundle.getString("_wxapi_basereq_openid", "")}, null);
             if (query != null) {
@@ -845,12 +845,12 @@ public class BaseWXApiImplV10 implements IWXAPI {
                 this.appId = str;
             }
             Log.d("MicroMsg.SDK.WXApiImplV10", "register app " + this.context.getPackageName());
-            a.C0557a c0557a = new a.C0557a();
-            c0557a.f41818a = "com.tencent.mm";
-            c0557a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
-            c0557a.content = "weixin://registerapp?appid=" + this.appId;
-            c0557a.f41819b = j;
-            return a.a(this.context, c0557a);
+            a.C0518a c0518a = new a.C0518a();
+            c0518a.f38832a = "com.tencent.mm";
+            c0518a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
+            c0518a.content = "weixin://registerapp?appid=" + this.appId;
+            c0518a.f38833b = j;
+            return a.a(this.context, c0518a);
         }
         return invokeLJ.booleanValue;
     }
@@ -1053,11 +1053,11 @@ public class BaseWXApiImplV10 implements IWXAPI {
                 return;
             }
             Log.d("MicroMsg.SDK.WXApiImplV10", "unregister app " + this.context.getPackageName());
-            a.C0557a c0557a = new a.C0557a();
-            c0557a.f41818a = "com.tencent.mm";
-            c0557a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
-            c0557a.content = "weixin://unregisterapp?appid=" + this.appId;
-            a.a(this.context, c0557a);
+            a.C0518a c0518a = new a.C0518a();
+            c0518a.f38832a = "com.tencent.mm";
+            c0518a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
+            c0518a.content = "weixin://unregisterapp?appid=" + this.appId;
+            a.a(this.context, c0518a);
         }
     }
 }

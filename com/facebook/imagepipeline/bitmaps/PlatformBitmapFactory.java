@@ -21,13 +21,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.references.CloseableReference;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class PlatformBitmapFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config;
         public static /* synthetic */ Interceptable $ic;
@@ -276,7 +276,7 @@ public abstract class PlatformBitmapFactory {
     private CloseableReference<Bitmap> createBitmap(int i2, int i3, Bitmap.Config config, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), config, Boolean.valueOf(z)})) == null) ? createBitmap(i2, i3, config, z, (Object) null) : (CloseableReference) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), config, Boolean.valueOf(z)})) == null) ? createBitmap(i2, i3, config, z, (Object) null) : (CloseableReference) invokeCommon.objValue;
     }
 
     private CloseableReference<Bitmap> createBitmap(int i2, int i3, Bitmap.Config config, boolean z, @Nullable Object obj) {

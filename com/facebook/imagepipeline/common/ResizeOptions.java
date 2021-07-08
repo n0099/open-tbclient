@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.common;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.util.HashCodeUtil;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ResizeOptions {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DEFAULT_ROUNDUP_FRACTION = 0.6666667f;
@@ -57,7 +58,7 @@ public class ResizeOptions {
     public static ResizeOptions forSquareSize(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             if (i2 <= 0) {
                 return null;
             }

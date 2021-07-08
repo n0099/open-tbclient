@@ -9,28 +9,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class DotOptions extends OverlayOptions {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f6900a;
+    public int f6917a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f6901b;
+    public boolean f6918b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bundle f6902c;
+    public Bundle f6919c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LatLng f6903d;
+    public LatLng f6920d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6904e;
+    public int f6921e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f6905f;
+    public int f6922f;
 
     public DotOptions() {
         Interceptable interceptable = $ic;
@@ -45,9 +45,9 @@ public final class DotOptions extends OverlayOptions {
                 return;
             }
         }
-        this.f6904e = -16777216;
-        this.f6905f = 5;
-        this.f6901b = true;
+        this.f6921e = -16777216;
+        this.f6922f = 5;
+        this.f6918b = true;
     }
 
     @Override // com.baidu.mapapi.map.OverlayOptions
@@ -56,12 +56,12 @@ public final class DotOptions extends OverlayOptions {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Dot dot = new Dot();
-            dot.A = this.f6901b;
-            dot.z = this.f6900a;
-            dot.B = this.f6902c;
-            dot.f6898b = this.f6904e;
-            dot.f6897a = this.f6903d;
-            dot.f6899c = this.f6905f;
+            dot.A = this.f6918b;
+            dot.z = this.f6917a;
+            dot.B = this.f6919c;
+            dot.f6915b = this.f6921e;
+            dot.f6914a = this.f6920d;
+            dot.f6916c = this.f6922f;
             return dot;
         }
         return (Overlay) invokeV.objValue;
@@ -72,7 +72,7 @@ public final class DotOptions extends OverlayOptions {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng)) == null) {
             if (latLng != null) {
-                this.f6903d = latLng;
+                this.f6920d = latLng;
                 return this;
             }
             throw new IllegalArgumentException("BDMapSDKException: dot center can not be null");
@@ -84,7 +84,7 @@ public final class DotOptions extends OverlayOptions {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            this.f6904e = i2;
+            this.f6921e = i2;
             return this;
         }
         return (DotOptions) invokeI.objValue;
@@ -94,7 +94,7 @@ public final class DotOptions extends OverlayOptions {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bundle)) == null) {
-            this.f6902c = bundle;
+            this.f6919c = bundle;
             return this;
         }
         return (DotOptions) invokeL.objValue;
@@ -103,37 +103,37 @@ public final class DotOptions extends OverlayOptions {
     public LatLng getCenter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6903d : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6920d : (LatLng) invokeV.objValue;
     }
 
     public int getColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f6904e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f6921e : invokeV.intValue;
     }
 
     public Bundle getExtraInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f6902c : (Bundle) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f6919c : (Bundle) invokeV.objValue;
     }
 
     public int getRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f6905f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f6922f : invokeV.intValue;
     }
 
     public int getZIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f6900a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f6917a : invokeV.intValue;
     }
 
     public boolean isVisible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f6901b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f6918b : invokeV.booleanValue;
     }
 
     public DotOptions radius(int i2) {
@@ -141,7 +141,7 @@ public final class DotOptions extends OverlayOptions {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
             if (i2 > 0) {
-                this.f6905f = i2;
+                this.f6922f = i2;
             }
             return this;
         }
@@ -152,7 +152,7 @@ public final class DotOptions extends OverlayOptions {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
-            this.f6901b = z;
+            this.f6918b = z;
             return this;
         }
         return (DotOptions) invokeZ.objValue;
@@ -162,7 +162,7 @@ public final class DotOptions extends OverlayOptions {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
-            this.f6900a = i2;
+            this.f6917a = i2;
             return this;
         }
         return (DotOptions) invokeI.objValue;

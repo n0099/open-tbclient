@@ -14,7 +14,7 @@ import d.f.d.f.d;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class PairedStats implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BYTES = 88;

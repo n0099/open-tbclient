@@ -13,19 +13,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class Objects {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.common.internal.Objects$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class ToStringHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public final class Objects {
         public ValueHolder holderTail;
         public boolean omitNullValues;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public static final class ValueHolder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +116,7 @@ public final class Objects {
                         String str2 = valueHolder.name;
                         if (str2 != null) {
                             sb.append(str2);
-                            sb.append(a.f1889h);
+                            sb.append(a.f1890h);
                         }
                         sb.append(valueHolder.value);
                         str = StringUtil.ARRAY_ELEMENT_SEPARATOR;
@@ -199,7 +199,7 @@ public final class Objects {
         private ToStringHelper addHolder(String str, @Nullable Object obj) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, str, obj)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, obj)) == null) {
                 ValueHolder addHolder = addHolder();
                 addHolder.value = obj;
                 addHolder.name = (String) Preconditions.checkNotNull(str);
@@ -281,7 +281,7 @@ public final class Objects {
     public static String simpleName(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, cls)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls)) == null) {
             String replaceAll = cls.getName().replaceAll("\\$[0-9]+", "\\$");
             int lastIndexOf = replaceAll.lastIndexOf(36);
             if (lastIndexOf == -1) {

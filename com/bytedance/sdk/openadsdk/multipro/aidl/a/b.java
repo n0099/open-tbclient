@@ -2,6 +2,7 @@ package com.bytedance.sdk.openadsdk.multipro.aidl.a;
 
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,15 +16,15 @@ import com.bytedance.sdk.openadsdk.ITTAppDownloadListener;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, RemoteCallbackList<ITTAppDownloadListener>> f31423a;
+    public static Map<String, RemoteCallbackList<ITTAppDownloadListener>> f31533a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f31424b;
+    public static volatile b f31534b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +40,7 @@ public class b extends a {
                 return;
             }
         }
-        f31423a = Collections.synchronizedMap(new HashMap());
+        f31533a = Collections.synchronizedMap(new HashMap());
     }
 
     public b() {
@@ -60,14 +61,14 @@ public class b extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f31424b == null) {
+            if (f31534b == null) {
                 synchronized (b.class) {
-                    if (f31424b == null) {
-                        f31424b = new b();
+                    if (f31534b == null) {
+                        f31534b = new b();
                     }
                 }
             }
-            return f31424b;
+            return f31534b;
         }
         return (b) invokeV.objValue;
     }
@@ -84,14 +85,14 @@ public class b extends a {
     public void registerTTAppDownloadListener(String str, ITTAppDownloadListener iTTAppDownloadListener) throws RemoteException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, iTTAppDownloadListener) == null) {
-            RemoteCallbackList<ITTAppDownloadListener> remoteCallbackList = f31423a.get(str);
+            RemoteCallbackList<ITTAppDownloadListener> remoteCallbackList = f31533a.get(str);
             if (remoteCallbackList == null) {
                 remoteCallbackList = new RemoteCallbackList<>();
             }
             remoteCallbackList.register(iTTAppDownloadListener);
-            f31423a.put(str, remoteCallbackList);
+            f31533a.put(str, remoteCallbackList);
             j.f("DMLibManager", "aidl registerTTAppDownloadListener, materialMd5:" + str);
-            j.f("DMLibManager", "aidl registerTTAppDownloadListener, mListenerMap size:" + f31423a.size());
+            j.f("DMLibManager", "aidl registerTTAppDownloadListener, mListenerMap size:" + f31533a.size());
         }
     }
 
@@ -99,7 +100,7 @@ public class b extends a {
     public void unregisterTTAppDownloadListener(String str, ITTAppDownloadListener iTTAppDownloadListener) throws RemoteException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, iTTAppDownloadListener) == null) {
-            Map<String, RemoteCallbackList<ITTAppDownloadListener>> map = f31423a;
+            Map<String, RemoteCallbackList<ITTAppDownloadListener>> map = f31533a;
             if (map == null) {
                 j.f("DMLibManager", "aidl unregisterTTAppDownloadListener mListenerMap = null, materialMd5:" + str);
                 return;
@@ -111,29 +112,29 @@ public class b extends a {
             }
             a(remove);
             j.f("DMLibManager", "aidl unregisterTTAppDownloadListener, materialMd5:" + str);
-            j.f("DMLibManager", "aidl unregisterTTAppDownloadListener, mListenerMap size:" + f31423a.size());
+            j.f("DMLibManager", "aidl unregisterTTAppDownloadListener, mListenerMap size:" + f31533a.size());
         }
     }
 
     private synchronized void a(String str, String str2, long j, long j2, String str3, String str4) {
         ITTAppDownloadListener broadcastItem;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), str3, str4}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), str3, str4}) == null) {
             synchronized (this) {
                 try {
                 } catch (Throwable th) {
                     j.c("MultiProcess", "AppDownloadListenerManagerImpl MultiProcess2: " + str2 + " throws Exception :", th);
                 }
-                if (f31423a == null) {
+                if (f31533a == null) {
                     return;
                 }
                 if ("recycleRes".equals(str2)) {
-                    a(f31423a.remove(str));
+                    a(f31533a.remove(str));
                     j.f("DMLibManager", "aidl executeMultiProcessAppDownloadCallBack recycle res, materialMd5:" + str);
-                    j.f("DMLibManager", "aidl executeMultiProcessAppDownloadCallBack recycle res, mListenerMap sizee:" + f31423a.size());
+                    j.f("DMLibManager", "aidl executeMultiProcessAppDownloadCallBack recycle res, mListenerMap sizee:" + f31533a.size());
                     return;
                 }
-                RemoteCallbackList<ITTAppDownloadListener> remoteCallbackList = f31423a.get(str);
+                RemoteCallbackList<ITTAppDownloadListener> remoteCallbackList = f31533a.get(str);
                 if (remoteCallbackList != null) {
                     int beginBroadcast = remoteCallbackList.beginBroadcast();
                     for (int i2 = 0; i2 < beginBroadcast; i2++) {

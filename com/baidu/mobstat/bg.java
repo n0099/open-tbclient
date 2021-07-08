@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.bt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,18 +16,18 @@ import java.io.FileOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class bg {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f8821a;
+    public static volatile boolean f8838a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f8822b;
+    public static volatile boolean f8839b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f8823c;
+    public static volatile boolean f8840c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
@@ -44,11 +45,11 @@ public class bg {
                     if (i2 != 2) {
                         return false;
                     }
-                    return f8823c;
+                    return f8840c;
                 }
-                return f8822b;
+                return f8839b;
             }
-            return f8821a;
+            return f8838a;
         }
         return invokeI.booleanValue;
     }
@@ -61,14 +62,14 @@ public class bg {
 
     public static void a(int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             if (i2 == 0) {
-                f8821a = z;
+                f8838a = z;
             } else if (i2 == 1) {
-                f8822b = z;
+                f8839b = z;
             } else if (i2 != 2) {
             } else {
-                f8823c = z;
+                f8840c = z;
             }
         }
     }

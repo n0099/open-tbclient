@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 @TargetApi(19)
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CustomImageTransform extends Transition {
     public static /* synthetic */ Interceptable $ic = null;
     public static Property<ImageView, Matrix> ANIMATED_TRANSFORM_PROPERTY = null;
@@ -40,7 +40,7 @@ public class CustomImageTransform extends Transition {
     public static final String[] sTransitionProperties;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class MatrixEvaluator implements TypeEvaluator<Matrix> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -552,7 +552,7 @@ public class CustomImageTransform extends Transition {
     private ObjectAnimator createMatrixAnimator(ImageView imageView, Matrix matrix, Matrix matrix2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, this, imageView, matrix, matrix2)) == null) ? ObjectAnimator.ofObject(imageView, (Property<ImageView, V>) ANIMATED_TRANSFORM_PROPERTY, (TypeEvaluator) new MatrixEvaluator(), (Object[]) new Matrix[]{matrix, matrix2}) : (ObjectAnimator) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, imageView, matrix, matrix2)) == null) ? ObjectAnimator.ofObject(imageView, (Property<ImageView, V>) ANIMATED_TRANSFORM_PROPERTY, (TypeEvaluator) new MatrixEvaluator(), (Object[]) new Matrix[]{matrix, matrix2}) : (ObjectAnimator) invokeLLL.objValue;
     }
 
     private ObjectAnimator createNullAnimator(ImageView imageView) {

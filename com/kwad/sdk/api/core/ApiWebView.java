@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.webkit.WebView;
 import androidx.annotation.Keep;
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.loader.Wrapper;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ApiWebView extends WebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -120,14 +121,14 @@ public class ApiWebView extends WebView {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet, Integer.valueOf(i2), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }

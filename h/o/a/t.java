@@ -9,35 +9,35 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.g;
 import h.o.a.u;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class t<T> extends u<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class a implements u.a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f75490a;
+        public final /* synthetic */ long f72524a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TimeUnit f75491b;
+        public final /* synthetic */ TimeUnit f72525b;
 
         /* renamed from: h.o.a.t$a$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
-        public class C2100a implements h.n.a {
+        /* loaded from: classes8.dex */
+        public class C2068a implements h.n.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ u.c f75492e;
+            public final /* synthetic */ u.c f72526e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Long f75493f;
+            public final /* synthetic */ Long f72527f;
 
-            public C2100a(a aVar, u.c cVar, Long l) {
+            public C2068a(a aVar, u.c cVar, Long l) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,15 +52,15 @@ public final class t<T> extends u<T> {
                         return;
                     }
                 }
-                this.f75492e = cVar;
-                this.f75493f = l;
+                this.f72526e = cVar;
+                this.f72527f = l;
             }
 
             @Override // h.n.a
             public void call() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f75492e.b(this.f75493f.longValue());
+                    this.f72526e.b(this.f72527f.longValue());
                 }
             }
         }
@@ -80,8 +80,8 @@ public final class t<T> extends u<T> {
                     return;
                 }
             }
-            this.f75490a = j;
-            this.f75491b = timeUnit;
+            this.f72524a = j;
+            this.f72525b = timeUnit;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -90,31 +90,31 @@ public final class t<T> extends u<T> {
         public h.k a(u.c<T> cVar, Long l, g.a aVar) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, l, aVar)) == null) ? aVar.c(new C2100a(this, cVar, l), this.f75490a, this.f75491b) : (h.k) invokeLLL.objValue;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, l, aVar)) == null) ? aVar.c(new C2068a(this, cVar, l), this.f72524a, this.f72525b) : (h.k) invokeLLL.objValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class b implements u.b<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f75494a;
+        public final /* synthetic */ long f72528a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TimeUnit f75495b;
+        public final /* synthetic */ TimeUnit f72529b;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes8.dex */
         public class a implements h.n.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ u.c f75496e;
+            public final /* synthetic */ u.c f72530e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Long f75497f;
+            public final /* synthetic */ Long f72531f;
 
             public a(b bVar, u.c cVar, Long l) {
                 Interceptable interceptable = $ic;
@@ -131,15 +131,15 @@ public final class t<T> extends u<T> {
                         return;
                     }
                 }
-                this.f75496e = cVar;
-                this.f75497f = l;
+                this.f72530e = cVar;
+                this.f72531f = l;
             }
 
             @Override // h.n.a
             public void call() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f75496e.b(this.f75497f.longValue());
+                    this.f72530e.b(this.f72531f.longValue());
                 }
             }
         }
@@ -159,8 +159,8 @@ public final class t<T> extends u<T> {
                     return;
                 }
             }
-            this.f75494a = j;
-            this.f75495b = timeUnit;
+            this.f72528a = j;
+            this.f72529b = timeUnit;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -169,7 +169,7 @@ public final class t<T> extends u<T> {
         public h.k a(u.c<T> cVar, Long l, T t, g.a aVar) {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, l, t, aVar)) == null) ? aVar.c(new a(this, cVar, l), this.f75494a, this.f75495b) : (h.k) invokeLLLL.objValue;
+            return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, l, t, aVar)) == null) ? aVar.c(new a(this, cVar, l), this.f72528a, this.f72529b) : (h.k) invokeLLLL.objValue;
         }
     }
 

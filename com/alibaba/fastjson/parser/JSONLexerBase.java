@@ -244,7 +244,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
     */
     private void scanStringSingleQuote() {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(65540, this) != null) {
+        if (interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) != null) {
             return;
         }
         this.np = this.bp;

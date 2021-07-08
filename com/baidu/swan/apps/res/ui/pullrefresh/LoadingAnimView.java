@@ -15,37 +15,37 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a.c;
-import d.a.q0.a.v2.n0;
-/* loaded from: classes4.dex */
+import d.a.n0.a.c;
+import d.a.n0.a.v2.n0;
+/* loaded from: classes3.dex */
 public class LoadingAnimView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f11356e;
+    public float f11373e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ValueAnimator f11357f;
+    public ValueAnimator f11374f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Bitmap f11358g;
+    public Bitmap f11375g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Canvas f11359h;
+    public Canvas f11376h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Camera f11360i;
+    public Camera f11377i;
     public Matrix j;
     public Paint k;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LoadingAnimView f11361e;
+        public final /* synthetic */ LoadingAnimView f11378e;
 
         public a(LoadingAnimView loadingAnimView) {
             Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class LoadingAnimView extends View {
                     return;
                 }
             }
-            this.f11361e = loadingAnimView;
+            this.f11378e = loadingAnimView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -71,13 +71,13 @@ public class LoadingAnimView extends View {
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                 if (floatValue < 0.4f) {
-                    this.f11361e.f11356e = (floatValue / 0.4f) * 0.25f;
+                    this.f11378e.f11373e = (floatValue / 0.4f) * 0.25f;
                 } else if (floatValue < 0.6f) {
-                    this.f11361e.f11356e = (((floatValue - 0.4f) / 0.2f) * 0.5f) + 0.25f;
+                    this.f11378e.f11373e = (((floatValue - 0.4f) / 0.2f) * 0.5f) + 0.25f;
                 } else {
-                    this.f11361e.f11356e = (((floatValue - 0.6f) / 0.4f) * 0.25f) + 0.75f;
+                    this.f11378e.f11373e = (((floatValue - 0.6f) / 0.4f) * 0.25f) + 0.75f;
                 }
-                this.f11361e.postInvalidate();
+                this.f11378e.postInvalidate();
             }
         }
     }
@@ -100,7 +100,7 @@ public class LoadingAnimView extends View {
                 return;
             }
         }
-        this.f11356e = 0.0f;
+        this.f11373e = 0.0f;
         b();
     }
 
@@ -110,7 +110,7 @@ public class LoadingAnimView extends View {
             Paint paint = new Paint();
             this.k = paint;
             paint.setAntiAlias(true);
-            this.f11360i = new Camera();
+            this.f11377i = new Camera();
             this.j = new Matrix();
             d();
         }
@@ -119,33 +119,33 @@ public class LoadingAnimView extends View {
     public final void c() {
         ValueAnimator valueAnimator;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (valueAnimator = this.f11357f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (valueAnimator = this.f11374f) == null) {
             return;
         }
         valueAnimator.setRepeatCount(0);
-        this.f11357f.removeAllUpdateListeners();
-        this.f11357f.removeAllListeners();
-        this.f11357f.end();
-        this.f11357f.cancel();
+        this.f11374f.removeAllUpdateListeners();
+        this.f11374f.removeAllListeners();
+        this.f11374f.end();
+        this.f11374f.cancel();
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.f11357f != null) {
+            if (this.f11374f != null) {
                 c();
             }
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-            this.f11357f = ofFloat;
+            this.f11374f = ofFloat;
             ofFloat.setDuration(750L);
-            this.f11357f.setRepeatCount(20);
-            this.f11357f.setRepeatMode(1);
-            this.f11357f.setInterpolator(new LinearInterpolator());
-            this.f11357f.addUpdateListener(new a(this));
-            if (this.f11357f.isRunning()) {
+            this.f11374f.setRepeatCount(20);
+            this.f11374f.setRepeatMode(1);
+            this.f11374f.setInterpolator(new LinearInterpolator());
+            this.f11374f.addUpdateListener(new a(this));
+            if (this.f11374f.isRunning()) {
                 return;
             }
-            this.f11357f.start();
+            this.f11374f.start();
         }
     }
 
@@ -162,28 +162,28 @@ public class LoadingAnimView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f11358g == null || this.f11359h == null) {
+            if (this.f11375g == null || this.f11376h == null) {
                 return;
             }
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
             int f2 = n0.f(getContext(), 6.0f);
-            this.f11358g.eraseColor(0);
+            this.f11375g.eraseColor(0);
             this.k.setStyle(Paint.Style.FILL);
             this.k.setColor(getResources().getColor(c.aiapps_pull_load_footer_image_color));
-            this.k.setAlpha((int) ((((1.0d - (Math.abs(this.f11356e - 0.5d) * 2.0d)) * 0.3d) + 0.3d) * 255.0d));
+            this.k.setAlpha((int) ((((1.0d - (Math.abs(this.f11373e - 0.5d) * 2.0d)) * 0.3d) + 0.3d) * 255.0d));
             float f3 = measuredWidth / 2.0f;
             float f4 = measuredHeight / 2.0f;
-            this.f11359h.drawCircle(f3, f4, f2, this.k);
+            this.f11376h.drawCircle(f3, f4, f2, this.k);
             this.j.reset();
-            this.f11360i.save();
-            this.f11360i.setLocation(0.0f, 0.0f, -100.0f);
-            this.f11360i.rotateY(this.f11356e * 360.0f);
-            this.f11360i.getMatrix(this.j);
-            this.f11360i.restore();
+            this.f11377i.save();
+            this.f11377i.setLocation(0.0f, 0.0f, -100.0f);
+            this.f11377i.rotateY(this.f11373e * 360.0f);
+            this.f11377i.getMatrix(this.j);
+            this.f11377i.restore();
             this.j.preTranslate((-measuredWidth) / 2.0f, (-measuredHeight) / 2.0f);
             this.j.postTranslate(f3, f4);
-            canvas.drawBitmap(this.f11358g, this.j, null);
+            canvas.drawBitmap(this.f11375g, this.j, null);
         }
     }
 
@@ -192,8 +192,8 @@ public class LoadingAnimView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048581, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f11358g = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
-            this.f11359h = new Canvas(this.f11358g);
+            this.f11375g = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
+            this.f11376h = new Canvas(this.f11375g);
         }
     }
 
@@ -216,7 +216,7 @@ public class LoadingAnimView extends View {
                 return;
             }
         }
-        this.f11356e = 0.0f;
+        this.f11373e = 0.0f;
         b();
     }
 
@@ -239,7 +239,7 @@ public class LoadingAnimView extends View {
                 return;
             }
         }
-        this.f11356e = 0.0f;
+        this.f11373e = 0.0f;
         b();
     }
 }

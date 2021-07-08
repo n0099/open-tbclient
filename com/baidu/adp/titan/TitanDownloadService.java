@@ -30,10 +30,10 @@ public class TitanDownloadService extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f2263e;
+        public final /* synthetic */ f f2264e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TitanDownloadService f2264f;
+        public final /* synthetic */ TitanDownloadService f2265f;
 
         public a(TitanDownloadService titanDownloadService, f fVar) {
             Interceptable interceptable = $ic;
@@ -50,15 +50,15 @@ public class TitanDownloadService extends Service {
                     return;
                 }
             }
-            this.f2264f = titanDownloadService;
-            this.f2263e = fVar;
+            this.f2265f = titanDownloadService;
+            this.f2264e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                i.f(this.f2264f.mContext, "com.baidu.titan.patch", this.f2263e);
+                i.f(this.f2265f.mContext, "com.baidu.titan.patch", this.f2264e);
             }
         }
     }
@@ -69,10 +69,10 @@ public class TitanDownloadService extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f2265a;
+        public int f2266a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TitanDownloadService f2266b;
+        public final /* synthetic */ TitanDownloadService f2267b;
 
         public b(TitanDownloadService titanDownloadService, int i2) {
             Interceptable interceptable = $ic;
@@ -89,8 +89,8 @@ public class TitanDownloadService extends Service {
                     return;
                 }
             }
-            this.f2266b = titanDownloadService;
-            this.f2265a = i2;
+            this.f2267b = titanDownloadService;
+            this.f2266a = i2;
         }
 
         @Override // d.a.c.j.f
@@ -102,7 +102,7 @@ public class TitanDownloadService extends Service {
                 } else if (i2 == 0) {
                     Log.d(TitanDownloadService.TAG, "onResult: 0");
                 }
-                this.f2266b.stopSelf(this.f2265a);
+                this.f2267b.stopSelf(this.f2266a);
             }
         }
     }

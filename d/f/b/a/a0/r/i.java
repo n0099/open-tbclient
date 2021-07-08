@@ -6,22 +6,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte[] f72366a;
+    public final byte[] f69469a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f72367b;
+    public final int f69470b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f72368c;
+    public int f69471c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f72369d;
+    public int f69472d;
 
     public i(byte[] bArr) {
         Interceptable interceptable = $ic;
@@ -38,30 +38,30 @@ public final class i {
                 return;
             }
         }
-        this.f72366a = bArr;
-        this.f72367b = bArr.length;
+        this.f69469a = bArr;
+        this.f69470b = bArr.length;
     }
 
     public final void a() {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int i3 = this.f72368c;
-            d.f.b.a.i0.a.f(i3 >= 0 && (i3 < (i2 = this.f72367b) || (i3 == i2 && this.f72369d == 0)));
+            int i3 = this.f69471c;
+            d.f.b.a.i0.a.f(i3 >= 0 && (i3 < (i2 = this.f69470b) || (i3 == i2 && this.f69472d == 0)));
         }
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f72368c * 8) + this.f72369d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f69471c * 8) + this.f69472d : invokeV.intValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            boolean z = (((this.f72366a[this.f72368c] & 255) >> this.f72369d) & 1) == 1;
+            boolean z = (((this.f69469a[this.f69471c] & 255) >> this.f69472d) & 1) == 1;
             e(1);
             return z;
         }
@@ -72,12 +72,12 @@ public final class i {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            int i3 = this.f72368c;
-            int min = Math.min(i2, 8 - this.f72369d);
+            int i3 = this.f69471c;
+            int min = Math.min(i2, 8 - this.f69472d);
             int i4 = i3 + 1;
-            int i5 = ((this.f72366a[i3] & 255) >> this.f72369d) & (255 >> (8 - min));
+            int i5 = ((this.f69469a[i3] & 255) >> this.f69472d) & (255 >> (8 - min));
             while (min < i2) {
-                i5 |= (this.f72366a[i4] & 255) << min;
+                i5 |= (this.f69469a[i4] & 255) << min;
                 min += 8;
                 i4++;
             }
@@ -92,13 +92,13 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             int i3 = i2 / 8;
-            int i4 = this.f72368c + i3;
-            this.f72368c = i4;
-            int i5 = this.f72369d + (i2 - (i3 * 8));
-            this.f72369d = i5;
+            int i4 = this.f69471c + i3;
+            this.f69471c = i4;
+            int i5 = this.f69472d + (i2 - (i3 * 8));
+            this.f69472d = i5;
             if (i5 > 7) {
-                this.f72368c = i4 + 1;
-                this.f72369d = i5 - 8;
+                this.f69471c = i4 + 1;
+                this.f69472d = i5 - 8;
             }
             a();
         }

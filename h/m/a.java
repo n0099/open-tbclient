@@ -1,5 +1,6 @@
 package h.m;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +14,7 @@ import rx.exceptions.OnCompletedFailedException;
 import rx.exceptions.OnErrorFailedException;
 import rx.exceptions.OnErrorNotImplementedException;
 import rx.exceptions.OnErrorThrowable;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -94,7 +95,7 @@ public final class a {
 
     public static void e(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, th) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) {
             if (!(th instanceof OnErrorNotImplementedException)) {
                 if (!(th instanceof OnErrorFailedException)) {
                     if (!(th instanceof OnCompletedFailedException)) {

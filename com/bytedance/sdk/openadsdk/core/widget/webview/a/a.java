@@ -2,6 +2,7 @@ package com.bytedance.sdk.openadsdk.core.widget.webview.a;
 
 import android.text.TextUtils;
 import android.webkit.WebResourceResponse;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,12 +21,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.Iterator;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f30816a;
+    public static Object f30926a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,7 +42,7 @@ public class a {
                 return;
             }
         }
-        f30816a = new Object();
+        f30926a = new Object();
     }
 
     public static void a() {
@@ -119,7 +120,7 @@ public class a {
 
     public static void a(m mVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, mVar) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, mVar) == null) {
             d.a().a(mVar);
         }
     }
@@ -138,7 +139,7 @@ public class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ v f30817a;
+                public final /* synthetic */ v f30927a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -158,15 +159,15 @@ public class a {
                             return;
                         }
                     }
-                    this.f30817a = vVar;
+                    this.f30927a = vVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (a.f30816a) {
-                            c.a().a(this.f30817a);
+                        synchronized (a.f30926a) {
+                            c.a().a(this.f30927a);
                         }
                     }
                 }

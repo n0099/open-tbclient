@@ -19,19 +19,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.core.w;
 import com.bytedance.sdk.openadsdk.e.j;
 import com.bytedance.sdk.openadsdk.r.h;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f30847a;
+    public static final String f30957a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final w f30848b;
+    public final w f30958b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j f30849c;
+    public j f30959c;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public class b extends WebChromeClient {
                 return;
             }
         }
-        f30847a = WebChromeClient.class.getSimpleName();
+        f30957a = WebChromeClient.class.getSimpleName();
     }
 
     public b(w wVar, j jVar) {
@@ -64,8 +64,8 @@ public class b extends WebChromeClient {
                 return;
             }
         }
-        this.f30848b = wVar;
-        this.f30849c = jVar;
+        this.f30958b = wVar;
+        this.f30959c = jVar;
     }
 
     private boolean a(@NonNull String str) {
@@ -73,11 +73,11 @@ public class b extends WebChromeClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
             try {
-                String str2 = f30847a;
+                String str2 = f30957a;
                 Log.w(str2, "message:" + str);
                 Uri parse = Uri.parse(str);
                 if ("bytedance".equals(parse.getScheme().toLowerCase())) {
-                    h.a(parse, this.f30848b);
+                    h.a(parse, this.f30958b);
                     return true;
                 }
                 return false;
@@ -104,7 +104,7 @@ public class b extends WebChromeClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, webView, i2) == null) {
             super.onProgressChanged(webView, i2);
-            j jVar = this.f30849c;
+            j jVar = this.f30959c;
             if (jVar != null) {
                 jVar.a(webView, i2);
             }

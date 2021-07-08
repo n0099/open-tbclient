@@ -1,6 +1,7 @@
 package ms.bd.c;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,7 +10,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import ms.bd.c.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +21,7 @@ public final class g {
             b.a(65537, new c());
             b.a(65538, new d());
             b.a(65539, new e());
-            b.a(65540, new f());
+            b.a((int) InputDeviceCompat.SOURCE_TRACKBALL, new f());
             b.a aVar = b0.a() ? new d.b.b.a.a.a() : new d.b.b.a.a.c();
             b.a(196609, aVar);
             b.a(196610, aVar);

@@ -1,5 +1,6 @@
 package okio;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +11,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.util.zip.CRC32;
 import java.util.zip.Inflater;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class GzipSource implements Source {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte FCOMMENT = 4;
@@ -125,7 +126,7 @@ public final class GzipSource implements Source {
     private void updateCrc(Buffer buffer, long j, long j2) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, this, new Object[]{buffer, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{buffer, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             Segment segment = buffer.head;
             while (true) {
                 int i3 = segment.limit;

@@ -1,5 +1,6 @@
 package com.google.zxing.pdf417.encoder;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.StatusCode;
 import com.google.zxing.WriterException;
 import java.nio.charset.Charset;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class PDF417 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[][] CODEWORD_TABLE;
@@ -80,7 +81,7 @@ public final class PDF417 {
         InterceptResult invokeII;
         int calculateNumberOfRows;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65540, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, i3)) == null) {
             float f2 = 0.0f;
             int[] iArr = null;
             for (int i4 = this.minCols; i4 <= this.maxCols && (calculateNumberOfRows = calculateNumberOfRows(i2, i3, i4)) >= this.minRows; i4++) {

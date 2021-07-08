@@ -1,5 +1,6 @@
 package com.google.zxing.datamatrix.encoder;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DefaultPlacement {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +85,7 @@ public class DefaultPlacement {
 
     private void corner4(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65540, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
             module(this.numrows - 1, 0, i2, 1);
             module(this.numrows - 1, this.numcols - 1, i2, 2);
             module(0, this.numcols - 3, i2, 3);

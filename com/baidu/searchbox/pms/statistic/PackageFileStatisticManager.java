@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PackageFileStatisticManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "pmsPackageFileStatistic";
@@ -18,7 +18,7 @@ public class PackageFileStatisticManager {
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Code {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DOWNLOAD_RESULT_CODE_CANCEL = 4;

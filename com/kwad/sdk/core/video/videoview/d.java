@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.video.videoview;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface d {
     void a();
 
@@ -19,7 +19,7 @@ public interface d {
 
     boolean h();
 
-    void k();
+    void l();
 
-    void setKsPlayLogParam(com.kwad.sdk.contentalliance.detail.video.c cVar);
+    void setKsPlayLogParam(com.kwad.sdk.contentalliance.detail.video.b bVar);
 }

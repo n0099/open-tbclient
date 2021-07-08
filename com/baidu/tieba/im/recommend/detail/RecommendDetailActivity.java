@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
 import tbclient.Bigvip.UserInfoBigVip;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivity> implements RecommendDetailModel.d, BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String RECOMMEND_DETAIL_URL = "c/u/user/bigvip";
@@ -25,15 +25,15 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
     public RecommendDetailModel mModel;
     public long mUserId;
     public String mUserName;
-    public d.a.s0.i1.q.a.b mView;
+    public d.a.p0.i1.q.a.b mView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RecommendDetailActivity f17615e;
+        public final /* synthetic */ RecommendDetailActivity f17654e;
 
         public a(RecommendDetailActivity recommendDetailActivity) {
             Interceptable interceptable = $ic;
@@ -50,25 +50,25 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
                     return;
                 }
             }
-            this.f17615e = recommendDetailActivity;
+            this.f17654e = recommendDetailActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f17615e.mView.f(false);
+                this.f17654e.mView.f(false);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RecommendDetailActivity f17616e;
+        public final /* synthetic */ RecommendDetailActivity f17655e;
 
         public b(RecommendDetailActivity recommendDetailActivity) {
             Interceptable interceptable = $ic;
@@ -85,14 +85,14 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
                     return;
                 }
             }
-            this.f17616e = recommendDetailActivity;
+            this.f17655e = recommendDetailActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f17616e.mView.f(true);
+                this.f17655e.mView.f(true);
             }
         }
     }
@@ -116,7 +116,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.mView == null) {
             return;
         }
-        if (!d.a.r0.s.d.b.g0().N(String.valueOf(this.mUserId))) {
+        if (!d.a.o0.s.d.b.g0().N(String.valueOf(this.mUserId))) {
             this.mView.g();
         } else {
             this.mView.a();
@@ -169,7 +169,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             super.onChangeSkinType(i2);
-            d.a.s0.i1.q.a.b bVar = this.mView;
+            d.a.p0.i1.q.a.b bVar = this.mView;
             if (bVar != null) {
                 bVar.d(i2);
             }
@@ -181,7 +181,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.mView = new d.a.s0.i1.q.a.b(this);
+            this.mView = new d.a.p0.i1.q.a.b(this);
             this.mModel = new RecommendDetailModel(getPageContext(), this);
             initData(bundle);
             checkIsShowAcceptSwitch();
@@ -232,7 +232,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
 
     @Override // com.baidu.tieba.im.recommend.detail.RecommendDetailModel.d
     public void onSuccess(UserInfoBigVip userInfoBigVip, boolean z) {
-        d.a.s0.i1.q.a.b bVar;
+        d.a.p0.i1.q.a.b bVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLZ(1048583, this, userInfoBigVip, z) == null) || (bVar = this.mView) == null || userInfoBigVip == null) {
             return;

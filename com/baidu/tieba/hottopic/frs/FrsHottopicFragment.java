@@ -25,47 +25,47 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.k.e.n;
-import d.a.r0.r.q.b2;
-import d.a.s0.g1.c.j;
-import d.a.s0.g1.d.d;
-import d.a.s0.u0.p0;
-import d.a.s0.u0.r0;
+import d.a.o0.r.q.b2;
+import d.a.p0.g1.c.j;
+import d.a.p0.g1.d.d;
+import d.a.p0.u0.p0;
+import d.a.p0.u0.r0;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Media;
 import tbclient.TopicList.TopicList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FrsHottopicFragment extends BaseFragment implements p0, d.a, r0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HotRanklistModel f17049e;
+    public HotRanklistModel f17088e;
 
     /* renamed from: f  reason: collision with root package name */
-    public j f17050f;
+    public j f17089f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f17051g;
+    public d f17090g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f17052h;
+    public long f17091h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f17053i;
+    public String f17092i;
     public String j;
-    public d.a.r0.d0.c k;
+    public d.a.o0.d0.c k;
     public CustomMessageListener l;
     public HotRanklistModel.b m;
     public CustomMessageListener n;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsHottopicFragment f17054a;
+        public final /* synthetic */ FrsHottopicFragment f17093a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(FrsHottopicFragment frsHottopicFragment, int i2) {
@@ -85,7 +85,7 @@ public class FrsHottopicFragment extends BaseFragment implements p0, d.a, r0 {
                     return;
                 }
             }
-            this.f17054a = frsHottopicFragment;
+            this.f17093a = frsHottopicFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -93,20 +93,20 @@ public class FrsHottopicFragment extends BaseFragment implements p0, d.a, r0 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Integer num;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Integer) || (num = (Integer) customResponsedMessage.getData()) == null || this.f17054a.k == null || !this.f17054a.k.isViewAttached()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Integer) || (num = (Integer) customResponsedMessage.getData()) == null || this.f17093a.k == null || !this.f17093a.k.isViewAttached()) {
                 return;
             }
-            this.f17054a.k.a(num.intValue());
+            this.f17093a.k.a(num.intValue());
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements HotRanklistModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsHottopicFragment f17055e;
+        public final /* synthetic */ FrsHottopicFragment f17094e;
 
         public b(FrsHottopicFragment frsHottopicFragment) {
             Interceptable interceptable = $ic;
@@ -123,40 +123,40 @@ public class FrsHottopicFragment extends BaseFragment implements p0, d.a, r0 {
                     return;
                 }
             }
-            this.f17055e = frsHottopicFragment;
+            this.f17094e = frsHottopicFragment;
         }
 
         @Override // com.baidu.tieba.hottopic.controller.HotRanklistModel.b
         public void loadNetDataCallback(boolean z, j jVar, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), jVar, Integer.valueOf(i2), str}) == null) {
-                this.f17055e.m();
-                this.f17055e.R0();
-                this.f17055e.f17051g.h(false);
+                this.f17094e.l();
+                this.f17094e.S0();
+                this.f17094e.f17090g.h(false);
                 if (z) {
-                    this.f17055e.f17050f = jVar;
-                    d dVar = this.f17055e.f17051g;
-                    FrsHottopicFragment frsHottopicFragment = this.f17055e;
-                    dVar.e(frsHottopicFragment.P0(frsHottopicFragment.f17050f));
-                    if (this.f17055e.Q0()) {
+                    this.f17094e.f17089f = jVar;
+                    d dVar = this.f17094e.f17090g;
+                    FrsHottopicFragment frsHottopicFragment = this.f17094e;
+                    dVar.e(frsHottopicFragment.Q0(frsHottopicFragment.f17089f));
+                    if (this.f17094e.R0()) {
                         return;
                     }
-                    this.f17055e.f17051g.i();
-                } else if (this.f17055e.Q0()) {
+                    this.f17094e.f17090g.i();
+                } else if (this.f17094e.R0()) {
                 } else {
-                    this.f17055e.U0();
+                    this.f17094e.V0();
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsHottopicFragment f17056a;
+        public final /* synthetic */ FrsHottopicFragment f17095a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(FrsHottopicFragment frsHottopicFragment, int i2) {
@@ -176,7 +176,7 @@ public class FrsHottopicFragment extends BaseFragment implements p0, d.a, r0 {
                     return;
                 }
             }
-            this.f17056a = frsHottopicFragment;
+            this.f17095a = frsHottopicFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -188,7 +188,7 @@ public class FrsHottopicFragment extends BaseFragment implements p0, d.a, r0 {
             }
             Object data = customResponsedMessage.getData();
             if ((data instanceof Integer) && Integer.parseInt(data.toString()) == 401) {
-                this.f17056a.refresh();
+                this.f17095a.refresh();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003020, Boolean.TRUE));
             }
         }
@@ -212,22 +212,22 @@ public class FrsHottopicFragment extends BaseFragment implements p0, d.a, r0 {
         this.n = new c(this, 2001624);
     }
 
-    @Override // d.a.s0.u0.p0
+    @Override // d.a.p0.u0.p0
     public void E0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f17051g.d();
+            this.f17090g.d();
         }
     }
 
-    @Override // d.a.s0.u0.r0
+    @Override // d.a.p0.u0.r0
     public void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    public final List<n> P0(j jVar) {
+    public final List<n> Q0(j jVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jVar)) == null) {
@@ -240,8 +240,8 @@ public class FrsHottopicFragment extends BaseFragment implements p0, d.a, r0 {
                     b2 b2Var = new b2();
                     b2Var.e4(topicList.topic_tid + "");
                     b2Var.u3(topicList.video_info);
-                    b2Var.l3(this.f17052h);
-                    b2Var.m3(this.f17053i);
+                    b2Var.l3(this.f17091h);
+                    b2Var.m3(this.f17092i);
                     b2Var.V3(this.j);
                     b2Var.g4(topicList.topic_h5_url);
                     MetaData metaData = new MetaData();
@@ -269,29 +269,29 @@ public class FrsHottopicFragment extends BaseFragment implements p0, d.a, r0 {
         return (List) invokeL.objValue;
     }
 
-    public final boolean Q0() {
+    public final boolean R0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17051g.b() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17090g.b() : invokeV.booleanValue;
     }
 
-    public final void R0() {
+    public final void S0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f17051g.g(true);
-            d.a.r0.d0.c cVar = this.k;
+            this.f17090g.g(true);
+            d.a.o0.d0.c cVar = this.k;
             if (cVar != null && cVar.isViewAttached()) {
-                this.k.dettachView(this.f17051g.a());
+                this.k.dettachView(this.f17090g.a());
             }
             MessageManager.getInstance().unRegisterListener(this.l);
         }
     }
 
-    public final void S0() {
+    public final void T0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (isPrimary()) {
-                d.a.r0.d0.c cVar = this.k;
+                d.a.o0.d0.c cVar = this.k;
                 if (cVar == null || !cVar.isViewAttached()) {
                     return;
                 }
@@ -302,21 +302,21 @@ public class FrsHottopicFragment extends BaseFragment implements p0, d.a, r0 {
         }
     }
 
-    public final void T0() {
+    public final void U0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f17051g.g(false);
-            showLoadingView(this.f17051g.a(), true, getResources().getDimensionPixelSize(R.dimen.ds250));
+            this.f17090g.g(false);
+            showLoadingView(this.f17090g.a(), true, getResources().getDimensionPixelSize(R.dimen.ds250));
         }
     }
 
-    public final void U0() {
+    public final void V0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f17051g.g(false);
+            this.f17090g.g(false);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003020, Boolean.TRUE));
             if (this.k == null) {
-                d.a.r0.d0.c cVar = new d.a.r0.d0.c(getPageContext().getContext(), getNetRefreshListener());
+                d.a.o0.d0.c cVar = new d.a.o0.d0.c(getPageContext().getContext(), getNetRefreshListener());
                 this.k = cVar;
                 cVar.e(null);
                 this.k.d(null);
@@ -325,7 +325,7 @@ public class FrsHottopicFragment extends BaseFragment implements p0, d.a, r0 {
                 this.k.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             }
             this.k.onChangeSkinType();
-            this.k.attachView(this.f17051g.a(), true);
+            this.k.attachView(this.f17090g.a(), true);
             MessageManager.getInstance().registerListener(this.l);
         }
     }
@@ -343,19 +343,19 @@ public class FrsHottopicFragment extends BaseFragment implements p0, d.a, r0 {
         return (TbPageTag) invokeV.objValue;
     }
 
-    @Override // d.a.s0.u0.r0
-    public void l0() {
+    public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            refresh();
+            this.f17090g.g(true);
+            hideLoadingView(this.f17090g.a());
         }
     }
 
-    public final void m() {
+    @Override // d.a.p0.u0.r0
+    public void l0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f17051g.g(true);
-            hideLoadingView(this.f17051g.a());
+            refresh();
         }
     }
 
@@ -364,11 +364,11 @@ public class FrsHottopicFragment extends BaseFragment implements p0, d.a, r0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
             super.onChangeSkinType(i2);
-            d dVar = this.f17051g;
+            d dVar = this.f17090g;
             if (dVar != null) {
                 dVar.c();
             }
-            d.a.r0.d0.c cVar = this.k;
+            d.a.o0.d0.c cVar = this.k;
             if (cVar == null || !cVar.isViewAttached()) {
                 return;
             }
@@ -382,14 +382,14 @@ public class FrsHottopicFragment extends BaseFragment implements p0, d.a, r0 {
         if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
             super.onCreate(bundle);
             HotRanklistModel hotRanklistModel = new HotRanklistModel(getPageContext());
-            this.f17049e = hotRanklistModel;
+            this.f17088e = hotRanklistModel;
             hotRanklistModel.B(this.m);
             registerListener(this.n);
             Bundle arguments = getArguments();
             if (arguments != null) {
-                this.f17052h = d.a.c.e.m.b.f(arguments.getString("fid"), 0L);
+                this.f17091h = d.a.c.e.m.b.f(arguments.getString("fid"), 0L);
                 arguments.getString("from");
-                this.f17053i = arguments.getString("first_class_name");
+                this.f17092i = arguments.getString("first_class_name");
                 this.j = arguments.getString("second_class_name");
             }
         }
@@ -402,7 +402,7 @@ public class FrsHottopicFragment extends BaseFragment implements p0, d.a, r0 {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = layoutInflater.inflate(R.layout.frs_hottopic_fragment, (ViewGroup) null);
             d dVar = new d(this, inflate, getPageContext());
-            this.f17051g = dVar;
+            this.f17090g = dVar;
             dVar.f(getTbPageTag());
             return inflate;
         }
@@ -421,7 +421,7 @@ public class FrsHottopicFragment extends BaseFragment implements p0, d.a, r0 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || Q0()) {
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || R0()) {
             return;
         }
         refresh();
@@ -431,7 +431,7 @@ public class FrsHottopicFragment extends BaseFragment implements p0, d.a, r0 {
     public void onLoad() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            TiebaStatic.log(new StatisticItem("c13008").param("fid", this.f17052h).param("obj_type", 2).param("obj_locate", 2).param("uid", TbadkCoreApplication.getCurrentAccount()));
+            TiebaStatic.log(new StatisticItem("c13008").param("fid", this.f17091h).param("obj_type", 2).param("obj_locate", 2).param("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
 
@@ -448,7 +448,7 @@ public class FrsHottopicFragment extends BaseFragment implements p0, d.a, r0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onPrimary();
-            S0();
+            T0();
         }
     }
 
@@ -456,22 +456,22 @@ public class FrsHottopicFragment extends BaseFragment implements p0, d.a, r0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             if (!d.a.c.e.p.j.z()) {
-                U0();
+                V0();
                 return;
             }
-            R0();
-            this.f17051g.d();
-            if (!Q0()) {
-                T0();
+            S0();
+            this.f17090g.d();
+            if (!R0()) {
+                U0();
             } else {
-                this.f17051g.h(true);
+                this.f17090g.h(true);
             }
-            this.f17049e.cancelLoadData();
-            this.f17049e.y("frs", "frstab", "0", this.f17052h);
+            this.f17088e.cancelLoadData();
+            this.f17088e.y("frs", "frstab", "0", this.f17091h);
         }
     }
 
-    @Override // d.a.s0.u0.p0
+    @Override // d.a.p0.u0.p0
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {

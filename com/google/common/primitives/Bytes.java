@@ -15,12 +15,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.RandomAccess;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Bytes {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ByteArrayAsList extends AbstractList<Byte> implements RandomAccess, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -263,7 +263,7 @@ public final class Bytes {
     public static int e(byte[] bArr, byte b2, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{bArr, Byte.valueOf(b2), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bArr, Byte.valueOf(b2), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             for (int i4 = i3 - 1; i4 >= i2; i4--) {
                 if (bArr[i4] == b2) {
                     return i4;

@@ -6,13 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.emotion.model.EmotionCode;
-import com.kwai.video.player.KsMediaMeta;
+import com.kwad.sdk.core.response.model.AdInfo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class o implements com.kwad.sdk.core.c<EmotionCode> {
+/* loaded from: classes6.dex */
+public class o implements com.kwad.sdk.core.d<AdInfo.AdTrackInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,33 +30,35 @@ public class o implements com.kwad.sdk.core.c<EmotionCode> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public JSONObject a(EmotionCode emotionCode) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.core.d
+    public void a(AdInfo.AdTrackInfo adTrackInfo, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, emotionCode)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, KsMediaMeta.KSM_KEY_LANGUAGE, emotionCode.language);
-            com.kwad.sdk.utils.o.a(jSONObject, "codes", emotionCode.codes);
-            return jSONObject;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTrackInfo, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return (JSONObject) invokeL.objValue;
+        adTrackInfo.type = jSONObject.optInt("type");
+        adTrackInfo.urls = new ArrayList();
+        JSONArray optJSONArray = jSONObject.optJSONArray("url");
+        if (optJSONArray != null) {
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                adTrackInfo.urls.add((String) optJSONArray.opt(i2));
+            }
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public void a(EmotionCode emotionCode, JSONObject jSONObject) {
+    @Override // com.kwad.sdk.core.d
+    public JSONObject b(AdInfo.AdTrackInfo adTrackInfo, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, emotionCode, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        emotionCode.language = jSONObject.optString(KsMediaMeta.KSM_KEY_LANGUAGE);
-        emotionCode.codes = new ArrayList();
-        JSONArray optJSONArray = jSONObject.optJSONArray("codes");
-        if (optJSONArray != null) {
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                emotionCode.codes.add((String) optJSONArray.opt(i2));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, adTrackInfo, jSONObject)) == null) {
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
             }
+            com.kwad.sdk.utils.q.a(jSONObject, "type", adTrackInfo.type);
+            com.kwad.sdk.utils.q.a(jSONObject, "url", adTrackInfo.urls);
+            return jSONObject;
         }
+        return (JSONObject) invokeLL.objValue;
     }
 }

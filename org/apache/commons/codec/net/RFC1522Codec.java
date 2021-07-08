@@ -9,7 +9,7 @@ import java.io.UnsupportedEncodingException;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.EncoderException;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class RFC1522Codec {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

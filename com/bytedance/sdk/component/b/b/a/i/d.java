@@ -1,5 +1,6 @@
 package com.bytedance.sdk.component.b.b.a.i;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -7,31 +8,31 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.security.auth.x500.X500Principal;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f28369a;
+    public final String f28479a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f28370b;
+    public final int f28480b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28371c;
+    public int f28481c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f28372d;
+    public int f28482d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f28373e;
+    public int f28483e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28374f;
+    public int f28484f;
 
     /* renamed from: g  reason: collision with root package name */
-    public char[] f28375g;
+    public char[] f28485g;
 
     public d(X500Principal x500Principal) {
         Interceptable interceptable = $ic;
@@ -49,8 +50,8 @@ public final class d {
             }
         }
         String name = x500Principal.getName("RFC2253");
-        this.f28369a = name;
-        this.f28370b = name.length();
+        this.f28479a = name;
+        this.f28480b = name.length();
     }
 
     private String a() {
@@ -58,79 +59,79 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             while (true) {
-                int i2 = this.f28371c;
-                if (i2 >= this.f28370b || this.f28375g[i2] != ' ') {
+                int i2 = this.f28481c;
+                if (i2 >= this.f28480b || this.f28485g[i2] != ' ') {
                     break;
                 }
-                this.f28371c = i2 + 1;
+                this.f28481c = i2 + 1;
             }
-            int i3 = this.f28371c;
-            if (i3 == this.f28370b) {
+            int i3 = this.f28481c;
+            if (i3 == this.f28480b) {
                 return null;
             }
-            this.f28372d = i3;
-            this.f28371c = i3 + 1;
+            this.f28482d = i3;
+            this.f28481c = i3 + 1;
             while (true) {
-                int i4 = this.f28371c;
-                if (i4 >= this.f28370b) {
+                int i4 = this.f28481c;
+                if (i4 >= this.f28480b) {
                     break;
                 }
-                char[] cArr = this.f28375g;
+                char[] cArr = this.f28485g;
                 if (cArr[i4] == '=' || cArr[i4] == ' ') {
                     break;
                 }
-                this.f28371c = i4 + 1;
+                this.f28481c = i4 + 1;
             }
-            int i5 = this.f28371c;
-            if (i5 < this.f28370b) {
-                this.f28373e = i5;
-                if (this.f28375g[i5] == ' ') {
+            int i5 = this.f28481c;
+            if (i5 < this.f28480b) {
+                this.f28483e = i5;
+                if (this.f28485g[i5] == ' ') {
                     while (true) {
-                        int i6 = this.f28371c;
-                        if (i6 >= this.f28370b) {
+                        int i6 = this.f28481c;
+                        if (i6 >= this.f28480b) {
                             break;
                         }
-                        char[] cArr2 = this.f28375g;
+                        char[] cArr2 = this.f28485g;
                         if (cArr2[i6] == '=' || cArr2[i6] != ' ') {
                             break;
                         }
-                        this.f28371c = i6 + 1;
+                        this.f28481c = i6 + 1;
                     }
-                    char[] cArr3 = this.f28375g;
-                    int i7 = this.f28371c;
-                    if (cArr3[i7] != '=' || i7 == this.f28370b) {
-                        throw new IllegalStateException("Unexpected end of DN: " + this.f28369a);
+                    char[] cArr3 = this.f28485g;
+                    int i7 = this.f28481c;
+                    if (cArr3[i7] != '=' || i7 == this.f28480b) {
+                        throw new IllegalStateException("Unexpected end of DN: " + this.f28479a);
                     }
                 }
-                this.f28371c++;
+                this.f28481c++;
                 while (true) {
-                    int i8 = this.f28371c;
-                    if (i8 >= this.f28370b || this.f28375g[i8] != ' ') {
+                    int i8 = this.f28481c;
+                    if (i8 >= this.f28480b || this.f28485g[i8] != ' ') {
                         break;
                     }
-                    this.f28371c = i8 + 1;
+                    this.f28481c = i8 + 1;
                 }
-                int i9 = this.f28373e;
-                int i10 = this.f28372d;
+                int i9 = this.f28483e;
+                int i10 = this.f28482d;
                 if (i9 - i10 > 4) {
-                    char[] cArr4 = this.f28375g;
+                    char[] cArr4 = this.f28485g;
                     if (cArr4[i10 + 3] == '.' && (cArr4[i10] == 'O' || cArr4[i10] == 'o')) {
-                        char[] cArr5 = this.f28375g;
-                        int i11 = this.f28372d;
+                        char[] cArr5 = this.f28485g;
+                        int i11 = this.f28482d;
                         if (cArr5[i11 + 1] == 'I' || cArr5[i11 + 1] == 'i') {
-                            char[] cArr6 = this.f28375g;
-                            int i12 = this.f28372d;
+                            char[] cArr6 = this.f28485g;
+                            int i12 = this.f28482d;
                             if (cArr6[i12 + 2] == 'D' || cArr6[i12 + 2] == 'd') {
-                                this.f28372d += 4;
+                                this.f28482d += 4;
                             }
                         }
                     }
                 }
-                char[] cArr7 = this.f28375g;
-                int i13 = this.f28372d;
-                return new String(cArr7, i13, this.f28373e - i13);
+                char[] cArr7 = this.f28485g;
+                int i13 = this.f28482d;
+                return new String(cArr7, i13, this.f28483e - i13);
             }
-            throw new IllegalStateException("Unexpected end of DN: " + this.f28369a);
+            throw new IllegalStateException("Unexpected end of DN: " + this.f28479a);
         }
         return (String) invokeV.objValue;
     }
@@ -141,36 +142,36 @@ public final class d {
         if (interceptable != null && (invokeV = interceptable.invokeV(65539, this)) != null) {
             return (String) invokeV.objValue;
         }
-        int i2 = this.f28371c + 1;
-        this.f28371c = i2;
-        this.f28372d = i2;
-        this.f28373e = i2;
+        int i2 = this.f28481c + 1;
+        this.f28481c = i2;
+        this.f28482d = i2;
+        this.f28483e = i2;
         while (true) {
-            int i3 = this.f28371c;
-            if (i3 != this.f28370b) {
-                char[] cArr = this.f28375g;
+            int i3 = this.f28481c;
+            if (i3 != this.f28480b) {
+                char[] cArr = this.f28485g;
                 if (cArr[i3] == '\"') {
-                    this.f28371c = i3 + 1;
+                    this.f28481c = i3 + 1;
                     while (true) {
-                        int i4 = this.f28371c;
-                        if (i4 >= this.f28370b || this.f28375g[i4] != ' ') {
+                        int i4 = this.f28481c;
+                        if (i4 >= this.f28480b || this.f28485g[i4] != ' ') {
                             break;
                         }
-                        this.f28371c = i4 + 1;
+                        this.f28481c = i4 + 1;
                     }
-                    char[] cArr2 = this.f28375g;
-                    int i5 = this.f28372d;
-                    return new String(cArr2, i5, this.f28373e - i5);
+                    char[] cArr2 = this.f28485g;
+                    int i5 = this.f28482d;
+                    return new String(cArr2, i5, this.f28483e - i5);
                 }
                 if (cArr[i3] == '\\') {
-                    cArr[this.f28373e] = e();
+                    cArr[this.f28483e] = e();
                 } else {
-                    cArr[this.f28373e] = cArr[i3];
+                    cArr[this.f28483e] = cArr[i3];
                 }
-                this.f28371c++;
-                this.f28373e++;
+                this.f28481c++;
+                this.f28483e++;
             } else {
-                throw new IllegalStateException("Unexpected end of DN: " + this.f28369a);
+                throw new IllegalStateException("Unexpected end of DN: " + this.f28479a);
             }
         }
     }
@@ -178,39 +179,39 @@ public final class d {
     private String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
-            int i2 = this.f28371c;
-            if (i2 + 4 < this.f28370b) {
-                this.f28372d = i2;
-                this.f28371c = i2 + 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            int i2 = this.f28481c;
+            if (i2 + 4 < this.f28480b) {
+                this.f28482d = i2;
+                this.f28481c = i2 + 1;
                 while (true) {
-                    int i3 = this.f28371c;
-                    if (i3 == this.f28370b) {
+                    int i3 = this.f28481c;
+                    if (i3 == this.f28480b) {
                         break;
                     }
-                    char[] cArr = this.f28375g;
+                    char[] cArr = this.f28485g;
                     if (cArr[i3] == '+' || cArr[i3] == ',' || cArr[i3] == ';') {
                         break;
                     } else if (cArr[i3] == ' ') {
-                        this.f28373e = i3;
-                        this.f28371c = i3 + 1;
+                        this.f28483e = i3;
+                        this.f28481c = i3 + 1;
                         while (true) {
-                            int i4 = this.f28371c;
-                            if (i4 >= this.f28370b || this.f28375g[i4] != ' ') {
+                            int i4 = this.f28481c;
+                            if (i4 >= this.f28480b || this.f28485g[i4] != ' ') {
                                 break;
                             }
-                            this.f28371c = i4 + 1;
+                            this.f28481c = i4 + 1;
                         }
                     } else {
                         if (cArr[i3] >= 'A' && cArr[i3] <= 'F') {
                             cArr[i3] = (char) (cArr[i3] + ' ');
                         }
-                        this.f28371c++;
+                        this.f28481c++;
                     }
                 }
-                this.f28373e = this.f28371c;
-                int i5 = this.f28373e;
-                int i6 = this.f28372d;
+                this.f28483e = this.f28481c;
+                int i5 = this.f28483e;
+                int i6 = this.f28482d;
                 int i7 = i5 - i6;
                 if (i7 >= 5 && (i7 & 1) != 0) {
                     int i8 = i7 / 2;
@@ -220,17 +221,17 @@ public final class d {
                         bArr[i10] = (byte) a(i9);
                         i9 += 2;
                     }
-                    return new String(this.f28375g, this.f28372d, i7);
+                    return new String(this.f28485g, this.f28482d, i7);
                 }
-                throw new IllegalStateException("Unexpected end of DN: " + this.f28369a);
+                throw new IllegalStateException("Unexpected end of DN: " + this.f28479a);
             }
-            throw new IllegalStateException("Unexpected end of DN: " + this.f28369a);
+            throw new IllegalStateException("Unexpected end of DN: " + this.f28479a);
         }
         return (String) invokeV.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:35:0x00ab, code lost:
-        return new java.lang.String(r1, r2, r8.f28374f - r2);
+        return new java.lang.String(r1, r2, r8.f28484f - r2);
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -239,65 +240,65 @@ public final class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
-            int i2 = this.f28371c;
-            this.f28372d = i2;
-            this.f28373e = i2;
+            int i2 = this.f28481c;
+            this.f28482d = i2;
+            this.f28483e = i2;
             while (true) {
-                int i3 = this.f28371c;
-                if (i3 >= this.f28370b) {
-                    char[] cArr = this.f28375g;
-                    int i4 = this.f28372d;
-                    return new String(cArr, i4, this.f28373e - i4);
+                int i3 = this.f28481c;
+                if (i3 >= this.f28480b) {
+                    char[] cArr = this.f28485g;
+                    int i4 = this.f28482d;
+                    return new String(cArr, i4, this.f28483e - i4);
                 }
-                char[] cArr2 = this.f28375g;
+                char[] cArr2 = this.f28485g;
                 char c2 = cArr2[i3];
                 if (c2 == ' ') {
-                    int i5 = this.f28373e;
-                    this.f28374f = i5;
-                    this.f28371c = i3 + 1;
-                    this.f28373e = i5 + 1;
+                    int i5 = this.f28483e;
+                    this.f28484f = i5;
+                    this.f28481c = i3 + 1;
+                    this.f28483e = i5 + 1;
                     cArr2[i5] = ' ';
                     while (true) {
-                        int i6 = this.f28371c;
-                        if (i6 >= this.f28370b) {
+                        int i6 = this.f28481c;
+                        if (i6 >= this.f28480b) {
                             break;
                         }
-                        char[] cArr3 = this.f28375g;
+                        char[] cArr3 = this.f28485g;
                         if (cArr3[i6] != ' ') {
                             break;
                         }
-                        int i7 = this.f28373e;
-                        this.f28373e = i7 + 1;
+                        int i7 = this.f28483e;
+                        this.f28483e = i7 + 1;
                         cArr3[i7] = ' ';
-                        this.f28371c = i6 + 1;
+                        this.f28481c = i6 + 1;
                     }
-                    int i8 = this.f28371c;
-                    if (i8 == this.f28370b) {
+                    int i8 = this.f28481c;
+                    if (i8 == this.f28480b) {
                         break;
                     }
-                    char[] cArr4 = this.f28375g;
+                    char[] cArr4 = this.f28485g;
                     if (cArr4[i8] == ',' || cArr4[i8] == '+' || cArr4[i8] == ';') {
                         break;
                     }
                 } else if (c2 == ';') {
                     break;
                 } else if (c2 == '\\') {
-                    int i9 = this.f28373e;
-                    this.f28373e = i9 + 1;
+                    int i9 = this.f28483e;
+                    this.f28483e = i9 + 1;
                     cArr2[i9] = e();
-                    this.f28371c++;
+                    this.f28481c++;
                 } else if (c2 == '+' || c2 == ',') {
                     break;
                 } else {
-                    int i10 = this.f28373e;
-                    this.f28373e = i10 + 1;
+                    int i10 = this.f28483e;
+                    this.f28483e = i10 + 1;
                     cArr2[i10] = cArr2[i3];
-                    this.f28371c = i3 + 1;
+                    this.f28481c = i3 + 1;
                 }
             }
-            char[] cArr5 = this.f28375g;
-            int i11 = this.f28372d;
-            return new String(cArr5, i11, this.f28373e - i11);
+            char[] cArr5 = this.f28485g;
+            int i11 = this.f28482d;
+            return new String(cArr5, i11, this.f28483e - i11);
         }
         return (String) invokeV.objValue;
     }
@@ -306,10 +307,10 @@ public final class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
-            int i2 = this.f28371c + 1;
-            this.f28371c = i2;
-            if (i2 != this.f28370b) {
-                char c2 = this.f28375g[i2];
+            int i2 = this.f28481c + 1;
+            this.f28481c = i2;
+            if (i2 != this.f28480b) {
+                char c2 = this.f28485g[i2];
                 if (c2 != ' ' && c2 != '%' && c2 != '\\' && c2 != '_' && c2 != '\"' && c2 != '#') {
                     switch (c2) {
                         case '*':
@@ -328,9 +329,9 @@ public final class d {
                             }
                     }
                 }
-                return this.f28375g[this.f28371c];
+                return this.f28485g[this.f28481c];
             }
-            throw new IllegalStateException("Unexpected end of DN: " + this.f28369a);
+            throw new IllegalStateException("Unexpected end of DN: " + this.f28479a);
         }
         return invokeV.charValue;
     }
@@ -341,8 +342,8 @@ public final class d {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            int a2 = a(this.f28371c);
-            this.f28371c++;
+            int a2 = a(this.f28481c);
+            this.f28481c++;
             if (a2 < 128) {
                 return (char) a2;
             }
@@ -360,15 +361,15 @@ public final class d {
                 i3 = a2 & 7;
             }
             for (int i4 = 0; i4 < i2; i4++) {
-                int i5 = this.f28371c + 1;
-                this.f28371c = i5;
-                if (i5 == this.f28370b || this.f28375g[i5] != '\\') {
+                int i5 = this.f28481c + 1;
+                this.f28481c = i5;
+                if (i5 == this.f28480b || this.f28485g[i5] != '\\') {
                     return '?';
                 }
                 int i6 = i5 + 1;
-                this.f28371c = i6;
+                this.f28481c = i6;
                 int a3 = a(i6);
-                this.f28371c++;
+                this.f28481c++;
                 if ((a3 & 192) != 128) {
                     return '?';
                 }
@@ -386,30 +387,30 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) {
             int i5 = i2 + 1;
-            if (i5 < this.f28370b) {
-                char c2 = this.f28375g[i2];
+            if (i5 < this.f28480b) {
+                char c2 = this.f28485g[i2];
                 if (c2 >= '0' && c2 <= '9') {
                     i3 = c2 - '0';
                 } else if (c2 >= 'a' && c2 <= 'f') {
                     i3 = c2 - 'W';
                 } else if (c2 < 'A' || c2 > 'F') {
-                    throw new IllegalStateException("Malformed DN: " + this.f28369a);
+                    throw new IllegalStateException("Malformed DN: " + this.f28479a);
                 } else {
                     i3 = c2 - '7';
                 }
-                char c3 = this.f28375g[i5];
+                char c3 = this.f28485g[i5];
                 if (c3 >= '0' && c3 <= '9') {
                     i4 = c3 - '0';
                 } else if (c3 >= 'a' && c3 <= 'f') {
                     i4 = c3 - 'W';
                 } else if (c3 < 'A' || c3 > 'F') {
-                    throw new IllegalStateException("Malformed DN: " + this.f28369a);
+                    throw new IllegalStateException("Malformed DN: " + this.f28479a);
                 } else {
                     i4 = c3 - '7';
                 }
                 return (i3 << 4) + i4;
             }
-            throw new IllegalStateException("Malformed DN: " + this.f28369a);
+            throw new IllegalStateException("Malformed DN: " + this.f28479a);
         }
         return invokeI.intValue;
     }
@@ -419,21 +420,21 @@ public final class d {
         String b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.f28371c = 0;
-            this.f28372d = 0;
-            this.f28373e = 0;
-            this.f28374f = 0;
-            this.f28375g = this.f28369a.toCharArray();
+            this.f28481c = 0;
+            this.f28482d = 0;
+            this.f28483e = 0;
+            this.f28484f = 0;
+            this.f28485g = this.f28479a.toCharArray();
             String a2 = a();
             if (a2 == null) {
                 return null;
             }
             do {
-                int i2 = this.f28371c;
-                if (i2 == this.f28370b) {
+                int i2 = this.f28481c;
+                if (i2 == this.f28480b) {
                     return null;
                 }
-                char c2 = this.f28375g[i2];
+                char c2 = this.f28485g[i2];
                 if (c2 == '\"') {
                     b2 = b();
                 } else if (c2 != '#') {
@@ -444,18 +445,18 @@ public final class d {
                 if (str.equalsIgnoreCase(a2)) {
                     return b2;
                 }
-                int i3 = this.f28371c;
-                if (i3 >= this.f28370b) {
+                int i3 = this.f28481c;
+                if (i3 >= this.f28480b) {
                     return null;
                 }
-                char[] cArr = this.f28375g;
+                char[] cArr = this.f28485g;
                 if (cArr[i3] != ',' && cArr[i3] != ';' && cArr[i3] != '+') {
-                    throw new IllegalStateException("Malformed DN: " + this.f28369a);
+                    throw new IllegalStateException("Malformed DN: " + this.f28479a);
                 }
-                this.f28371c++;
+                this.f28481c++;
                 a2 = a();
             } while (a2 != null);
-            throw new IllegalStateException("Malformed DN: " + this.f28369a);
+            throw new IllegalStateException("Malformed DN: " + this.f28479a);
         }
         return (String) invokeL.objValue;
     }

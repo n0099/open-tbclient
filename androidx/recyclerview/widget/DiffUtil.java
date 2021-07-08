@@ -4,6 +4,7 @@ import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -191,7 +192,7 @@ public class DiffUtil {
 
         private void findAddition(int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIII(65540, this, i2, i3, i4) == null) && this.mOldItemStatuses[i2 - 1] == 0) {
+            if ((interceptable == null || interceptable.invokeIII(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, i3, i4) == null) && this.mOldItemStatuses[i2 - 1] == 0) {
                 findMatchingItem(i2, i3, i4, false);
             }
         }
@@ -616,7 +617,7 @@ public class DiffUtil {
         boolean z2;
         int i12;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{callback, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr, iArr2, Integer.valueOf(i6)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{callback, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr, iArr2, Integer.valueOf(i6)})) == null) {
             int i13 = i3 - i2;
             int i14 = i5 - i4;
             int i15 = 1;

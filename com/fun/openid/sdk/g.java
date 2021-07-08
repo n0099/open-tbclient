@@ -9,24 +9,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.e;
 import com.fun.openid.sdk.f;
 import com.fun.openid.sdk.u;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class g implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f32664a;
+    public boolean f32774a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements u.a<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f.a f32665a;
+        public final /* synthetic */ f.a f32775a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ g f32666b;
+        public final /* synthetic */ g f32776b;
 
         public a(g gVar, f.a aVar) {
             Interceptable interceptable = $ic;
@@ -43,8 +43,8 @@ public class g implements f {
                     return;
                 }
             }
-            this.f32666b = gVar;
-            this.f32665a = aVar;
+            this.f32776b = gVar;
+            this.f32775a = aVar;
         }
     }
 
@@ -61,24 +61,24 @@ public class g implements f {
                 return;
             }
         }
-        this.f32664a = false;
+        this.f32774a = false;
     }
 
     @Override // com.fun.openid.sdk.f
     public void a(Context context, f.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) || this.f32664a) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) || this.f32774a) {
             return;
         }
         u uVar = new u();
         a aVar2 = new a(this, aVar);
-        uVar.f32689a = context;
-        uVar.f32692d = aVar2;
-        uVar.f32691c = new t(uVar);
+        uVar.f32799a = context;
+        uVar.f32802d = aVar2;
+        uVar.f32801c = new t(uVar);
         Intent intent = new Intent();
         intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
-        char c2 = uVar.f32689a.bindService(intent, uVar.f32691c, 1) ? (char) 1 : (char) 65535;
-        this.f32664a = true;
+        char c2 = uVar.f32799a.bindService(intent, uVar.f32801c, 1) ? (char) 1 : (char) 65535;
+        this.f32774a = true;
         if (c2 != 1) {
             ((e.a) aVar).a(true, null);
         }

@@ -1,5 +1,6 @@
 package com.google.zxing.datamatrix.encoder;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.mapapi.UIMsg;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.Dimension;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class HighLevelEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ASCII_ENCODATION = 0;
@@ -80,7 +81,7 @@ public final class HighLevelEncoder {
     public static int findMinimums(float[] fArr, int[] iArr, int i2, byte[] bArr) {
         InterceptResult invokeLLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65540, null, fArr, iArr, i2, bArr)) == null) {
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, fArr, iArr, i2, bArr)) == null) {
             Arrays.fill(bArr, (byte) 0);
             for (int i3 = 0; i3 < 6; i3++) {
                 iArr[i3] = (int) Math.ceil(fArr[i3]);

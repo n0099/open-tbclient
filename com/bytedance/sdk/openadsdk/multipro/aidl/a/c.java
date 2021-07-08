@@ -12,15 +12,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.ICommonDialogListener;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, RemoteCallbackList<ICommonDialogListener>> f31425a;
+    public static HashMap<String, RemoteCallbackList<ICommonDialogListener>> f31535a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f31426b;
+    public static volatile c f31536b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class c extends a {
                 return;
             }
         }
-        f31425a = new HashMap<>();
+        f31535a = new HashMap<>();
     }
 
     public c() {
@@ -57,14 +57,14 @@ public class c extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f31426b == null) {
+            if (f31536b == null) {
                 synchronized (c.class) {
-                    if (f31426b == null) {
-                        f31426b = new c();
+                    if (f31536b == null) {
+                        f31536b = new c();
                     }
                 }
             }
-            return f31426b;
+            return f31536b;
         }
         return (c) invokeV.objValue;
     }
@@ -73,7 +73,7 @@ public class c extends a {
     public void broadcastDialogListener(String str, int i2) throws RemoteException {
         RemoteCallbackList<ICommonDialogListener> remove;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) || (remove = f31425a.remove(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) || (remove = f31535a.remove(str)) == null) {
             return;
         }
         int beginBroadcast = remove.beginBroadcast();
@@ -103,6 +103,6 @@ public class c extends a {
         }
         RemoteCallbackList<ICommonDialogListener> remoteCallbackList = new RemoteCallbackList<>();
         remoteCallbackList.register(iCommonDialogListener);
-        f31425a.put(str, remoteCallbackList);
+        f31535a.put(str, remoteCallbackList);
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.searchbox.logsystem.basic.track;
 
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.config.AppConfig;
@@ -16,13 +17,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.j0.b.a.a;
+import d.a.g0.b.a.a;
 import java.io.File;
 import java.util.LinkedList;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LokiTrackUISaver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char SEPERATOR_ENTER = '\n';
@@ -142,7 +143,7 @@ public class LokiTrackUISaver {
     public static Track.OnTrackUIListener getTrackUiListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? mTrackUiListener : (Track.OnTrackUIListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? mTrackUiListener : (Track.OnTrackUIListener) invokeV.objValue;
     }
 
     public static boolean saveFinalTraceFile(@NonNull File file) {

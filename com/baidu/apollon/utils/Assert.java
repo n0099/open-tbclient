@@ -1,5 +1,6 @@
 package com.baidu.apollon.utils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,7 +36,7 @@ public abstract class Assert {
 
     public static void isTrue(boolean z, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(65540, null, z, str) == null) && !z) {
+        if ((interceptable == null || interceptable.invokeZL(InputDeviceCompat.SOURCE_TRACKBALL, null, z, str) == null) && !z) {
             throw new IllegalArgumentException(str);
         }
     }

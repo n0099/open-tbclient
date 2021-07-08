@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class u extends a<v, NoDataItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public class u extends a<v, NoDataItemViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), v.f44917g);
+        super(tbPageContext.getPageActivity(), v.f41933g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,17 +57,17 @@ public class u extends a<v, NoDataItemViewHolder> {
     public NoDataItemViewHolder Q(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new NoDataItemViewHolder(LayoutInflater.from(this.f44821e).inflate(R.layout.adapter_no_data_item_layout, viewGroup, false)) : (NoDataItemViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new NoDataItemViewHolder(LayoutInflater.from(this.f41837e).inflate(R.layout.adapter_no_data_item_layout, viewGroup, false)) : (NoDataItemViewHolder) invokeL.objValue;
     }
 
     public View g0(int i2, View view, ViewGroup viewGroup, v vVar, NoDataItemViewHolder noDataItemViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, vVar, noDataItemViewHolder})) == null) {
-            noDataItemViewHolder.f2393a.setText(vVar.f44918e);
+            noDataItemViewHolder.f2394a.setText(vVar.f41934e);
             if (this.m != TbadkCoreApplication.getInst().getSkinType()) {
-                SkinManager.setImageResource(noDataItemViewHolder.f2394b, vVar.f44919f);
-                SkinManager.setViewTextColor(noDataItemViewHolder.f2393a, R.color.CAM_X0109);
+                SkinManager.setImageResource(noDataItemViewHolder.f2395b, vVar.f41935f);
+                SkinManager.setViewTextColor(noDataItemViewHolder.f2394a, R.color.CAM_X0109);
                 this.m = TbadkCoreApplication.getInst().getSkinType();
             }
             return view;

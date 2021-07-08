@@ -20,7 +20,7 @@ import com.googlecode.mp4parser.authoring.builder.FragmentIntersectionFinder;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.logging.Logger;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractManifestWriter implements ManifestWriter {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger LOG;

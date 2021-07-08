@@ -19,7 +19,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class LruDiskCache implements DiskCache {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BUFFER_SIZE = 32768;
@@ -118,7 +118,7 @@ public class LruDiskCache implements DiskCache {
 
     private void initCache(File file, File file2, long j, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, this, new Object[]{file, file2, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{file, file2, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
             try {
                 this.cache = DiskLruCache.open(file, 1, 1, j, i2);
             } catch (IOException e2) {

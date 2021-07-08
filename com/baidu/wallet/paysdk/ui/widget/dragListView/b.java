@@ -13,22 +13,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b implements DragSortListView.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f26930a;
+    public Bitmap f27040a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f26931b;
+    public ImageView f27041b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f26932c;
+    public int f27042c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ListView f26933d;
+    public ListView f27043d;
 
     public b(ListView listView) {
         Interceptable interceptable = $ic;
@@ -45,8 +45,8 @@ public class b implements DragSortListView.i {
                 return;
             }
         }
-        this.f26932c = -16777216;
-        this.f26933d = listView;
+        this.f27042c = -16777216;
+        this.f27043d = listView;
     }
 
     @Override // com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView.i
@@ -54,8 +54,8 @@ public class b implements DragSortListView.i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             ((ImageView) view).setImageDrawable(null);
-            this.f26930a.recycle();
-            this.f26930a = null;
+            this.f27040a.recycle();
+            this.f27040a = null;
         }
     }
 
@@ -71,23 +71,23 @@ public class b implements DragSortListView.i {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            ListView listView = this.f26933d;
-            View childAt = listView.getChildAt((i2 + listView.getHeaderViewsCount()) - this.f26933d.getFirstVisiblePosition());
+            ListView listView = this.f27043d;
+            View childAt = listView.getChildAt((i2 + listView.getHeaderViewsCount()) - this.f27043d.getFirstVisiblePosition());
             if (childAt == null) {
                 return null;
             }
             childAt.setPressed(false);
             childAt.setDrawingCacheEnabled(true);
-            this.f26930a = Bitmap.createBitmap(childAt.getDrawingCache());
+            this.f27040a = Bitmap.createBitmap(childAt.getDrawingCache());
             childAt.setDrawingCacheEnabled(false);
-            if (this.f26931b == null) {
-                this.f26931b = new ImageView(this.f26933d.getContext());
+            if (this.f27041b == null) {
+                this.f27041b = new ImageView(this.f27043d.getContext());
             }
-            this.f26931b.setBackgroundColor(this.f26932c);
-            this.f26931b.setPadding(0, 0, 0, 0);
-            this.f26931b.setImageBitmap(this.f26930a);
-            this.f26931b.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
-            return this.f26931b;
+            this.f27041b.setBackgroundColor(this.f27042c);
+            this.f27041b.setPadding(0, 0, 0, 0);
+            this.f27041b.setImageBitmap(this.f27040a);
+            this.f27041b.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
+            return this.f27041b;
         }
         return (View) invokeI.objValue;
     }
@@ -95,7 +95,7 @@ public class b implements DragSortListView.i {
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f26932c = i2;
+            this.f27042c = i2;
         }
     }
 }

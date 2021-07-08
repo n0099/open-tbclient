@@ -15,29 +15,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.r0.r.f0.s.b;
-/* loaded from: classes4.dex */
+import d.a.o0.r.f0.t.b;
+/* loaded from: classes3.dex */
 public class CommonUserLikeButton extends TextView implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f12739e;
+    public String f12756e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f12740f;
+    public String f12757f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f12741g;
+    public boolean f12758g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f12742h;
+    public a f12759h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f12743i;
+    public View.OnClickListener f12760i;
     public boolean j;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(int i2);
     }
@@ -60,24 +60,24 @@ public class CommonUserLikeButton extends TextView implements b {
                 return;
             }
         }
-        this.f12739e = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.f12740f = TbadkCoreApplication.getInst().getString(R.string.attention);
-        this.f12741g = false;
+        this.f12756e = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.f12757f = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.f12758g = false;
         this.j = false;
         f();
     }
 
-    @Override // d.a.r0.r.f0.s.b
+    @Override // d.a.o0.r.f0.t.b
     public void a(View view) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (onClickListener = this.f12743i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (onClickListener = this.f12760i) == null) {
             return;
         }
         onClickListener.onClick(view);
     }
 
-    @Override // d.a.r0.r.f0.s.b
+    @Override // d.a.o0.r.f0.t.b
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -85,7 +85,7 @@ public class CommonUserLikeButton extends TextView implements b {
         }
     }
 
-    @Override // d.a.r0.r.f0.s.b
+    @Override // d.a.o0.r.f0.t.b
     public void c(boolean z, int i2, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
@@ -93,11 +93,11 @@ public class CommonUserLikeButton extends TextView implements b {
         }
     }
 
-    @Override // d.a.r0.r.f0.s.b
+    @Override // d.a.o0.r.f0.t.b
     public void d(int i2) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (aVar = this.f12742h) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (aVar = this.f12759h) == null) {
             return;
         }
         aVar.a(i2);
@@ -123,7 +123,7 @@ public class CommonUserLikeButton extends TextView implements b {
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            if (this.f12741g) {
+            if (this.f12758g) {
                 setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
                 SkinManager.setViewTextColor(this, R.color.CAM_X0109);
                 setBackgroundDrawable(null);
@@ -141,14 +141,14 @@ public class CommonUserLikeButton extends TextView implements b {
     public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f12741g = z;
+            this.f12758g = z;
             if (z) {
                 setClickable(false);
-                setText(this.f12739e);
+                setText(this.f12756e);
                 setPadding(0, 0, 0, 0);
             } else {
                 setClickable(true);
-                setText(this.f12740f);
+                setText(this.f12757f);
                 setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds10), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds10), 0);
             }
             g(TbadkCoreApplication.getInst().getSkinType());
@@ -158,7 +158,7 @@ public class CommonUserLikeButton extends TextView implements b {
     public void setAfterOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
-            this.f12743i = onClickListener;
+            this.f12760i = onClickListener;
         }
     }
 
@@ -173,7 +173,7 @@ public class CommonUserLikeButton extends TextView implements b {
     public void setFanNumCallBack(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
-            this.f12742h = aVar;
+            this.f12759h = aVar;
         }
     }
 
@@ -196,9 +196,9 @@ public class CommonUserLikeButton extends TextView implements b {
                 return;
             }
         }
-        this.f12739e = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.f12740f = TbadkCoreApplication.getInst().getString(R.string.attention);
-        this.f12741g = false;
+        this.f12756e = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.f12757f = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.f12758g = false;
         this.j = false;
         f();
     }
@@ -222,9 +222,9 @@ public class CommonUserLikeButton extends TextView implements b {
                 return;
             }
         }
-        this.f12739e = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.f12740f = TbadkCoreApplication.getInst().getString(R.string.attention);
-        this.f12741g = false;
+        this.f12756e = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.f12757f = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.f12758g = false;
         this.j = false;
         f();
     }

@@ -29,12 +29,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.e0.a.f;
+import d.a.b0.a.f;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ShareActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String B = "ShareActivity";
@@ -129,7 +129,7 @@ public class ShareActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ShareActivity f9849a;
+                public final /* synthetic */ ShareActivity f9866a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -146,7 +146,7 @@ public class ShareActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9849a = this;
+                    this.f9866a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
@@ -154,7 +154,7 @@ public class ShareActivity extends BaseActivity {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        this.f9849a.d();
+                        this.f9866a.d();
                         return false;
                     }
                     return invokeV.booleanValue;
@@ -198,7 +198,7 @@ public class ShareActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ShareActivity f9850a;
+                public final /* synthetic */ ShareActivity f9867a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -215,18 +215,18 @@ public class ShareActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9850a = this;
+                    this.f9867a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiJsCallBacks.ShareV2LoginParams
                 public void onError() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        StatService.onEventAutoStat(ShareStatKey.SHARE_LOGIN_AUTH_EXPIRED, this.f9850a.a());
-                        if (!this.f9850a.t.equals("1")) {
-                            this.f9850a.t = "2";
+                        StatService.onEventAutoStat(ShareStatKey.SHARE_LOGIN_AUTH_EXPIRED, this.f9867a.a());
+                        if (!this.f9867a.t.equals("1")) {
+                            this.f9867a.t = "2";
                         }
-                        this.f9850a.c();
+                        this.f9867a.c();
                     }
                 }
 
@@ -234,7 +234,7 @@ public class ShareActivity extends BaseActivity {
                 public void onSuccess() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.f9850a.b();
+                        this.f9867a.b();
                     }
                 }
             };
@@ -295,10 +295,10 @@ public class ShareActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ boolean f9851a;
+                public final /* synthetic */ boolean f9868a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ShareActivity f9852b;
+                public final /* synthetic */ ShareActivity f9869b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -315,8 +315,8 @@ public class ShareActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9852b = this;
-                    this.f9851a = z;
+                    this.f9869b = this;
+                    this.f9868a = z;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -324,14 +324,14 @@ public class ShareActivity extends BaseActivity {
                 public void onFailure(WebAuthResult webAuthResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
-                        Map a2 = this.f9852b.a();
+                        Map a2 = this.f9869b.a();
                         a2.put("code", "" + webAuthResult.getResultCode());
                         StatService.onEventAutoStat(ShareStatKey.SHARE_AUTH_EXPIRED_LOGIN_FAIL, a2);
                         LoginActivity.supportShareLogin = true;
-                        SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.f9851a;
-                        this.f9852b.u.setResultCode(ShareResult.ERROR_CODE_EXPIRED_LOGIN_FAIL);
-                        this.f9852b.u.setResultMsg(String.format(ShareResult.ERROR_MSG_EXPIRED_LOGIN_FAIL, this.f9852b.w));
-                        this.f9852b.a(true);
+                        SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.f9868a;
+                        this.f9869b.u.setResultCode(ShareResult.ERROR_CODE_EXPIRED_LOGIN_FAIL);
+                        this.f9869b.u.setResultMsg(String.format(ShareResult.ERROR_MSG_EXPIRED_LOGIN_FAIL, this.f9869b.w));
+                        this.f9869b.a(true);
                     }
                 }
 
@@ -340,10 +340,10 @@ public class ShareActivity extends BaseActivity {
                 public void onSuccess(WebAuthResult webAuthResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, webAuthResult) == null) {
-                        StatService.onEventAutoStat(ShareStatKey.SHARE_AUTH_EXPIRED_LOGIN_SUCCESS, this.f9852b.a());
+                        StatService.onEventAutoStat(ShareStatKey.SHARE_AUTH_EXPIRED_LOGIN_SUCCESS, this.f9869b.a());
                         LoginActivity.supportShareLogin = true;
-                        SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.f9851a;
-                        SapiWebView sapiWebView = this.f9852b.sapiWebView;
+                        SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.f9868a;
+                        SapiWebView sapiWebView = this.f9869b.sapiWebView;
                         if (sapiWebView != null) {
                             sapiWebView.reload();
                         }

@@ -8,6 +8,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.WindowManager;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.upload.action.IMTrack;
@@ -92,7 +93,7 @@ public final class IMPbGenerator {
         String str;
         NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             String str2 = "";
             if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) {

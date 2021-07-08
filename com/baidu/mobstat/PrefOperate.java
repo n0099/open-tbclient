@@ -2,13 +2,14 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PrefOperate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +90,7 @@ public class PrefOperate {
 
     public static void setAppChannel(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
             if (str == null || str.equals("")) {
                 bc.c().c("[WARNING] The channel you have set is empty");
             }
@@ -100,7 +101,7 @@ public class PrefOperate {
     public static void setAppKey(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
-            CooperService.instance().getHeadObject().f8527e = str;
+            CooperService.instance().getHeadObject().f8544e = str;
         }
     }
 

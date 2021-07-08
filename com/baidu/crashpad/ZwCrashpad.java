@@ -6,6 +6,7 @@ import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ZwCrashpad {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ZwCrashpad CRASHPAD";
@@ -98,7 +99,7 @@ public class ZwCrashpad {
 
     public static void crashIntentionally(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65540, null, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2) == null) {
             if (i2 == 1) {
                 if (mNativeIsInitialized) {
                     nativeCrashIntentionally(i2);

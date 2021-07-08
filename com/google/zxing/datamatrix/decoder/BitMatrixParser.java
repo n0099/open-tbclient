@@ -1,5 +1,6 @@
 package com.google.zxing.datamatrix.decoder;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.FormatException;
 import com.google.zxing.common.BitMatrix;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class BitMatrixParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -151,7 +152,7 @@ public final class BitMatrixParser {
     private int readCorner3(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65540, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, i3)) == null) {
             int i4 = i2 - 1;
             int i5 = (readModule(i4, 0, i2, i3) ? 1 : 0) << 1;
             int i6 = i3 - 1;

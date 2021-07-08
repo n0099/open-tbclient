@@ -6,25 +6,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30205a;
+    public String f30315a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30206b;
+    public String f30316b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30207c;
+    public String f30317c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30208d;
+    public String f30318d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30209e;
+    public String f30319e;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.f30206b = str;
+            this.f30316b = str;
             return this;
         }
         return (i) invokeL.objValue;
@@ -60,7 +60,7 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            this.f30207c = str;
+            this.f30317c = str;
             return this;
         }
         return (i) invokeL.objValue;
@@ -70,7 +70,7 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.f30208d = str;
+            this.f30318d = str;
             return this;
         }
         return (i) invokeL.objValue;
@@ -80,7 +80,7 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.f30209e = str;
+            this.f30319e = str;
             return this;
         }
         return (i) invokeL.objValue;
@@ -90,7 +90,7 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.f30205a = str;
+            this.f30315a = str;
             return this;
         }
         return (i) invokeL.objValue;

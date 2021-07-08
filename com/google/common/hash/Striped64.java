@@ -15,7 +15,7 @@ import java.security.PrivilegedActionException;
 import java.security.PrivilegedExceptionAction;
 import java.util.Random;
 import sun.misc.Unsafe;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class Striped64 extends Number {
     public static /* synthetic */ Interceptable $ic;
     public static final int NCPU;
@@ -29,7 +29,7 @@ public abstract class Striped64 extends Number {
     public volatile transient int busy;
     public volatile transient b[] cells;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a implements PrivilegedExceptionAction<Unsafe> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,19 +69,19 @@ public abstract class Striped64 extends Number {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final Unsafe f33415b;
+        public static final Unsafe f33525b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final long f33416c;
+        public static final long f33526c;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public volatile long f33417a;
+        public volatile long f33527a;
 
         static {
             InterceptResult invokeClinit;
@@ -98,8 +98,8 @@ public abstract class Striped64 extends Number {
             }
             try {
                 Unsafe unsafe = Striped64.getUnsafe();
-                f33415b = unsafe;
-                f33416c = unsafe.objectFieldOffset(b.class.getDeclaredField("a"));
+                f33525b = unsafe;
+                f33526c = unsafe.objectFieldOffset(b.class.getDeclaredField("a"));
             } catch (Exception e2) {
                 throw new Error(e2);
             }
@@ -120,13 +120,13 @@ public abstract class Striped64 extends Number {
                     return;
                 }
             }
-            this.f33417a = j;
+            this.f33527a = j;
         }
 
         public final boolean a(long j, long j2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? f33415b.compareAndSwapLong(this, f33416c, j, j2) : invokeCommon.booleanValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? f33525b.compareAndSwapLong(this, f33526c, j, j2) : invokeCommon.booleanValue;
         }
     }
 
@@ -209,7 +209,7 @@ public abstract class Striped64 extends Number {
             if (bVarArr != null) {
                 for (b bVar : bVarArr) {
                     if (bVar != null) {
-                        bVar.f33417a = j;
+                        bVar.f33527a = j;
                     }
                 }
             }
@@ -276,7 +276,7 @@ public abstract class Striped64 extends Number {
                     }
                     z4 = false;
                 } else if (z5) {
-                    long j2 = bVar.f33417a;
+                    long j2 = bVar.f33527a;
                     if (bVar.a(j2, fn(j2, j))) {
                         return;
                     }

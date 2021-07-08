@@ -1,5 +1,6 @@
 package com.google.common.primitives;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,13 +12,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.d.a.n;
 import java.util.Comparator;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class UnsignedInts {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class LexicographicalComparator implements Comparator<int[]> {
         public static final /* synthetic */ LexicographicalComparator[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -133,7 +134,7 @@ public final class UnsignedInts {
     public static int e(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65540, null, i2, i3)) == null) ? (int) (f(i2) % f(i3)) : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3)) == null) ? (int) (f(i2) % f(i3)) : invokeII.intValue;
     }
 
     public static long f(int i2) {

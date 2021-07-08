@@ -16,16 +16,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.f;
-import d.a.s0.i1.f.i.a;
-import d.a.s0.i1.f.i.b;
-import d.a.s0.i1.h.e;
+import d.a.p0.i1.f.i.a;
+import d.a.p0.i1.f.i.b;
+import d.a.p0.i1.h.e;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -171,14 +171,14 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                         if (this.this$0.isEmpty()) {
                             this.this$0.removeByKeyMemoryChangedWithBroadcast(TbEnum.CustomGroupId.STRANGE_MERGE, -7);
                         } else {
-                            d.a.s0.i1.k.b.o().Q();
+                            d.a.p0.i1.k.b.o().Q();
                         }
                         return true;
                     } else if (i2 == -8) {
                         if (this.this$0.isEmpty()) {
                             this.this$0.removeByKeyMemoryChangedWithBroadcast(TbEnum.CustomGroupId.OFFICIAL_MERGE, -8);
                         } else {
-                            d.a.s0.i1.k.b.o().N();
+                            d.a.p0.i1.k.b.o().N();
                         }
                         return true;
                     } else {
@@ -200,7 +200,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                 }
             }
 
-            @Override // d.a.s0.i1.f.i.b
+            @Override // d.a.p0.i1.f.i.b
             public void onCanceled() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -213,7 +213,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                 }
             }
 
-            @Override // d.a.s0.i1.f.i.b
+            @Override // d.a.p0.i1.f.i.b
             public void onPostExecute() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -229,7 +229,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                 }
             }
 
-            @Override // d.a.s0.i1.f.i.b
+            @Override // d.a.p0.i1.f.i.b
             public void onPreExecute() {
                 b bVar2;
                 Interceptable interceptable2 = $ic;
@@ -239,7 +239,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                 bVar2.onPreExecute();
             }
 
-            @Override // d.a.s0.i1.f.i.b
+            @Override // d.a.p0.i1.f.i.b
             public void onProgressUpdate(int i2, String str, int i3) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
@@ -298,13 +298,13 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                             if (this.this$0.isEmpty()) {
                                 this.this$0.removeByKeyMemoryChangedWithBroadcast(TbEnum.CustomGroupId.STRANGE_MERGE, -7);
                             } else {
-                                d.a.s0.i1.k.b.o().Q();
+                                d.a.p0.i1.k.b.o().Q();
                             }
                         } else if (i3 == 4) {
                             if (this.this$0.isEmpty()) {
                                 this.this$0.removeByKeyMemoryChangedWithBroadcast(TbEnum.CustomGroupId.OFFICIAL_MERGE, -8);
                             } else {
-                                d.a.s0.i1.k.b.o().N();
+                                d.a.p0.i1.k.b.o().N();
                             }
                         }
                     }
@@ -323,7 +323,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                     }
                 }
 
-                @Override // d.a.s0.i1.f.i.b
+                @Override // d.a.p0.i1.f.i.b
                 public void onCanceled() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -336,7 +336,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                     }
                 }
 
-                @Override // d.a.s0.i1.f.i.b
+                @Override // d.a.p0.i1.f.i.b
                 public void onPostExecute() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -349,7 +349,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                     }
                 }
 
-                @Override // d.a.s0.i1.f.i.b
+                @Override // d.a.p0.i1.f.i.b
                 public void onPreExecute() {
                     b bVar2;
                     Interceptable interceptable2 = $ic;
@@ -359,7 +359,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                     bVar2.onPreExecute();
                 }
 
-                @Override // d.a.s0.i1.f.i.b
+                @Override // d.a.p0.i1.f.i.b
                 public void onProgressUpdate(int i3, String str, int i4) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i3), str, Integer.valueOf(i4)}) == null) {

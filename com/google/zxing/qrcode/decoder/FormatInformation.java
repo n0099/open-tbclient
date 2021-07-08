@@ -1,5 +1,6 @@
 package com.google.zxing.qrcode.decoder;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class FormatInformation {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[][] FORMAT_INFO_DECODE_LOOKUP;
@@ -98,7 +99,7 @@ public final class FormatInformation {
     public static int numBitsDiffering(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65540, null, i2, i3)) == null) ? Integer.bitCount(i2 ^ i3) : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3)) == null) ? Integer.bitCount(i2 ^ i3) : invokeII.intValue;
     }
 
     public boolean equals(Object obj) {

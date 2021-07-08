@@ -7,6 +7,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,24 +18,24 @@ import com.kwad.sdk.core.download.b.a;
 import com.kwad.sdk.core.response.b.c;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ActionBarH5 extends FrameLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f39092a;
+    public TextView f36248a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f39093b;
+    public TextView f36249b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f39094c;
+    public AdTemplate f36250c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f39095d;
+    public a f36251d;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a();
     }
@@ -106,21 +107,21 @@ public class ActionBarH5 extends FrameLayout implements View.OnClickListener {
 
     private void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             FrameLayout.inflate(context, R.layout.ksad_video_actionbar_h5, this);
-            this.f39092a = (TextView) findViewById(R.id.ksad_h5_ad_desc);
-            this.f39093b = (TextView) findViewById(R.id.ksad_h5_open_btn);
+            this.f36248a = (TextView) findViewById(R.id.ksad_h5_ad_desc);
+            this.f36249b = (TextView) findViewById(R.id.ksad_h5_open_btn);
         }
     }
 
     public void a(@NonNull AdTemplate adTemplate, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, adTemplate, aVar) == null) {
-            this.f39094c = adTemplate;
-            this.f39095d = aVar;
-            AdInfo j = c.j(adTemplate);
-            this.f39092a.setText(com.kwad.sdk.core.response.b.a.n(j));
-            this.f39093b.setText(com.kwad.sdk.core.response.b.a.w(j));
+            this.f36250c = adTemplate;
+            this.f36251d = aVar;
+            AdInfo i2 = c.i(adTemplate);
+            this.f36248a.setText(com.kwad.sdk.core.response.b.a.m(i2));
+            this.f36249b.setText(com.kwad.sdk.core.response.b.a.u(i2));
             setOnClickListener(this);
         }
     }
@@ -129,12 +130,12 @@ public class ActionBarH5 extends FrameLayout implements View.OnClickListener {
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f39094c, new a.InterfaceC0426a(this) { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarH5.1
+            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f36250c, new a.InterfaceC0413a(this) { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarH5.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ActionBarH5 f39096a;
+                public final /* synthetic */ ActionBarH5 f36252a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -151,18 +152,18 @@ public class ActionBarH5 extends FrameLayout implements View.OnClickListener {
                             return;
                         }
                     }
-                    this.f39096a = this;
+                    this.f36252a = this;
                 }
 
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC0426a
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC0413a
                 public void a() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f39096a.f39095d == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f36252a.f36251d == null) {
                         return;
                     }
-                    this.f39096a.f39095d.a();
+                    this.f36252a.f36251d.a();
                 }
-            }, null);
+            }, null, false);
         }
     }
 }

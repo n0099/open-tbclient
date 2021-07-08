@@ -29,7 +29,7 @@ public class c extends d {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f3523a;
+        public static final /* synthetic */ int[] f3526a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -46,9 +46,9 @@ public class c extends d {
                 }
             }
             int[] iArr = new int[com.baidu.android.pushservice.a.c.a().length];
-            f3523a = iArr;
+            f3526a = iArr;
             try {
-                iArr[com.baidu.android.pushservice.a.c.f2740a.ordinal()] = 1;
+                iArr[com.baidu.android.pushservice.a.c.f2743a.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
         }
@@ -115,16 +115,16 @@ public class c extends d {
                 String f2 = kVar.f();
                 int a2 = kVar.a();
                 byte[] h2 = kVar.h();
-                CrossPushMessage b2 = j.b(this.f3524a, f2, c2, bArr);
-                if (!this.f3524a.getPackageName().equals(b2.mPkgName) || TextUtils.isEmpty(b2.f3512a)) {
+                CrossPushMessage b2 = j.b(this.f3527a, f2, c2, bArr);
+                if (!this.f3527a.getPackageName().equals(b2.mPkgName) || TextUtils.isEmpty(b2.f3515a)) {
                     i2 = 2;
-                } else if (!m.b(this.f3524a, b2.f3512a)) {
+                } else if (!m.b(this.f3527a, b2.f3515a)) {
                     i2 = 8;
-                } else if (a(this.f3524a, b2.f3512a)) {
-                    if (AnonymousClass1.f3523a[com.baidu.android.pushservice.a.d.a(this.f3524a, c2).a().ordinal()] != 1) {
+                } else if (a(this.f3527a, b2.f3515a)) {
+                    if (AnonymousClass1.f3526a[com.baidu.android.pushservice.a.d.a(this.f3527a, c2).a().ordinal()] != 1) {
                         i2 = 7;
                     } else {
-                        f.a(this.f3524a, b2, c2, h2, bArr, a2);
+                        f.a(this.f3527a, b2, c2, h2, bArr, a2);
                         i2 = 1;
                     }
                 }

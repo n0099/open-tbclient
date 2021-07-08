@@ -23,7 +23,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class StandardGifDecoder implements GifDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BYTES_PER_INTEGER = 4;
@@ -102,7 +102,7 @@ public class StandardGifDecoder implements GifDecoder {
     private int averageColorsNear(int i2, int i3, int i4) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65540, this, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, i3, i4)) == null) {
             int i5 = 0;
             int i6 = 0;
             int i7 = 0;

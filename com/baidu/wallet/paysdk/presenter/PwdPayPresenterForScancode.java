@@ -34,7 +34,7 @@ import com.baidu.wallet.router.RouterRequest;
 import com.baidu.wallet.statistics.api.StatisticManager;
 import com.baidu.wallet.util.StatHelper;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PwdPayPresenterForScancode f26109a;
+                public final /* synthetic */ PwdPayPresenterForScancode f26219a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -94,7 +94,7 @@ public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
                             return;
                         }
                     }
-                    this.f26109a = this;
+                    this.f26219a = this;
                 }
 
                 @Override // com.baidu.wallet.router.RouterCallback
@@ -116,8 +116,8 @@ public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
                             return;
                         }
                         BaseBean baseBean = (BaseBean) obj;
-                        baseBean.setBeanParams(this.f26109a.mOrderInfo.sp_no, this.f26109a.mOrderInfo.order_no, this.f26109a.mOrderInfo.pay_code, "");
-                        baseBean.setResponseCallback(this.f26109a);
+                        baseBean.setBeanParams(this.f26219a.mOrderInfo.sp_no, this.f26219a.mOrderInfo.order_no, this.f26219a.mOrderInfo.pay_code, "");
+                        baseBean.setResponseCallback(this.f26219a);
                         baseBean.execBean();
                     }
                 }

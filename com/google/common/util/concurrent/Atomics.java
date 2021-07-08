@@ -1,5 +1,6 @@
 package com.google.common.util.concurrent;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -7,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Atomics {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,6 +48,6 @@ public final class Atomics {
     public static <E> AtomicReferenceArray<E> newReferenceArray(E[] eArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, eArr)) == null) ? new AtomicReferenceArray<>(eArr) : (AtomicReferenceArray) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, eArr)) == null) ? new AtomicReferenceArray<>(eArr) : (AtomicReferenceArray) invokeL.objValue;
     }
 }

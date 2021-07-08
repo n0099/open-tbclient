@@ -17,25 +17,25 @@ import java.io.Serializable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class f implements Serializable, Comparable<f> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f27981a;
+    public static final char[] f28091a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final f f27982b;
+    public static final f f28092b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final byte[] f27983c;
+    public final byte[] f28093c;
 
     /* renamed from: d  reason: collision with root package name */
-    public transient int f27984d;
+    public transient int f28094d;
 
     /* renamed from: e  reason: collision with root package name */
-    public transient String f27985e;
+    public transient String f28095e;
 
     static {
         InterceptResult invokeClinit;
@@ -50,8 +50,8 @@ public class f implements Serializable, Comparable<f> {
                 return;
             }
         }
-        f27981a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-        f27982b = a(new byte[0]);
+        f28091a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f28092b = a(new byte[0]);
     }
 
     public f(byte[] bArr) {
@@ -69,7 +69,7 @@ public class f implements Serializable, Comparable<f> {
                 return;
             }
         }
-        this.f27983c = bArr;
+        this.f28093c = bArr;
     }
 
     public static f a(byte... bArr) {
@@ -87,7 +87,7 @@ public class f implements Serializable, Comparable<f> {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? b.a(this.f27983c) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? b.a(this.f28093c) : (String) invokeV.objValue;
     }
 
     public f c() {
@@ -106,12 +106,12 @@ public class f implements Serializable, Comparable<f> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            byte[] bArr = this.f27983c;
+            byte[] bArr = this.f28093c;
             char[] cArr = new char[bArr.length * 2];
             int i2 = 0;
             for (byte b2 : bArr) {
                 int i3 = i2 + 1;
-                char[] cArr2 = f27981a;
+                char[] cArr2 = f28091a;
                 cArr[i2] = cArr2[(b2 >> 4) & 15];
                 i2 = i3 + 1;
                 cArr[i3] = cArr2[b2 & 15];
@@ -131,7 +131,7 @@ public class f implements Serializable, Comparable<f> {
             if (obj instanceof f) {
                 f fVar = (f) obj;
                 int g2 = fVar.g();
-                byte[] bArr = this.f27983c;
+                byte[] bArr = this.f28093c;
                 if (g2 == bArr.length && fVar.a(0, bArr, 0, bArr.length)) {
                     return true;
                 }
@@ -149,7 +149,7 @@ public class f implements Serializable, Comparable<f> {
         }
         int i2 = 0;
         while (true) {
-            byte[] bArr = this.f27983c;
+            byte[] bArr = this.f28093c;
             if (i2 >= bArr.length) {
                 return this;
             }
@@ -172,25 +172,25 @@ public class f implements Serializable, Comparable<f> {
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f27983c.length : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f28093c.length : invokeV.intValue;
     }
 
     public byte[] h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? (byte[]) this.f27983c.clone() : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? (byte[]) this.f28093c.clone() : (byte[]) invokeV.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            int i2 = this.f27984d;
+            int i2 = this.f28094d;
             if (i2 != 0) {
                 return i2;
             }
-            int hashCode = Arrays.hashCode(this.f27983c);
-            this.f27984d = hashCode;
+            int hashCode = Arrays.hashCode(this.f28093c);
+            this.f28094d = hashCode;
             return hashCode;
         }
         return invokeV.intValue;
@@ -201,22 +201,22 @@ public class f implements Serializable, Comparable<f> {
         StringBuilder sb;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            if (this.f27983c.length == 0) {
+            if (this.f28093c.length == 0) {
                 return "[size=0]";
             }
             String a2 = a();
             int a3 = a(a2, 64);
             if (a3 == -1) {
-                if (this.f27983c.length <= 64) {
+                if (this.f28093c.length <= 64) {
                     return "[hex=" + e() + PreferencesUtil.RIGHT_MOUNT;
                 }
-                return "[size=" + this.f27983c.length + " hex=" + a(0, 64).e() + "…]";
+                return "[size=" + this.f28093c.length + " hex=" + a(0, 64).e() + "…]";
             }
             String replace = a2.substring(0, a3).replace(IStringUtil.WINDOWS_FOLDER_SEPARATOR, "\\\\").replace("\n", "\\n").replace("\r", "\\r");
             if (a3 < a2.length()) {
                 sb = new StringBuilder();
                 sb.append("[size=");
-                sb.append(this.f27983c.length);
+                sb.append(this.f28093c.length);
                 sb.append(" text=");
                 sb.append(replace);
                 sb.append("…]");
@@ -257,7 +257,7 @@ public class f implements Serializable, Comparable<f> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, str)) == null) {
             try {
-                return a(MessageDigest.getInstance(str).digest(this.f27983c));
+                return a(MessageDigest.getInstance(str).digest(this.f28093c));
             } catch (NoSuchAlgorithmException e2) {
                 throw new AssertionError(e2);
             }
@@ -268,10 +268,10 @@ public class f implements Serializable, Comparable<f> {
     public static f a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (str != null) {
-                f fVar = new f(str.getBytes(u.f28026a));
-                fVar.f27985e = str;
+                f fVar = new f(str.getBytes(u.f28136a));
+                fVar.f28095e = str;
                 return fVar;
             }
             throw new IllegalArgumentException("s == null");
@@ -283,12 +283,12 @@ public class f implements Serializable, Comparable<f> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = this.f27985e;
+            String str = this.f28095e;
             if (str != null) {
                 return str;
             }
-            String str2 = new String(this.f27983c, u.f28026a);
-            this.f27985e = str2;
+            String str2 = new String(this.f28093c, u.f28136a);
+            this.f28095e = str2;
             return str2;
         }
         return (String) invokeV.objValue;
@@ -318,9 +318,9 @@ public class f implements Serializable, Comparable<f> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) {
             if (i2 >= 0) {
-                byte[] bArr = this.f27983c;
+                byte[] bArr = this.f28093c;
                 if (i3 > bArr.length) {
-                    throw new IllegalArgumentException("endIndex > length(" + this.f27983c.length + SmallTailInfo.EMOTION_SUFFIX);
+                    throw new IllegalArgumentException("endIndex > length(" + this.f28093c.length + SmallTailInfo.EMOTION_SUFFIX);
                 }
                 int i4 = i3 - i2;
                 if (i4 >= 0) {
@@ -328,7 +328,7 @@ public class f implements Serializable, Comparable<f> {
                         return this;
                     }
                     byte[] bArr2 = new byte[i4];
-                    System.arraycopy(this.f27983c, i2, bArr2, 0, i4);
+                    System.arraycopy(this.f28093c, i2, bArr2, 0, i4);
                     return new f(bArr2);
                 }
                 throw new IllegalArgumentException("endIndex < beginIndex");
@@ -366,13 +366,13 @@ public class f implements Serializable, Comparable<f> {
     public byte a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f27983c[i2] : invokeI.byteValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f28093c[i2] : invokeI.byteValue;
     }
 
     public void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            byte[] bArr = this.f27983c;
+            byte[] bArr = this.f28093c;
             cVar.c(bArr, 0, bArr.length);
         }
     }
@@ -380,7 +380,7 @@ public class f implements Serializable, Comparable<f> {
     public boolean a(int i2, f fVar, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), fVar, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) ? fVar.a(i3, this.f27983c, i2, i4) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), fVar, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) ? fVar.a(i3, this.f28093c, i2, i4) : invokeCommon.booleanValue;
     }
 
     public boolean a(int i2, byte[] bArr, int i3, int i4) {
@@ -388,7 +388,7 @@ public class f implements Serializable, Comparable<f> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), bArr, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             if (i2 >= 0) {
-                byte[] bArr2 = this.f27983c;
+                byte[] bArr2 = this.f28093c;
                 if (i2 <= bArr2.length - i4 && i3 >= 0 && i3 <= bArr.length - i4 && u.a(bArr2, i2, bArr, i3, i4)) {
                     return true;
                 }

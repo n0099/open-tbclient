@@ -12,13 +12,13 @@ import java.lang.reflect.Type;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public l f27645a;
+    public l f27755a;
 
     public h(l lVar) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class h {
                 return;
             }
         }
-        this.f27645a = lVar;
+        this.f27755a = lVar;
     }
 
     public static h a(l lVar) {
@@ -51,7 +51,7 @@ public class h {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, type)) == null) {
             a(str);
             if (!type.equals(JSONObject.class) && (!(type instanceof Class) || !JSONObject.class.isAssignableFrom((Class) type))) {
-                return (T) this.f27645a.a(str, type);
+                return (T) this.f27755a.a(str, type);
             }
             return (T) new JSONObject(str);
         }
@@ -68,7 +68,7 @@ public class h {
                 return StringUtil.EMPTY_ARRAY;
             }
             if (!(t instanceof JSONObject) && !(t instanceof JSONArray)) {
-                obj = this.f27645a.a(t);
+                obj = this.f27755a.a(t);
             } else {
                 obj = t.toString();
             }

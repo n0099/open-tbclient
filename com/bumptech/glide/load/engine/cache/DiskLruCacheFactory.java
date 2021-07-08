@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.cache.DiskCache;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DiskLruCacheFactory implements DiskCache.Factory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CacheDirectoryGetter cacheDirectoryGetter;
     public final long diskCacheSize;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface CacheDirectoryGetter {
         File getCacheDirectory();
     }

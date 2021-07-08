@@ -23,27 +23,27 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44789a;
+    public static final boolean f41805a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a implements PatchManager.PatchInstallObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f44790a;
+        public final /* synthetic */ f f41806a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PackageInfo f44791b;
+        public final /* synthetic */ PackageInfo f41807b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f44792c;
+        public final /* synthetic */ boolean f41808c;
 
         public a(f fVar, PackageInfo packageInfo, boolean z) {
             Interceptable interceptable = $ic;
@@ -60,9 +60,9 @@ public class j {
                     return;
                 }
             }
-            this.f44790a = fVar;
-            this.f44791b = packageInfo;
-            this.f44792c = z;
+            this.f41806a = fVar;
+            this.f41807b = packageInfo;
+            this.f41808c = z;
         }
 
         @Override // com.baidu.titan.sdk.pm.PatchManager.PatchInstallObserver
@@ -73,15 +73,15 @@ public class j {
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, bundle) == null) {
                 int i3 = (i2 == 0 || i2 == 1) ? 0 : -1;
                 String str = "install-resut:" + i2;
-                f fVar = this.f44790a;
+                f fVar = this.f41806a;
                 if (fVar != null) {
-                    fVar.a(this.f44791b.packageName, i3, str);
+                    fVar.a(this.f41807b.packageName, i3, str);
                 }
                 Log.d(TitanDownloadService.TAG, "patch install result code = " + i3);
                 if (i3 == 0) {
-                    j.c(this.f44791b);
+                    j.c(this.f41807b);
                 }
-                if (this.f44792c) {
+                if (this.f41808c) {
                     return;
                 }
                 int loadState = LoaderManager.getInstance().getLoadState();
@@ -109,13 +109,13 @@ public class j {
                 return;
             }
         }
-        f44789a = d.a.c.j.a.f44765a;
+        f41805a = d.a.c.j.a.f41781a;
     }
 
     public static void b(Context context, f fVar, PackageInfo packageInfo, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, fVar, packageInfo, Boolean.valueOf(z)}) == null) {
-            if (f44789a) {
+            if (f41805a) {
                 Log.d(TitanDownloadService.TAG, "install file: " + packageInfo.filePath);
             }
             PatchManager.getInstance().installPatch(Uri.fromFile(new File(packageInfo.filePath)), null, new a(fVar, packageInfo, z));

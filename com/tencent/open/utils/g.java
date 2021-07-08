@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.net.URL;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static g f42003a;
+    public static g f39017a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile WeakReference<SharedPreferences> f42004b;
+    public volatile WeakReference<SharedPreferences> f39018b;
 
     static {
         InterceptResult invokeClinit;
@@ -50,7 +50,7 @@ public class g {
                 return;
             }
         }
-        this.f42004b = null;
+        this.f39018b = null;
     }
 
     public static synchronized g a() {
@@ -59,10 +59,10 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (g.class) {
-                if (f42003a == null) {
-                    f42003a = new g();
+                if (f39017a == null) {
+                    f39017a = new g();
                 }
-                gVar = f42003a;
+                gVar = f39017a;
             }
             return gVar;
         }
@@ -73,8 +73,8 @@ public class g {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
-            if (this.f42004b == null || this.f42004b.get() == null) {
-                this.f42004b = new WeakReference<>(context.getSharedPreferences("ServerPrefs", 0));
+            if (this.f39018b == null || this.f39018b.get() == null) {
+                this.f39018b = new WeakReference<>(context.getSharedPreferences("ServerPrefs", 0));
             }
             try {
                 String host = new URL(str).getHost();
@@ -82,7 +82,7 @@ public class g {
                     com.tencent.open.a.f.e("openSDK_LOG.ServerSetting", "Get host error. url=" + str);
                     return str;
                 }
-                String string = this.f42004b.get().getString(host, null);
+                String string = this.f39018b.get().getString(host, null);
                 if (string != null && !host.equals(string)) {
                     String replace = str.replace(host, string);
                     com.tencent.open.a.f.a("openSDK_LOG.ServerSetting", "return environment url : " + replace);

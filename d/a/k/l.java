@@ -30,57 +30,57 @@ import java.util.List;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f45983g;
+    public static boolean f42866g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f45984a;
+    public Context f42867a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a.C0649a f45985b;
+    public a.C0616a f42868b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile FileLock f45986c;
+    public volatile FileLock f42869c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile RandomAccessFile f45987d;
+    public volatile RandomAccessFile f42870d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f45988e;
+    public b f42871e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f45989f;
+    public f f42872f;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final String[] f45990g;
+        public static final String[] f42873g;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f45991a;
+        public String f42874a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f45992b;
+        public String f42875b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f45993c;
+        public String f42876c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f45994d;
+        public long f42877d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f45995e;
+        public String f42878e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f45996f;
+        public int f42879f;
 
         static {
             InterceptResult invokeClinit;
@@ -95,7 +95,7 @@ public class l {
                     return;
                 }
             }
-            f45990g = new String[]{"V", "O", "0"};
+            f42873g = new String[]{"V", "O", "0"};
         }
 
         public a() {
@@ -111,13 +111,13 @@ public class l {
                     return;
                 }
             }
-            this.f45996f = 1;
+            this.f42879f = 1;
         }
 
         public String e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f45991a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42874a : (String) invokeV.objValue;
         }
 
         public boolean equals(Object obj) {
@@ -131,9 +131,9 @@ public class l {
                     return false;
                 }
                 a aVar = (a) obj;
-                if (this.f45996f == aVar.f45996f && this.f45991a.equals(aVar.f45991a) && this.f45992b.equals(aVar.f45992b) && this.f45993c.equals(aVar.f45993c)) {
-                    String str = this.f45995e;
-                    String str2 = aVar.f45995e;
+                if (this.f42879f == aVar.f42879f && this.f42874a.equals(aVar.f42874a) && this.f42875b.equals(aVar.f42875b) && this.f42876c.equals(aVar.f42876c)) {
+                    String str = this.f42878e;
+                    String str2 = aVar.f42878e;
                     if (str == str2) {
                         return true;
                     }
@@ -149,19 +149,19 @@ public class l {
         public String h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45995e : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42878e : (String) invokeV.objValue;
         }
 
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Arrays.hashCode(new Object[]{this.f45991a, this.f45992b, this.f45993c, this.f45995e, Integer.valueOf(this.f45996f)}) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Arrays.hashCode(new Object[]{this.f42874a, this.f42875b, this.f42876c, this.f42878e, Integer.valueOf(this.f42879f)}) : invokeV.intValue;
         }
 
         public String j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f45992b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42875b : (String) invokeV.objValue;
         }
 
         public j l() {
@@ -169,16 +169,16 @@ public class l {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 j jVar = new j();
-                jVar.f45977a = this.f45991a;
+                jVar.f42860a = this.f42874a;
                 StringBuilder sb = new StringBuilder();
-                sb.append(this.f45992b);
-                if ("V".equals(this.f45992b)) {
-                    sb.append(this.f45993c);
+                sb.append(this.f42875b);
+                if ("V".equals(this.f42875b)) {
+                    sb.append(this.f42876c);
                 }
-                if (!TextUtils.isEmpty(this.f45995e)) {
-                    sb.append(this.f45995e);
+                if (!TextUtils.isEmpty(this.f42878e)) {
+                    sb.append(this.f42878e);
                 }
-                jVar.f45978b = sb.toString().trim();
+                jVar.f42861b = sb.toString().trim();
                 return jVar;
             }
             return (j) invokeV.objValue;
@@ -190,12 +190,12 @@ public class l {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("dik", this.f45991a);
-                    jSONObject.put("v270fk", this.f45992b);
-                    jSONObject.put("cck", this.f45993c);
-                    jSONObject.put("vsk", this.f45996f);
-                    jSONObject.put("ctk", this.f45994d);
-                    jSONObject.put("ek", this.f45995e);
+                    jSONObject.put("dik", this.f42874a);
+                    jSONObject.put("v270fk", this.f42875b);
+                    jSONObject.put("cck", this.f42876c);
+                    jSONObject.put("vsk", this.f42879f);
+                    jSONObject.put("ctk", this.f42877d);
+                    jSONObject.put("ek", this.f42878e);
                     return jSONObject.toString();
                 } catch (JSONException e2) {
                     d.a.k.i.c.c(e2);
@@ -209,19 +209,19 @@ public class l {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                String str = this.f45992b;
+                String str = this.f42875b;
                 if (TextUtils.isEmpty(str)) {
                     str = "0";
                 }
                 StringBuilder sb = new StringBuilder();
-                sb.append(this.f45991a);
+                sb.append(this.f42874a);
                 sb.append("|");
                 sb.append(str);
                 if ("V".equals(str)) {
-                    sb.append(this.f45993c);
+                    sb.append(this.f42876c);
                 }
-                if (!TextUtils.isEmpty(this.f45995e)) {
-                    sb.append(this.f45995e);
+                if (!TextUtils.isEmpty(this.f42878e)) {
+                    sb.append(this.f42878e);
                 }
                 return sb.toString().trim();
             }
@@ -262,11 +262,11 @@ public class l {
         if (context == null) {
             throw new NullPointerException("context should not be null!!!");
         }
-        this.f45984a = context.getApplicationContext();
-        a.C0649a b2 = aVar.e().b("bohrium");
-        this.f45985b = b2;
+        this.f42867a = context.getApplicationContext();
+        a.C0616a b2 = aVar.e().b("bohrium");
+        this.f42868b = b2;
         b2.d();
-        this.f45989f = fVar;
+        this.f42872f = fVar;
         h(aVar);
     }
 
@@ -287,12 +287,12 @@ public class l {
                 String optString4 = jSONObject.optString("v270fk", "V");
                 if (!TextUtils.isEmpty(optString)) {
                     a aVar = new a();
-                    aVar.f45991a = optString;
-                    aVar.f45993c = optString2;
-                    aVar.f45994d = optLong;
-                    aVar.f45996f = optInt;
-                    aVar.f45995e = optString3;
-                    aVar.f45992b = optString4;
+                    aVar.f42874a = optString;
+                    aVar.f42876c = optString2;
+                    aVar.f42877d = optLong;
+                    aVar.f42879f = optInt;
+                    aVar.f42878e = optString3;
+                    aVar.f42875b = optString4;
                     return aVar;
                 }
             } catch (Exception e2) {
@@ -312,12 +312,12 @@ public class l {
                     String m = m(str);
                     long currentTimeMillis = System.currentTimeMillis();
                     a aVar = new a();
-                    aVar.f45991a = str;
-                    aVar.f45993c = m;
-                    aVar.f45994d = currentTimeMillis;
-                    aVar.f45996f = 1;
-                    aVar.f45995e = str3;
-                    aVar.f45992b = str2;
+                    aVar.f42874a = str;
+                    aVar.f42876c = m;
+                    aVar.f42877d = currentTimeMillis;
+                    aVar.f42879f = 1;
+                    aVar.f42878e = str3;
+                    aVar.f42875b = str2;
                     return aVar;
                 } catch (Exception e2) {
                     d.a.k.i.c.c(e2);
@@ -331,7 +331,7 @@ public class l {
     public static String m(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
                 return new d.a.k.i.a("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(new d.a.k.a.a().a(str.getBytes("UTF-8")));
             } catch (Exception e2) {
@@ -346,7 +346,7 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (new File(this.f45985b.f(), "libbh.so").exists()) {
+            if (new File(this.f42868b.f(), "libbh.so").exists()) {
                 return c(g(true));
             }
             return null;
@@ -361,28 +361,28 @@ public class l {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jVar)) == null) {
             if (jVar != null) {
                 a aVar = new a();
-                aVar.f45994d = System.currentTimeMillis();
-                aVar.f45996f = 1;
+                aVar.f42877d = System.currentTimeMillis();
+                aVar.f42879f = 1;
                 try {
                     boolean z = false;
-                    aVar.f45992b = jVar.f45978b.substring(0, 1);
-                    aVar.f45991a = jVar.f45977a;
-                    aVar.f45993c = m(jVar.f45977a);
-                    String[] strArr = a.f45990g;
+                    aVar.f42875b = jVar.f42861b.substring(0, 1);
+                    aVar.f42874a = jVar.f42860a;
+                    aVar.f42876c = m(jVar.f42860a);
+                    String[] strArr = a.f42873g;
                     int length = strArr.length;
                     int i2 = 0;
                     while (true) {
                         if (i2 >= length) {
                             z = true;
                             break;
-                        } else if (strArr[i2].equals(aVar.f45992b)) {
+                        } else if (strArr[i2].equals(aVar.f42875b)) {
                             break;
                         } else {
                             i2++;
                         }
                     }
-                    if (z && (str = jVar.f45978b) != null && str.length() >= 2) {
-                        aVar.f45995e = jVar.f45978b.substring(1);
+                    if (z && (str = jVar.f42861b) != null && str.length() >= 2) {
+                        aVar.f42878e = jVar.f42861b.substring(1);
                     }
                     return aVar;
                 } catch (Exception unused) {
@@ -398,14 +398,14 @@ public class l {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            d.a.k.b.a a2 = this.f45988e.a(str2);
+            d.a.k.b.a a2 = this.f42871e.a(str2);
             a.g gVar = new a.g();
-            gVar.f45864a = true;
+            gVar.f42747a = true;
             a.h b2 = a2.b(str, gVar);
             if (b2 == null || !b2.c()) {
                 return null;
             }
-            return b2.f45865a;
+            return b2.f42748a;
         }
         return (a) invokeLL.objValue;
     }
@@ -423,7 +423,7 @@ public class l {
     public final String g(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) ? this.f45985b.c("libbh.so", z) : (String) invokeZ.objValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) ? this.f42868b.c("libbh.so", z) : (String) invokeZ.objValue;
     }
 
     public final void h(d.a.k.g.a aVar) {
@@ -431,14 +431,14 @@ public class l {
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             b bVar = new b(new c());
             a.b bVar2 = new a.b();
-            bVar2.f45859a = this.f45984a;
-            bVar2.f45860b = aVar;
+            bVar2.f42742a = this.f42867a;
+            bVar2.f42743b = aVar;
             a.d dVar = new a.d();
             for (d.a.k.b.a aVar2 : bVar.b()) {
                 aVar2.d(bVar2);
                 aVar2.e(dVar);
             }
-            this.f45988e = bVar;
+            this.f42871e = bVar;
         }
     }
 
@@ -446,7 +446,7 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             a.e eVar = new a.e();
-            for (d.a.k.b.a aVar2 : this.f45988e.b()) {
+            for (d.a.k.b.a aVar2 : this.f42871e.b()) {
                 aVar2.a(eVar, aVar);
             }
         }
@@ -457,12 +457,12 @@ public class l {
         a c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{aVar, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (aVar == null || TextUtils.isEmpty(aVar.f45991a)) {
+            if (aVar == null || TextUtils.isEmpty(aVar.f42874a)) {
                 throw new NullPointerException("content should not be null");
             }
             if (!z2) {
                 try {
-                    if (new File(this.f45985b.f(), "libbh.so").exists() && (c2 = c(g(true))) != null) {
+                    if (new File(this.f42868b.f(), "libbh.so").exists() && (c2 = c(g(true))) != null) {
                         String n = c2.n();
                         if (!TextUtils.isEmpty(n) && n.equals(aVar.n())) {
                             return true;
@@ -473,7 +473,7 @@ public class l {
                     return false;
                 }
             }
-            return this.f45985b.e("libbh.so", aVar.m(), z);
+            return this.f42868b.e("libbh.so", aVar.m(), z);
         }
         return invokeCommon.booleanValue;
     }
@@ -483,10 +483,10 @@ public class l {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            String f2 = f(this.f45984a);
+            String f2 = f(this.f42867a);
             if (Build.VERSION.SDK_INT < 23) {
                 String uuid = UUID.randomUUID().toString();
-                if (f45983g) {
+                if (f42866g) {
                     Log.d("CuidV270Manager", "uuid: " + uuid);
                 }
                 str2 = str + f2 + uuid;
@@ -495,12 +495,12 @@ public class l {
             }
             String b2 = f.c.b(str2.getBytes(), true);
             a aVar = new a();
-            aVar.f45994d = System.currentTimeMillis();
-            aVar.f45996f = 1;
-            aVar.f45991a = b2;
-            aVar.f45992b = "V";
-            aVar.f45993c = m(b2);
-            aVar.f45995e = null;
+            aVar.f42877d = System.currentTimeMillis();
+            aVar.f42879f = 1;
+            aVar.f42874a = b2;
+            aVar.f42875b = "V";
+            aVar.f42876c = m(b2);
+            aVar.f42878e = null;
             return aVar;
         }
         return (a) invokeL.objValue;
@@ -511,7 +511,7 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             synchronized (this) {
-                File g2 = this.f45985b.g(".lock");
+                File g2 = this.f42868b.g(".lock");
                 if (!g2.exists()) {
                     try {
                         g2.createNewFile();
@@ -525,8 +525,8 @@ public class l {
                     for (int i2 = 0; i2 < 100; i2++) {
                         try {
                             try {
-                                this.f45986c = randomAccessFile2.getChannel().lock();
-                                this.f45987d = randomAccessFile2;
+                                this.f42869c = randomAccessFile2.getChannel().lock();
+                                this.f42870d = randomAccessFile2;
                                 return true;
                             } catch (OverlappingFileLockException unused) {
                                 Thread.sleep(100L);
@@ -535,7 +535,7 @@ public class l {
                             e = e3;
                             randomAccessFile = randomAccessFile2;
                             d.a.k.i.c.c(e);
-                            if (this.f45986c == null) {
+                            if (this.f42869c == null) {
                                 d.a.k.i.c.b(randomAccessFile);
                             }
                             return false;
@@ -554,16 +554,16 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             synchronized (this) {
-                if (this.f45986c != null) {
+                if (this.f42869c != null) {
                     try {
-                        this.f45986c.release();
+                        this.f42869c.release();
                     } catch (IOException e2) {
                         e2.printStackTrace();
                     }
-                    this.f45986c = null;
+                    this.f42869c = null;
                 }
-                d.a.k.i.c.b(this.f45987d);
-                this.f45987d = null;
+                d.a.k.i.c.b(this.f42870d);
+                this.f42870d = null;
             }
         }
     }
@@ -574,16 +574,16 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             a.g gVar = new a.g();
-            gVar.f45864a = true;
-            List<d.a.k.b.a> b2 = this.f45988e.b();
-            Collections.sort(b2, d.a.k.b.a.f45854e);
-            List<e> h2 = this.f45989f.h(this.f45984a);
+            gVar.f42747a = true;
+            List<d.a.k.b.a> b2 = this.f42871e.b();
+            Collections.sort(b2, d.a.k.b.a.f42737e);
+            List<e> h2 = this.f42872f.h(this.f42867a);
             if (h2 != null) {
                 for (e eVar : h2) {
-                    if (!eVar.f45962d && eVar.f45961c) {
+                    if (!eVar.f42845d && eVar.f42844c) {
                         for (d.a.k.b.a aVar2 : b2) {
-                            a.h b3 = aVar2.b(eVar.f45959a.packageName, gVar);
-                            if (b3 != null && b3.c() && (aVar = b3.f45865a) != null) {
+                            a.h b3 = aVar2.b(eVar.f42842a.packageName, gVar);
+                            if (b3 != null && b3.c() && (aVar = b3.f42748a) != null) {
                                 return aVar;
                             }
                         }

@@ -2,6 +2,7 @@ package com.baidu.webkit.sdk;
 
 import android.os.Build;
 import android.util.AndroidRuntimeException;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,7 +18,7 @@ import java.io.File;
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class ZeusClassLoader extends BaseDexClassLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static String ANDROIDX = "androidx.";
@@ -119,7 +120,7 @@ public final class ZeusClassLoader extends BaseDexClassLoader {
     public static boolean isFileSuffixCheckExists() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             try {
                 ensureReflectionInited();
                 for (Field field : DexPathListClass.getDeclaredFields()) {

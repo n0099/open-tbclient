@@ -1,6 +1,7 @@
 package com.baidu.mobads.container.feeds;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.container.util.AdURIUtils;
@@ -18,7 +19,7 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ThirdMonitorTracker {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AD_ID = "crid";
@@ -107,7 +108,7 @@ public class ThirdMonitorTracker {
     public static ThirdMonitorTracker getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (mThirdMonitorTracker == null) {
                 synchronized (ThirdMonitorTracker.class) {
                     if (mThirdMonitorTracker == null) {

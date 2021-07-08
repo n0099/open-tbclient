@@ -1,5 +1,6 @@
 package com.kwad.sdk.pngencrypt;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,18 +12,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Charset f38789a;
+    public static Charset f35861a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Charset f38790b;
+    public static Charset f35862b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ThreadLocal<Boolean> f38791c;
+    public static ThreadLocal<Boolean> f35863c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,9 +39,9 @@ public final class n {
                 return;
             }
         }
-        f38789a = Charset.forName("ISO-8859-1");
-        f38790b = Charset.forName("UTF-8");
-        f38791c = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
+        f35861a = Charset.forName("ISO-8859-1");
+        f35862b = Charset.forName("UTF-8");
+        f35863c = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -105,7 +106,7 @@ public final class n {
     public static int a(byte[] bArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, bArr, i2)) == null) ? bArr[i2] & 255 : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i2)) == null) ? bArr[i2] & 255 : invokeLI.intValue;
     }
 
     public static byte[] a() {

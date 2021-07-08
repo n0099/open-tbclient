@@ -9,7 +9,7 @@ import javax.annotation.meta.When;
 @Target({ElementType.METHOD, ElementType.CONSTRUCTOR, ElementType.TYPE, ElementType.PACKAGE})
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public @interface CheckReturnValue {
     When when() default When.ALWAYS;
 }

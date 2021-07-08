@@ -2,6 +2,7 @@ package com.win.opensdk.bridge.async;
 
 import android.os.Handler;
 import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,12 +14,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AsyncTaskExecutor {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ThreadPoolExecutor f42534a;
+    public static final ThreadPoolExecutor f39548a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +35,7 @@ public class AsyncTaskExecutor {
                 return;
             }
         }
-        f42534a = new ThreadPoolExecutor(3, 3, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue(), new AsyncTaskThreadFactory());
+        f39548a = new ThreadPoolExecutor(3, 3, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue(), new AsyncTaskThreadFactory());
     }
 
     public AsyncTaskExecutor() {
@@ -62,12 +63,12 @@ public class AsyncTaskExecutor {
         if (!(interceptable == null || interceptable.invokeL(65539, null, runnable) == null) || runnable == null) {
             return;
         }
-        f42534a.execute(runnable);
+        f39548a.execute(runnable);
     }
 
     public static void runOnMainThread(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, null, runnable) == null) || runnable == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable) == null) || runnable == null) {
             return;
         }
         new Handler(Looper.getMainLooper()).post(runnable);
@@ -76,9 +77,9 @@ public class AsyncTaskExecutor {
     public static void shutDown() {
         ThreadPoolExecutor threadPoolExecutor;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) || (threadPoolExecutor = f42534a) == null || threadPoolExecutor.isShutdown() || f42534a.isTerminating()) {
+        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) || (threadPoolExecutor = f39548a) == null || threadPoolExecutor.isShutdown() || f39548a.isTerminating()) {
             return;
         }
-        f42534a.shutdown();
+        f39548a.shutdown();
     }
 }

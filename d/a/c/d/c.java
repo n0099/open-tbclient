@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f43982a;
+    public static final String[] f40998a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,7 +28,7 @@ public class c {
                 return;
             }
         }
-        f43982a = new String[]{"ZTE-T U880", "U880"};
+        f40998a = new String[]{"ZTE-T U880", "U880"};
     }
 
     public static boolean a() {
@@ -41,7 +41,7 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            for (String str2 : f43982a) {
+            for (String str2 : f40998a) {
                 if (str2.equals(str)) {
                     return false;
                 }
@@ -54,6 +54,6 @@ public class c {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b(Build.MODEL) && a() && NSGif.f2155f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b(Build.MODEL) && a() && NSGif.f2156f : invokeV.booleanValue;
     }
 }

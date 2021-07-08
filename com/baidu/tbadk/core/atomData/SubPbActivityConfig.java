@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SubPbActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ICON_LIST = "icon_list";

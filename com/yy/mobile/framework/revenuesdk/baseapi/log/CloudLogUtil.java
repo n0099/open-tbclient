@@ -1,6 +1,7 @@
 package com.yy.mobile.framework.revenuesdk.baseapi.log;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.activity.BaseActivity;
@@ -21,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class CloudLogUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static int LOG_LOOP_TIME_INTERVAL = 0;
@@ -135,7 +136,7 @@ public class CloudLogUtil {
 
     public static synchronized void doRetrySendLog(LogContent logContent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, logContent) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, logContent) == null) {
             synchronized (CloudLogUtil.class) {
                 if (logContent != null) {
                     if (logContent.copyWaitingJsonList != null && logContent.content != null) {

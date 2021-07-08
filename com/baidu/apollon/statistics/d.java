@@ -18,27 +18,27 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3964a = 10001;
+    public static final int f3967a = 10001;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f3965b = 10002;
+    public static final int f3968b = 10002;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3966c = 10003;
+    public static final int f3969c = 10003;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Handler f3967e;
+    public static Handler f3970e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f3968d;
+    public boolean f3971d;
 
     /* loaded from: classes.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static d f3970a;
+        public static d f3973a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -54,7 +54,7 @@ public class d {
                     return;
                 }
             }
-            f3970a = new d();
+            f3973a = new d();
         }
 
         public a() {
@@ -75,18 +75,18 @@ public class d {
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f3970a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f3973a : (d) invokeV.objValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f3968d) {
+            if (this.f3971d) {
                 return false;
             }
-            this.f3968d = true;
-            f3967e.sendEmptyMessage(10003);
+            this.f3971d = true;
+            f3970e.sendEmptyMessage(10003);
             LogSender.getInstance().a();
             return true;
         }
@@ -106,13 +106,13 @@ public class d {
                 return;
             }
         }
-        this.f3968d = false;
-        f3967e = new Handler(this, b.a().b().getLooper()) { // from class: com.baidu.apollon.statistics.d.1
+        this.f3971d = false;
+        f3970e = new Handler(this, b.a().b().getLooper()) { // from class: com.baidu.apollon.statistics.d.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d f3969a;
+            public final /* synthetic */ d f3972a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -132,7 +132,7 @@ public class d {
                         return;
                     }
                 }
-                this.f3969a = this;
+                this.f3972a = this;
             }
 
             @Override // android.os.Handler
@@ -180,13 +180,13 @@ public class d {
         if (!b() && g.a().b()) {
             LogSender.getInstance().a();
         }
-        f3967e.obtainMessage(10001, e.a(str, j, str2, f.a(), com.baidu.apollon.statistics.a.a(), collection, str3)).sendToTarget();
+        f3970e.obtainMessage(10001, e.a(str, j, str2, f.a(), com.baidu.apollon.statistics.a.a(), collection, str3)).sendToTarget();
     }
 
     public void a(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
-            f3967e.obtainMessage(10002, i2, -1, str).sendToTarget();
+            f3970e.obtainMessage(10002, i2, -1, str).sendToTarget();
         }
     }
 }

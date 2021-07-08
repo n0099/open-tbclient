@@ -35,7 +35,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.GetOrder.DataRes;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class WalletPayViewController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEF_CHANNEL_TITLE = "NaN";
@@ -72,7 +72,7 @@ public class WalletPayViewController {
     public View mTopSpaceView;
     public TextView mUnfoldTv;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class ChannelItemViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -195,7 +195,7 @@ public class WalletPayViewController {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface ClickCallback {
         void doFinish();
 

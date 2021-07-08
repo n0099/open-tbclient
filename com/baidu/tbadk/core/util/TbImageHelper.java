@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.d.c;
 import d.a.c.e.p.j;
-import d.a.r0.r.k;
-/* loaded from: classes4.dex */
+import d.a.o0.r.k;
+/* loaded from: classes3.dex */
 public class TbImageHelper {
     public static /* synthetic */ Interceptable $ic;
     public static TbImageHelper mInstance;
@@ -84,7 +84,7 @@ public class TbImageHelper {
 
     private void updateAll() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             updateFrsShowBigImage();
             updateUrlQuality();
             updatePostImageSize();

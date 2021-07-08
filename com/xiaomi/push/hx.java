@@ -13,18 +13,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.BitSet;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class hx implements iq<hx, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f43348a;
+    public static final iy f40362a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final jg f598a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f43349b;
+    public static final iy f40363b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -50,8 +50,8 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
             }
         }
         f598a = new jg("XmPushActionCheckClientInfo");
-        f43348a = new iy("", (byte) 8, (short) 1);
-        f43349b = new iy("", (byte) 8, (short) 2);
+        f40362a = new iy("", (byte) 8, (short) 1);
+        f40363b = new iy("", (byte) 8, (short) 2);
     }
 
     public hx() {
@@ -125,7 +125,7 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
             jbVar.m524a();
             while (true) {
                 iy m520a = jbVar.m520a();
-                byte b2 = m520a.f43494a;
+                byte b2 = m520a.f40508a;
                 if (b2 == 0) {
                     break;
                 }
@@ -197,10 +197,10 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jbVar) == null) {
             a();
             jbVar.a(f598a);
-            jbVar.a(f43348a);
+            jbVar.a(f40362a);
             jbVar.a(this.f599a);
             jbVar.b();
-            jbVar.a(f43349b);
+            jbVar.a(f40363b);
             jbVar.a(this.f601b);
             jbVar.b();
             jbVar.c();

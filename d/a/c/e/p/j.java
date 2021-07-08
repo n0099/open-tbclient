@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
     public static Pattern m;
@@ -35,36 +35,36 @@ public class j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetworkInfo f44432a;
+    public NetworkInfo f41448a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f44433b;
+    public boolean f41449b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f44434c;
+    public boolean f41450c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f44435d;
+    public boolean f41451d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f44436e;
+    public int f41452e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f44437f;
+    public int f41453f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f44438g;
+    public int f41454g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f44439h;
+    public String f41455h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f44440i;
+    public int f41456i;
     public long j;
     public boolean k;
     public Runnable l;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -110,7 +110,7 @@ public class j {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class b extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -182,15 +182,15 @@ public class j {
                 return;
             }
         }
-        this.f44432a = null;
-        this.f44433b = true;
-        this.f44434c = false;
-        this.f44435d = true;
-        this.f44436e = 0;
-        this.f44437f = 0;
-        this.f44438g = -1;
-        this.f44439h = null;
-        this.f44440i = -1;
+        this.f41448a = null;
+        this.f41449b = true;
+        this.f41450c = false;
+        this.f41451d = true;
+        this.f41452e = 0;
+        this.f41453f = 0;
+        this.f41454g = -1;
+        this.f41455h = null;
+        this.f41456i = -1;
         this.k = true;
         this.l = new a(this);
     }
@@ -225,7 +225,7 @@ public class j {
     public static boolean D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? n : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? n : invokeV.booleanValue;
     }
 
     public static boolean E() {
@@ -382,7 +382,7 @@ public class j {
     public static String m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? !z() ? "N" : H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : v() ? "4G" : u() ? com.baidu.apollon.statistics.g.f3983b : t() ? "2G" : "N" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? !z() ? "N" : H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : v() ? "4G" : u() ? com.baidu.apollon.statistics.g.f3986b : t() ? "2G" : "N" : (String) invokeV.objValue;
     }
 
     public static int n(int i2) {
@@ -470,10 +470,10 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f44432a == null) {
+            if (this.f41448a == null) {
                 j();
             }
-            return this.f44433b;
+            return this.f41449b;
         }
         return invokeV.booleanValue;
     }
@@ -516,10 +516,10 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f44432a == null) {
+            if (this.f41448a == null) {
                 j();
             }
-            return this.f44437f;
+            return this.f41453f;
         }
         return invokeV.intValue;
     }
@@ -528,36 +528,36 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             NetworkInfo h2 = h();
-            this.f44432a = h2;
+            this.f41448a = h2;
             if (h2 != null) {
                 if (h2.getType() == 1) {
-                    this.f44433b = true;
-                    this.f44434c = false;
+                    this.f41449b = true;
+                    this.f41450c = false;
                 } else if (h2.getType() == 0) {
-                    this.f44433b = false;
-                    this.f44434c = true;
+                    this.f41449b = false;
+                    this.f41450c = true;
                 } else {
-                    this.f44433b = false;
-                    this.f44434c = false;
+                    this.f41449b = false;
+                    this.f41450c = false;
                 }
-                this.f44435d = true;
+                this.f41451d = true;
                 int subtype = h2.getSubtype();
-                this.f44436e = subtype;
-                if (this.f44434c) {
-                    this.f44437f = n(subtype);
+                this.f41452e = subtype;
+                if (this.f41450c) {
+                    this.f41453f = n(subtype);
                 } else {
-                    this.f44437f = 0;
+                    this.f41453f = 0;
                 }
             } else {
-                this.f44433b = false;
-                this.f44434c = false;
-                this.f44435d = false;
-                this.f44436e = 0;
-                this.f44436e = 0;
+                this.f41449b = false;
+                this.f41450c = false;
+                this.f41451d = false;
+                this.f41452e = 0;
+                this.f41452e = 0;
             }
-            this.f44438g = L();
-            this.f44439h = Proxy.getDefaultHost();
-            this.f44440i = Proxy.getDefaultPort();
+            this.f41454g = L();
+            this.f41455h = Proxy.getDefaultHost();
+            this.f41456i = Proxy.getDefaultPort();
         }
     }
 
@@ -565,14 +565,14 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f44438g == -1) {
+            if (this.f41454g == -1) {
                 try {
-                    this.f44438g = L();
+                    this.f41454g = L();
                 } catch (Exception unused) {
-                    this.f44438g = 0;
+                    this.f41454g = 0;
                 }
             }
-            return this.f44438g;
+            return this.f41454g;
         }
         return invokeV.intValue;
     }
@@ -581,10 +581,10 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.f44439h == null) {
-                this.f44439h = Proxy.getDefaultHost();
+            if (this.f41455h == null) {
+                this.f41455h = Proxy.getDefaultHost();
             }
-            return this.f44439h;
+            return this.f41455h;
         }
         return (String) invokeV.objValue;
     }
@@ -593,10 +593,10 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (-1 == this.f44440i) {
-                this.f44440i = Proxy.getDefaultPort();
+            if (-1 == this.f41456i) {
+                this.f41456i = Proxy.getDefaultPort();
             }
-            return this.f44440i;
+            return this.f41456i;
         }
         return invokeV.intValue;
     }
@@ -605,10 +605,10 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.f44432a == null) {
+            if (this.f41448a == null) {
                 j();
             }
-            return this.f44434c;
+            return this.f41450c;
         }
         return invokeV.booleanValue;
     }
@@ -617,10 +617,10 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.f44432a == null) {
+            if (this.f41448a == null) {
                 j();
             }
-            return this.f44435d;
+            return this.f41451d;
         }
         return invokeV.booleanValue;
     }

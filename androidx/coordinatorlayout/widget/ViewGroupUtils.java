@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import androidx.annotation.RestrictTo;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -80,7 +81,7 @@ public class ViewGroupUtils {
 
     public static void offsetDescendantRect(ViewGroup viewGroup, View view, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, null, viewGroup, view, rect) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup, view, rect) == null) {
             Matrix matrix = sMatrix.get();
             if (matrix == null) {
                 matrix = new Matrix();

@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.widget.ScrollView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -15,18 +16,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a.d;
-import d.a.q0.a.k;
-/* loaded from: classes4.dex */
+import d.a.n0.a.d;
+import d.a.n0.a.k;
+/* loaded from: classes3.dex */
 public class SwanAppScrollView extends ScrollView {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f11347f;
+    public static final boolean f11364f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f11348e;
+    public int f11365e;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +42,7 @@ public class SwanAppScrollView extends ScrollView {
                 return;
             }
         }
-        f11347f = k.f49133a;
+        f11364f = k.f45831a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -62,13 +63,13 @@ public class SwanAppScrollView extends ScrollView {
                 return;
             }
         }
-        this.f11348e = -1;
+        this.f11365e = -1;
     }
 
     private int getLimitHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             int i2 = getContext().getResources().getDisplayMetrics().heightPixels;
             if (2 == getContext().getResources().getConfiguration().orientation) {
                 i2 = getContext().getResources().getDisplayMetrics().widthPixels;
@@ -83,7 +84,7 @@ public class SwanAppScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            if (f11347f) {
+            if (f11364f) {
                 Log.d("BoxScrollView", "onLayout( " + z + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i5 + SmallTailInfo.EMOTION_SUFFIX);
             }
         }
@@ -94,12 +95,12 @@ public class SwanAppScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            if (f11347f) {
+            if (f11364f) {
                 Log.d("BoxScrollView", "onMeasure( " + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + SmallTailInfo.EMOTION_SUFFIX);
             }
             int size = View.MeasureSpec.getSize(i3);
             int size2 = View.MeasureSpec.getSize(i2);
-            int i4 = this.f11348e;
+            int i4 = this.f11365e;
             if (i4 > 0) {
                 size = Math.min(size, i4);
             }
@@ -122,7 +123,7 @@ public class SwanAppScrollView extends ScrollView {
     public void setMaxHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f11348e = i2;
+            this.f11365e = i2;
         }
     }
 
@@ -145,7 +146,7 @@ public class SwanAppScrollView extends ScrollView {
                 return;
             }
         }
-        this.f11348e = -1;
+        this.f11365e = -1;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -167,6 +168,6 @@ public class SwanAppScrollView extends ScrollView {
                 return;
             }
         }
-        this.f11348e = -1;
+        this.f11365e = -1;
     }
 }

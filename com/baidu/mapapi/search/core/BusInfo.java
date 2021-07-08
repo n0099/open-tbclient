@@ -10,17 +10,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BusInfo extends TransitBaseInfo {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<BusInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7219a;
+    public int f7236a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f7220b;
+    public int f7237b;
 
     static {
         InterceptResult invokeClinit;
@@ -70,8 +70,8 @@ public class BusInfo extends TransitBaseInfo {
                 return;
             }
         }
-        this.f7219a = parcel.readInt();
-        this.f7220b = parcel.readInt();
+        this.f7236a = parcel.readInt();
+        this.f7237b = parcel.readInt();
     }
 
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
@@ -87,26 +87,26 @@ public class BusInfo extends TransitBaseInfo {
     public int getStopNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7220b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7237b : invokeV.intValue;
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7219a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7236a : invokeV.intValue;
     }
 
     public void setStopNum(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f7220b = i2;
+            this.f7237b = i2;
         }
     }
 
     public void setType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f7219a = i2;
+            this.f7236a = i2;
         }
     }
 
@@ -115,8 +115,8 @@ public class BusInfo extends TransitBaseInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i2) == null) {
             super.writeToParcel(parcel, i2);
-            parcel.writeInt(this.f7219a);
-            parcel.writeInt(this.f7220b);
+            parcel.writeInt(this.f7236a);
+            parcel.writeInt(this.f7237b);
         }
     }
 }

@@ -4,16 +4,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f75175a;
+    public int f72209a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f75176b;
+    public String f72210b;
 
     public d(int i2) {
         Interceptable interceptable = $ic;
@@ -30,17 +30,17 @@ public class d {
                 return;
             }
         }
-        this.f75175a = i2;
+        this.f72209a = i2;
         if (i2 == 0) {
-            this.f75176b = "成功";
+            this.f72210b = "成功";
         } else if (i2 == 1) {
-            this.f75176b = "未能找到可用的授权APP";
+            this.f72210b = "未能找到可用的授权APP";
         } else if (i2 == 2) {
-            this.f75176b = "授权APP版本太低，请先升级";
+            this.f72210b = "授权APP版本太低，请先升级";
         } else if (i2 != 3) {
-            this.f75176b = "未知错误";
+            this.f72210b = "未知错误";
         } else {
-            this.f75176b = "App配置错误，请在AndroidManifest.xml加上BridgeActivity声明";
+            this.f72210b = "App配置错误，请在AndroidManifest.xml加上BridgeActivity声明";
         }
     }
 
@@ -59,7 +59,7 @@ public class d {
                 return;
             }
         }
-        this.f75175a = i2;
-        this.f75176b = str;
+        this.f72209a = i2;
+        this.f72210b = str;
     }
 }

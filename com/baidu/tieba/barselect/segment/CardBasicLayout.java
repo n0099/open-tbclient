@@ -8,25 +8,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.x.b.d;
-import d.a.s0.x.b.e;
-import d.a.s0.x.b.f;
-import d.a.s0.x.e.a;
-import d.a.s0.x.e.c;
+import d.a.p0.x.b.d;
+import d.a.p0.x.b.e;
+import d.a.p0.x.b.f;
+import d.a.p0.x.e.a;
+import d.a.p0.x.e.c;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CardBasicLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14403e;
+    public int f14442e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f14404f;
+    public f f14443f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f14405g;
+    public d f14444g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CardBasicLayout(Context context) {
@@ -53,47 +53,47 @@ public class CardBasicLayout extends LinearLayout {
         e a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, fVar) == null) {
-            this.f14404f = fVar;
-            if (fVar == null || fVar.a() == null || (a2 = this.f14404f.a()) == null) {
+            this.f14443f = fVar;
+            if (fVar == null || fVar.a() == null || (a2 = this.f14443f.a()) == null) {
                 return;
             }
             int g2 = a2.g();
-            if (g2 == c.f69387b) {
+            if (g2 == c.f66175b) {
                 if (i2 == VoteCandidateCard.E) {
-                    this.f14403e = a.f69385d;
-                    this.f14405g = this.f14404f.f();
+                    this.f14442e = a.f66173d;
+                    this.f14444g = this.f14443f.f();
                     return;
                 }
-                this.f14403e = a.f69382a;
-                List<d> b2 = this.f14404f.b();
+                this.f14442e = a.f66170a;
+                List<d> b2 = this.f14443f.b();
                 if (b2 == null || b2.size() <= i2) {
                     return;
                 }
-                this.f14405g = b2.get(i2);
-            } else if (g2 == c.f69388c) {
+                this.f14444g = b2.get(i2);
+            } else if (g2 == c.f66176c) {
                 if (i2 == VoteCandidateCard.E) {
-                    this.f14403e = a.f69384c;
-                    List<d> b3 = this.f14404f.b();
+                    this.f14442e = a.f66172c;
+                    List<d> b3 = this.f14443f.b();
                     if (b3 == null || b3.size() <= 0) {
                         return;
                     }
                     for (d dVar : b3) {
                         if (dVar.i() == 1) {
-                            this.f14405g = dVar;
+                            this.f14444g = dVar;
                             return;
                         }
                     }
                     return;
                 }
-                this.f14403e = a.f69383b;
-                List<d> b4 = this.f14404f.b();
+                this.f14442e = a.f66171b;
+                List<d> b4 = this.f14443f.b();
                 if (b4 == null || b4.size() <= i2) {
                     return;
                 }
                 d dVar2 = b4.get(i2);
-                this.f14405g = dVar2;
+                this.f14444g = dVar2;
                 if (dVar2.i() == 1 && i2 == 0) {
-                    this.f14403e = a.f69384c;
+                    this.f14442e = a.f66172c;
                 }
             }
         }
@@ -118,6 +118,6 @@ public class CardBasicLayout extends LinearLayout {
                 return;
             }
         }
-        this.f14403e = -1;
+        this.f14442e = -1;
     }
 }

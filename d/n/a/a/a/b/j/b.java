@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class b implements d.n.a.a.a.b.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f75117e;
+    public Context f72155e;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class b implements d.n.a.a.a.b.b {
                 return;
             }
         }
-        this.f75117e = context;
+        this.f72155e = context;
     }
 
     @Override // d.n.a.a.a.b.b
@@ -56,7 +56,7 @@ public final class b implements d.n.a.a.a.b.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String a2 = a.a(this.f75117e);
+            String a2 = a.a(this.f72155e);
             return TextUtils.isEmpty(a2) ? "" : a2;
         }
         return (String) invokeV.objValue;

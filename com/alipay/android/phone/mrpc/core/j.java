@@ -19,7 +19,7 @@ public final class j extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f1642g;
+    public g f1643g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(g gVar, Method method, int i2, String str, byte[] bArr, boolean z) {
@@ -40,7 +40,7 @@ public final class j extends a {
                 return;
             }
         }
-        this.f1642g = gVar;
+        this.f1643g = gVar;
     }
 
     @Override // com.alipay.android.phone.mrpc.core.v
@@ -48,15 +48,15 @@ public final class j extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            o oVar = new o(this.f1642g.a());
-            oVar.a(this.f1611b);
-            oVar.a(this.f1614e);
-            oVar.a(this.f1615f);
-            oVar.a("id", String.valueOf(this.f1613d));
-            oVar.a("operationType", this.f1612c);
-            oVar.a(AsyncHttpClient.ENCODING_GZIP, String.valueOf(this.f1642g.d()));
+            o oVar = new o(this.f1643g.a());
+            oVar.a(this.f1612b);
+            oVar.a(this.f1615e);
+            oVar.a(this.f1616f);
+            oVar.a("id", String.valueOf(this.f1614d));
+            oVar.a("operationType", this.f1613c);
+            oVar.a(AsyncHttpClient.ENCODING_GZIP, String.valueOf(this.f1643g.d()));
             oVar.a(new BasicHeader("uuid", UUID.randomUUID().toString()));
-            List<Header> b2 = this.f1642g.c().b();
+            List<Header> b2 = this.f1643g.c().b();
             if (b2 != null && !b2.isEmpty()) {
                 for (Header header : b2) {
                     oVar.a(header);
@@ -67,7 +67,7 @@ public final class j extends a {
             sb.append("; ");
             sb.append(oVar.toString());
             try {
-                u uVar = this.f1642g.b().a(oVar).get();
+                u uVar = this.f1643g.b().a(oVar).get();
                 if (uVar != null) {
                     return uVar.b();
                 }

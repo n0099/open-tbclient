@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.InstallActivity;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class i implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ InstallActivity f73684e;
+    public final /* synthetic */ InstallActivity f70787e;
 
     public i(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
@@ -29,15 +29,15 @@ public final class i implements View.OnClickListener {
                 return;
             }
         }
-        this.f73684e = installActivity;
+        this.f70787e = installActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f73684e.animateToSpinner();
-            this.f73684e.startInstaller();
+            this.f70787e.animateToSpinner();
+            this.f70787e.startInstaller();
         }
     }
 }

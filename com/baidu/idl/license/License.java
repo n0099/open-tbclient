@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.idl.authority.AuthorityState;
 import com.baidu.idl.util.HttpRequest;
@@ -28,7 +29,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class License {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LICENSE_AG_ID = -1;
@@ -173,7 +174,7 @@ public class License {
         InterceptResult invokeLL;
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, context, arrayList)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, arrayList)) == null) {
             boolean z = false;
             if (arrayList == null || arrayList.size() == 0 || context == null) {
                 return false;

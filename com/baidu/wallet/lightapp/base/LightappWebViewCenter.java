@@ -25,40 +25,40 @@ import com.baidu.wallet.lightapp.multipage.h;
 import com.baidu.wallet.paysdk.datamodel.SdkInitResponse;
 import java.util.Arrays;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LightappWebViewCenter implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "LightappWebViewCenter";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LightappBrowserWebView f25232a;
+    public LightappBrowserWebView f25342a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinkedBlockingQueue<LightappBrowserWebView> f25233b;
+    public LinkedBlockingQueue<LightappBrowserWebView> f25343b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MutableContextWrapper f25234c;
+    public MutableContextWrapper f25344c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f25235d;
+    public boolean f25345d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f25236e;
+    public Context f25346e;
 
     /* renamed from: com.baidu.wallet.lightapp.base.LightappWebViewCenter$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static LightappWebViewCenter f25237a;
+        public static LightappWebViewCenter f25347a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -74,7 +74,7 @@ public class LightappWebViewCenter implements NoProguard {
                     return;
                 }
             }
-            f25237a = new LightappWebViewCenter(null);
+            f25347a = new LightappWebViewCenter(null);
         }
     }
 
@@ -85,7 +85,7 @@ public class LightappWebViewCenter implements NoProguard {
     public static LightappWebViewCenter getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f25237a : (LightappWebViewCenter) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f25347a : (LightappWebViewCenter) invokeV.objValue;
     }
 
     public static boolean isLightappWebViewCenterOn(Context context) {
@@ -98,8 +98,8 @@ public class LightappWebViewCenter implements NoProguard {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (isLightappWebViewCenterOn(context) && !this.f25235d) {
-                this.f25235d = true;
+            if (isLightappWebViewCenterOn(context) && !this.f25345d) {
+                this.f25345d = true;
                 return initLightappWebView(context);
             }
             return new LightappBrowserWebView(context);
@@ -113,11 +113,11 @@ public class LightappWebViewCenter implements NoProguard {
         LightappBrowserWebView lightappBrowserWebView;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f25233b == null || this.f25236e == null || !h.a().a(this.f25236e).MW_ON || this.f25233b.size() <= 0) {
+            if (this.f25343b == null || this.f25346e == null || !h.a().a(this.f25346e).MW_ON || this.f25343b.size() <= 0) {
                 return null;
             }
             try {
-                lightappBrowserWebView = this.f25233b.take();
+                lightappBrowserWebView = this.f25343b.take();
             } catch (InterruptedException e3) {
                 e2 = e3;
                 lightappBrowserWebView = null;
@@ -139,39 +139,39 @@ public class LightappWebViewCenter implements NoProguard {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            if (this.f25232a == null) {
-                this.f25234c = new MutableContextWrapper(context);
-                this.f25232a = new LightappBrowserWebView(this.f25234c);
+            if (this.f25342a == null) {
+                this.f25344c = new MutableContextWrapper(context);
+                this.f25342a = new LightappBrowserWebView(this.f25344c);
             } else {
-                MutableContextWrapper mutableContextWrapper = this.f25234c;
+                MutableContextWrapper mutableContextWrapper = this.f25344c;
                 if (mutableContextWrapper != null) {
                     mutableContextWrapper.setBaseContext(context);
-                    this.f25232a.clearHistory();
+                    this.f25342a.clearHistory();
                 }
             }
-            return this.f25232a;
+            return this.f25342a;
         }
         return (LightappBrowserWebView) invokeL.objValue;
     }
 
     public void initLightappWebViewPool(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, activity) == null) && activity != null && this.f25233b == null && h.a().a(activity).MW_ON) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, activity) == null) && activity != null && this.f25343b == null && h.a().a(activity).MW_ON) {
             PayStatisticsUtil.onEventStart("#eventInitWebviewPool");
             DXMSdkSAUtils.onEventStart("#eventInitWebviewPool");
             int i2 = h.a().a(activity).MW_WEBVIEW_POOL_SIZE;
             if (i2 <= 0) {
                 return;
             }
-            this.f25233b = new LinkedBlockingQueue<>(i2);
-            this.f25236e = activity.getApplication();
-            while (this.f25233b.remainingCapacity() > 0) {
+            this.f25343b = new LinkedBlockingQueue<>(i2);
+            this.f25346e = activity.getApplication();
+            while (this.f25343b.remainingCapacity() > 0) {
                 LightappBrowserWebView lightappBrowserWebView = new LightappBrowserWebView(activity);
                 try {
                     lightappBrowserWebView.loadUrl("about:blank");
-                    lightappBrowserWebView.setBaseContext(this.f25236e);
+                    lightappBrowserWebView.setBaseContext(this.f25346e);
                     lightappBrowserWebView.onPause();
-                    this.f25233b.put(lightappBrowserWebView);
+                    this.f25343b.put(lightappBrowserWebView);
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }
@@ -199,7 +199,7 @@ public class LightappWebViewCenter implements NoProguard {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, context, lightappBrowserWebView)) == null) {
-            if (this.f25232a == lightappBrowserWebView) {
+            if (this.f25342a == lightappBrowserWebView) {
                 lightappBrowserWebView.removeAllViews();
                 ViewGroup viewGroup = (ViewGroup) lightappBrowserWebView.getParent();
                 if (viewGroup != null) {
@@ -218,11 +218,11 @@ public class LightappWebViewCenter implements NoProguard {
                 lightappBrowserWebView.setOnMyScrollChangeListener(null);
                 lightappBrowserWebView.removeJavascriptInterface(LightappJsClient.LIGHTAPP_JS_NAME);
                 lightappBrowserWebView.setVisibility(0);
-                MutableContextWrapper mutableContextWrapper = this.f25234c;
+                MutableContextWrapper mutableContextWrapper = this.f25344c;
                 if (mutableContextWrapper != null) {
                     mutableContextWrapper.setBaseContext(context.getApplicationContext());
                 }
-                this.f25235d = false;
+                this.f25345d = false;
                 return true;
             }
             return false;
@@ -235,7 +235,7 @@ public class LightappWebViewCenter implements NoProguard {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, lightappBrowserWebView) == null) || lightappBrowserWebView == null) {
             return;
         }
-        if (this.f25233b != null && this.f25236e != null && h.a().a(this.f25236e).MW_ON && this.f25233b.remainingCapacity() > 0) {
+        if (this.f25343b != null && this.f25346e != null && h.a().a(this.f25346e).MW_ON && this.f25343b.remainingCapacity() > 0) {
             lightappBrowserWebView.onPause();
             lightappBrowserWebView.removeAllViews();
             ViewGroup viewGroup = (ViewGroup) lightappBrowserWebView.getParent();
@@ -254,11 +254,11 @@ public class LightappWebViewCenter implements NoProguard {
             lightappBrowserWebView.setOnMyScrollChangeListener(null);
             lightappBrowserWebView.removeJavascriptInterface(LightappJsClient.LIGHTAPP_JS_NAME);
             lightappBrowserWebView.setVisibility(0);
-            lightappBrowserWebView.setBaseContext(this.f25236e);
+            lightappBrowserWebView.setBaseContext(this.f25346e);
             lightappBrowserWebView.clearJsCode();
             lightappBrowserWebView.clearHistory();
             try {
-                this.f25233b.put(lightappBrowserWebView);
+                this.f25343b.put(lightappBrowserWebView);
                 return;
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
@@ -282,8 +282,8 @@ public class LightappWebViewCenter implements NoProguard {
                 return;
             }
         }
-        this.f25233b = null;
-        this.f25235d = false;
+        this.f25343b = null;
+        this.f25345d = false;
     }
 
     public LightappBrowserWebView getLightappWebViewFromPool(@NonNull Activity activity, boolean z) {
@@ -292,13 +292,13 @@ public class LightappWebViewCenter implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, activity, z)) == null) {
             LightappBrowserWebView lightappBrowserWebView2 = null;
-            if (this.f25236e == null || this.f25233b == null) {
+            if (this.f25346e == null || this.f25343b == null) {
                 if (activity != null) {
                     initLightappWebViewPool(activity);
                 }
-            } else if (h.a().a(this.f25236e).MW_ON && this.f25233b.size() > 0) {
+            } else if (h.a().a(this.f25346e).MW_ON && this.f25343b.size() > 0) {
                 try {
-                    lightappBrowserWebView = this.f25233b.take();
+                    lightappBrowserWebView = this.f25343b.take();
                     if (lightappBrowserWebView != null) {
                         try {
                             lightappBrowserWebView.setBaseContext(activity);

@@ -7,39 +7,39 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f72295a;
+    public final int f69398a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f72296b;
+    public final int f69399b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f72297c;
+    public final long f69400c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f72298d;
+    public final long f69401d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f72299e;
+    public final long f69402e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Format f72300f;
+    public final Format f69403f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f72301g;
+    public final int f69404g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public final long[] f72302h;
+    public final long[] f69405h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public final long[] f72303i;
+    public final long[] f69406i;
     public final int j;
     @Nullable
     public final k[] k;
@@ -59,17 +59,17 @@ public final class j {
                 return;
             }
         }
-        this.f72295a = i2;
-        this.f72296b = i3;
-        this.f72297c = j;
-        this.f72298d = j2;
-        this.f72299e = j3;
-        this.f72300f = format;
-        this.f72301g = i4;
+        this.f69398a = i2;
+        this.f69399b = i3;
+        this.f69400c = j;
+        this.f69401d = j2;
+        this.f69402e = j3;
+        this.f69403f = format;
+        this.f69404g = i4;
         this.k = kVarArr;
         this.j = i5;
-        this.f72302h = jArr;
-        this.f72303i = jArr2;
+        this.f69405h = jArr;
+        this.f69406i = jArr2;
     }
 
     public k a(int i2) {

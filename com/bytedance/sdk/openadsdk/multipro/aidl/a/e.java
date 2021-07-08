@@ -15,15 +15,15 @@ import com.bytedance.sdk.openadsdk.IFullScreenVideoAdInteractionListener;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class e extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, RemoteCallbackList<IFullScreenVideoAdInteractionListener>> f31429a;
+    public static Map<String, RemoteCallbackList<IFullScreenVideoAdInteractionListener>> f31539a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile e f31430b;
+    public static volatile e f31540b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class e extends a {
                 return;
             }
         }
-        f31429a = Collections.synchronizedMap(new HashMap());
+        f31539a = Collections.synchronizedMap(new HashMap());
     }
 
     public e() {
@@ -60,14 +60,14 @@ public class e extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f31430b == null) {
+            if (f31540b == null) {
                 synchronized (e.class) {
-                    if (f31430b == null) {
-                        f31430b = new e();
+                    if (f31540b == null) {
+                        f31540b = new e();
                     }
                 }
             }
-            return f31430b;
+            return f31540b;
         }
         return (e) invokeV.objValue;
     }
@@ -87,7 +87,7 @@ public class e extends a {
             synchronized (this) {
                 RemoteCallbackList<IFullScreenVideoAdInteractionListener> remoteCallbackList = new RemoteCallbackList<>();
                 remoteCallbackList.register(iFullScreenVideoAdInteractionListener);
-                f31429a.put(str, remoteCallbackList);
+                f31539a.put(str, remoteCallbackList);
             }
         }
     }
@@ -98,11 +98,11 @@ public class e extends a {
         if (interceptable == null || interceptable.invokeLL(65539, this, str, str2) == null) {
             synchronized (this) {
                 try {
-                    if (f31429a != null) {
+                    if (f31539a != null) {
                         if ("recycleRes".equals(str2)) {
-                            remoteCallbackList = f31429a.remove(str);
+                            remoteCallbackList = f31539a.remove(str);
                         } else {
-                            remoteCallbackList = f31429a.get(str);
+                            remoteCallbackList = f31539a.get(str);
                         }
                         if (remoteCallbackList != null) {
                             int beginBroadcast = remoteCallbackList.beginBroadcast();

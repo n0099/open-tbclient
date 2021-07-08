@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.manage.Download;
 import com.baidu.down.manage.DownloadConstants;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class DownloadDao {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CREATE_TABLE_SQL = "CREATE TABLE IF NOT EXISTS downloads (_id  INTEGER PRIMARY KEY AUTOINCREMENT ,URI  TEXT,_DATA  TEXT,SAVED_PATH_FOR_USER  TEXT,MIMETYPE  TEXT,ETAG  TEXT,STATUS  INTEGER,TOTAL_BYTES  INTEGER,CURRENT_BYTES  INTEGER,NOTIFICATIONNEEDED  INTEGER,FAILEDREASON  TEXT,PROGRESSMAP  TEXT,URI_HOST  TEXT,CONTROL_FLAG  INTEGER,FAILED_TYPE  INTEGER,DOWNLOAD_PRIORITY INTEGER, SAVED_SOURCE_KEY_USER TEXT,DOWN_DIR TEXT,FROM_PARAM TEXT,REAL_URI TEXT); ";
@@ -114,7 +115,7 @@ public final class DownloadDao {
 
     public static void releaseSingleInstance() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             DownloadDBHelper downloadDBHelper = mInstance.db;
             if (downloadDBHelper != null) {
                 downloadDBHelper.close();

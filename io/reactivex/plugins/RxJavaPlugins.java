@@ -1,5 +1,6 @@
 package io.reactivex.plugins;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -39,7 +40,7 @@ import io.reactivex.parallel.ParallelFlowable;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ThreadFactory;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class RxJavaPlugins {
     public static /* synthetic */ Interceptable $ic;
     @Nullable
@@ -135,7 +136,7 @@ public final class RxJavaPlugins {
     public static Scheduler callRequireNonNull(@NonNull Callable<Scheduler> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, callable)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, callable)) == null) {
             try {
                 return (Scheduler) ObjectHelper.requireNonNull(callable.call(), "Scheduler Callable result can't be null");
             } catch (Throwable th) {

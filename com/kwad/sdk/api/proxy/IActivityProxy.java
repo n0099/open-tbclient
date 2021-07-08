@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class IActivityProxy implements IComponentProxy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

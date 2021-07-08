@@ -4,15 +4,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f9205h = 0;
+    public static final int f9222h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f9206i = 1;
+    public static final int f9223i = 1;
     public static final int j = 2;
     public static final int k = 3;
     public static final int l = 4;
@@ -32,25 +32,25 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f9207a;
+    public int f9224a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f9208b;
+    public boolean f9225b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f9209c;
+    public boolean f9226c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f9210d;
+    public long f9227d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f9211e;
+    public long f9228e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f9212f;
+    public boolean f9229f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f9213g;
+    public boolean f9230g;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -65,11 +65,11 @@ public class b {
                 return;
             }
         }
-        this.f9207a = 0;
-        this.f9208b = false;
-        this.f9209c = false;
-        this.f9211e = 20000L;
-        this.f9212f = false;
-        this.f9213g = false;
+        this.f9224a = 0;
+        this.f9225b = false;
+        this.f9226c = false;
+        this.f9228e = 20000L;
+        this.f9229f = false;
+        this.f9230g = false;
     }
 }

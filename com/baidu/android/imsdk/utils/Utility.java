@@ -12,6 +12,7 @@ import android.os.Environment;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.ChatObjectCache;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.account.AccountManager;
@@ -37,7 +38,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.v.a;
+import d.a.t.a;
 import java.io.File;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -130,7 +131,7 @@ public final class Utility {
 
     public static void clear(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().clear().commit();
         }
     }

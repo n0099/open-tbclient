@@ -9,6 +9,7 @@ import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.expandable.ExpandableWidget;
 import java.util.List;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior<View> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_COLLAPSED = 2;
@@ -61,7 +62,7 @@ public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior<View
     public static <T extends ExpandableBehavior> T from(@NonNull View view, @NonNull Class<T> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, view, cls)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, view, cls)) == null) {
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
             if (layoutParams instanceof CoordinatorLayout.LayoutParams) {
                 CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) layoutParams).getBehavior();

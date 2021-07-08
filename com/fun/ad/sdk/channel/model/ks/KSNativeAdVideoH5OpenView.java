@@ -23,25 +23,25 @@ import com.fun.ad.sdk.R;
 import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import com.kwad.sdk.api.KsNativeAd;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class KSNativeAdVideoH5OpenView extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f32643a;
+    public TextView f32753a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f32644b;
+    public FrameLayout f32754b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f32645c;
+    public ImageView f32755c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f32646d;
+    public TextView f32756d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f32647e;
+    public Button f32757e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public KSNativeAdVideoH5OpenView(Context context) {
@@ -119,13 +119,13 @@ public class KSNativeAdVideoH5OpenView extends c {
                 ((ViewGroup) videoView.getParent()).removeView(videoView);
             }
             if (videoView != null) {
-                this.f32644b.removeAllViews();
-                this.f32644b.addView(videoView);
+                this.f32754b.removeAllViews();
+                this.f32754b.addView(videoView);
             }
-            this.f32645c.setImageBitmap(ksNativeAd.getSdkLogo());
-            this.f32643a.setText(ksNativeAd.getAdDescription());
-            this.f32646d.setText(ksNativeAd.getAdSource());
-            this.f32647e.setText(ksNativeAd.getActionDescription());
+            this.f32755c.setImageBitmap(ksNativeAd.getSdkLogo());
+            this.f32753a.setText(ksNativeAd.getAdDescription());
+            this.f32756d.setText(ksNativeAd.getAdSource());
+            this.f32757e.setText(ksNativeAd.getActionDescription());
         }
     }
 
@@ -134,11 +134,11 @@ public class KSNativeAdVideoH5OpenView extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f32643a = (TextView) findViewById(R.id.ad_description);
-            this.f32644b = (FrameLayout) findViewById(R.id.ad_video);
-            this.f32645c = (ImageView) findViewById(R.id.ad_logo);
-            this.f32646d = (TextView) findViewById(R.id.ad_h5_description);
-            this.f32647e = (Button) findViewById(R.id.ad_h5_open);
+            this.f32753a = (TextView) findViewById(R.id.ad_description);
+            this.f32754b = (FrameLayout) findViewById(R.id.ad_video);
+            this.f32755c = (ImageView) findViewById(R.id.ad_logo);
+            this.f32756d = (TextView) findViewById(R.id.ad_h5_description);
+            this.f32757e = (Button) findViewById(R.id.ad_h5_open);
         }
     }
 
@@ -147,11 +147,11 @@ public class KSNativeAdVideoH5OpenView extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f32644b.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f32754b.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i6;
             layoutParams.height = (int) (i6 / 1.78f);
-            this.f32644b.setLayoutParams(layoutParams);
+            this.f32754b.setLayoutParams(layoutParams);
         }
     }
 }

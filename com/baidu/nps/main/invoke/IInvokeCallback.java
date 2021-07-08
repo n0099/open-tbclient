@@ -1,5 +1,5 @@
 package com.baidu.nps.main.invoke;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface IInvokeCallback {
     void onResult(int i2, String str, Object obj);
 }

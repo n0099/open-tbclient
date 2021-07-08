@@ -17,7 +17,7 @@ import d.k.a.d;
 import d.k.a.h.a;
 import java.io.IOException;
 import okio.ByteString;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MovieParams extends Message<MovieParams, Builder> {
     public static /* synthetic */ Interceptable $ic;
     public static final ProtoAdapter<MovieParams> ADAPTER;
@@ -36,7 +36,7 @@ public final class MovieParams extends Message<MovieParams, Builder> {
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
     public final Float viewBoxWidth;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder extends Message.a<MovieParams, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public final class MovieParams extends Message<MovieParams, Builder> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ProtoAdapter_MovieParams extends ProtoAdapter<MovieParams> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,5 +1,6 @@
 package com.baidubce.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +15,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DateUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static String DATA_TIME_AlternateIso8601_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'";
@@ -75,7 +76,7 @@ public class DateUtils {
     public static Date parseRfc822Date(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATA_TIME_Rfc822_FORMAT, Locale.ENGLISH);
             simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
             new Date();

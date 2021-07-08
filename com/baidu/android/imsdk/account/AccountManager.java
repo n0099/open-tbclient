@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.account;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.internal.BaseManager;
 import com.baidu.android.imsdk.internal.Constants;
@@ -73,7 +74,7 @@ public class AccountManager extends BaseManager {
     public static long getAppid(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             if (BaseManager.isNullContext(context)) {
                 return -1L;
             }

@@ -1,6 +1,7 @@
 package com.xiaomi.push;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -25,12 +26,12 @@ import java.util.Date;
 import java.util.zip.GZIPOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class y {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f43705a;
+    public static final String[] f40719a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,7 +47,7 @@ public class y {
                 return;
             }
         }
-        f43705a = new String[]{"jpg", "png", "bmp", "gif", "webp"};
+        f40719a = new String[]{"jpg", "png", "bmp", "gif", "webp"};
     }
 
     /* JADX WARN: Not initialized variable reg: 2, insn: 0x0066: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:24:0x0066 */
@@ -129,7 +130,7 @@ public class y {
     public static void a(File file, File file2) {
         ZipOutputStream zipOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, file, file2) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, file2) == null) {
             ZipOutputStream zipOutputStream2 = null;
             try {
                 try {

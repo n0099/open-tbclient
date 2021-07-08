@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.network.NewCashierContent;
 import com.baidu.apollon.base.widget.NetImageView;
@@ -68,7 +69,7 @@ public class ChannelOfficialView extends ChannelViewBase {
 
     private void initView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_juhe_customview_official_channel"), (ViewGroup) this, true);
             inflate.setPadding(0, DisplayUtils.dip2px(getContext(), 20.0f), 0, DisplayUtils.dip2px(getContext(), 10.0f));
             this.imageView = (NetImageView) inflate.findViewById(ResUtils.id(getContext(), "official_paysdk_id_imageview"));

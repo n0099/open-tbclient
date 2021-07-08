@@ -1,6 +1,7 @@
 package com.kwad.sdk.api;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.view.View;
 import androidx.annotation.Keep;
 import androidx.annotation.Nullable;
@@ -8,12 +9,12 @@ import androidx.fragment.app.Fragment;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface KsSplashScreenAd {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface SplashScreenAdInteractionListener {
         @KsAdSdkApi
         @Keep
@@ -36,10 +37,22 @@ public interface KsSplashScreenAd {
         void onSkippedAd();
     }
 
+    @KsAdSdkApi
+    @Keep
+    int getECPM();
+
     @Nullable
     @KsAdSdkApi
     @Keep
     Fragment getFragment(SplashScreenAdInteractionListener splashScreenAdInteractionListener);
+
+    @KsAdSdkApi
+    @Keep
+    int getInteractionType();
+
+    @KsAdSdkApi
+    @Keep
+    int getMaterialType();
 
     @KsAdSdkApi
     @Keep
@@ -51,5 +64,12 @@ public interface KsSplashScreenAd {
 
     @KsAdSdkApi
     @Keep
+    @Deprecated
     boolean isVideo();
+
+    @KsAdSdkApi
+    @Keep
+    void setBidEcpm(int i2);
+
+    boolean showSplashMiniWindowIfNeeded(Context context, SplashScreenAdInteractionListener splashScreenAdInteractionListener, Rect rect);
 }

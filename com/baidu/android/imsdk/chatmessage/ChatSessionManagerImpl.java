@@ -48,7 +48,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.v.a;
+import d.a.t.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -288,7 +288,7 @@ public class ChatSessionManagerImpl {
     /* JADX INFO: Access modifiers changed from: private */
     public void doSessionChangeListenerNotify(int i2, ChatSession chatSession, ArrayList<IChatSessionChangeListener> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65540, this, i2, chatSession, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, chatSession, arrayList) == null) {
             Iterator<IChatSessionChangeListener> it = arrayList.iterator();
             while (it.hasNext()) {
                 IChatSessionChangeListener next = it.next();

@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.b.b.ac;
 import com.bytedance.sdk.component.b.b.v;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class h extends ac {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f28138a;
+    public final String f28248a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f28139b;
+    public final long f28249b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.bytedance.sdk.component.b.a.e f28140c;
+    public final com.bytedance.sdk.component.b.a.e f28250c;
 
     public h(String str, long j, com.bytedance.sdk.component.b.a.e eVar) {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public final class h extends ac {
                 return;
             }
         }
-        this.f28138a = str;
-        this.f28139b = j;
-        this.f28140c = eVar;
+        this.f28248a = str;
+        this.f28249b = j;
+        this.f28250c = eVar;
     }
 
     @Override // com.bytedance.sdk.component.b.b.ac
@@ -47,7 +47,7 @@ public final class h extends ac {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = this.f28138a;
+            String str = this.f28248a;
             if (str != null) {
                 return v.a(str);
             }
@@ -60,13 +60,13 @@ public final class h extends ac {
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28139b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28249b : invokeV.longValue;
     }
 
     @Override // com.bytedance.sdk.component.b.b.ac
     public com.bytedance.sdk.component.b.a.e d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28140c : (com.bytedance.sdk.component.b.a.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28250c : (com.bytedance.sdk.component.b.a.e) invokeV.objValue;
     }
 }

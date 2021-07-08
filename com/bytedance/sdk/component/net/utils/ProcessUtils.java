@@ -4,6 +4,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ProcessUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MESSAGE_PROCESS_SERVICE_SUFFIX = ":pushservice";
@@ -120,7 +121,7 @@ public class ProcessUtils {
     public static boolean isMainProcess(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             String curProcessName = getCurProcessName(context);
             return (curProcessName == null || !curProcessName.contains(":")) && curProcessName != null && curProcessName.equals(context.getPackageName());
         }

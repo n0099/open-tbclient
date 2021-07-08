@@ -13,7 +13,7 @@ import com.kwad.sdk.api.KsDrawAd;
 import com.kwad.sdk.api.loader.Wrapper;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractKsDrawAd implements KsDrawAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

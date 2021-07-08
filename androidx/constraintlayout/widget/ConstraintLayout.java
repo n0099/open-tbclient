@@ -128,7 +128,7 @@ public class ConstraintLayout extends ViewGroup {
 
     private void init(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, attributeSet) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, attributeSet) == null) {
             this.mLayoutWidget.setCompanionWidget(this);
             this.mChildrenByIds.put(getId(), this);
             this.mConstraintSet = null;
@@ -549,7 +549,7 @@ public class ConstraintLayout extends ViewGroup {
     /* JADX WARN: Removed duplicated region for block: B:221:0x03b6  */
     /* JADX WARN: Type inference failed for: r26v0, types: [androidx.constraintlayout.widget.ConstraintLayout, java.lang.Object, android.view.ViewGroup] */
     /* JADX WARN: Type inference failed for: r3v0 */
-    /* JADX WARN: Type inference failed for: r3v1, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r3v1, types: [boolean, int] */
     /* JADX WARN: Type inference failed for: r3v2 */
     /* JADX WARN: Type inference failed for: r3v27 */
     /* JADX WARN: Type inference failed for: r3v28 */

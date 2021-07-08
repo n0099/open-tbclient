@@ -1,5 +1,6 @@
 package com.xiaomi.push;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,15 +18,15 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class ir {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Comparator f43481a;
+    public static final Comparator f40495a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Comparator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +82,7 @@ public final class ir {
                 return;
             }
         }
-        f43481a = new a(null);
+        f40495a = new a(null);
     }
 
     public static int a(byte b2, byte b3) {
@@ -123,7 +124,7 @@ public final class ir {
     public static int a(Comparable comparable, Comparable comparable2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, comparable, comparable2)) == null) ? comparable.compareTo(comparable2) : invokeLL.intValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, comparable, comparable2)) == null) ? comparable.compareTo(comparable2) : invokeLL.intValue;
     }
 
     public static int a(String str, String str2) {
@@ -152,7 +153,7 @@ public final class ir {
                 return a2;
             }
             for (int i2 = 0; i2 < list.size(); i2++) {
-                int compare = f43481a.compare(list.get(i2), list2.get(i2));
+                int compare = f40495a.compare(list.get(i2), list2.get(i2));
                 if (compare != 0) {
                     return compare;
                 }
@@ -170,20 +171,20 @@ public final class ir {
             if (a2 != 0) {
                 return a2;
             }
-            TreeMap treeMap = new TreeMap(f43481a);
+            TreeMap treeMap = new TreeMap(f40495a);
             treeMap.putAll(map);
             Iterator it = treeMap.entrySet().iterator();
-            TreeMap treeMap2 = new TreeMap(f43481a);
+            TreeMap treeMap2 = new TreeMap(f40495a);
             treeMap2.putAll(map2);
             Iterator it2 = treeMap2.entrySet().iterator();
             while (it.hasNext() && it2.hasNext()) {
                 Map.Entry entry = (Map.Entry) it.next();
                 Map.Entry entry2 = (Map.Entry) it2.next();
-                int compare = f43481a.compare(entry.getKey(), entry2.getKey());
+                int compare = f40495a.compare(entry.getKey(), entry2.getKey());
                 if (compare != 0) {
                     return compare;
                 }
-                int compare2 = f43481a.compare(entry.getValue(), entry2.getValue());
+                int compare2 = f40495a.compare(entry.getValue(), entry2.getValue());
                 if (compare2 != 0) {
                     return compare2;
                 }
@@ -201,14 +202,14 @@ public final class ir {
             if (a2 != 0) {
                 return a2;
             }
-            TreeSet treeSet = new TreeSet(f43481a);
+            TreeSet treeSet = new TreeSet(f40495a);
             treeSet.addAll(set);
-            TreeSet treeSet2 = new TreeSet(f43481a);
+            TreeSet treeSet2 = new TreeSet(f40495a);
             treeSet2.addAll(set2);
             Iterator it = treeSet.iterator();
             Iterator it2 = treeSet2.iterator();
             while (it.hasNext() && it2.hasNext()) {
-                int compare = f43481a.compare(it.next(), it2.next());
+                int compare = f40495a.compare(it.next(), it2.next());
                 if (compare != 0) {
                     return compare;
                 }

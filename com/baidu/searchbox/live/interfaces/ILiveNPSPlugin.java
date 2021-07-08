@@ -12,7 +12,7 @@ import com.baidu.searchbox.live.interfaces.entry.ILiveShowMasterEntry;
 import com.baidu.searchbox.live.interfaces.entry.ILiveYuYinEntry;
 import com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface ILiveNPSPlugin {
     public static final String PARAMS_ROOM_ID = "roomId";
     public static final String PARAMS_SCHEME = "scheme";

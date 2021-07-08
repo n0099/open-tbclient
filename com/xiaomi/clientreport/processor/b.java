@@ -14,13 +14,13 @@ import com.xiaomi.push.bq;
 import java.io.File;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class b implements IPerfProcessor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f42733a;
+    public Context f39747a;
 
     /* renamed from: a  reason: collision with other field name */
     public HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> f43a;
@@ -40,7 +40,7 @@ public class b implements IPerfProcessor {
                 return;
             }
         }
-        this.f42733a = context;
+        this.f39747a = context;
     }
 
     public static String a(com.xiaomi.clientreport.data.a aVar) {
@@ -64,7 +64,7 @@ public class b implements IPerfProcessor {
             } else {
                 str = String.valueOf(i2) + "#" + str2;
             }
-            File externalFilesDir = this.f42733a.getExternalFilesDir(PerformerBox.TYPE);
+            File externalFilesDir = this.f39747a.getExternalFilesDir(PerformerBox.TYPE);
             if (externalFilesDir == null) {
                 com.xiaomi.channel.commonutils.logger.b.d("cannot get folder when to write perf");
                 return null;
@@ -87,7 +87,7 @@ public class b implements IPerfProcessor {
             }
             for (int i2 = 0; i2 < 20; i2++) {
                 String str = b2 + i2;
-                if (bq.m186a(this.f42733a, str)) {
+                if (bq.m186a(this.f39747a, str)) {
                     return str;
                 }
             }
@@ -100,14 +100,14 @@ public class b implements IPerfProcessor {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            bq.a(this.f42733a, PerformerBox.TYPE, "perfUploading");
-            File[] m187a = bq.m187a(this.f42733a, "perfUploading");
+            bq.a(this.f39747a, PerformerBox.TYPE, "perfUploading");
+            File[] m187a = bq.m187a(this.f39747a, "perfUploading");
             if (m187a == null || m187a.length <= 0) {
                 return;
             }
             for (File file : m187a) {
                 if (file != null) {
-                    List<String> a2 = e.a(this.f42733a, file.getAbsolutePath());
+                    List<String> a2 = e.a(this.f39747a, file.getAbsolutePath());
                     file.delete();
                     a(a2);
                 }
@@ -140,7 +140,7 @@ public class b implements IPerfProcessor {
     public void a(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            bq.a(this.f42733a, list);
+            bq.a(this.f39747a, list);
         }
     }
 

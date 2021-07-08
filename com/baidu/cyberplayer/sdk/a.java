@@ -7,25 +7,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<C0088a> f4807a;
+    public ArrayList<C0088a> f4824a;
 
     /* renamed from: com.baidu.cyberplayer.sdk.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class C0088a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f4808a;
+        public String f4825a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Object f4809b;
+        public Object f4826b;
 
         public C0088a(String str, Object obj) {
             Interceptable interceptable = $ic;
@@ -42,27 +42,27 @@ public class a {
                     return;
                 }
             }
-            this.f4808a = str;
-            this.f4809b = obj;
+            this.f4825a = str;
+            this.f4826b = obj;
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4808a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4825a : (String) invokeV.objValue;
         }
 
         public void a(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                this.f4809b = obj;
+                this.f4826b = obj;
             }
         }
 
         public Object b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4809b : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4826b : invokeV.objValue;
         }
     }
 
@@ -79,34 +79,34 @@ public class a {
                 return;
             }
         }
-        this.f4807a = new ArrayList<>();
+        this.f4824a = new ArrayList<>();
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f4807a.clear();
+            this.f4824a.clear();
         }
     }
 
     public void a(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
-            int size = this.f4807a.size();
+            int size = this.f4824a.size();
             for (int i2 = 0; i2 < size; i2++) {
-                C0088a c0088a = this.f4807a.get(i2);
+                C0088a c0088a = this.f4824a.get(i2);
                 if (c0088a != null && c0088a.a() != null && c0088a.a().equals(str)) {
                     c0088a.a(obj);
                     return;
                 }
             }
-            this.f4807a.add(new C0088a(str, obj));
+            this.f4824a.add(new C0088a(str, obj));
         }
     }
 
     public ArrayList<C0088a> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4807a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4824a : (ArrayList) invokeV.objValue;
     }
 }

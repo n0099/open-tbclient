@@ -17,7 +17,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ConstrainedExecutorService extends AbstractExecutorService {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;
@@ -31,13 +31,13 @@ public class ConstrainedExecutorService extends AbstractExecutorService {
     public final BlockingQueue<Runnable> mWorkQueue;
 
     /* renamed from: com.facebook.common.executors.ConstrainedExecutorService$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class Worker implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

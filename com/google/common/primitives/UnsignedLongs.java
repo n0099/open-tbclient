@@ -1,5 +1,6 @@
 package com.google.common.primitives;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,13 +13,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.d.a.n;
 import java.math.BigInteger;
 import java.util.Comparator;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class UnsignedLongs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class LexicographicalComparator implements Comparator<long[]> {
         public static final /* synthetic */ LexicographicalComparator[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -99,18 +100,18 @@ public final class UnsignedLongs {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final long[] f33425a;
+        public static final long[] f33535a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int[] f33426b;
+        public static final int[] f33536b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int[] f33427c;
+        public static final int[] f33537c;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -126,15 +127,15 @@ public final class UnsignedLongs {
                     return;
                 }
             }
-            f33425a = new long[37];
-            f33426b = new int[37];
-            f33427c = new int[37];
+            f33535a = new long[37];
+            f33536b = new int[37];
+            f33537c = new int[37];
             BigInteger bigInteger = new BigInteger("10000000000000000", 16);
             for (int i2 = 2; i2 <= 36; i2++) {
                 long j = i2;
-                f33425a[i2] = UnsignedLongs.b(-1L, j);
-                f33426b[i2] = (int) UnsignedLongs.e(-1L, j);
-                f33427c[i2] = bigInteger.toString(i2).length() - 1;
+                f33535a[i2] = UnsignedLongs.b(-1L, j);
+                f33536b[i2] = (int) UnsignedLongs.e(-1L, j);
+                f33537c[i2] = bigInteger.toString(i2).length() - 1;
             }
         }
 
@@ -143,11 +144,11 @@ public final class UnsignedLongs {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
                 if (j >= 0) {
-                    long[] jArr = f33425a;
+                    long[] jArr = f33535a;
                     if (j < jArr[i3]) {
                         return false;
                     }
-                    return j > jArr[i3] || i2 > f33426b[i3];
+                    return j > jArr[i3] || i2 > f33536b[i3];
                 }
                 return true;
             }
@@ -190,7 +191,7 @@ public final class UnsignedLongs {
             n.p(str);
             if (str.length() != 0) {
                 if (i2 >= 2 && i2 <= 36) {
-                    int i3 = a.f33427c[i2] - 1;
+                    int i3 = a.f33537c[i2] - 1;
                     long j = 0;
                     for (int i4 = 0; i4 < str.length(); i4++) {
                         int digit = Character.digit(str.charAt(i4), i2);
@@ -215,7 +216,7 @@ public final class UnsignedLongs {
     public static long e(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
             if (j2 < 0) {
                 return a(j, j2) < 0 ? j : j - j2;
             } else if (j >= 0) {

@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.client.methods.HttpDelete;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FaceTracker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class ActionType {
         public static final /* synthetic */ ActionType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -83,7 +83,7 @@ public class FaceTracker {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class ErrCode {
         public static final /* synthetic */ ErrCode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

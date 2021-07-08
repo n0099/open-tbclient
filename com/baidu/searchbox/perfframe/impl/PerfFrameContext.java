@@ -16,9 +16,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.j0.a.b.d;
+import d.a.g0.a.b.d;
 @Autowired
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PerfFrameContext {
     public static /* synthetic */ Interceptable $ic;
     public static final IPerfFrameCallBack PERFFRAME_CONTEXT_DEFAULT;

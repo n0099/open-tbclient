@@ -2,6 +2,7 @@ package d.a.c.e.p;
 
 import android.os.Environment;
 import android.os.StatFs;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -19,18 +20,18 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.channels.FileChannel;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f44422a = "baidu";
+    public static String f41438a = "baidu";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final File f44423b;
+    public static final File f41439b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final char f44424c;
+    public static final char f41440c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,8 +47,8 @@ public class f {
                 return;
             }
         }
-        f44423b = Environment.getExternalStorageDirectory();
-        f44424c = File.separatorChar;
+        f41439b = Environment.getExternalStorageDirectory();
+        f41440c = File.separatorChar;
     }
 
     public static int A(String str) {
@@ -96,7 +97,7 @@ public class f {
     public static boolean D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? f44424c == '\\' : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f41440c == '\\' : invokeV.booleanValue;
     }
 
     public static void E(OutputStream outputStream) throws IOException {
@@ -149,7 +150,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             try {
-                StatFs statFs = new StatFs(f44423b.getPath());
+                StatFs statFs = new StatFs(f41439b.getPath());
                 return ((((long) statFs.getAvailableBlocks()) * ((long) statFs.getBlockSize())) / 1024) / 1024 > 2;
             } catch (Exception unused) {
                 return false;
@@ -547,9 +548,9 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, null, str, str2)) == null) {
             if (str != null) {
-                return f44423b + "/" + f44422a + "/" + str + "/" + str2;
+                return f41439b + "/" + f41438a + "/" + str + "/" + str2;
             }
-            return f44423b + "/" + f44422a + "/" + str2;
+            return f41439b + "/" + f41438a + "/" + str2;
         }
         return (String) invokeLL.objValue;
     }
@@ -605,9 +606,9 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, str)) == null) {
             if (str != null) {
-                return f44423b + "/" + f44422a + "/" + str + "/";
+                return f41439b + "/" + f41438a + "/" + str + "/";
             }
-            return f44423b + "/" + f44422a + "/";
+            return f41439b + "/" + f41438a + "/";
         }
         return (String) invokeL.objValue;
     }

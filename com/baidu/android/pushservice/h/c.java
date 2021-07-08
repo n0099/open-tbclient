@@ -13,10 +13,10 @@ public abstract class c implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3150a;
+    public String f3153a;
 
     /* renamed from: b  reason: collision with root package name */
-    public short f3151b;
+    public short f3154b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public abstract class c implements Runnable {
                 return;
             }
         }
-        this.f3151b = (short) 99;
+        this.f3154b = (short) 99;
     }
 
     public c(String str, short s) {
@@ -49,9 +49,9 @@ public abstract class c implements Runnable {
                 return;
             }
         }
-        this.f3151b = (short) 99;
-        this.f3150a = str;
-        this.f3151b = s;
+        this.f3154b = (short) 99;
+        this.f3153a = str;
+        this.f3154b = s;
     }
 
     public abstract void a();
@@ -59,29 +59,29 @@ public abstract class c implements Runnable {
     public void a(short s) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Short.valueOf(s)}) == null) {
-            this.f3151b = s;
+            this.f3154b = s;
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f3150a = str;
+            this.f3153a = str;
         }
     }
 
     public short d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3151b : invokeV.shortValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3154b : invokeV.shortValue;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (!TextUtils.isEmpty(this.f3150a)) {
-                Thread.currentThread().setName(this.f3150a);
+            if (!TextUtils.isEmpty(this.f3153a)) {
+                Thread.currentThread().setName(this.f3153a);
             }
             a();
         }

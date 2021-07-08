@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
@@ -198,7 +199,7 @@ public class GroupInfoDAOImpl {
     public static void clearGroupMarkTop(Context context) {
         DBOperation newDb;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, null, context) == null) || context == null || (newDb = DBOperationFactory.getNewDb(context)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) || context == null || (newDb = DBOperationFactory.getNewDb(context)) == null) {
             return;
         }
         ContentValues contentValues = new ContentValues();

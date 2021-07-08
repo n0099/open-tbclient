@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class af {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f42821a;
+    public static final char[] f39835a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,7 +27,7 @@ public class af {
                 return;
             }
         }
-        f42821a = "0123456789ABCDEF".toCharArray();
+        f39835a = "0123456789ABCDEF".toCharArray();
     }
 
     public static String a(byte[] bArr, int i2, int i3) {
@@ -37,8 +37,8 @@ public class af {
             StringBuilder sb = new StringBuilder(i3 * 2);
             for (int i4 = 0; i4 < i3; i4++) {
                 int i5 = bArr[i2 + i4] & 255;
-                sb.append(f42821a[i5 >> 4]);
-                sb.append(f42821a[i5 & 15]);
+                sb.append(f39835a[i5 >> 4]);
+                sb.append(f39835a[i5 & 15]);
             }
             return sb.toString();
         }

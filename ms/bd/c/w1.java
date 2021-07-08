@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bytedance.JProtect;
 @Keep
 @JProtect
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class w1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f76114a;
+    public static int f73148a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a(Context context) {
@@ -24,11 +24,11 @@ public class w1 {
             if (context != null) {
                 try {
                     new DisplayMetrics();
-                    f76114a = context.getResources().getDisplayMetrics().densityDpi;
+                    f73148a = context.getResources().getDisplayMetrics().densityDpi;
                 } catch (Throwable unused) {
                 }
             }
-            return "" + f76114a;
+            return "" + f73148a;
         }
         return (String) invokeL.objValue;
     }

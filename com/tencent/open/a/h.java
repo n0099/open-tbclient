@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f41902a;
+    public static final h f38916a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public final class h {
                 return;
             }
         }
-        f41902a = new h();
+        f38916a = new h();
     }
 
     public h() {

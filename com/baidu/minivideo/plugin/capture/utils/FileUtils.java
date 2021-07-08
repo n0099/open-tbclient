@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.media.MediaMetadataRetriever;
 import android.os.Environment;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.minivideo.plugin.capture.Application;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +22,7 @@ import java.util.Random;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PUBLIC_SUCCESS_TEMP_DIR = "public_succes_temp";
@@ -85,7 +86,7 @@ public class FileUtils {
     public static boolean deleteDir(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, file)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
             if (file.isDirectory()) {
                 for (String str : file.list()) {
                     if (!deleteDir(new File(file, str))) {

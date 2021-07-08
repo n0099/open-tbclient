@@ -1,5 +1,6 @@
 package com.google.protobuf;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,7 +14,7 @@ import com.google.protobuf.GeneratedMessageLite;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ExtensionRegistryLite {
     public static /* synthetic */ Interceptable $ic;
     public static final ExtensionRegistryLite EMPTY;
@@ -21,7 +22,7 @@ public class ExtensionRegistryLite {
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<ObjectIntPair, GeneratedMessageLite.GeneratedExtension<?, ?>> extensionsByNumber;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ObjectIntPair {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,7 +103,7 @@ public class ExtensionRegistryLite {
     public static ExtensionRegistryLite getEmptyRegistry() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? EMPTY : (ExtensionRegistryLite) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? EMPTY : (ExtensionRegistryLite) invokeV.objValue;
     }
 
     public static boolean isEagerlyParseMessageSets() {

@@ -14,6 +14,7 @@ import androidx.collection.LruCache;
 import androidx.core.content.res.FontResourcesParserCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.provider.FontsContractCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -102,7 +103,7 @@ public class TypefaceCompat {
         InterceptResult invokeCommon;
         Typeface createFromFontFamilyFilesResourceEntry;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{context, familyResourceEntry, resources, Integer.valueOf(i2), Integer.valueOf(i3), fontCallback, handler, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, familyResourceEntry, resources, Integer.valueOf(i2), Integer.valueOf(i3), fontCallback, handler, Boolean.valueOf(z)})) == null) {
             if (familyResourceEntry instanceof FontResourcesParserCompat.ProviderResourceEntry) {
                 FontResourcesParserCompat.ProviderResourceEntry providerResourceEntry = (FontResourcesParserCompat.ProviderResourceEntry) familyResourceEntry;
                 boolean z2 = false;

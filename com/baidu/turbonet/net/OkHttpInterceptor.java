@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.internal.http.RealResponseBody;
 import java.lang.reflect.Field;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class OkHttpInterceptor implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Field f23059a;
+    public static Field f23169a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,11 +32,11 @@ public class OkHttpInterceptor implements Interceptor {
         }
         try {
             Field declaredField = RealResponseBody.class.getDeclaredField("source");
-            f23059a = declaredField;
+            f23169a = declaredField;
             declaredField.setAccessible(true);
         } catch (NoSuchFieldException e2) {
             Log.e("tn_OkHttpIntercept", "Can not find source field from RealResponseBody.", e2);
-            f23059a = null;
+            f23169a = null;
         }
     }
 }

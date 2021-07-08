@@ -1,5 +1,6 @@
 package com.bytedance.sdk.openadsdk.preload.a;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,18 +9,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class u {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final u f31955a;
+    public static final u f32065a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final u f31956b;
+    public static final u f32066b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final /* synthetic */ u[] f31957c;
+    public static final /* synthetic */ u[] f32067c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +36,7 @@ public abstract class u {
                 return;
             }
         }
-        f31955a = new u("DEFAULT", 0) { // from class: com.bytedance.sdk.openadsdk.preload.a.u.1
+        f32065a = new u("DEFAULT", 0) { // from class: com.bytedance.sdk.openadsdk.preload.a.u.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -85,8 +86,8 @@ public abstract class u {
                 }
             }
         };
-        f31956b = uVar;
-        f31957c = new u[]{f31955a, uVar};
+        f32066b = uVar;
+        f32067c = new u[]{f32065a, uVar};
     }
 
     public u(String str, int i2) {
@@ -117,6 +118,6 @@ public abstract class u {
     public static u[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (u[]) f31957c.clone() : (u[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (u[]) f32067c.clone() : (u[]) invokeV.objValue;
     }
 }

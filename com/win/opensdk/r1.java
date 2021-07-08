@@ -4,12 +4,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class r1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f42635a;
+    public static boolean f39649a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static boolean a() {
@@ -17,7 +17,7 @@ public class r1 {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            boolean z = f42635a;
+            boolean z = f39649a;
             if (z) {
                 return z;
             }
@@ -36,7 +36,7 @@ public class r1 {
                 i2++;
             }
             boolean z2 = str != null;
-            f42635a = z2;
+            f39649a = z2;
             return z2;
         }
         return invokeV.booleanValue;

@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.core.R;
 import androidx.core.provider.FontRequest;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -287,7 +288,7 @@ public class FontResourcesParserCompat {
     public static FamilyResourceEntry readFamilies(XmlPullParser xmlPullParser, Resources resources) throws XmlPullParserException, IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, xmlPullParser, resources)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, xmlPullParser, resources)) == null) {
             xmlPullParser.require(2, null, "font-family");
             if (xmlPullParser.getName().equals("font-family")) {
                 return readFamily(xmlPullParser, resources);

@@ -19,38 +19,38 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<b> CREATOR;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f41606a;
+    public static final String f38620a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f41607b;
+    public int f38621b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f41608c;
+    public long f38622c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicLong f41609d;
+    public AtomicLong f38623d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f41610e;
+    public long f38624e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f41611f;
+    public long f38625f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f41612g;
+    public int f38626g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AtomicInteger f41613h;
+    public AtomicInteger f38627h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f41614i;
+    public long f38628i;
     public List<b> j;
     public b k;
     public int l;
@@ -58,7 +58,7 @@ public class b implements Parcelable {
     public AtomicBoolean n;
     public d.l.a.e.b.k.b o;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Parcelable.Creator<b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,36 +97,36 @@ public class b implements Parcelable {
     }
 
     /* renamed from: com.ss.android.socialbase.downloader.model.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0550b {
+    /* loaded from: classes6.dex */
+    public static class C0511b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f41615a;
+        public int f38629a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f41616b;
+        public long f38630b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f41617c;
+        public long f38631c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f41618d;
+        public long f38632d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f41619e;
+        public long f38633e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f41620f;
+        public int f38634f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f41621g;
+        public long f38635g;
 
         /* renamed from: h  reason: collision with root package name */
-        public b f41622h;
+        public b f38636h;
 
-        public C0550b(int i2) {
+        public C0511b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -141,37 +141,37 @@ public class b implements Parcelable {
                     return;
                 }
             }
-            this.f41615a = i2;
+            this.f38629a = i2;
         }
 
-        public C0550b b(int i2) {
+        public C0511b b(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                this.f41620f = i2;
+                this.f38634f = i2;
                 return this;
             }
-            return (C0550b) invokeI.objValue;
+            return (C0511b) invokeI.objValue;
         }
 
-        public C0550b c(long j) {
+        public C0511b c(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-                this.f41616b = j;
+                this.f38630b = j;
                 return this;
             }
-            return (C0550b) invokeJ.objValue;
+            return (C0511b) invokeJ.objValue;
         }
 
-        public C0550b d(b bVar) {
+        public C0511b d(b bVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) {
-                this.f41622h = bVar;
+                this.f38636h = bVar;
                 return this;
             }
-            return (C0550b) invokeL.objValue;
+            return (C0511b) invokeL.objValue;
         }
 
         public b e() {
@@ -180,44 +180,44 @@ public class b implements Parcelable {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new b(this, null) : (b) invokeV.objValue;
         }
 
-        public C0550b g(long j) {
+        public C0511b g(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
-                this.f41617c = j;
+                this.f38631c = j;
                 return this;
             }
-            return (C0550b) invokeJ.objValue;
+            return (C0511b) invokeJ.objValue;
         }
 
-        public C0550b i(long j) {
+        public C0511b i(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
-                this.f41618d = j;
+                this.f38632d = j;
                 return this;
             }
-            return (C0550b) invokeJ.objValue;
+            return (C0511b) invokeJ.objValue;
         }
 
-        public C0550b k(long j) {
+        public C0511b k(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
-                this.f41619e = j;
+                this.f38633e = j;
                 return this;
             }
-            return (C0550b) invokeJ.objValue;
+            return (C0511b) invokeJ.objValue;
         }
 
-        public C0550b m(long j) {
+        public C0511b m(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
-                this.f41621g = j;
+                this.f38635g = j;
                 return this;
             }
-            return (C0550b) invokeJ.objValue;
+            return (C0511b) invokeJ.objValue;
         }
     }
 
@@ -234,12 +234,12 @@ public class b implements Parcelable {
                 return;
             }
         }
-        f41606a = b.class.getSimpleName();
+        f38620a = b.class.getSimpleName();
         CREATOR = new a();
     }
 
-    public /* synthetic */ b(C0550b c0550b, a aVar) {
-        this(c0550b);
+    public /* synthetic */ b(C0511b c0511b, a aVar) {
+        this(c0511b);
     }
 
     public ContentValues a() {
@@ -247,12 +247,12 @@ public class b implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("_id", Integer.valueOf(this.f41607b));
-            contentValues.put("chunkIndex", Integer.valueOf(this.f41612g));
-            contentValues.put("startOffset", Long.valueOf(this.f41608c));
+            contentValues.put("_id", Integer.valueOf(this.f38621b));
+            contentValues.put("chunkIndex", Integer.valueOf(this.f38626g));
+            contentValues.put("startOffset", Long.valueOf(this.f38622c));
             contentValues.put("curOffset", Long.valueOf(n()));
-            contentValues.put("endOffset", Long.valueOf(this.f41610e));
-            contentValues.put("chunkContentLen", Long.valueOf(this.f41611f));
+            contentValues.put("endOffset", Long.valueOf(this.f38624e));
+            contentValues.put("chunkContentLen", Long.valueOf(this.f38625f));
             contentValues.put("hostChunkIndex", Integer.valueOf(b()));
             return contentValues;
         }
@@ -263,7 +263,7 @@ public class b implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            AtomicInteger atomicInteger = this.f41613h;
+            AtomicInteger atomicInteger = this.f38627h;
             if (atomicInteger == null) {
                 return -1;
             }
@@ -362,14 +362,14 @@ public class b implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            long j = this.f41608c;
+            long j = this.f38622c;
             if (d()) {
-                long j2 = this.f41614i;
-                if (j2 > this.f41608c) {
+                long j2 = this.f38628i;
+                if (j2 > this.f38622c) {
                     j = j2;
                 }
             }
-            return n() - j >= this.f41611f;
+            return n() - j >= this.f38625f;
         }
         return invokeV.booleanValue;
     }
@@ -402,20 +402,20 @@ public class b implements Parcelable {
     public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f41607b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f38621b : invokeV.intValue;
     }
 
     public long l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f41608c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f38622c : invokeV.longValue;
     }
 
     public long m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            AtomicLong atomicLong = this.f41609d;
+            AtomicLong atomicLong = this.f38623d;
             if (atomicLong != null) {
                 return atomicLong.get();
             }
@@ -452,7 +452,7 @@ public class b implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            long n = n() - this.f41608c;
+            long n = n() - this.f38622c;
             if (f()) {
                 n = 0;
                 for (int i2 = 0; i2 < this.j.size(); i2++) {
@@ -470,50 +470,50 @@ public class b implements Parcelable {
     public long p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f41610e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f38624e : invokeV.longValue;
     }
 
     public long q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f41611f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f38625f : invokeV.longValue;
     }
 
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            this.f41614i = n();
+            this.f38628i = n();
         }
     }
 
     public int s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f41612g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f38626g : invokeV.intValue;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048609, this, parcel, i2) == null) {
-            parcel.writeInt(this.f41607b);
-            parcel.writeLong(this.f41608c);
-            AtomicLong atomicLong = this.f41609d;
+            parcel.writeInt(this.f38621b);
+            parcel.writeLong(this.f38622c);
+            AtomicLong atomicLong = this.f38623d;
             parcel.writeLong(atomicLong != null ? atomicLong.get() : 0L);
-            parcel.writeLong(this.f41610e);
-            parcel.writeLong(this.f41611f);
-            parcel.writeInt(this.f41612g);
-            AtomicInteger atomicInteger = this.f41613h;
+            parcel.writeLong(this.f38624e);
+            parcel.writeLong(this.f38625f);
+            parcel.writeInt(this.f38626g);
+            AtomicInteger atomicInteger = this.f38627h;
             parcel.writeInt(atomicInteger != null ? atomicInteger.get() : -1);
         }
     }
 
-    public b(C0550b c0550b) {
+    public b(C0511b c0511b) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c0550b};
+            Object[] objArr = {c0511b};
             interceptable.invokeUnInit(65539, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -523,18 +523,18 @@ public class b implements Parcelable {
                 return;
             }
         }
-        if (c0550b == null) {
+        if (c0511b == null) {
             return;
         }
-        this.f41607b = c0550b.f41615a;
-        this.f41608c = c0550b.f41616b;
-        this.f41609d = new AtomicLong(c0550b.f41617c);
-        this.f41610e = c0550b.f41618d;
-        this.f41611f = c0550b.f41619e;
-        this.f41612g = c0550b.f41620f;
-        this.f41614i = c0550b.f41621g;
-        this.f41613h = new AtomicInteger(-1);
-        a(c0550b.f41622h);
+        this.f38621b = c0511b.f38629a;
+        this.f38622c = c0511b.f38630b;
+        this.f38623d = new AtomicLong(c0511b.f38631c);
+        this.f38624e = c0511b.f38632d;
+        this.f38625f = c0511b.f38633e;
+        this.f38626g = c0511b.f38634f;
+        this.f38628i = c0511b.f38635g;
+        this.f38627h = new AtomicInteger(-1);
+        a(c0511b.f38636h);
         this.n = new AtomicBoolean(false);
     }
 
@@ -548,14 +548,14 @@ public class b implements Parcelable {
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f41612g = i2;
+            this.f38626g = i2;
         }
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f41607b = i2;
+            this.f38621b = i2;
         }
     }
 
@@ -564,13 +564,13 @@ public class b implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048589, this, z)) == null) {
             long n = n();
-            long j = this.f41611f;
-            long j2 = this.f41614i;
+            long j = this.f38625f;
+            long j2 = this.f38628i;
             long j3 = j - (n - j2);
             if (!z && n == j2) {
-                j3 = j - (n - this.f41608c);
+                j3 = j - (n - this.f38622c);
             }
-            d.l.a.e.b.c.a.g("DownloadChunk", "contentLength:" + this.f41611f + " curOffset:" + n() + " oldOffset:" + this.f41614i + " retainLen:" + j3);
+            d.l.a.e.b.c.a.g("DownloadChunk", "contentLength:" + this.f38625f + " curOffset:" + n() + " oldOffset:" + this.f38628i + " retainLen:" + j3);
             if (j3 < 0) {
                 return 0L;
             }
@@ -582,11 +582,11 @@ public class b implements Parcelable {
     public void b(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            AtomicLong atomicLong = this.f41609d;
+            AtomicLong atomicLong = this.f38623d;
             if (atomicLong != null) {
                 atomicLong.set(j);
             } else {
-                this.f41609d = new AtomicLong(j);
+                this.f38623d = new AtomicLong(j);
             }
         }
     }
@@ -600,22 +600,22 @@ public class b implements Parcelable {
         sQLiteStatement.clearBindings();
         int i2 = this.l + 1;
         this.l = i2;
-        sQLiteStatement.bindLong(i2, this.f41607b);
+        sQLiteStatement.bindLong(i2, this.f38621b);
         int i3 = this.l + 1;
         this.l = i3;
-        sQLiteStatement.bindLong(i3, this.f41612g);
+        sQLiteStatement.bindLong(i3, this.f38626g);
         int i4 = this.l + 1;
         this.l = i4;
-        sQLiteStatement.bindLong(i4, this.f41608c);
+        sQLiteStatement.bindLong(i4, this.f38622c);
         int i5 = this.l + 1;
         this.l = i5;
         sQLiteStatement.bindLong(i5, n());
         int i6 = this.l + 1;
         this.l = i6;
-        sQLiteStatement.bindLong(i6, this.f41610e);
+        sQLiteStatement.bindLong(i6, this.f38624e);
         int i7 = this.l + 1;
         this.l = i7;
-        sQLiteStatement.bindLong(i7, this.f41611f);
+        sQLiteStatement.bindLong(i7, this.f38625f);
         int i8 = this.l + 1;
         this.l = i8;
         sQLiteStatement.bindLong(i8, b());
@@ -639,25 +639,25 @@ public class b implements Parcelable {
         if (cursor == null) {
             return;
         }
-        this.f41607b = cursor.getInt(cursor.getColumnIndex("_id"));
-        this.f41612g = cursor.getInt(cursor.getColumnIndex("chunkIndex"));
-        this.f41608c = cursor.getLong(cursor.getColumnIndex("startOffset"));
+        this.f38621b = cursor.getInt(cursor.getColumnIndex("_id"));
+        this.f38626g = cursor.getInt(cursor.getColumnIndex("chunkIndex"));
+        this.f38622c = cursor.getLong(cursor.getColumnIndex("startOffset"));
         int columnIndex = cursor.getColumnIndex("curOffset");
         if (columnIndex != -1) {
-            this.f41609d = new AtomicLong(cursor.getLong(columnIndex));
+            this.f38623d = new AtomicLong(cursor.getLong(columnIndex));
         } else {
-            this.f41609d = new AtomicLong(0L);
+            this.f38623d = new AtomicLong(0L);
         }
-        this.f41610e = cursor.getLong(cursor.getColumnIndex("endOffset"));
+        this.f38624e = cursor.getLong(cursor.getColumnIndex("endOffset"));
         int columnIndex2 = cursor.getColumnIndex("hostChunkIndex");
         if (columnIndex2 != -1) {
-            this.f41613h = new AtomicInteger(cursor.getInt(columnIndex2));
+            this.f38627h = new AtomicInteger(cursor.getInt(columnIndex2));
         } else {
-            this.f41613h = new AtomicInteger(-1);
+            this.f38627h = new AtomicInteger(-1);
         }
         int columnIndex3 = cursor.getColumnIndex("chunkContentLen");
         if (columnIndex3 != -1) {
-            this.f41611f = cursor.getLong(columnIndex3);
+            this.f38625f = cursor.getLong(columnIndex3);
         }
         this.n = new AtomicBoolean(false);
     }
@@ -665,9 +665,9 @@ public class b implements Parcelable {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            AtomicInteger atomicInteger = this.f41613h;
+            AtomicInteger atomicInteger = this.f38627h;
             if (atomicInteger == null) {
-                this.f41613h = new AtomicInteger(i2);
+                this.f38627h = new AtomicInteger(i2);
             } else {
                 atomicInteger.set(i2);
             }
@@ -710,13 +710,13 @@ public class b implements Parcelable {
                 return;
             }
         }
-        this.f41607b = parcel.readInt();
-        this.f41608c = parcel.readLong();
-        this.f41609d = new AtomicLong(parcel.readLong());
-        this.f41610e = parcel.readLong();
-        this.f41611f = parcel.readLong();
-        this.f41612g = parcel.readInt();
-        this.f41613h = new AtomicInteger(parcel.readInt());
+        this.f38621b = parcel.readInt();
+        this.f38622c = parcel.readLong();
+        this.f38623d = new AtomicLong(parcel.readLong());
+        this.f38624e = parcel.readLong();
+        this.f38625f = parcel.readLong();
+        this.f38626g = parcel.readInt();
+        this.f38627h = new AtomicInteger(parcel.readInt());
     }
 
     public void a(b bVar) {
@@ -739,7 +739,7 @@ public class b implements Parcelable {
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.f41611f = j;
+            this.f38625f = j;
         }
     }
 
@@ -762,7 +762,7 @@ public class b implements Parcelable {
             long m = m();
             long c2 = bVar2.c(true);
             long j6 = c2 / i3;
-            d.l.a.e.b.c.a.g(f41606a, "retainLen:" + c2 + " divideChunkForReuse chunkSize:" + j6 + " current host downloadChunk index:" + bVar2.f41612g);
+            d.l.a.e.b.c.a.g(f38620a, "retainLen:" + c2 + " divideChunkForReuse chunkSize:" + j6 + " current host downloadChunk index:" + bVar2.f38626g);
             int i4 = 0;
             while (i4 < i3) {
                 if (i4 == 0) {
@@ -775,17 +775,17 @@ public class b implements Parcelable {
                         j4 = p2 > m ? (p2 - m) + 1 : c2 - (i5 * j6);
                         j5 = p2;
                         j3 = m;
-                        C0550b c0550b = new C0550b(bVar2.f41607b);
-                        c0550b.b((-i4) - 1);
-                        c0550b.c(j3);
-                        c0550b.g(m);
-                        c0550b.m(m);
+                        C0511b c0511b = new C0511b(bVar2.f38621b);
+                        c0511b.b((-i4) - 1);
+                        c0511b.c(j3);
+                        c0511b.g(m);
+                        c0511b.m(m);
                         long j7 = j5;
-                        c0550b.i(j7);
-                        c0550b.k(j4);
-                        c0550b.d(bVar2);
-                        b e2 = c0550b.e();
-                        d.l.a.e.b.c.a.g(f41606a, "divide sub chunk : " + i4 + " startOffset:" + j3 + " curOffset:" + m + " endOffset:" + j7 + " contentLen:" + j4);
+                        c0511b.i(j7);
+                        c0511b.k(j4);
+                        c0511b.d(bVar2);
+                        b e2 = c0511b.e();
+                        d.l.a.e.b.c.a.g(f38620a, "divide sub chunk : " + i4 + " startOffset:" + j3 + " curOffset:" + m + " endOffset:" + j7 + " contentLen:" + j4);
                         arrayList.add(e2);
                         m += j6;
                         i4++;
@@ -799,17 +799,17 @@ public class b implements Parcelable {
                 }
                 j4 = j6;
                 j5 = j2;
-                C0550b c0550b2 = new C0550b(bVar2.f41607b);
-                c0550b2.b((-i4) - 1);
-                c0550b2.c(j3);
-                c0550b2.g(m);
-                c0550b2.m(m);
+                C0511b c0511b2 = new C0511b(bVar2.f38621b);
+                c0511b2.b((-i4) - 1);
+                c0511b2.c(j3);
+                c0511b2.g(m);
+                c0511b2.m(m);
                 long j72 = j5;
-                c0550b2.i(j72);
-                c0550b2.k(j4);
-                c0550b2.d(bVar2);
-                b e22 = c0550b2.e();
-                d.l.a.e.b.c.a.g(f41606a, "divide sub chunk : " + i4 + " startOffset:" + j3 + " curOffset:" + m + " endOffset:" + j72 + " contentLen:" + j4);
+                c0511b2.i(j72);
+                c0511b2.k(j4);
+                c0511b2.d(bVar2);
+                b e22 = c0511b2.e();
+                d.l.a.e.b.c.a.g(f38620a, "divide sub chunk : " + i4 + " startOffset:" + j3 + " curOffset:" + m + " endOffset:" + j72 + " contentLen:" + j4);
                 arrayList.add(e22);
                 m += j6;
                 i4++;
@@ -824,7 +824,7 @@ public class b implements Parcelable {
                     j8 += bVar3.q();
                 }
             }
-            d.l.a.e.b.c.a.g(f41606a, "reuseChunkContentLen:" + j8);
+            d.l.a.e.b.c.a.g(f38620a, "reuseChunkContentLen:" + j8);
             b bVar4 = arrayList.get(0);
             if (bVar4 != null) {
                 if (p() == 0) {
@@ -834,7 +834,7 @@ public class b implements Parcelable {
                 }
                 bVar4.a(p - j8);
                 bVar = this;
-                bVar4.c(bVar.f41612g);
+                bVar4.c(bVar.f38626g);
                 d.l.a.e.b.k.b bVar5 = bVar.o;
                 if (bVar5 != null) {
                     bVar5.b(bVar4.p(), q() - j8);

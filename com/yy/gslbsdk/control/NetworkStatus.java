@@ -1,5 +1,6 @@
 package com.yy.gslbsdk.control;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class NetworkStatus {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IP_V4 = 1;
@@ -77,7 +78,7 @@ public class NetworkStatus {
 
     public static void updateEnableV6(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65540, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
             getInstance().mEnableV6 = z;
         }
     }

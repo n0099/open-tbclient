@@ -3,6 +3,7 @@ package com.baidu.ar.arrender;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.pixel.FramePixels;
 import com.baidu.ar.arplay.core.pixel.PixelReadListener;
@@ -130,7 +131,7 @@ public class k {
     public void bW() {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65540, this) == null) || (handler = this.aO) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (handler = this.aO) == null) {
             return;
         }
         handler.post(new Runnable(this) { // from class: com.baidu.ar.arrender.k.2

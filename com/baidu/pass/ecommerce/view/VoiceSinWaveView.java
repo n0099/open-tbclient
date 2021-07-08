@@ -28,9 +28,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.e0.a.b;
+import d.a.b0.a.b;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class VoiceSinWaveView extends View implements VoiceWaveInterface {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CHANGE_PHASE = 4097;
@@ -78,7 +78,7 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
     public float mVolume;
     public int mWidth;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class MainThreadHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,7 +114,7 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class TimerThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -181,7 +181,7 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface VoiceWaveCallBack {
         void fadeOut();
 

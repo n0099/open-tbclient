@@ -288,7 +288,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
 
     private void markFragmentsCreated() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             do {
             } while (markState(getSupportFragmentManager(), Lifecycle.State.CREATED));
         }

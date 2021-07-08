@@ -9,6 +9,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.pushservice.i.a.b;
 import com.baidu.android.pushservice.j.m;
@@ -44,7 +45,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public final WeakReference<Context> f2699d;
+        public final WeakReference<Context> f2702d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Context context) {
@@ -64,7 +65,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                     return;
                 }
             }
-            this.f2699d = new WeakReference<>(context);
+            this.f2702d = new WeakReference<>(context);
         }
     }
 
@@ -74,20 +75,20 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f2700a;
+        public static final b f2703a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final b f2701b;
+        public static final b f2704b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final b f2702c;
+        public static final b f2705c;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final /* synthetic */ b[] f2703e;
+        public static final /* synthetic */ b[] f2706e;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f2704d;
+        public int f2707d;
 
         static {
             InterceptResult invokeClinit;
@@ -102,11 +103,11 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                     return;
                 }
             }
-            f2700a = new b("MSG_PASS", 0, 1);
-            f2701b = new b("MSG_ARRIVED", 1, 2);
+            f2703a = new b("MSG_PASS", 0, 1);
+            f2704b = new b("MSG_ARRIVED", 1, 2);
             b bVar = new b("MSG_CLICKED", 2, 3);
-            f2702c = bVar;
-            f2703e = new b[]{f2700a, f2701b, bVar};
+            f2705c = bVar;
+            f2706e = new b[]{f2703a, f2704b, bVar};
         }
 
         public b(String str, int i2, int i3) {
@@ -127,14 +128,14 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                     return;
                 }
             }
-            this.f2704d = i3;
+            this.f2707d = i3;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.f2704d : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.f2707d : invokeV.intValue;
         }
     }
 
@@ -202,7 +203,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                 return;
             }
             String str = iVar.m;
-            if (f.a(context, str, (iVar.j + c2).replaceAll("\\\\", "")) && intExtra == b.f2702c.a()) {
+            if (f.a(context, str, (iVar.j + c2).replaceAll("\\\\", "")) && intExtra == b.f2705c.a()) {
                 onNotificationClicked(context, intent.getStringExtra("mz_notification_title"), intent.getStringExtra("mz_notification_content"), c2);
                 new b.a(context).a("3").b(iVar.j).a(System.currentTimeMillis()).b(601010L).a();
             }
@@ -211,7 +212,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
 
     private void handleOppoMessageCallBack(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, this, context, intent) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, intent) == null) {
             String stringExtra = intent.getStringExtra("op_notification_sign");
             String stringExtra2 = intent.getStringExtra("op_notification_msg_id");
             String stringExtra3 = intent.getStringExtra("op_notification_pkg_content");
@@ -305,24 +306,24 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                 com.baidu.android.pushservice.message.i iVar = new com.baidu.android.pushservice.message.i();
                 boolean msgFromXMConsole = msgFromXMConsole(context, content);
                 if (msgFromXMConsole) {
-                    iVar.k = l.f3537b.b();
+                    iVar.k = l.f3540b.b();
                 } else {
                     content = iVar.b(context, content);
                 }
-                if (i2 == b.f2702c.a() || !m.l(context, iVar.j)) {
+                if (i2 == b.f2705c.a() || !m.l(context, iVar.j)) {
                     if (iVar.k == l.l.b()) {
                         m.k(context);
-                    } else if (iVar.k == l.f3542g.b() || iVar.k == l.f3538c.b() || iVar.k == l.f3537b.b() || iVar.k == l.f3541f.b() || iVar.k == l.f3539d.b() || iVar.k == l.f3540e.b()) {
-                        if (i2 == b.f2700a.a()) {
+                    } else if (iVar.k == l.f3545g.b() || iVar.k == l.f3541c.b() || iVar.k == l.f3540b.b() || iVar.k == l.f3544f.b() || iVar.k == l.f3542d.b() || iVar.k == l.f3543e.b()) {
+                        if (i2 == b.f2703a.a()) {
                             onMessage(context, content, null, 0);
-                        } else if (i2 == b.f2701b.a()) {
+                        } else if (i2 == b.f2704b.a()) {
                             onNotificationArrived(context, miPushMessage.getTitle(), miPushMessage.getDescription(), content);
-                        } else if (i2 == b.f2702c.a()) {
+                        } else if (i2 == b.f2705c.a()) {
                             onNotificationClicked(context, miPushMessage.getTitle(), miPushMessage.getDescription(), content);
                         }
                     }
                 }
-                if (msgFromXMConsole || i2 != b.f2702c.a()) {
+                if (msgFromXMConsole || i2 != b.f2705c.a()) {
                     return;
                 }
                 new b.a(context).a("2").b(iVar.j).a(System.currentTimeMillis()).b(601010L).a();
@@ -723,7 +724,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                                 if (f.a(context, iVar.m, iVar.j + a6)) {
                                     if (iVar.k == l.l.b()) {
                                         m.k(context);
-                                    } else if (iVar.k == l.f3542g.b() || iVar.k == l.f3537b.b()) {
+                                    } else if (iVar.k == l.f3545g.b() || iVar.k == l.f3540b.b()) {
                                         onMessage(context, a6, null, 0);
                                     }
                                 }
@@ -750,13 +751,13 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ Context f2687a;
+                            public final /* synthetic */ Context f2690a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ Intent f2688b;
+                            public final /* synthetic */ Intent f2691b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ PushMessageReceiver f2689c;
+                            public final /* synthetic */ PushMessageReceiver f2692c;
 
                             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                             {
@@ -776,50 +777,50 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                                         return;
                                     }
                                 }
-                                this.f2689c = this;
-                                this.f2687a = context;
-                                this.f2688b = intent;
+                                this.f2692c = this;
+                                this.f2690a = context;
+                                this.f2691b = intent;
                             }
 
                             @Override // android.os.Handler
                             public void handleMessage(Message message) {
                                 Interceptable interceptable2 = $ic;
-                                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) || this.f2699d.get() == null) {
+                                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) || this.f2702d.get() == null) {
                                     return;
                                 }
-                                this.f2689c.onMessage(this.f2699d.get(), message.getData().getString("message"), message.getData().getString("custom_content"), message.getData().getInt("notify_id"));
-                                PushMessageReceiver.sendCallback(this.f2687a, this.f2688b, 10, false);
+                                this.f2692c.onMessage(this.f2702d.get(), message.getData().getString("message"), message.getData().getString("custom_content"), message.getData().getInt("notify_id"));
+                                PushMessageReceiver.sendCallback(this.f2690a, this.f2691b, 10, false);
                             }
                         }) { // from class: com.baidu.android.pushservice.PushMessageReceiver.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ Context f2690a;
+                            public final /* synthetic */ Context f2693a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ int f2691b;
+                            public final /* synthetic */ int f2694b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ String f2692c;
+                            public final /* synthetic */ String f2695c;
 
                             /* renamed from: d  reason: collision with root package name */
-                            public final /* synthetic */ String f2693d;
+                            public final /* synthetic */ String f2696d;
 
                             /* renamed from: e  reason: collision with root package name */
-                            public final /* synthetic */ byte[] f2694e;
+                            public final /* synthetic */ byte[] f2697e;
 
                             /* renamed from: f  reason: collision with root package name */
-                            public final /* synthetic */ byte[] f2695f;
+                            public final /* synthetic */ byte[] f2698f;
 
                             /* renamed from: g  reason: collision with root package name */
-                            public final /* synthetic */ Intent f2696g;
+                            public final /* synthetic */ Intent f2699g;
 
                             /* renamed from: h  reason: collision with root package name */
-                            public final /* synthetic */ int f2697h;
+                            public final /* synthetic */ int f2700h;
 
                             /* renamed from: i  reason: collision with root package name */
-                            public final /* synthetic */ a f2698i;
+                            public final /* synthetic */ a f2701i;
                             public final /* synthetic */ PushMessageReceiver j;
 
                             {
@@ -838,34 +839,34 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                                     }
                                 }
                                 this.j = this;
-                                this.f2690a = context;
-                                this.f2691b = intExtra3;
-                                this.f2692c = stringExtra14;
-                                this.f2693d = stringExtra13;
-                                this.f2694e = byteArrayExtra5;
-                                this.f2695f = byteArrayExtra6;
-                                this.f2696g = intent;
-                                this.f2697h = intExtra4;
-                                this.f2698i = r15;
+                                this.f2693a = context;
+                                this.f2694b = intExtra3;
+                                this.f2695c = stringExtra14;
+                                this.f2696d = stringExtra13;
+                                this.f2697e = byteArrayExtra5;
+                                this.f2698f = byteArrayExtra6;
+                                this.f2699g = intent;
+                                this.f2700h = intExtra4;
+                                this.f2701i = r15;
                             }
 
                             @Override // java.lang.Thread, java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    String[] a7 = com.baidu.android.pushservice.message.a.h.a(this.f2690a, this.f2691b, this.f2692c, this.f2693d, this.f2694e, this.f2695f);
+                                    String[] a7 = com.baidu.android.pushservice.message.a.h.a(this.f2693a, this.f2694b, this.f2695c, this.f2696d, this.f2697e, this.f2698f);
                                     if (a7 == null || a7.length != 2) {
-                                        PushMessageReceiver.sendCallback(this.f2690a, this.f2696g, 9, true);
+                                        PushMessageReceiver.sendCallback(this.f2693a, this.f2699g, 9, true);
                                         return;
                                     }
                                     Message message = new Message();
                                     Bundle bundle = new Bundle();
                                     bundle.putString("message", a7[0]);
                                     bundle.putString("custom_content", a7[1]);
-                                    bundle.putInt("notify_id", this.f2697h);
+                                    bundle.putInt("notify_id", this.f2700h);
                                     message.setData(bundle);
-                                    this.f2698i.sendMessage(message);
-                                    m.a("message " + a7[0] + " at time of " + System.currentTimeMillis(), this.f2690a);
+                                    this.f2701i.sendMessage(message);
+                                    m.a("message " + a7[0] + " at time of " + System.currentTimeMillis(), this.f2693a);
                                 }
                             }
                         }.start();

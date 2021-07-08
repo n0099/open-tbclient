@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

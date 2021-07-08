@@ -20,7 +20,7 @@ import java.util.TreeSet;
 import javax.annotation.Nullable;
 import okhttp3.internal.Util;
 import okhttp3.internal.http.HttpDate;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class Headers {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public final class Headers {
     public static Headers of(String... strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, strArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr)) == null) {
             if (strArr != null) {
                 if (strArr.length % 2 == 0) {
                     String[] strArr2 = (String[]) strArr.clone();
@@ -238,7 +238,7 @@ public final class Headers {
         return (String) invokeLL.objValue;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

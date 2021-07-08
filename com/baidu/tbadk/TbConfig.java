@@ -3,6 +3,7 @@ package com.baidu.tbadk;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.webkit.URLUtil;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.aps.megapp_interface.BuildConfig;
@@ -19,9 +20,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.r0.a0.c;
+import d.a.o0.a0.c;
 import java.util.HashSet;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TbConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ABSTRACT_AUTO = 0;
@@ -425,6 +426,8 @@ public class TbConfig {
     public static final String POST_SEARCH_URL = "c/s/searchpost";
     public static final String POST_THREAD_ADDRESS = "c/c/thread/add";
     public static final String POST_THREAD_FOR_SHARE_ADDRESS = "c/c/thread/sdkshare";
+    public static int PREFETCH_NEXT_VIDEO_NUM = 0;
+    public static int PREFETCH_NEXT_VIDEO_SIZE = 0;
     public static final String PRIVACY_DETAIL_URL = "https://tieba.baidu.com/tb/mobile/wisemainstatic/privacy.html";
     public static final String PRODUCT_NO = "1000002";
     public static final String PROFILE_HEAD_MODIFY = "c/c/img/portrait";
@@ -450,7 +453,7 @@ public class TbConfig {
     public static final String SEND_FREE_GIFT = "c/c/encourage/present/sendFreeGift";
     public static final String SEND_GIFT = "c/c/gift/send";
     public static String SERVER_ADDRESS = "http://c.tieba.baidu.com/";
-    public static String SERVER_ADDRESS_CUSTOM = "";
+    public static String SERVER_ADDRESS_CUSTOM = "http://mtx.tieba.otp.baidu.com/";
     public static String SERVER_ADDRESS_FAKE = "http://fakedata.tieba.baidu.com/";
     public static String SERVER_ADDRESS_WEB_VIEW = null;
     public static final String SETTINGFILE = "settings";
@@ -592,6 +595,7 @@ public class TbConfig {
     public static final String URL_IMAGE_PREFIX = "http://c.tieba.baidu.com/c/p/img?src=";
     public static final String URL_JUMP_TAG_CARDBOX = "https://tieba.baidu.com/mo/q/packetpage/myPacket?tieba_hybrid_enabled=1";
     public static final String URL_JUMP_TAG_WALLET = "http://www.bdwallet.activity";
+    public static final String URL_JUMP_YY_LIVE_IN_VIDEO_LIST = "c/f/video/gotoLive";
     public static final String URL_MANGA_CHAPTER_ALL = "c/e/cartoon/getAllChapters";
     public static final String URL_MANGA_CHAPTER_DETAIL = "c/e/cartoon/cartoonReader";
     public static final String URL_MANGA_OFFLINE_RESOURCE = "c/e/cartoon/getOfflineResource";
@@ -703,7 +707,7 @@ public class TbConfig {
     public static boolean sThreadImageMaxInited;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class DownFlowCmd {
         public static /* synthetic */ Interceptable $ic;
         public static HashSet<Integer> sInterruptCMDs;
@@ -777,7 +781,7 @@ public class TbConfig {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class PassConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String APP_ID = "1";
@@ -888,6 +892,8 @@ public class TbConfig {
         VALUE_SUBPB_FONT_LINE_SPACE_SMALL = getDimens(R.dimen.tbds20);
         MAX_PHOTO_MEMORY_CACHE = 60;
         MAX_PHOTO_MEMORY_CACHE_REMOTE_PROCESS = 10;
+        PREFETCH_NEXT_VIDEO_SIZE = 512000;
+        PREFETCH_NEXT_VIDEO_NUM = 3;
         IS_START_BAIDU_KUANG_CLOSE_SELF = false;
         IS_CHECK_OFFICAL_APPLICATION = true;
         RECOMMEND_APP_ADDRESS = SERVER_ADDRESS_WEB_VIEW + "mo/q/topic_page/136_1";
@@ -929,7 +935,7 @@ public class TbConfig {
     public static int getBigImageMaxUsedMemoryForRemoteProcess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (int) (UtilHelper.getBitmapMaxMemory(TbadkCoreApplication.getInst().getContext()) * 0.28d) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (int) (UtilHelper.getBitmapMaxMemory(TbadkCoreApplication.getInst().getContext()) * 0.28d) : invokeV.intValue;
     }
 
     public static int getBigImageSize() {

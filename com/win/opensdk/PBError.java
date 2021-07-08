@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PBError {
     public static /* synthetic */ Interceptable $ic;
     public static final PBError LOAD_TIME_OUT;
@@ -26,10 +26,10 @@ public class PBError {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f42420a;
+    public int f39434a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42421b;
+    public String f39435b;
 
     static {
         InterceptResult invokeClinit;
@@ -73,33 +73,33 @@ public class PBError {
                 return;
             }
         }
-        this.f42420a = i2;
-        this.f42421b = str;
+        this.f39434a = i2;
+        this.f39435b = str;
     }
 
     public int getCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42420a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39434a : invokeV.intValue;
     }
 
     public String getMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42421b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39435b : (String) invokeV.objValue;
     }
 
     public void setCode(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f42420a = i2;
+            this.f39434a = i2;
         }
     }
 
     public void setMsg(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f42421b = str;
+            this.f39435b = str;
         }
     }
 
@@ -107,7 +107,7 @@ public class PBError {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "PBError{code=" + this.f42420a + ", msg='" + this.f42421b + "'}";
+            return "PBError{code=" + this.f39434a + ", msg='" + this.f39435b + "'}";
         }
         return (String) invokeV.objValue;
     }

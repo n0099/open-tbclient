@@ -3,6 +3,7 @@ package com.baidu.mobstat;
 import android.app.Activity;
 import android.os.Bundle;
 import android.webkit.WebView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.ActivityLifeObserver;
@@ -15,18 +16,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class af {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f8611a = true;
+    public static volatile boolean f8628a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f8612b;
+    public static volatile boolean f8629b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a implements ActivityLifeObserver.IActivityLifeCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +108,7 @@ public class af {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b implements BaiduStatJSInterface.IWebviewPageLoadCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -168,13 +169,13 @@ public class af {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f8612b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f8629b : invokeV.booleanValue;
     }
 
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? f8611a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f8628a : invokeV.booleanValue;
     }
 
     public static JSONArray c() {
@@ -186,7 +187,7 @@ public class af {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            f8612b = true;
+            f8629b = true;
             am.a().a(str);
         }
     }

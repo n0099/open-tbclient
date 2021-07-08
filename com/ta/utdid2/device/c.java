@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Binder;
 import android.provider.Settings;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,15 +22,15 @@ import java.util.regex.Pattern;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static c f41684a;
+    public static c f38698a;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Object f41685e;
+    public static final Object f38699e;
     public static final String j;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -40,19 +41,19 @@ public class c {
     public d f21a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.ta.utdid2.b.a.c f41686b;
+    public com.ta.utdid2.b.a.c f38700b;
 
     /* renamed from: b  reason: collision with other field name */
     public Pattern f22b;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f41687g;
+    public String f38701g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f41688h;
+    public String f38702h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f41689i;
+    public String f38703i;
     public Context mContext;
 
     static {
@@ -68,7 +69,7 @@ public class c {
                 return;
             }
         }
-        f41685e = new Object();
+        f38699e = new Object();
         j = ".UTSystemConfig" + File.separator + "Global";
     }
 
@@ -88,35 +89,35 @@ public class c {
             }
         }
         this.mContext = null;
-        this.f41687g = null;
+        this.f38701g = null;
         this.f21a = null;
-        this.f41688h = "xx_utdid_key";
-        this.f41689i = "xx_utdid_domain";
+        this.f38702h = "xx_utdid_key";
+        this.f38703i = "xx_utdid_domain";
         this.f20a = null;
-        this.f41686b = null;
+        this.f38700b = null;
         this.f22b = Pattern.compile("[^0-9a-zA-Z=/+]+");
         this.mContext = context;
-        this.f41686b = new com.ta.utdid2.b.a.c(context, j, "Alvin2", false, true);
+        this.f38700b = new com.ta.utdid2.b.a.c(context, j, "Alvin2", false, true);
         this.f20a = new com.ta.utdid2.b.a.c(context, ".DataStorage", "ContextData", false, true);
         this.f21a = new d();
-        this.f41688h = String.format("K_%d", Integer.valueOf(f.hashCode(this.f41688h)));
-        this.f41689i = String.format("D_%d", Integer.valueOf(f.hashCode(this.f41689i)));
+        this.f38702h = String.format("K_%d", Integer.valueOf(f.hashCode(this.f38702h)));
+        this.f38703i = String.format("D_%d", Integer.valueOf(f.hashCode(this.f38703i)));
     }
 
     public static c a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (context != null && f41684a == null) {
-                synchronized (f41685e) {
-                    if (f41684a == null) {
+            if (context != null && f38698a == null) {
+                synchronized (f38699e) {
+                    if (f38698a == null) {
                         c cVar = new c(context);
-                        f41684a = cVar;
+                        f38698a = cVar;
                         cVar.m66c();
                     }
                 }
             }
-            return f41684a;
+            return f38698a;
         }
         return (c) invokeL.objValue;
     }
@@ -151,32 +152,32 @@ public class c {
     private void m66c() {
         com.ta.utdid2.b.a.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || (cVar = this.f41686b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || (cVar = this.f38700b) == null) {
             return;
         }
         if (f.isEmpty(cVar.getString("UTDID2"))) {
-            String string = this.f41686b.getString("UTDID");
+            String string = this.f38700b.getString("UTDID");
             if (!f.isEmpty(string)) {
                 d(string);
             }
         }
         boolean z = false;
         boolean z2 = true;
-        if (!f.isEmpty(this.f41686b.getString("DID"))) {
-            this.f41686b.remove("DID");
+        if (!f.isEmpty(this.f38700b.getString("DID"))) {
+            this.f38700b.remove("DID");
             z = true;
         }
-        if (!f.isEmpty(this.f41686b.getString("EI"))) {
-            this.f41686b.remove("EI");
+        if (!f.isEmpty(this.f38700b.getString("EI"))) {
+            this.f38700b.remove("EI");
             z = true;
         }
-        if (f.isEmpty(this.f41686b.getString("SI"))) {
+        if (f.isEmpty(this.f38700b.getString("SI"))) {
             z2 = z;
         } else {
-            this.f41686b.remove("SI");
+            this.f38700b.remove("SI");
         }
         if (z2) {
-            this.f41686b.commit();
+            this.f38700b.commit();
         }
     }
 
@@ -187,21 +188,21 @@ public class c {
             if (str.endsWith("\n")) {
                 str = str.substring(0, str.length() - 1);
             }
-            if (str.length() != 24 || (cVar = this.f41686b) == null) {
+            if (str.length() != 24 || (cVar = this.f38700b) == null) {
                 return;
             }
             cVar.putString("UTDID2", str);
-            this.f41686b.commit();
+            this.f38700b.commit();
         }
     }
 
     private void e(String str) {
         com.ta.utdid2.b.a.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65545, this, str) == null) || str == null || (cVar = this.f20a) == null || str.equals(cVar.getString(this.f41688h))) {
+        if (!(interceptable == null || interceptable.invokeL(65545, this, str) == null) || str == null || (cVar = this.f20a) == null || str.equals(cVar.getString(this.f38702h))) {
             return;
         }
-        this.f20a.putString(this.f41688h, str);
+        this.f20a.putString(this.f38702h, str);
         this.f20a.commit();
     }
 
@@ -259,8 +260,8 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                if (this.f41687g != null) {
-                    return this.f41687g;
+                if (this.f38701g != null) {
+                    return this.f38701g;
                 }
                 return d();
             }
@@ -311,11 +312,11 @@ public class c {
                     }
                     String d3 = this.f21a.d(str);
                     if (a(d3)) {
-                        this.f41687g = d3;
+                        this.f38701g = d3;
                         d(d3);
                         e(str);
-                        f(this.f41687g);
-                        return this.f41687g;
+                        f(this.f38701g);
+                        return this.f38701g;
                     }
                 }
                 String c3 = c();
@@ -326,10 +327,10 @@ public class c {
                     }
                     f(c3);
                     e(c4);
-                    this.f41687g = c3;
+                    this.f38701g = c3;
                     return c3;
                 }
-                String string2 = this.f20a.getString(this.f41688h);
+                String string2 = this.f20a.getString(this.f38702h);
                 if (!f.isEmpty(string2)) {
                     String d4 = eVar.d(string2);
                     if (!a(d4)) {
@@ -338,12 +339,12 @@ public class c {
                     if (a(d4)) {
                         String c5 = this.f21a.c(d4);
                         if (!f.isEmpty(d4)) {
-                            this.f41687g = d4;
+                            this.f38701g = d4;
                             if (z) {
                                 h(c5);
                             }
-                            d(this.f41687g);
-                            return this.f41687g;
+                            d(this.f38701g);
+                            return this.f38701g;
                         }
                     }
                 }
@@ -376,22 +377,22 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
                 String m67e = m67e();
-                this.f41687g = m67e;
+                this.f38701g = m67e;
                 if (!TextUtils.isEmpty(m67e)) {
-                    return this.f41687g;
+                    return this.f38701g;
                 }
                 try {
                     byte[] b2 = b();
                     if (b2 != null) {
                         String encodeToString = com.ta.utdid2.a.a.b.encodeToString(b2, 2);
-                        this.f41687g = encodeToString;
+                        this.f38701g = encodeToString;
                         d(encodeToString);
                         String c2 = this.f21a.c(b2);
                         if (c2 != null) {
                             h(c2);
                             e(c2);
                         }
-                        return this.f41687g;
+                        return this.f38701g;
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -406,7 +407,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
-            com.ta.utdid2.b.a.c cVar = this.f41686b;
+            com.ta.utdid2.b.a.c cVar = this.f38700b;
             if (cVar != null) {
                 String string = cVar.getString("UTDID2");
                 if (f.isEmpty(string) || this.f21a.c(string) == null) {
@@ -422,7 +423,7 @@ public class c {
     public static String b(byte[] bArr) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
             byte[] bArr2 = {69, 114, 116, -33, 125, -54, -31, 86, -11, 11, -78, -96, -17, -99, 64, 23, -95, -126, -82, -64, 113, 116, -16, -103, 49, -30, 9, -39, PublicSuffixDatabase.EXCEPTION_MARKER, -80, -68, -78, -117, 53, 30, -122, 64, -104, 74, -49, 106, 85, -38, -93};
             Mac mac = Mac.getInstance("HmacSHA1");
             mac.init(new SecretKeySpec(com.ta.utdid2.a.a.e.a(bArr2), mac.getAlgorithm()));

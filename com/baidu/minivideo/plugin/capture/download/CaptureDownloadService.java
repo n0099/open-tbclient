@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
+import androidx.core.view.InputDeviceCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.baidu.minivideo.plugin.capture.download.DownloadRequest;
 import com.baidu.minivideo.plugin.capture.download.base.DownloadCallback;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CaptureDownloadService extends Service {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_CANCEL = "com.baidu.ugc.download.ACTION_CANCEL";
@@ -31,7 +32,7 @@ public class CaptureDownloadService extends Service {
     public transient /* synthetic */ FieldHolder $fh;
     public DownloadManager mDownloadManager;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class ProgressCallback extends DownloadCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -171,7 +172,7 @@ public class CaptureDownloadService extends Service {
 
     public static void cancelAll(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             Intent intent = new Intent(context, CaptureDownloadService.class);
             intent.setAction("com.baidu.ugc.download.ACTION_CANCEL_ALL");
             context.startService(intent);

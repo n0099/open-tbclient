@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.utils.LogUtil;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24556a = "HttpCache";
+    public static final String f24666a = "HttpCache";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -38,7 +38,7 @@ public class a {
             try {
                 HttpResponseCache.install(new File(context.getCacheDir(), "http"), Config.FULL_TRACE_LOG_LIMIT);
             } catch (IOException e2) {
-                LogUtil.i(f24556a, "HTTP response cache installation failed:" + e2);
+                LogUtil.i(f24666a, "HTTP response cache installation failed:" + e2);
             }
         }
     }

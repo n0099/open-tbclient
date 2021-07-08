@@ -1,5 +1,6 @@
 package com.baidu.swan.apps.lifecycle.process;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class LifecycleProcessType {
     public static final /* synthetic */ LifecycleProcessType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -83,6 +84,6 @@ public final class LifecycleProcessType {
     public static LifecycleProcessType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (LifecycleProcessType[]) $VALUES.clone() : (LifecycleProcessType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (LifecycleProcessType[]) $VALUES.clone() : (LifecycleProcessType[]) invokeV.objValue;
     }
 }

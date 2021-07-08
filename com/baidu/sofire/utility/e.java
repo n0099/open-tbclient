@@ -9,6 +9,7 @@ import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sofire.utility.j;
@@ -23,12 +24,12 @@ import java.io.FileReader;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f10483a = "";
+    public static String f10500a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,7 +49,7 @@ public final class e {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             try {
                 com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
                 String l = a2.l();
@@ -72,22 +73,22 @@ public final class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
             synchronized (e.class) {
                 try {
-                    if (!TextUtils.isEmpty(f10483a)) {
-                        return f10483a;
+                    if (!TextUtils.isEmpty(f10500a)) {
+                        return f10500a;
                     }
                     com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
                     String l = a2.l();
                     if (!TextUtils.isEmpty(l)) {
                         String e2 = c.e(l);
                         if (!TextUtils.isEmpty(e2)) {
-                            f10483a = e2;
+                            f10500a = e2;
                             return e2;
                         }
                     }
                     String k = a2.k();
                     if (!TextUtils.isEmpty(k)) {
                         a2.c(new String(Base64.encode(g.a("30212102dicudiab".getBytes(), k.getBytes("UTF-8"), true), 10), "UTF-8"));
-                        f10483a = k;
+                        f10500a = k;
                         return k;
                     }
                     String g2 = g(context);
@@ -101,10 +102,10 @@ public final class e {
                     if (TextUtils.isEmpty(k2)) {
                         a2.b(str);
                         a2.c(str2);
-                        f10483a = str;
+                        f10500a = str;
                         return str;
                     }
-                    f10483a = k2;
+                    f10500a = k2;
                     return k2;
                 } catch (Throwable unused) {
                     c.a();
@@ -121,7 +122,7 @@ public final class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             try {
                 com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                String string = a2.f10395c.getString("sgud", "");
+                String string = a2.f10412c.getString("sgud", "");
                 if (TextUtils.isEmpty(string)) {
                     if (Build.VERSION.SDK_INT > 25) {
                         return "";
@@ -139,8 +140,8 @@ public final class e {
                     if (TextUtils.isEmpty(a3)) {
                         return "";
                     }
-                    a2.f10396d.putString("sgud", a3);
-                    a2.f10396d.commit();
+                    a2.f10413d.putString("sgud", a3);
+                    a2.f10413d.commit();
                     return a3;
                 }
                 return string;

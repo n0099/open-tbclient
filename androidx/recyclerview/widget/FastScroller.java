@@ -309,7 +309,7 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
 
     private void drawHorizontalScrollbar(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, canvas) == null) {
             int i2 = this.mRecyclerViewHeight;
             int i3 = this.mHorizontalThumbHeight;
             int i4 = i2 - i3;

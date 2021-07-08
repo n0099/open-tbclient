@@ -15,16 +15,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.q0.a.a.i;
+import d.a.p0.q0.a.a.i;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AudioPlayPlugin implements FlutterPlugin, AudioPlayAuto.HostAudioPlay {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public VoiceManagerWrapper vmWrapper;
 
     /* renamed from: com.baidu.tieba.flutter.plugin.audioPlay.AudioPlayPlugin$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +120,7 @@ public class AudioPlayPlugin implements FlutterPlugin, AudioPlayAuto.HostAudioPl
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class VoiceManagerWrapper implements VoiceManager.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

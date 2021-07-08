@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.sdk.b.a;
-/* loaded from: classes7.dex */
-public final class b implements a.InterfaceC0561a {
+/* loaded from: classes6.dex */
+public final class b implements a.InterfaceC0522a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,7 +27,7 @@ public final class b implements a.InterfaceC0561a {
         }
     }
 
-    @Override // com.tencent.mm.sdk.b.a.InterfaceC0561a
+    @Override // com.tencent.mm.sdk.b.a.InterfaceC0522a
     public final int b() {
         InterceptResult invokeV;
         int i2;
@@ -39,7 +39,7 @@ public final class b implements a.InterfaceC0561a {
         return invokeV.intValue;
     }
 
-    @Override // com.tencent.mm.sdk.b.a.InterfaceC0561a
+    @Override // com.tencent.mm.sdk.b.a.InterfaceC0522a
     public final void d(String str, String str2) {
         int i2;
         Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public final class b implements a.InterfaceC0561a {
         }
     }
 
-    @Override // com.tencent.mm.sdk.b.a.InterfaceC0561a
+    @Override // com.tencent.mm.sdk.b.a.InterfaceC0522a
     public final void e(String str, String str2) {
         int i2;
         Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public final class b implements a.InterfaceC0561a {
         }
     }
 
-    @Override // com.tencent.mm.sdk.b.a.InterfaceC0561a
+    @Override // com.tencent.mm.sdk.b.a.InterfaceC0522a
     public final void f(String str, String str2) {
         int i2;
         Interceptable interceptable = $ic;

@@ -26,31 +26,31 @@ import com.baidu.wallet.rnauth.RNAuthCallBack;
 import com.baidu.wallet.rnauth.bean.GetRnAuthQueryBean;
 import com.baidu.wallet.rnauth.datamodel.RnAuthQueryBeanResponse;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class RnAuthMiddleActivity extends BaseActionBarActivity {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static RNAuthCallBack f27198f;
+    public static RNAuthCallBack f27308f;
     public transient /* synthetic */ FieldHolder $fh;
     public final int AUTH_STATE_PROCESS;
     public final int AUTH_STATE_UNAUTH;
     public final int AUTH_STATE_UPDATE;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f27199a;
+    public TextView f27309a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f27200b;
+    public TextView f27310b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f27201c;
+    public final String f27311c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, String> f27202d;
+    public HashMap<String, String> f27312d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27203e;
+    public int f27313e;
 
     public RnAuthMiddleActivity() {
         Interceptable interceptable = $ic;
@@ -65,17 +65,17 @@ public class RnAuthMiddleActivity extends BaseActionBarActivity {
                 return;
             }
         }
-        this.f27201c = RnAuthMiddleActivity.class.getSimpleName();
+        this.f27311c = RnAuthMiddleActivity.class.getSimpleName();
         this.AUTH_STATE_PROCESS = 1;
         this.AUTH_STATE_UNAUTH = 2;
         this.AUTH_STATE_UPDATE = 3;
-        this.f27203e = 0;
+        this.f27313e = 0;
     }
 
     public static void clearRnAuthCallBack() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            f27198f = null;
+            f27308f = null;
         }
     }
 
@@ -94,7 +94,7 @@ public class RnAuthMiddleActivity extends BaseActionBarActivity {
     public static void setRnAuthCallBack(RNAuthCallBack rNAuthCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, rNAuthCallBack) == null) {
-            f27198f = rNAuthCallBack;
+            f27308f = rNAuthCallBack;
         }
     }
 
@@ -109,7 +109,7 @@ public class RnAuthMiddleActivity extends BaseActionBarActivity {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ RnAuthMiddleActivity f27206a;
+                    public final /* synthetic */ RnAuthMiddleActivity f27316a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -126,14 +126,14 @@ public class RnAuthMiddleActivity extends BaseActionBarActivity {
                                 return;
                             }
                         }
-                        this.f27206a = this;
+                        this.f27316a = this;
                     }
 
                     @Override // com.baidu.wallet.base.widget.WalletBaseEmptyView.EmptyBtnClickListener
                     public void onBtnClick() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f27206a.b();
+                            this.f27316a.b();
                         }
                     }
                 });
@@ -144,7 +144,7 @@ public class RnAuthMiddleActivity extends BaseActionBarActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RnAuthMiddleActivity f27207a;
+                public final /* synthetic */ RnAuthMiddleActivity f27317a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -161,14 +161,14 @@ public class RnAuthMiddleActivity extends BaseActionBarActivity {
                             return;
                         }
                     }
-                    this.f27207a = this;
+                    this.f27317a = this;
                 }
 
                 @Override // com.baidu.wallet.base.widget.WalletBaseEmptyView.EmptyBtnClickListener
                 public void onBtnClick() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f27207a.b();
+                        this.f27317a.b();
                     }
                 }
             });
@@ -184,8 +184,8 @@ public class RnAuthMiddleActivity extends BaseActionBarActivity {
             getErrorViewDelegate().showContentView();
             if (i2 == 48) {
                 RnAuthQueryBeanResponse rnAuthQueryBeanResponse = (RnAuthQueryBeanResponse) obj;
-                this.f27200b.setText(rnAuthQueryBeanResponse.button_msg);
-                this.f27199a.setText(rnAuthQueryBeanResponse.display_msg);
+                this.f27310b.setText(rnAuthQueryBeanResponse.button_msg);
+                this.f27309a.setText(rnAuthQueryBeanResponse.display_msg);
             }
         }
     }
@@ -195,14 +195,14 @@ public class RnAuthMiddleActivity extends BaseActionBarActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
             TextView textView = (TextView) findViewByIdExt(ResUtils.id(getApplicationContext(), "wallet_rn_auth_text_des"));
-            this.f27199a = textView;
+            this.f27309a = textView;
             textView.setText("");
             TextView textView2 = (TextView) findViewByIdExt(ResUtils.id(getApplicationContext(), "wallet_rn_auth_text_action"));
-            this.f27200b = textView2;
+            this.f27310b = textView2;
             textView2.setText("");
             c();
             getBdActionBar().setTitle(ResUtils.string(getApplicationContext(), "bd_wallet_pay_security_auth"));
-            this.f27202d = (HashMap) getIntent().getSerializableExtra("params");
+            this.f27312d = (HashMap) getIntent().getSerializableExtra("params");
             b();
             EventBus.getInstance().register(this, BeanConstants.EV_EXIT_MIDDLE_AUTH_PAGE, 0, EventBus.ThreadMode.MainThread);
         }
@@ -213,10 +213,10 @@ public class RnAuthMiddleActivity extends BaseActionBarActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onBackPressed();
-            RNAuthCallBack rNAuthCallBack = f27198f;
+            RNAuthCallBack rNAuthCallBack = f27308f;
             if (rNAuthCallBack != null) {
                 rNAuthCallBack.onRNAuthResult(2, "实名认证取消");
-                f27198f = null;
+                f27308f = null;
             }
         }
     }
@@ -233,8 +233,8 @@ public class RnAuthMiddleActivity extends BaseActionBarActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            LogUtil.e(this.f27201c, MissionEvent.MESSAGE_DESTROY, null);
-            BeanManager.getInstance().removeAllBeans(this.f27201c);
+            LogUtil.e(this.f27311c, MissionEvent.MESSAGE_DESTROY, null);
+            BeanManager.getInstance().removeAllBeans(this.f27311c);
             EventBus.getInstance().unregister(this);
         }
     }
@@ -243,7 +243,7 @@ public class RnAuthMiddleActivity extends BaseActionBarActivity {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, event) == null) && event != null && TextUtils.equals(event.mEventKey, BeanConstants.EV_EXIT_MIDDLE_AUTH_PAGE)) {
             finishWithoutAnim();
-            LogUtil.e(this.f27201c, "onModuleEvent finishWithoutAnim", null);
+            LogUtil.e(this.f27311c, "onModuleEvent finishWithoutAnim", null);
         }
     }
 
@@ -252,7 +252,7 @@ public class RnAuthMiddleActivity extends BaseActionBarActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
             showLoadingDialog();
-            GetRnAuthQueryBean getRnAuthQueryBean = (GetRnAuthQueryBean) PayBeanFactory.getInstance().getBean((Context) this, 48, this.f27201c);
+            GetRnAuthQueryBean getRnAuthQueryBean = (GetRnAuthQueryBean) PayBeanFactory.getInstance().getBean((Context) this, 48, this.f27311c);
             getRnAuthQueryBean.setResponseCallback(this);
             getRnAuthQueryBean.setParams(1);
             getRnAuthQueryBean.execBean();
@@ -262,12 +262,12 @@ public class RnAuthMiddleActivity extends BaseActionBarActivity {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
-            this.f27200b.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.rnauth.ui.RnAuthMiddleActivity.1
+            this.f27310b.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.rnauth.ui.RnAuthMiddleActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RnAuthMiddleActivity f27204a;
+                public final /* synthetic */ RnAuthMiddleActivity f27314a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -284,19 +284,19 @@ public class RnAuthMiddleActivity extends BaseActionBarActivity {
                             return;
                         }
                     }
-                    this.f27204a = this;
+                    this.f27314a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        BaiduPayDelegate.getInstance().doRNAuth(this.f27204a.getActivity(), this.f27204a.f27202d, new RNAuthCallBack(this) { // from class: com.baidu.wallet.rnauth.ui.RnAuthMiddleActivity.1.1
+                        BaiduPayDelegate.getInstance().doRNAuth(this.f27314a.getActivity(), this.f27314a.f27312d, new RNAuthCallBack(this) { // from class: com.baidu.wallet.rnauth.ui.RnAuthMiddleActivity.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f27205a;
+                            public final /* synthetic */ AnonymousClass1 f27315a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -313,19 +313,19 @@ public class RnAuthMiddleActivity extends BaseActionBarActivity {
                                         return;
                                     }
                                 }
-                                this.f27205a = this;
+                                this.f27315a = this;
                             }
 
                             @Override // com.baidu.wallet.rnauth.RNAuthCallBack
                             public void onRNAuthResult(int i2, String str) {
                                 Interceptable interceptable3 = $ic;
-                                if (!(interceptable3 == null || interceptable3.invokeIL(1048576, this, i2, str) == null) || RnAuthMiddleActivity.f27198f == null) {
+                                if (!(interceptable3 == null || interceptable3.invokeIL(1048576, this, i2, str) == null) || RnAuthMiddleActivity.f27308f == null) {
                                     return;
                                 }
-                                RnAuthMiddleActivity.f27198f.onRNAuthResult(i2, str);
-                                RNAuthCallBack unused = RnAuthMiddleActivity.f27198f = null;
-                                this.f27205a.f27204a.finishWithoutAnim();
-                                LogUtil.e(this.f27205a.f27204a.f27201c, "onRNAuthResult finishWithoutAnim", null);
+                                RnAuthMiddleActivity.f27308f.onRNAuthResult(i2, str);
+                                RNAuthCallBack unused = RnAuthMiddleActivity.f27308f = null;
+                                this.f27315a.f27314a.finishWithoutAnim();
+                                LogUtil.e(this.f27315a.f27314a.f27311c, "onRNAuthResult finishWithoutAnim", null);
                             }
                         });
                     }

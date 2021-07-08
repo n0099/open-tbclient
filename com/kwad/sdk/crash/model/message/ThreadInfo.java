@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.b;
-import com.kwad.sdk.utils.o;
+import com.kwad.sdk.utils.q;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ThreadInfo implements b, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -1743841938230203418L;
@@ -35,6 +35,7 @@ public final class ThreadInfo implements b, Serializable {
         }
     }
 
+    @Override // com.kwad.sdk.core.b
     public void parseJson(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
@@ -52,10 +53,10 @@ public final class ThreadInfo implements b, Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, "mName", this.mName);
-            o.a(jSONObject, "mTrace", this.mTrace);
-            o.a(jSONObject, "mTid", this.mTid);
-            o.a(jSONObject, "mIndex", this.mIndex);
+            q.a(jSONObject, "mName", this.mName);
+            q.a(jSONObject, "mTrace", this.mTrace);
+            q.a(jSONObject, "mTid", this.mTid);
+            q.a(jSONObject, "mIndex", this.mIndex);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.r0.r.r.a;
+import d.a.o0.r.r.a;
 import java.util.ArrayList;
 import java.util.List;
 import protobuf.GroupInfo;
 import protobuf.GroupPermission;
 import protobuf.QueryGroupsByUid.QueryGroupsByUidResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ResponseGroupsByUidMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CACHE_KEY_PREFIX = "p_group_info";

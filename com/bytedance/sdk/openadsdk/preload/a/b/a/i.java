@@ -1,5 +1,6 @@
 package com.bytedance.sdk.openadsdk.preload.a.b.a;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,36 +18,36 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class i implements w {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.b.c f31741a;
+    public final com.bytedance.sdk.openadsdk.preload.a.b.c f31851a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.e f31742b;
+    public final com.bytedance.sdk.openadsdk.preload.a.e f31852b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.b.d f31743c;
+    public final com.bytedance.sdk.openadsdk.preload.a.b.d f31853c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d f31744d;
+    public final d f31854d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.b.b.b f31745e;
+    public final com.bytedance.sdk.openadsdk.preload.a.b.b.b f31855e;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class a<T> extends v<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final com.bytedance.sdk.openadsdk.preload.a.b.i<T> f31753a;
+        public final com.bytedance.sdk.openadsdk.preload.a.b.i<T> f31863a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Map<String, b> f31754b;
+        public final Map<String, b> f31864b;
 
         public a(com.bytedance.sdk.openadsdk.preload.a.b.i<T> iVar, Map<String, b> map) {
             Interceptable interceptable = $ic;
@@ -63,8 +64,8 @@ public final class i implements w {
                     return;
                 }
             }
-            this.f31753a = iVar;
-            this.f31754b = map;
+            this.f31863a = iVar;
+            this.f31864b = map;
         }
 
         @Override // com.bytedance.sdk.openadsdk.preload.a.v
@@ -77,9 +78,9 @@ public final class i implements w {
                 }
                 cVar.d();
                 try {
-                    for (b bVar : this.f31754b.values()) {
+                    for (b bVar : this.f31864b.values()) {
                         if (bVar.a(t)) {
-                            cVar.a(bVar.f31755h);
+                            cVar.a(bVar.f31865h);
                             bVar.a(cVar, t);
                         }
                     }
@@ -95,15 +96,15 @@ public final class i implements w {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i) {
+                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f32028i) {
                     aVar.j();
                     return null;
                 }
-                T a2 = this.f31753a.a();
+                T a2 = this.f31863a.a();
                 try {
                     aVar.c();
                     while (aVar.e()) {
-                        b bVar = this.f31754b.get(aVar.g());
+                        b bVar = this.f31864b.get(aVar.g());
                         if (bVar != null && bVar.j) {
                             bVar.a(aVar, a2);
                         }
@@ -121,16 +122,16 @@ public final class i implements w {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static abstract class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final String f31755h;
+        public final String f31865h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final boolean f31756i;
+        public final boolean f31866i;
         public final boolean j;
 
         public b(String str, boolean z, boolean z2) {
@@ -148,8 +149,8 @@ public final class i implements w {
                     return;
                 }
             }
-            this.f31755h = str;
-            this.f31756i = z;
+            this.f31865h = str;
+            this.f31866i = z;
             this.j = z2;
         }
 
@@ -175,23 +176,23 @@ public final class i implements w {
                 return;
             }
         }
-        this.f31745e = com.bytedance.sdk.openadsdk.preload.a.b.b.b.a();
-        this.f31741a = cVar;
-        this.f31742b = eVar;
-        this.f31743c = dVar;
-        this.f31744d = dVar2;
+        this.f31855e = com.bytedance.sdk.openadsdk.preload.a.b.b.b.a();
+        this.f31851a = cVar;
+        this.f31852b = eVar;
+        this.f31853c = dVar;
+        this.f31854d = dVar2;
     }
 
     public boolean a(Field field, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, field, z)) == null) ? a(field, z, this.f31743c) : invokeLZ.booleanValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, field, z)) == null) ? a(field, z, this.f31853c) : invokeLZ.booleanValue;
     }
 
     public static boolean a(Field field, boolean z, com.bytedance.sdk.openadsdk.preload.a.b.d dVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{field, Boolean.valueOf(z), dVar})) == null) ? (dVar.a(field.getType(), z) || dVar.a(field, z)) ? false : true : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{field, Boolean.valueOf(z), dVar})) == null) ? (dVar.a(field.getType(), z) || dVar.a(field, z)) ? false : true : invokeCommon.booleanValue;
     }
 
     private List<String> a(Field field) {
@@ -200,7 +201,7 @@ public final class i implements w {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, field)) == null) {
             com.bytedance.sdk.openadsdk.preload.a.a.c cVar = (com.bytedance.sdk.openadsdk.preload.a.a.c) field.getAnnotation(com.bytedance.sdk.openadsdk.preload.a.a.c.class);
             if (cVar == null) {
-                return Collections.singletonList(this.f31742b.a(field));
+                return Collections.singletonList(this.f31852b.a(field));
             }
             String a2 = cVar.a();
             String[] b2 = cVar.b();
@@ -224,7 +225,7 @@ public final class i implements w {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, fVar, aVar)) == null) {
             Class<? super T> a2 = aVar.a();
             if (Object.class.isAssignableFrom(a2)) {
-                return new a(this.f31741a.a(aVar), a(fVar, (com.bytedance.sdk.openadsdk.preload.a.c.a<?>) aVar, (Class<?>) a2));
+                return new a(this.f31851a.a(aVar), a(fVar, (com.bytedance.sdk.openadsdk.preload.a.c.a<?>) aVar, (Class<?>) a2));
             }
             return null;
         }
@@ -237,7 +238,7 @@ public final class i implements w {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{fVar, field, str, aVar, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             boolean a2 = com.bytedance.sdk.openadsdk.preload.a.b.k.a(aVar.a());
             com.bytedance.sdk.openadsdk.preload.a.a.b bVar = (com.bytedance.sdk.openadsdk.preload.a.a.b) field.getAnnotation(com.bytedance.sdk.openadsdk.preload.a.a.b.class);
-            v<?> a3 = bVar != null ? this.f31744d.a(this.f31741a, fVar, aVar, bVar) : null;
+            v<?> a3 = bVar != null ? this.f31854d.a(this.f31851a, fVar, aVar, bVar) : null;
             boolean z3 = a3 != null;
             if (a3 == null) {
                 a3 = fVar.a((com.bytedance.sdk.openadsdk.preload.a.c.a) aVar);
@@ -247,25 +248,25 @@ public final class i implements w {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Field f31746a;
+                public final /* synthetic */ Field f31856a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f31747b;
+                public final /* synthetic */ boolean f31857b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ v f31748c;
+                public final /* synthetic */ v f31858c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.a.f f31749d;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.a.f f31859d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.a.c.a f31750e;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.a.c.a f31860e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ boolean f31751f;
+                public final /* synthetic */ boolean f31861f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ i f31752g;
+                public final /* synthetic */ i f31862g;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -286,20 +287,20 @@ public final class i implements w {
                             return;
                         }
                     }
-                    this.f31752g = this;
-                    this.f31746a = field;
-                    this.f31747b = z3;
-                    this.f31748c = a3;
-                    this.f31749d = fVar;
-                    this.f31750e = aVar;
-                    this.f31751f = a2;
+                    this.f31862g = this;
+                    this.f31856a = field;
+                    this.f31857b = z3;
+                    this.f31858c = a3;
+                    this.f31859d = fVar;
+                    this.f31860e = aVar;
+                    this.f31861f = a2;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.preload.a.b.a.i.b
                 public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, Object obj) throws IOException, IllegalAccessException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, obj) == null) {
-                        (this.f31747b ? this.f31748c : new m(this.f31749d, this.f31748c, this.f31750e.b())).a(cVar, this.f31746a.get(obj));
+                        (this.f31857b ? this.f31858c : new m(this.f31859d, this.f31858c, this.f31860e.b())).a(cVar, this.f31856a.get(obj));
                     }
                 }
 
@@ -307,11 +308,11 @@ public final class i implements w {
                 public void a(com.bytedance.sdk.openadsdk.preload.a.d.a aVar2, Object obj) throws IOException, IllegalAccessException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, aVar2, obj) == null) {
-                        Object b2 = this.f31748c.b(aVar2);
-                        if (b2 == null && this.f31751f) {
+                        Object b2 = this.f31858c.b(aVar2);
+                        if (b2 == null && this.f31861f) {
                             return;
                         }
-                        this.f31746a.set(obj, b2);
+                        this.f31856a.set(obj, b2);
                     }
                 }
 
@@ -319,7 +320,7 @@ public final class i implements w {
                 public boolean a(Object obj) throws IOException, IllegalAccessException {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? this.f31756i && this.f31746a.get(obj) != obj : invokeL.booleanValue;
+                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? this.f31866i && this.f31856a.get(obj) != obj : invokeL.booleanValue;
                 }
             };
         }
@@ -348,7 +349,7 @@ public final class i implements w {
                     boolean a2 = a(field, true);
                     boolean a3 = a(field, z);
                     if (a2 || a3) {
-                        this.f31745e.a(field);
+                        this.f31855e.a(field);
                         Type a4 = com.bytedance.sdk.openadsdk.preload.a.b.b.a(aVar2.b(), cls2, field.getGenericType());
                         List<String> a5 = a(field);
                         int size = a5.size();
@@ -370,7 +371,7 @@ public final class i implements w {
                             field = field2;
                         }
                         if (bVar2 != null) {
-                            throw new IllegalArgumentException(b2 + " declares multiple JSON fields named " + bVar.f31755h);
+                            throw new IllegalArgumentException(b2 + " declares multiple JSON fields named " + bVar.f31865h);
                         }
                     }
                     i2++;

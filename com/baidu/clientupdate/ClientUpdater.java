@@ -30,39 +30,39 @@ import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class ClientUpdater {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static ClientUpdater f4594e;
+    public static ClientUpdater f4611e;
     public static Runnable l;
     public static long stime;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f4595a;
+    public Context f4612a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f4596b;
+    public Handler f4613b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f4597c;
+    public String f4614c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f4598d;
+    public boolean f4615d;
 
     /* renamed from: f  reason: collision with root package name */
-    public IClientUpdaterCallback f4599f;
+    public IClientUpdaterCallback f4616f;
 
     /* renamed from: g  reason: collision with root package name */
-    public IClientUpdaterCallback f4600g;
+    public IClientUpdaterCallback f4617g;
 
     /* renamed from: h  reason: collision with root package name */
-    public double f4601h;
+    public double f4618h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BroadcastReceiver f4602i;
+    public BroadcastReceiver f4619i;
     public IntentFilter j;
     public boolean k;
     public Boolean m;
@@ -99,19 +99,19 @@ public final class ClientUpdater {
                 return;
             }
         }
-        this.f4598d = false;
+        this.f4615d = false;
         this.k = false;
         this.m = Boolean.FALSE;
         Context applicationContext = context.getApplicationContext();
-        this.f4595a = applicationContext;
+        this.f4612a = applicationContext;
         this.o = d.a(applicationContext);
-        if (this.f4596b == null) {
-            this.f4596b = new Handler(this.f4595a.getMainLooper());
+        if (this.f4613b == null) {
+            this.f4613b = new Handler(this.f4612a.getMainLooper());
         }
         if (l == null) {
             l = new a(this);
         }
-        this.f4602i = new b(this);
+        this.f4619i = new b(this);
         this.j = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
         this.n = com.baidu.clientupdate.c.a.a(context);
     }
@@ -119,15 +119,15 @@ public final class ClientUpdater {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.f4596b == null) {
+        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.f4613b == null) {
             return;
         }
-        if (j.d(this.f4595a)) {
+        if (j.d(this.f4612a)) {
             LogUtil.logD("ClientUpdater", "应用位于前台，不发起自动检查更新请求;");
-        } else if (j.a(this.f4595a)) {
-            this.f4596b.removeCallbacks(l);
+        } else if (j.a(this.f4612a)) {
+            this.f4613b.removeCallbacks(l);
             LogUtil.logD("ClientUpdater", "延迟20秒，因为有时CONNECTIVITY_CHANGE Action会很频繁");
-            this.f4596b.postDelayed(l, 20000L);
+            this.f4613b.postDelayed(l, 20000L);
         }
     }
 
@@ -149,9 +149,9 @@ public final class ClientUpdater {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            IClientUpdaterCallback iClientUpdaterCallback = this.f4598d ? this.f4599f : this.f4600g;
+            IClientUpdaterCallback iClientUpdaterCallback = this.f4615d ? this.f4616f : this.f4617g;
             iClientUpdaterCallback.onException(jSONObject);
-            com.baidu.clientupdate.d.a.a(this.f4595a).c();
+            com.baidu.clientupdate.d.a.a(this.f4612a).c();
         }
     }
 
@@ -181,9 +181,9 @@ public final class ClientUpdater {
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                IClientUpdaterCallback iClientUpdaterCallback2 = this.f4598d ? this.f4599f : this.f4600g;
+                IClientUpdaterCallback iClientUpdaterCallback2 = this.f4615d ? this.f4616f : this.f4617g;
                 iClientUpdaterCallback2.onError(jSONObject);
-                com.baidu.clientupdate.d.a.a(this.f4595a).c();
+                com.baidu.clientupdate.d.a.a(this.f4612a).c();
                 return;
             }
             d dVar2 = this.o;
@@ -214,18 +214,18 @@ public final class ClientUpdater {
                 String b5 = this.n.b();
                 dVar4.a(c5, "0", b5, "a4", "0", (System.currentTimeMillis() / 1000) + "", "", "notUpdate", "");
             }
-            if (this.f4598d) {
-                this.f4599f.onFetched(jSONObject2);
-                a2 = com.baidu.clientupdate.d.a.a(this.f4595a);
-                iClientUpdaterCallback = this.f4599f;
+            if (this.f4615d) {
+                this.f4616f.onFetched(jSONObject2);
+                a2 = com.baidu.clientupdate.d.a.a(this.f4612a);
+                iClientUpdaterCallback = this.f4616f;
             } else {
-                IClientUpdaterCallback iClientUpdaterCallback3 = this.f4600g;
+                IClientUpdaterCallback iClientUpdaterCallback3 = this.f4617g;
                 if (iClientUpdaterCallback3 == null) {
                     return;
                 }
                 iClientUpdaterCallback3.onFetched(jSONObject2);
-                a2 = com.baidu.clientupdate.d.a.a(this.f4595a);
-                iClientUpdaterCallback = this.f4600g;
+                a2 = com.baidu.clientupdate.d.a.a(this.f4612a);
+                iClientUpdaterCallback = this.f4617g;
             }
             a2.a(jSONObject2, iClientUpdaterCallback);
         }
@@ -235,21 +235,21 @@ public final class ClientUpdater {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            this.f4598d = true;
+            this.f4615d = true;
             long currentTimeMillis = System.currentTimeMillis();
             LogUtil.logD("ClientUpdater", "接收到网络状态的变化，检测上次更新时间");
-            LogUtil.logD("ClientUpdater", "设置的检查更新的间隔时间： " + ((long) (this.f4601h * 3600000.0d)) + "ms");
+            LogUtil.logD("ClientUpdater", "设置的检查更新的间隔时间： " + ((long) (this.f4618h * 3600000.0d)) + "ms");
             StringBuilder sb = new StringBuilder();
             sb.append("当前时间：");
             sb.append(currentTimeMillis);
             LogUtil.logD("ClientUpdater", sb.toString());
-            LogUtil.logD("ClientUpdater", "上次检查更新时间： " + j.c(this.f4595a));
-            if (currentTimeMillis - j.c(this.f4595a) <= ((long) (this.f4601h * 3600000.0d))) {
+            LogUtil.logD("ClientUpdater", "上次检查更新时间： " + j.c(this.f4612a));
+            if (currentTimeMillis - j.c(this.f4612a) <= ((long) (this.f4618h * 3600000.0d))) {
                 LogUtil.logD("ClientUpdater", "离上一次更新检查的时间小于设置的时间间隔，不检查更新 ");
                 return;
             }
             LogUtil.logD("ClientUpdater", "大于设置的时间间隔，当前存在网络连接时进行更新检查 ");
-            if (j.a(this.f4595a)) {
+            if (j.a(this.f4612a)) {
                 new c(this).start();
                 return;
             }
@@ -261,7 +261,7 @@ public final class ClientUpdater {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            this.f4599f.onError(jSONObject);
+            this.f4616f.onError(jSONObject);
             LogUtil.logD("ClientUpdater", "当前网络不可用! ");
         }
     }
@@ -291,7 +291,7 @@ public final class ClientUpdater {
         r0 = javax.net.ssl.SSLContext.getInstance("TLS");
         r0.init(null, r1.getTrustManagers(), null);
         r1 = new java.lang.StringBuilder();
-        r2 = (javax.net.ssl.HttpsURLConnection) new java.net.URL(r10.f4597c).openConnection();
+        r2 = (javax.net.ssl.HttpsURLConnection) new java.net.URL(r10.f4614c).openConnection();
         r2.setSSLSocketFactory(r0.getSocketFactory());
         r2.setConnectTimeout(5000);
         r2.setReadTimeout(5000);
@@ -322,9 +322,9 @@ public final class ClientUpdater {
             return;
         }
         CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
-        InputStream open = this.f4595a.getResources().getAssets().open("LCUpdate/ca-globalsign-nv-sa.pem");
-        InputStream open2 = this.f4595a.getResources().getAssets().open("LCUpdate/ca-verisign-class-3-public-primary-certification-authority-en.pem");
-        InputStream open3 = this.f4595a.getResources().getAssets().open("LCUpdate/ca-verisign-class-3-public-primary-certification-authority-g5-en.pem");
+        InputStream open = this.f4612a.getResources().getAssets().open("LCUpdate/ca-globalsign-nv-sa.pem");
+        InputStream open2 = this.f4612a.getResources().getAssets().open("LCUpdate/ca-verisign-class-3-public-primary-certification-authority-en.pem");
+        InputStream open3 = this.f4612a.getResources().getAssets().open("LCUpdate/ca-verisign-class-3-public-primary-certification-authority-g5-en.pem");
         try {
             try {
                 certificate2 = certificateFactory.generateCertificate(open);
@@ -402,10 +402,10 @@ public final class ClientUpdater {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, context)) == null) {
             synchronized (ClientUpdater.class) {
-                if (f4594e == null) {
-                    f4594e = new ClientUpdater(context);
+                if (f4611e == null) {
+                    f4611e = new ClientUpdater(context);
                 }
-                clientUpdater = f4594e;
+                clientUpdater = f4611e;
             }
             return clientUpdater;
         }
@@ -416,13 +416,13 @@ public final class ClientUpdater {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65556, null) == null) {
             synchronized (ClientUpdater.class) {
-                if (f4594e != null) {
-                    f4594e.f4600g = null;
-                    f4594e.f4599f = null;
-                    f4594e.n = null;
+                if (f4611e != null) {
+                    f4611e.f4617g = null;
+                    f4611e.f4616f = null;
+                    f4611e.n = null;
                     l = null;
                     com.baidu.clientupdate.d.a.e();
-                    f4594e = null;
+                    f4611e = null;
                 }
             }
         }
@@ -446,9 +446,9 @@ public final class ClientUpdater {
     public void cancelAutoCheckUpdate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f4598d = false;
+            this.f4615d = false;
             if (this.m.booleanValue()) {
-                this.f4595a.unregisterReceiver(this.f4602i);
+                this.f4612a.unregisterReceiver(this.f4619i);
             }
             this.m = Boolean.FALSE;
         }
@@ -457,7 +457,7 @@ public final class ClientUpdater {
     public void cancelDownload(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            DownloadManager.getInstance(this.f4595a).cancel(j);
+            DownloadManager.getInstance(this.f4612a).cancel(j);
         }
     }
 
@@ -472,8 +472,8 @@ public final class ClientUpdater {
                 LogUtil.logE("ClientUpdater", "intervalHour < 0 或者 clientUpdaterCallback为null或者JSONObject为null");
                 return;
             }
-            this.f4599f = iClientUpdaterCallback;
-            this.f4601h = d2;
+            this.f4616f = iClientUpdaterCallback;
+            this.f4618h = d2;
             try {
             } catch (Exception e2) {
                 d dVar2 = this.o;
@@ -481,19 +481,19 @@ public final class ClientUpdater {
                 String b3 = this.n.b();
                 dVar2.a(c3, "0", b3, "a1", "1", (System.currentTimeMillis() / 1000) + "", "", "autoCheckUpdate", e2.toString());
             }
-            if (!j.b(this.f4595a)) {
+            if (!j.b(this.f4612a)) {
                 StringBuilder sb = new StringBuilder("请加入权限：ACCESS_NETWORK_STATE、INTERNET、GET_TASKS");
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("msgId", "1");
                 jSONObject.put("messageDetail", sb.toString());
-                this.f4599f.onError(jSONObject);
+                this.f4616f.onError(jSONObject);
                 return;
             }
             d dVar3 = this.o;
             String c4 = this.n.c();
             String b4 = this.n.b();
             dVar3.a(c4, "0", b4, "a1", "0", (System.currentTimeMillis() / 1000) + "", "", "autoCheckUpdate", "");
-            this.f4595a.registerReceiver(this.f4602i, this.j);
+            this.f4612a.registerReceiver(this.f4619i, this.j);
             this.m = Boolean.TRUE;
         }
     }
@@ -511,35 +511,35 @@ public final class ClientUpdater {
                 return;
             }
             try {
-                this.f4600g = iClientUpdaterCallback;
+                this.f4617g = iClientUpdaterCallback;
             } catch (Exception e2) {
                 d dVar2 = this.o;
                 String c3 = this.n.c();
                 String b3 = this.n.b();
                 dVar2.a(c3, "0", b3, "a1", "1", (System.currentTimeMillis() / 1000) + "", "", "checkUpdate", e2.toString());
             }
-            if (!j.b(this.f4595a)) {
+            if (!j.b(this.f4612a)) {
                 StringBuilder sb = new StringBuilder("请加入权限：ACCESS_NETWORK_STATE、INTERNET");
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("msgId", "1");
                 jSONObject.put("messageDetail", sb.toString());
-                if (this.f4600g != null) {
-                    this.f4600g.onError(jSONObject);
+                if (this.f4617g != null) {
+                    this.f4617g.onError(jSONObject);
                 }
-            } else if (!j.a(this.f4595a)) {
+            } else if (!j.a(this.f4612a)) {
                 StringBuilder sb2 = new StringBuilder("当前网络不可用!");
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("msgId", "2");
                 jSONObject2.put("messageDetail", sb2.toString());
-                if (this.f4600g != null) {
-                    this.f4600g.onError(jSONObject2);
+                if (this.f4617g != null) {
+                    this.f4617g.onError(jSONObject2);
                 }
             } else {
                 d dVar3 = this.o;
                 String c4 = this.n.c();
                 String b4 = this.n.b();
                 dVar3.a(c4, "0", b4, "a1", "0", (System.currentTimeMillis() / 1000) + "", "", "checkUpdate", "");
-                this.f4598d = false;
+                this.f4615d = false;
                 new c(this).start();
             }
         }
@@ -548,7 +548,7 @@ public final class ClientUpdater {
     public void deleteDownload(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            DownloadManager.getInstance(this.f4595a).delete(j);
+            DownloadManager.getInstance(this.f4612a).delete(j);
         }
     }
 
@@ -556,7 +556,7 @@ public final class ClientUpdater {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, download) == null) {
             try {
-                DownloadManager.getInstance(this.f4595a).launchSystemInstalller(str, download);
+                DownloadManager.getInstance(this.f4612a).launchSystemInstalller(str, download);
             } catch (Exception e2) {
                 LogUtil.logE("ClientUpdater", e2.getMessage());
             }
@@ -566,26 +566,26 @@ public final class ClientUpdater {
     public ClientUpdateInfo parseClientUpdateInfo(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject)) == null) ? com.baidu.clientupdate.d.a.a(this.f4595a).a(jSONObject) : (ClientUpdateInfo) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject)) == null) ? com.baidu.clientupdate.d.a.a(this.f4612a).a(jSONObject) : (ClientUpdateInfo) invokeL.objValue;
     }
 
     public RuleInfo parseRule(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, jSONObject)) == null) ? com.baidu.clientupdate.d.a.a(this.f4595a).b(jSONObject) : (RuleInfo) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, jSONObject)) == null) ? com.baidu.clientupdate.d.a.a(this.f4612a).b(jSONObject) : (RuleInfo) invokeL.objValue;
     }
 
     public void pauseDownload(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
-            DownloadManager.getInstance(this.f4595a).pause(j);
+            DownloadManager.getInstance(this.f4612a).pause(j);
         }
     }
 
     public void resumeDownload(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            DownloadManager.getInstance(this.f4595a).resume(j);
+            DownloadManager.getInstance(this.f4612a).resume(j);
         }
     }
 
@@ -599,14 +599,14 @@ public final class ClientUpdater {
     public void setContext(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, context) == null) {
-            this.f4595a = context;
+            this.f4612a = context;
         }
     }
 
     public void setDownloadPublicKey(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            DownloadManager.getInstance(this.f4595a).setDownloadPublicKey(z);
+            DownloadManager.getInstance(this.f4612a).setDownloadPublicKey(z);
         }
     }
 
@@ -635,7 +635,7 @@ public final class ClientUpdater {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
             try {
-                com.baidu.clientupdate.c.a.a(this.f4595a).a(str);
+                com.baidu.clientupdate.c.a.a(this.f4612a).a(str);
             } catch (Exception e2) {
                 LogUtil.logE("ClientUpdater", e2.getMessage());
             }
@@ -673,14 +673,14 @@ public final class ClientUpdater {
     public void setUseCFG(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
-            com.baidu.clientupdate.c.a.a(this.f4595a).a(z);
+            com.baidu.clientupdate.c.a.a(this.f4612a).a(z);
         }
     }
 
     public void setUseRSA(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
-            DownloadManager.getInstance(this.f4595a).setUseRSA(z);
+            DownloadManager.getInstance(this.f4612a).setUseRSA(z);
         }
     }
 
@@ -702,7 +702,7 @@ public final class ClientUpdater {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048603, this, clientUpdateInfo, str) == null) {
             try {
-                com.baidu.clientupdate.d.a.a(this.f4595a).b(clientUpdateInfo, str);
+                com.baidu.clientupdate.d.a.a(this.f4612a).b(clientUpdateInfo, str);
             } catch (Exception e2) {
                 LogUtil.logE("ClientUpdater", e2.getMessage());
             }
@@ -713,7 +713,7 @@ public final class ClientUpdater {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048604, this, clientUpdateInfo, str, z) == null) {
             try {
-                com.baidu.clientupdate.d.a.a(this.f4595a).a(clientUpdateInfo, str, z);
+                com.baidu.clientupdate.d.a.a(this.f4612a).a(clientUpdateInfo, str, z);
             } catch (Exception e2) {
                 LogUtil.logE("ClientUpdater", e2.getMessage());
             }
@@ -724,7 +724,7 @@ public final class ClientUpdater {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048605, this, clientUpdateInfo, str) == null) {
             try {
-                com.baidu.clientupdate.d.a.a(this.f4595a).a(clientUpdateInfo, str);
+                com.baidu.clientupdate.d.a.a(this.f4612a).a(clientUpdateInfo, str);
             } catch (Exception e2) {
                 LogUtil.logE("ClientUpdater", e2.getMessage());
             }
@@ -736,12 +736,12 @@ public final class ClientUpdater {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, jSONObject) == null) {
             try {
-                if (this.f4598d) {
-                    iClientUpdaterCallback = this.f4599f;
-                } else if (this.f4600g == null) {
+                if (this.f4615d) {
+                    iClientUpdaterCallback = this.f4616f;
+                } else if (this.f4617g == null) {
                     return;
                 } else {
-                    iClientUpdaterCallback = this.f4600g;
+                    iClientUpdaterCallback = this.f4617g;
                 }
                 iClientUpdaterCallback.onError(jSONObject);
             } catch (Exception e2) {

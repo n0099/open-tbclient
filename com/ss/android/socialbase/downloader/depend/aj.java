@@ -11,28 +11,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface aj extends IInterface {
     long a(int i2, int i3) throws RemoteException;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a extends Binder implements aj {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.aj$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public static class C0532a implements aj {
+        /* loaded from: classes6.dex */
+        public static class C0493a implements aj {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static aj f41482a;
+            public static aj f38496a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f41483b;
+            public IBinder f38497b;
 
-            public C0532a(IBinder iBinder) {
+            public C0493a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,7 +47,7 @@ public interface aj extends IInterface {
                         return;
                     }
                 }
-                this.f41483b = iBinder;
+                this.f38497b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.aj
@@ -61,7 +61,7 @@ public interface aj extends IInterface {
                         obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IRetryDelayTimeAidlCalculator");
                         obtain.writeInt(i2);
                         obtain.writeInt(i3);
-                        if (!this.f41483b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f38497b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                             return a.a().a(i2, i3);
                         }
                         obtain2.readException();
@@ -78,7 +78,7 @@ public interface aj extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41483b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38497b : (IBinder) invokeV.objValue;
             }
         }
 
@@ -109,7 +109,7 @@ public interface aj extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof aj)) {
                     return (aj) queryLocalInterface;
                 }
-                return new C0532a(iBinder);
+                return new C0493a(iBinder);
             }
             return (aj) invokeL.objValue;
         }
@@ -145,7 +145,7 @@ public interface aj extends IInterface {
         public static aj a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0532a.f41482a : (aj) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0493a.f38496a : (aj) invokeV.objValue;
         }
     }
 }

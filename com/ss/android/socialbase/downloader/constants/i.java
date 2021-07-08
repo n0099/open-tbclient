@@ -8,37 +8,37 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final i f41469a;
+    public static final i f38483a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final i f41470b;
+    public static final i f38484b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final i f41471c;
+    public static final i f38485c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final i f41472d;
+    public static final i f38486d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final i f41473e;
+    public static final i f38487e;
     @Deprecated
 
     /* renamed from: f  reason: collision with root package name */
-    public static final i f41474f;
+    public static final i f38488f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final i f41475g;
+    public static final i f38489g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final i f41476h;
+    public static final i f38490h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final i f41477i;
+    public static final i f38491i;
     public static final /* synthetic */ i[] j;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,17 +55,17 @@ public final class i {
                 return;
             }
         }
-        f41469a = new i("RUN_STATUS_NONE", 0);
-        f41470b = new i("RUN_STATUS_PAUSE", 1);
-        f41471c = new i("RUN_STATUS_CANCELED", 2);
-        f41472d = new i("RUN_STATUS_ERROR", 3);
-        f41473e = new i("RUN_STATUS_END_RIGHT_NOW", 4);
-        f41474f = new i("RUN_STATUS_RETRY_DELAY", 5);
-        f41475g = new i("RUN_STATUS_WAITING_ASYNC_HANDLER", 6);
-        f41476h = new i("RUN_STATUS_END_FOR_FILE_EXIST", 7);
+        f38483a = new i("RUN_STATUS_NONE", 0);
+        f38484b = new i("RUN_STATUS_PAUSE", 1);
+        f38485c = new i("RUN_STATUS_CANCELED", 2);
+        f38486d = new i("RUN_STATUS_ERROR", 3);
+        f38487e = new i("RUN_STATUS_END_RIGHT_NOW", 4);
+        f38488f = new i("RUN_STATUS_RETRY_DELAY", 5);
+        f38489g = new i("RUN_STATUS_WAITING_ASYNC_HANDLER", 6);
+        f38490h = new i("RUN_STATUS_END_FOR_FILE_EXIST", 7);
         i iVar = new i("RUN_STATUS_ALL_CHUNK_RETRY_WITH_RESET", 8);
-        f41477i = iVar;
-        j = new i[]{f41469a, f41470b, f41471c, f41472d, f41473e, f41474f, f41475g, f41476h, iVar};
+        f38491i = iVar;
+        j = new i[]{f38483a, f38484b, f38485c, f38486d, f38487e, f38488f, f38489g, f38490h, iVar};
     }
 
     public i(String str, int i2) {

@@ -11,22 +11,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface c extends IInterface {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static abstract class a extends Binder implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.sofire.k.c$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public static class C0163a implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f10426a;
+            public IBinder f10443a;
 
             public C0163a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public interface c extends IInterface {
                         return;
                     }
                 }
-                this.f10426a = iBinder;
+                this.f10443a = iBinder;
             }
 
             @Override // com.baidu.sofire.k.c
@@ -55,7 +55,7 @@ public interface c extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                        this.f10426a.transact(1, obtain, obtain2, 0);
+                        this.f10443a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -70,7 +70,7 @@ public interface c extends IInterface {
             public final IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10426a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10443a : (IBinder) invokeV.objValue;
             }
 
             @Override // com.baidu.sofire.k.c
@@ -82,7 +82,7 @@ public interface c extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                        this.f10426a.transact(2, obtain, obtain2, 0);
+                        this.f10443a.transact(2, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readInt() != 0;
                     } finally {

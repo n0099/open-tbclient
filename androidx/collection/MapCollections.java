@@ -827,7 +827,7 @@ public abstract class MapCollections<K, V> {
     public static <K, V> boolean retainAllHelper(Map<K, V> map, Collection<?> collection) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, map, collection)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, map, collection)) == null) {
             int size = map.size();
             Iterator<K> it = map.keySet().iterator();
             while (it.hasNext()) {

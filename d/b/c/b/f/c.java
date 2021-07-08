@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.b.c.b.h.a.e;
 import d.b.c.b.l;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class c implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f71858a;
+    public Context f68961a;
 
     public c(Context context) {
         Interceptable interceptable = $ic;
@@ -32,16 +32,16 @@ public class c implements b {
                 return;
             }
         }
-        this.f71858a = context;
+        this.f68961a = context;
     }
 
     @Override // d.b.c.b.f.b
     public void a(long j, Thread thread, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), thread, th}) == null) {
-            d.b.c.b.e.a c2 = d.b.c.b.e.a.c(j, this.f71858a, thread, th);
-            l.e.d(this.f71858a, com.bytedance.tea.crash.c.f32269b.a(), Thread.currentThread().getName());
-            d.b.c.b.n.a.a().b(e.c().a(com.bytedance.tea.crash.c.f32269b, c2).j());
+            d.b.c.b.e.a c2 = d.b.c.b.e.a.c(j, this.f68961a, thread, th);
+            l.e.d(this.f68961a, com.bytedance.tea.crash.c.f32379b.a(), Thread.currentThread().getName());
+            d.b.c.b.n.a.a().b(e.c().a(com.bytedance.tea.crash.c.f32379b, c2).j());
         }
     }
 

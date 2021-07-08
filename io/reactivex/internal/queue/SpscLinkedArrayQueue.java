@@ -1,5 +1,6 @@
 package io.reactivex.internal.queue;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,7 +15,7 @@ import io.reactivex.internal.fuseable.SimplePlainQueue;
 import io.reactivex.internal.util.Pow2;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class SpscLinkedArrayQueue<T> implements SimplePlainQueue<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final Object HAS_NEXT;
@@ -91,7 +92,7 @@ public final class SpscLinkedArrayQueue<T> implements SimplePlainQueue<T> {
     public static int calcWrappedOffset(long j, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) ? calcDirectOffset(((int) j) & i2) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) ? calcDirectOffset(((int) j) & i2) : invokeCommon.intValue;
     }
 
     private long lpConsumerIndex() {

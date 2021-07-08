@@ -12,9 +12,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.video.player.KsMediaMeta;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AudioEncoderCore {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MIME_TYPE = "audio/mp4a-latm";
@@ -46,7 +45,7 @@ public class AudioEncoderCore {
         MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", MediaEncodeParams.AUDIO_SAMPLE_RATE, 1);
         createAudioFormat.setInteger("aac-profile", 2);
         createAudioFormat.setInteger("channel-mask", 16);
-        createAudioFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, EncoderParams.AUDIO_BIT_RATE);
+        createAudioFormat.setInteger("bitrate", EncoderParams.AUDIO_BIT_RATE);
         try {
             this.mEncoder = MediaCodec.createEncoderByType("audio/mp4a-latm");
         } catch (Exception e2) {

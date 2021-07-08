@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.u0.r1.a.a.a;
+import d.a.p0.u0.r1.a.a.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.ForumSubLabel;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class LabelDataList extends ArrayList<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,8 +38,8 @@ public class LabelDataList extends ArrayList<a> {
             Iterator<a> it = iterator();
             while (it.hasNext()) {
                 a next = it.next();
-                if (next != null && next.f66899a == i2) {
-                    return next.f66900b;
+                if (next != null && next.f63682a == i2) {
+                    return next.f63683b;
                 }
             }
             return null;
@@ -54,14 +54,14 @@ public class LabelDataList extends ArrayList<a> {
             Iterator<a> it = iterator();
             while (it.hasNext()) {
                 a next = it.next();
-                if (next != null && next.f66901c) {
-                    return next.f66899a;
+                if (next != null && next.f63684c) {
+                    return next.f63682a;
                 }
             }
             a aVar = (a) ListUtils.getItem(this, 0);
             if (aVar != null) {
-                aVar.f66901c = true;
-                return aVar.f66899a;
+                aVar.f63684c = true;
+                return aVar.f63682a;
             }
             return 0;
         }
@@ -78,15 +78,15 @@ public class LabelDataList extends ArrayList<a> {
             for (ForumSubLabel forumSubLabel : list) {
                 if (forumSubLabel != null) {
                     a aVar = new a();
-                    aVar.f66899a = forumSubLabel.id.intValue();
-                    aVar.f66900b = forumSubLabel.sub_label_name;
+                    aVar.f63682a = forumSubLabel.id.intValue();
+                    aVar.f63683b = forumSubLabel.sub_label_name;
                     add(aVar);
                 }
             }
             if (isEmpty()) {
                 return;
             }
-            get(0).f66901c = true;
+            get(0).f63684c = true;
         }
     }
 
@@ -96,12 +96,12 @@ public class LabelDataList extends ArrayList<a> {
         if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (aVar = (a) ListUtils.getItem(this, i2)) == null) {
             return;
         }
-        aVar.f66901c = true;
+        aVar.f63684c = true;
         Iterator<a> it = iterator();
         while (it.hasNext()) {
             a next = it.next();
             if (next != null && next != aVar) {
-                next.f66901c = false;
+                next.f63684c = false;
             }
         }
     }

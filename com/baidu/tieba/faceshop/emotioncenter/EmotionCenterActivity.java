@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class EmotionCenterActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_LOAD_URL = "key_load_url";
@@ -51,13 +51,13 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
     public List<String> mTitles;
     public BdBaseViewPager mViewPager;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionCenterActivity f15025a;
+        public final /* synthetic */ EmotionCenterActivity f15064a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(EmotionCenterActivity emotionCenterActivity, int i2) {
@@ -77,7 +77,7 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f15025a = emotionCenterActivity;
+            this.f15064a = emotionCenterActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -86,22 +86,22 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (TextUtils.isEmpty(str) || str.equals(this.f15025a.mSingleForumTabUrl)) {
+                if (TextUtils.isEmpty(str) || str.equals(this.f15064a.mSingleForumTabUrl)) {
                     return;
                 }
-                this.f15025a.mSingleForumTabUrl = str;
-                this.f15025a.updataTab();
+                this.f15064a.mSingleForumTabUrl = str;
+                this.f15064a.updataTab();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends FragmentPagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionCenterActivity f15026a;
+        public final /* synthetic */ EmotionCenterActivity f15065a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(EmotionCenterActivity emotionCenterActivity, FragmentManager fragmentManager) {
@@ -121,7 +121,7 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f15026a = emotionCenterActivity;
+            this.f15065a = emotionCenterActivity;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -129,10 +129,10 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (ListUtils.isEmpty(this.f15026a.fragments)) {
+                if (ListUtils.isEmpty(this.f15065a.fragments)) {
                     return 0;
                 }
-                return this.f15026a.fragments.size();
+                return this.f15065a.fragments.size();
             }
             return invokeV.intValue;
         }
@@ -142,10 +142,10 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                if (ListUtils.isEmpty(this.f15026a.fragments) || this.f15026a.fragments.size() <= i2) {
+                if (ListUtils.isEmpty(this.f15065a.fragments) || this.f15065a.fragments.size() <= i2) {
                     return null;
                 }
-                return (Fragment) this.f15026a.fragments.get(i2);
+                return (Fragment) this.f15065a.fragments.get(i2);
             }
             return (Fragment) invokeI.objValue;
         }
@@ -154,7 +154,7 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
         public CharSequence getPageTitle(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? ListUtils.isEmpty(this.f15026a.mTitles) ? "" : (CharSequence) this.f15026a.mTitles.get(i2) : (CharSequence) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? ListUtils.isEmpty(this.f15065a.mTitles) ? "" : (CharSequence) this.f15065a.mTitles.get(i2) : (CharSequence) invokeI.objValue;
         }
     }
 
@@ -265,7 +265,7 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
             } else if (view == this.mSettingImg) {
                 int i2 = 0;
                 if (!ListUtils.isEmpty(this.fragments) && (this.fragments.get(0) instanceof EmotionRecommendFragment)) {
-                    i2 = ((EmotionRecommendFragment) this.fragments.get(0)).L0();
+                    i2 = ((EmotionRecommendFragment) this.fragments.get(0)).M0();
                 }
                 sendMessage(new CustomMessage(2002001, new NativeEmotionManagerActivityConfig(getPageContext().getPageActivity(), i2)));
             }

@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.common;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.util.HashCodeUtil;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class RotationOptions {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DISABLE_ROTATION = -2;
@@ -29,7 +30,7 @@ public class RotationOptions {
     public final int mRotation;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public @interface RotationAngle {
     }
 
@@ -85,7 +86,7 @@ public class RotationOptions {
     public static RotationOptions disableRotation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? ROTATION_OPTIONS_DISABLE_ROTATION : (RotationOptions) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? ROTATION_OPTIONS_DISABLE_ROTATION : (RotationOptions) invokeV.objValue;
     }
 
     public static RotationOptions forceRotation(int i2) {

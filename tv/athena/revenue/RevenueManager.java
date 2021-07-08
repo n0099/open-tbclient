@@ -16,25 +16,25 @@ import java.util.List;
 import tv.athena.revenue.api.IMiddleRevenue;
 import tv.athena.revenue.api.MiddleRevenueConfig;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class RevenueManager implements i.a.a.b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String TAG;
     public i.a.a.b.a revenueService;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final RevenueManager f76682a;
+        public static final RevenueManager f73716a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -50,7 +50,7 @@ public class RevenueManager implements i.a.a.b.a {
                     return;
                 }
             }
-            f76682a = new RevenueManager(null);
+            f73716a = new RevenueManager(null);
         }
     }
 
@@ -61,7 +61,7 @@ public class RevenueManager implements i.a.a.b.a {
     public static RevenueManager instance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f76682a : (RevenueManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f73716a : (RevenueManager) invokeV.objValue;
     }
 
     @Override // i.a.a.b.a

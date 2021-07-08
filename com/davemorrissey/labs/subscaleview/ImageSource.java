@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class ImageSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASSET_SCHEME = "file:///android_asset/";
@@ -63,7 +63,7 @@ public final class ImageSource {
     public static ImageSource bitmap(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, bitmap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmap)) == null) {
             if (bitmap != null) {
                 return new ImageSource(bitmap);
             }

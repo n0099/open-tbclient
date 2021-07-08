@@ -1,120 +1,189 @@
 package d.a.b0.a;
 
-import android.content.Context;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import d.a.b0.a.a.a;
-import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
-public class b {
-    public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Object f43799a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static Method f43800b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static Method f43801c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static Method f43802d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static Method f43803e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static boolean f43804f;
+/* loaded from: classes6.dex */
+public final class b {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int abc_background_cache_hint_selector_material_dark = 2131100026;
+    public static final int abc_background_cache_hint_selector_material_light = 2131100027;
+    public static final int abc_btn_colored_borderless_text_material = 2131100028;
+    public static final int abc_btn_colored_text_material = 2131100029;
+    public static final int abc_color_highlight_material = 2131100030;
+    public static final int abc_hint_foreground_material_dark = 2131100033;
+    public static final int abc_hint_foreground_material_light = 2131100034;
+    public static final int abc_primary_text_disable_only_material_dark = 2131100035;
+    public static final int abc_primary_text_disable_only_material_light = 2131100036;
+    public static final int abc_primary_text_material_dark = 2131100037;
+    public static final int abc_primary_text_material_light = 2131100038;
+    public static final int abc_search_url_text = 2131100039;
+    public static final int abc_search_url_text_normal = 2131100040;
+    public static final int abc_search_url_text_pressed = 2131100041;
+    public static final int abc_search_url_text_selected = 2131100042;
+    public static final int abc_secondary_text_material_dark = 2131100043;
+    public static final int abc_secondary_text_material_light = 2131100044;
+    public static final int abc_tint_btn_checkable = 2131100045;
+    public static final int abc_tint_default = 2131100046;
+    public static final int abc_tint_edittext = 2131100047;
+    public static final int abc_tint_seek_thumb = 2131100048;
+    public static final int abc_tint_spinner = 2131100049;
+    public static final int abc_tint_switch_track = 2131100050;
+    public static final int accent_material_dark = 2131100051;
+    public static final int accent_material_light = 2131100052;
+    public static final int background_floating_material_dark = 2131100227;
+    public static final int background_floating_material_light = 2131100228;
+    public static final int background_material_dark = 2131100229;
+    public static final int background_material_light = 2131100230;
+    public static final int bright_foreground_disabled_material_dark = 2131100380;
+    public static final int bright_foreground_disabled_material_light = 2131100381;
+    public static final int bright_foreground_inverse_material_dark = 2131100382;
+    public static final int bright_foreground_inverse_material_light = 2131100383;
+    public static final int bright_foreground_material_dark = 2131100384;
+    public static final int bright_foreground_material_light = 2131100385;
+    public static final int button_material_dark = 2131100407;
+    public static final int button_material_light = 2131100408;
+    public static final int dim_foreground_disabled_material_dark = 2131101114;
+    public static final int dim_foreground_disabled_material_light = 2131101115;
+    public static final int dim_foreground_material_dark = 2131101116;
+    public static final int dim_foreground_material_light = 2131101117;
+    public static final int error_color_material_dark = 2131101214;
+    public static final int error_color_material_light = 2131101215;
+    public static final int foreground_material_dark = 2131101219;
+    public static final int foreground_material_light = 2131101220;
+    public static final int highlighted_text_material_dark = 2131101253;
+    public static final int highlighted_text_material_light = 2131101254;
+    public static final int material_blue_grey_800 = 2131101362;
+    public static final int material_blue_grey_900 = 2131101363;
+    public static final int material_blue_grey_950 = 2131101364;
+    public static final int material_deep_teal_200 = 2131101365;
+    public static final int material_deep_teal_500 = 2131101366;
+    public static final int material_grey_100 = 2131101367;
+    public static final int material_grey_300 = 2131101368;
+    public static final int material_grey_50 = 2131101369;
+    public static final int material_grey_600 = 2131101370;
+    public static final int material_grey_800 = 2131101371;
+    public static final int material_grey_850 = 2131101372;
+    public static final int material_grey_900 = 2131101373;
+    public static final int notification_action_color_filter = 2131101477;
+    public static final int notification_icon_bg_color = 2131101478;
+    public static final int pass_base_ui_dialog_bg_color = 2131101482;
+    public static final int pass_base_ui_dialog_bg_dark_color = 2131101483;
+    public static final int pass_base_ui_dialog_content_text_color = 2131101484;
+    public static final int pass_base_ui_dialog_content_text_dark_color = 2131101485;
+    public static final int pass_base_ui_dialog_negative_btn_text_color = 2131101486;
+    public static final int pass_base_ui_dialog_negative_btn_text_dark_color = 2131101487;
+    public static final int pass_base_ui_dialog_positive_btn_text_color = 2131101488;
+    public static final int pass_base_ui_dialog_positive_btn_text_dark_color = 2131101489;
+    public static final int pass_base_ui_dialog_split_line_color = 2131101490;
+    public static final int pass_base_ui_dialog_split_line_dark_color = 2131101491;
+    public static final int pass_base_ui_dialog_title_dark_text_color = 2131101492;
+    public static final int pass_base_ui_dialog_title_text_color = 2131101493;
+    public static final int pass_bio_dialog_content_text_color = 2131101494;
+    public static final int pass_bio_dialog_content_text_color_night = 2131101495;
+    public static final int pass_bio_dialog_negative_btn_bg_color = 2131101496;
+    public static final int pass_bio_dialog_negative_btn_bg_color_night = 2131101497;
+    public static final int pass_bio_dialog_negative_btn_text_color = 2131101498;
+    public static final int pass_bio_dialog_negative_btn_text_color_night = 2131101499;
+    public static final int pass_bio_dialog_positive_btn_bg_color = 2131101500;
+    public static final int pass_bio_dialog_positive_btn_bg_color_night = 2131101501;
+    public static final int pass_bio_dialog_positive_btn_text_color = 2131101502;
+    public static final int pass_bio_dialog_positive_btn_text_color_night = 2131101503;
+    public static final int pass_bio_dialog_time_out_msg_color = 2131101504;
+    public static final int pass_bio_dialog_time_out_msg_color_night = 2131101505;
+    public static final int pass_bio_dialog_title_text_color = 2131101506;
+    public static final int pass_bio_dialog_title_text_color_night = 2131101507;
+    public static final int pass_bio_liveness_dialog_bg_color = 2131101508;
+    public static final int pass_bio_liveness_dialog_bg_color_night = 2131101509;
+    public static final int pass_bio_liveness_face_loading_mask_layer = 2131101510;
+    public static final int pass_bio_liveness_recog_bg = 2131101511;
+    public static final int pass_bio_liveness_recog_circle_border = 2131101512;
+    public static final int pass_bio_liveness_recog_line = 2131101513;
+    public static final int pass_bio_liveness_recog_loading_color = 2131101514;
+    public static final int pass_bio_liveness_recog_tip_text = 2131101515;
+    public static final int primary_dark_material_dark = 2131101557;
+    public static final int primary_dark_material_light = 2131101558;
+    public static final int primary_material_dark = 2131101559;
+    public static final int primary_material_light = 2131101560;
+    public static final int primary_text_default_material_dark = 2131101561;
+    public static final int primary_text_default_material_light = 2131101562;
+    public static final int primary_text_disabled_material_dark = 2131101563;
+    public static final int primary_text_disabled_material_light = 2131101564;
+    public static final int ripple_material_dark = 2131101733;
+    public static final int ripple_material_light = 2131101734;
+    public static final int sapi_sdk_account_center_titlebar_bg = 2131101789;
+    public static final int sapi_sdk_account_center_titlebar_bg_darkmode = 2131101790;
+    public static final int sapi_sdk_account_center_titlebar_text = 2131101791;
+    public static final int sapi_sdk_account_center_titlebar_text_darkmode = 2131101792;
+    public static final int sapi_sdk_background_color = 2131101923;
+    public static final int sapi_sdk_background_neting_color = 2131101924;
+    public static final int sapi_sdk_btn_text_color = 2131101925;
+    public static final int sapi_sdk_color_black = 2131101928;
+    public static final int sapi_sdk_color_white = 2131101930;
+    public static final int sapi_sdk_dark_mode_btn_background_color = 2131101953;
+    public static final int sapi_sdk_dark_mode_btn_tv_color = 2131101954;
+    public static final int sapi_sdk_dark_mode_color = 2131101955;
+    public static final int sapi_sdk_dark_mode_edit_text_color = 2131101956;
+    public static final int sapi_sdk_dark_mode_na_activity_color = 2131101957;
+    public static final int sapi_sdk_dark_mode_no_network_tv_color = 2131101958;
+    public static final int sapi_sdk_dark_mode_title_color = 2131101959;
+    public static final int sapi_sdk_dialog_msg_text_color = 2131101991;
+    public static final int sapi_sdk_edit_hint_color = 2131101992;
+    public static final int sapi_sdk_edit_neting_color = 2131101993;
+    public static final int sapi_sdk_edit_text_color = 2131101994;
+    public static final int sapi_sdk_explain_camera_detail_color = 2131101995;
+    public static final int sapi_sdk_fingerprint_dialog_bg = 2131101996;
+    public static final int sapi_sdk_fingerprint_dialog_bg_color = 2131101997;
+    public static final int sapi_sdk_fingerprint_dialog_divider_line = 2131101998;
+    public static final int sapi_sdk_fingerprint_dialog_hint_color = 2131101999;
+    public static final int sapi_sdk_fingerprint_dialog_negative_btn_bg_color = 2131102000;
+    public static final int sapi_sdk_fingerprint_dialog_negative_btn_bg_color_daynight = 2131102001;
+    public static final int sapi_sdk_fingerprint_dialog_negative_btn_text_color = 2131102002;
+    public static final int sapi_sdk_fingerprint_dialog_positive_btn_bg_color = 2131102003;
+    public static final int sapi_sdk_fingerprint_dialog_positive_btn_bg_color_daynight = 2131102004;
+    public static final int sapi_sdk_fingerprint_dialog_positive_btn_text_color = 2131102005;
+    public static final int sapi_sdk_fingerprint_dialog_sub_tv_color = 2131102006;
+    public static final int sapi_sdk_fingerprint_dialog_title_text_color = 2131102007;
+    public static final int sapi_sdk_mms_voice_fill_bottom = 2131102008;
+    public static final int sapi_sdk_mms_voice_fill_top = 2131102009;
+    public static final int sapi_sdk_mms_voice_primary_end = 2131102010;
+    public static final int sapi_sdk_mms_voice_primary_start = 2131102011;
+    public static final int sapi_sdk_mms_voice_secondary_end = 2131102012;
+    public static final int sapi_sdk_mms_voice_secondary_start = 2131102013;
+    public static final int sapi_sdk_night_mode_color = 2131102014;
+    public static final int sapi_sdk_separate_line_color = 2131102015;
+    public static final int sapi_sdk_separate_line_color_night_mode = 2131102016;
+    public static final int sapi_sdk_sms_bg_light_mode = 2131102017;
+    public static final int sapi_sdk_sms_bg_night_mode = 2131102018;
+    public static final int sapi_sdk_sms_edit_check_code_hint_text_color = 2131102019;
+    public static final int sapi_sdk_sms_edit_check_code_hint_text_color_night_mode = 2131102020;
+    public static final int sapi_sdk_sms_edit_check_code_text_color = 2131102021;
+    public static final int sapi_sdk_sms_edit_check_code_text_color_night_mode = 2131102022;
+    public static final int sapi_sdk_sms_edit_hint_color = 2131102023;
+    public static final int sapi_sdk_sms_edit_hint_color_night_mode = 2131102024;
+    public static final int sapi_sdk_sms_edit_phone_text_color = 2131102025;
+    public static final int sapi_sdk_sms_edit_phone_text_color_night_mode = 2131102026;
+    public static final int sapi_sdk_sms_get_code_disable_color = 2131102027;
+    public static final int sapi_sdk_sms_get_code_disable_color_night_mode = 2131102028;
+    public static final int sapi_sdk_sms_get_code_text_color = 2131102029;
+    public static final int sapi_sdk_sms_get_code_text_color_night_mode = 2131102030;
+    public static final int sapi_sdk_sms_prompt_phone_number_error_color = 2131102031;
+    public static final int sapi_sdk_sms_prompt_phone_number_error_color_night_mode = 2131102032;
+    public static final int sapi_sdk_sweep_loading_bg = 2131102033;
+    public static final int sapi_sdk_sweep_loading_bg_dark = 2131102034;
+    public static final int sapi_sdk_text_white = 2131102035;
+    public static final int sapi_sdk_tip_text_color = 2131102036;
+    public static final int sapi_sdk_title_division_line_color = 2131102038;
+    public static final int secondary_text_default_material_dark = 2131102047;
+    public static final int secondary_text_default_material_light = 2131102048;
+    public static final int secondary_text_disabled_material_dark = 2131102049;
+    public static final int secondary_text_disabled_material_light = 2131102050;
+    public static final int switch_thumb_disabled_material_dark = 2131102216;
+    public static final int switch_thumb_disabled_material_light = 2131102217;
+    public static final int switch_thumb_material_dark = 2131102218;
+    public static final int switch_thumb_material_light = 2131102219;
+    public static final int switch_thumb_normal_material_dark = 2131102220;
+    public static final int switch_thumb_normal_material_light = 2131102221;
+    public static final int tooltip_background_dark = 2131102230;
+    public static final int tooltip_background_light = 2131102231;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(547516035, "Ld/a/b0/a/b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(547516035, "Ld/a/b0/a/b;");
-                return;
-            }
-        }
-        try {
-            f43799a = Class.forName("com.baidu.crashpad.ZwCrashpad").getConstructor(new Class[0]).newInstance(new Object[0]);
-            Class<?> cls = Class.forName("com.baidu.crashpad.ZwCrashpad");
-            f43800b = a.a(cls, "doInit", Context.class, String[].class);
-            f43802d = a.a(cls, "setStatisticParam", String.class);
-            f43801c = a.a(cls, "setEnabled", Boolean.TYPE);
-            f43803e = a.a(cls, "setCrashKeyValue", String.class, String.class);
-            f43804f = true;
-        } catch (Error e2) {
-            e2.printStackTrace();
-        } catch (Exception e3) {
-            e3.printStackTrace();
-        }
-    }
-
-    public static void a(Context context, String[] strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, context, strArr) == null) {
-            try {
-                if (f43804f) {
-                    f43800b.invoke(f43799a, context, strArr);
-                }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            try {
-                if (f43804f) {
-                    f43802d.invoke(f43799a, str);
-                }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public static void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            try {
-                if (f43804f) {
-                    f43803e.invoke(f43799a, str, str2);
-                }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public static void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65540, null, z) == null) {
-            try {
-                if (f43804f) {
-                    f43801c.invoke(f43799a, Boolean.valueOf(z));
-                }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f43804f : invokeV.booleanValue;
-    }
 }

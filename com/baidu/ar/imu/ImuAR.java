@@ -1,5 +1,6 @@
 package com.baidu.ar.imu;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.ARType;
 import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
@@ -151,7 +152,7 @@ public class ImuAR extends com.baidu.ar.c implements g {
     private Vector3f a(Matrixf4x4 matrixf4x4) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, matrixf4x4)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, matrixf4x4)) == null) {
             float[] matrix = matrixf4x4.getMatrix();
             Vector3f vector3f = new Vector3f(matrix[12], matrix[13], matrix[14]);
             Matrixf4x4 matrixf4x42 = new Matrixf4x4();

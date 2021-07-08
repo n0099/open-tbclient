@@ -5,6 +5,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.Keep;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,15 +15,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a.h2.c;
-import d.a.q0.a.k;
+import d.a.n0.a.h2.c;
+import d.a.n0.a.k;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class SoUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARM64_V8A = "arm64-v8a";
@@ -39,7 +40,7 @@ public final class SoUtils {
     public static String[] uris;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void onEvent(String str, String str2);
     }
@@ -57,7 +58,7 @@ public final class SoUtils {
                 return;
             }
         }
-        DEBUG = k.f49133a;
+        DEBUG = k.f45831a;
         sUbcImpl = new c();
         uris = new String[]{"lib/armeabi", "lib/arm64-v8a"};
     }
@@ -112,7 +113,7 @@ public final class SoUtils {
     public static String getFullName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (str.startsWith("lib") && str.endsWith(".so")) {
                 return str;
             }

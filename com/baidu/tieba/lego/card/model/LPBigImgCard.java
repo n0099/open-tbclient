@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.s0.n1.o.i.a;
-import d.a.s0.n1.o.k.b;
-import d.a.s0.n1.o.k.d;
+import d.a.p0.n1.o.i.a;
+import d.a.p0.n1.o.k.b;
+import d.a.p0.n1.o.k.d;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class LPBigImgCard extends BaseCardInfo implements a<LPBigImgCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -159,7 +159,7 @@ public class LPBigImgCard extends BaseCardInfo implements a<LPBigImgCard> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.s0.n1.o.i.a
+    @Override // d.a.p0.n1.o.i.a
     public void doLoad(LPBigImgCard lPBigImgCard, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lPBigImgCard, tbPageContext) == null) || lPBigImgCard == null || tbPageContext == null) {

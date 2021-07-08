@@ -1,6 +1,7 @@
 package com.facebook.imagepipeline.producers;
 
 import android.os.SystemClock;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,7 +18,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class JobScheduler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String QUEUE_TIME_KEY = "queueTime";
@@ -44,7 +45,7 @@ public class JobScheduler {
     public final Runnable mSubmitJobRunnable;
 
     /* renamed from: com.facebook.imagepipeline.producers.JobScheduler$3  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$imagepipeline$producers$JobScheduler$JobState;
         public static /* synthetic */ Interceptable $ic;
@@ -84,13 +85,13 @@ public class JobScheduler {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface JobRunnable {
         void run(EncodedImage encodedImage, int i2);
     }
 
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class JobStartExecutorSupplier {
         public static /* synthetic */ Interceptable $ic;
         public static ScheduledExecutorService sJobStarterExecutor;
@@ -125,7 +126,7 @@ public class JobScheduler {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class JobState {
         public static final /* synthetic */ JobState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -303,7 +304,7 @@ public class JobScheduler {
 
     private void enqueueJob(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65540, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
             if (j > 0) {
                 JobStartExecutorSupplier.get().schedule(this.mSubmitJobRunnable, j, TimeUnit.MILLISECONDS);
             } else {

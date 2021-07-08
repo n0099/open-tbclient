@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.spswitch.IPanelHeightTarget;
@@ -20,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class Emotion {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -180,7 +181,7 @@ public class Emotion {
     public static SPSwitchPanelLinearLayout setEmotionPanelAndInit(ViewGroup viewGroup, Activity activity, View view, View view2, boolean z, boolean z2, SoftInputUtil.OnSoftInputShowingListener onSoftInputShowingListener, SPSwitchConflictUtil.SwitchClickListener switchClickListener, BDEmotionPanelManager.OnEmotionClickListener onEmotionClickListener) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{viewGroup, activity, view, view2, Boolean.valueOf(z), Boolean.valueOf(z2), onSoftInputShowingListener, switchClickListener, onEmotionClickListener})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{viewGroup, activity, view, view2, Boolean.valueOf(z), Boolean.valueOf(z2), onSoftInputShowingListener, switchClickListener, onEmotionClickListener})) == null) {
             SPSwitchPanelLinearLayout sPSwitchPanelLinearLayout = (SPSwitchPanelLinearLayout) ((ViewGroup) LayoutInflater.from(AppRuntime.getAppContext()).inflate(R.layout.emotion_only_include_panel_linearlayout, viewGroup, true)).findViewById(R.id.panel_root);
             initEmotionPanel(activity, view, view2, sPSwitchPanelLinearLayout, z, z2, onSoftInputShowingListener, switchClickListener, onEmotionClickListener);
             return sPSwitchPanelLinearLayout;

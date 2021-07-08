@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import android.graphics.Bitmap;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
@@ -17,15 +18,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.k.d.a;
-import d.a.r0.a0.c;
-/* loaded from: classes4.dex */
+import d.a.o0.a0.c;
+/* loaded from: classes3.dex */
 public class PicManager {
     public static /* synthetic */ Interceptable $ic;
     public static PicManager instance;
     public static final BdUniqueId taskId;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class SaveImgCacheAsyncTask extends BdAsyncTask<String, String, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +110,7 @@ public class PicManager {
 
     public static void addPicMemoryCache(String str, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, str, aVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, aVar) == null) {
             c.k().d(str, aVar);
         }
     }

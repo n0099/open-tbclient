@@ -1,13 +1,14 @@
 package com.baidu.mapsdkplatform.comjni.tools;
 
 import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.gesture.GestureAR;
 import com.baidu.mapapi.model.inner.Point;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,16 +43,16 @@ public class a {
             if (bundle2 != null) {
                 Bundle bundle3 = bundle2.getBundle("ll");
                 if (bundle3 != null) {
-                    aVar.f7200b = new Point((int) bundle3.getDouble("ptx"), (int) bundle3.getDouble("pty"));
+                    aVar.f7217b = new Point((int) bundle3.getDouble("ptx"), (int) bundle3.getDouble("pty"));
                 }
                 Bundle bundle4 = bundle2.getBundle("ru");
                 if (bundle4 != null) {
-                    aVar.f7201c = new Point((int) bundle4.getDouble("ptx"), (int) bundle4.getDouble("pty"));
+                    aVar.f7218c = new Point((int) bundle4.getDouble("ptx"), (int) bundle4.getDouble("pty"));
                 }
             }
             for (ParcelItem parcelItem : (ParcelItem[]) bundle.getParcelableArray("poly_line")) {
-                if (aVar.f7202d == null) {
-                    aVar.f7202d = new ArrayList<>();
+                if (aVar.f7219d == null) {
+                    aVar.f7219d = new ArrayList<>();
                 }
                 Bundle bundle5 = parcelItem.getBundle();
                 if (bundle5 != null) {
@@ -64,11 +65,11 @@ public class a {
                         }
                     }
                     arrayList.trimToSize();
-                    aVar.f7202d.add(arrayList);
+                    aVar.f7219d.add(arrayList);
                 }
             }
-            aVar.f7202d.trimToSize();
-            aVar.f7199a = (int) bundle.getDouble("type");
+            aVar.f7219d.trimToSize();
+            aVar.f7216a = (int) bundle.getDouble("type");
             return aVar;
         }
         return (com.baidu.mapapi.model.inner.a) invokeL.objValue;
@@ -89,7 +90,7 @@ public class a {
 
     public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             JNITools.initClass(new Bundle(), 0);
         }
     }

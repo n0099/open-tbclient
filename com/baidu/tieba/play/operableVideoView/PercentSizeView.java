@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PercentSizeView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f20281e;
+    public float f20327e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f20282f;
+    public float f20328f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PercentSizeView(Context context) {
@@ -38,8 +38,8 @@ public class PercentSizeView extends View {
                 return;
             }
         }
-        this.f20281e = 1.0f;
-        this.f20282f = 1.0f;
+        this.f20327e = 1.0f;
+        this.f20328f = 1.0f;
     }
 
     @Override // android.view.View
@@ -52,12 +52,12 @@ public class PercentSizeView extends View {
             if (View.MeasureSpec.getMode(i2) == 1073741824) {
                 measuredWidth = View.MeasureSpec.getSize(i2);
             } else {
-                measuredWidth = (int) (getMeasuredWidth() * this.f20282f);
+                measuredWidth = (int) (getMeasuredWidth() * this.f20328f);
             }
             if (View.MeasureSpec.getMode(i3) == 1073741824) {
                 measuredHeight = View.MeasureSpec.getSize(i3);
             } else {
-                measuredHeight = (int) (getMeasuredHeight() * this.f20281e);
+                measuredHeight = (int) (getMeasuredHeight() * this.f20327e);
             }
             setMeasuredDimension(measuredWidth, measuredHeight);
         }
@@ -68,7 +68,7 @@ public class PercentSizeView extends View {
         if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) || f2 <= 0.0f) {
             return;
         }
-        this.f20281e = f2;
+        this.f20327e = f2;
     }
 
     public void setWidthPercent(float f2) {
@@ -76,7 +76,7 @@ public class PercentSizeView extends View {
         if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) || f2 <= 0.0f) {
             return;
         }
-        this.f20282f = f2;
+        this.f20328f = f2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -98,8 +98,8 @@ public class PercentSizeView extends View {
                 return;
             }
         }
-        this.f20281e = 1.0f;
-        this.f20282f = 1.0f;
+        this.f20327e = 1.0f;
+        this.f20328f = 1.0f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -121,7 +121,7 @@ public class PercentSizeView extends View {
                 return;
             }
         }
-        this.f20281e = 1.0f;
-        this.f20282f = 1.0f;
+        this.f20327e = 1.0f;
+        this.f20328f = 1.0f;
     }
 }

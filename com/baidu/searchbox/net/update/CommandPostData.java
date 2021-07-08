@@ -1,6 +1,7 @@
 package com.baidu.searchbox.net.update;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,7 +15,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CommandPostData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -25,13 +26,13 @@ public class CommandPostData {
     public JSONObject version;
 
     /* renamed from: com.baidu.searchbox.net.update.CommandPostData$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class SubPostDataKey {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,7 +115,7 @@ public class CommandPostData {
     private SubPostDataKey getSubPostDataKey(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
             SubPostDataKey subPostDataKey = new SubPostDataKey(null);
             subPostDataKey.versionKey = getKey(str, null, "_v");
             subPostDataKey.dataKey = getKey(str, null, null);

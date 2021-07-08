@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AiAppGuideActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int GIF_HEIGHT = 828;
@@ -24,13 +24,13 @@ public class AiAppGuideActivity extends BaseActivity {
     public ImageView mImgClose;
     public View.OnClickListener mOnClickListener;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AiAppGuideActivity f13880e;
+        public final /* synthetic */ AiAppGuideActivity f13919e;
 
         public a(AiAppGuideActivity aiAppGuideActivity) {
             Interceptable interceptable = $ic;
@@ -47,14 +47,14 @@ public class AiAppGuideActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f13880e = aiAppGuideActivity;
+            this.f13919e = aiAppGuideActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f13880e.closeActivity();
+                this.f13919e.closeActivity();
             }
         }
     }

@@ -1,0 +1,183 @@
+package com.baidu.browser.core.async;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.i.a.i.d;
+import d.a.i.a.i.e;
+/* loaded from: classes.dex */
+public abstract class BdRunnable implements Runnable, e {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: e  reason: collision with root package name */
+    public e f4319e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public STATUS f4320f;
+
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes.dex */
+    public static final class STATUS {
+        public static final /* synthetic */ STATUS[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final STATUS COMPLETE;
+        public static final STATUS FAIL;
+        public static final STATUS INITED;
+        public static final STATUS QUEUED;
+        public static final STATUS RUNNING;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1985849230, "Lcom/baidu/browser/core/async/BdRunnable$STATUS;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1985849230, "Lcom/baidu/browser/core/async/BdRunnable$STATUS;");
+                    return;
+                }
+            }
+            INITED = new STATUS("INITED", 0);
+            QUEUED = new STATUS("QUEUED", 1);
+            RUNNING = new STATUS("RUNNING", 2);
+            FAIL = new STATUS("FAIL", 3);
+            STATUS status = new STATUS("COMPLETE", 4);
+            COMPLETE = status;
+            $VALUES = new STATUS[]{INITED, QUEUED, RUNNING, FAIL, status};
+        }
+
+        public STATUS(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static STATUS valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (STATUS) Enum.valueOf(STATUS.class, str) : (STATUS) invokeL.objValue;
+        }
+
+        public static STATUS[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (STATUS[]) $VALUES.clone() : (STATUS[]) invokeV.objValue;
+        }
+    }
+
+    public BdRunnable() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f4320f = STATUS.INITED;
+    }
+
+    @Override // d.a.i.a.i.e
+    public void a(Error error) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, error) == null) {
+            this.f4320f = STATUS.FAIL;
+            e eVar = this.f4319e;
+            if (eVar != null) {
+                eVar.a(error);
+            }
+            d.f().d();
+        }
+    }
+
+    public abstract void b();
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            STATUS status = this.f4320f;
+            return status == STATUS.COMPLETE || status == STATUS.FAIL;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // d.a.i.a.i.e
+    public void onComplete() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f4320f = STATUS.COMPLETE;
+            e eVar = this.f4319e;
+            if (eVar != null) {
+                eVar.onComplete();
+            }
+            d.f().d();
+        }
+    }
+
+    @Override // d.a.i.a.i.e
+    public void onException(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, exc) == null) {
+            this.f4320f = STATUS.FAIL;
+            e eVar = this.f4319e;
+            if (eVar != null) {
+                eVar.onException(exc);
+            }
+            d.f().d();
+        }
+    }
+
+    @Override // d.a.i.a.i.e
+    public void onStart() {
+        e eVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (eVar = this.f4319e) == null) {
+            return;
+        }
+        eVar.onStart();
+    }
+
+    @Override // java.lang.Runnable
+    public final void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            try {
+                onStart();
+                this.f4320f = STATUS.RUNNING;
+                b();
+                onComplete();
+            } catch (Error e2) {
+                a(e2);
+            } catch (Exception e3) {
+                onException(e3);
+            }
+        }
+    }
+}

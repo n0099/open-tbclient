@@ -30,6 +30,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.util.RomTypeUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -46,33 +47,33 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class q {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static float f32250a = -1.0f;
+    public static float f32360a = -1.0f;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f32251b = -1;
+    public static int f32361b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static float f32252c = -1.0f;
+    public static float f32362c = -1.0f;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f32253d = -1;
+    public static int f32363d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f32254e = -1;
+    public static int f32364e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static WindowManager f32255f;
+    public static WindowManager f32365f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static float f32256g;
+    public static float f32366g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(View view);
     }
@@ -97,36 +98,36 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context) == null) {
             Context a2 = context == null ? com.bytedance.sdk.openadsdk.core.o.a() : context;
-            f32255f = (WindowManager) com.bytedance.sdk.openadsdk.core.o.a().getSystemService("window");
+            f32365f = (WindowManager) com.bytedance.sdk.openadsdk.core.o.a().getSystemService("window");
             if (a2 == null) {
                 return;
             }
             if (b()) {
                 DisplayMetrics displayMetrics = a2.getResources().getDisplayMetrics();
-                f32250a = displayMetrics.density;
-                f32251b = displayMetrics.densityDpi;
-                f32252c = displayMetrics.scaledDensity;
-                f32253d = displayMetrics.widthPixels;
-                f32254e = displayMetrics.heightPixels;
+                f32360a = displayMetrics.density;
+                f32361b = displayMetrics.densityDpi;
+                f32362c = displayMetrics.scaledDensity;
+                f32363d = displayMetrics.widthPixels;
+                f32364e = displayMetrics.heightPixels;
             }
             if (context == null || context.getResources() == null || context.getResources().getConfiguration() == null) {
                 return;
             }
             if (context.getResources().getConfiguration().orientation == 1) {
-                int i2 = f32253d;
-                int i3 = f32254e;
+                int i2 = f32363d;
+                int i3 = f32364e;
                 if (i2 > i3) {
-                    f32253d = i3;
-                    f32254e = i2;
+                    f32363d = i3;
+                    f32364e = i2;
                     return;
                 }
                 return;
             }
-            int i4 = f32253d;
-            int i5 = f32254e;
+            int i4 = f32363d;
+            int i5 = f32364e;
             if (i4 < i5) {
-                f32253d = i5;
-                f32254e = i4;
+                f32363d = i5;
+                f32364e = i4;
             }
         }
     }
@@ -156,7 +157,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, context)) == null) {
             a(context);
-            return f32254e;
+            return f32364e;
         }
         return invokeL.intValue;
     }
@@ -166,7 +167,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65576, null, context)) == null) {
             a(context);
-            return f32250a;
+            return f32360a;
         }
         return invokeL.floatValue;
     }
@@ -176,7 +177,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, context)) == null) {
             a(context);
-            return f32252c;
+            return f32362c;
         }
         return invokeL.floatValue;
     }
@@ -186,7 +187,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65582, null, context)) == null) {
             a(context);
-            return f32251b;
+            return f32361b;
         }
         return invokeL.intValue;
     }
@@ -290,7 +291,7 @@ public class q {
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) ? f32250a < 0.0f || f32251b < 0 || f32252c < 0.0f || f32253d < 0 || f32254e < 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) ? f32360a < 0.0f || f32361b < 0 || f32362c < 0.0f || f32363d < 0 || f32364e < 0 : invokeV.booleanValue;
     }
 
     public static float b(Context context, float f2) {
@@ -308,7 +309,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, context)) == null) {
             a(context);
-            return f32253d;
+            return f32363d;
         }
         return invokeL.intValue;
     }
@@ -330,7 +331,7 @@ public class q {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ View f32257a;
+            public final /* synthetic */ View f32367a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -347,7 +348,7 @@ public class q {
                         return;
                     }
                 }
-                this.f32257a = view;
+                this.f32367a = view;
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -355,8 +356,8 @@ public class q {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
                     super.onAnimationEnd(animator);
-                    q.a(this.f32257a, 8);
-                    ObjectAnimator.ofFloat(this.f32257a, "alpha", 0.0f, 1.0f).setDuration(0L).start();
+                    q.a(this.f32367a, 8);
+                    ObjectAnimator.ofFloat(this.f32367a, "alpha", 0.0f, 1.0f).setDuration(0L).start();
                 }
             }
         });
@@ -407,17 +408,17 @@ public class q {
             return;
         }
         try {
-            if (Build.VERSION.SDK_INT >= 28 && f32256g == 0.0f) {
+            if (Build.VERSION.SDK_INT >= 28 && f32366g == 0.0f) {
                 WindowInsets rootWindowInsets = view.getRootWindowInsets();
                 DisplayCutout displayCutout = rootWindowInsets != null ? rootWindowInsets.getDisplayCutout() : null;
                 if (displayCutout != null) {
-                    f32256g = displayCutout.getSafeInsetTop();
+                    f32366g = displayCutout.getSafeInsetTop();
                 }
             }
-            if (f32256g == 0.0f) {
+            if (f32366g == 0.0f) {
                 return;
             }
-            float max = Math.max(j(view.getContext()), f32256g);
+            float max = Math.max(j(view.getContext()), f32366g);
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
             if (layoutParams instanceof FrameLayout.LayoutParams) {
                 FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
@@ -449,11 +450,11 @@ public class q {
             if (context == null) {
                 return null;
             }
-            if (f32255f == null) {
-                f32255f = (WindowManager) com.bytedance.sdk.openadsdk.core.o.a().getSystemService("window");
+            if (f32365f == null) {
+                f32365f = (WindowManager) com.bytedance.sdk.openadsdk.core.o.a().getSystemService("window");
             }
             int[] iArr = new int[2];
-            WindowManager windowManager = f32255f;
+            WindowManager windowManager = f32365f;
             if (windowManager != null) {
                 Display defaultDisplay = windowManager.getDefaultDisplay();
                 DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -834,7 +835,7 @@ public class q {
     public static JSONObject a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, jSONObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
@@ -934,25 +935,25 @@ public class q {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f32258a;
+                public final /* synthetic */ Context f32368a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f32259b;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f32369b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f32260c;
+                public final /* synthetic */ String f32370c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f32261d;
+                public final /* synthetic */ String f32371d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Bitmap f32262e;
+                public final /* synthetic */ Bitmap f32372e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ boolean f32263f;
+                public final /* synthetic */ boolean f32373f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ int f32264g;
+                public final /* synthetic */ int f32374g;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -972,20 +973,20 @@ public class q {
                             return;
                         }
                     }
-                    this.f32258a = context;
-                    this.f32259b = mVar;
-                    this.f32260c = str;
-                    this.f32261d = str2;
-                    this.f32262e = bitmap;
-                    this.f32263f = z;
-                    this.f32264g = i2;
+                    this.f32368a = context;
+                    this.f32369b = mVar;
+                    this.f32370c = str;
+                    this.f32371d = str2;
+                    this.f32372e = bitmap;
+                    this.f32373f = z;
+                    this.f32374g = i2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        q.c(this.f32258a, this.f32259b, this.f32260c, this.f32261d, this.f32262e, this.f32263f, this.f32264g);
+                        q.c(this.f32368a, this.f32369b, this.f32370c, this.f32371d, this.f32372e, this.f32373f, this.f32374g);
                     }
                 }
             }, 5);
@@ -1043,10 +1044,10 @@ public class q {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ View f32265a;
+            public final /* synthetic */ View f32375a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f32266b;
+            public final /* synthetic */ a f32376b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1063,18 +1064,18 @@ public class q {
                         return;
                     }
                 }
-                this.f32265a = view;
-                this.f32266b = aVar;
+                this.f32375a = view;
+                this.f32376b = aVar;
             }
 
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f32265a.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                    a aVar2 = this.f32266b;
+                    this.f32375a.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                    a aVar2 = this.f32376b;
                     if (aVar2 != null) {
-                        aVar2.a(this.f32265a);
+                        aVar2.a(this.f32375a);
                     }
                 }
             }

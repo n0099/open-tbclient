@@ -2,6 +2,7 @@ package com.kwad.sdk.api.loader;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,22 +10,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static File f34199a;
+    public static File f33813a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static File a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (f34199a == null) {
-                f34199a = c(new File(context.getApplicationInfo().dataDir, "ksad_dynamic"));
+            if (f33813a == null) {
+                f33813a = c(new File(context.getApplicationInfo().dataDir, "ksad_dynamic"));
             }
-            return f34199a;
+            return f33813a;
         }
         return (File) invokeL.objValue;
     }
@@ -64,7 +65,7 @@ public class g {
 
     public static void b(File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, file) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file) == null) {
             try {
                 a(file);
             } catch (Exception unused) {
@@ -131,10 +132,10 @@ public class g {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f34200a;
+            public final /* synthetic */ Context f33814a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f34201b;
+            public final /* synthetic */ String f33815b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -151,8 +152,8 @@ public class g {
                         return;
                     }
                 }
-                this.f34200a = context;
-                this.f34201b = str;
+                this.f33814a = context;
+                this.f33815b = str;
             }
 
             @Override // java.lang.Runnable
@@ -160,12 +161,12 @@ public class g {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     try {
-                        File[] listFiles = g.c(this.f34200a, this.f34201b).getParentFile().listFiles();
+                        File[] listFiles = g.c(this.f33814a, this.f33815b).getParentFile().listFiles();
                         if (listFiles == null || listFiles.length <= 0) {
                             return;
                         }
                         for (File file : listFiles) {
-                            if (f.a(this.f34201b, file.getName().substring(file.getName().indexOf("-") + 1))) {
+                            if (f.a(this.f33815b, file.getName().substring(file.getName().indexOf("-") + 1))) {
                                 g.a(file);
                             }
                         }

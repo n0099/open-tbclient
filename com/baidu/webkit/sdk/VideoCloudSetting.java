@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
 import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -18,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class VideoCloudSetting {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_ERROR_LOG_CLOSE_ALL = "close_all";
@@ -54,7 +55,7 @@ public class VideoCloudSetting {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class MatchedType {
         public static final /* synthetic */ MatchedType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -80,7 +81,7 @@ public class VideoCloudSetting {
             FAILED = new MatchedType("FAILED", 0);
             AND_NEED_CHECK_NEXT = new MatchedType("AND_NEED_CHECK_NEXT", 1);
             OR_NEED_CHECK_NEXT = new MatchedType("OR_NEED_CHECK_NEXT", 2);
-            MatchedType matchedType = new MatchedType(c.f2102g, 3);
+            MatchedType matchedType = new MatchedType(c.f2103g, 3);
             SUCCESS = matchedType;
             $VALUES = new MatchedType[]{FAILED, AND_NEED_CHECK_NEXT, OR_NEED_CHECK_NEXT, matchedType};
         }
@@ -117,7 +118,7 @@ public class VideoCloudSetting {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class VideoCloudSettingItem {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -177,7 +178,7 @@ public class VideoCloudSetting {
         /* JADX INFO: Access modifiers changed from: private */
         public void parseSettingItem(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(65540, this, str, str2, str3) == null) || TextUtils.isEmpty(str)) {
+            if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, str2, str3) == null) || TextUtils.isEmpty(str)) {
                 return;
             }
             if (str.equals(VideoCloudSetting.DEFAULT_ERROR_LOG_CLOSE_ALL)) {
@@ -283,7 +284,7 @@ public class VideoCloudSetting {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class VideoSettings {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -428,7 +429,7 @@ public class VideoCloudSetting {
     public static String getCyberSdkVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             String videoCfgValue = getVideoCfgValue(PREF_KEY_CYBER_SDK_VERSION, null);
             return TextUtils.isEmpty(videoCfgValue) ? "0" : videoCfgValue;
         }

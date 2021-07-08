@@ -2,6 +2,7 @@ package com.bytedance.embed_dr;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +17,7 @@ import d.b.a.o0;
 import d.b.a.u0;
 import d.b.a.v0;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class VivoIdentifier {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +91,7 @@ public final class VivoIdentifier {
     private int callFromReflect(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, this, context)) == null) ? MdidSdkHelper.InitSdk(context, true, this.listener) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) ? MdidSdkHelper.InitSdk(context, true, this.listener) : invokeL.intValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -117,7 +118,7 @@ public final class VivoIdentifier {
                 }
             }
             v0.a aVar = new v0.a();
-            aVar.f71764a = this.oaid;
+            aVar.f68867a = this.oaid;
             return aVar;
         }
         return (v0.a) invokeL.objValue;

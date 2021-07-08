@@ -1,5 +1,6 @@
 package com.alipay.sdk.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,31 +16,31 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final d f1957a;
+    public static final d f1958a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final d f1958b;
+    public static final d f1959b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final d f1959c;
+    public static final d f1960c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final d f1960d;
+    public static final d f1961d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final d f1961e;
+    public static final d f1962e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final d f1962f;
+    public static final d f1963f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final d f1963g;
+    public static final d f1964g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final d f1964h;
+    public static final d f1965h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final d f1965i;
+    public static final d f1966i;
     public static final d j;
     public static final d k;
     public static final d l;
@@ -64,15 +65,15 @@ public final class d {
                 return;
             }
         }
-        f1957a = new d(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 0, 0, CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING);
-        f1958b = new d("NETWORK_TYPE_1", 1, 1, "unicom2G");
-        f1959c = new d("NETWORK_TYPE_2", 2, 2, "mobile2G");
-        f1960d = new d("NETWORK_TYPE_4", 3, 4, "telecom2G");
-        f1961e = new d("NETWORK_TYPE_5", 4, 5, "telecom3G");
-        f1962f = new d("NETWORK_TYPE_6", 5, 6, "telecom3G");
-        f1963g = new d("NETWORK_TYPE_12", 6, 12, "telecom3G");
-        f1964h = new d("NETWORK_TYPE_8", 7, 8, "unicom3G");
-        f1965i = new d("NETWORK_TYPE_3", 8, 3, "unicom3G");
+        f1958a = new d(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 0, 0, CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING);
+        f1959b = new d("NETWORK_TYPE_1", 1, 1, "unicom2G");
+        f1960c = new d("NETWORK_TYPE_2", 2, 2, "mobile2G");
+        f1961d = new d("NETWORK_TYPE_4", 3, 4, "telecom2G");
+        f1962e = new d("NETWORK_TYPE_5", 4, 5, "telecom3G");
+        f1963f = new d("NETWORK_TYPE_6", 5, 6, "telecom3G");
+        f1964g = new d("NETWORK_TYPE_12", 6, 12, "telecom3G");
+        f1965h = new d("NETWORK_TYPE_8", 7, 8, "unicom3G");
+        f1966i = new d("NETWORK_TYPE_3", 8, 3, "unicom3G");
         j = new d("NETWORK_TYPE_13", 9, 13, "LTE");
         k = new d("NETWORK_TYPE_11", 10, 11, "IDEN");
         l = new d("NETWORK_TYPE_9", 11, 9, "HSUPA");
@@ -80,7 +81,7 @@ public final class d {
         n = new d("NETWORK_TYPE_15", 13, 15, "HSPAP");
         d dVar = new d("NONE", 14, -1, "none");
         o = dVar;
-        r = new d[]{f1957a, f1958b, f1959c, f1960d, f1961e, f1962f, f1963g, f1964h, f1965i, j, k, l, m, n, dVar};
+        r = new d[]{f1958a, f1959b, f1960c, f1961d, f1962e, f1963f, f1964g, f1965h, f1966i, j, k, l, m, n, dVar};
     }
 
     public d(String str, int i2, int i3, String str2) {
@@ -114,7 +115,7 @@ public final class d {
     public static d[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (d[]) r.clone() : (d[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (d[]) r.clone() : (d[]) invokeV.objValue;
     }
 
     public final int a() {

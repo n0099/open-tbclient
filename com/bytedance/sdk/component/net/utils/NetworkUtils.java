@@ -6,13 +6,14 @@ import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class NetworkUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NETWORK_TYPE_LTE_CA = 19;
@@ -136,7 +137,7 @@ public class NetworkUtils {
     public static String getNetworkTypeString(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             int networkType = getNetworkType(context);
             return networkType != 2 ? networkType != 3 ? networkType != 4 ? networkType != 5 ? "mobile" : "4g" : "wifi" : "3g" : "2g";
         }

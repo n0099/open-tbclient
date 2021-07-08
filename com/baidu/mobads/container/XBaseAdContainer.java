@@ -72,7 +72,7 @@ import java.util.Set;
 import org.apache.http.HttpStatus;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class XBaseAdContainer implements IOAdEventListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ADSERV_URL = "http://mobads.baidu.com/ads/index.htm";
@@ -108,7 +108,7 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
     public String showRecord;
     public int windowFocusState;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class ApoParser {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -287,7 +287,7 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
 
     private void addProgressView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             try {
                 CircleTextProgressbar circleTextProgressbar = new CircleTextProgressbar(this.mActivity);
                 this.mProgressView = circleTextProgressbar;

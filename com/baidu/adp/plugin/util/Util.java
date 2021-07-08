@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.StatFs;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
@@ -104,13 +105,13 @@ public final class Util {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f2260a;
+        public boolean f2261a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f2261b;
+        public String f2262b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f2262c;
+        public int f2263c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -125,9 +126,9 @@ public final class Util {
                     return;
                 }
             }
-            this.f2260a = false;
-            this.f2261b = null;
-            this.f2262c = 0;
+            this.f2261a = false;
+            this.f2262b = null;
+            this.f2263c = 0;
         }
     }
 
@@ -245,12 +246,12 @@ public final class Util {
                     }
                     fileOutputStream.flush();
                     fileOutputStream.close();
-                    aVar.f2260a = true;
+                    aVar.f2261a = true;
                 } catch (Exception e3) {
                     e = e3;
                     fileOutputStream2 = fileOutputStream;
-                    aVar.f2260a = false;
-                    aVar.f2261b = e.toString();
+                    aVar.f2261a = false;
+                    aVar.f2262b = e.toString();
                     d.a.c.e.m.a.d(fileOutputStream2);
                     return aVar;
                 } catch (Throwable th2) {
@@ -262,7 +263,7 @@ public final class Util {
                 d.a.c.e.m.a.d(fileOutputStream2);
                 return aVar;
             }
-            aVar.f2261b = "illegal_param";
+            aVar.f2262b = "illegal_param";
             return aVar;
         }
         return (a) invokeLL.objValue;
@@ -270,7 +271,7 @@ public final class Util {
 
     public static void e(File file) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65540, null, file) == null) && file != null && file.exists()) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file) == null) && file != null && file.exists()) {
             a(file);
             try {
                 file.delete();

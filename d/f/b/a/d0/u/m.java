@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
 import d.f.b.a.i0.v;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class m extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,11 +47,11 @@ public final class m extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                long a2 = this.f72764h.a(this.f72757a.b(this.n));
+                long a2 = this.f69867h.a(this.f69860a.b(this.n));
                 if (a2 != -1) {
                     a2 += this.n;
                 }
-                d.f.b.a.a0.b bVar = new d.f.b.a.a0.b(this.f72764h, this.n, a2);
+                d.f.b.a.a0.b bVar = new d.f.b.a.a0.b(this.f69867h, this.n, a2);
                 b i2 = i();
                 i2.c(0L);
                 d.f.b.a.a0.m a3 = i2.a(0, this.l);
@@ -59,11 +59,11 @@ public final class m extends a {
                 for (int i3 = 0; i3 != -1; i3 = a3.d(bVar, Integer.MAX_VALUE, true)) {
                     this.n += i3;
                 }
-                a3.c(this.f72762f, 1, this.n, 0, null);
-                v.h(this.f72764h);
+                a3.c(this.f69865f, 1, this.n, 0, null);
+                v.h(this.f69867h);
                 this.p = true;
             } catch (Throwable th) {
-                v.h(this.f72764h);
+                v.h(this.f69867h);
                 throw th;
             }
         }

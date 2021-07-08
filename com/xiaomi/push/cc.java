@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.cg;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class cc extends cg.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42905a;
+    public String f39919a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cc(String str, String str2, String[] strArr, String str3) {
@@ -33,8 +33,8 @@ public class cc extends cg.d {
                 return;
             }
         }
-        this.f42905a = "MessageDeleteJob";
-        this.f42905a = str3;
+        this.f39919a = "MessageDeleteJob";
+        this.f39919a = str3;
     }
 
     public static cc a(String str) {

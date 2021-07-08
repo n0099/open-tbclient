@@ -30,42 +30,42 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class EmotionEditModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f19896e;
+    public e f19936e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.r0.b0.f f19897f;
+    public d.a.o0.b0.f f19937f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f19898g;
+    public f f19938g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EmotionEditActivity f19899h;
+    public EmotionEditActivity f19939h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f19900i;
+    public boolean f19940i;
     public Thread j;
     public Handler k;
     public final HttpMessageListener l;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends BdAsyncTask<Void, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f19901a;
+        public final /* synthetic */ Bitmap f19941a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f19902b;
+        public final /* synthetic */ String f19942b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ EmotionEditModel f19903c;
+        public final /* synthetic */ EmotionEditModel f19943c;
 
         public a(EmotionEditModel emotionEditModel, Bitmap bitmap, String str) {
             Interceptable interceptable = $ic;
@@ -82,9 +82,9 @@ public class EmotionEditModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f19903c = emotionEditModel;
-            this.f19901a = bitmap;
-            this.f19902b = str;
+            this.f19943c = emotionEditModel;
+            this.f19941a = bitmap;
+            this.f19942b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -94,11 +94,11 @@ public class EmotionEditModel extends BdBaseModel {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                if (this.f19903c.f19900i) {
+                if (this.f19943c.f19940i) {
                     return null;
                 }
-                File J = this.f19903c.J(this.f19901a, this.f19902b);
-                this.f19901a.recycle();
+                File J = this.f19943c.J(this.f19941a, this.f19942b);
+                this.f19941a.recycle();
                 return J.getAbsolutePath();
             }
             return (String) invokeL.objValue;
@@ -110,21 +110,21 @@ public class EmotionEditModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
                 super.onPostExecute((a) str);
-                this.f19903c.f19896e.onSaveImageSuccess(str);
+                this.f19943c.f19936e.onSaveImageSuccess(str);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.c.d.b f19904e;
+        public final /* synthetic */ d.a.c.d.b f19944e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ EmotionEditModel f19905f;
+        public final /* synthetic */ EmotionEditModel f19945f;
 
         public b(EmotionEditModel emotionEditModel, d.a.c.d.b bVar) {
             Interceptable interceptable = $ic;
@@ -141,8 +141,8 @@ public class EmotionEditModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f19905f = emotionEditModel;
-            this.f19904e = bVar;
+            this.f19945f = emotionEditModel;
+            this.f19944e = bVar;
         }
 
         @Override // java.lang.Runnable
@@ -150,29 +150,29 @@ public class EmotionEditModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f19905f.f19900i) {
+                    if (this.f19945f.f19940i) {
                         return;
                     }
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    d.a.s0.i2.b.a.a aVar = new d.a.s0.i2.b.a.a();
+                    d.a.p0.i2.b.a.a aVar = new d.a.p0.i2.b.a.a();
                     aVar.i(byteArrayOutputStream);
                     aVar.g(0);
-                    Bitmap createBitmap = Bitmap.createBitmap(this.f19904e.getWidth(), this.f19904e.getHeight(), Bitmap.Config.ARGB_8888);
-                    String str = d.a.c.e.p.f.f44423b + "/" + TbConfig.getTempDirName() + "/emotion.gif";
+                    Bitmap createBitmap = Bitmap.createBitmap(this.f19944e.getWidth(), this.f19944e.getHeight(), Bitmap.Config.ARGB_8888);
+                    String str = d.a.c.e.p.f.f41439b + "/" + TbConfig.getTempDirName() + "/emotion.gif";
                     Bitmap bitmap = null;
                     int i2 = 0;
                     while (true) {
-                        if (i2 >= this.f19904e.getFrameCount()) {
+                        if (i2 >= this.f19944e.getFrameCount()) {
                             break;
-                        } else if (this.f19905f.f19900i) {
-                            this.f19905f.G(createBitmap, bitmap);
+                        } else if (this.f19945f.f19940i) {
+                            this.f19945f.G(createBitmap, bitmap);
                             break;
                         } else {
-                            this.f19904e.c(i2);
-                            this.f19904e.a(createBitmap, null);
-                            bitmap = this.f19905f.f19899h.addTextToImage(createBitmap);
+                            this.f19944e.c(i2);
+                            this.f19944e.a(createBitmap, null);
+                            bitmap = this.f19945f.f19939h.addTextToImage(createBitmap);
                             aVar.a(bitmap);
-                            int b2 = this.f19904e.b(i2);
+                            int b2 = this.f19944e.b(i2);
                             if (b2 == 100) {
                                 b2 = 0;
                             }
@@ -182,17 +182,17 @@ public class EmotionEditModel extends BdBaseModel {
                             i2++;
                         }
                     }
-                    if (this.f19905f.f19900i) {
-                        this.f19905f.G(createBitmap, bitmap);
+                    if (this.f19945f.f19940i) {
+                        this.f19945f.G(createBitmap, bitmap);
                         return;
                     }
                     aVar.d();
-                    File K = this.f19905f.K(byteArrayOutputStream, str);
-                    this.f19905f.G(createBitmap, bitmap);
+                    File K = this.f19945f.K(byteArrayOutputStream, str);
+                    this.f19945f.G(createBitmap, bitmap);
                     Message obtain = Message.obtain();
                     obtain.what = 0;
                     obtain.obj = K.getAbsolutePath();
-                    this.f19905f.k.sendMessage(obtain);
+                    this.f19945f.k.sendMessage(obtain);
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }
@@ -200,13 +200,13 @@ public class EmotionEditModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionEditModel f19906a;
+        public final /* synthetic */ EmotionEditModel f19946a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(EmotionEditModel emotionEditModel, Looper looper) {
@@ -226,7 +226,7 @@ public class EmotionEditModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f19906a = emotionEditModel;
+            this.f19946a = emotionEditModel;
         }
 
         @Override // android.os.Handler
@@ -236,7 +236,7 @@ public class EmotionEditModel extends BdBaseModel {
                 super.handleMessage(message);
                 if (message != null) {
                     try {
-                        this.f19906a.f19896e.onSaveImageSuccess((String) message.obj);
+                        this.f19946a.f19936e.onSaveImageSuccess((String) message.obj);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
@@ -245,13 +245,13 @@ public class EmotionEditModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionEditModel f19907a;
+        public final /* synthetic */ EmotionEditModel f19947a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(EmotionEditModel emotionEditModel, int i2) {
@@ -271,7 +271,7 @@ public class EmotionEditModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f19907a = emotionEditModel;
+            this.f19947a = emotionEditModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -282,25 +282,25 @@ public class EmotionEditModel extends BdBaseModel {
                 EmotionCheckUegResponseMessage emotionCheckUegResponseMessage = (EmotionCheckUegResponseMessage) httpResponsedMessage;
                 String status = emotionCheckUegResponseMessage.getStatus();
                 if (EmotionCheckUegResponseMessage.STATUS_OK.equals(status)) {
-                    this.f19907a.f19896e.onCheckUegSuccess();
+                    this.f19947a.f19936e.onCheckUegSuccess();
                 } else if (EmotionCheckUegResponseMessage.STATUS_FAIL.equals(status)) {
                     String msg = emotionCheckUegResponseMessage.getMsg();
                     if (TextUtils.isEmpty(msg)) {
-                        msg = this.f19907a.f19899h.getPageContext().getPageActivity().getResources().getString(R.string.emotion_edit_ueg_fail);
+                        msg = this.f19947a.f19939h.getPageContext().getPageActivity().getResources().getString(R.string.emotion_edit_ueg_fail);
                     }
-                    this.f19907a.f19896e.onCheckUegFail(msg);
+                    this.f19947a.f19936e.onCheckUegFail(msg);
                 } else {
                     String errorString = httpResponsedMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
-                        errorString = this.f19907a.f19899h.getPageContext().getPageActivity().getResources().getString(R.string.emotion_edit_fail);
+                        errorString = this.f19947a.f19939h.getPageContext().getPageActivity().getResources().getString(R.string.emotion_edit_fail);
                     }
-                    this.f19907a.f19896e.onCheckUegFail(errorString);
+                    this.f19947a.f19936e.onCheckUegFail(errorString);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface e {
         void onCheckUegFail(String str);
 
@@ -311,19 +311,19 @@ public class EmotionEditModel extends BdBaseModel {
         void onUploadImageSuccess(ImageUploadResult imageUploadResult);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class f extends BdAsyncTask<String, Integer, ImageUploadResult> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ImageFileInfo f19908a;
+        public ImageFileInfo f19948a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f19909b;
+        public boolean f19949b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ EmotionEditModel f19910c;
+        public final /* synthetic */ EmotionEditModel f19950c;
 
         public f(EmotionEditModel emotionEditModel, ImageFileInfo imageFileInfo, boolean z) {
             Interceptable interceptable = $ic;
@@ -340,9 +340,9 @@ public class EmotionEditModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f19910c = emotionEditModel;
-            this.f19908a = imageFileInfo;
-            this.f19909b = z;
+            this.f19950c = emotionEditModel;
+            this.f19948a = imageFileInfo;
+            this.f19949b = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -352,8 +352,8 @@ public class EmotionEditModel extends BdBaseModel {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                this.f19910c.f19897f = new d.a.r0.b0.f(null);
-                return this.f19910c.f19897f.h(this.f19908a, this.f19909b, false);
+                this.f19950c.f19937f = new d.a.o0.b0.f(null);
+                return this.f19950c.f19937f.h(this.f19948a, this.f19949b, false);
             }
             return (ImageUploadResult) invokeL.objValue;
         }
@@ -364,7 +364,7 @@ public class EmotionEditModel extends BdBaseModel {
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageUploadResult) == null) {
-                this.f19910c.f19896e.onUploadImageSuccess(imageUploadResult);
+                this.f19950c.f19936e.onUploadImageSuccess(imageUploadResult);
             }
         }
     }
@@ -386,8 +386,8 @@ public class EmotionEditModel extends BdBaseModel {
         }
         this.k = new c(this, Looper.getMainLooper());
         this.l = new d(this, CmdConfigHttp.CMD_EMOTION_EDIT_TEXT_UEG);
-        this.f19899h = emotionEditActivity;
-        this.f19896e = eVar;
+        this.f19939h = emotionEditActivity;
+        this.f19936e = eVar;
         registerTask();
         this.l.setTag(getUniqueId());
         this.l.setSelfListener(true);
@@ -397,11 +397,11 @@ public class EmotionEditModel extends BdBaseModel {
     public final void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d.a.r0.b0.f fVar = this.f19897f;
+            d.a.o0.b0.f fVar = this.f19937f;
             if (fVar != null) {
                 fVar.a();
             }
-            f fVar2 = this.f19898g;
+            f fVar2 = this.f19938g;
             if (fVar2 != null) {
                 fVar2.cancel();
             }
@@ -409,7 +409,7 @@ public class EmotionEditModel extends BdBaseModel {
             if (thread != null) {
                 thread.interrupt();
             }
-            this.f19900i = true;
+            this.f19940i = true;
         }
     }
 
@@ -425,7 +425,7 @@ public class EmotionEditModel extends BdBaseModel {
     public boolean F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19900i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19940i : invokeV.booleanValue;
     }
 
     public final void G(Bitmap bitmap, Bitmap bitmap2) {
@@ -584,7 +584,7 @@ public class EmotionEditModel extends BdBaseModel {
     public void L(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f19900i = z;
+            this.f19940i = z;
             if (z) {
                 D();
             }
@@ -609,7 +609,7 @@ public class EmotionEditModel extends BdBaseModel {
         ImageFileInfo imageFileInfo = new ImageFileInfo();
         imageFileInfo.setFilePath(str);
         f fVar = new f(this, imageFileInfo, z);
-        this.f19898g = fVar;
+        this.f19938g = fVar;
         fVar.execute(new String[0]);
     }
 

@@ -31,7 +31,7 @@ import org.java_websocket.WebSocket;
 import org.java_websocket.drafts.Draft;
 import org.java_websocket.exceptions.InvalidHandshakeException;
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class a extends g.b.a implements Runnable, WebSocket {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,19 +49,19 @@ public abstract class a extends g.b.a implements Runnable, WebSocket {
     public Thread writeThread;
 
     /* renamed from: g.b.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static /* synthetic */ class C2088a {
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class C2056a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f75321e;
+        public final /* synthetic */ a f72355e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public abstract class a extends g.b.a implements Runnable, WebSocket {
                     return;
                 }
             }
-            this.f75321e = aVar;
+            this.f72355e = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -94,27 +94,27 @@ public abstract class a extends g.b.a implements Runnable, WebSocket {
                                 if (Thread.interrupted()) {
                                     break;
                                 }
-                                ByteBuffer take = this.f75321e.engine.f75316e.take();
-                                this.f75321e.ostream.write(take.array(), 0, take.limit());
-                                this.f75321e.ostream.flush();
+                                ByteBuffer take = this.f72355e.engine.f72350e.take();
+                                this.f72355e.ostream.write(take.array(), 0, take.limit());
+                                this.f72355e.ostream.flush();
                             } catch (IOException e2) {
-                                this.f75321e.handleIOException(e2);
+                                this.f72355e.handleIOException(e2);
                             }
                         } finally {
-                            this.f75321e.closeSocket();
-                            this.f75321e.writeThread = null;
+                            this.f72355e.closeSocket();
+                            this.f72355e.writeThread = null;
                         }
                     } catch (InterruptedException unused) {
-                        for (ByteBuffer byteBuffer : this.f75321e.engine.f75316e) {
-                            this.f75321e.ostream.write(byteBuffer.array(), 0, byteBuffer.limit());
-                            this.f75321e.ostream.flush();
+                        for (ByteBuffer byteBuffer : this.f72355e.engine.f72350e) {
+                            this.f72355e.ostream.write(byteBuffer.array(), 0, byteBuffer.limit());
+                            this.f72355e.ostream.flush();
                         }
                     }
                 }
             }
         }
 
-        public /* synthetic */ b(a aVar, C2088a c2088a) {
+        public /* synthetic */ b(a aVar, C2056a c2056a) {
             this(aVar);
         }
     }
@@ -774,12 +774,12 @@ public abstract class a extends g.b.a implements Runnable, WebSocket {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {uri, draft, map, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }

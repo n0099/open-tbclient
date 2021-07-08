@@ -4,6 +4,7 @@ import android.content.res.AssetManager;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -30,7 +31,7 @@ import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern RESERVED_CHARS_PATTERN;
@@ -518,7 +519,7 @@ public final class FileUtils {
 
     public static void cleanDir(File file, FilenameFilter filenameFilter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, file, filenameFilter) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, filenameFilter) == null) {
             deleteDir(file, false, filenameFilter);
         }
     }

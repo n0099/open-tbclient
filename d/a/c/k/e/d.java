@@ -16,26 +16,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<c> f44832a;
+    public ArrayList<c> f41848a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<c> f44833b;
+    public ArrayList<c> f41849b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f44834c;
+    public a f41850c;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void onPreLoad();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class b extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,25 +61,25 @@ public class d {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f44835a;
+        public long f41851a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f44836b;
+        public int f41852b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TypeAdapter.ViewHolder f44837c;
+        public TypeAdapter.ViewHolder f41853c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Object f44838d;
+        public Object f41854d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f44839e;
+        public boolean f41855e;
 
         public c(d dVar) {
             Interceptable interceptable = $ic;
@@ -111,11 +111,11 @@ public class d {
                 return;
             }
         }
-        this.f44832a = null;
-        this.f44833b = null;
-        this.f44834c = null;
-        this.f44832a = new ArrayList<>();
-        this.f44833b = new ArrayList<>();
+        this.f41848a = null;
+        this.f41849b = null;
+        this.f41850c = null;
+        this.f41848a = new ArrayList<>();
+        this.f41849b = new ArrayList<>();
     }
 
     public void a(View view, Object obj, boolean z, boolean z2, int i2) {
@@ -124,17 +124,17 @@ public class d {
             return;
         }
         c cVar = new c(this);
-        cVar.f44837c = new TypeAdapter.ViewHolder(view);
-        cVar.f44838d = obj;
-        cVar.f44839e = z2;
+        cVar.f41853c = new TypeAdapter.ViewHolder(view);
+        cVar.f41854d = obj;
+        cVar.f41855e = z2;
         int id = BdUniqueId.gen().getId();
-        cVar.f44836b = id;
-        cVar.f44835a = id;
+        cVar.f41852b = id;
+        cVar.f41851a = id;
         view.setTag("FOOTER");
-        if (i2 >= 0 && i2 <= this.f44833b.size()) {
-            this.f44833b.add(i2, cVar);
+        if (i2 >= 0 && i2 <= this.f41849b.size()) {
+            this.f41849b.add(i2, cVar);
         } else {
-            this.f44833b.add(cVar);
+            this.f41849b.add(cVar);
         }
     }
 
@@ -144,17 +144,17 @@ public class d {
             return;
         }
         c cVar = new c(this);
-        cVar.f44837c = new TypeAdapter.ViewHolder(view);
-        cVar.f44838d = obj;
-        cVar.f44839e = z2;
+        cVar.f41853c = new TypeAdapter.ViewHolder(view);
+        cVar.f41854d = obj;
+        cVar.f41855e = z2;
         int id = BdUniqueId.gen().getId();
-        cVar.f44836b = id;
-        cVar.f44835a = id;
+        cVar.f41852b = id;
+        cVar.f41851a = id;
         view.setTag("HEADER");
-        if (i2 >= 0 && i2 <= this.f44832a.size()) {
-            this.f44832a.add(i2, cVar);
+        if (i2 >= 0 && i2 <= this.f41848a.size()) {
+            this.f41848a.add(i2, cVar);
         } else {
-            this.f44832a.add(cVar);
+            this.f41848a.add(cVar);
         }
     }
 
@@ -177,9 +177,9 @@ public class d {
         TypeAdapter.ViewHolder viewHolder;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view)) == null) {
-            for (int i2 = 0; i2 < this.f44833b.size(); i2++) {
-                c cVar = this.f44833b.get(i2);
-                if (cVar != null && (viewHolder = cVar.f44837c) != null && viewHolder.itemView == view) {
+            for (int i2 = 0; i2 < this.f41849b.size(); i2++) {
+                c cVar = this.f41849b.get(i2);
+                if (cVar != null && (viewHolder = cVar.f41853c) != null && viewHolder.itemView == view) {
                     return i2;
                 }
             }
@@ -192,10 +192,10 @@ public class d {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            Iterator<c> it = this.f44833b.iterator();
+            Iterator<c> it = this.f41849b.iterator();
             while (it.hasNext()) {
                 c next = it.next();
-                if (next != null && i2 == next.f44836b) {
+                if (next != null && i2 == next.f41852b) {
                     return next;
                 }
             }
@@ -209,9 +209,9 @@ public class d {
         TypeAdapter.ViewHolder viewHolder;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view)) == null) {
-            for (int i2 = 0; i2 < this.f44832a.size(); i2++) {
-                c cVar = this.f44832a.get(i2);
-                if (cVar != null && (viewHolder = cVar.f44837c) != null && viewHolder.itemView == view) {
+            for (int i2 = 0; i2 < this.f41848a.size(); i2++) {
+                c cVar = this.f41848a.get(i2);
+                if (cVar != null && (viewHolder = cVar.f41853c) != null && viewHolder.itemView == view) {
                     return i2;
                 }
             }
@@ -224,10 +224,10 @@ public class d {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            Iterator<c> it = this.f44832a.iterator();
+            Iterator<c> it = this.f41848a.iterator();
             while (it.hasNext()) {
                 c next = it.next();
-                if (next != null && i2 == next.f44836b) {
+                if (next != null && i2 == next.f41852b) {
                     return next;
                 }
             }
@@ -239,13 +239,13 @@ public class d {
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f44833b.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f41849b.size() : invokeV.intValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f44832a.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f41848a.size() : invokeV.intValue;
     }
 
     public boolean j(View view) {
@@ -256,10 +256,10 @@ public class d {
             if (view == null) {
                 return false;
             }
-            for (int i2 = 0; i2 < this.f44833b.size(); i2++) {
-                c cVar = this.f44833b.get(i2);
-                if (cVar != null && (viewHolder = cVar.f44837c) != null && viewHolder.itemView == view) {
-                    this.f44833b.remove(i2);
+            for (int i2 = 0; i2 < this.f41849b.size(); i2++) {
+                c cVar = this.f41849b.get(i2);
+                if (cVar != null && (viewHolder = cVar.f41853c) != null && viewHolder.itemView == view) {
+                    this.f41849b.remove(i2);
                     return true;
                 }
             }
@@ -276,10 +276,10 @@ public class d {
             if (view == null) {
                 return false;
             }
-            for (int i2 = 0; i2 < this.f44832a.size(); i2++) {
-                c cVar = this.f44832a.get(i2);
-                if (cVar != null && (viewHolder = cVar.f44837c) != null && viewHolder.itemView == view) {
-                    this.f44832a.remove(i2);
+            for (int i2 = 0; i2 < this.f41848a.size(); i2++) {
+                c cVar = this.f41848a.get(i2);
+                if (cVar != null && (viewHolder = cVar.f41853c) != null && viewHolder.itemView == view) {
+                    this.f41848a.remove(i2);
                     return true;
                 }
             }
@@ -291,7 +291,7 @@ public class d {
     public void l(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
-            this.f44834c = aVar;
+            this.f41850c = aVar;
         }
     }
 }

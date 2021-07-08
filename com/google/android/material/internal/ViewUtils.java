@@ -14,6 +14,7 @@ import androidx.annotation.Dimension;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,12 +26,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ViewUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface OnApplyWindowInsetsListener {
         WindowInsetsCompat onApplyWindowInsets(View view, WindowInsetsCompat windowInsetsCompat, RelativePadding relativePadding);
     }
@@ -59,7 +60,7 @@ public class ViewUtils {
     public static float dpToPx(@NonNull Context context, @Dimension(unit = 0) int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, context, i2)) == null) ? TypedValue.applyDimension(1, i2, context.getResources().getDisplayMetrics()) : invokeLI.floatValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2)) == null) ? TypedValue.applyDimension(1, i2, context.getResources().getDisplayMetrics()) : invokeLI.floatValue;
     }
 
     @Nullable
@@ -305,7 +306,7 @@ public class ViewUtils {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class RelativePadding {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

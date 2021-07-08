@@ -14,6 +14,7 @@ import android.view.animation.RotateAnimation;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,12 +27,12 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f23227a;
+    public static SimpleDateFormat f23337a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static int a() {
@@ -66,7 +67,7 @@ public final class i {
     public static ColorStateList a(int i2, int i3, int i4, int i5) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(65540, null, i2, i3, i4, i5)) == null) ? new ColorStateList(new int[][]{new int[]{16842919, 16842910}, new int[]{16842910, 16842908}, new int[]{16842910}, new int[]{16842908}, new int[]{16842909}, new int[0]}, new int[]{i3, i4, i2, i4, i5, i2}) : (ColorStateList) invokeIIII.objValue;
+        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3, i4, i5)) == null) ? new ColorStateList(new int[][]{new int[]{16842919, 16842910}, new int[]{16842910, 16842908}, new int[]{16842910}, new int[]{16842908}, new int[]{16842909}, new int[0]}, new int[]{i3, i4, i2, i4, i5, i2}) : (ColorStateList) invokeIIII.objValue;
     }
 
     public static Bitmap a(Drawable drawable) {
@@ -108,10 +109,10 @@ public final class i {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j)) == null) {
-            if (f23227a == null) {
-                f23227a = new SimpleDateFormat("MM-dd HH:mm");
+            if (f23337a == null) {
+                f23337a = new SimpleDateFormat("MM-dd HH:mm");
             }
-            return f23227a.format(new Date(j));
+            return f23337a.format(new Date(j));
         }
         return (String) invokeJ.objValue;
     }
@@ -225,10 +226,10 @@ public final class i {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65549, null, j)) == null) {
-            if (f23227a == null) {
-                f23227a = new SimpleDateFormat("yy-MM-dd");
+            if (f23337a == null) {
+                f23337a = new SimpleDateFormat("yy-MM-dd");
             }
-            return f23227a.format(new Date(j));
+            return f23337a.format(new Date(j));
         }
         return (String) invokeJ.objValue;
     }
@@ -250,9 +251,9 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65551, null, j)) == null) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd HH:mm");
-            f23227a = simpleDateFormat;
+            f23337a = simpleDateFormat;
             String format = simpleDateFormat.format(new Date(j));
-            f23227a = null;
+            f23337a = null;
             return format.split(" ")[1];
         }
         return (String) invokeJ.objValue;

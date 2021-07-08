@@ -1,68 +1,126 @@
 package com.kwad.sdk.utils;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.mobads.container.util.EncryptUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.glide.load.DataSource;
-import com.kwad.sdk.glide.load.engine.GlideException;
-/* loaded from: classes7.dex */
+import com.kwad.sdk.KsAdSDKImpl;
+import com.kwad.sdk.api.loader.Loader;
+import java.io.InputStream;
+/* loaded from: classes6.dex */
 public class m {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static String f36582a = "";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f36583b = "";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f36584c = "";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, String str) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1510835353, "Lcom/kwad/sdk/utils/m;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1510835353, "Lcom/kwad/sdk/utils/m;");
+        }
+    }
+
+    public m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, str) == null) {
-            com.kwad.sdk.core.d.a.a("GlideUtils", "preloadImage imageUrl=" + str);
-            try {
-                com.kwad.sdk.glide.c.b(context).a(str).b(new com.kwad.sdk.glide.request.e<Drawable>() { // from class: com.kwad.sdk.utils.m.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                            }
-                        }
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.kwad.sdk.glide.request.e
-                    public boolean a(Drawable drawable, Object obj, com.kwad.sdk.glide.request.a.j<Drawable> jVar, DataSource dataSource, boolean z) {
-                        InterceptResult invokeCommon;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{drawable, obj, jVar, dataSource, Boolean.valueOf(z)})) == null) {
-                            return false;
-                        }
-                        return invokeCommon.booleanValue;
-                    }
-
-                    @Override // com.kwad.sdk.glide.request.e
-                    public boolean a(@Nullable GlideException glideException, Object obj, com.kwad.sdk.glide.request.a.j<Drawable> jVar, boolean z) {
-                        InterceptResult invokeCommon;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{glideException, obj, jVar, Boolean.valueOf(z)})) == null) {
-                            return false;
-                        }
-                        return invokeCommon.booleanValue;
-                    }
-                }).b();
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.b(e2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public static String a(int i2) {
+        InterceptResult invokeI;
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            Context context = KsAdSDKImpl.get().getContext();
+            if (context == null) {
+                com.kwad.sdk.core.d.a.e(EncryptUtils.TAG, "EncryptUtils getKey context is null");
+                return "";
+            }
+            if (i2 == 0) {
+                str = f36582a;
+                str2 = "aes_key";
+            } else if (i2 == 1) {
+                str = f36583b;
+                str2 = "rsa_public_key";
+            } else if (i2 != 2) {
+                str = "";
+                str2 = str;
+            } else {
+                str = f36584c;
+                str2 = "rsa_private_key";
+            }
+            if (TextUtils.isEmpty(str)) {
+                if (TextUtils.isEmpty(str2)) {
+                    com.kwad.sdk.core.d.a.e(EncryptUtils.TAG, "EncryptUtils getKey get id is error ");
+                }
+                try {
+                    InputStream open = Loader.get().getExternalResource().getAssets().open("ksad_common_encrypt_image.png");
+                    if (open == null) {
+                        open = context.getAssets().open("ksad_common_encrypt_image.png");
+                    }
+                    String a2 = a(str2, open);
+                    if (TextUtils.isEmpty(a2)) {
+                        com.kwad.sdk.core.d.a.e(EncryptUtils.TAG, "EncryptUtils getKey get encryptedKey is invalid ");
+                    }
+                    if (i2 == 0) {
+                        f36582a = a2;
+                    } else if (i2 == 1) {
+                        f36583b = a2;
+                    } else if (i2 == 2) {
+                        f36584c = a2;
+                    }
+                    return a2;
+                }
+            }
+            return str;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static String a(String str, InputStream inputStream) {
+        InterceptResult invokeLL;
+        String b2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, inputStream)) == null) {
+            synchronized (m.class) {
+                com.kwad.sdk.pngencrypt.o oVar = new com.kwad.sdk.pngencrypt.o(inputStream, true);
+                oVar.c();
+                b2 = oVar.b().b(str);
+                oVar.d();
+            }
+            return b2;
+        }
+        return (String) invokeLL.objValue;
     }
 }

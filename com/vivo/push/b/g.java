@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.DebugConfig;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class g extends com.vivo.push.y {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f42065a;
+    public int f39079a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g() {
@@ -31,7 +31,7 @@ public final class g extends com.vivo.push.y {
                 return;
             }
         }
-        this.f42065a = -1;
+        this.f39079a = -1;
     }
 
     public static boolean a(int i2) {
@@ -43,15 +43,15 @@ public final class g extends com.vivo.push.y {
     public final void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f42065a = i2;
+            this.f39079a = i2;
         }
     }
 
     @Override // com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && a(this.f42065a)) {
-            aVar.a(DebugConfig.f24549e, this.f42065a);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && a(this.f39079a)) {
+            aVar.a(DebugConfig.f24659e, this.f39079a);
         }
     }
 
@@ -59,7 +59,7 @@ public final class g extends com.vivo.push.y {
     public final void d(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f42065a = aVar.b(DebugConfig.f24549e, 1);
+            this.f39079a = aVar.b(DebugConfig.f24659e, 1);
         }
     }
 }

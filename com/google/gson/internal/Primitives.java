@@ -1,5 +1,6 @@
 package com.google.gson.internal;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,7 +13,7 @@ import java.lang.reflect.Type;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Primitives {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<Class<?>, Class<?>> PRIMITIVE_TO_WRAPPER_TYPE;
@@ -80,7 +81,7 @@ public final class Primitives {
     public static boolean isWrapperType(Type type) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, type)) == null) ? WRAPPER_TO_PRIMITIVE_TYPE.containsKey(C$Gson$Preconditions.checkNotNull(type)) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, type)) == null) ? WRAPPER_TO_PRIMITIVE_TYPE.containsKey(C$Gson$Preconditions.checkNotNull(type)) : invokeL.booleanValue;
     }
 
     public static <T> Class<T> unwrap(Class<T> cls) {

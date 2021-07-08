@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.z0.w;
+import d.a.o0.z0.w;
 import tbclient.BackUser.BackUserReqIdl;
 import tbclient.BackUser.DataReq;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BackUserReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -3,6 +3,7 @@ package androidx.core.graphics;
 import android.graphics.Path;
 import android.util.Log;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -99,7 +100,7 @@ public class PathParser {
     public static PathDataNode[] createNodesFromPathData(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (str == null) {
                 return null;
             }
@@ -662,7 +663,7 @@ public class PathParser {
             double d2;
             double d3;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{path, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{path, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
                 double radians = Math.toRadians(f8);
                 double cos = Math.cos(radians);
                 double sin = Math.sin(radians);

@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class RequestTask implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "pmsRequestTask";

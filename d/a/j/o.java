@@ -18,23 +18,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.j.a;
 import d.a.j.v0.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class o extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NewGridImageLayout l;
-    public d.a.r0.r.q.a m;
+    public d.a.o0.r.q.a m;
     public int n;
     public String o;
     public int p;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ o f45791e;
+        public final /* synthetic */ o f42683e;
 
         public a(o oVar) {
             Interceptable interceptable = $ic;
@@ -51,28 +51,28 @@ public class o extends h {
                     return;
                 }
             }
-            this.f45791e = oVar;
+            this.f42683e = oVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             o oVar;
-            a.InterfaceC0643a interfaceC0643a;
+            a.InterfaceC0609a interfaceC0609a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0643a = (oVar = this.f45791e).f45738i) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0609a = (oVar = this.f42683e).f42630i) == null) {
                 return;
             }
-            interfaceC0643a.a(oVar.m);
+            interfaceC0609a.a(oVar.m);
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class b implements a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ o f45792a;
+        public final /* synthetic */ o f42684a;
 
         public b(o oVar) {
             Interceptable interceptable = $ic;
@@ -89,18 +89,18 @@ public class o extends h {
                     return;
                 }
             }
-            this.f45792a = oVar;
+            this.f42684a = oVar;
         }
 
         @Override // d.a.j.v0.a.b
-        public boolean a(a.C0645a c0645a) {
+        public boolean a(a.C0611a c0611a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0645a)) == null) {
-                if (this.f45792a.m != null && this.f45792a.m.getThreadData() != null && !this.f45792a.f().booleanValue()) {
-                    d.a.s0.a0.m.a(this.f45792a.m.getThreadData().c0());
-                    d.a.s0.a0.m.l(this.f45792a.l.f4529f, this.f45792a.m.getThreadData().c0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    d.a.s0.a0.m.l(this.f45792a.l.f4530g, this.f45792a.m.getThreadData().c0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0611a)) == null) {
+                if (this.f42684a.m != null && this.f42684a.m.getThreadData() != null && !this.f42684a.f().booleanValue()) {
+                    d.a.p0.a0.m.a(this.f42684a.m.getThreadData().c0());
+                    d.a.p0.a0.m.l(this.f42684a.l.f4546f, this.f42684a.m.getThreadData().c0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    d.a.p0.a0.m.l(this.f42684a.l.f4547g, this.f42684a.m.getThreadData().c0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -130,10 +130,10 @@ public class o extends h {
         this.l = new NewGridImageLayout(context);
     }
 
-    public void A(a.InterfaceC0643a interfaceC0643a) {
+    public void A(a.InterfaceC0609a interfaceC0609a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0643a) == null) {
-            this.f45738i = interfaceC0643a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0609a) == null) {
+            this.f42630i = interfaceC0609a;
         }
     }
 
@@ -173,7 +173,7 @@ public class o extends h {
     public void G(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.l.p = z;
+            this.l.r = z;
         }
     }
 
@@ -193,7 +193,7 @@ public class o extends h {
     }
 
     @Override // d.a.j.a
-    public void l(d.a.s0.a0.b0<d.a.r0.r.q.a> b0Var) {
+    public void l(d.a.p0.a0.b0<d.a.o0.r.q.a> b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, b0Var) == null) {
             this.l.setSubClickListener(b0Var);
@@ -209,7 +209,7 @@ public class o extends h {
             }
             NewGridImageLayout newGridImageLayout = this.l;
             if (newGridImageLayout != null) {
-                newGridImageLayout.p(i2);
+                newGridImageLayout.r(i2);
             }
             this.n = i2;
         }
@@ -218,7 +218,7 @@ public class o extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.j.p
     /* renamed from: u */
-    public void a(d.a.r0.r.q.a aVar) {
+    public void a(d.a.o0.r.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
             this.m = aVar;

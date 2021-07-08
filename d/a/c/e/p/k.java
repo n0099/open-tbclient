@@ -2,6 +2,7 @@ package d.a.c.e.p;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -23,7 +24,7 @@ import java.util.GregorianCalendar;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 @SuppressLint({"SimpleDateFormat"})
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic;
     public static SimpleDateFormat FORMATE_DATE_ALL;
@@ -115,7 +116,7 @@ public class k {
     public static String GetTimeString2(Date date) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, date)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, date)) == null) {
             if (date == null) {
                 return "";
             }

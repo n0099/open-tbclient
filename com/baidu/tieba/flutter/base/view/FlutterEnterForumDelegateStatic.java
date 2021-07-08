@@ -24,11 +24,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.idlefish.flutterboost.containers.FlutterFragment;
 import d.a.c.a.h;
 import d.a.c.e.p.l;
-import d.a.r0.e0.b;
-import d.a.r0.e0.c;
-import d.a.r0.e0.d;
+import d.a.o0.e0.b;
+import d.a.o0.e0.c;
+import d.a.o0.e0.d;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FlutterEnterForumDelegateStatic extends b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PERSON_INFO_TAB_MIDDLE_REDDOT_DISTANCE = 10;
@@ -96,37 +96,37 @@ public class FlutterEnterForumDelegateStatic extends b {
         }
     }
 
-    @Override // d.a.r0.e0.b
+    @Override // d.a.o0.e0.b
     public c createFragmentTabStructure() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c();
             HashMap hashMap = new HashMap();
-            hashMap.put("tabIndex", Integer.valueOf(d.a.r0.r.a0.b.f55555c));
+            hashMap.put("tabIndex", Integer.valueOf(d.a.o0.r.a0.b.f52261c));
             FlutterFragment.NewEngineFragmentBuilder newEngineFragmentBuilder = new FlutterFragment.NewEngineFragmentBuilder(TbFlutterFragment.class);
             newEngineFragmentBuilder.params(hashMap);
             newEngineFragmentBuilder.url(OpenFlutter.FRAGMENT_ENTER_FORUM);
-            newEngineFragmentBuilder.isTabHost(d.a.r0.r.a0.b.f55554b != 1);
+            newEngineFragmentBuilder.isTabHost(d.a.o0.r.a0.b.f52260b != 1);
             TbFlutterFragment tbFlutterFragment = (TbFlutterFragment) newEngineFragmentBuilder.build();
-            cVar.f55251a = tbFlutterFragment;
-            if (d.a.r0.r.a0.b.f55555c == d.a.r0.r.a0.b.f55557e) {
-                d.a.r0.r.a0.b.f55555c = d.a.r0.r.a0.b.f55556d;
+            cVar.f51956a = tbFlutterFragment;
+            if (d.a.o0.r.a0.b.f52261c == d.a.o0.r.a0.b.f52263e) {
+                d.a.o0.r.a0.b.f52261c = d.a.o0.r.a0.b.f52262d;
                 tbFlutterFragment.removeSplashDelay(1000L);
                 tbFlutterFragment.setAutoPlayWhenInit(true);
             }
-            cVar.f55255e = 1;
+            cVar.f51960e = 1;
             Resources b2 = h.a().b();
-            cVar.f55252b = b2.getIdentifier("enter_forum", "string", BdBaseApplication.getInst().getPackageName());
-            cVar.f55256f = b2.getIdentifier("lottie_tab_forum", "raw", BdBaseApplication.getInst().getPackageName());
-            cVar.f55259i = c.m;
-            cVar.f55258h = d.a.r0.e0.e.c.d().c("enterForum");
+            cVar.f51957b = b2.getIdentifier("enter_forum", "string", BdBaseApplication.getInst().getPackageName());
+            cVar.f51961f = b2.getIdentifier("lottie_tab_forum", "raw", BdBaseApplication.getInst().getPackageName());
+            cVar.f51964i = c.m;
+            cVar.f51963h = d.a.o0.e0.e.c.d().c("enterForum");
             return cVar;
         }
         return (c) invokeV.objValue;
     }
 
-    @Override // d.a.r0.e0.b
+    @Override // d.a.o0.e0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -134,11 +134,11 @@ public class FlutterEnterForumDelegateStatic extends b {
             this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(h.a().b().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
             this.tipView = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-            aVar.f13103f = this.mIndicator;
-            aVar.f13100c = l.e(context, 10.0f);
-            aVar.f13098a = this.tipView;
+            aVar.f13120f = this.mIndicator;
+            aVar.f13117c = l.e(context, 10.0f);
+            aVar.f13115a = this.tipView;
             this.mIndicator.b(FileHelper.FILE_CACHE_EMOTION_PACKAGE, aVar);
-            boolean g2 = d.a.r0.r.d0.b.j().g("key_feedback_tip_tab_show", false);
+            boolean g2 = d.a.o0.r.d0.b.j().g("key_feedback_tip_tab_show", false);
             if (!this.isNew.booleanValue() && !g2) {
                 this.tipView.setVisibility(8);
             } else {
@@ -150,7 +150,7 @@ public class FlutterEnterForumDelegateStatic extends b {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // d.a.r0.e0.b
+    @Override // d.a.o0.e0.b
     public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

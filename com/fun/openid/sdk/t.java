@@ -16,13 +16,13 @@ import com.fun.openid.sdk.f;
 import com.fun.openid.sdk.g;
 import com.fun.openid.sdk.s;
 import com.fun.openid.sdk.u;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class t implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ u f32688a;
+    public final /* synthetic */ u f32798a;
 
     public t(u uVar) {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class t implements ServiceConnection {
                 return;
             }
         }
-        this.f32688a = uVar;
+        this.f32798a = uVar;
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(9:10|11|(2:12|13)|(5:15|(2:17|(5:22|23|(2:25|26)|33|26)(2:19|20))(3:36|(1:38)|39)|27|28|29)|41|(0)(0)|27|28|29) */
@@ -58,30 +58,30 @@ public class t implements ServiceConnection {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             synchronized (this) {
-                u uVar = this.f32688a;
-                int i2 = s.a.f32686a;
+                u uVar = this.f32798a;
+                int i2 = s.a.f32796a;
                 if (iBinder == null) {
                     c0376a = null;
                 } else {
                     IInterface queryLocalInterface = iBinder.queryLocalInterface("com.zui.deviceidservice.IDeviceidInterface");
                     c0376a = (queryLocalInterface == null || !(queryLocalInterface instanceof s)) ? new s.a.C0376a(iBinder) : (s) queryLocalInterface;
                 }
-                uVar.f32690b = c0376a;
-                u uVar2 = this.f32688a;
-                u.a aVar = uVar2.f32692d;
+                uVar.f32800b = c0376a;
+                u uVar2 = this.f32798a;
+                u.a aVar = uVar2.f32802d;
                 if (aVar != null) {
                     g.a aVar2 = (g.a) aVar;
                     try {
-                        sVar2 = uVar2.f32690b;
+                        sVar2 = uVar2.f32800b;
                     } catch (RemoteException unused) {
                     }
                     if (sVar2 != null) {
                         z = sVar2.a();
                         if (!z) {
-                            f.a aVar3 = aVar2.f32665a;
-                            if (uVar2.f32689a != null) {
+                            f.a aVar3 = aVar2.f32775a;
+                            if (uVar2.f32799a != null) {
                                 try {
-                                    sVar = uVar2.f32690b;
+                                    sVar = uVar2.f32800b;
                                 } catch (RemoteException e2) {
                                     e2.printStackTrace();
                                 }
@@ -98,20 +98,20 @@ public class t implements ServiceConnection {
                             if (FunOpenIDSdk.isLogEnabled()) {
                                 Log.e(FunOpenIDSdk.TAG, "当前设备不支持获取OAID");
                             }
-                            ((e.a) aVar2.f32665a).a(false, null);
+                            ((e.a) aVar2.f32775a).a(false, null);
                         }
-                        uVar2.f32689a.unbindService(uVar2.f32691c);
-                        uVar2.f32690b = null;
-                        aVar2.f32666b.f32664a = false;
+                        uVar2.f32799a.unbindService(uVar2.f32801c);
+                        uVar2.f32800b = null;
+                        aVar2.f32776b.f32774a = false;
                     }
                     z = false;
                     if (!z) {
                     }
-                    uVar2.f32689a.unbindService(uVar2.f32691c);
-                    uVar2.f32690b = null;
-                    aVar2.f32666b.f32664a = false;
+                    uVar2.f32799a.unbindService(uVar2.f32801c);
+                    uVar2.f32800b = null;
+                    aVar2.f32776b.f32774a = false;
                 }
-                this.f32688a.getClass();
+                this.f32798a.getClass();
             }
         }
     }
@@ -120,7 +120,7 @@ public class t implements ServiceConnection {
     public void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.f32688a.f32690b = null;
+            this.f32798a.f32800b = null;
         }
     }
 }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class EntelechyBannerView extends BannerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,11 +40,11 @@ public class EntelechyBannerView extends BannerView {
     public final void l() {
         Button button;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (button = this.f12851g) != null && (button.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f12851g.getLayoutParams();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (button = this.f12868g) != null && (button.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f12868g.getLayoutParams();
             layoutParams.topMargin = (l.g(getContext(), R.dimen.ds100) - l.e(getContext(), 20.0f)) / 2;
             layoutParams.addRule(10);
-            this.f12851g.requestLayout();
+            this.f12868g.requestLayout();
         }
     }
 

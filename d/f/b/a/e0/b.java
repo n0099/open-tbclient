@@ -2,29 +2,30 @@ package d.f.b.a.e0;
 
 import android.graphics.Bitmap;
 import android.text.Layout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final CharSequence f73030e;
+    public final CharSequence f70133e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Layout.Alignment f73031f;
+    public final Layout.Alignment f70134f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Bitmap f73032g;
+    public final Bitmap f70135g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final float f73033h;
+    public final float f70136h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f73034i;
+    public final int f70137i;
     public final int j;
     public final float k;
     public final int l;
@@ -123,20 +124,20 @@ public class b {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
             Object[] objArr = {charSequence, alignment, bitmap, Float.valueOf(f2), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f3), Integer.valueOf(i4), Float.valueOf(f4), Float.valueOf(f5), Boolean.valueOf(z), Integer.valueOf(i5)};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i6 = newInitContext.flag;
             if ((i6 & 1) != 0) {
                 int i7 = i6 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }
-        this.f73030e = charSequence;
-        this.f73031f = alignment;
-        this.f73032g = bitmap;
-        this.f73033h = f2;
-        this.f73034i = i2;
+        this.f70133e = charSequence;
+        this.f70134f = alignment;
+        this.f70135g = bitmap;
+        this.f70136h = f2;
+        this.f70137i = i2;
         this.j = i3;
         this.k = f3;
         this.l = i4;

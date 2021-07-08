@@ -1,5 +1,6 @@
 package com.coremedia.iso;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import okhttp3.internal.ws.WebSocketProtocol;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class IsoTypeWriter {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -69,7 +70,7 @@ public final class IsoTypeWriter {
 
     public static void writeFixedPoint88(ByteBuffer byteBuffer, double d2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{byteBuffer, Double.valueOf(d2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{byteBuffer, Double.valueOf(d2)}) == null) {
             short s = (short) (d2 * 256.0d);
             byteBuffer.put((byte) ((65280 & s) >> 8));
             byteBuffer.put((byte) (s & 255));

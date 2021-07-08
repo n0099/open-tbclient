@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.l2.c;
-/* loaded from: classes5.dex */
+import d.a.p0.l2.c;
+/* loaded from: classes4.dex */
 public class PersonBarActivity extends BasePersonInfoActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -131,16 +131,16 @@ public class PersonBarActivity extends BasePersonInfoActivity {
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageSelected(int i2) {
         BaseFragment baseFragment;
-        c k1;
+        c l1;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
             super.onPageSelected(i2);
             PersonBarAdapter personBarAdapter = this.mAdapter;
-            if (personBarAdapter == null || personBarAdapter.getItem(i2) == null || (baseFragment = (BaseFragment) this.mAdapter.getItem(i2)) == null || !(baseFragment instanceof PersonBarFragment) || (k1 = ((PersonBarFragment) baseFragment).k1()) == null) {
+            if (personBarAdapter == null || personBarAdapter.getItem(i2) == null || (baseFragment = (BaseFragment) this.mAdapter.getItem(i2)) == null || !(baseFragment instanceof PersonBarFragment) || (l1 = ((PersonBarFragment) baseFragment).l1()) == null) {
                 return;
             }
-            k1.f(false);
-            k1.notifyDataSetChanged();
+            l1.f(false);
+            l1.notifyDataSetChanged();
         }
     }
 }

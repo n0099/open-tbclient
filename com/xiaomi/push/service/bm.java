@@ -2,6 +2,7 @@ package com.xiaomi.push.service;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,12 +20,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class bm {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f43637a;
+    public static String f40651a;
 
     /* renamed from: a  reason: collision with other field name */
     public static SimpleDateFormat f940a;
@@ -49,7 +50,7 @@ public class bm {
         f941a = new AtomicLong(0L);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
         f940a = simpleDateFormat;
-        f43637a = simpleDateFormat.format(Long.valueOf(System.currentTimeMillis()));
+        f40651a = simpleDateFormat.format(Long.valueOf(System.currentTimeMillis()));
     }
 
     public static ie a(String str, String str2, hi hiVar) {
@@ -65,9 +66,9 @@ public class bm {
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (bm.class) {
                 String format = f940a.format(Long.valueOf(System.currentTimeMillis()));
-                if (!TextUtils.equals(f43637a, format)) {
+                if (!TextUtils.equals(f40651a, format)) {
                     f941a.set(0L);
-                    f43637a = format;
+                    f40651a = format;
                 }
                 str = format + "-" + f941a.incrementAndGet();
             }
@@ -146,7 +147,7 @@ public class bm {
 
     public static void a(Context context, String str, String str2, long j, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{context, str, str2, Long.valueOf(j), str3}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, Long.valueOf(j), str3}) == null) {
             hj hjVar = new hj();
             hjVar.d(str);
             hjVar.c(str2);

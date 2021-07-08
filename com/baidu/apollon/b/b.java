@@ -21,10 +21,10 @@ public class b implements X509TrustManager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final X509TrustManager f3602a;
+    public final X509TrustManager f3605a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<c> f3603b;
+    public final Set<c> f3606b;
 
     public b(@NonNull Set<c> set) {
         Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public class b implements X509TrustManager {
                 return;
             }
         }
-        this.f3602a = d.a();
-        this.f3603b = set;
+        this.f3605a = d.a();
+        this.f3606b = set;
     }
 
     public static boolean a(List<X509Certificate> list, Set<c> set) {
@@ -63,7 +63,7 @@ public class b implements X509TrustManager {
     public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, x509CertificateArr, str) == null) {
-            this.f3602a.checkClientTrusted(x509CertificateArr, str);
+            this.f3605a.checkClientTrusted(x509CertificateArr, str);
         }
     }
 
@@ -71,14 +71,14 @@ public class b implements X509TrustManager {
     public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509CertificateArr, str) == null) {
-            this.f3602a.checkServerTrusted(x509CertificateArr, str);
-            if (this.f3603b.isEmpty() || a(Arrays.asList(x509CertificateArr), this.f3603b)) {
+            this.f3605a.checkServerTrusted(x509CertificateArr, str);
+            if (this.f3606b.isEmpty() || a(Arrays.asList(x509CertificateArr), this.f3606b)) {
                 return;
             }
             StringBuilder sb = new StringBuilder();
             sb.append("Pin verification failed");
             sb.append("\n  Configured pins: ");
-            for (c cVar : this.f3603b) {
+            for (c cVar : this.f3606b) {
                 sb.append(cVar);
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }
@@ -97,6 +97,6 @@ public class b implements X509TrustManager {
     public X509Certificate[] getAcceptedIssuers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3602a.getAcceptedIssuers() : (X509Certificate[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3605a.getAcceptedIssuers() : (X509Certificate[]) invokeV.objValue;
     }
 }

@@ -1,5 +1,6 @@
 package com.google.common.collect;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,12 +24,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.RandomAccess;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Lists {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class OnePlusArrayList<E> extends AbstractList<E> implements Serializable, RandomAccess {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -75,7 +76,7 @@ public final class Lists {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class StringAsImmutableList extends ImmutableList<Character> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -167,7 +168,7 @@ public final class Lists {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class TransformingRandomAccessList<F, T> extends AbstractList<T> implements RandomAccess, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -175,13 +176,13 @@ public final class Lists {
         public final List<F> fromList;
         public final g<? super F, ? extends T> function;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public class a extends n1<F, T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ TransformingRandomAccessList f33204f;
+            public final /* synthetic */ TransformingRandomAccessList f33314f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a(TransformingRandomAccessList transformingRandomAccessList, ListIterator listIterator) {
@@ -201,14 +202,14 @@ public final class Lists {
                         return;
                     }
                 }
-                this.f33204f = transformingRandomAccessList;
+                this.f33314f = transformingRandomAccessList;
             }
 
             @Override // d.f.d.c.m1
             public T a(F f2) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f2)) == null) ? this.f33204f.function.apply(f2) : (T) invokeL.objValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f2)) == null) ? this.f33314f.function.apply(f2) : (T) invokeL.objValue;
             }
         }
 
@@ -286,7 +287,7 @@ public final class Lists {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class TransformingSequentialList<F, T> extends AbstractSequentialList<T> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -294,13 +295,13 @@ public final class Lists {
         public final List<F> fromList;
         public final g<? super F, ? extends T> function;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public class a extends n1<F, T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ TransformingSequentialList f33205f;
+            public final /* synthetic */ TransformingSequentialList f33315f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a(TransformingSequentialList transformingSequentialList, ListIterator listIterator) {
@@ -320,14 +321,14 @@ public final class Lists {
                         return;
                     }
                 }
-                this.f33205f = transformingSequentialList;
+                this.f33315f = transformingSequentialList;
             }
 
             @Override // d.f.d.c.m1
             public T a(F f2) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f2)) == null) ? this.f33205f.function.apply(f2) : (T) invokeL.objValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f2)) == null) ? this.f33315f.function.apply(f2) : (T) invokeL.objValue;
             }
         }
 
@@ -375,7 +376,7 @@ public final class Lists {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class TwoPlusArrayList<E> extends AbstractList<E> implements Serializable, RandomAccess {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -488,7 +489,7 @@ public final class Lists {
     public static int e(List<?> list, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, list, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, obj)) == null) {
             if (list instanceof RandomAccess) {
                 return f(list, obj);
             }

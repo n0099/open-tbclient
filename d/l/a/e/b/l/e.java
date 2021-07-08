@@ -6,45 +6,45 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f74859a;
+    public b f71911a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f74860b;
+    public b f71912b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f74861c;
+    public int f71913c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f74862d;
+    public int f71914d;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f74863a;
+        public long f71915a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f74864b;
+        public long f71916b;
 
         /* renamed from: c  reason: collision with root package name */
-        public b f74865c;
+        public b f71917c;
 
         /* renamed from: d  reason: collision with root package name */
-        public b f74866d;
+        public b f71918d;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class e {
                 return;
             }
         }
-        this.f74862d = 10;
+        this.f71914d = 10;
     }
 
     public final b a() {
@@ -86,16 +86,16 @@ public class e {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f74861c >= this.f74862d && (bVar = this.f74860b) != null) {
-                b bVar2 = bVar.f74866d;
-                bVar.f74866d = null;
-                this.f74860b = bVar2;
+            if (this.f71913c >= this.f71914d && (bVar = this.f71912b) != null) {
+                b bVar2 = bVar.f71918d;
+                bVar.f71918d = null;
+                this.f71912b = bVar2;
                 if (bVar2 != null) {
-                    bVar2.f74865c = null;
+                    bVar2.f71917c = null;
                 }
                 return bVar;
             }
-            this.f74861c++;
+            this.f71913c++;
             return new b(null);
         }
         return (b) invokeV.objValue;
@@ -105,13 +105,13 @@ public class e {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            b bVar = this.f74859a;
+            b bVar = this.f71911a;
             b bVar2 = null;
-            while (bVar != null && bVar.f74864b > j) {
+            while (bVar != null && bVar.f71916b > j) {
                 bVar2 = bVar;
-                bVar = bVar.f74865c;
+                bVar = bVar.f71917c;
             }
-            return (bVar == null || bVar2 == null || bVar == bVar2 || j - bVar.f74864b >= bVar2.f74864b - j) ? bVar2 : bVar;
+            return (bVar == null || bVar2 == null || bVar == bVar2 || j - bVar.f71916b >= bVar2.f71916b - j) ? bVar2 : bVar;
         }
         return (b) invokeJ.objValue;
     }
@@ -121,26 +121,26 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
             synchronized (this) {
-                b bVar = this.f74859a;
+                b bVar = this.f71911a;
                 if (bVar != null) {
-                    if (j >= bVar.f74863a && j2 >= bVar.f74864b) {
-                        b bVar2 = bVar.f74865c;
-                        if (bVar2 != null && j2 - bVar2.f74864b < 1000) {
-                            bVar.f74863a = j;
-                            bVar.f74864b = j2;
+                    if (j >= bVar.f71915a && j2 >= bVar.f71916b) {
+                        b bVar2 = bVar.f71917c;
+                        if (bVar2 != null && j2 - bVar2.f71916b < 1000) {
+                            bVar.f71915a = j;
+                            bVar.f71916b = j2;
                             return true;
                         }
                     }
                     return false;
                 }
                 b a2 = a();
-                a2.f74863a = j;
-                a2.f74864b = j2;
+                a2.f71915a = j;
+                a2.f71916b = j2;
                 if (bVar != null) {
-                    a2.f74865c = bVar;
-                    bVar.f74866d = a2;
+                    a2.f71917c = bVar;
+                    bVar.f71918d = a2;
                 }
-                this.f74859a = a2;
+                this.f71911a = a2;
                 return true;
             }
         }
@@ -152,7 +152,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
             synchronized (this) {
-                b bVar = this.f74859a;
+                b bVar = this.f71911a;
                 if (bVar == null) {
                     return -1L;
                 }
@@ -160,8 +160,8 @@ public class e {
                 if (b2 == null) {
                     return -1L;
                 }
-                long j3 = bVar.f74863a - b2.f74863a;
-                long j4 = j2 - b2.f74864b;
+                long j3 = bVar.f71915a - b2.f71915a;
+                long j4 = j2 - b2.f71916b;
                 if (j3 < 0 || j4 <= 0) {
                     return -1L;
                 }

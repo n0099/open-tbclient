@@ -14,6 +14,7 @@ import android.text.style.TypefaceSpan;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
@@ -34,39 +35,39 @@ import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import kotlin.text.Typography;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f73186b;
+    public static final Pattern f70289b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f73187c;
+    public static final Pattern f70290c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final StringBuilder f73188a;
+    public final StringBuilder f70291a;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final String[] f73189e;
+        public static final String[] f70292e;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f73190a;
+        public final String f70293a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f73191b;
+        public final int f70294b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f73192c;
+        public final String f70295c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String[] f73193d;
+        public final String[] f70296d;
 
         static {
             InterceptResult invokeClinit;
@@ -81,7 +82,7 @@ public final class f {
                     return;
                 }
             }
-            f73189e = new String[0];
+            f70292e = new String[0];
         }
 
         public a(String str, int i2, String str2, String[] strArr) {
@@ -99,10 +100,10 @@ public final class f {
                     return;
                 }
             }
-            this.f73191b = i2;
-            this.f73190a = str;
-            this.f73192c = str2;
-            this.f73193d = strArr;
+            this.f70294b = i2;
+            this.f70293a = str;
+            this.f70295c = str2;
+            this.f70296d = strArr;
         }
 
         public static a a(String str, int i2) {
@@ -128,7 +129,7 @@ public final class f {
                 if (split.length > 1) {
                     strArr = (String[]) Arrays.copyOfRange(split, 1, split.length);
                 } else {
-                    strArr = f73189e;
+                    strArr = f70292e;
                 }
                 return new a(str3, i2, str2, strArr);
             }
@@ -142,16 +143,16 @@ public final class f {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class b implements Comparable<b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f73194e;
+        public final int f70297e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final d f73195f;
+        public final d f70298f;
 
         public b(int i2, d dVar) {
             Interceptable interceptable = $ic;
@@ -168,8 +169,8 @@ public final class f {
                     return;
                 }
             }
-            this.f73194e = i2;
-            this.f73195f = dVar;
+            this.f70297e = i2;
+            this.f70298f = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -178,7 +179,7 @@ public final class f {
         public int compareTo(@NonNull b bVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) ? this.f73194e - bVar.f73194e : invokeL.intValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) ? this.f70297e - bVar.f70297e : invokeL.intValue;
         }
     }
 
@@ -195,8 +196,8 @@ public final class f {
                 return;
             }
         }
-        f73186b = Pattern.compile("^(\\S+)\\s+-->\\s+(\\S+)(.*)?$");
-        f73187c = Pattern.compile("(\\S+?):(\\S+)");
+        f70289b = Pattern.compile("^(\\S+)\\s+-->\\s+(\\S+)(.*)?$");
+        f70290c = Pattern.compile("(\\S+?):(\\S+)");
     }
 
     public f() {
@@ -212,7 +213,7 @@ public final class f {
                 return;
             }
         }
-        this.f73188a = new StringBuilder();
+        this.f70291a = new StringBuilder();
     }
 
     public static void a(String str, SpannableStringBuilder spannableStringBuilder) {
@@ -259,9 +260,9 @@ public final class f {
         char c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65539, null, str, aVar, spannableStringBuilder, list, list2) == null) {
-            int i2 = aVar.f73191b;
+            int i2 = aVar.f70294b;
             int length = spannableStringBuilder.length();
-            String str2 = aVar.f73190a;
+            String str2 = aVar.f70293a;
             int hashCode = str2.hashCode();
             if (hashCode == 0) {
                 if (str2.equals("")) {
@@ -321,14 +322,14 @@ public final class f {
             e(list, str, aVar, list2);
             int size = list2.size();
             for (int i3 = 0; i3 < size; i3++) {
-                c(spannableStringBuilder, list2.get(i3).f73195f, i2, length);
+                c(spannableStringBuilder, list2.get(i3).f70298f, i2, length);
             }
         }
     }
 
     public static void c(SpannableStringBuilder spannableStringBuilder, d dVar, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLII(65540, null, spannableStringBuilder, dVar, i2, i3) == null) || dVar == null) {
+        if (!(interceptable == null || interceptable.invokeLLII(InputDeviceCompat.SOURCE_TRACKBALL, null, spannableStringBuilder, dVar, i2, i3) == null) || dVar == null) {
             return;
         }
         if (dVar.g() != -1) {
@@ -379,7 +380,7 @@ public final class f {
             int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
                 d dVar = list.get(i2);
-                int f2 = dVar.f(str, aVar.f73190a, aVar.f73193d, aVar.f73192c);
+                int f2 = dVar.f(str, aVar.f70293a, aVar.f70296d, aVar.f70295c);
                 if (f2 > 0) {
                     list2.add(new b(f2, dVar));
                 }
@@ -475,7 +476,7 @@ public final class f {
     public static void j(String str, e.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, str, bVar) == null) {
-            Matcher matcher = f73187c.matcher(str);
+            Matcher matcher = f70290c.matcher(str);
             while (matcher.find()) {
                 String group = matcher.group(1);
                 String group2 = matcher.group(2);
@@ -546,7 +547,7 @@ public final class f {
                                 while (!stack.isEmpty()) {
                                     a aVar = (a) stack.pop();
                                     b(str, aVar, spannableStringBuilder, list, arrayList);
-                                    if (aVar.f73190a.equals(f2)) {
+                                    if (aVar.f70293a.equals(f2)) {
                                         break;
                                     }
                                 }
@@ -734,17 +735,17 @@ public final class f {
             if (k == null) {
                 return false;
             }
-            Matcher matcher = f73186b.matcher(k);
+            Matcher matcher = f70289b.matcher(k);
             if (matcher.matches()) {
-                return i(null, matcher, lVar, bVar, this.f73188a, list);
+                return i(null, matcher, lVar, bVar, this.f70291a, list);
             }
             String k2 = lVar.k();
             if (k2 == null) {
                 return false;
             }
-            Matcher matcher2 = f73186b.matcher(k2);
+            Matcher matcher2 = f70289b.matcher(k2);
             if (matcher2.matches()) {
-                return i(k.trim(), matcher2, lVar, bVar, this.f73188a, list);
+                return i(k.trim(), matcher2, lVar, bVar, this.f70291a, list);
             }
             return false;
         }

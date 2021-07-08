@@ -16,11 +16,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.g0.c.d;
-import d.a.r0.r.g0.c.e;
+import d.a.o0.r.g0.c.d;
+import d.a.o0.r.g0.c.e;
 import java.io.File;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MediaService extends BdBaseService implements MediaPlayer.OnErrorListener, MediaPlayer.OnPreparedListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,20 +29,20 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
     public String mFilePath;
     public Handler mHandler;
     public Runnable mPlayTimeThread;
-    public d.a.r0.r.g0.c.c mPlayer;
+    public d.a.o0.r.g0.c.c mPlayer;
     public Runnable mRecordTimeThread;
     public d mRecorder;
     public long mSeekTime;
     public long mStartRecorderTime;
     public Voice mVoice;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MediaService f12785e;
+        public final /* synthetic */ MediaService f12802e;
 
         public a(MediaService mediaService) {
             Interceptable interceptable = $ic;
@@ -59,33 +59,33 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
                     return;
                 }
             }
-            this.f12785e = mediaService;
+            this.f12802e = mediaService;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f12785e.mHandler == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f12802e.mHandler == null) {
                 return;
             }
-            int g2 = this.f12785e.mPlayer.g() + this.f12785e.mCurBeginSecond;
-            if (g2 != this.f12785e.mElapsedTime) {
-                this.f12785e.mElapsedTime = g2;
+            int g2 = this.f12802e.mPlayer.g() + this.f12802e.mCurBeginSecond;
+            if (g2 != this.f12802e.mElapsedTime) {
+                this.f12802e.mElapsedTime = g2;
                 Intent intent = new Intent("com.baidu.playElapsedTime");
-                intent.putExtra("com.baidu.msg.playElapsedTime", this.f12785e.mElapsedTime);
-                this.f12785e.sendBroadcast(intent);
+                intent.putExtra("com.baidu.msg.playElapsedTime", this.f12802e.mElapsedTime);
+                this.f12802e.sendBroadcast(intent);
             }
-            this.f12785e.mHandler.postDelayed(this.f12785e.mPlayTimeThread, 100L);
+            this.f12802e.mHandler.postDelayed(this.f12802e.mPlayTimeThread, 100L);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MediaService f12786e;
+        public final /* synthetic */ MediaService f12803e;
 
         public b(MediaService mediaService) {
             Interceptable interceptable = $ic;
@@ -102,32 +102,32 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
                     return;
                 }
             }
-            this.f12786e = mediaService;
+            this.f12803e = mediaService;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int currentTimeMillis = (int) (System.currentTimeMillis() - this.f12786e.mStartRecorderTime);
-                if (this.f12786e.mElapsedTime != currentTimeMillis) {
-                    this.f12786e.mElapsedTime = currentTimeMillis / 1000;
+                int currentTimeMillis = (int) (System.currentTimeMillis() - this.f12803e.mStartRecorderTime);
+                if (this.f12803e.mElapsedTime != currentTimeMillis) {
+                    this.f12803e.mElapsedTime = currentTimeMillis / 1000;
                     Intent intent = new Intent("com.baidu.recordElapsedTime");
-                    intent.putExtra("com.baidu.msg.recordElapsedTime", this.f12786e.mElapsedTime);
-                    this.f12786e.sendBroadcast(intent);
+                    intent.putExtra("com.baidu.msg.recordElapsedTime", this.f12803e.mElapsedTime);
+                    this.f12803e.sendBroadcast(intent);
                 }
-                this.f12786e.mHandler.postDelayed(this.f12786e.mRecordTimeThread, 200L);
+                this.f12803e.mHandler.postDelayed(this.f12803e.mRecordTimeThread, 200L);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements MediaPlayer.OnCompletionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MediaService f12787e;
+        public final /* synthetic */ MediaService f12804e;
 
         public c(MediaService mediaService) {
             Interceptable interceptable = $ic;
@@ -144,17 +144,17 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
                     return;
                 }
             }
-            this.f12787e = mediaService;
+            this.f12804e = mediaService;
         }
 
         @Override // android.media.MediaPlayer.OnCompletionListener
         public void onCompletion(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) || this.f12787e.mPlayer == null || this.f12787e.mVoice == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) || this.f12804e.mPlayer == null || this.f12804e.mVoice == null) {
                 return;
             }
-            this.f12787e.mPlayer.a();
-            this.f12787e.stopVoice(null);
+            this.f12804e.mPlayer.a();
+            this.f12804e.stopVoice(null);
         }
     }
 
@@ -194,7 +194,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
             }
             long duration = voice.getDuration();
             if (duration == 0) {
-                d.a.r0.r.g0.c.c cVar = this.mPlayer;
+                d.a.o0.r.g0.c.c cVar = this.mPlayer;
                 if (cVar instanceof e) {
                     duration = ((e) cVar).getDuration() / 1000;
                 }
@@ -208,7 +208,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
-            d.a.r0.r.g0.c.c cVar = this.mPlayer;
+            d.a.o0.r.g0.c.c cVar = this.mPlayer;
             if (cVar instanceof e) {
                 return ((e) cVar).getDuration();
             }
@@ -272,7 +272,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
     }
 
     private void playVoice(Intent intent) {
-        d.a.r0.r.g0.c.c cVar;
+        d.a.o0.r.g0.c.c cVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65553, this, intent) == null) && (cVar = this.mPlayer) != null && cVar.d()) {
             this.mPlayer.h();
@@ -315,7 +315,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
                 if (stringExtra2.endsWith(".amr")) {
                     this.mRecorder = MyAudioRecorder.f(Boolean.TRUE);
                 } else {
-                    this.mRecorder = new d.a.r0.r.g0.c.a();
+                    this.mRecorder = new d.a.o0.r.g0.c.a();
                 }
                 boolean z = false;
                 File file = new File(stringExtra);
@@ -352,7 +352,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
     }
 
     private void setPlayerCompleteListener() {
-        d.a.r0.r.g0.c.c cVar;
+        d.a.o0.r.g0.c.c cVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65560, this) == null) && (cVar = this.mPlayer) != null && (cVar instanceof e)) {
             ((e) cVar).setOnErrorListener(this);
@@ -400,7 +400,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
     }
 
     private void stopAndReplay(Intent intent) {
-        d.a.r0.r.g0.c.c cVar;
+        d.a.o0.r.g0.c.c cVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65564, this, intent) == null) || this.mVoice == null || (cVar = this.mPlayer) == null) {
             return;
@@ -415,7 +415,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         if (duration <= 0 || g2 > duration) {
             return;
         }
-        d.a.r0.r.g0.c.c cVar2 = this.mPlayer;
+        d.a.o0.r.g0.c.c cVar2 = this.mPlayer;
         if (cVar2 instanceof e) {
             ((e) cVar2).setOnPreparedListener(null);
         }
@@ -482,7 +482,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
             this.mHandler.removeCallbacks(this.mPlayTimeThread);
             this.mElapsedTime = 0;
             this.mCurBeginSecond = 0;
-            d.a.r0.r.g0.c.c cVar = this.mPlayer;
+            d.a.o0.r.g0.c.c cVar = this.mPlayer;
             if (cVar instanceof e) {
                 ((e) cVar).setOnCompletionListener(null);
             }
@@ -660,7 +660,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         if (duration <= 0 || longExtra > duration) {
             return;
         }
-        d.a.r0.r.g0.c.c cVar = this.mPlayer;
+        d.a.o0.r.g0.c.c cVar = this.mPlayer;
         if (cVar instanceof e) {
             ((e) cVar).setOnPreparedListener(null);
         }

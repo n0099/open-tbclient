@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.NoProguard;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,10 +24,10 @@ public class PermissionManager implements NoProguard {
     public static final int REQUEST_CODE_WRITE_EXTERNAL_STORAGE = 4;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3804a = 0;
+    public static final int f3807a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f3805b;
+    public static int f3808b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -111,15 +112,15 @@ public class PermissionManager implements NoProguard {
     public static int getTargetSdkVersion(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
-            if (f3805b == 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (f3808b == 0) {
                 try {
-                    f3805b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.targetSdkVersion;
+                    f3808b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.targetSdkVersion;
                 } catch (PackageManager.NameNotFoundException e2) {
                     e2.printStackTrace();
                 }
             }
-            return f3805b;
+            return f3808b;
         }
         return invokeL.intValue;
     }

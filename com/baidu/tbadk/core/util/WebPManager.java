@@ -9,6 +9,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
@@ -19,14 +20,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.h3.c;
-/* loaded from: classes4.dex */
+import d.a.p0.h3.c;
+/* loaded from: classes3.dex */
 public class WebPManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class ResourceStateType {
         public static final /* synthetic */ ResourceStateType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -177,7 +178,7 @@ public class WebPManager {
     public static Drawable getMaskedDrawable(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             Drawable drawable = SkinManager.getDrawable(i2);
             if (drawable == null) {
                 return null;

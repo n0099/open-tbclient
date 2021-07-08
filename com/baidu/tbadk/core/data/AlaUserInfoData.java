@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 import tbclient.AlaUserInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AlaUserInfoData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.hardware.SensorManager;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.bean.ARConfig;
 import com.baidu.ar.bean.DuMixARConfig;
 import com.baidu.ar.constants.HttpConstants;
@@ -108,7 +109,7 @@ public class o {
 
     public static void g(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, null, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) == null) || jSONObject == null) {
             return;
         }
         String aipAppId = DuMixARConfig.getAipAppId();

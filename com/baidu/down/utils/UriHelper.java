@@ -2,6 +2,7 @@ package com.baidu.down.utils;
 
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UriHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -78,7 +79,7 @@ public class UriHelper {
 
     private void init(Uri uri) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, uri) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, uri) == null) {
             this.mUriQueryObj = new UriQuery(uri.getEncodedQuery());
             String uri2 = uri.toString();
             this.mUri = uri2;

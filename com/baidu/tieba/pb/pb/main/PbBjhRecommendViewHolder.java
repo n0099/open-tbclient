@@ -28,40 +28,40 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
 import d.a.c.e.p.l;
-import d.a.r0.r.q.q;
+import d.a.o0.r.q.q;
 import java.util.ArrayList;
 import tbclient.VideoInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f19147a;
+    public int f19187a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PbActivity f19148b;
+    public PbActivity f19188b;
 
     /* renamed from: c  reason: collision with root package name */
-    public q f19149c;
+    public q f19189c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f19150d;
+    public String f19190d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f19151e;
+    public boolean f19191e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f19152f;
+    public String f19192f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19153g;
+    public int f19193g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f19154h;
+    public boolean f19194h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f19155i;
+    public View f19195i;
     public View j;
     public View k;
     public View l;
@@ -80,13 +80,13 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
     public View y;
     public View.OnClickListener z;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbBjhRecommendViewHolder f19156e;
+        public final /* synthetic */ PbBjhRecommendViewHolder f19196e;
 
         public a(PbBjhRecommendViewHolder pbBjhRecommendViewHolder) {
             Interceptable interceptable = $ic;
@@ -103,7 +103,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.f19156e = pbBjhRecommendViewHolder;
+            this.f19196e = pbBjhRecommendViewHolder;
         }
 
         @Override // android.view.View.OnClickListener
@@ -113,102 +113,102 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 int id = view.getId();
-                if (this.f19156e.f19149c == null) {
+                if (this.f19196e.f19189c == null) {
                     return;
                 }
                 int i2 = 3;
                 if (id == R.id.tail_more_video) {
-                    VideoInfo l1 = this.f19156e.f19149c.l1();
+                    VideoInfo l1 = this.f19196e.f19189c.l1();
                     if (l1 != null) {
                         if (l1.is_vertical.intValue() == 1) {
                             VideoItemData videoItemData = new VideoItemData();
-                            videoItemData.buildWithThreadData(this.f19156e.f19149c);
+                            videoItemData.buildWithThreadData(this.f19196e.f19189c);
                             ArrayList arrayList = new ArrayList();
                             arrayList.add(videoItemData);
-                            if (this.f19156e.f19153g == 2) {
+                            if (this.f19196e.f19193g == 2) {
                                 str2 = "index";
-                            } else if (this.f19156e.f19153g == 1) {
+                            } else if (this.f19196e.f19193g == 1) {
                                 str2 = "concern_tab";
                             } else {
-                                str2 = this.f19156e.f19153g == 3 ? "frs" : "";
+                                str2 = this.f19196e.f19193g == 3 ? "frs" : "";
                             }
-                            VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.f19156e.f19148b, arrayList, 0, null, VideoPlayActivityConfig.FROM_NANI_VIDEO, "", "", str2);
+                            VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.f19196e.f19188b, arrayList, 0, null, VideoPlayActivityConfig.FROM_NANI_VIDEO, "", "", str2);
                             videoPlayActivityConfig.setIsFromBjhPb(true);
-                            q qVar = this.f19156e.f19149c;
+                            q qVar = this.f19196e.f19189c;
                             qVar.getThreadData();
-                            if (qVar != null && this.f19156e.f19149c.J() != null) {
-                                videoPlayActivityConfig.setNid(this.f19156e.f19149c.J().oriUgcNid);
+                            if (qVar != null && this.f19196e.f19189c.J() != null) {
+                                videoPlayActivityConfig.setNid(this.f19196e.f19189c.J().oriUgcNid);
                             }
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
                         } else if (l1.is_vertical.intValue() == 0) {
                             VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = new VideoSerializeVideoThreadInfo();
-                            videoSerializeVideoThreadInfo.copyFromThreadInfo(this.f19156e.f19149c);
-                            if (this.f19156e.f19153g == 2) {
+                            videoSerializeVideoThreadInfo.copyFromThreadInfo(this.f19196e.f19189c);
+                            if (this.f19196e.f19193g == 2) {
                                 str = "index";
-                            } else if (this.f19156e.f19153g == 1) {
+                            } else if (this.f19196e.f19193g == 1) {
                                 str = "concern_tab";
                             } else {
-                                str = this.f19156e.f19153g == 3 ? "frs" : "";
+                                str = this.f19196e.f19193g == 3 ? "frs" : "";
                             }
-                            VideoMiddlePageActivityConfig videoMiddlePageActivityConfig = new VideoMiddlePageActivityConfig(this.f19156e.f19148b, str, this.f19156e.f19149c.n1(), "", "", videoSerializeVideoThreadInfo);
-                            videoMiddlePageActivityConfig.setNid(this.f19156e.f19152f);
+                            VideoMiddlePageActivityConfig videoMiddlePageActivityConfig = new VideoMiddlePageActivityConfig(this.f19196e.f19188b, str, this.f19196e.f19189c.n1(), "", "", videoSerializeVideoThreadInfo);
+                            videoMiddlePageActivityConfig.setNid(this.f19196e.f19192f);
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoMiddlePageActivityConfig));
                         }
                     }
                 } else if (id == R.id.main_view || id == R.id.bjh_imageView || id == R.id.bjh_gradient_cover) {
-                    String n1 = this.f19156e.f19149c.n1();
-                    if (this.f19156e.f19153g == 2) {
+                    String n1 = this.f19196e.f19189c.n1();
+                    if (this.f19196e.f19193g == 2) {
                         i2 = 1;
-                    } else if (this.f19156e.f19153g == 1) {
+                    } else if (this.f19196e.f19193g == 1) {
                         i2 = 2;
-                    } else if (this.f19156e.f19153g != 3) {
+                    } else if (this.f19196e.f19193g != 3) {
                         i2 = 4;
                     }
                     if (i2 != 0) {
-                        if (this.f19156e.f19149c.Z == 40) {
-                            StatisticItem.make("c13535").param("tid", n1).param("fid", this.f19156e.f19149c.Q()).param("obj_source", i2).param("obj_locate", this.f19156e.f19149c.r4()).param("obj_id", this.f19156e.f19150d).param("obj_type", this.f19156e.f19149c.J1() ? 1 : 0).eventStat();
+                        if (this.f19196e.f19189c.Z == 40) {
+                            StatisticItem.make("c13535").param("tid", n1).param("fid", this.f19196e.f19189c.Q()).param("obj_source", i2).param("obj_locate", this.f19196e.f19189c.r4()).param("obj_id", this.f19196e.f19190d).param("obj_type", this.f19196e.f19189c.J1() ? 1 : 0).eventStat();
                         } else {
-                            StatisticItem.make("c13534").param("tid", n1).param("fid", this.f19156e.f19149c.Q()).param("obj_source", i2).param("obj_locate", this.f19156e.f19149c.r4()).param("obj_id", this.f19156e.f19150d).eventStat();
+                            StatisticItem.make("c13534").param("tid", n1).param("fid", this.f19196e.f19189c.Q()).param("obj_source", i2).param("obj_locate", this.f19196e.f19189c.r4()).param("obj_id", this.f19196e.f19190d).eventStat();
                         }
                     }
-                    if (this.f19156e.f19151e) {
+                    if (this.f19196e.f19191e) {
                         StatisticItem statisticItem = new StatisticItem("c13589");
-                        statisticItem.param("tid", this.f19156e.f19149c.n1());
-                        if (this.f19156e.f19149c.V() != null) {
-                            statisticItem.param("fid", this.f19156e.f19149c.V().i());
+                        statisticItem.param("tid", this.f19196e.f19189c.n1());
+                        if (this.f19196e.f19189c.V() != null) {
+                            statisticItem.param("fid", this.f19196e.f19189c.V().h());
                         }
-                        statisticItem.param("obj_param1", this.f19156e.f19149c.U0);
-                        statisticItem.param("obj_source", this.f19156e.f19149c.T0);
-                        statisticItem.param("obj_id", this.f19156e.f19150d);
-                        statisticItem.param("obj_locate", this.f19156e.f19149c.r4());
+                        statisticItem.param("obj_param1", this.f19196e.f19189c.U0);
+                        statisticItem.param("obj_source", this.f19196e.f19189c.T0);
+                        statisticItem.param("obj_id", this.f19196e.f19190d);
+                        statisticItem.param("obj_locate", this.f19196e.f19189c.r4());
                         statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, System.currentTimeMillis());
                         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                        q qVar2 = this.f19156e.f19149c;
+                        q qVar2 = this.f19196e.f19189c;
                         qVar2.getThreadData();
                         if (qVar2.J() != null) {
-                            q qVar3 = this.f19156e.f19149c;
+                            q qVar3 = this.f19196e.f19189c;
                             qVar3.getThreadData();
                             statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, qVar3.J().oriUgcNid);
-                            q qVar4 = this.f19156e.f19149c;
+                            q qVar4 = this.f19196e.f19189c;
                             qVar4.getThreadData();
                             statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, qVar4.J().oriUgcVid);
                         }
-                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, this.f19156e.f19149c.v1());
-                        statisticItem.param("ab_tag", this.f19156e.f19149c.V0);
-                        statisticItem.param(TiebaStatic.Params.IS_VERTICAL, this.f19156e.f19149c.l1().is_vertical.intValue());
-                        statisticItem.param("extra", this.f19156e.f19149c.W0);
+                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, this.f19196e.f19189c.v1());
+                        statisticItem.param("ab_tag", this.f19196e.f19189c.V0);
+                        statisticItem.param(TiebaStatic.Params.IS_VERTICAL, this.f19196e.f19189c.l1().is_vertical.intValue());
+                        statisticItem.param("extra", this.f19196e.f19189c.W0);
                         TiebaStatic.log(statisticItem);
                     }
-                    if (this.f19156e.f19154h) {
-                        ((VideoPbViewModel) ViewModelProviders.of(this.f19156e.f19148b).get(VideoPbViewModel.class)).q(this.f19156e.f19149c);
+                    if (this.f19196e.f19194h) {
+                        ((VideoPbViewModel) ViewModelProviders.of(this.f19196e.f19188b).get(VideoPbViewModel.class)).q(this.f19196e.f19189c);
                         return;
                     }
-                    PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f19156e.f19148b);
+                    PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f19196e.f19188b);
                     pbActivityConfig.createNormalCfg(n1, null, "pb");
-                    pbActivityConfig.setBjhFrom(this.f19156e.f19153g);
-                    pbActivityConfig.setLastTid(this.f19156e.f19150d);
+                    pbActivityConfig.setBjhFrom(this.f19196e.f19193g);
+                    pbActivityConfig.setLastTid(this.f19196e.f19190d);
                     pbActivityConfig.setStartFrom(20);
-                    pbActivityConfig.setThreadData(this.f19156e.f19149c);
+                    pbActivityConfig.setThreadData(this.f19196e.f19189c);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
                 }
             }
@@ -233,10 +233,10 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f19147a = 3;
+        this.f19187a = 3;
         this.z = new a(this);
-        this.f19148b = pbActivity;
-        this.f19155i = view.findViewById(R.id.main_view);
+        this.f19188b = pbActivity;
+        this.f19195i = view.findViewById(R.id.main_view);
         this.j = view.findViewById(R.id.first_head_divider_line);
         this.k = view.findViewById(R.id.bjh_main_content);
         this.l = view.findViewById(R.id.bjh_click_container);
@@ -258,7 +258,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
     public void i(q qVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, qVar) == null) {
-            this.f19149c = qVar;
+            this.f19189c = qVar;
             this.j.setVisibility(qVar.s4() ? 0 : 8);
             this.u.setVisibility(qVar.u4() ? 0 : 8);
             this.k.setVisibility(qVar.t4() ? 8 : 0);
@@ -287,49 +287,49 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                     layoutParams.leftMargin = 0;
                 }
                 this.x.setLayoutParams(layoutParams);
-                this.x.setText(String.format(this.f19148b.getResources().getString(R.string.bjh_pb_recommend_video_tip), StringHelper.numFormatOverWan(qVar.l1().play_count.intValue())));
+                this.x.setText(String.format(this.f19188b.getResources().getString(R.string.bjh_pb_recommend_video_tip), StringHelper.numFormatOverWan(qVar.l1().play_count.intValue())));
             } else {
                 this.p.setVisibility(8);
                 this.n.setVisibility(8);
                 this.m.M(qVar.F(), 10, false);
                 this.o.setText(qVar.getTitle());
             }
-            this.f19155i.setOnClickListener(this.z);
+            this.f19195i.setOnClickListener(this.z);
         }
     }
 
     public void j(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f19153g = i2;
+            this.f19193g = i2;
         }
     }
 
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f19152f = str;
+            this.f19192f = str;
         }
     }
 
     public void l(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f19151e = z;
+            this.f19191e = z;
         }
     }
 
     public void m(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f19150d = str;
+            this.f19190d = str;
         }
     }
 
     public void n(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f19154h = z;
+            this.f19194h = z;
         }
     }
 }

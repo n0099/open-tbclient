@@ -23,7 +23,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DownloadManager implements Downloader.OnDownloaderDestroyedListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DownloadManager";
@@ -83,7 +83,7 @@ public class DownloadManager implements Downloader.OnDownloaderDestroyedListener
 
     private void init(@NonNull DownloadConfig downloadConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, downloadConfig) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, downloadConfig) == null) {
             if (downloadConfig.getThreadNum() <= downloadConfig.getMaxThreadNum()) {
                 this.mConfig = downloadConfig;
                 this.mExecutorService = Executors.newFixedThreadPool(downloadConfig.getMaxThreadNum());

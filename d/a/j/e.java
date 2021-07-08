@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, sVar, view, i2)) == null) {
             if (view.getTag() instanceof AutoVideoCardViewHolder) {
-                return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) view.getTag()).u().getVideoContainer());
+                return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) view.getTag()).t().getVideoContainer());
             }
             if (!(sVar instanceof BdTypeRecyclerView) || (layoutManager = (bdTypeRecyclerView = (BdTypeRecyclerView) sVar).getLayoutManager()) == null) {
                 return null;
@@ -40,7 +40,7 @@ public class e {
                 for (int i3 = firstVisiblePosition > headerViewsCount ? firstVisiblePosition - headerViewsCount : headerViewsCount; i3 <= lastVisiblePosition; i3++) {
                     Object item2 = ListUtils.getItem(data, i3 - headerViewsCount);
                     if ((item2 instanceof BaseCardInfo) && baseCardInfo.position == ((BaseCardInfo) item2).position && (findViewByPosition = layoutManager.findViewByPosition(i3)) != null && (findViewByPosition.getTag() instanceof AutoVideoCardViewHolder)) {
-                        return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) findViewByPosition.getTag()).u().getVideoContainer());
+                        return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) findViewByPosition.getTag()).t().getVideoContainer());
                     }
                 }
                 return null;

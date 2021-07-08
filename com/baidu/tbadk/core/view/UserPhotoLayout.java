@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class UserPhotoLayout extends LinearLayout implements AbsListView.RecyclerListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,13 +36,13 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     public e mTbRecyclerListener;
     public d.a.c.e.k.b<HeadImageView> mUserPhotoPool;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements ViewGroup.OnHierarchyChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserPhotoLayout f12625e;
+        public final /* synthetic */ UserPhotoLayout f12642e;
 
         public a(UserPhotoLayout userPhotoLayout) {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
                     return;
                 }
             }
-            this.f12625e = userPhotoLayout;
+            this.f12642e = userPhotoLayout;
         }
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
@@ -72,19 +72,19 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
         public void onChildViewRemoved(View view, View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof HeadImageView) && this.f12625e.mUserPhotoPool != null) {
-                this.f12625e.mUserPhotoPool.e((HeadImageView) view2);
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof HeadImageView) && this.f12642e.mUserPhotoPool != null) {
+                this.f12642e.mUserPhotoPool.e((HeadImageView) view2);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b implements d.a.c.e.k.c<HeadImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f12626a;
+        public final /* synthetic */ Context f12643a;
 
         public b(Context context) {
             Interceptable interceptable = $ic;
@@ -101,7 +101,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
                     return;
                 }
             }
-            this.f12626a = context;
+            this.f12643a = context;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -147,7 +147,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         public HeadImageView d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new HeadImageView(this.f12626a) : (HeadImageView) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new HeadImageView(this.f12643a) : (HeadImageView) invokeV.objValue;
         }
 
         public HeadImageView h(HeadImageView headImageView) {
@@ -164,16 +164,16 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f12627e;
+        public final int f12644e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UserPhotoLayout f12628f;
+        public final /* synthetic */ UserPhotoLayout f12645f;
 
         public /* synthetic */ c(UserPhotoLayout userPhotoLayout, int i2, a aVar) {
             this(userPhotoLayout, i2);
@@ -182,10 +182,10 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f12628f.mChildClickListener == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f12645f.mChildClickListener == null) {
                 return;
             }
-            this.f12628f.mChildClickListener.a(this.f12627e);
+            this.f12645f.mChildClickListener.a(this.f12644e);
         }
 
         public c(UserPhotoLayout userPhotoLayout, int i2) {
@@ -203,23 +203,23 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
                     return;
                 }
             }
-            this.f12628f = userPhotoLayout;
-            this.f12627e = i2;
+            this.f12645f = userPhotoLayout;
+            this.f12644e = i2;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface d {
         void a(int i2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class e implements AbsListView.RecyclerListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f12629e;
+        public int f12646e;
 
         public e(int i2) {
             Interceptable interceptable = $ic;
@@ -236,21 +236,21 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
                     return;
                 }
             }
-            this.f12629e = 0;
-            this.f12629e = i2;
+            this.f12646e = 0;
+            this.f12646e = i2;
         }
 
         @Override // android.widget.AbsListView.RecyclerListener
         public void onMovedToScrapHeap(View view) {
             View findViewById;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (findViewById = view.findViewById(this.f12629e)) != null && (findViewById instanceof UserPhotoLayout)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (findViewById = view.findViewById(this.f12646e)) != null && (findViewById instanceof UserPhotoLayout)) {
                 ((UserPhotoLayout) findViewById).reset();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface f {
         d.a.c.e.k.b<HeadImageView> a();
 
@@ -283,7 +283,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     public static d.a.c.e.k.b<HeadImageView> createUserPhotoPool(Context context, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, context, i2)) == null) ? new d.a.c.e.k.b<>(new b(context), i2, 0) : (d.a.c.e.k.b) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2)) == null) ? new d.a.c.e.k.b<>(new b(context), i2, 0) : (d.a.c.e.k.b) invokeLI.objValue;
     }
 
     private HeadImageView getImageView(Context context) {

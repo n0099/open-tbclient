@@ -3,6 +3,7 @@ package com.yy.hiidostatis.inner.util.hdid;
 import android.app.Application;
 import android.content.Context;
 import android.provider.Settings;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,7 +19,7 @@ import com.yy.hiidostatis.inner.util.log.L;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.UUID;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class UuidManager {
     public static /* synthetic */ Interceptable $ic;
     public static Object LOCK_KEY;
@@ -115,7 +116,7 @@ public class UuidManager {
     public static String getSetting(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             try {
                 if (!(context instanceof Application)) {
                     context = context.getApplicationContext();

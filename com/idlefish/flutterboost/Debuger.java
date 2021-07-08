@@ -1,5 +1,6 @@
 package com.idlefish.flutterboost;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.idlefish.flutterboost.log.AndroidLog;
 import com.idlefish.flutterboost.log.ILog;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Debuger {
     public static /* synthetic */ Interceptable $ic;
     public static final Debuger DEBUG;
@@ -95,7 +96,7 @@ public class Debuger {
 
     public static void exception(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, th) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) {
             if (!canThrowError()) {
                 sLog.e("FlutterBoost#", "exception", th);
                 return;

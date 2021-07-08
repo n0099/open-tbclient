@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.verifier.SignatureVerifier;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PatchVerifier {
     public static final boolean DEBUG = false;
     public static final String TAG = "PatchVerifier";

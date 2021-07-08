@@ -13,19 +13,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class J extends WebViewClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42369a;
+    public String f39383a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42370b;
+    public String f39384b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ K f42371c;
+    public final /* synthetic */ K f39385c;
 
     public J(K k) {
         Interceptable interceptable = $ic;
@@ -42,20 +42,20 @@ public class J extends WebViewClient {
                 return;
             }
         }
-        this.f42371c = k;
+        this.f39385c = k;
     }
 
     public final boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            K k = this.f42371c;
-            if (k.f42377d) {
-                k.f42377d = false;
-                K k2 = this.f42371c;
-                V1 v1 = k2.f42375b;
+            K k = this.f39385c;
+            if (k.f39391d) {
+                k.f39391d = false;
+                K k2 = this.f39385c;
+                V1 v1 = k2.f39389b;
                 if (v1 != null) {
-                    return v1.a(str, k2.f42378e);
+                    return v1.a(str, k2.f39392e);
                 }
             }
             return false;
@@ -68,9 +68,9 @@ public class J extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
             super.onPageFinished(webView, str);
-            if (TextUtils.isEmpty(this.f42370b)) {
-                this.f42370b = str;
-                X1 x1 = this.f42371c.f42374a;
+            if (TextUtils.isEmpty(this.f39384b)) {
+                this.f39384b = str;
+                X1 x1 = this.f39385c.f39388a;
                 if (x1 != null) {
                     x1.onLoaded();
                 }
@@ -83,7 +83,7 @@ public class J extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
             super.onPageStarted(webView, str, bitmap);
-            this.f42369a = webView.getUrl();
+            this.f39383a = webView.getUrl();
         }
     }
 
@@ -92,7 +92,7 @@ public class J extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, webResourceRequest, webResourceError) == null) {
             super.onReceivedError(webView, webResourceRequest, webResourceError);
-            if ((TextUtils.equals(webView.getUrl(), "http://abcd/") || TextUtils.equals(webView.getUrl(), this.f42369a)) && Build.VERSION.SDK_INT >= 23) {
+            if ((TextUtils.equals(webView.getUrl(), "http://abcd/") || TextUtils.equals(webView.getUrl(), this.f39383a)) && Build.VERSION.SDK_INT >= 23) {
                 webResourceError.getDescription().toString();
                 webResourceError.getErrorCode();
             }

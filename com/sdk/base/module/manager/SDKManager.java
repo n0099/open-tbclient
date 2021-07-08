@@ -1,6 +1,7 @@
 package com.sdk.base.module.manager;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.api.CallBack;
 import com.sdk.base.framework.c.f;
 import com.sdk.base.module.a.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class SDKManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean closePermission = false;
@@ -70,7 +71,7 @@ public abstract class SDKManager {
     public static String getStatisticalTestHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? statisticalTestHost : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? statisticalTestHost : (String) invokeV.objValue;
     }
 
     public static String getTestHost() {
@@ -126,14 +127,14 @@ public abstract class SDKManager {
     public static void setDebug(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
-            f.f41195b = z;
+            f.f38209b = z;
         }
     }
 
     public static void setDebugHead(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65549, null, z) == null) {
-            f.f41197d = z;
+            f.f38211d = z;
         }
     }
 

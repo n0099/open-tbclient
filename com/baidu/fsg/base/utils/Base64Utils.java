@@ -2,6 +2,7 @@ package com.baidu.fsg.base.utils;
 
 import android.os.Build;
 import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,12 +12,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Base64Utils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Boolean f5335a;
+    public static final Boolean f5352a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +33,7 @@ public class Base64Utils {
                 return;
             }
         }
-        f5335a = Boolean.valueOf(Build.VERSION.SDK_INT >= 8);
+        f5352a = Boolean.valueOf(Build.VERSION.SDK_INT >= 8);
     }
 
     public Base64Utils() {
@@ -53,7 +54,7 @@ public class Base64Utils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            if (f5335a.booleanValue()) {
+            if (f5352a.booleanValue()) {
                 return Base64.decode(bArr, 2);
             }
             try {
@@ -68,8 +69,8 @@ public class Base64Utils {
     public static byte[] encode(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, bArr)) == null) {
-            if (f5335a.booleanValue()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
+            if (f5352a.booleanValue()) {
                 return Base64.encode(bArr, 2);
             }
             return com.baidu.fsg.base.utils.support.Base64.encodeBytesToBytes(bArr);
@@ -81,7 +82,7 @@ public class Base64Utils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) {
-            if (f5335a.booleanValue()) {
+            if (f5352a.booleanValue()) {
                 return Base64.encodeToString(bArr, 2);
             }
             return com.baidu.fsg.base.utils.support.Base64.encodeBytes(bArr);
@@ -93,7 +94,7 @@ public class Base64Utils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (f5335a.booleanValue()) {
+            if (f5352a.booleanValue()) {
                 return Base64.decode(str, 2);
             }
             try {

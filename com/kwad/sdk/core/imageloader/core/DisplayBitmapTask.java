@@ -11,7 +11,7 @@ import com.kwad.sdk.core.imageloader.core.display.BitmapDisplayer;
 import com.kwad.sdk.core.imageloader.core.imageaware.ImageAware;
 import com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener;
 import com.kwad.sdk.core.imageloader.utils.L;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DisplayBitmapTask implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_DISPLAY_IMAGE_IN_IMAGEAWARE = "Display image in ImageAware (loaded from %1$s) [%2$s]";

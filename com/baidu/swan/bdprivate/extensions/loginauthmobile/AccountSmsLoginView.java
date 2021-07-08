@@ -11,21 +11,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a.v2.x;
-import d.a.q0.b.e;
-/* loaded from: classes4.dex */
+import d.a.n0.a.v2.x;
+import d.a.n0.b.e;
+/* loaded from: classes3.dex */
 public class AccountSmsLoginView extends SmsLoginView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context v;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountSmsLoginView f11623e;
+        public final /* synthetic */ AccountSmsLoginView f11640e;
 
         public a(AccountSmsLoginView accountSmsLoginView) {
             Interceptable interceptable = $ic;
@@ -42,25 +42,25 @@ public class AccountSmsLoginView extends SmsLoginView {
                     return;
                 }
             }
-            this.f11623e = accountSmsLoginView;
+            this.f11640e = accountSmsLoginView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                x.a(this.f11623e.v, ((FragmentActivity) this.f11623e.v).getWindow().getDecorView().getWindowToken());
+                x.a(this.f11640e.v, ((FragmentActivity) this.f11640e.v).getWindow().getDecorView().getWindowToken());
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountSmsLoginView f11624e;
+        public final /* synthetic */ AccountSmsLoginView f11641e;
 
         public b(AccountSmsLoginView accountSmsLoginView) {
             Interceptable interceptable = $ic;
@@ -77,14 +77,14 @@ public class AccountSmsLoginView extends SmsLoginView {
                     return;
                 }
             }
-            this.f11624e = accountSmsLoginView;
+            this.f11641e = accountSmsLoginView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                x.b(this.f11624e.v, false);
+                x.b(this.f11641e.v, false);
             }
         }
     }

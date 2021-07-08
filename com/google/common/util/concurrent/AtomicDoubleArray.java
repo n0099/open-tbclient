@@ -13,7 +13,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicLongArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AtomicDoubleArray implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;

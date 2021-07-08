@@ -68,7 +68,7 @@ public class ContextThemeWrapper extends ContextWrapper {
 
     private void initializeTheme() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             boolean z = this.mTheme == null;
             if (z) {
                 this.mTheme = getResources().newTheme();

@@ -1,5 +1,6 @@
 package com.google.common.util.concurrent;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,18 +23,18 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class FuturesGetChecked {
     public static /* synthetic */ Interceptable $ic;
     public static final Ordering<Constructor<?>> WITH_STRING_PARAM_FIRST;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface GetCheckedTypeValidator {
         void validateClass(Class<? extends Exception> cls);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class GetCheckedTypeValidatorHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final GetCheckedTypeValidator BEST_VALIDATOR;
@@ -41,7 +42,7 @@ public final class FuturesGetChecked {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public static final class ClassValueValidator implements GetCheckedTypeValidator {
             public static final /* synthetic */ ClassValueValidator[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -141,7 +142,7 @@ public final class FuturesGetChecked {
         }
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public static final class WeakSetValidator implements GetCheckedTypeValidator {
             public static final /* synthetic */ WeakSetValidator[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -336,7 +337,7 @@ public final class FuturesGetChecked {
     public static GetCheckedTypeValidator classValueValidator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? GetCheckedTypeValidatorHolder.ClassValueValidator.INSTANCE : (GetCheckedTypeValidator) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? GetCheckedTypeValidatorHolder.ClassValueValidator.INSTANCE : (GetCheckedTypeValidator) invokeV.objValue;
     }
 
     public static <V, X extends Exception> V getChecked(Future<V> future, Class<X> cls) throws Exception {

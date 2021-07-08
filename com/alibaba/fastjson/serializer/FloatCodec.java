@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.serializer;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.JSONLexer;
@@ -118,7 +119,7 @@ public class FloatCodec implements ObjectSerializer, ObjectDeserializer {
     public static <T> T deserialze(DefaultJSONParser defaultJSONParser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, defaultJSONParser)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, defaultJSONParser)) == null) {
             JSONLexer jSONLexer = defaultJSONParser.lexer;
             if (jSONLexer.token() == 2) {
                 String numberString = jSONLexer.numberString();

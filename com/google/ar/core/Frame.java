@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Frame {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f32850a;
+    public long f32960a;
 
     static {
         InterceptResult invokeClinit;
@@ -47,8 +47,8 @@ public class Frame {
                 return;
             }
         }
-        this.f32850a = 0L;
-        this.f32850a = 0L;
+        this.f32960a = 0L;
+        this.f32960a = 0L;
     }
 
     private native long nativeAcquireCameraImage(long j, long j2);
@@ -78,7 +78,7 @@ public class Frame {
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.f32850a;
+            long j = this.f32960a;
             if (j != 0) {
                 nativeDestroyFrame(j);
             }

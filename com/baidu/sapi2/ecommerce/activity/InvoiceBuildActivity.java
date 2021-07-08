@@ -20,13 +20,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.e0.a.f;
+import d.a.b0.a.f;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class InvoiceBuildActivity extends SlideActiviy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_PARAMS_ISCHECK = "isCheck";
@@ -56,7 +56,7 @@ public class InvoiceBuildActivity extends SlideActiviy {
     /* JADX INFO: Access modifiers changed from: private */
     public void back() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             SapiWebView sapiWebView = this.sapiWebView;
             if (sapiWebView != null && sapiWebView.canGoBack()) {
                 this.sapiWebView.goBack();

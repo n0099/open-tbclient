@@ -24,19 +24,19 @@ import com.bytedance.sdk.openadsdk.core.nativeexpress.FullRewardExpressBackupVie
 import com.bytedance.sdk.openadsdk.core.nativeexpress.NativeExpressView;
 import com.bytedance.sdk.openadsdk.core.nativeexpress.g;
 import com.bytedance.sdk.openadsdk.r.q;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FullRewardExpressView extends NativeExpressView implements g {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static float f29476c = 100.0f;
+    public static float f29586c = 100.0f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f29477a;
+    public g f29587a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FullRewardExpressBackupView f29478b;
+    public FullRewardExpressBackupView f29588b;
 
     static {
         InterceptResult invokeClinit;
@@ -76,7 +76,7 @@ public class FullRewardExpressView extends NativeExpressView implements g {
 
     private void b(p pVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, this, pVar) == null) || pVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, pVar) == null) || pVar == null) {
             return;
         }
         if (Looper.myLooper() == Looper.getMainLooper()) {
@@ -87,10 +87,10 @@ public class FullRewardExpressView extends NativeExpressView implements g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ p f29480a;
+                public final /* synthetic */ p f29590a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ FullRewardExpressView f29481b;
+                public final /* synthetic */ FullRewardExpressView f29591b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -107,15 +107,15 @@ public class FullRewardExpressView extends NativeExpressView implements g {
                             return;
                         }
                     }
-                    this.f29481b = this;
-                    this.f29480a = pVar;
+                    this.f29591b = this;
+                    this.f29590a = pVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f29481b.c(this.f29480a);
+                        this.f29591b.c(this.f29590a);
                     }
                 }
             });
@@ -132,10 +132,10 @@ public class FullRewardExpressView extends NativeExpressView implements g {
         double f2 = pVar.f();
         double g2 = pVar.g();
         double h2 = pVar.h();
-        int b2 = (int) q.b(this.f30298h, (float) e2);
-        int b3 = (int) q.b(this.f30298h, (float) f2);
-        int b4 = (int) q.b(this.f30298h, (float) g2);
-        int b5 = (int) q.b(this.f30298h, (float) h2);
+        int b2 = (int) q.b(this.f30408h, (float) e2);
+        int b3 = (int) q.b(this.f30408h, (float) f2);
+        int b4 = (int) q.b(this.f30408h, (float) g2);
+        int b5 = (int) q.b(this.f30408h, (float) h2);
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.o.getLayoutParams();
         if (layoutParams == null) {
             layoutParams = new FrameLayout.LayoutParams(b4, b5);
@@ -156,7 +156,7 @@ public class FullRewardExpressView extends NativeExpressView implements g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ FullRewardExpressView f29479a;
+                public final /* synthetic */ FullRewardExpressView f29589a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -173,7 +173,7 @@ public class FullRewardExpressView extends NativeExpressView implements g {
                             return;
                         }
                     }
-                    this.f29479a = this;
+                    this.f29589a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.c
@@ -183,8 +183,8 @@ public class FullRewardExpressView extends NativeExpressView implements g {
                     if (interceptable2 == null || (invokeLI = interceptable2.invokeLI(1048576, this, nativeExpressView, i2)) == null) {
                         try {
                             nativeExpressView.o();
-                            this.f29479a.f29478b = new FullRewardExpressBackupView(nativeExpressView.getContext());
-                            this.f29479a.f29478b.a(this.f29479a.m, nativeExpressView);
+                            this.f29589a.f29588b = new FullRewardExpressBackupView(nativeExpressView.getContext());
+                            this.f29589a.f29588b.a(this.f29589a.m, nativeExpressView);
                             return true;
                         } catch (Exception unused) {
                             return false;
@@ -202,7 +202,7 @@ public class FullRewardExpressView extends NativeExpressView implements g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             j.b("FullRewardExpressView", "onGetVideoState");
-            g gVar = this.f29477a;
+            g gVar = this.f29587a;
             if (gVar != null) {
                 return gVar.d();
             }
@@ -215,7 +215,7 @@ public class FullRewardExpressView extends NativeExpressView implements g {
     public void e() {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (gVar = this.f29477a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (gVar = this.f29587a) == null) {
             return;
         }
         gVar.e();
@@ -225,7 +225,7 @@ public class FullRewardExpressView extends NativeExpressView implements g {
     public void f() {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (gVar = this.f29477a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (gVar = this.f29587a) == null) {
             return;
         }
         gVar.f();
@@ -236,7 +236,7 @@ public class FullRewardExpressView extends NativeExpressView implements g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             this.q = true;
-            FrameLayout frameLayout = new FrameLayout(this.f30298h);
+            FrameLayout frameLayout = new FrameLayout(this.f30408h);
             this.o = frameLayout;
             addView(frameLayout, new FrameLayout.LayoutParams(-1, -1));
             super.g();
@@ -250,7 +250,7 @@ public class FullRewardExpressView extends NativeExpressView implements g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             if (p()) {
-                return this.f29478b.getVideoContainer();
+                return this.f29588b.getVideoContainer();
             }
             return this.o;
         }
@@ -269,7 +269,7 @@ public class FullRewardExpressView extends NativeExpressView implements g {
     public void setExpressVideoListenerProxy(g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, gVar) == null) {
-            this.f29477a = gVar;
+            this.f29587a = gVar;
         }
     }
 
@@ -288,7 +288,7 @@ public class FullRewardExpressView extends NativeExpressView implements g {
     public void b() {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (gVar = this.f29477a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (gVar = this.f29587a) == null) {
             return;
         }
         gVar.b();
@@ -299,7 +299,7 @@ public class FullRewardExpressView extends NativeExpressView implements g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             j.b("FullRewardExpressView", "onMuteVideo,mute:" + z);
-            g gVar = this.f29477a;
+            g gVar = this.f29587a;
             if (gVar != null) {
                 gVar.a(z);
             }
@@ -311,7 +311,7 @@ public class FullRewardExpressView extends NativeExpressView implements g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             j.b("FullRewardExpressView", "onSkipVideo");
-            g gVar = this.f29477a;
+            g gVar = this.f29587a;
             if (gVar != null) {
                 gVar.a();
             }
@@ -323,7 +323,7 @@ public class FullRewardExpressView extends NativeExpressView implements g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             j.b("FullRewardExpressView", "onChangeVideoState,stateType:" + i2);
-            g gVar = this.f29477a;
+            g gVar = this.f29587a;
             if (gVar != null) {
                 gVar.a(i2);
             }
@@ -359,7 +359,7 @@ public class FullRewardExpressView extends NativeExpressView implements g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             j.b("FullRewardExpressView", "onGetCurrentPlayTime");
-            g gVar = this.f29477a;
+            g gVar = this.f29587a;
             if (gVar != null) {
                 return gVar.c();
             }

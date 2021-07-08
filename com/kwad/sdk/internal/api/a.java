@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.KsImage;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a implements KsImage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38458a;
+    public int f35717a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38459b;
+    public int f35718b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38460c;
+    public String f35719c;
 
     public a(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
@@ -37,36 +37,36 @@ public class a implements KsImage {
                 return;
             }
         }
-        this.f38458a = i2;
-        this.f38459b = i3;
-        this.f38460c = str;
+        this.f35717a = i2;
+        this.f35718b = i3;
+        this.f35719c = str;
     }
 
     @Override // com.kwad.sdk.api.KsImage
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38459b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35718b : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsImage
     public String getImageUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38460c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35719c : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.api.KsImage
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38458a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35717a : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsImage
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38458a > 0 && this.f38459b > 0 && !TextUtils.isEmpty(this.f38460c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35717a > 0 && this.f35718b > 0 && !TextUtils.isEmpty(this.f35719c) : invokeV.booleanValue;
     }
 }

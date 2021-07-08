@@ -1,6 +1,7 @@
 package d.a.c.c.e.c;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.webkit.internal.ETAG;
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -92,7 +93,7 @@ public class i {
 
     public static void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             try {
                 d.a.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
                 statsItem.b("action", "imconn");

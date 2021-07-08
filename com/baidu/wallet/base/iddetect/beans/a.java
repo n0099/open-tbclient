@@ -13,13 +13,13 @@ import com.baidu.wallet.core.DebugConfig;
 import com.baidu.wallet.core.beans.BaseBean;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a extends BaseBean<IDDetectResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f23962a;
+    public String f24072a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> a(Context context) {
@@ -39,13 +39,13 @@ public class a extends BaseBean<IDDetectResponse> {
                 return;
             }
         }
-        this.f23962a = "";
+        this.f24072a = "";
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f23962a = str;
+            this.f24072a = str;
         }
     }
 
@@ -63,7 +63,7 @@ public class a extends BaseBean<IDDetectResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("id_pic", this.f23962a));
+            arrayList.add(new RestNameValuePair("id_pic", this.f24072a));
             return arrayList;
         }
         return (List) invokeV.objValue;

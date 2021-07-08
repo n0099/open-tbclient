@@ -6,6 +6,7 @@ import android.graphics.Rect;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.provider.MediaStore;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -27,7 +28,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LocalContentUriThumbnailFetchProducer extends LocalFetchProducer implements ThumbnailProducer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Rect MICRO_THUMBNAIL_DIMENSIONS;
@@ -125,7 +126,7 @@ public class LocalContentUriThumbnailFetchProducer extends LocalFetchProducer im
     public static int getRotationAngle(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (str != null) {
                 try {
                     return JfifUtil.getAutoRotateAngleFromOrientation(new ExifInterface(str).getAttributeInt("Orientation", 1));

@@ -21,37 +21,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.i0.a;
-/* loaded from: classes5.dex */
+import d.a.p0.i0.a;
+/* loaded from: classes4.dex */
 public class PbTopTipView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19514e;
+    public int f19554e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f19515f;
+    public boolean f19555f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animation f19516g;
+    public Animation f19556g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Animation f19517h;
+    public Animation f19557h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Runnable f19518i;
-    public d.a.s0.i0.b j;
+    public Runnable f19558i;
+    public d.a.p0.i0.b j;
     public a.b k;
     public Runnable l;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbTopTipView f19519e;
+        public final /* synthetic */ PbTopTipView f19559e;
 
         public a(PbTopTipView pbTopTipView) {
             Interceptable interceptable = $ic;
@@ -68,25 +68,25 @@ public class PbTopTipView extends TextView {
                     return;
                 }
             }
-            this.f19519e = pbTopTipView;
+            this.f19559e = pbTopTipView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f19519e.h();
+                this.f19559e.h();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbTopTipView f19520a;
+        public final /* synthetic */ PbTopTipView f19560a;
 
         public b(PbTopTipView pbTopTipView) {
             Interceptable interceptable = $ic;
@@ -103,32 +103,32 @@ public class PbTopTipView extends TextView {
                     return;
                 }
             }
-            this.f19520a = pbTopTipView;
+            this.f19560a = pbTopTipView;
         }
 
-        @Override // d.a.s0.i0.a.b
+        @Override // d.a.p0.i0.a.b
         public void a(int i2, int i3) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) && e(i3) && this.f19520a.f19515f) {
-                this.f19520a.h();
+            if ((interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) && e(i3) && this.f19560a.f19555f) {
+                this.f19560a.h();
             }
         }
 
-        @Override // d.a.s0.i0.a.b
+        @Override // d.a.p0.i0.a.b
         public void b(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
             }
         }
 
-        @Override // d.a.s0.i0.a.b
+        @Override // d.a.p0.i0.a.b
         public void c(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
             }
         }
 
-        @Override // d.a.s0.i0.a.b
+        @Override // d.a.p0.i0.a.b
         public void d(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
@@ -142,13 +142,13 @@ public class PbTopTipView extends TextView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbTopTipView f19521e;
+        public final /* synthetic */ PbTopTipView f19561e;
 
         public c(PbTopTipView pbTopTipView) {
             Interceptable interceptable = $ic;
@@ -165,24 +165,24 @@ public class PbTopTipView extends TextView {
                     return;
                 }
             }
-            this.f19521e = pbTopTipView;
+            this.f19561e = pbTopTipView;
         }
 
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) ? this.f19521e.j.c(motionEvent) : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) ? this.f19561e.j.c(motionEvent) : invokeLL.booleanValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbTopTipView f19522a;
+        public final /* synthetic */ PbTopTipView f19562a;
 
         public d(PbTopTipView pbTopTipView) {
             Interceptable interceptable = $ic;
@@ -199,16 +199,16 @@ public class PbTopTipView extends TextView {
                     return;
                 }
             }
-            this.f19522a = pbTopTipView;
+            this.f19562a = pbTopTipView;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f19522a.k();
-                this.f19522a.setVisibility(8);
-                d.a.c.e.m.e.a().postDelayed(this.f19522a.l, 600L);
+                this.f19562a.k();
+                this.f19562a.setVisibility(8);
+                d.a.c.e.m.e.a().postDelayed(this.f19562a.l, 600L);
             }
         }
 
@@ -227,13 +227,13 @@ public class PbTopTipView extends TextView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class e implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbTopTipView f19523a;
+        public final /* synthetic */ PbTopTipView f19563a;
 
         public e(PbTopTipView pbTopTipView) {
             Interceptable interceptable = $ic;
@@ -250,17 +250,17 @@ public class PbTopTipView extends TextView {
                     return;
                 }
             }
-            this.f19523a = pbTopTipView;
+            this.f19563a = pbTopTipView;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, animation) == null) || this.f19523a.f19514e <= 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, animation) == null) || this.f19563a.f19554e <= 0) {
                 return;
             }
-            PbTopTipView pbTopTipView = this.f19523a;
-            pbTopTipView.postDelayed(pbTopTipView.f19518i, this.f19523a.f19514e);
+            PbTopTipView pbTopTipView = this.f19563a;
+            pbTopTipView.postDelayed(pbTopTipView.f19558i, this.f19563a.f19554e);
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -278,13 +278,13 @@ public class PbTopTipView extends TextView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbTopTipView f19524e;
+        public final /* synthetic */ PbTopTipView f19564e;
 
         public f(PbTopTipView pbTopTipView) {
             Interceptable interceptable = $ic;
@@ -301,17 +301,17 @@ public class PbTopTipView extends TextView {
                     return;
                 }
             }
-            this.f19524e = pbTopTipView;
+            this.f19564e = pbTopTipView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             ViewGroup viewGroup;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (viewGroup = (ViewGroup) this.f19524e.getParent()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (viewGroup = (ViewGroup) this.f19564e.getParent()) == null) {
                 return;
             }
-            viewGroup.removeView(this.f19524e);
+            viewGroup.removeView(this.f19564e);
         }
     }
 
@@ -333,8 +333,8 @@ public class PbTopTipView extends TextView {
                 return;
             }
         }
-        this.f19514e = 3000;
-        this.f19518i = new a(this);
+        this.f19554e = 3000;
+        this.f19558i = new a(this);
         this.k = new b(this);
         this.l = new f(this);
         i();
@@ -343,7 +343,7 @@ public class PbTopTipView extends TextView {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f19515f = false;
+            this.f19555f = false;
             k();
             ViewGroup viewGroup = (ViewGroup) getParent();
             if (viewGroup != null) {
@@ -355,11 +355,11 @@ public class PbTopTipView extends TextView {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f19515f = false;
-            removeCallbacks(this.f19518i);
+            this.f19555f = false;
+            removeCallbacks(this.f19558i);
             if (getParent() != null) {
                 clearAnimation();
-                startAnimation(this.f19516g);
+                startAnimation(this.f19556g);
             }
         }
     }
@@ -367,17 +367,17 @@ public class PbTopTipView extends TextView {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            d.a.s0.i0.b bVar = new d.a.s0.i0.b(getContext());
+            d.a.p0.i0.b bVar = new d.a.p0.i0.b(getContext());
             this.j = bVar;
             bVar.d(this.k);
             setOnTouchListener(new c(this));
             setupPaddings();
-            this.f19517h = AnimationUtils.loadAnimation(getContext(), R.anim.push_top_in);
-            this.f19516g = AnimationUtils.loadAnimation(getContext(), R.anim.push_top_out);
+            this.f19557h = AnimationUtils.loadAnimation(getContext(), R.anim.push_top_in);
+            this.f19556g = AnimationUtils.loadAnimation(getContext(), R.anim.push_top_out);
             setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.fontsize30));
-            this.f19516g.setAnimationListener(new d(this));
-            this.f19517h.setDuration(400L);
-            this.f19517h.setAnimationListener(new e(this));
+            this.f19556g.setAnimationListener(new d(this));
+            this.f19557h.setDuration(400L);
+            this.f19557h.setAnimationListener(new e(this));
         }
     }
 
@@ -392,7 +392,7 @@ public class PbTopTipView extends TextView {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            removeCallbacks(this.f19518i);
+            removeCallbacks(this.f19558i);
             clearAnimation();
             d.a.c.e.m.e.a().removeCallbacks(this.l);
         }
@@ -411,8 +411,8 @@ public class PbTopTipView extends TextView {
         layoutParams.addRule(10);
         relativeLayout.addView(this, layoutParams);
         j(i2);
-        startAnimation(this.f19517h);
-        this.f19515f = true;
+        startAnimation(this.f19557h);
+        this.f19555f = true;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -427,7 +427,7 @@ public class PbTopTipView extends TextView {
     public void setDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f19514e = i2;
+            this.f19554e = i2;
         }
     }
 
@@ -460,8 +460,8 @@ public class PbTopTipView extends TextView {
                 return;
             }
         }
-        this.f19514e = 3000;
-        this.f19518i = new a(this);
+        this.f19554e = 3000;
+        this.f19558i = new a(this);
         this.k = new b(this);
         this.l = new f(this);
         i();
@@ -486,8 +486,8 @@ public class PbTopTipView extends TextView {
                 return;
             }
         }
-        this.f19514e = 3000;
-        this.f19518i = new a(this);
+        this.f19554e = 3000;
+        this.f19558i = new a(this);
         this.k = new b(this);
         this.l = new f(this);
         i();

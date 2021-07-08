@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import com.google.ar.core.InstallActivity;
 import com.google.zxing.Dimension;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SymbolInfo {
     public static /* synthetic */ Interceptable $ic;
     public static final SymbolInfo[] PROD_SYMBOLS;
@@ -95,7 +95,7 @@ public class SymbolInfo {
     private int getVerticalDataRegions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             int i2 = this.dataRegions;
             if (i2 == 1 || i2 == 2) {
                 return 1;

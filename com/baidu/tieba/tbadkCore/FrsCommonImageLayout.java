@@ -39,11 +39,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.f;
 import d.a.c.a.j;
 import d.a.c.e.p.l;
-import d.a.r0.r.q.b2;
+import d.a.o0.r.q.b2;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FrsCommonImageLayout extends LinearLayout implements AbsListView.RecyclerListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,19 +58,19 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
     public Rect I;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21045e;
+    public int f21091e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f21046f;
+    public d f21092f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f21047g;
+    public boolean f21093g;
 
     /* renamed from: h  reason: collision with root package name */
-    public MediaData[] f21048h;
+    public MediaData[] f21094h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Context f21049i;
+    public final Context f21095i;
     public boolean j;
     public int k;
     public int l;
@@ -89,13 +89,13 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
     public f<?> y;
     public int z;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements ViewGroup.OnHierarchyChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsCommonImageLayout f21050e;
+        public final /* synthetic */ FrsCommonImageLayout f21096e;
 
         public a(FrsCommonImageLayout frsCommonImageLayout) {
             Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
                     return;
                 }
             }
-            this.f21050e = frsCommonImageLayout;
+            this.f21096e = frsCommonImageLayout;
         }
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
@@ -125,19 +125,19 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
         public void onChildViewRemoved(View view, View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof TbImageView) && this.f21050e.v != null) {
-                this.f21050e.v.e((TbImageView) view2);
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof TbImageView) && this.f21096e.v != null) {
+                this.f21096e.v.e((TbImageView) view2);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class b implements d.a.c.e.k.c<TbImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f21051a;
+        public final /* synthetic */ Context f21097a;
 
         public b(Context context) {
             Interceptable interceptable = $ic;
@@ -154,7 +154,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
                     return;
                 }
             }
-            this.f21051a = context;
+            this.f21097a = context;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -201,7 +201,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                TbImageView tbImageView = new TbImageView(this.f21051a);
+                TbImageView tbImageView = new TbImageView(this.f21097a);
                 tbImageView.setSupportNoImage(true);
                 tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 tbImageView.setDrawBorder(true);
@@ -225,16 +225,16 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f21052e;
+        public final int f21098e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FrsCommonImageLayout f21053f;
+        public final /* synthetic */ FrsCommonImageLayout f21099f;
 
         public /* synthetic */ c(FrsCommonImageLayout frsCommonImageLayout, int i2, a aVar) {
             this(frsCommonImageLayout, i2);
@@ -246,48 +246,48 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
             MediaData[] mediaDataArr2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f21053f.f21046f != null) {
-                    this.f21053f.f21046f.a(this.f21052e);
-                } else if (this.f21053f.f21048h == null || this.f21052e >= this.f21053f.f21048h.length) {
+                if (this.f21099f.f21092f != null) {
+                    this.f21099f.f21092f.a(this.f21098e);
+                } else if (this.f21099f.f21094h == null || this.f21098e >= this.f21099f.f21094h.length) {
                     return;
                 } else {
-                    if (this.f21053f.f21048h[this.f21052e].getType() == 5) {
-                        if (this.f21053f.y instanceof TbPageContext) {
+                    if (this.f21099f.f21094h[this.f21098e].getType() == 5) {
+                        if (this.f21099f.y instanceof TbPageContext) {
                             UrlManager urlManager = UrlManager.getInstance();
-                            FrsCommonImageLayout frsCommonImageLayout = this.f21053f;
-                            urlManager.dealOneLink((TbPageContext) frsCommonImageLayout.y, new String[]{frsCommonImageLayout.f21048h[this.f21052e].getVideoUrl()});
+                            FrsCommonImageLayout frsCommonImageLayout = this.f21099f;
+                            urlManager.dealOneLink((TbPageContext) frsCommonImageLayout.y, new String[]{frsCommonImageLayout.f21094h[this.f21098e].getVideoUrl()});
                         }
                     } else {
                         ArrayList<String> arrayList = new ArrayList<>();
                         ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = new ConcurrentHashMap<>();
-                        for (MediaData mediaData : this.f21053f.f21048h) {
+                        for (MediaData mediaData : this.f21099f.f21094h) {
                             if (!TextUtils.isEmpty(mediaData.getSrc_pic())) {
                                 arrayList.add(mediaData.getSrc_pic());
                                 if (!TextUtils.isEmpty(mediaData.getPicUrl())) {
                                     ImageUrlData imageUrlData = new ImageUrlData();
-                                    imageUrlData.urlType = this.f21053f.f21047g ? 13 : 14;
+                                    imageUrlData.urlType = this.f21099f.f21093g ? 13 : 14;
                                     imageUrlData.imageUrl = mediaData.getPicUrl();
                                     imageUrlData.originalUrl = mediaData.getOriginalUrl();
                                     imageUrlData.originalSize = mediaData.getOriginalSize();
                                     imageUrlData.isLongPic = mediaData.isLongPic();
                                     imageUrlData.mIsShowOrigonButton = mediaData.isShowOriginBtn();
-                                    imageUrlData.threadId = d.a.c.e.m.b.f(this.f21053f.u, -1L);
+                                    imageUrlData.threadId = d.a.c.e.m.b.f(this.f21099f.u, -1L);
                                     imageUrlData.postId = mediaData.getPostId();
                                     concurrentHashMap.put(mediaData.getSrc_pic(), imageUrlData);
                                 }
                             }
                         }
                         if (arrayList.size() <= 0) {
-                            for (MediaData mediaData2 : this.f21053f.f21048h) {
+                            for (MediaData mediaData2 : this.f21099f.f21094h) {
                                 if (!TextUtils.isEmpty(mediaData2.getPicUrl())) {
                                     arrayList.add(mediaData2.getPicUrl());
                                 }
                             }
                         }
-                        if (this.f21053f.p > this.f21053f.o && this.f21052e == this.f21053f.o - 1) {
-                            PbActivityConfig addLocateParam = new PbActivityConfig(this.f21053f.f21049i).createFromThreadCfg(this.f21053f.r, this.f21053f.t, null, 18003, true, false, false).addLocateParam("");
-                            addLocateParam.setForumId(String.valueOf(this.f21053f.r.Q()));
-                            addLocateParam.setForumName(this.f21053f.r.W());
+                        if (this.f21099f.p > this.f21099f.o && this.f21098e == this.f21099f.o - 1) {
+                            PbActivityConfig addLocateParam = new PbActivityConfig(this.f21099f.f21095i).createFromThreadCfg(this.f21099f.r, this.f21099f.t, null, 18003, true, false, false).addLocateParam("");
+                            addLocateParam.setForumId(String.valueOf(this.f21099f.r.Q()));
+                            addLocateParam.setForumName(this.f21099f.r.W());
                             addLocateParam.setStartFrom(3);
                             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, addLocateParam));
                         } else {
@@ -295,35 +295,35 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
                             view.getGlobalVisibleRect(rect);
                             ImageViewerConfig.b bVar = new ImageViewerConfig.b();
                             bVar.x(arrayList);
-                            bVar.B(this.f21052e);
-                            bVar.z(this.f21053f.t);
-                            bVar.y(this.f21053f.s);
-                            bVar.O(this.f21053f.u);
-                            bVar.C(this.f21053f.f21047g);
+                            bVar.B(this.f21098e);
+                            bVar.z(this.f21099f.t);
+                            bVar.y(this.f21099f.s);
+                            bVar.O(this.f21099f.u);
+                            bVar.C(this.f21099f.f21093g);
                             bVar.J(arrayList.size() > 0 ? arrayList.get(0) : "");
                             bVar.F(true);
                             bVar.w(concurrentHashMap);
                             bVar.H(true);
-                            bVar.N(this.f21053f.r);
+                            bVar.N(this.f21099f.r);
                             bVar.M(rect, UtilHelper.fixedDrawableRect(rect, view));
-                            FrsCommonImageLayout frsCommonImageLayout2 = this.f21053f;
+                            FrsCommonImageLayout frsCommonImageLayout2 = this.f21099f;
                             f<?> fVar = frsCommonImageLayout2.y;
-                            ImageViewerConfig v = bVar.v(fVar == null ? frsCommonImageLayout2.f21049i : fVar.getPageActivity());
+                            ImageViewerConfig v = bVar.v(fVar == null ? frsCommonImageLayout2.f21095i : fVar.getPageActivity());
                             v.getIntent().putExtra("from", "frs");
                             MessageManager.getInstance().sendMessage(new CustomMessage(2010000, v));
-                            TiebaStatic.eventStat(this.f21053f.f21049i, "pic_frs", "");
+                            TiebaStatic.eventStat(this.f21099f.f21095i, "pic_frs", "");
                             HistoryMessage historyMessage = new HistoryMessage();
-                            historyMessage.Activity = (TbPageContext) j.a(this.f21053f.f21049i);
-                            historyMessage.threadId = this.f21053f.r.c0();
-                            historyMessage.threadName = this.f21053f.r.getTitle();
-                            historyMessage.forumName = this.f21053f.r.W();
-                            historyMessage.postID = this.f21053f.r.T();
+                            historyMessage.Activity = (TbPageContext) j.a(this.f21099f.f21095i);
+                            historyMessage.threadId = this.f21099f.r.c0();
+                            historyMessage.threadName = this.f21099f.r.getTitle();
+                            historyMessage.forumName = this.f21099f.r.W();
+                            historyMessage.postID = this.f21099f.r.T();
                             MessageManager.getInstance().dispatchResponsedMessage(historyMessage);
                         }
                     }
                 }
-                if (this.f21053f.w != null) {
-                    this.f21053f.w.onClick(view);
+                if (this.f21099f.w != null) {
+                    this.f21099f.w.onClick(view);
                 }
             }
         }
@@ -343,17 +343,17 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
                     return;
                 }
             }
-            this.f21053f = frsCommonImageLayout;
-            this.f21052e = i2;
+            this.f21099f = frsCommonImageLayout;
+            this.f21098e = i2;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface d {
         void a(int i2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface e {
         d.a.c.e.k.b<TbImageView> getFrsCommonImageLayoutPool();
     }
@@ -400,7 +400,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
     public void dispatchDraw(Canvas canvas) {
         MediaData[] mediaDataArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) || (mediaDataArr = this.f21048h) == null || mediaDataArr.length <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) || (mediaDataArr = this.f21094h) == null || mediaDataArr.length <= 0) {
             return;
         }
         int childCount = getChildCount();
@@ -563,7 +563,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
             tbImageView.setLongIconSupport(true);
         }
         tbImageView.setIsLongPic(mediaData.isLongPic());
-        tbImageView.M(picUrl, this.f21047g ? 13 : 14, false);
+        tbImageView.M(picUrl, this.f21093g ? 13 : 14, false);
     }
 
     public void setAfterChildClickListener(View.OnClickListener onClickListener) {
@@ -583,7 +583,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
     public void setData(f<?> fVar, MediaData[] mediaDataArr, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048592, this, fVar, mediaDataArr, i2) == null) {
-            this.f21048h = mediaDataArr;
+            this.f21094h = mediaDataArr;
             this.p = i2;
             this.y = fVar;
             Resources resources = getResources();
@@ -594,7 +594,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
             if (this.v == null) {
                 return;
             }
-            MediaData[] mediaDataArr2 = this.f21048h;
+            MediaData[] mediaDataArr2 = this.f21094h;
             if (mediaDataArr2 != null && mediaDataArr2.length > 0) {
                 int length = mediaDataArr2.length;
                 this.l = length;
@@ -622,13 +622,13 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
                     removeViews(i4, childCount - i4);
                 }
                 int childCount2 = getChildCount();
-                for (int i7 = 0; i7 < childCount2 && i7 < this.f21048h.length; i7++) {
+                for (int i7 = 0; i7 < childCount2 && i7 < this.f21094h.length; i7++) {
                     TbImageView tbImageView = (TbImageView) getChildAt(i7);
-                    if (this.f21045e != TbadkCoreApplication.getInst().getSkinType() && tbImageView != null) {
+                    if (this.f21091e != TbadkCoreApplication.getInst().getSkinType() && tbImageView != null) {
                         tbImageView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
                     }
-                    this.f21045e = TbadkCoreApplication.getInst().getSkinType();
-                    q(tbImageView, this.f21048h[i7], i7);
+                    this.f21091e = TbadkCoreApplication.getInst().getSkinType();
+                    q(tbImageView, this.f21094h[i7], i7);
                 }
                 return;
             }
@@ -646,7 +646,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
     public void setFromCDN(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.f21047g = z;
+            this.f21093g = z;
         }
     }
 
@@ -659,7 +659,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
     public void setItemSize(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.k = l.e(this.f21049i, i2);
+            this.k = l.e(this.f21095i, i2);
         }
     }
 
@@ -676,7 +676,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
     public void setOnChildClickListener(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, dVar) == null) {
-            this.f21046f = dVar;
+            this.f21092f = dVar;
         }
     }
 
@@ -723,8 +723,8 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
                 return;
             }
         }
-        this.f21045e = 3;
-        this.f21047g = false;
+        this.f21091e = 3;
+        this.f21093g = false;
         this.j = false;
         this.k = 0;
         this.m = 2;
@@ -733,12 +733,12 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         this.q = false;
         this.v = null;
         this.x = true;
-        this.f21049i = context;
+        this.f21095i = context;
         this.m = l.e(context, 2);
-        this.k = l.e(this.f21049i, this.n);
+        this.k = l.e(this.f21095i, this.n);
         setOnHierarchyChangeListener(new a(this));
-        this.z = l.e(this.f21049i, 50.0f);
-        this.A = l.e(this.f21049i, 23.0f);
+        this.z = l.e(this.f21095i, 50.0f);
+        this.A = l.e(this.f21095i, 23.0f);
         Paint paint = new Paint();
         this.B = paint;
         paint.setDither(true);
@@ -746,8 +746,8 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         Resources resources = getResources();
         String str = resources.getString(R.string.frs_item_common_image_canvas_text1) + this.p + resources.getString(R.string.frs_item_common_image_canvas_text2);
         this.C = str;
-        this.D = ((str.length() + 2) * l.e(this.f21049i, 10.0f)) / 2;
-        this.E = l.e(this.f21049i, 10.0f);
+        this.D = ((str.length() + 2) * l.e(this.f21095i, 10.0f)) / 2;
+        this.E = l.e(this.f21095i, 10.0f);
         Paint paint2 = new Paint(257);
         this.F = paint2;
         paint2.setColor(-1);

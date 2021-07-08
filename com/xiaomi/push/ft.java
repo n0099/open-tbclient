@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ft extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ long f43136a;
+    public final /* synthetic */ long f40150a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ fs f413a;
@@ -37,7 +37,7 @@ public class ft extends XMPushService.i {
             }
         }
         this.f413a = fsVar;
-        this.f43136a = j;
+        this.f40150a = j;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -45,7 +45,7 @@ public class ft extends XMPushService.i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "check the ping-pong." + this.f43136a;
+            return "check the ping-pong." + this.f40150a;
         }
         return (String) invokeV.objValue;
     }
@@ -55,10 +55,10 @@ public class ft extends XMPushService.i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Thread.yield();
-            if (!this.f413a.m327c() || this.f413a.a(this.f43136a)) {
+            if (!this.f413a.m327c() || this.f413a.a(this.f40150a)) {
                 return;
             }
-            this.f413a.f43130b.a(22, (Exception) null);
+            this.f413a.f40144b.a(22, (Exception) null);
         }
     }
 }

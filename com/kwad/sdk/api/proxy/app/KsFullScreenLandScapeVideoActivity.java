@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.proxy.BaseProxyActivity;
 import com.kwad.sdk.api.proxy.IActivityProxy;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class KsFullScreenLandScapeVideoActivity extends BaseProxyActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

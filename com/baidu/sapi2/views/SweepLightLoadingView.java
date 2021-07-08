@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccountManager;
@@ -19,26 +20,26 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.e0.a.b;
-import d.a.e0.a.d;
-import d.a.e0.a.e;
-import d.a.e0.a.f;
-/* loaded from: classes3.dex */
+import d.a.b0.a.b;
+import d.a.b0.a.d;
+import d.a.b0.a.e;
+import d.a.b0.a.f;
+/* loaded from: classes2.dex */
 public class SweepLightLoadingView extends FrameLayout implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f10052a;
+    public View f10069a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f10053b;
+    public ImageView f10070b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f10054c;
+    public ImageView f10071c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f10055d;
+    public LinearLayout f10072d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SweepLightLoadingView(Context context) {
@@ -65,23 +66,23 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(f.layout_sapi_sdk_sweep_light_loading_view, (ViewGroup) this, true);
-            this.f10052a = inflate;
-            this.f10053b = (ImageView) inflate.findViewById(e.sapi_sdk_loading_logo);
-            this.f10054c = (ImageView) this.f10052a.findViewById(e.sapi_sdk_sweep_iv);
-            this.f10055d = (LinearLayout) this.f10052a.findViewById(e.sapi_sdk_sweep_light_loading_bg_layout);
+            this.f10069a = inflate;
+            this.f10070b = (ImageView) inflate.findViewById(e.sapi_sdk_loading_logo);
+            this.f10071c = (ImageView) this.f10069a.findViewById(e.sapi_sdk_sweep_iv);
+            this.f10072d = (LinearLayout) this.f10069a.findViewById(e.sapi_sdk_sweep_light_loading_bg_layout);
             if (SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode) {
-                this.f10055d.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_na_activity_color));
-                this.f10053b.setImageResource(d.sapi_sdk_sweep_light_logo_dark);
-                this.f10054c.setImageResource(d.sapi_sdk_sweep_light_dark);
-                this.f10052a.findViewById(e.sapi_sdk_sweep_bg_view).setBackgroundColor(getResources().getColor(b.sapi_sdk_sweep_loading_bg_dark));
+                this.f10072d.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_na_activity_color));
+                this.f10070b.setImageResource(d.sapi_sdk_sweep_light_logo_dark);
+                this.f10071c.setImageResource(d.sapi_sdk_sweep_light_dark);
+                this.f10069a.findViewById(e.sapi_sdk_sweep_bg_view).setBackgroundColor(getResources().getColor(b.sapi_sdk_sweep_loading_bg_dark));
             }
         }
     }
 
     private void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
-            this.f10054c.startAnimation(AnimationUtils.loadAnimation(getContext(), d.a.e0.a.a.sapi_sdk_sweep_light_trans));
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            this.f10071c.startAnimation(AnimationUtils.loadAnimation(getContext(), d.a.b0.a.a.sapi_sdk_sweep_light_trans));
         }
     }
 
@@ -89,7 +90,7 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
     private void c() {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || (imageView = this.f10054c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || (imageView = this.f10071c) == null) {
             return;
         }
         imageView.clearAnimation();

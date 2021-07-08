@@ -2,6 +2,7 @@ package com.baidu.adp.lib.OrmObject.toolsystem.orm.object;
 
 import android.content.Intent;
 import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -73,7 +74,7 @@ public class OrmObject extends a {
     public static final JSONObject jsonWithObject(OrmObject ormObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, ormObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ormObject)) == null) {
             JSONObject jSONObject = new JSONObject();
             if (ormObject == null || !ormObject.fillInJsonObject(jSONObject)) {
                 return null;

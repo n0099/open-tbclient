@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BdSailorFeature";
@@ -22,18 +22,18 @@ public class a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.browser.sailor.feature.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class EnumC0083a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final EnumC0083a f4334a;
+        public static final EnumC0083a f4339a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final EnumC0083a f4335b;
+        public static final EnumC0083a f4340b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final /* synthetic */ EnumC0083a[] f4336c;
+        public static final /* synthetic */ EnumC0083a[] f4341c;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,10 +49,10 @@ public class a {
                     return;
                 }
             }
-            f4334a = new EnumC0083a("ENABLE", 0);
+            f4339a = new EnumC0083a("ENABLE", 0);
             EnumC0083a enumC0083a = new EnumC0083a("DISABLE", 1);
-            f4335b = enumC0083a;
-            f4336c = new EnumC0083a[]{f4334a, enumC0083a};
+            f4340b = enumC0083a;
+            f4341c = new EnumC0083a[]{f4339a, enumC0083a};
         }
 
         public EnumC0083a(String str, int i2) {
@@ -83,7 +83,7 @@ public class a {
         public static EnumC0083a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC0083a[]) f4336c.clone() : (EnumC0083a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC0083a[]) f4341c.clone() : (EnumC0083a[]) invokeV.objValue;
         }
     }
 
@@ -120,14 +120,14 @@ public class a {
     public void disable() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.mStatus = EnumC0083a.f4335b;
+            this.mStatus = EnumC0083a.f4340b;
         }
     }
 
     public void enable() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.mStatus = EnumC0083a.f4334a;
+            this.mStatus = EnumC0083a.f4339a;
         }
     }
 
@@ -146,7 +146,7 @@ public class a {
     public boolean isEnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mStatus == EnumC0083a.f4334a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mStatus == EnumC0083a.f4339a : invokeV.booleanValue;
     }
 
     public void regActivityResultCallback(String str, d.a.i.b.a.a aVar) {

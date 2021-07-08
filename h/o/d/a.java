@@ -5,19 +5,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class a<T> implements h.e<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.n.b<? super T> f75612e;
+    public final h.n.b<? super T> f72646e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final h.n.b<? super Throwable> f75613f;
+    public final h.n.b<? super Throwable> f72647f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final h.n.a f75614g;
+    public final h.n.a f72648g;
 
     public a(h.n.b<? super T> bVar, h.n.b<? super Throwable> bVar2, h.n.a aVar) {
         Interceptable interceptable = $ic;
@@ -34,16 +34,16 @@ public final class a<T> implements h.e<T> {
                 return;
             }
         }
-        this.f75612e = bVar;
-        this.f75613f = bVar2;
-        this.f75614g = aVar;
+        this.f72646e = bVar;
+        this.f72647f = bVar2;
+        this.f72648g = aVar;
     }
 
     @Override // h.e
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f75614g.call();
+            this.f72648g.call();
         }
     }
 
@@ -51,7 +51,7 @@ public final class a<T> implements h.e<T> {
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.f75613f.call(th);
+            this.f72647f.call(th);
         }
     }
 
@@ -59,7 +59,7 @@ public final class a<T> implements h.e<T> {
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.f75612e.call(t);
+            this.f72646e.call(t);
         }
     }
 }

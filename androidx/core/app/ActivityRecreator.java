@@ -11,6 +11,7 @@ import android.os.Looper;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -192,7 +193,7 @@ public final class ActivityRecreator {
     public static Method getPerformStopActivity2Params(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, cls)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls)) == null) {
             if (cls == null) {
                 return null;
             }

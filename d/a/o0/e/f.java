@@ -1,298 +1,212 @@
 package d.a.o0.e;
 
+import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.content.Context;
-import cn.com.chinatelecom.gateway.lib.CtAuth;
-import cn.com.chinatelecom.gateway.lib.PreCodeListener;
+import android.database.Cursor;
+import android.net.Uri;
+import android.provider.MediaStore;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.retrieve.RetrieveFileData;
-import com.baidu.mapapi.UIMsg;
-import com.baidu.sapi2.activity.social.YYInnerSSOLoginActivity;
-import com.baidu.sapi2.result.OneKeyLoginOptResult;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.album.MediaFileInfo;
+import com.baidu.tbadk.album.VideoFileInfo;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.iddetect.IdCardActivity;
-import org.json.JSONObject;
-/* loaded from: classes8.dex */
-public class f extends j {
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean s;
 
-    /* loaded from: classes8.dex */
-    public class a implements PreCodeListener {
+    /* renamed from: a  reason: collision with root package name */
+    public final String f51942a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public c f51943b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final Context f51944c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f51945d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String[] f51946e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String[] f51947f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public HashMap<String, d.a.o0.e.a> f51948g;
+
+    /* loaded from: classes7.dex */
+    public class a implements Comparator<MediaFileInfo> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(MediaFileInfo mediaFileInfo, MediaFileInfo mediaFileInfo2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mediaFileInfo, mediaFileInfo2)) == null) {
+                int i2 = ((mediaFileInfo2.getSortTime() - mediaFileInfo.getSortTime()) > 0L ? 1 : ((mediaFileInfo2.getSortTime() - mediaFileInfo.getSortTime()) == 0L ? 0 : -1));
+                if (i2 == 0) {
+                    return 0;
+                }
+                return i2 > 0 ? 1 : -1;
+            }
+            return invokeLL.intValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Comparator<d.a.o0.e.a> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ f f51949e;
+
+        public b(f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f51949e = fVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(d.a.o0.e.a aVar, d.a.o0.e.a aVar2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, aVar2)) == null) {
+                if (this.f51949e.f51942a.equals(aVar.g())) {
+                    return -1;
+                }
+                if (this.f51949e.f51942a.equals(aVar2.g())) {
+                    return 1;
+                }
+                int i2 = ((aVar2.e().getSortTime() - aVar.e().getSortTime()) > 0L ? 1 : ((aVar2.e().getSortTime() - aVar.e().getSortTime()) == 0L ? 0 : -1));
+                if (i2 == 0) {
+                    return 0;
+                }
+                return i2 > 0 ? 1 : -1;
+            }
+            return invokeLL.intValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c extends BdAsyncTask<Object, Integer, g> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f46308a;
+        public final e f51950a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f46309b;
+        public final /* synthetic */ f f51951b;
 
-        public a(f fVar, long j, int i2) {
+        public c(f fVar, e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fVar, Long.valueOf(j), Integer.valueOf(i2)};
+                Object[] objArr = {fVar, eVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f46309b = fVar;
-            this.f46308a = i2;
+            this.f51951b = fVar;
+            this.f51950a = eVar;
         }
 
-        @Override // cn.com.chinatelecom.gateway.lib.PreCodeListener
-        public void onResult(String str) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public g doInBackground(Object... objArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f46309b.w(str, this.f46308a, 1);
-            }
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) ? this.f51951b.d() : (g) invokeL.objValue;
         }
-    }
 
-    /* loaded from: classes8.dex */
-    public class b implements PreCodeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f46310a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f46311b;
-
-        public b(f fVar, int i2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(g gVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fVar, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar) == null) {
+                super.onPostExecute(gVar);
+                e eVar = this.f51950a;
+                if (eVar != null) {
+                    eVar.a(gVar);
                 }
             }
-            this.f46311b = fVar;
-            this.f46310a = i2;
         }
 
-        @Override // cn.com.chinatelecom.gateway.lib.PreCodeListener
-        public void onResult(String str) {
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPreExecute() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f46311b.w(str, this.f46310a, 3);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c extends d.a.o0.k.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f46312f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f46313g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f46314h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ f f46315i;
-
-        public c(f fVar, String str, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fVar, str, Integer.valueOf(i2), Integer.valueOf(i3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f46315i = fVar;
-            this.f46312f = str;
-            this.f46313g = i2;
-            this.f46314h = i3;
-        }
-
-        @Override // d.a.o0.k.c
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(this.f46312f);
-                    if (jSONObject.optInt("result", -1) == 0) {
-                        this.f46315i.z(jSONObject, this.f46313g, this.f46314h);
-                    } else {
-                        this.f46315i.x(jSONObject, this.f46313g, this.f46314h);
-                    }
-                } catch (Throwable th) {
-                    d.a.o0.l.c.d(th);
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                super.onPreExecute();
+                e eVar = this.f51950a;
+                if (eVar != null) {
+                    eVar.onPreLoad();
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class d extends d.a.o0.k.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f46316f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f46317g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f46318h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ f f46319i;
-
-        public d(f fVar, int i2, int i3, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fVar, Integer.valueOf(i2), Integer.valueOf(i3), jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f46319i = fVar;
-            this.f46316f = i2;
-            this.f46317g = i3;
-            this.f46318h = jSONObject;
-        }
-
-        @Override // d.a.o0.k.c
-        public void b() {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (d.a.o0.b.c.f46238c) {
-                        this.f46319i.e(this.f46316f, 1, 999, this.f46319i.f46348c, "device has risk.", this.f46317g);
-                        return;
-                    }
-                    JSONObject optJSONObject = this.f46318h.optJSONObject("data");
-                    if (this.f46317g == 1) {
-                        this.f46319i.f46350e = optJSONObject.optString(YYInnerSSOLoginActivity.o, "");
-                        this.f46319i.f46352g = optJSONObject.optString(IdCardActivity.KEY_NUMBER, "");
-                        this.f46319i.f46351f = System.currentTimeMillis() + (optJSONObject.optInt(RetrieveFileData.EXPIRED, 0) * 1000);
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE, this.f46319i.a(this.f46319i.f46352g));
-                        str = jSONObject.toString();
-                    } else {
-                        this.f46319i.f46353h = optJSONObject.optString(YYInnerSSOLoginActivity.o, "");
-                        this.f46319i.f46354i = System.currentTimeMillis() + (optJSONObject.optInt(RetrieveFileData.EXPIRED, 0) * 1000);
-                        str = "preVerify success";
-                    }
-                    this.f46319i.e(this.f46316f, 0, 0, this.f46319i.f46348c, str, this.f46317g);
-                } catch (Throwable unused) {
-                    f fVar = this.f46319i;
-                    fVar.e(this.f46316f, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, fVar.f46348c, "ct on handle pre login or verify unknown error.", this.f46317g);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class e extends d.a.o0.k.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f46320f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f46321g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f46322h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ f f46323i;
-
-        public e(f fVar, JSONObject jSONObject, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fVar, jSONObject, Integer.valueOf(i2), Integer.valueOf(i3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f46323i = fVar;
-            this.f46320f = jSONObject;
-            this.f46321g = i2;
-            this.f46322h = i3;
-        }
-
-        @Override // d.a.o0.k.c
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    int optInt = this.f46320f.optInt("result", -1);
-                    String optString = this.f46320f.optString("msg", "");
-                    if (this.f46323i.f46348c != this.f46323i.f46349d && (optInt == -10009 || optInt == -10008)) {
-                        this.f46323i.e(this.f46321g, 3, 2002, this.f46323i.f46348c, "pre login error, wrong sim operator", this.f46322h);
-                    } else {
-                        f fVar = this.f46323i;
-                        int i2 = this.f46321g;
-                        int i3 = this.f46323i.f46348c;
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("ct pre login error.");
-                        sb.append(optString);
-                        sb.append(", status ");
-                        sb.append(optInt);
-                        fVar.e(i2, 2, optInt, i3, sb.toString(), this.f46322h);
-                    }
-                } catch (Throwable unused) {
-                    f fVar2 = this.f46323i;
-                    fVar2.e(this.f46321g, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, fVar2.f46348c, "ct on handle pre login or verify unknown error.", this.f46322h);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(Context context) {
-        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -302,85 +216,282 @@ public class f extends j {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.s = false;
-        this.f46348c = 3;
+        this.f51942a = TbConfig.getTempDirName();
+        this.f51945d = 0;
+        this.f51946e = new String[]{"_id", "bucket_id", "bucket_display_name", "_data", "mime_type", "date_added", "_size", "date_modified"};
+        this.f51947f = new String[]{"_id", "_data", "title", "mime_type", "_display_name", "duration", "datetaken", "date_modified", "date_added"};
+        this.f51948g = new HashMap<>();
+        this.f51944c = context;
     }
 
-    @Override // d.a.o0.e.i
-    public void h(Context context, int i2) {
+    public void c() {
+        c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i2) == null) {
-            super.h(context, i2);
-            if (!d.a.o0.b.a.h(this.f46346a).d()) {
-                e(i2, 3, 997, this.f46348c, "pre login error. sdk stop run.", 1);
-            } else if (!r()) {
-                e(i2, 3, 2006, this.f46348c, "pre login error. ct has not valid config.", 1);
-            } else if (d.a.o0.b.a.h(this.f46346a).a()) {
-                if (!this.s) {
-                    System.currentTimeMillis();
-                    CtAuth.init(0, 0, 8000, null);
-                    this.s = true;
-                }
-                CtAuth.requestPreAuthCode(context, i.m, i.n, new a(this, System.currentTimeMillis(), i2));
-            } else {
-                e(i2, 3, 996, this.f46348c, "pre login error. ct sdk stop run.", 1);
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.f51943b) == null) {
+            return;
+        }
+        cVar.cancel();
+        this.f51943b = null;
+    }
+
+    public final g d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            this.f51948g.clear();
+            g gVar = new g();
+            List<VideoFileInfo> list = null;
+            List<ImageFileInfo> e2 = this.f51945d != 1 ? e() : null;
+            int i2 = this.f51945d;
+            if (i2 != 2 && i2 != 3) {
+                list = g();
             }
-        }
-    }
-
-    @Override // d.a.o0.e.i
-    public void o(Context context, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i2) == null) {
-            super.o(context, i2);
-            if (!d.a.o0.b.a.h(this.f46346a).d()) {
-                e(i2, 3, 997, this.f46348c, "pre verify error. sdk stop run.", 3);
-            } else if (!r()) {
-                e(i2, 3, 2006, this.f46348c, "pre verify error. ct has not valid config.", 3);
-            } else if (d.a.o0.b.a.h(this.f46346a).a()) {
-                if (!this.s) {
-                    CtAuth.init(0, 0, 8000, null);
-                    this.s = true;
-                }
-                CtAuth.requestPreAuthCode(context, i.m, i.n, new b(this, i2));
-            } else {
-                e(i2, 3, 996, this.f46348c, "pre verify error. ct sdk stop run.", 3);
+            ArrayList arrayList = new ArrayList();
+            if (!ListUtils.isEmpty(e2)) {
+                arrayList.addAll(e2);
             }
+            if (!ListUtils.isEmpty(list)) {
+                arrayList.addAll(list);
+            }
+            if (!ListUtils.isEmpty(arrayList)) {
+                Collections.sort(arrayList, new a(this));
+            }
+            ArrayList arrayList2 = new ArrayList(this.f51948g.values());
+            if (!ListUtils.isEmpty(arrayList2)) {
+                Collections.sort(arrayList2, new b(this));
+            }
+            gVar.f51952a = arrayList2;
+            gVar.f51954c = list;
+            gVar.f51953b = arrayList;
+            return gVar;
         }
+        return (g) invokeV.objValue;
     }
 
-    @Override // d.a.o0.e.j, d.a.o0.e.i
-    public void p(Context context, int i2, long j) {
+    public List<ImageFileInfo> e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            super.p(context, i2, j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            List<ImageFileInfo> f2 = f(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            if (f2 != null) {
+                arrayList.addAll(f2);
+            }
+            List<ImageFileInfo> f3 = f(MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+            if (f3 != null) {
+                arrayList.addAll(f3);
+            }
+            return arrayList;
         }
+        return (List) invokeV.objValue;
     }
 
-    public final void w(String str, int i2, int i3) {
+    /* JADX WARN: Removed duplicated region for block: B:38:0x0104 A[LOOP:0: B:12:0x002c->B:38:0x0104, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x0115 A[EDGE_INSN: B:70:0x0115->B:47:0x0115 ?: BREAK  , SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final List<ImageFileInfo> f(Uri uri) {
+        InterceptResult invokeL;
+        Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, str, i2, i3) == null) {
-            d.a.o0.k.e.c().b(new c(this, str, i2, i3));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, uri)) == null) {
+            f fVar = this;
+            String str = null;
+            if (fVar.f51944c == null) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            try {
+                Cursor query = fVar.f51944c.getContentResolver().query(uri, fVar.f51946e, "mime_type like 'image/%'", null, "date_added DESC");
+                if (query != null) {
+                    try {
+                        if (query.moveToFirst()) {
+                            while (true) {
+                                Uri withAppendedId = ContentUris.withAppendedId(uri, query.getLong(query.getColumnIndex("_id")));
+                                String uri2 = withAppendedId != null ? withAppendedId.toString() : str;
+                                String string = query.getString(query.getColumnIndex("bucket_id"));
+                                String string2 = query.getString(query.getColumnIndex("bucket_display_name"));
+                                String string3 = query.getString(query.getColumnIndex("_data"));
+                                String string4 = query.getString(query.getColumnIndex("mime_type"));
+                                long j = query.getLong(query.getColumnIndex("date_added"));
+                                int i2 = query.getInt(query.getColumnIndex("_size"));
+                                long j2 = query.getLong(query.getColumnIndex("date_modified"));
+                                boolean endsWith = string4.endsWith("gif");
+                                if (endsWith) {
+                                    try {
+                                        if (fVar.f51945d == 3 || i2 > 3145728) {
+                                            fVar = this;
+                                            if (query.moveToNext()) {
+                                                break;
+                                            }
+                                            str = null;
+                                        }
+                                    } catch (Exception e2) {
+                                        e = e2;
+                                        cursor = query;
+                                        try {
+                                            BdLog.detailException(e);
+                                            d.a.c.e.m.a.a(cursor);
+                                            return arrayList;
+                                        } catch (Throwable th) {
+                                            th = th;
+                                            d.a.c.e.m.a.a(cursor);
+                                            throw th;
+                                        }
+                                    } catch (Throwable th2) {
+                                        th = th2;
+                                        cursor = query;
+                                        d.a.c.e.m.a.a(cursor);
+                                        throw th;
+                                    }
+                                }
+                                ImageFileInfo imageFileInfo = new ImageFileInfo();
+                                imageFileInfo.setAlbumnId(string);
+                                imageFileInfo.setContentUriStr(uri2);
+                                imageFileInfo.setFilePath(string3);
+                                imageFileInfo.setIsGif(endsWith);
+                                imageFileInfo.setModifyTime(StringHelper.getChineseFormatTimeString(j2));
+                                imageFileInfo.setSortTime(j);
+                                arrayList.add(imageFileInfo);
+                                fVar = this;
+                                d.a.o0.e.a aVar = fVar.f51948g.get(string);
+                                if (aVar == null) {
+                                    aVar = new d.a.o0.e.a();
+                                    fVar.f51948g.put(string, aVar);
+                                }
+                                aVar.h(string);
+                                aVar.l(string2);
+                                aVar.a();
+                                if (aVar.e() == null) {
+                                    aVar.k(imageFileInfo);
+                                }
+                                List<MediaFileInfo> d2 = aVar.d();
+                                if (aVar.d() == null) {
+                                    d2 = new ArrayList<>();
+                                    aVar.j(d2);
+                                }
+                                d2.add(imageFileInfo);
+                                if (query.moveToNext()) {
+                                }
+                            }
+                        }
+                    } catch (Exception e3) {
+                        e = e3;
+                    } catch (Throwable th3) {
+                        th = th3;
+                    }
+                }
+                d.a.c.e.m.a.a(query);
+            } catch (Exception e4) {
+                e = e4;
+                cursor = null;
+            } catch (Throwable th4) {
+                th = th4;
+                cursor = null;
+            }
+            return arrayList;
         }
+        return (List) invokeL.objValue;
     }
 
-    public final void x(JSONObject jSONObject, int i2, int i3) {
+    public final List<VideoFileInfo> g() {
+        InterceptResult invokeV;
+        Cursor cursor;
+        Cursor cursor2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048580, this, jSONObject, i2, i3) == null) {
-            d.a.o0.k.e.c().b(new e(this, jSONObject, i2, i3));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            Context context = this.f51944c;
+            if (context == null) {
+                return arrayList;
+            }
+            ContentResolver contentResolver = context.getContentResolver();
+            HashSet hashSet = new HashSet();
+            try {
+                Uri uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
+                Cursor query = contentResolver.query(uri, this.f51947f, null, null, "date_added DESC");
+                if (query != null) {
+                    try {
+                        if (query.moveToFirst()) {
+                            while (true) {
+                                int i2 = query.getInt(query.getColumnIndex("_id"));
+                                Uri withAppendedId = ContentUris.withAppendedId(uri, i2);
+                                String uri2 = withAppendedId != null ? withAppendedId.toString() : null;
+                                String string = query.getString(query.getColumnIndexOrThrow("_data"));
+                                String string2 = query.getString(query.getColumnIndexOrThrow("title"));
+                                String string3 = query.getString(query.getColumnIndexOrThrow("_display_name"));
+                                String string4 = query.getString(query.getColumnIndexOrThrow("mime_type"));
+                                int i3 = query.getInt(query.getColumnIndexOrThrow("duration"));
+                                long j = query.getLong(query.getColumnIndexOrThrow("date_modified"));
+                                Uri uri3 = uri;
+                                long j2 = query.getLong(query.getColumnIndexOrThrow("date_added"));
+                                if (!hashSet.contains(string)) {
+                                    hashSet.add(string);
+                                    File file = new File(string);
+                                    if (file.exists() && file.isFile() && d.a.c.e.p.f.w(file) > 0) {
+                                        VideoFileInfo videoFileInfo = new VideoFileInfo();
+                                        videoFileInfo.videoId = i2;
+                                        videoFileInfo.contentUriStr = uri2;
+                                        videoFileInfo.videoPath = string;
+                                        videoFileInfo.displayName = string3;
+                                        videoFileInfo.title = string2;
+                                        videoFileInfo.mimeType = string4;
+                                        videoFileInfo.videoDuration = i3;
+                                        videoFileInfo.lastModified = j;
+                                        videoFileInfo.setSortTime(j2);
+                                        arrayList.add(videoFileInfo);
+                                    }
+                                }
+                                if (!query.moveToNext()) {
+                                    break;
+                                }
+                                uri = uri3;
+                            }
+                        }
+                    } catch (Exception unused) {
+                        cursor2 = query;
+                        d.a.c.e.m.a.a(cursor2);
+                        return arrayList;
+                    } catch (Throwable th) {
+                        th = th;
+                        cursor = query;
+                        d.a.c.e.m.a.a(cursor);
+                        throw th;
+                    }
+                }
+                d.a.c.e.m.a.a(query);
+            } catch (Exception unused2) {
+                cursor2 = null;
+            } catch (Throwable th2) {
+                th = th2;
+                cursor = null;
+            }
+            return arrayList;
         }
+        return (List) invokeV.objValue;
     }
 
-    public final void z(JSONObject jSONObject, int i2, int i3) {
+    public boolean h(int i2, e eVar) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048581, this, jSONObject, i2, i3) == null) {
-            d.a.o0.k.e.c().b(new d(this, i2, i3, jSONObject));
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i2, eVar)) == null) {
+            if (eVar == null) {
+                return false;
+            }
+            c();
+            this.f51945d = i2;
+            c cVar = new c(this, eVar);
+            this.f51943b = cVar;
+            cVar.setPriority(3);
+            this.f51943b.execute(new Object[0]);
+            return true;
         }
+        return invokeIL.booleanValue;
     }
 }

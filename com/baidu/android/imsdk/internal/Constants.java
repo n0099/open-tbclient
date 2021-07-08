@@ -1,6 +1,7 @@
 package com.baidu.android.imsdk.internal;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
@@ -365,7 +366,7 @@ public final class Constants {
     public static int getTplZhida(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             Utility.readIntData(context, KEY_ENV, -1);
             return 6376141;
         }

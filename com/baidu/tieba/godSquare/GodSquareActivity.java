@@ -19,28 +19,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
 import d.a.c.k.e.n;
-import d.a.r0.r.f0.f;
-import d.a.s0.z0.c.b;
+import d.a.o0.r.f0.f;
+import d.a.p0.z0.c.b;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GodSquareActivity extends BaseActivity<GodSquareActivity> implements f.g, BdListView.p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CustomMessageListener mAttentionListener;
     public b.c mCallBack;
     public boolean mHasMore;
-    public d.a.s0.z0.c.b mModel;
+    public d.a.p0.z0.c.b mModel;
     public NoNetworkView.b mNetworkChangeListener;
-    public d.a.s0.z0.a mView;
+    public d.a.p0.z0.a mView;
     public boolean needRefreshView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements b.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GodSquareActivity f16365a;
+        public final /* synthetic */ GodSquareActivity f16404a;
 
         public a(GodSquareActivity godSquareActivity) {
             Interceptable interceptable = $ic;
@@ -57,53 +57,53 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
                     return;
                 }
             }
-            this.f16365a = godSquareActivity;
+            this.f16404a = godSquareActivity;
         }
 
-        @Override // d.a.s0.z0.c.b.c
+        @Override // d.a.p0.z0.c.b.c
         public void a(List<n> list, boolean z, boolean z2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{list, Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
-                this.f16365a.mHasMore = z2;
-                this.f16365a.mView.a().A(0L);
-                this.f16365a.mView.b();
+                this.f16404a.mHasMore = z2;
+                this.f16404a.mView.a().A(0L);
+                this.f16404a.mView.b();
                 if (ListUtils.isEmpty(list)) {
-                    this.f16365a.mView.d();
-                    if (ListUtils.isEmpty(this.f16365a.mModel.f69709e)) {
-                        this.f16365a.mView.k(str);
+                    this.f16404a.mView.d();
+                    if (ListUtils.isEmpty(this.f16404a.mModel.f66512e)) {
+                        this.f16404a.mView.k(str);
                         return;
                     }
-                    this.f16365a.mHasMore = true;
+                    this.f16404a.mHasMore = true;
                     if (l.D()) {
-                        this.f16365a.showToast(str);
+                        this.f16404a.showToast(str);
                         return;
                     }
                     return;
                 }
-                this.f16365a.mView.c();
+                this.f16404a.mView.c();
                 if (z) {
-                    this.f16365a.mModel.f69709e = list;
-                    this.f16365a.mView.m(this.f16365a.mModel.f69709e);
+                    this.f16404a.mModel.f66512e = list;
+                    this.f16404a.mView.m(this.f16404a.mModel.f66512e);
                 } else {
-                    this.f16365a.mModel.f69709e.addAll(list);
-                    this.f16365a.mView.g();
+                    this.f16404a.mModel.f66512e.addAll(list);
+                    this.f16404a.mView.g();
                 }
                 if (z2) {
-                    this.f16365a.mView.f();
+                    this.f16404a.mView.f();
                 } else {
-                    this.f16365a.mView.e();
+                    this.f16404a.mView.e();
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GodSquareActivity f16366a;
+        public final /* synthetic */ GodSquareActivity f16405a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(GodSquareActivity godSquareActivity, int i2) {
@@ -123,7 +123,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
                     return;
                 }
             }
-            this.f16366a = godSquareActivity;
+            this.f16405a = godSquareActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -132,23 +132,23 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof UpdateAttentionMessage)) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().f12802c)) {
+                if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().f12819c)) {
                     return;
                 }
-                if (this.f16366a.mModel.g(d.a.c.e.m.b.f(updateAttentionMessage.getData().f12802c, 0L))) {
-                    this.f16366a.needRefreshView = true;
+                if (this.f16405a.mModel.g(d.a.c.e.m.b.f(updateAttentionMessage.getData().f12819c, 0L))) {
+                    this.f16405a.needRefreshView = true;
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c implements NoNetworkView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GodSquareActivity f16367e;
+        public final /* synthetic */ GodSquareActivity f16406e;
 
         public c(GodSquareActivity godSquareActivity) {
             Interceptable interceptable = $ic;
@@ -165,17 +165,17 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
                     return;
                 }
             }
-            this.f16367e = godSquareActivity;
+            this.f16406e = godSquareActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void b(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                if (ListUtils.isEmpty(this.f16367e.mModel.f69709e)) {
-                    this.f16367e.loadFirstTime();
+                if (ListUtils.isEmpty(this.f16406e.mModel.f66512e)) {
+                    this.f16406e.loadFirstTime();
                 } else {
-                    this.f16367e.mView.l();
+                    this.f16406e.mView.l();
                 }
             }
         }
@@ -210,7 +210,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.r0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.o0.k0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -231,16 +231,16 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            d.a.s0.z0.a aVar = new d.a.s0.z0.a(this);
+            d.a.p0.z0.a aVar = new d.a.p0.z0.a(this);
             this.mView = aVar;
             aVar.i(this.mNetworkChangeListener);
-            this.mModel = new d.a.s0.z0.c.b(this.mCallBack, this);
+            this.mModel = new d.a.p0.z0.c.b(this.mCallBack, this);
             registerListener(this.mAttentionListener);
             loadFirstTime();
         }
     }
 
-    @Override // d.a.r0.r.f0.f.g
+    @Override // d.a.o0.r.f0.f.g
     public void onListPullRefresh(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {

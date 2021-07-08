@@ -13,13 +13,13 @@ import com.baidu.wallet.paysdk.datamodel.CardListResponse;
 import com.baidu.wallet.paysdk.datamodel.SourceFlag;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class e extends PayBaseBean<CardListResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SourceFlag f25875a;
+    public SourceFlag f25985a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(Context context) {
@@ -39,7 +39,7 @@ public class e extends PayBaseBean<CardListResponse> {
                 return;
             }
         }
-        this.f25875a = SourceFlag.SDK;
+        this.f25985a = SourceFlag.SDK;
     }
 
     public void a(SourceFlag sourceFlag) {
@@ -48,7 +48,7 @@ public class e extends PayBaseBean<CardListResponse> {
             if (sourceFlag == null) {
                 sourceFlag = SourceFlag.SDK;
             }
-            this.f25875a = sourceFlag;
+            this.f25985a = sourceFlag;
         }
     }
 
@@ -66,7 +66,7 @@ public class e extends PayBaseBean<CardListResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("source_flag", this.f25875a.value()));
+            arrayList.add(new RestNameValuePair("source_flag", this.f25985a.value()));
             return arrayList;
         }
         return (List) invokeV.objValue;

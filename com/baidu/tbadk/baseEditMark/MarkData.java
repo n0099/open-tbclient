@@ -23,7 +23,7 @@ import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.BaijiahaoInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MarkData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2647743141824773827L;

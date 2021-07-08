@@ -1,12 +1,13 @@
 package com.google.zxing.qrcode.encoder;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MaskUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int N1 = 3;
@@ -97,7 +98,7 @@ public final class MaskUtil {
     public static int applyMaskPenaltyRule3(ByteMatrix byteMatrix) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, byteMatrix)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, byteMatrix)) == null) {
             byte[][] array = byteMatrix.getArray();
             int width = byteMatrix.getWidth();
             int height = byteMatrix.getHeight();

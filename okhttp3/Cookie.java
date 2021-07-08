@@ -25,7 +25,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.http.HttpDate;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class Cookie {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern DAY_OF_MONTH_PATTERN;
@@ -43,7 +43,7 @@ public final class Cookie {
     public final boolean secure;
     public final String value;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -257,7 +257,7 @@ public final class Cookie {
     public static boolean domainMatch(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             if (str.equals(str2)) {
                 return true;
             }
@@ -538,8 +538,8 @@ public final class Cookie {
             int length = str.length();
             char c2 = ';';
             int delimiterOffset = Util.delimiterOffset(str, 0, length, ';');
-            char c3 = a.f1889h;
-            int delimiterOffset2 = Util.delimiterOffset(str, 0, delimiterOffset, (char) a.f1889h);
+            char c3 = a.f1890h;
+            int delimiterOffset2 = Util.delimiterOffset(str, 0, delimiterOffset, (char) a.f1890h);
             if (delimiterOffset2 == delimiterOffset) {
                 return null;
             }
@@ -585,12 +585,12 @@ public final class Cookie {
                     }
                     i2 = delimiterOffset3 + 1;
                     c2 = ';';
-                    c3 = a.f1889h;
+                    c3 = a.f1890h;
                 }
                 z4 = true;
                 i2 = delimiterOffset3 + 1;
                 c2 = ';';
-                c3 = a.f1889h;
+                c3 = a.f1890h;
             }
             long j5 = Long.MIN_VALUE;
             if (j3 != Long.MIN_VALUE) {
@@ -646,7 +646,7 @@ public final class Cookie {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(this.name);
-            sb.append(a.f1889h);
+            sb.append(a.f1890h);
             sb.append(this.value);
             if (this.persistent) {
                 if (this.expiresAt == Long.MIN_VALUE) {

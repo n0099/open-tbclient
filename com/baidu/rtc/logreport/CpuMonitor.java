@@ -6,6 +6,7 @@ import android.content.IntentFilter;
 import android.os.Build;
 import android.os.SystemClock;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +23,7 @@ import java.util.Scanner;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CpuMonitor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CPU_STAT_LOG_PERIOD_MS = 6000;
@@ -47,7 +48,7 @@ public class CpuMonitor {
     public final MovingAverage totalCpuUsage;
     public final MovingAverage userCpuUsage;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class MovingAverage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,7 +122,7 @@ public class CpuMonitor {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class ProcStat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -193,7 +194,7 @@ public class CpuMonitor {
     private int getBatteryLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             Intent registerReceiver = this.appContext.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
             int intExtra = registerReceiver.getIntExtra("scale", 100);
             if (intExtra > 0) {

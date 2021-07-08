@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.q.s0;
-/* loaded from: classes4.dex */
+import d.a.o0.r.q.s0;
+/* loaded from: classes3.dex */
 public class LoginDialogActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOGIN_DIALOG_DATA_LOCATE = "login_dialog_data_locate";

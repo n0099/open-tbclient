@@ -7,15 +7,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashSet;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HashSet<String> f73490a;
+    public static final HashSet<String> f70593a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f73491b;
+    public static String f70594b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,16 +31,16 @@ public final class k {
                 return;
             }
         }
-        f73490a = new HashSet<>();
-        f73491b = "goog.exo.core";
+        f70593a = new HashSet<>();
+        f70594b = "goog.exo.core";
     }
 
     public static synchronized void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
             synchronized (k.class) {
-                if (f73490a.add(str)) {
-                    f73491b += StringUtil.ARRAY_ELEMENT_SEPARATOR + str;
+                if (f70593a.add(str)) {
+                    f70594b += StringUtil.ARRAY_ELEMENT_SEPARATOR + str;
                 }
             }
         }
@@ -52,7 +52,7 @@ public final class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (k.class) {
-                str = f73491b;
+                str = f70594b;
             }
             return str;
         }

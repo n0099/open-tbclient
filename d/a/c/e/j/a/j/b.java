@@ -19,24 +19,24 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f44222b;
+    public static b f41238b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, d.a.c.e.j.a.j.a> f44223a;
+    public HashMap<String, d.a.c.e.j.a.j.a> f41239a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public class a implements HostnameVerifier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f44224a;
+        public final /* synthetic */ c f41240a;
 
         public a(b bVar, c cVar) {
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class b {
                     return;
                 }
             }
-            this.f44224a = cVar;
+            this.f41240a = cVar;
         }
 
         @Override // javax.net.ssl.HostnameVerifier
@@ -63,7 +63,7 @@ public class b {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
                 boolean verify = HttpsURLConnection.getDefaultHostnameVerifier().verify("httpsdns.baidu.com", sSLSession);
                 if (!verify) {
-                    this.f44224a.e(true);
+                    this.f41240a.e(true);
                 }
                 return verify;
             }
@@ -99,21 +99,21 @@ public class b {
                 return;
             }
         }
-        this.f44223a = new HashMap<>();
+        this.f41239a = new HashMap<>();
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f44222b == null) {
+            if (f41238b == null) {
                 synchronized (b.class) {
-                    if (f44222b == null) {
-                        f44222b = new b();
+                    if (f41238b == null) {
+                        f41238b = new b();
                     }
                 }
             }
-            return f44222b;
+            return f41238b;
         }
         return (b) invokeV.objValue;
     }
@@ -123,7 +123,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             c cVar = new c();
-            d.a.c.e.j.a.j.a aVar = this.f44223a.get(str);
+            d.a.c.e.j.a.j.a aVar = this.f41239a.get(str);
             if (aVar != null && !aVar.c(System.currentTimeMillis()) && aVar.a() != null && aVar.a().size() > 0) {
                 cVar.g(aVar.a().get(0));
             }
@@ -384,7 +384,7 @@ public class b {
             if (k.isEmpty(str)) {
                 return cVar;
             }
-            d.a.c.e.j.a.j.a aVar = this.f44223a.get(str);
+            d.a.c.e.j.a.j.a aVar = this.f41239a.get(str);
             if (aVar != null && !aVar.c(System.currentTimeMillis()) && aVar.a() != null && aVar.a().size() > 0) {
                 for (int i2 = 0; i2 < aVar.a().size(); i2++) {
                     if (!k.isEquals(str2, aVar.a().get(i2))) {
@@ -406,7 +406,7 @@ public class b {
                 cVar.f(System.currentTimeMillis() - currentTimeMillis);
                 if (c2 != null && c2.a() != null && c2.a().size() > 0) {
                     c2.d(300L);
-                    this.f44223a.put(str, c2);
+                    this.f41239a.put(str, c2);
                     for (int i4 = 0; i4 < c2.a().size(); i4++) {
                         if (!k.isEquals(str2, c2.a().get(i3))) {
                             cVar.j(i4);
@@ -420,7 +420,7 @@ public class b {
                     }
                     continue;
                 } else {
-                    d.a.c.e.j.a.j.a aVar2 = this.f44223a.get(str);
+                    d.a.c.e.j.a.j.a aVar2 = this.f41239a.get(str);
                     if (aVar2 != null && aVar2.a() != null && aVar2.a().size() > 0) {
                         cVar.g(aVar2.a().get(0));
                         return cVar;

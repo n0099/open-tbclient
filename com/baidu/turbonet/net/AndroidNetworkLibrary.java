@@ -8,6 +8,7 @@ import android.net.NetworkInfo;
 import android.security.KeyChain;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +25,7 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.util.Enumeration;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AndroidNetworkLibrary {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +78,7 @@ public class AndroidNetworkLibrary {
     public static String getMimeTypeFromExtension(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             return URLConnection.guessContentTypeFromName("foo." + str);
         }
         return (String) invokeL.objValue;

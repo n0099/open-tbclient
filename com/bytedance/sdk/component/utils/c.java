@@ -2,6 +2,7 @@ package com.bytedance.sdk.component.utils;
 
 import android.content.Context;
 import android.content.pm.Signature;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,12 +11,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, ArrayList<String>> f28783a;
+    public static HashMap<String, ArrayList<String>> f28893a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +32,7 @@ public class c {
                 return;
             }
         }
-        f28783a = new HashMap<>();
+        f28893a = new HashMap<>();
     }
 
     public static ArrayList<String> a(Context context, String str) {
@@ -45,8 +46,8 @@ public class c {
                 if (packageName == null) {
                     return null;
                 }
-                if (f28783a.get(str) != null) {
-                    return f28783a.get(str);
+                if (f28893a.get(str) != null) {
+                    return f28893a.get(str);
                 }
                 arrayList = new ArrayList<>();
                 try {
@@ -64,7 +65,7 @@ public class c {
                 } catch (Exception e2) {
                     j.b(e2.toString());
                 }
-                f28783a.put(str, arrayList);
+                f28893a.put(str, arrayList);
             }
             return arrayList;
         }
@@ -74,7 +75,7 @@ public class c {
     public static Signature[] b(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
             try {
                 return context.getPackageManager().getPackageInfo(str, 64).signatures;
             } catch (Exception e2) {

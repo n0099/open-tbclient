@@ -1,5 +1,6 @@
 package com.google.zxing.client.result;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.browser.sailor.BdSailorConfig;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,7 +19,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class VCardResultParser extends ResultParser {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern BEGIN_VCARD;
@@ -135,7 +136,7 @@ public final class VCardResultParser extends ResultParser {
     public static boolean isLikeVCardDate(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, charSequence)) == null) ? charSequence == null || VCARD_LIKE_DATE.matcher(charSequence).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, charSequence)) == null) ? charSequence == null || VCARD_LIKE_DATE.matcher(charSequence).matches() : invokeL.booleanValue;
     }
 
     public static List<String> matchSingleVCardPrefixedField(CharSequence charSequence, String str, boolean z, boolean z2) {

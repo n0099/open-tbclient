@@ -14,7 +14,7 @@ import d.f.b.a.i0.l;
 import d.f.b.a.i0.v;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class b extends d.f.b.a.e0.c {
     public static /* synthetic */ Interceptable $ic;
     public static final int p;
@@ -72,7 +72,7 @@ public final class b extends d.f.b.a.e0.c {
                     int i3 = lVar.i();
                     int i4 = lVar.i();
                     int i5 = i3 - 8;
-                    String str = new String(lVar.f73386a, lVar.c(), i5);
+                    String str = new String(lVar.f70489a, lVar.c(), i5);
                     lVar.K(i5);
                     i2 = (i2 - 8) - i5;
                     if (i4 == q) {

@@ -7,6 +7,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.statistics.g;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -101,7 +102,7 @@ public class RequsetNetworkUtils {
         InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             if (getTelephonyManager(context) != null) {
                 int networkType = getTelephonyManager(context).getNetworkType();
                 switch (networkType) {
@@ -123,7 +124,7 @@ public class RequsetNetworkUtils {
                     case 14:
                     case 15:
                     case 17:
-                        str = g.f3983b;
+                        str = g.f3986b;
                         break;
                     case 13:
                     case 18:

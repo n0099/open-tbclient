@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.net.tnc.TNCManager;
 import java.util.LinkedHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MultiProcessFileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_TNC_CONFIG = "tnc_config";

@@ -14,39 +14,39 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.f;
 import d.a.c.k.e.n;
-import d.a.r0.r.q.b2;
-import d.a.s0.h3.g;
-import d.a.s0.h3.h;
-import d.a.s0.h3.m;
-import d.a.s0.h3.q;
-import d.a.s0.h3.x;
-import d.a.s0.u0.e2.c;
-import d.a.s0.u0.e2.k;
-import d.a.s0.u0.u;
-import d.a.s0.u0.w;
-import d.a.s0.w0.a;
+import d.a.o0.r.q.b2;
+import d.a.p0.h3.g;
+import d.a.p0.h3.h;
+import d.a.p0.h3.m;
+import d.a.p0.h3.q;
+import d.a.p0.h3.x;
+import d.a.p0.u0.e2.c;
+import d.a.p0.u0.e2.k;
+import d.a.p0.u0.u;
+import d.a.p0.u0.w;
+import d.a.p0.w0.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ArrayList<n> f15975e;
+    public final ArrayList<n> f16014e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final FrsFragment f15976f;
+    public final FrsFragment f16015f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15977g;
+    public int f16016g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f15978h;
+    public int f16017h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f15979i;
+    public int f16018i;
     public k j;
     public c.b k;
     public a l;
@@ -69,10 +69,10 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                 return;
             }
         }
-        this.f15975e = new ArrayList<>();
-        this.f15977g = 1;
-        this.f15978h = -1;
-        this.f15976f = frsFragment;
+        this.f16014e = new ArrayList<>();
+        this.f16016g = 1;
+        this.f16017h = -1;
+        this.f16015f = frsFragment;
         setUniqueId(frsFragment.getUniqueId());
         this.j = kVar;
     }
@@ -80,7 +80,7 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
     public int A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15978h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16017h : invokeV.intValue;
     }
 
     public final void B(List<n> list) {
@@ -88,7 +88,7 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f15975e.addAll(0, list);
+        this.f16014e.addAll(0, list);
     }
 
     public final boolean C(String str, ArrayList<n> arrayList) {
@@ -120,18 +120,18 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
             if (nVar instanceof x) {
                 return true;
             }
-            return ((nVar instanceof b2) && ((b2) nVar).m0() == 2) || nVar.getType() == q.f61420g;
+            return ((nVar instanceof b2) && ((b2) nVar).m0() == 2) || nVar.getType() == q.f58176g;
         }
         return invokeL.booleanValue;
     }
 
     public void E() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || ListUtils.isEmpty(this.f15975e)) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || ListUtils.isEmpty(this.f16014e)) {
             return;
         }
         ArrayList arrayList = new ArrayList();
-        Iterator<n> it = this.f15975e.iterator();
+        Iterator<n> it = this.f16014e.iterator();
         while (it.hasNext()) {
             n next = it.next();
             if (D(next)) {
@@ -143,7 +143,7 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         if (ListUtils.isEmpty(arrayList)) {
             return;
         }
-        this.f15975e.removeAll(arrayList);
+        this.f16014e.removeAll(arrayList);
     }
 
     public final void F(ArrayList<n> arrayList, int i2) {
@@ -160,7 +160,7 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
     public void G(n nVar) {
         ArrayList<n> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, nVar) == null) || nVar == null || (arrayList = this.f15975e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, nVar) == null) || nVar == null || (arrayList = this.f16014e) == null) {
             return;
         }
         arrayList.remove(nVar);
@@ -169,9 +169,9 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
     public void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f15975e.clear();
-            this.f15978h = -1;
-            this.f15977g = 1;
+            this.f16014e.clear();
+            this.f16017h = -1;
+            this.f16016g = 1;
         }
     }
 
@@ -185,8 +185,8 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
 
     public void J(ArrayList<n> arrayList) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, arrayList) == null) && this.f15975e.size() == 0) {
-            this.f15975e.addAll(arrayList);
+        if ((interceptable == null || interceptable.invokeL(1048585, this, arrayList) == null) && this.f16014e.size() == 0) {
+            this.f16014e.addAll(arrayList);
         }
     }
 
@@ -200,7 +200,7 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
     public void L(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f15978h = i2;
+            this.f16017h = i2;
         }
     }
 
@@ -223,10 +223,10 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
 
     public void N(ArrayList<n> arrayList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, arrayList) == null) || ListUtils.isEmpty(arrayList) || ListUtils.isEmpty(this.f15975e)) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, arrayList) == null) || ListUtils.isEmpty(arrayList) || ListUtils.isEmpty(this.f16014e)) {
             return;
         }
-        this.f15975e.addAll(0, arrayList);
+        this.f16014e.addAll(0, arrayList);
     }
 
     public void O(ArrayList<n> arrayList) {
@@ -255,8 +255,8 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         if (ListUtils.isEmpty(arrayList2)) {
             return;
         }
-        if (!ListUtils.isEmpty(this.f15975e)) {
-            Iterator<n> it2 = this.f15975e.iterator();
+        if (!ListUtils.isEmpty(this.f16014e)) {
+            Iterator<n> it2 = this.f16014e.iterator();
             while (it2.hasNext()) {
                 n next2 = it2.next();
                 if (next2 != null) {
@@ -295,49 +295,49 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
     public int getPn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f15977g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f16016g : invokeV.intValue;
     }
 
     public void setPn(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048594, this, i2) == null) || i2 <= this.f15977g) {
+        if (!(interceptable == null || interceptable.invokeI(1048594, this, i2) == null) || i2 <= this.f16016g) {
             return;
         }
-        this.f15977g = i2;
+        this.f16016g = i2;
     }
 
     public void setSortType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.f15979i = i2;
+            this.f16018i = i2;
         }
     }
 
     public final void w(b2 b2Var) {
         FrsFragment frsFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, b2Var) == null) || b2Var == null || (frsFragment = this.f15976f) == null || frsFragment.i0() == null || this.f15976f.i0().getForum() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048596, this, b2Var) == null) || b2Var == null || (frsFragment = this.f16015f) == null || frsFragment.i0() == null || this.f16015f.i0().getForum() == null) {
             return;
         }
-        b2Var.m3(this.f15976f.i0().getForum().getFirst_class());
-        b2Var.V3(this.f15976f.i0().getForum().getSecond_class());
+        b2Var.m3(this.f16015f.i0().getForum().getFirst_class());
+        b2Var.V3(this.f16015f.i0().getForum().getSecond_class());
     }
 
     public void x() {
         int count;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048597, this) == null) || (count = ListUtils.getCount(this.f15975e) + 30) <= 300) {
+        if (!(interceptable == null || interceptable.invokeV(1048597, this) == null) || (count = ListUtils.getCount(this.f16014e) + 30) <= 300) {
             return;
         }
         int i2 = count - 300;
-        if (this.f15975e.size() > i2 + 20) {
+        if (this.f16014e.size() > i2 + 20) {
             for (int i3 = 0; i3 < i2; i3++) {
                 ArrayList<n> arrayList = new ArrayList<>();
-                arrayList.add(this.f15975e.remove(20));
+                arrayList.add(this.f16014e.remove(20));
                 ArrayList<n> arrayList2 = null;
-                FrsFragment frsFragment = this.f15976f;
+                FrsFragment frsFragment = this.f16015f;
                 if (frsFragment != null && frsFragment.i0() != null) {
-                    arrayList2 = this.f15976f.i0().switchThreadDataToThreadCardInfo(arrayList);
+                    arrayList2 = this.f16015f.i0().switchThreadDataToThreadCardInfo(arrayList);
                 }
                 if (arrayList2 != null) {
                     for (int i4 = 0; i4 < arrayList2.size(); i4++) {
@@ -355,21 +355,21 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), arrayList, Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
-            if (!z3 && this.f15975e.size() == 0) {
+            if (!z3 && this.f16014e.size() == 0) {
                 m mVar = FrsFragment.b2;
                 if (mVar != null) {
-                    this.f15975e.addAll(mVar.getThreadList());
+                    this.f16014e.addAll(mVar.getThreadList());
                 }
                 FrsFragment.b2 = null;
             }
             if (ListUtils.isEmpty(arrayList)) {
                 k kVar = this.j;
                 if (kVar != null) {
-                    kVar.a(this.f15979i, z2, 0, z, null, z3);
+                    kVar.a(this.f16018i, z2, 0, z, null, z3);
                 }
-                return this.f15975e;
+                return this.f16014e;
             }
-            synchronized (this.f15975e) {
+            synchronized (this.f16014e) {
                 ArrayList<n> arrayList2 = new ArrayList<>();
                 ArrayList<n> arrayList3 = new ArrayList<>();
                 Iterator<n> it = arrayList.iterator();
@@ -385,7 +385,7 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                                     b2 b2Var = (b2) next;
                                     b2Var.A3(true);
                                     w(b2Var);
-                                    if ((b2Var.M0() != null && !b2Var.c2()) || !C(b2Var.c0(), this.f15975e)) {
+                                    if ((b2Var.M0() != null && !b2Var.c2()) || !C(b2Var.c0(), this.f16014e)) {
                                         arrayList2.add(next);
                                     }
                                 } else {
@@ -401,25 +401,25 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                 }
                 if (a.d()) {
                     if (this.l != null) {
-                        this.l.b(arrayList2, z2, this.f15976f.A());
+                        this.l.b(arrayList2, z2, this.f16015f.A());
                     }
                 } else {
-                    this.f15976f.i0().addRecommendAppToThreadList(this.f15976f, true, arrayList2, this.f15975e, this.f15976f.d0().t0());
+                    this.f16015f.i0().addRecommendAppToThreadList(this.f16015f, true, arrayList2, this.f16014e, this.f16015f.d0().t0());
                 }
                 if (z2) {
                     if (this.j != null) {
-                        this.j.a(this.f15979i, z2, i2, z, arrayList2, z3);
+                        this.j.a(this.f16018i, z2, i2, z, arrayList2, z3);
                     }
                     E();
-                    I(this.f15975e, arrayList2);
+                    I(this.f16014e, arrayList2);
                     B(arrayList2);
                     N(arrayList3);
-                    F(this.f15975e, 300);
+                    F(this.f16014e, 300);
                 } else {
-                    this.f15975e.addAll(arrayList2);
+                    this.f16014e.addAll(arrayList2);
                 }
             }
-            return this.f15975e;
+            return this.f16014e;
         }
         return (ArrayList) invokeCommon.objValue;
     }
@@ -427,6 +427,6 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
     public ArrayList<n> z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f15975e : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f16014e : (ArrayList) invokeV.objValue;
     }
 }

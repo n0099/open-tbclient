@@ -1,0 +1,428 @@
+package d.a.n0.a.v1.b;
+
+import android.os.Bundle;
+import android.os.Handler;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.n0.a.a2.i;
+import d.a.n0.a.k;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
+import java.util.concurrent.TimeoutException;
+/* loaded from: classes7.dex */
+public final class b extends d.a.n0.a.f1.e.f.c<b> implements d.a.n0.a.v1.b.a {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean p;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final c f47911f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final String f47912g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public final Set<d.a.n0.a.v2.e1.b<i.a>> f47913h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public final Set<d.a.n0.a.v2.e1.b<b>> f47914i;
+    public final Set<String> j;
+    public final Set<Integer> k;
+    public Exception l;
+    public long m;
+    public boolean n;
+    public final Runnable o;
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ b f47915e;
+
+        public a(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f47915e = bVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (this.f47915e.f47911f) {
+                    this.f47915e.f47911f.P(this.f47915e, new TimeoutException("timeout"));
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-113201084, "Ld/a/n0/a/v1/b/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-113201084, "Ld/a/n0/a/v1/b/b;");
+                return;
+            }
+        }
+        p = k.f45831a;
+    }
+
+    public b(@NonNull c cVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cVar, str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f47913h = new HashSet();
+        this.f47914i = new HashSet();
+        this.j = new HashSet();
+        this.k = new HashSet();
+        this.l = null;
+        this.m = 0L;
+        this.n = false;
+        this.o = new a(this);
+        this.f47911f = cVar;
+        this.f47912g = TextUtils.isEmpty(str) ? UUID.randomUUID().toString() : str;
+        if (p) {
+            V("IpcSession", "host=" + cVar + " id=" + str + " mId=" + this.f47912g);
+        }
+    }
+
+    public b F(d.a.n0.a.v2.e1.b<b> bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
+            H(this.f47914i, bVar);
+            return this;
+        }
+        return (b) invokeL.objValue;
+    }
+
+    public b G(d.a.n0.a.v2.e1.b<i.a> bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) {
+            H(this.f47913h, bVar);
+            return this;
+        }
+        return (b) invokeL.objValue;
+    }
+
+    public final <CallBackT> b H(@NonNull Set<CallBackT> set, CallBackT callbackt) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, set, callbackt)) == null) {
+            synchronized (this.f47911f) {
+                if (Z() && callbackt != null) {
+                    set.add(callbackt);
+                }
+            }
+            return this;
+        }
+        return (b) invokeLL.objValue;
+    }
+
+    public b I(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+            synchronized (this.f47911f) {
+                this.k.add(Integer.valueOf(i2));
+                Y();
+            }
+            return this;
+        }
+        return (b) invokeI.objValue;
+    }
+
+    public b J(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            synchronized (this.f47911f) {
+                this.j.add(str);
+                Y();
+            }
+            return this;
+        }
+        return (b) invokeL.objValue;
+    }
+
+    public b K(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+            synchronized (this.f47911f) {
+                this.n = z;
+                Y();
+            }
+            return this;
+        }
+        return (b) invokeZ.objValue;
+    }
+
+    public b L() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            M(d.a.n0.a.v1.b.a.f0);
+            return this;
+        }
+        return (b) invokeV.objValue;
+    }
+
+    public b M(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+            synchronized (this.f47911f) {
+                if (p) {
+                    V(NotificationCompat.CATEGORY_CALL, "timeoutAtLeast=" + j);
+                }
+                if (Z()) {
+                    long T = T(j);
+                    if (p) {
+                        V(NotificationCompat.CATEGORY_CALL, "joinTimeout=" + T);
+                    }
+                    d.a.n0.a.v1.c.a.e().h(N());
+                    b();
+                } else {
+                    this.f47911f.P(this, new IllegalStateException("invalid session call"));
+                }
+                Y();
+            }
+            return this;
+        }
+        return (b) invokeJ.objValue;
+    }
+
+    public final d.a.n0.a.v1.c.c N() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            Bundle C = C();
+            C.putString("ipc_session_id", this.f47912g);
+            C.putLong("ipc_session_timeout", this.m);
+            C.putInt("ipc_session_repal", SwanAppProcessInfo.current().index);
+            C.putString("ipc_topic", this.f47911f.L(this));
+            d.a.n0.a.v1.c.c cVar = new d.a.n0.a.v1.c.c(W(), C);
+            cVar.p(true);
+            cVar.f(!SwanAppProcessInfo.current().isSwanService || this.n);
+            for (Integer num : this.k) {
+                int intValue = num.intValue();
+                if (SwanAppProcessInfo.checkProcessId(intValue)) {
+                    cVar.a(intValue);
+                }
+            }
+            for (String str : this.j) {
+                if (!TextUtils.isEmpty(str)) {
+                    cVar.c(str);
+                }
+            }
+            if (p) {
+                V("createMsg", "msgCooker=" + cVar + " bundle=" + C);
+            }
+            return cVar;
+        }
+        return (d.a.n0.a.v1.c.c) invokeV.objValue;
+    }
+
+    public b O(Exception exc) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, exc)) == null) {
+            synchronized (this.f47911f) {
+                if (!S()) {
+                    d.a.n0.a.a2.d.i().removeCallbacks(this.o);
+                    this.m = -1L;
+                    this.l = exc;
+                    this.f47913h.clear();
+                    for (d.a.n0.a.v2.e1.b<b> bVar : this.f47914i) {
+                        bVar.onCallback(this);
+                    }
+                    this.f47914i.clear();
+                    this.n = false;
+                    this.j.clear();
+                    this.k.clear();
+                    b();
+                }
+            }
+            return this;
+        }
+        return (b) invokeL.objValue;
+    }
+
+    public Exception P() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.l : (Exception) invokeV.objValue;
+    }
+
+    public boolean Q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.l != null : invokeV.booleanValue;
+    }
+
+    public String R() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f47912g : (String) invokeV.objValue;
+    }
+
+    public boolean S() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.m < 0 : invokeV.booleanValue;
+    }
+
+    public long T(long j) {
+        InterceptResult invokeJ;
+        long j2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048590, this, j)) == null) {
+            synchronized (this.f47911f) {
+                if (Z()) {
+                    this.m = Math.max(Math.max(j, d.a.n0.a.v1.b.a.f0), this.m);
+                    Handler i2 = d.a.n0.a.a2.d.i();
+                    if (this.m > 0) {
+                        i2.removeCallbacks(this.o);
+                        i2.postDelayed(this.o, this.m);
+                    }
+                }
+                j2 = this.m;
+            }
+            return j2;
+        }
+        return invokeJ.longValue;
+    }
+
+    public final void U(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048591, this, str) == null) && p) {
+            Log.i("IpcSession", SwanAppProcessInfo.current() + " >> " + str);
+        }
+    }
+
+    public final void V(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048592, this, str, str2) == null) {
+            U(str + ": " + str2);
+        }
+    }
+
+    public final int W() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            boolean z = SwanAppProcessInfo.current().isSwanService;
+            int i2 = z ? 111 : 11;
+            if (p) {
+                V("msgType", "service=" + z + " msgType=" + i2);
+            }
+            return i2;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean X(i.a aVar) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, aVar)) == null) {
+            synchronized (this.f47911f) {
+                z = (!Z() || this.f47913h.isEmpty() || aVar == null) ? false : true;
+                if (z) {
+                    for (d.a.n0.a.v2.e1.b<i.a> bVar : this.f47913h) {
+                        bVar.onCallback(aVar);
+                    }
+                }
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public b Y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this : (b) invokeV.objValue;
+    }
+
+    public boolean Z() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            synchronized (this.f47911f) {
+                z = (S() || Q() || TextUtils.isEmpty(this.f47912g)) ? false : true;
+                if (p) {
+                    V("valid", z + " isFinished=" + S() + " hasException=" + this.l + " id=" + this.f47912g);
+                }
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // d.a.n0.a.v2.e1.d
+    public /* bridge */ /* synthetic */ d.a.n0.a.v2.e1.d a() {
+        Y();
+        return this;
+    }
+
+    @Override // d.a.n0.a.f1.e.f.c
+    public synchronized String toString() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            synchronized (this) {
+                str = "IpcSession: id=" + this.f47912g + " timeout=" + this.m;
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+}

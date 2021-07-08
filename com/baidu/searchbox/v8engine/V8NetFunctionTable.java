@@ -1,6 +1,7 @@
 package com.baidu.searchbox.v8engine;
 
 import android.webkit.ValueCallback;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.smallgame.sdk.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class V8NetFunctionTable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "V8NetFunctionTable";
@@ -68,7 +69,7 @@ public class V8NetFunctionTable {
 
     public static void addOnCronetThreadInitializedListenerForT7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             try {
                 Class.forName("com.baidu.webkit.internal.ApisInteractWithMario").getDeclaredMethod("addOnCronetThreadInitializedListener", ValueCallback.class).invoke(null, new ValueCallback<Long>() { // from class: com.baidu.searchbox.v8engine.V8NetFunctionTable.1
                     public static /* synthetic */ Interceptable $ic;

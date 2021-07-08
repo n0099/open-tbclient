@@ -11,7 +11,7 @@ import d.f.b.a.c0.c;
 import d.f.b.a.i0.l;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class a implements d.f.b.a.c0.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public final class a implements d.f.b.a.c0.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
-            ByteBuffer byteBuffer = cVar.f73652g;
+            ByteBuffer byteBuffer = cVar.f70755g;
             byte[] array = byteBuffer.array();
             int limit = byteBuffer.limit();
             l lVar = new l(array, limit);

@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.arch.core.internal.FastSafeIterableMap;
 import androidx.arch.core.internal.SafeIterableMap;
+import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -230,7 +231,7 @@ public class LifecycleRegistry extends Lifecycle {
     /* JADX WARN: Multi-variable type inference failed */
     private void forwardPass(LifecycleOwner lifecycleOwner) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, lifecycleOwner) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, lifecycleOwner) == null) {
             SafeIterableMap<LifecycleObserver, ObserverWithState>.IteratorWithAdditions iteratorWithAdditions = this.mObserverMap.iteratorWithAdditions();
             while (iteratorWithAdditions.hasNext() && !this.mNewEventOccurred) {
                 Map.Entry next = iteratorWithAdditions.next();

@@ -8,6 +8,7 @@ import android.os.Build;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class StatusBarUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +28,7 @@ public final class StatusBarUtil {
     public boolean transparentStatusBar;
     public Window window;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +105,7 @@ public final class StatusBarUtil {
         public Builder setWindow(Activity activity) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, activity)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, activity)) == null) {
                 this.window = activity.getWindow();
                 return this;
             }
@@ -341,7 +342,7 @@ public final class StatusBarUtil {
     public static Builder from(Window window) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, window)) == null) ? new Builder().setWindow(window) : (Builder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, window)) == null) ? new Builder().setWindow(window) : (Builder) invokeL.objValue;
     }
 
     public /* synthetic */ StatusBarUtil(Window window, boolean z, boolean z2, View view, StatusBarUtil statusBarUtil) {

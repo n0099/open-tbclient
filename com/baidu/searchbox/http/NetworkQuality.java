@@ -1,6 +1,7 @@
 package com.baidu.searchbox.http;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class NetworkQuality {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BAD_NETWORK_QUALITY = 2;
@@ -36,7 +37,7 @@ public class NetworkQuality {
     public static WeakNetCheckConfig sWeakNetCheckConfig;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static abstract class NetworkQualityListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +121,7 @@ public class NetworkQuality {
     public static JSONObject getLastSdtProbeErrorCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (NetworkQuality.class) {
                 if (sLastSdtProbeErrorCodeMap != null) {
                     return new JSONObject(sLastSdtProbeErrorCodeMap);
@@ -249,7 +250,7 @@ public class NetworkQuality {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class WeakNetCheckConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long DEFAULT_TTFB_EXPIRE_TIME = 1000;

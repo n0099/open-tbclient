@@ -35,31 +35,31 @@ public class a implements b<String, String> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3853a = "Host";
+    public static final String f3856a = "Host";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3854b = "Accept";
+    public static final String f3857b = "Accept";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f3855c = "Accept-Charset";
+    public static final String f3858c = "Accept-Charset";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f3856d = "Accept-Encoding";
+    public static final String f3859d = "Accept-Encoding";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f3857e = "Accept-Language";
+    public static final String f3860e = "Accept-Language";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f3858f = "Allow";
+    public static final String f3861f = "Allow";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f3859g = "Cache-Control";
+    public static final String f3862g = "Cache-Control";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f3860h = "Content-Disposition";
+    public static final String f3863h = "Content-Disposition";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f3861i = "Content-Encoding";
+    public static final String f3864i = "Content-Encoding";
     public static final String j = "Content-Length";
     public static final String k = "Content-Type";
     public static final String l = "Date";
@@ -498,7 +498,7 @@ public class a implements b<String, String> {
     public static String a(Collection<?> collection, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65540, null, collection, str, str2, str3)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, collection, str, str2, str3)) == null) {
             if (collection == null || collection.isEmpty()) {
                 return "";
             }

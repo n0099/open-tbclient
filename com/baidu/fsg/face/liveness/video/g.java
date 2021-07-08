@@ -13,37 +13,37 @@ import java.lang.Thread;
 import java.util.LinkedList;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class g extends Thread implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinkedBlockingQueue<a> f6037a;
+    public LinkedBlockingQueue<a> f6054a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f6038b;
+    public f f6055b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f6039c;
+    public boolean f6056c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f6040d;
+    public int f6057d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6041e;
+    public int f6058e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinkedList<byte[]> f6042f;
+    public LinkedList<byte[]> f6059f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f6043g;
+    public d f6060g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f6044h;
+    public boolean f6061h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f6045i;
+    public boolean f6062i;
     public int j;
     public int k;
     public byte[] l;
@@ -52,16 +52,16 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
     public long o;
     public long p;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f6046a;
+        public long f6063a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f6047b;
+        public byte[] f6064b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -93,40 +93,40 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
                 return;
             }
         }
-        this.f6039c = false;
-        this.f6042f = new LinkedList<>();
+        this.f6056c = false;
+        this.f6059f = new LinkedList<>();
         this.p = -1L;
         this.n = 0;
         this.j = i2;
         this.k = i3;
         setPriority(10);
         setName("VideoMediaEncoderThread");
-        this.f6037a = new LinkedBlockingQueue<>();
-        this.f6041e = i5;
+        this.f6054a = new LinkedBlockingQueue<>();
+        this.f6058e = i5;
         a(i2, i3, i4, i5, i6, str, mediaMuxer);
     }
 
     public void a(int i2, int i3, int i4, int i5, int i6, String str, MediaMuxer mediaMuxer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), str, mediaMuxer}) == null) {
-            this.f6038b = new f(i2, i3, i4, i5, i6, mediaMuxer);
+            this.f6055b = new f(i2, i3, i4, i5, i6, mediaMuxer);
         }
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f6044h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f6061h : invokeV.booleanValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             a aVar = new a();
-            aVar.f6047b = null;
-            aVar.f6046a = 0L;
-            this.f6037a.add(aVar);
-            this.f6039c = true;
+            aVar.f6064b = null;
+            aVar.f6063a = 0L;
+            this.f6054a.add(aVar);
+            this.f6056c = true;
             this.l = null;
             this.m = 0L;
         }
@@ -137,25 +137,25 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             a aVar = new a();
-            aVar.f6047b = null;
-            aVar.f6046a = 0L;
-            this.f6037a.clear();
-            this.f6037a.add(aVar);
-            this.f6039c = true;
+            aVar.f6064b = null;
+            aVar.f6063a = 0L;
+            this.f6054a.clear();
+            this.f6054a.add(aVar);
+            this.f6056c = true;
         }
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f6040d + 1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f6057d + 1 : invokeV.intValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            LinkedBlockingQueue<a> linkedBlockingQueue = this.f6037a;
+            LinkedBlockingQueue<a> linkedBlockingQueue = this.f6054a;
             if (linkedBlockingQueue == null) {
                 return 0;
             }
@@ -171,43 +171,43 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
         if (interceptable != null && interceptable.invokeV(1048586, this) != null) {
             return;
         }
-        if (!this.f6045i) {
+        if (!this.f6062i) {
             Thread.currentThread().setUncaughtExceptionHandler(this);
-            this.f6045i = true;
+            this.f6062i = true;
             LogUtil.i("+initInThread");
-            this.f6038b.a();
+            this.f6055b.a();
             LogUtil.i("-initInThread");
         }
         while (true) {
             try {
                 LogUtil.i("+mQueue.take");
-                take = this.f6037a.take();
+                take = this.f6054a.take();
                 LogUtil.i("-mQueue.take");
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
                 LogUtil.e(e2.toString());
             }
-            if (take.f6047b == null) {
-                this.f6042f.clear();
-                this.f6037a.clear();
-                this.f6038b.b();
-                this.f6044h = true;
+            if (take.f6064b == null) {
+                this.f6059f.clear();
+                this.f6054a.clear();
+                this.f6055b.b();
+                this.f6061h = true;
                 return;
             }
             LogUtil.i("+encodeFrame");
             long currentTimeMillis = System.currentTimeMillis();
-            this.f6038b.a(take.f6047b, take.f6046a);
+            this.f6055b.a(take.f6064b, take.f6063a);
             long currentTimeMillis2 = System.currentTimeMillis();
             LogUtil.i("-encodeFrame");
-            synchronized (this.f6042f) {
-                this.f6042f.add(take.f6047b);
+            synchronized (this.f6059f) {
+                this.f6059f.add(take.f6064b);
             }
-            this.f6040d++;
+            this.f6057d++;
             LogUtil.i("mRecorder.encodeFrame:" + (currentTimeMillis2 - currentTimeMillis) + "ms");
             if (this.p < 0) {
-                this.p = take.f6046a / 1000;
+                this.p = take.f6063a / 1000;
             }
-            this.o = (take.f6046a / 1000) - this.p;
+            this.o = (take.f6063a / 1000) - this.p;
         }
     }
 
@@ -222,12 +222,12 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
     public void a(byte[] bArr, long j) {
         byte[] bArr2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048580, this, bArr, j) == null) || this.f6039c || this.f6037a == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048580, this, bArr, j) == null) || this.f6056c || this.f6054a == null) {
             return;
         }
-        if (this.f6042f.size() > 0) {
-            synchronized (this.f6042f) {
-                bArr2 = this.f6042f.pop();
+        if (this.f6059f.size() > 0) {
+            synchronized (this.f6059f) {
+                bArr2 = this.f6059f.pop();
             }
             if (bArr.length != bArr2.length) {
                 try {
@@ -251,10 +251,10 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
         a aVar = new a();
         this.l = bArr2;
         this.m = j;
-        aVar.f6047b = bArr2;
-        aVar.f6046a = j;
-        if (this.f6037a.size() < 50) {
-            this.f6037a.add(aVar);
+        aVar.f6064b = bArr2;
+        aVar.f6063a = j;
+        if (this.f6054a.size() < 50) {
+            this.f6054a.add(aVar);
         }
     }
 
@@ -267,20 +267,20 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
-            this.f6043g = dVar;
+            this.f6060g = dVar;
         }
     }
 
     public void a(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-            d dVar = this.f6043g;
+            d dVar = this.f6060g;
             if (dVar != null) {
                 dVar.a(th);
             }
             th.printStackTrace();
             LogUtil.e(th.toString());
-            f fVar = this.f6038b;
+            f fVar = this.f6055b;
             if (fVar != null) {
                 fVar.b();
             }

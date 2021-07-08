@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.s0.i1.g.b;
-import d.a.s0.i1.g.c;
+import d.a.p0.i1.g.b;
+import d.a.p0.i1.g.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ForumMenu.ForumMenuResIdl;
 import tbclient.ForumMenu.Menu;
 import tbclient.ForumMenu.SubMenu;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ResponseOfficialBarMenuLocalMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

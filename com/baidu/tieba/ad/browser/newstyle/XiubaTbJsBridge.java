@@ -3,6 +3,7 @@ package com.baidu.tieba.ad.browser.newstyle;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.webkit.JsPromptResult;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -27,8 +28,8 @@ import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class XiubaTbJsBridge implements d.a.s0.h3.l0.b {
+/* loaded from: classes3.dex */
+public class XiubaTbJsBridge implements d.a.p0.h3.l0.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "XiubaJSBridge";
     public static final String METHOD_CHECK_APK_INSTALL = "checkAPKInstall";
@@ -43,13 +44,13 @@ public class XiubaTbJsBridge implements d.a.s0.h3.l0.b {
     public final CustomMessageListener installListener;
     public final TbPageContext<?> mTbPageContext;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ XiubaTbJsBridge f13716a;
+        public final /* synthetic */ XiubaTbJsBridge f13736a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(XiubaTbJsBridge xiubaTbJsBridge, int i2) {
@@ -69,7 +70,7 @@ public class XiubaTbJsBridge implements d.a.s0.h3.l0.b {
                     return;
                 }
             }
-            this.f13716a = xiubaTbJsBridge;
+            this.f13736a = xiubaTbJsBridge;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -78,21 +79,21 @@ public class XiubaTbJsBridge implements d.a.s0.h3.l0.b {
             Object data;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (data = customResponsedMessage.getData()) != null && (data instanceof Intent) && "com.xiu8.baidu.activity".equals(XiubaTbJsBridge.getPackageName((Intent) data))) {
-                this.f13716a.callInstallListener();
+                this.f13736a.callInstallListener();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f13717a;
+        public boolean f13737a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ XiubaTbJsBridge f13718b;
+        public final /* synthetic */ XiubaTbJsBridge f13738b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(XiubaTbJsBridge xiubaTbJsBridge, int i2) {
@@ -112,7 +113,7 @@ public class XiubaTbJsBridge implements d.a.s0.h3.l0.b {
                     return;
                 }
             }
-            this.f13718b = xiubaTbJsBridge;
+            this.f13738b = xiubaTbJsBridge;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -127,16 +128,16 @@ public class XiubaTbJsBridge implements d.a.s0.h3.l0.b {
                 for (DownloadData downloadData : downloadMessage.getData()) {
                     if (downloadData != null && "com.xiu8.baidu.activity".equals(downloadData.getId())) {
                         if (downloadData.getStatus() == 5) {
-                            if (!this.f13717a) {
-                                this.f13717a = true;
-                                this.f13718b.callDownloadListener(1);
+                            if (!this.f13737a) {
+                                this.f13737a = true;
+                                this.f13738b.callDownloadListener(1);
                             }
                         } else if (downloadData.getStatus() == 0 || downloadData.getStatus() == 3) {
-                            this.f13718b.callDownloadListener(2);
-                            this.f13717a = false;
+                            this.f13738b.callDownloadListener(2);
+                            this.f13737a = false;
                         } else if (downloadData.getStatus() == 2 || downloadData.getStatus() == 4) {
-                            this.f13718b.callDownloadListener(0);
-                            this.f13717a = false;
+                            this.f13738b.callDownloadListener(0);
+                            this.f13737a = false;
                         }
                     }
                 }
@@ -170,7 +171,7 @@ public class XiubaTbJsBridge implements d.a.s0.h3.l0.b {
     /* JADX INFO: Access modifiers changed from: private */
     public void callDownloadListener(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65540, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
             JSResultData jSResultData = new JSResultData();
             jSResultData.setStatus(1);
             jSResultData.setErrorCode("0");
@@ -331,7 +332,7 @@ public class XiubaTbJsBridge implements d.a.s0.h3.l0.b {
     private void startDownload(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, this, str) == null) {
-            d.a.r0.v.b.l().r("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.xiuba_apk_name), -1, -1);
+            d.a.o0.v.b.l().r("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.xiuba_apk_name), -1, -1);
         }
     }
 
@@ -360,7 +361,7 @@ public class XiubaTbJsBridge implements d.a.s0.h3.l0.b {
         return invokeL.booleanValue;
     }
 
-    @Override // d.a.s0.h3.l0.b
+    @Override // d.a.p0.h3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

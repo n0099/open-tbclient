@@ -8,21 +8,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Interpolator f44793a;
+    public static final Interpolator f41809a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d.a.c.k.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class animation.InterpolatorC0601a implements Interpolator {
+    /* loaded from: classes7.dex */
+    public static class animation.InterpolatorC0562a implements Interpolator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public animation.InterpolatorC0601a() {
+        public animation.InterpolatorC0562a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,7 +61,7 @@ public final class a {
                 return;
             }
         }
-        f44793a = new animation.InterpolatorC0601a();
+        f41809a = new animation.InterpolatorC0562a();
     }
 
     public static int a(float f2, float f3, boolean z) {
@@ -70,9 +70,9 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) {
             if (z) {
-                interpolation = f2 - (f44793a.getInterpolation(f3 / (f3 - f2)) * f2);
+                interpolation = f2 - (f41809a.getInterpolation(f3 / (f3 - f2)) * f2);
             } else {
-                interpolation = f2 * f44793a.getInterpolation(f3 / f2);
+                interpolation = f2 * f41809a.getInterpolation(f3 / f2);
             }
             return (int) interpolation;
         }

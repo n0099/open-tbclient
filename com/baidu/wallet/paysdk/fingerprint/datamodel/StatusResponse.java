@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.utils.LogUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class StatusResponse extends a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f26007a = "StatusResponse";
+    public static final String f26117a = "StatusResponse";
     public transient /* synthetic */ FieldHolder $fh;
     public JSONObject fingerprint;
     public JSONObject user_info;
@@ -70,7 +70,7 @@ public class StatusResponse extends a {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            LogUtil.d(f26007a, str);
+            LogUtil.d(f26117a, str);
         }
     }
 

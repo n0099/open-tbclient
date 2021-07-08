@@ -10,6 +10,7 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -310,7 +311,7 @@ public final class j {
         InterceptResult invokeL;
         t tVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             c cVar = f1050d;
             synchronized (cVar) {
                 if (cVar.f1053a == null) {

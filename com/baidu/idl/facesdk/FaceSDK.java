@@ -25,7 +25,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FaceSDK {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FaceSDK";
@@ -46,7 +46,7 @@ public class FaceSDK {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class AlignMethodType {
         public static final /* synthetic */ AlignMethodType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -110,7 +110,7 @@ public class FaceSDK {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class DetectMethodType {
         public static final /* synthetic */ DetectMethodType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -168,7 +168,7 @@ public class FaceSDK {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class ImgType {
         public static final /* synthetic */ ImgType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -226,7 +226,7 @@ public class FaceSDK {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class LivenessAction {
         public static final /* synthetic */ LivenessAction[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -286,7 +286,7 @@ public class FaceSDK {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class LivenessMethodType {
         public static final /* synthetic */ LivenessMethodType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -350,7 +350,7 @@ public class FaceSDK {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class ParsMethodType {
         public static final /* synthetic */ ParsMethodType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

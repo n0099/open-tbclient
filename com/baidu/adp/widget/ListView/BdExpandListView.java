@@ -41,7 +41,7 @@ public class BdExpandListView extends BdListView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdExpandListView f2329e;
+        public final /* synthetic */ BdExpandListView f2330e;
 
         public a(BdExpandListView bdExpandListView) {
             Interceptable interceptable = $ic;
@@ -58,15 +58,15 @@ public class BdExpandListView extends BdListView {
                     return;
                 }
             }
-            this.f2329e = bdExpandListView;
+            this.f2330e = bdExpandListView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f2329e.M.setLayoutParams(new AbsListView.LayoutParams(this.f2329e.M.getWidth(), this.f2329e.N));
-                this.f2329e.invalidate();
+                this.f2330e.M.setLayoutParams(new AbsListView.LayoutParams(this.f2330e.M.getWidth(), this.f2330e.N));
+                this.f2330e.invalidate();
             }
         }
     }
@@ -86,10 +86,10 @@ public class BdExpandListView extends BdListView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f2330a;
+        public int f2331a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f2331b;
+        public int f2332b;
 
         public c(int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
@@ -106,14 +106,14 @@ public class BdExpandListView extends BdListView {
                     return;
                 }
             }
-            this.f2330a = i3;
-            this.f2331b = i5;
+            this.f2331a = i3;
+            this.f2332b = i5;
         }
 
         public int a(float f2) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? (int) (this.f2330a + (f2 / 2.5f)) : invokeF.intValue;
+            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? (int) (this.f2331a + (f2 / 2.5f)) : invokeF.intValue;
         }
     }
 
@@ -166,12 +166,12 @@ public class BdExpandListView extends BdListView {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.Q == null) {
             return;
         }
-        if (this.M.getHeight() >= this.Q.f2331b - (this.V / 2)) {
+        if (this.M.getHeight() >= this.Q.f2332b - (this.V / 2)) {
             J();
         } else {
             this.W.b();
         }
-        this.L.startScroll(0, this.M.getHeight(), 0, this.Q.f2330a - this.M.getHeight(), 200);
+        this.L.startScroll(0, this.M.getHeight(), 0, this.Q.f2331a - this.M.getHeight(), 200);
         invalidate();
         this.R = false;
     }
@@ -213,15 +213,15 @@ public class BdExpandListView extends BdListView {
                             if (this.M.getParent() == this && this.Q != null && this.M.isShown() && this.M.getTop() >= 0 && Math.abs(f4) >= this.U && Math.abs(f3) < this.U) {
                                 int a2 = this.Q.a(this.P - this.O);
                                 c cVar = this.Q;
-                                if (a2 > cVar.f2330a && a2 <= cVar.f2331b) {
+                                if (a2 > cVar.f2331a && a2 <= cVar.f2332b) {
                                     this.R = true;
                                     this.M.setLayoutParams(new AbsListView.LayoutParams(this.M.getWidth(), a2));
-                                    I(a2 - this.Q.f2330a);
+                                    I(a2 - this.Q.f2331a);
                                 } else {
                                     c cVar2 = this.Q;
-                                    if (a2 <= cVar2.f2330a) {
+                                    if (a2 <= cVar2.f2331a) {
                                         this.R = false;
-                                    } else if (a2 > cVar2.f2331b) {
+                                    } else if (a2 > cVar2.f2332b) {
                                         this.R = true;
                                     } else {
                                         this.R = false;

@@ -13,19 +13,19 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class NativeMethodInjectHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile NativeMethodInjectHelper f42544c;
+    public static volatile NativeMethodInjectHelper f39558c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayMap f42545a;
+    public ArrayMap f39559a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List f42546b;
+    public List f39560b;
 
     public NativeMethodInjectHelper() {
         Interceptable interceptable = $ic;
@@ -40,21 +40,21 @@ public class NativeMethodInjectHelper {
                 return;
             }
         }
-        this.f42545a = new ArrayMap();
-        this.f42546b = new ArrayList();
+        this.f39559a = new ArrayMap();
+        this.f39560b = new ArrayList();
     }
 
     public static NativeMethodInjectHelper getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            NativeMethodInjectHelper nativeMethodInjectHelper = f42544c;
+            NativeMethodInjectHelper nativeMethodInjectHelper = f39558c;
             if (nativeMethodInjectHelper == null) {
                 synchronized (NativeMethodInjectHelper.class) {
-                    nativeMethodInjectHelper = f42544c;
+                    nativeMethodInjectHelper = f39558c;
                     if (nativeMethodInjectHelper == null) {
                         nativeMethodInjectHelper = new NativeMethodInjectHelper();
-                        f42544c = nativeMethodInjectHelper;
+                        f39558c = nativeMethodInjectHelper;
                     }
                 }
             }
@@ -68,7 +68,7 @@ public class NativeMethodInjectHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
             if (cls != null) {
-                this.f42546b.add(cls);
+                this.f39560b.add(cls);
                 return this;
             }
             throw new NullPointerException("NativeMethodInjectHelper:The clazz can not be null!");
@@ -81,7 +81,7 @@ public class NativeMethodInjectHelper {
         ArrayMap arrayMap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !this.f42545a.containsKey(str) || (arrayMap = (ArrayMap) this.f42545a.get(str)) == null || !arrayMap.containsKey(str2)) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !this.f39559a.containsKey(str) || (arrayMap = (ArrayMap) this.f39559a.get(str)) == null || !arrayMap.containsKey(str2)) {
                 return null;
             }
             return (Method) arrayMap.get(str2);
@@ -94,12 +94,12 @@ public class NativeMethodInjectHelper {
         Method[] declaredMethods;
         Class<?>[] parameterTypes;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (size = this.f42546b.size()) == 0) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (size = this.f39560b.size()) == 0) {
             return;
         }
-        this.f42545a.clear();
+        this.f39559a.clear();
         for (int i2 = 0; i2 < size; i2++) {
-            Class cls = (Class) this.f42546b.get(i2);
+            Class cls = (Class) this.f39560b.get(i2);
             if (cls != null) {
                 ArrayMap arrayMap = new ArrayMap();
                 for (Method method : cls.getDeclaredMethods()) {
@@ -108,9 +108,9 @@ public class NativeMethodInjectHelper {
                         arrayMap.put(method.getName(), method);
                     }
                 }
-                this.f42545a.put(cls.getSimpleName(), arrayMap);
+                this.f39559a.put(cls.getSimpleName(), arrayMap);
             }
         }
-        this.f42546b.clear();
+        this.f39560b.clear();
     }
 }

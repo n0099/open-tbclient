@@ -13,25 +13,26 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class RoundImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f30646a;
+    public int f30756a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30647b;
+    public int f30757b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30648c;
+    public int f30758c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RoundImageView(Context context) {
@@ -51,16 +52,16 @@ public class RoundImageView extends ImageView {
                 return;
             }
         }
-        this.f30646a = 0;
-        this.f30647b = 0;
-        this.f30648c = 0;
+        this.f30756a = 0;
+        this.f30757b = 0;
+        this.f30758c = 0;
     }
 
     private Bitmap a(Bitmap bitmap, int i2) {
         InterceptResult invokeLI;
         Bitmap createBitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, this, bitmap, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, bitmap, i2)) == null) {
             int i3 = i2 * 2;
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
@@ -115,14 +116,14 @@ public class RoundImageView extends ImageView {
             super.onDraw(canvas);
             return;
         }
-        if (this.f30646a == 0) {
-            this.f30646a = getWidth();
+        if (this.f30756a == 0) {
+            this.f30756a = getWidth();
         }
-        if (this.f30647b == 0) {
-            this.f30647b = getHeight();
+        if (this.f30757b == 0) {
+            this.f30757b = getHeight();
         }
-        int i3 = this.f30646a;
-        int i4 = this.f30647b;
+        int i3 = this.f30756a;
+        int i4 = this.f30757b;
         if (i3 >= i4) {
             i3 = i4;
         }
@@ -134,7 +135,7 @@ public class RoundImageView extends ImageView {
         if (bitmap3 == null) {
             super.onDraw(canvas);
         } else {
-            canvas.drawBitmap(bitmap3, (this.f30646a / 2) - i2, (this.f30647b / 2) - i2, (Paint) null);
+            canvas.drawBitmap(bitmap3, (this.f30756a / 2) - i2, (this.f30757b / 2) - i2, (Paint) null);
         }
     }
 
@@ -156,12 +157,12 @@ public class RoundImageView extends ImageView {
                 return;
             }
         }
-        this.f30646a = 0;
-        this.f30647b = 0;
-        this.f30648c = 0;
-        this.f30648c = i2;
-        this.f30646a = i3;
-        this.f30647b = i4;
+        this.f30756a = 0;
+        this.f30757b = 0;
+        this.f30758c = 0;
+        this.f30758c = i2;
+        this.f30756a = i3;
+        this.f30757b = i4;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -183,9 +184,9 @@ public class RoundImageView extends ImageView {
                 return;
             }
         }
-        this.f30646a = 0;
-        this.f30647b = 0;
-        this.f30648c = 0;
+        this.f30756a = 0;
+        this.f30757b = 0;
+        this.f30758c = 0;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -207,8 +208,8 @@ public class RoundImageView extends ImageView {
                 return;
             }
         }
-        this.f30646a = 0;
-        this.f30647b = 0;
-        this.f30648c = 0;
+        this.f30756a = 0;
+        this.f30757b = 0;
+        this.f30758c = 0;
     }
 }

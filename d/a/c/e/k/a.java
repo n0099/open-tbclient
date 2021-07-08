@@ -9,31 +9,31 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedHashMap<K, V> f44243a;
+    public final LinkedHashMap<K, V> f41259a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f44244b;
+    public int f41260b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f44245c;
+    public int f41261c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f44246d;
+    public int f41262d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f44247e;
+    public int f41263e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f44248f;
+    public int f41264f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f44249g;
+    public int f41265g;
 
     public a(int i2) {
         Interceptable interceptable = $ic;
@@ -50,8 +50,8 @@ public class a<K, V> {
                 return;
             }
         }
-        this.f44245c = i2;
-        this.f44243a = new LinkedHashMap<>(0, 0.75f, true);
+        this.f41261c = i2;
+        this.f41259a = new LinkedHashMap<>(0, 0.75f, true);
     }
 
     public final synchronized void a() {
@@ -59,10 +59,10 @@ public class a<K, V> {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
                 c();
-                this.f44246d = 0;
-                this.f44247e = 0;
-                this.f44248f = 0;
-                this.f44249g = 0;
+                this.f41262d = 0;
+                this.f41263e = 0;
+                this.f41264f = 0;
+                this.f41265g = 0;
             }
         }
     }
@@ -86,7 +86,7 @@ public class a<K, V> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (this) {
-                i2 = this.f44247e;
+                i2 = this.f41263e;
             }
             return i2;
         }
@@ -98,8 +98,8 @@ public class a<K, V> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
             synchronized (this) {
-                if (this.f44244b + i2 > this.f44245c * 0.8d) {
-                    n(this.f44244b - i2);
+                if (this.f41260b + i2 > this.f41261c * 0.8d) {
+                    n(this.f41260b - i2);
                 }
             }
             return true;
@@ -115,12 +115,12 @@ public class a<K, V> {
                 return null;
             }
             synchronized (this) {
-                V v = this.f44243a.get(k);
+                V v = this.f41259a.get(k);
                 if (v != null) {
-                    this.f44248f++;
+                    this.f41264f++;
                     return v;
                 }
-                this.f44249g++;
+                this.f41265g++;
                 return null;
             }
         }
@@ -133,7 +133,7 @@ public class a<K, V> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
-                i2 = this.f44245c;
+                i2 = this.f41261c;
             }
             return i2;
         }
@@ -149,17 +149,17 @@ public class a<K, V> {
                 return null;
             }
             synchronized (this) {
-                this.f44246d++;
-                this.f44244b += j(k, v);
-                put = this.f44243a.put(k, v);
+                this.f41262d++;
+                this.f41260b += j(k, v);
+                put = this.f41259a.put(k, v);
                 if (put != null) {
-                    this.f44244b -= j(k, put);
+                    this.f41260b -= j(k, put);
                 }
             }
             if (put != null) {
                 b(false, k, put, v);
             }
-            n(this.f44245c);
+            n(this.f41261c);
             return put;
         }
         return (V) invokeLL.objValue;
@@ -174,9 +174,9 @@ public class a<K, V> {
                 return null;
             }
             synchronized (this) {
-                remove = this.f44243a.remove(k);
+                remove = this.f41259a.remove(k);
                 if (remove != null) {
-                    this.f44244b -= j(k, remove);
+                    this.f41260b -= j(k, remove);
                 }
             }
             if (remove != null) {
@@ -204,7 +204,7 @@ public class a<K, V> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
             synchronized (this) {
-                this.f44245c = i2;
+                this.f41261c = i2;
                 n(i2);
             }
         }
@@ -216,7 +216,7 @@ public class a<K, V> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             synchronized (this) {
-                i2 = this.f44244b;
+                i2 = this.f41260b;
             }
             return i2;
         }
@@ -245,16 +245,16 @@ public class a<K, V> {
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
             while (true) {
                 synchronized (this) {
-                    if (this.f44244b >= 0 && (!this.f44243a.isEmpty() || this.f44244b == 0)) {
-                        if (this.f44244b <= i2 || this.f44243a.isEmpty()) {
+                    if (this.f41260b >= 0 && (!this.f41259a.isEmpty() || this.f41260b == 0)) {
+                        if (this.f41260b <= i2 || this.f41259a.isEmpty()) {
                             break;
                         }
-                        Map.Entry<K, V> next = this.f44243a.entrySet().iterator().next();
+                        Map.Entry<K, V> next = this.f41259a.entrySet().iterator().next();
                         key = next.getKey();
                         value = next.getValue();
-                        this.f44243a.remove(key);
-                        this.f44244b -= j(key, value);
-                        this.f44247e++;
+                        this.f41259a.remove(key);
+                        this.f41260b -= j(key, value);
+                        this.f41263e++;
                     } else {
                         break;
                     }

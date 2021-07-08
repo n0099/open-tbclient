@@ -1,5 +1,6 @@
 package org.webrtc;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,10 +11,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
 import org.webrtc.EncodedImage;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public interface VideoEncoder {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class BitrateAllocation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,12 +56,12 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface Callback {
         void onEncodedFrame(EncodedImage encodedImage, CodecSpecificInfo codecSpecificInfo);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class CodecSpecificInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +81,7 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class CodecSpecificInfoH264 extends CodecSpecificInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +101,7 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class CodecSpecificInfoVP8 extends CodecSpecificInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +121,7 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class CodecSpecificInfoVP9 extends CodecSpecificInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -140,7 +141,7 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class EncodeInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,7 +167,7 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class ScalingSettings {
         public static /* synthetic */ Interceptable $ic;
         public static final ScalingSettings OFF;
@@ -259,12 +260,12 @@ public interface VideoEncoder {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)};
-                interceptable.invokeUnInit(65540, newInitContext);
+                interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 int i4 = newInitContext.flag;
                 if ((i4 & 1) != 0) {
                     int i5 = i4 & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65540, newInitContext);
+                    interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                     return;
                 }
             }
@@ -286,7 +287,7 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class Settings {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

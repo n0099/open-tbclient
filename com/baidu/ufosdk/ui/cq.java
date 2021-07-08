@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class cq implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ cg f23409a;
+    public final /* synthetic */ cg f23519a;
 
     public cq(cg cgVar) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public final class cq implements View.OnClickListener {
                 return;
             }
         }
-        this.f23409a = cgVar;
+        this.f23519a = cgVar;
     }
 
     @Override // android.view.View.OnClickListener

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
-import d.a.r0.g0.b.a;
+import d.a.o0.g0.b.a;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ import org.json.JSONObject;
 import tbclient.ReplyMe.ReplyList;
 import tbclient.User;
 import tbclient.Zan;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FeedData implements Serializable, a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_DECLARE = "declare";
@@ -410,7 +410,7 @@ public class FeedData implements Serializable, a {
                 jSONObject.put("is_share_thread", i2);
                 if (this.mOriginalThreadInfo != null) {
                     JSONObject jSONObject5 = new JSONObject();
-                    jSONObject5.put("title", this.mOriginalThreadInfo.f12236g);
+                    jSONObject5.put("title", this.mOriginalThreadInfo.f12253g);
                     jSONObject.put("origin_thread_info", jSONObject5);
                 }
                 jSONArray.put(jSONObject);

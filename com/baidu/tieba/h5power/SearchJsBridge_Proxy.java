@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
-import d.a.s0.h3.l0.d.a;
-import d.a.s0.h3.l0.d.c;
-import d.a.s0.h3.l0.d.e;
+import d.a.p0.h3.l0.d.a;
+import d.a.p0.h3.l0.d.c;
+import d.a.p0.h3.l0.d.e;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SearchJsBridge_Proxy extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class SearchJsBridge_Proxy extends a {
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // d.a.s0.h3.l0.d.a
+    @Override // d.a.p0.h3.l0.d.a
     public c dispatch(e eVar, c cVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -104,7 +104,7 @@ public class SearchJsBridge_Proxy extends a {
         return (c) invokeLL.objValue;
     }
 
-    @Override // d.a.s0.h3.l0.d.a
+    @Override // d.a.p0.h3.l0.d.a
     public List<c> processNotification(String str, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

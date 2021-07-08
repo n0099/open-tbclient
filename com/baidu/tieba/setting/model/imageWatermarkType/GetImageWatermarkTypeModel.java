@@ -14,16 +14,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.f;
-import d.a.r0.r.k;
-/* loaded from: classes5.dex */
+import d.a.o0.r.k;
+/* loaded from: classes4.dex */
 public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f20723e;
+    public HttpMessageListener f20769e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +80,7 @@ public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_GET_IMAGE_WATERMARK_TYPE);
-        this.f20723e = aVar;
+        this.f20769e = aVar;
         registerListener(aVar);
         LoadData();
     }

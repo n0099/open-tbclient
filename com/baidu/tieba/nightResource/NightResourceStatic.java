@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.c;
-/* loaded from: classes5.dex */
+import d.a.o0.r.c;
+/* loaded from: classes4.dex */
 public class NightResourceStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements CustomMessageTask.CustomRunnable<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public class NightResourceStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001281, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        c.f55567f = true;
+        c.f52273f = true;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001354));
     }
 

@@ -1,5 +1,6 @@
 package org.apache.commons.logging;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Hashtable;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class LogFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIAGNOSTICS_DEST_PROPERTY = "org.apache.commons.logging.diagnostics.dest";
@@ -69,7 +70,7 @@ public abstract class LogFactory {
     public static ClassLoader getContextClassLoader() throws LogConfigurationException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (ClassLoader) invokeV.objValue;

@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, String> f41910a;
+    public final HashMap<String, String> f38924a;
 
     public b(Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -30,10 +30,10 @@ public class b implements Serializable {
                 return;
             }
         }
-        this.f41910a = new HashMap<>();
+        this.f38924a = new HashMap<>();
         if (bundle != null) {
             for (String str : bundle.keySet()) {
-                this.f41910a.put(str, bundle.getString(str));
+                this.f38924a.put(str, bundle.getString(str));
             }
         }
     }

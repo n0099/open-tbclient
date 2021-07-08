@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.SystemClock;
 import android.util.AndroidException;
 import android.util.Range;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -26,7 +27,7 @@ import java.util.List;
 import java.util.Map;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class Camera2Enumerator implements CameraEnumerator {
     public static /* synthetic */ Interceptable $ic = null;
     public static final double NANO_SECONDS_PER_SECOND = 1.0E9d;
@@ -100,7 +101,7 @@ public class Camera2Enumerator implements CameraEnumerator {
 
     public static void disableExtraCamera(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65540, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
             disableExtraCamera = z;
         }
     }

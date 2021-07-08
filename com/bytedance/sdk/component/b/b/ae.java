@@ -1,5 +1,6 @@
 package com.bytedance.sdk.component.b.b;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,31 +13,31 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class ae {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ae f28405a;
+    public static final ae f28515a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ae f28406b;
+    public static final ae f28516b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ae f28407c;
+    public static final ae f28517c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ae f28408d;
+    public static final ae f28518d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final ae f28409e;
+    public static final ae f28519e;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final /* synthetic */ ae[] f28410g;
+    public static final /* synthetic */ ae[] f28520g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f28411f;
+    public final String f28521f;
 
     static {
         InterceptResult invokeClinit;
@@ -51,13 +52,13 @@ public final class ae {
                 return;
             }
         }
-        f28405a = new ae("TLS_1_3", 0, "TLSv1.3");
-        f28406b = new ae("TLS_1_2", 1, "TLSv1.2");
-        f28407c = new ae("TLS_1_1", 2, "TLSv1.1");
-        f28408d = new ae("TLS_1_0", 3, "TLSv1");
+        f28515a = new ae("TLS_1_3", 0, "TLSv1.3");
+        f28516b = new ae("TLS_1_2", 1, "TLSv1.2");
+        f28517c = new ae("TLS_1_1", 2, "TLSv1.1");
+        f28518d = new ae("TLS_1_0", 3, "TLSv1");
         ae aeVar = new ae("SSL_3_0", 4, "SSLv3");
-        f28409e = aeVar;
-        f28410g = new ae[]{f28405a, f28406b, f28407c, f28408d, aeVar};
+        f28519e = aeVar;
+        f28520g = new ae[]{f28515a, f28516b, f28517c, f28518d, aeVar};
     }
 
     public ae(String str, int i2, String str2) {
@@ -78,7 +79,7 @@ public final class ae {
                 return;
             }
         }
-        this.f28411f = str2;
+        this.f28521f = str2;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -131,17 +132,17 @@ public final class ae {
                     if (c2 != 2) {
                         if (c2 != 3) {
                             if (c2 == 4) {
-                                return f28409e;
+                                return f28519e;
                             }
                             throw new IllegalArgumentException("Unexpected TLS version: " + str);
                         }
-                        return f28408d;
+                        return f28518d;
                     }
-                    return f28407c;
+                    return f28517c;
                 }
-                return f28406b;
+                return f28516b;
             }
-            return f28405a;
+            return f28515a;
         }
         return (ae) invokeL.objValue;
     }
@@ -149,13 +150,13 @@ public final class ae {
     public static ae valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (ae) Enum.valueOf(ae.class, str) : (ae) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (ae) Enum.valueOf(ae.class, str) : (ae) invokeL.objValue;
     }
 
     public static ae[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (ae[]) f28410g.clone() : (ae[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (ae[]) f28520g.clone() : (ae[]) invokeV.objValue;
     }
 
     public static List<ae> a(String... strArr) {

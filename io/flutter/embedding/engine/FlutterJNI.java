@@ -32,7 +32,7 @@ import java.nio.ByteBuffer;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class FlutterJNI {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterJNI";
@@ -55,14 +55,14 @@ public class FlutterJNI {
     @Nullable
     public PlatformMessageHandler platformMessageHandler;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface AccessibilityDelegate {
         void updateCustomAccessibilityActions(@NonNull ByteBuffer byteBuffer, @NonNull String[] strArr);
 
         void updateSemantics(@NonNull ByteBuffer byteBuffer, @NonNull String[] strArr);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface AsyncWaitForVsyncDelegate {
         void asyncWaitForVsync(long j);
     }
@@ -121,7 +121,7 @@ public class FlutterJNI {
 
     private void ensureNotAttachedToNative() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65540, this) == null) && this.nativePlatformViewId != null) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.nativePlatformViewId != null) {
             throw new RuntimeException("Cannot execute operation because FlutterJNI is attached to native.");
         }
     }

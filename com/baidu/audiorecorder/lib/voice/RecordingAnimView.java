@@ -26,19 +26,19 @@ public class RecordingAnimView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f4250e;
+    public int f4253e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f4251f;
+    public Paint f4254f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Random f4252g;
+    public Random f4255g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f4253h;
+    public int f4256h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f4254i;
+    public int f4257i;
     public boolean j;
     public boolean k;
     public int l;
@@ -55,7 +55,7 @@ public class RecordingAnimView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RecordingAnimView f4255e;
+        public final /* synthetic */ RecordingAnimView f4258e;
 
         public a(RecordingAnimView recordingAnimView) {
             Interceptable interceptable = $ic;
@@ -72,14 +72,14 @@ public class RecordingAnimView extends View {
                     return;
                 }
             }
-            this.f4255e = recordingAnimView;
+            this.f4258e = recordingAnimView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f4255e.b();
+                this.f4258e.b();
             }
         }
     }
@@ -102,10 +102,10 @@ public class RecordingAnimView extends View {
                 return;
             }
         }
-        this.f4250e = 3;
-        this.f4252g = new Random();
-        this.f4253h = 0;
-        this.f4254i = 8;
+        this.f4253e = 3;
+        this.f4255g = new Random();
+        this.f4256h = 0;
+        this.f4257i = 8;
         this.j = false;
         this.k = true;
         this.o = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
@@ -146,11 +146,11 @@ public class RecordingAnimView extends View {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.q = c(TbadkCoreApplication.getInst().getSkinType());
             Paint paint = new Paint();
-            this.f4251f = paint;
+            this.f4254f = paint;
             paint.setDither(true);
-            this.f4251f.setAntiAlias(true);
-            this.f4251f.setStyle(Paint.Style.FILL);
-            this.f4251f.setColor(SkinManager.getColor(this.q));
+            this.f4254f.setAntiAlias(true);
+            this.f4254f.setStyle(Paint.Style.FILL);
+            this.f4254f.setColor(SkinManager.getColor(this.q));
         }
     }
 
@@ -159,16 +159,16 @@ public class RecordingAnimView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             RectF[] rectFArr = this.n;
-            if (rectFArr == null || rectFArr.length != this.f4254i) {
-                this.n = new RectF[this.f4254i];
+            if (rectFArr == null || rectFArr.length != this.f4257i) {
+                this.n = new RectF[this.f4257i];
             }
-            for (int i2 = 0; i2 < this.f4254i; i2++) {
+            for (int i2 = 0; i2 < this.f4257i; i2++) {
                 int i3 = this.p * i2 * 2;
                 if (this.k) {
                     nextInt = (int) ((1.0d - (this.o[i2 % 22] / 10.0d)) * this.m);
                 } else {
                     int i4 = this.m;
-                    nextInt = i4 > 0 ? this.f4252g.nextInt(i4) : 0;
+                    nextInt = i4 > 0 ? this.f4255g.nextInt(i4) : 0;
                 }
                 int i5 = this.p + i3;
                 int i6 = this.m;
@@ -184,14 +184,14 @@ public class RecordingAnimView extends View {
 
     public void f(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || i2 == this.f4250e || this.f4251f == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || i2 == this.f4253e || this.f4254f == null) {
             return;
         }
         int c2 = c(i2);
         this.q = c2;
-        this.f4251f.setColor(SkinManager.getColor(i2, c2));
+        this.f4254f.setColor(SkinManager.getColor(i2, c2));
         invalidate();
-        this.f4250e = i2;
+        this.f4253e = i2;
     }
 
     public void g() {
@@ -227,11 +227,11 @@ public class RecordingAnimView extends View {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) {
             super.onDraw(canvas);
             if (this.j) {
-                for (int i2 = 0; i2 < this.f4254i; i2++) {
+                for (int i2 = 0; i2 < this.f4257i; i2++) {
                     e();
                     RectF[] rectFArr = this.n;
                     if (i2 < rectFArr.length) {
-                        canvas.drawRoundRect(rectFArr[i2], 10.0f, 10.0f, this.f4251f);
+                        canvas.drawRoundRect(rectFArr[i2], 10.0f, 10.0f, this.f4254f);
                     }
                 }
             }
@@ -243,21 +243,21 @@ public class RecordingAnimView extends View {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048585, this, i2, i3) == null) {
-            if (this.f4253h > 0) {
+            if (this.f4256h > 0) {
                 int mode = View.MeasureSpec.getMode(i2);
                 int i4 = this.p;
-                int i5 = this.f4253h;
+                int i5 = this.f4256h;
                 int i6 = i4 * ((i5 * 2) - 1);
                 this.l = i6;
-                this.f4254i = i5;
+                this.f4257i = i5;
                 i2 = View.MeasureSpec.makeMeasureSpec(i6, mode);
             }
             super.onMeasure(i2, i3);
             this.m = getMeasuredHeight();
             int measuredWidth = getMeasuredWidth();
             this.l = measuredWidth;
-            if (this.f4253h <= 0) {
-                this.f4254i = (measuredWidth / this.p) / 2;
+            if (this.f4256h <= 0) {
+                this.f4257i = (measuredWidth / this.p) / 2;
             }
         }
     }
@@ -267,13 +267,13 @@ public class RecordingAnimView extends View {
         if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || i2 == 0) {
             return;
         }
-        this.f4253h = i2;
+        this.f4256h = i2;
     }
 
     public void setColumnColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            Paint paint = this.f4251f;
+            Paint paint = this.f4254f;
             if (paint != null) {
                 paint.setColor(SkinManager.getColor(i2));
             }
@@ -308,10 +308,10 @@ public class RecordingAnimView extends View {
                 return;
             }
         }
-        this.f4250e = 3;
-        this.f4252g = new Random();
-        this.f4253h = 0;
-        this.f4254i = 8;
+        this.f4253e = 3;
+        this.f4255g = new Random();
+        this.f4256h = 0;
+        this.f4257i = 8;
         this.j = false;
         this.k = true;
         this.o = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};

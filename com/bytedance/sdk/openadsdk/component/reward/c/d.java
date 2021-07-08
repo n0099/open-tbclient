@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.component.reward.c.a;
 import com.bytedance.sdk.openadsdk.component.reward.view.FullInteractionStyleView;
 import com.bytedance.sdk.openadsdk.core.e.m;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public class d extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            m mVar = this.f29367b;
+            m mVar = this.f29477b;
             if (mVar == null) {
                 return false;
             }
@@ -70,7 +70,7 @@ public class d extends a {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f29372g = this.j.w();
+            this.f29482g = this.j.w();
         }
     }
 
@@ -91,10 +91,10 @@ public class d extends a {
     public void a(FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frameLayout) == null) {
-            FullInteractionStyleView fullInteractionStyleView = new FullInteractionStyleView(this.f29366a, this.f29372g);
+            FullInteractionStyleView fullInteractionStyleView = new FullInteractionStyleView(this.f29476a, this.f29482g);
             this.l = fullInteractionStyleView;
-            fullInteractionStyleView.setDownloadListener(this.f29373h);
-            this.l.a(this.f29367b, null, this.f29371f, this.f29370e, this.f29368c, this.f29369d);
+            fullInteractionStyleView.setDownloadListener(this.f29483h);
+            this.l.a(this.f29477b, null, this.f29481f, this.f29480e, this.f29478c, this.f29479d);
             frameLayout.addView(this.l.getInteractionStyleRootView());
         }
     }
@@ -114,7 +114,7 @@ public class d extends a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d f29377a;
+            public final /* synthetic */ d f29487a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -131,16 +131,16 @@ public class d extends a {
                         return;
                     }
                 }
-                this.f29377a = this;
+                this.f29487a = this;
             }
 
             @Override // com.bytedance.sdk.openadsdk.component.reward.c.a.InterfaceC0331a
             public void a(boolean z) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) || this.f29377a.l == null) {
+                if (!(interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) || this.f29487a.l == null) {
                     return;
                 }
-                this.f29377a.l.setIsMute(z);
+                this.f29487a.l.setIsMute(z);
             }
         } : (a.InterfaceC0331a) invokeV.objValue;
     }
@@ -151,17 +151,17 @@ public class d extends a {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
             cVar.a(8);
             cVar.b(8);
-            if (this.f29367b.d() == 2) {
-                this.f29374i.a(false);
-                this.f29374i.c(false);
-                this.f29374i.d(false);
-                this.f29374i.e(false);
+            if (this.f29477b.d() == 2) {
+                this.f29484i.a(false);
+                this.f29484i.c(false);
+                this.f29484i.d(false);
+                this.f29484i.e(false);
                 return;
             }
-            this.f29374i.a(this.f29367b.aM());
-            this.f29374i.c(f());
-            this.f29374i.d(f());
-            this.f29374i.e(true ^ f());
+            this.f29484i.a(this.f29477b.aM());
+            this.f29484i.c(f());
+            this.f29484i.d(f());
+            this.f29484i.e(true ^ f());
         }
     }
 }

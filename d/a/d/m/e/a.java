@@ -9,27 +9,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.n1.o.h.b;
+import d.a.p0.n1.o.h.b;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
-public class a implements d.a.s0.n1.o.h.b {
+/* loaded from: classes7.dex */
+public class a implements d.a.p0.n1.o.h.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f45207e;
+    public int f42009e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f45208f;
+    public String f42010f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f45209g;
+    public String f42011g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f45210h;
+    public String f42012h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f45211i;
+    public String f42013i;
     public int j;
     public String k;
     public String l;
@@ -58,7 +58,7 @@ public class a implements d.a.s0.n1.o.h.b {
                 return;
             }
         }
-        this.f45207e = 3;
+        this.f42009e = 3;
         this.u = new ArrayList<>();
         this.v = new ArrayList<>();
     }
@@ -66,7 +66,7 @@ public class a implements d.a.s0.n1.o.h.b {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f45207e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42009e : invokeV.intValue;
     }
 
     public String b() {
@@ -84,7 +84,7 @@ public class a implements d.a.s0.n1.o.h.b {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45207e == 2 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42009e == 2 : invokeV.booleanValue;
     }
 
     public boolean d() {
@@ -104,11 +104,11 @@ public class a implements d.a.s0.n1.o.h.b {
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f45207e = i2;
+            this.f42009e = i2;
         }
     }
 
-    @Override // d.a.s0.n1.o.h.b
+    @Override // d.a.p0.n1.o.h.b
     public b.a getParallelCharge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -116,8 +116,8 @@ public class a implements d.a.s0.n1.o.h.b {
             if (this.w == null) {
                 b.a aVar = new b.a();
                 this.w = aVar;
-                aVar.f63791c = this.u;
-                aVar.f63792d = this.v;
+                aVar.f60557c = this.u;
+                aVar.f60558d = this.v;
             }
             return this.w;
         }

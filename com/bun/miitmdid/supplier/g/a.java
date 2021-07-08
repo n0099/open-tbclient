@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a implements InnerIdSupplier {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f27526a;
+    public Context f27636a;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class a implements InnerIdSupplier {
             }
         }
         com.heytap.openid.sdk.a.a(context);
-        this.f27526a = context;
+        this.f27636a = context;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -45,10 +45,10 @@ public class a implements InnerIdSupplier {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SupplierListener f27527a;
+                public final /* synthetic */ SupplierListener f27637a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f27528b;
+                public final /* synthetic */ a f27638b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -65,8 +65,8 @@ public class a implements InnerIdSupplier {
                             return;
                         }
                     }
-                    this.f27528b = this;
-                    this.f27527a = supplierListener;
+                    this.f27638b = this;
+                    this.f27637a = supplierListener;
                 }
 
                 @Override // java.lang.Runnable
@@ -75,8 +75,8 @@ public class a implements InnerIdSupplier {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
                             Thread.sleep(1000L);
-                            if (this.f27527a != null) {
-                                this.f27527a.OnSupport(this.f27528b.isSupported(), this.f27528b);
+                            if (this.f27637a != null) {
+                                this.f27637a.OnSupport(this.f27638b.isSupported(), this.f27638b);
                             }
                         } catch (Exception e2) {
                             e2.printStackTrace();
@@ -103,7 +103,7 @@ public class a implements InnerIdSupplier {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                String d2 = com.heytap.openid.sdk.a.d(this.f27526a);
+                String d2 = com.heytap.openid.sdk.a.d(this.f27636a);
                 return d2 == null ? "" : d2;
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -119,7 +119,7 @@ public class a implements InnerIdSupplier {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                String b2 = com.heytap.openid.sdk.a.b(this.f27526a);
+                String b2 = com.heytap.openid.sdk.a.b(this.f27636a);
                 return b2 == null ? "" : b2;
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -142,7 +142,7 @@ public class a implements InnerIdSupplier {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             try {
-                String c2 = com.heytap.openid.sdk.a.c(this.f27526a);
+                String c2 = com.heytap.openid.sdk.a.c(this.f27636a);
                 return c2 == null ? "" : c2;
             } catch (Exception e2) {
                 e2.printStackTrace();

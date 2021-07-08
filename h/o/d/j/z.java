@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class z<E> extends b0<E> {
     public static /* synthetic */ Interceptable $ic;
     public static final int k;
@@ -37,7 +37,7 @@ public class z<E> extends b0<E> {
         }
         k = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
         p = new Object();
-        int b2 = f0.f75667a.b(Object[].class);
+        int b2 = f0.f72701a.b(Object[].class);
         if (4 == b2) {
             o = 2;
         } else if (8 == b2) {
@@ -45,11 +45,11 @@ public class z<E> extends b0<E> {
         } else {
             throw new IllegalStateException("Unknown pointer size");
         }
-        n = f0.f75667a.a(Object[].class);
+        n = f0.f72701a.a(Object[].class);
         try {
-            l = f0.f75667a.g(e0.class.getDeclaredField("producerIndex"));
+            l = f0.f72701a.g(e0.class.getDeclaredField("producerIndex"));
             try {
-                m = f0.f75667a.g(b0.class.getDeclaredField("consumerIndex"));
+                m = f0.f72701a.g(b0.class.getDeclaredField("consumerIndex"));
             } catch (NoSuchFieldException e2) {
                 InternalError internalError = new InternalError();
                 internalError.initCause(e2);
@@ -80,12 +80,12 @@ public class z<E> extends b0<E> {
         int b2 = i.b(i2);
         long j = b2 - 1;
         E[] eArr = (E[]) new Object[b2 + 1];
-        this.f75660h = eArr;
-        this.f75659g = j;
+        this.f72694h = eArr;
+        this.f72693g = j;
         a(b2);
         this.j = eArr;
-        this.f75655i = j;
-        this.f75658f = j - 1;
+        this.f72689i = j;
+        this.f72692f = j - 1;
         n(0L);
     }
 
@@ -104,27 +104,27 @@ public class z<E> extends b0<E> {
     public static <E> Object e(E[] eArr, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65540, null, eArr, j)) == null) ? f0.f75667a.f(eArr, j) : invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, eArr, j)) == null) ? f0.f72701a.f(eArr, j) : invokeLJ.objValue;
     }
 
     public static void l(Object[] objArr, long j, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{objArr, Long.valueOf(j), obj}) == null) {
-            f0.f75667a.j(objArr, j, obj);
+            f0.f72701a.j(objArr, j, obj);
         }
     }
 
     public final void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f75657e = Math.min(i2 / 4, k);
+            this.f72691e = Math.min(i2 / 4, k);
         }
     }
 
     public final long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f0.f75667a.d(this, m) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f0.f72701a.d(this, m) : invokeV.longValue;
     }
 
     public final E[] f(E[] eArr) {
@@ -136,7 +136,7 @@ public class z<E> extends b0<E> {
     public final long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f0.f75667a.d(this, l) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f0.f72701a.d(this, l) : invokeV.longValue;
     }
 
     public final E h(E[] eArr, long j, long j2) {
@@ -180,8 +180,8 @@ public class z<E> extends b0<E> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{eArr, Long.valueOf(j), Long.valueOf(j2), e2, Long.valueOf(j3)}) == null) {
             E[] eArr2 = (E[]) new Object[eArr.length];
-            this.f75660h = eArr2;
-            this.f75658f = (j3 + j) - 1;
+            this.f72694h = eArr2;
+            this.f72692f = (j3 + j) - 1;
             l(eArr2, j2, e2);
             m(eArr, eArr2);
             l(eArr, j2, p);
@@ -192,7 +192,7 @@ public class z<E> extends b0<E> {
     public final void k(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            f0.f75667a.i(this, m, j);
+            f0.f72701a.i(this, m, j);
         }
     }
 
@@ -206,7 +206,7 @@ public class z<E> extends b0<E> {
     public final void n(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
-            f0.f75667a.i(this, l, j);
+            f0.f72701a.i(this, l, j);
         }
     }
 
@@ -227,16 +227,16 @@ public class z<E> extends b0<E> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, e2)) == null) {
             if (e2 != null) {
-                E[] eArr = this.f75660h;
+                E[] eArr = this.f72694h;
                 long j = this.producerIndex;
-                long j2 = this.f75659g;
+                long j2 = this.f72693g;
                 long c2 = c(j, j2);
-                if (j < this.f75658f) {
+                if (j < this.f72692f) {
                     return o(eArr, e2, j, c2);
                 }
-                long j3 = this.f75657e + j;
+                long j3 = this.f72691e + j;
                 if (e(eArr, c(j3, j2)) == null) {
-                    this.f75658f = j3 - 1;
+                    this.f72692f = j3 - 1;
                     return o(eArr, e2, j, c2);
                 } else if (e(eArr, c(1 + j, j2)) != null) {
                     return o(eArr, e2, j, c2);
@@ -257,7 +257,7 @@ public class z<E> extends b0<E> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             E[] eArr = this.j;
             long j = this.consumerIndex;
-            long j2 = this.f75655i;
+            long j2 = this.f72689i;
             E e2 = (E) e(eArr, c(j, j2));
             return e2 == p ? h(f(eArr), j, j2) : e2;
         }
@@ -271,7 +271,7 @@ public class z<E> extends b0<E> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             E[] eArr = this.j;
             long j = this.consumerIndex;
-            long j2 = this.f75655i;
+            long j2 = this.f72689i;
             long c2 = c(j, j2);
             E e2 = (E) e(eArr, c2);
             boolean z = e2 == p;

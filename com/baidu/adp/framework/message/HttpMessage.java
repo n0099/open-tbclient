@@ -1,6 +1,7 @@
 package com.baidu.adp.framework.message;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.lib.util.BdLog;
@@ -100,7 +101,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public SORT f2148e;
+        public SORT f2149e;
 
         public a(SORT sort) {
             Interceptable interceptable = $ic;
@@ -117,8 +118,8 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
                     return;
                 }
             }
-            this.f2148e = null;
-            this.f2148e = sort;
+            this.f2149e = null;
+            this.f2149e = sort;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -128,7 +129,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entry, entry2)) == null) {
-                if (this.f2148e == SORT.ASCEND) {
+                if (this.f2149e == SORT.ASCEND) {
                     return entry.getKey().compareTo(entry2.getKey());
                 }
                 return entry2.getKey().compareTo(entry.getKey());
@@ -192,7 +193,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     private String map2KVString(String str, Map<?, ?> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, str, map)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, map)) == null) {
             StringBuilder sb = new StringBuilder();
             if (str != null && map != null) {
                 for (Map.Entry<?, ?> entry : map.entrySet()) {
@@ -200,7 +201,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
                     Object value = entry.getValue();
                     String str2 = StringUtil.NULL_STRING;
                     sb.append(key == null ? StringUtil.NULL_STRING : key.toString());
-                    sb.append(com.alipay.sdk.encrypt.a.f1889h);
+                    sb.append(com.alipay.sdk.encrypt.a.f1890h);
                     if (value != null) {
                         str2 = value.toString();
                     }
@@ -248,7 +249,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
                     addHeader("Cookie", map2KVString(";", parseKVString));
                     return str3;
                 }
-                addHeader("Cookie", str + com.alipay.sdk.encrypt.a.f1889h + str2 + ';');
+                addHeader("Cookie", str + com.alipay.sdk.encrypt.a.f1890h + str2 + ';');
             }
             return null;
         }

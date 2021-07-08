@@ -26,25 +26,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class VideoChannelHeaderLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f21921e;
+    public View f21978e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NewPagerSlidingTabBaseStrip f21922f;
+    public NewPagerSlidingTabBaseStrip f21979f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f21923g;
+    public TextView f21980g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f21924h;
+    public TextView f21981h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f21925i;
+    public View f21982i;
     public ContinuousAnimationView j;
     public int k;
     public int l;
@@ -54,13 +54,13 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
     public boolean p;
     public final Animator.AnimatorListener q;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoChannelHeaderLayout f21926e;
+        public final /* synthetic */ VideoChannelHeaderLayout f21983e;
 
         public a(VideoChannelHeaderLayout videoChannelHeaderLayout) {
             Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
                     return;
                 }
             }
-            this.f21926e = videoChannelHeaderLayout;
+            this.f21983e = videoChannelHeaderLayout;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -97,12 +97,12 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationRepeat(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) || this.f21926e.p) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) || this.f21983e.p) {
                 return;
             }
-            this.f21926e.p = true;
-            this.f21926e.j.setSpeed(1.0f);
-            this.f21926e.j.setMinAndMaxFrame(45, 105);
+            this.f21983e.p = true;
+            this.f21983e.j.setSpeed(1.0f);
+            this.f21983e.j.setMinAndMaxFrame(45, 105);
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -113,13 +113,13 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements NewPagerSlidingTabBaseStrip.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoChannelHeaderLayout f21927a;
+        public final /* synthetic */ VideoChannelHeaderLayout f21984a;
 
         public b(VideoChannelHeaderLayout videoChannelHeaderLayout) {
             Interceptable interceptable = $ic;
@@ -136,28 +136,28 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
                     return;
                 }
             }
-            this.f21927a = videoChannelHeaderLayout;
+            this.f21984a = videoChannelHeaderLayout;
         }
 
         @Override // com.baidu.tbadk.widget.tab.NewPagerSlidingTabBaseStrip.c
         public void a(View view, int i2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, view, i2) == null) && this.f21927a.m == i2) {
-                this.f21927a.e();
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, view, i2) == null) && this.f21984a.m == i2) {
+                this.f21984a.e();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f21928e;
+        public final /* synthetic */ int f21985e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ VideoChannelHeaderLayout f21929f;
+        public final /* synthetic */ VideoChannelHeaderLayout f21986f;
 
         public c(VideoChannelHeaderLayout videoChannelHeaderLayout, int i2) {
             Interceptable interceptable = $ic;
@@ -174,15 +174,15 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
                     return;
                 }
             }
-            this.f21929f = videoChannelHeaderLayout;
-            this.f21928e = i2;
+            this.f21986f = videoChannelHeaderLayout;
+            this.f21985e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f21929f.j(this.f21928e);
+                this.f21986f.j(this.f21985e);
             }
         }
     }
@@ -233,7 +233,7 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         } else if (f3 <= 0.8f) {
             f2 = 0.0f;
         }
-        this.f21925i.setAlpha(f2);
+        this.f21982i.setAlpha(f2);
         this.j.setFrame((int) Math.min(27.0f, ((f2 * 27.0f) * 5.0f) / 3.0f));
     }
 
@@ -242,20 +242,20 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             float f2 = (i2 * 1.0f) / this.k;
             if (f2 > 0.6f) {
-                this.f21922f.setAlpha(0.0f);
-                this.f21923g.setAlpha(0.0f);
+                this.f21979f.setAlpha(0.0f);
+                this.f21980g.setAlpha(0.0f);
                 if (f2 > 0.8f) {
-                    this.f21924h.setAlpha(1.0f);
+                    this.f21981h.setAlpha(1.0f);
                     return;
                 } else {
-                    this.f21924h.setAlpha((f2 - 0.6f) / 0.2f);
+                    this.f21981h.setAlpha((f2 - 0.6f) / 0.2f);
                     return;
                 }
             }
             float f3 = 1.0f - (f2 / 0.6f);
-            this.f21922f.setAlpha(f3);
-            this.f21923g.setAlpha(f3);
-            this.f21924h.setAlpha(0.0f);
+            this.f21979f.setAlpha(f3);
+            this.f21980g.setAlpha(f3);
+            this.f21981h.setAlpha(0.0f);
         }
     }
 
@@ -264,37 +264,37 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             this.k = (int) (getResources().getDisplayMetrics().density * 86.0f * 0.6f);
             LayoutInflater.from(context).inflate(R.layout.video_channel_header, (ViewGroup) this, true);
-            this.f21921e = findViewById(R.id.rootView);
+            this.f21978e = findViewById(R.id.rootView);
             NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) findViewById(R.id.tab_layout);
-            this.f21922f = newPagerSlidingTabBaseStrip;
+            this.f21979f = newPagerSlidingTabBaseStrip;
             newPagerSlidingTabBaseStrip.setDefaultSelectorColorResourceId(R.color.CAM_X0101);
-            this.f21922f.setNormalSelectorColorResId(R.color.CAM_X0103);
-            this.f21922f.setRectPaintColor(R.color.CAM_X0101);
-            this.f21922f.B(l.g(context, R.dimen.T_X06), l.g(context, R.dimen.T_X04), l.g(context, R.dimen.tbds10), l.g(context, R.dimen.T_X04), true);
-            this.f21922f.setIndicatorOffset(l.g(context, R.dimen.tbds64));
-            this.f21922f.setIndicatorOvershot(l.g(context, R.dimen.tbds8));
-            this.f21922f.setIndicatorRadius(l.g(context, R.dimen.tbds8));
-            this.f21922f.setIndicatorMarginBottom(l.g(context, R.dimen.tbds10));
-            this.f21922f.setmIndicatorWidth(l.g(context, R.dimen.tbds42));
-            this.f21922f.setExpandedTabLayoutParams(new LinearLayout.LayoutParams(l.g(context, R.dimen.tbds166), -1));
-            this.f21922f.G();
-            this.f21922f.setOnTabItemClickListener(new b(this));
+            this.f21979f.setNormalSelectorColorResId(R.color.CAM_X0103);
+            this.f21979f.setRectPaintColor(R.color.CAM_X0101);
+            this.f21979f.B(l.g(context, R.dimen.T_X06), l.g(context, R.dimen.T_X04), l.g(context, R.dimen.tbds10), l.g(context, R.dimen.T_X04), true);
+            this.f21979f.setIndicatorOffset(l.g(context, R.dimen.tbds64));
+            this.f21979f.setIndicatorOvershot(l.g(context, R.dimen.tbds8));
+            this.f21979f.setIndicatorRadius(l.g(context, R.dimen.tbds8));
+            this.f21979f.setIndicatorMarginBottom(l.g(context, R.dimen.tbds10));
+            this.f21979f.setmIndicatorWidth(l.g(context, R.dimen.tbds42));
+            this.f21979f.setExpandedTabLayoutParams(new LinearLayout.LayoutParams(l.g(context, R.dimen.tbds166), -1));
+            this.f21979f.G();
+            this.f21979f.setOnTabItemClickListener(new b(this));
             TextView textView = (TextView) findViewById(R.id.attention_tag);
-            this.f21923g = textView;
-            d.a.r0.r.u.c d2 = d.a.r0.r.u.c.d(textView);
+            this.f21980g = textView;
+            d.a.o0.r.u.c d2 = d.a.o0.r.u.c.d(textView);
             d2.t(R.color.CAM_X0101);
             d2.x(R.dimen.T_X10);
             d2.y(R.string.F_X01);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0301);
             TextView textView2 = (TextView) findViewById(R.id.pull_refresh_text);
-            this.f21924h = textView2;
-            d.a.r0.r.u.c d3 = d.a.r0.r.u.c.d(textView2);
+            this.f21981h = textView2;
+            d.a.o0.r.u.c d3 = d.a.o0.r.u.c.d(textView2);
             d3.t(R.color.CAM_X0101);
             d3.x(R.dimen.T_X07);
             d3.y(R.string.F_X02);
             View findViewById = findViewById(R.id.pull_refresh_leading_layout);
-            this.f21925i = findViewById;
+            this.f21982i = findViewById;
             ((RelativeLayout.LayoutParams) findViewById.getLayoutParams()).setMargins(0, -l.g(context, R.dimen.tbds20), 0, 0);
             ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) findViewById(R.id.pull_refresh_leading_view);
             this.j = continuousAnimationView;
@@ -305,7 +305,7 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
             this.j.setMinAndMaxProgress(0.0f, 1.0f);
             this.j.setFrame(0);
             this.j.setSpeed(1.3f);
-            this.f21925i.setAlpha(0.0f);
+            this.f21982i.setAlpha(0.0f);
         }
     }
 
@@ -326,7 +326,7 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
                 this.j.setMinAndMaxProgress(0.0f, 1.0f);
                 this.j.setFrame(0);
                 this.j.setSpeed(1.3f);
-                this.f21925i.setAlpha(0.0f);
+                this.f21982i.setAlpha(0.0f);
                 this.l = 0;
             }
             Runnable[] runnableArr = this.n;
@@ -362,7 +362,7 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
                 e();
             }
             int i4 = i3 + i2;
-            this.f21921e.scrollTo(0, -i4);
+            this.f21978e.scrollTo(0, -i4);
             g(i4);
             f(i4);
         }
@@ -371,8 +371,8 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
     public void m(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f21923g.setText(str);
-            this.f21923g.setVisibility(TextUtils.isEmpty(str) ? 8 : 0);
+            this.f21980g.setText(str);
+            this.f21980g.setVisibility(TextUtils.isEmpty(str) ? 8 : 0);
         }
     }
 
@@ -392,7 +392,7 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         this.j.removeAllAnimatorListeners();
         this.j.addAnimatorListener(this.q);
         this.j.playAnimation();
-        this.f21925i.setAlpha(1.0f);
+        this.f21982i.setAlpha(1.0f);
     }
 
     public void setPageSelected(int i2) {
@@ -405,7 +405,7 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
     public void setupWithViewPager(ViewPager viewPager) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, viewPager) == null) {
-            this.f21922f.setViewPager(viewPager);
+            this.f21979f.setViewPager(viewPager);
         }
     }
 

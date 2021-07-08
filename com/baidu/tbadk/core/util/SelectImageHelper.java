@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.ExifInterface;
 import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -19,9 +20,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.video.player.PlayerPostEvent;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SelectImageHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REQUEST_WRITE_EXTERNAL_STORGE_AND_CAMERA_PERMISSON = 1;
@@ -77,12 +77,12 @@ public class SelectImageHelper {
 
     public static void getSystemAlbumImage(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity) == null) {
             try {
                 Intent intent = new Intent();
                 intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
                 intent.setAction("android.intent.action.GET_CONTENT");
-                activity.startActivityForResult(intent, PlayerPostEvent.MEDIA_REP_CHANGE_END);
+                activity.startActivityForResult(intent, 12002);
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
@@ -145,7 +145,7 @@ public class SelectImageHelper {
                 if (CreateFile != null) {
                     Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                     intent.putExtra("output", UtilHelper.getUriFromFile(CreateFile, intent, tbPageContext.getPageActivity()));
-                    tbPageContext.getPageActivity().startActivityForResult(intent, PlayerPostEvent.MEDIA_REP_CHANGE_START);
+                    tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
                 } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
                     ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
@@ -180,7 +180,7 @@ public class SelectImageHelper {
                     if (z) {
                         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                         intent.putExtra("output", UtilHelper.getUriFromFile(file, intent, tbPageContext.getPageActivity()));
-                        tbPageContext.getPageActivity().startActivityForResult(intent, PlayerPostEvent.MEDIA_REP_CHANGE_START);
+                        tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
                     }
                 }
                 if (z) {

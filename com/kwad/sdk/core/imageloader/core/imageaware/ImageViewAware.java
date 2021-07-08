@@ -12,9 +12,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.imageloader.core.assist.ViewScaleType;
-import com.kwad.sdk.core.imageloader.utils.L;
 import java.lang.reflect.Field;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ImageViewAware extends ViewAware {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,8 +71,7 @@ public class ImageViewAware extends ViewAware {
                     return 0;
                 }
                 return intValue;
-            } catch (Exception e2) {
-                L.e(e2);
+            } catch (Exception unused) {
                 return 0;
             }
         }

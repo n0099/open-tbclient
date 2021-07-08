@@ -12,16 +12,16 @@ import rx.exceptions.OnCompletedFailedException;
 import rx.exceptions.OnErrorFailedException;
 import rx.exceptions.OnErrorNotImplementedException;
 import rx.exceptions.UnsubscribeFailedException;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class c<T> extends j<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final j<? super T> f75672e;
+    public final j<? super T> f72706e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f75673f;
+    public boolean f72707f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(j<? super T> jVar) {
@@ -41,7 +41,7 @@ public class c<T> extends j<T> {
                 return;
             }
         }
-        this.f75672e = jVar;
+        this.f72706e = jVar;
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -50,7 +50,7 @@ public class c<T> extends j<T> {
         if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
             h.r.f.c().b().a(th);
             try {
-                this.f75672e.onError(th);
+                this.f72706e.onError(th);
                 try {
                     unsubscribe();
                 } catch (Throwable th2) {
@@ -84,12 +84,12 @@ public class c<T> extends j<T> {
     public void onCompleted() {
         UnsubscribeFailedException unsubscribeFailedException;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f75673f) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f72707f) {
             return;
         }
-        this.f75673f = true;
+        this.f72707f = true;
         try {
-            this.f75672e.onCompleted();
+            this.f72706e.onCompleted();
             try {
                 unsubscribe();
             } finally {
@@ -114,10 +114,10 @@ public class c<T> extends j<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
             h.m.a.e(th);
-            if (this.f75673f) {
+            if (this.f72707f) {
                 return;
             }
-            this.f75673f = true;
+            this.f72707f = true;
             b(th);
         }
     }
@@ -127,10 +127,10 @@ public class c<T> extends j<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
             try {
-                if (this.f75673f) {
+                if (this.f72707f) {
                     return;
                 }
-                this.f75672e.onNext(t);
+                this.f72706e.onNext(t);
             } catch (Throwable th) {
                 h.m.a.f(th, this);
             }

@@ -18,7 +18,7 @@ import d.k.a.h.a;
 import java.io.IOException;
 import java.util.List;
 import okio.ByteString;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class FrameEntity extends Message<FrameEntity, Builder> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ProtoAdapter<FrameEntity> ADAPTER;
@@ -37,7 +37,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
     @WireField(adapter = "com.opensource.svgaplayer.proto.Transform#ADAPTER", tag = 3)
     public final Transform transform;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder extends Message.a<FrameEntity, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -124,7 +124,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ProtoAdapter_FrameEntity extends ProtoAdapter<FrameEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

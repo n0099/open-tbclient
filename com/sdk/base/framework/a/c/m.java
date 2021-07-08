@@ -8,22 +8,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class m implements Iterator<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a<E> f41126a;
+    public a<E> f38140a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a<E> f41127b;
+    public a<E> f38141b;
 
     /* renamed from: c  reason: collision with root package name */
-    public E f41128c;
+    public E f38142c;
 
     /* renamed from: d  reason: collision with root package name */
-    public /* synthetic */ l f41129d;
+    public /* synthetic */ l f38143d;
 
     /* JADX WARN: Type inference failed for: r0v4, types: [E, java.lang.Object] */
     public m(l lVar) {
@@ -41,13 +41,13 @@ public final class m implements Iterator<E> {
                 return;
             }
         }
-        this.f41129d = lVar;
+        this.f38143d = lVar;
         lVar.a();
         try {
-            a aVar = lVar.f41118a.f41089a;
-            this.f41126a = aVar;
+            a aVar = lVar.f38132a.f38103a;
+            this.f38140a = aVar;
             if (aVar != null) {
-                this.f41128c = aVar.b();
+                this.f38142c = aVar.b();
             }
         } finally {
             lVar.b();
@@ -68,9 +68,9 @@ public final class m implements Iterator<E> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, aVar)) == null) {
             while (true) {
-                aVar2 = aVar.f41089a;
+                aVar2 = aVar.f38103a;
                 if (aVar2 == aVar) {
-                    return this.f41129d.f41118a.f41089a;
+                    return this.f38143d.f38132a.f38103a;
                 }
                 if (aVar2 == null || aVar2.b() != null) {
                     break;
@@ -86,7 +86,7 @@ public final class m implements Iterator<E> {
     public final boolean hasNext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41126a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38140a != null : invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: E */
@@ -99,26 +99,26 @@ public final class m implements Iterator<E> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            this.f41129d.a();
+            this.f38143d.a();
             try {
-                if (this.f41126a != null) {
-                    E e2 = this.f41128c;
-                    this.f41127b = this.f41126a;
-                    a<E> a2 = a(this.f41126a);
-                    this.f41126a = a2;
-                    this.f41128c = a2 == 0 ? 0 : a2.b();
+                if (this.f38140a != null) {
+                    E e2 = this.f38142c;
+                    this.f38141b = this.f38140a;
+                    a<E> a2 = a(this.f38140a);
+                    this.f38140a = a2;
+                    this.f38142c = a2 == 0 ? 0 : a2.b();
                     return e2;
                 }
                 throw new NoSuchElementException();
             } finally {
-                this.f41129d.b();
+                this.f38143d.b();
             }
         }
         return invokeV.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:11:0x001f, code lost:
-        r4.f41129d.a(r1, r2);
+        r4.f38143d.a(r1, r2);
      */
     @Override // java.util.Iterator
     /*
@@ -127,17 +127,17 @@ public final class m implements Iterator<E> {
     public final void remove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.f41127b == null) {
+            if (this.f38141b == null) {
                 throw new IllegalStateException();
             }
-            this.f41129d.a();
+            this.f38143d.a();
             try {
-                a aVar = this.f41127b;
-                this.f41127b = null;
-                a aVar2 = this.f41129d.f41118a;
+                a aVar = this.f38141b;
+                this.f38141b = null;
+                a aVar2 = this.f38143d.f38132a;
                 while (true) {
                     a aVar3 = aVar2;
-                    aVar2 = aVar2.f41089a;
+                    aVar2 = aVar2.f38103a;
                     if (aVar2 == null) {
                         break;
                     } else if (aVar2 == aVar) {
@@ -145,7 +145,7 @@ public final class m implements Iterator<E> {
                     }
                 }
             } finally {
-                this.f41129d.b();
+                this.f38143d.b();
             }
         }
     }

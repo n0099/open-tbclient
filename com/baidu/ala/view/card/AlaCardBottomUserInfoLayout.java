@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -20,8 +21,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.q.b2;
-import d.a.r0.z0.j0;
+import d.a.o0.r.q.b2;
+import d.a.o0.z0.j0;
 /* loaded from: classes.dex */
 public class AlaCardBottomUserInfoLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic = null;
@@ -68,7 +69,7 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
     private void initHeaderImg() {
         HeadImageView headImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65540, this) == null) || (headImageView = this.alaCardUserHeadImg) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (headImageView = this.alaCardUserHeadImg) == null) {
             return;
         }
         headImageView.setDefaultResource(17170445);

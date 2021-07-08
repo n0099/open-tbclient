@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.q.b2;
-import d.a.r0.r.q.w0;
+import d.a.o0.r.q.b2;
+import d.a.o0.r.q.w0;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ActivityPage.SpecialColumn;
 import tbclient.ActivityPage.SpecialColumnList;
-/* loaded from: classes5.dex */
-public class SpecialColumnListData extends d.a.r0.r.q.a implements Parcelable {
+/* loaded from: classes4.dex */
+public class SpecialColumnListData extends d.a.o0.r.q.a implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<SpecialColumnListData> CREATOR;
     public static final int MAX_SIZE = 3;
@@ -30,7 +30,7 @@ public class SpecialColumnListData extends d.a.r0.r.q.a implements Parcelable {
     public List<SpecialColumnItemData> mResultListData;
     public String title;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<SpecialColumnListData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +118,7 @@ public class SpecialColumnListData extends d.a.r0.r.q.a implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mListData : (List) invokeV.objValue;
     }
 
-    @Override // d.a.r0.r.q.a
+    @Override // d.a.o0.r.q.a
     public w0 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -134,7 +134,7 @@ public class SpecialColumnListData extends d.a.r0.r.q.a implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mResultListData : (List) invokeV.objValue;
     }
 
-    @Override // d.a.r0.r.q.a
+    @Override // d.a.o0.r.q.a
     public b2 getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

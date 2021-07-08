@@ -2,6 +2,7 @@ package com.yy.gslbsdk.util;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.GslbEvent;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class LogTools {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
@@ -72,7 +73,7 @@ public class LogTools {
 
     public static void printInfo(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65540, null, str, str2) == null) || TextUtils.isEmpty(str2)) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || TextUtils.isEmpty(str2)) {
             return;
         }
         if (GlobalTools.LOG_IS_OPEN) {

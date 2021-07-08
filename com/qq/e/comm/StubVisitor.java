@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.managers.setting.GlobalSetting;
 import com.qq.e.comm.pi.CustomLandingPageListener;
 import com.qq.e.comm.util.SystemUtil;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class StubVisitor {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile StubVisitor f40920a;
+    public static volatile StubVisitor f37934a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public StubVisitor() {
@@ -36,14 +36,14 @@ public class StubVisitor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f40920a == null) {
+            if (f37934a == null) {
                 synchronized (StubVisitor.class) {
-                    if (f40920a == null) {
-                        f40920a = new StubVisitor();
+                    if (f37934a == null) {
+                        f37934a = new StubVisitor();
                     }
                 }
             }
-            return f40920a;
+            return f37934a;
         }
         return (StubVisitor) invokeV.objValue;
     }

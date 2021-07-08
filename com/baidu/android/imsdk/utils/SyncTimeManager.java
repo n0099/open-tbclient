@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -68,7 +69,7 @@ public class SyncTimeManager {
 
     public static void writeFriendGroupInfoSyncTime(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65540, null, context, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, j) == null) {
             SharedPreferences.Editor edit = context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit();
             edit.putLong(Constants.FRINEDGROUP_PREFIX + Utility.getUK(context) + lightAppId, j).commit();
         }

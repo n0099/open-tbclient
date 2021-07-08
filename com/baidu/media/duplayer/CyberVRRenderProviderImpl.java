@@ -18,38 +18,38 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BDVRRenderDelegate";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final a f8049a;
+    public final a f8066a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Method f8050b;
+    public Method f8067b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Object f8051c;
+    public final Object f8068c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Method f8052d;
+    public Method f8069d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Method f8053e;
+    public Method f8070e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Method f8054f;
+    public Method f8071f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Method f8055g;
+    public Method f8072g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Method f8056h;
+    public Method f8073h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Method f8057i;
+    public Method f8074i;
     public Method j;
     public Method k;
     public Method l;
@@ -62,16 +62,16 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
     public Method s;
     public final Object t;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements InvocationHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public CyberVRRenderProvider.IOnSurfaceReadyCallback f8058e;
+        public CyberVRRenderProvider.IOnSurfaceReadyCallback f8075e;
 
         /* renamed from: f  reason: collision with root package name */
-        public CyberVRRenderProvider.INotSupportCallback f8059f;
+        public CyberVRRenderProvider.INotSupportCallback f8076f;
 
         public a(CyberVRRenderProviderImpl cyberVRRenderProviderImpl) {
             Interceptable interceptable = $ic;
@@ -92,14 +92,14 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
         public void a(CyberVRRenderProvider.INotSupportCallback iNotSupportCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iNotSupportCallback) == null) {
-                this.f8059f = iNotSupportCallback;
+                this.f8076f = iNotSupportCallback;
             }
         }
 
         public void b(CyberVRRenderProvider.IOnSurfaceReadyCallback iOnSurfaceReadyCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOnSurfaceReadyCallback) == null) {
-                this.f8058e = iOnSurfaceReadyCallback;
+                this.f8075e = iOnSurfaceReadyCallback;
             }
         }
 
@@ -110,10 +110,10 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
             CyberVRRenderProvider.IOnSurfaceReadyCallback iOnSurfaceReadyCallback;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, obj, method, objArr)) == null) {
-                if (method.getName().startsWith("onS") && (iOnSurfaceReadyCallback = this.f8058e) != null) {
+                if (method.getName().startsWith("onS") && (iOnSurfaceReadyCallback = this.f8075e) != null) {
                     iOnSurfaceReadyCallback.onSurfaceReady((Surface) objArr[0]);
                     return null;
-                } else if (!method.getName().startsWith("onN") || (iNotSupportCallback = this.f8059f) == null) {
+                } else if (!method.getName().startsWith("onN") || (iNotSupportCallback = this.f8076f) == null) {
                     return null;
                 } else {
                     iNotSupportCallback.onNotSupport(((Integer) objArr[0]).intValue());
@@ -139,31 +139,31 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
                 return;
             }
         }
-        this.f8051c = Class.forName("com.baidu.vr.BDVRRender").getConstructor(Context.class).newInstance(context);
+        this.f8068c = Class.forName("com.baidu.vr.BDVRRender").getConstructor(Context.class).newInstance(context);
         Class<?> cls = Class.forName("com.baidu.vr.BDVRRender");
         Class<?> cls2 = Class.forName("com.baidu.vr.BDVRRender$IOnSurfaceReadyCallback");
         Class<?> cls3 = Class.forName("com.baidu.vr.BDVRRender$INotSupportCallback");
-        this.f8052d = d.a.b0.a.a.a.a(cls, "init", SurfaceView.class);
-        this.f8053e = d.a.b0.a.a.a.a(cls, "init", TextureView.class);
+        this.f8069d = d.a.y.a.a.a.a(cls, "init", SurfaceView.class);
+        this.f8070e = d.a.y.a.a.a.a(cls, "init", TextureView.class);
         Class cls4 = Float.TYPE;
-        this.f8054f = d.a.b0.a.a.a.a(cls, "onTextureResize", cls4, cls4);
-        this.f8055g = d.a.b0.a.a.a.a(cls, "switchInteractiveMode", Integer.TYPE);
-        this.f8056h = d.a.b0.a.a.a.a(cls, "switchDisplayMode", Integer.TYPE);
-        this.f8057i = d.a.b0.a.a.a.a(cls, "switchProjectionMode", Integer.TYPE);
-        this.j = d.a.b0.a.a.a.a(cls, MissionEvent.MESSAGE_RESUME, new Class[0]);
-        this.f8050b = d.a.b0.a.a.a.a(cls, MissionEvent.MESSAGE_PAUSE, new Class[0]);
-        this.k = d.a.b0.a.a.a.a(cls, MissionEvent.MESSAGE_DESTROY, new Class[0]);
-        this.l = d.a.b0.a.a.a.a(cls, "onOrientationChanged", new Class[0]);
-        this.m = d.a.b0.a.a.a.a(cls, "displayMode", Integer.TYPE);
-        this.n = d.a.b0.a.a.a.a(cls, "interactiveMode", Integer.TYPE);
-        this.o = d.a.b0.a.a.a.a(cls, "projectionMode", Integer.TYPE);
-        this.p = d.a.b0.a.a.a.a(cls, "pinchEnabled", Boolean.TYPE);
-        this.q = d.a.b0.a.a.a.a(cls, "asVideo", cls2);
-        this.r = d.a.b0.a.a.a.a(cls, "ifNotSupport", cls3);
+        this.f8071f = d.a.y.a.a.a.a(cls, "onTextureResize", cls4, cls4);
+        this.f8072g = d.a.y.a.a.a.a(cls, "switchInteractiveMode", Integer.TYPE);
+        this.f8073h = d.a.y.a.a.a.a(cls, "switchDisplayMode", Integer.TYPE);
+        this.f8074i = d.a.y.a.a.a.a(cls, "switchProjectionMode", Integer.TYPE);
+        this.j = d.a.y.a.a.a.a(cls, MissionEvent.MESSAGE_RESUME, new Class[0]);
+        this.f8067b = d.a.y.a.a.a.a(cls, MissionEvent.MESSAGE_PAUSE, new Class[0]);
+        this.k = d.a.y.a.a.a.a(cls, MissionEvent.MESSAGE_DESTROY, new Class[0]);
+        this.l = d.a.y.a.a.a.a(cls, "onOrientationChanged", new Class[0]);
+        this.m = d.a.y.a.a.a.a(cls, "displayMode", Integer.TYPE);
+        this.n = d.a.y.a.a.a.a(cls, "interactiveMode", Integer.TYPE);
+        this.o = d.a.y.a.a.a.a(cls, "projectionMode", Integer.TYPE);
+        this.p = d.a.y.a.a.a.a(cls, "pinchEnabled", Boolean.TYPE);
+        this.q = d.a.y.a.a.a.a(cls, "asVideo", cls2);
+        this.r = d.a.y.a.a.a.a(cls, "ifNotSupport", cls3);
         Class cls5 = Float.TYPE;
-        this.s = d.a.b0.a.a.a.a(cls, "setFov", cls5, cls5, cls5);
-        this.f8049a = new a(this);
-        this.t = Proxy.newProxyInstance(CyberVRRenderProviderImpl.class.getClassLoader(), new Class[]{cls2, cls3}, this.f8049a);
+        this.s = d.a.y.a.a.a.a(cls, "setFov", cls5, cls5, cls5);
+        this.f8066a = new a(this);
+        this.t = Proxy.newProxyInstance(CyberVRRenderProviderImpl.class.getClassLoader(), new Class[]{cls2, cls3}, this.f8066a);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -172,13 +172,13 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOnSurfaceReadyCallback)) == null) {
-            if (this.f8051c == null || this.q == null) {
-                CyberLog.e(TAG, "can not call asVideo method. mBdVRRender = " + this.f8051c + ", mAsVideoMethod = " + this.q);
+            if (this.f8068c == null || this.q == null) {
+                CyberLog.e(TAG, "can not call asVideo method. mBdVRRender = " + this.f8068c + ", mAsVideoMethod = " + this.q);
                 return this;
             }
-            this.f8049a.b(iOnSurfaceReadyCallback);
+            this.f8066a.b(iOnSurfaceReadyCallback);
             try {
-                this.q.invoke(this.f8051c, this.t);
+                this.q.invoke(this.f8068c, this.t);
             } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
             } catch (InvocationTargetException e3) {
@@ -196,7 +196,7 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            Object obj = this.f8051c;
+            Object obj = this.f8068c;
             if (obj != null && (method = this.m) != null) {
                 try {
                     method.invoke(obj, Integer.valueOf(i2));
@@ -207,7 +207,7 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
                 }
                 return this;
             }
-            CyberLog.e(TAG, "can not call displayMode method. mBdVRRender = " + this.f8051c + ", mDisplayModeMethod = " + this.m);
+            CyberLog.e(TAG, "can not call displayMode method. mBdVRRender = " + this.f8068c + ", mDisplayModeMethod = " + this.m);
             return this;
         }
         return (CyberVRRenderProviderImpl) invokeI.objValue;
@@ -219,13 +219,13 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, iNotSupportCallback)) == null) {
-            if (this.f8051c == null || this.r == null) {
-                CyberLog.e(TAG, "can not call ifNotSupport method. mBdVRRender = " + this.f8051c + ", mIfNotSupportMethod = " + this.r);
+            if (this.f8068c == null || this.r == null) {
+                CyberLog.e(TAG, "can not call ifNotSupport method. mBdVRRender = " + this.f8068c + ", mIfNotSupportMethod = " + this.r);
                 return this;
             }
-            this.f8049a.a(iNotSupportCallback);
+            this.f8066a.a(iNotSupportCallback);
             try {
-                this.r.invoke(this.f8051c, this.t);
+                this.r.invoke(this.f8068c, this.t);
             } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
             } catch (InvocationTargetException e3) {
@@ -241,9 +241,9 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, surfaceView) == null) {
-            Object obj = this.f8051c;
-            if (obj == null || (method = this.f8052d) == null) {
-                CyberLog.e(TAG, "can not call init method. mBdVRRender = " + this.f8051c + ", mInitMethod1 = " + this.f8052d);
+            Object obj = this.f8068c;
+            if (obj == null || (method = this.f8069d) == null) {
+                CyberLog.e(TAG, "can not call init method. mBdVRRender = " + this.f8068c + ", mInitMethod1 = " + this.f8069d);
                 return;
             }
             try {
@@ -261,9 +261,9 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, textureView) == null) {
-            Object obj = this.f8051c;
-            if (obj == null || (method = this.f8053e) == null) {
-                CyberLog.e(TAG, "can not call init method. mBdVRRender = " + this.f8051c + ", mInitMethod1 = " + this.f8053e);
+            Object obj = this.f8068c;
+            if (obj == null || (method = this.f8070e) == null) {
+                CyberLog.e(TAG, "can not call init method. mBdVRRender = " + this.f8068c + ", mInitMethod1 = " + this.f8070e);
                 return;
             }
             try {
@@ -283,7 +283,7 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            Object obj = this.f8051c;
+            Object obj = this.f8068c;
             if (obj != null && (method = this.n) != null) {
                 try {
                     method.invoke(obj, Integer.valueOf(i2));
@@ -294,7 +294,7 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
                 }
                 return this;
             }
-            CyberLog.e(TAG, "can not call interactiveMode method. mBdVRRender = " + this.f8051c + ", mInteractiveModeMethod = " + this.n);
+            CyberLog.e(TAG, "can not call interactiveMode method. mBdVRRender = " + this.f8068c + ", mInteractiveModeMethod = " + this.n);
             return this;
         }
         return (CyberVRRenderProviderImpl) invokeI.objValue;
@@ -305,9 +305,9 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            Object obj = this.f8051c;
+            Object obj = this.f8068c;
             if (obj == null || (method = this.k) == null) {
-                CyberLog.e(TAG, "can not call onDestroy method. mBdVRRender = " + this.f8051c + ", mOnDestroyMethod = " + this.k);
+                CyberLog.e(TAG, "can not call onDestroy method. mBdVRRender = " + this.f8068c + ", mOnDestroyMethod = " + this.k);
                 return;
             }
             try {
@@ -325,9 +325,9 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            Object obj = this.f8051c;
+            Object obj = this.f8068c;
             if (obj == null || (method = this.l) == null) {
-                CyberLog.e(TAG, "can not call onOrientationChanged method. mBdVRRender = " + this.f8051c + ", mOnOrientationChanged = " + this.l);
+                CyberLog.e(TAG, "can not call onOrientationChanged method. mBdVRRender = " + this.f8068c + ", mOnOrientationChanged = " + this.l);
                 return;
             }
             try {
@@ -345,9 +345,9 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            Object obj = this.f8051c;
-            if (obj == null || (method = this.f8050b) == null) {
-                CyberLog.e(TAG, "can not call onPause method. mBdVRRender = " + this.f8051c + ", mOnPause = " + this.f8050b);
+            Object obj = this.f8068c;
+            if (obj == null || (method = this.f8067b) == null) {
+                CyberLog.e(TAG, "can not call onPause method. mBdVRRender = " + this.f8068c + ", mOnPause = " + this.f8067b);
                 return;
             }
             try {
@@ -365,9 +365,9 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            Object obj = this.f8051c;
+            Object obj = this.f8068c;
             if (obj == null || (method = this.j) == null) {
-                CyberLog.e(TAG, "can not call onResume method. mBdVRRender = " + this.f8051c + ", mOnResume = " + this.j);
+                CyberLog.e(TAG, "can not call onResume method. mBdVRRender = " + this.f8068c + ", mOnResume = " + this.j);
                 return;
             }
             try {
@@ -385,9 +385,9 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            Object obj = this.f8051c;
-            if (obj == null || (method = this.f8054f) == null) {
-                CyberLog.e(TAG, "can not call onTextureResize method. mBdVRRender = " + this.f8051c + ", mOnTextureResizeMethod = " + this.f8054f);
+            Object obj = this.f8068c;
+            if (obj == null || (method = this.f8071f) == null) {
+                CyberLog.e(TAG, "can not call onTextureResize method. mBdVRRender = " + this.f8068c + ", mOnTextureResizeMethod = " + this.f8071f);
                 return;
             }
             try {
@@ -407,7 +407,7 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048592, this, z)) == null) {
-            Object obj = this.f8051c;
+            Object obj = this.f8068c;
             if (obj != null && (method = this.p) != null) {
                 try {
                     method.invoke(obj, Boolean.valueOf(z));
@@ -418,7 +418,7 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
                 }
                 return this;
             }
-            CyberLog.e(TAG, "can not call pinchEnabled method. mBdVRRender = " + this.f8051c + ", mPinchEnabledMethod = " + this.p);
+            CyberLog.e(TAG, "can not call pinchEnabled method. mBdVRRender = " + this.f8068c + ", mPinchEnabledMethod = " + this.p);
             return this;
         }
         return (CyberVRRenderProviderImpl) invokeZ.objValue;
@@ -431,7 +431,7 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) {
-            Object obj = this.f8051c;
+            Object obj = this.f8068c;
             if (obj != null && (method = this.o) != null) {
                 try {
                     method.invoke(obj, Integer.valueOf(i2));
@@ -442,7 +442,7 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
                 }
                 return this;
             }
-            CyberLog.e(TAG, "can not call projectionMode method. mBdVRRender = " + this.f8051c + ", mProjectionModeMethod = " + this.o);
+            CyberLog.e(TAG, "can not call projectionMode method. mBdVRRender = " + this.f8068c + ", mProjectionModeMethod = " + this.o);
             return this;
         }
         return (CyberVRRenderProviderImpl) invokeI.objValue;
@@ -455,7 +455,7 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            Object obj = this.f8051c;
+            Object obj = this.f8068c;
             if (obj != null && (method = this.s) != null) {
                 try {
                     method.invoke(obj, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4));
@@ -466,7 +466,7 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
                 }
                 return this;
             }
-            CyberLog.e(TAG, "can not call setFov method. mBdVRRender = " + this.f8051c + ", mSetFovMethod = " + this.s);
+            CyberLog.e(TAG, "can not call setFov method. mBdVRRender = " + this.f8068c + ", mSetFovMethod = " + this.s);
             return this;
         }
         return (CyberVRRenderProviderImpl) invokeCommon.objValue;
@@ -477,9 +477,9 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            Object obj = this.f8051c;
-            if (obj == null || (method = this.f8056h) == null) {
-                CyberLog.e(TAG, "can not call switchDisplayMode method. mBdVRRender = " + this.f8051c + ", mSwitchDisplayModeMethod = " + this.f8056h);
+            Object obj = this.f8068c;
+            if (obj == null || (method = this.f8073h) == null) {
+                CyberLog.e(TAG, "can not call switchDisplayMode method. mBdVRRender = " + this.f8068c + ", mSwitchDisplayModeMethod = " + this.f8073h);
                 return;
             }
             try {
@@ -497,9 +497,9 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            Object obj = this.f8051c;
-            if (obj == null || (method = this.f8055g) == null) {
-                CyberLog.e(TAG, "can not call switchInteractiveMode method. mBdVRRender = " + this.f8051c + ", mSwitchInteractiveModeMethod = " + this.f8055g);
+            Object obj = this.f8068c;
+            if (obj == null || (method = this.f8072g) == null) {
+                CyberLog.e(TAG, "can not call switchInteractiveMode method. mBdVRRender = " + this.f8068c + ", mSwitchInteractiveModeMethod = " + this.f8072g);
                 return;
             }
             try {
@@ -517,9 +517,9 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            Object obj = this.f8051c;
-            if (obj == null || (method = this.f8057i) == null) {
-                CyberLog.e(TAG, "can not call switchProjectionMode method. mBdVRRender = " + this.f8051c + ", mSwitchProjectionMode = " + this.f8057i);
+            Object obj = this.f8068c;
+            if (obj == null || (method = this.f8074i) == null) {
+                CyberLog.e(TAG, "can not call switchProjectionMode method. mBdVRRender = " + this.f8068c + ", mSwitchProjectionMode = " + this.f8074i);
                 return;
             }
             try {

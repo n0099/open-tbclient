@@ -1,6 +1,7 @@
 package com.yy.mobile.framework.revenuesdk.reporter;
 
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,7 +23,7 @@ import com.yy.mobile.framework.revenuesdk.statistics.PayUIReporter;
 import com.yy.mobile.framework.revenuesdk.statistics.PayUVReporter;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.BaseHiidoContent;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.HiidoConstantContent;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class SDKReporter implements ISDKReporter {
     public static /* synthetic */ Interceptable $ic;
     public static StatisAPI mStatisAPI;
@@ -120,7 +121,7 @@ public class SDKReporter implements ISDKReporter {
     public static void reportStatisticContent(String str, StatisContent statisContent) {
         StatisAPI statisAPI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65540, null, str, statisContent) == null) || (statisAPI = mStatisAPI) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, statisContent) == null) || (statisAPI = mStatisAPI) == null) {
             return;
         }
         statisAPI.reportStatisticContent(str, statisContent, true, true);

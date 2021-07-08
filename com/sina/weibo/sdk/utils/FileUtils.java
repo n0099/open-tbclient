@@ -11,6 +11,7 @@ import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.activity.ImageClipActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +20,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes7.dex */
+import org.webrtc.MediaStreamTrack;
+/* loaded from: classes6.dex */
 public class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IMAGE_FILE_START = "image/";
@@ -137,7 +139,7 @@ public class FileUtils {
                             uri2 = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
                         } else if ("video".equals(str)) {
                             uri2 = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
-                        } else if ("audio".equals(str)) {
+                        } else if (MediaStreamTrack.AUDIO_TRACK_KIND.equals(str)) {
                             uri2 = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
                         }
                         return getDataColumn(context, uri2, "_id=?", new String[]{split2[1]});
@@ -159,7 +161,7 @@ public class FileUtils {
     public static boolean isDownloadsDocument(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, uri)) == null) ? ImageClipActivity.l.equals(uri.getAuthority()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri)) == null) ? ImageClipActivity.l.equals(uri.getAuthority()) : invokeL.booleanValue;
     }
 
     public static boolean isExternalStorageDocument(Uri uri) {

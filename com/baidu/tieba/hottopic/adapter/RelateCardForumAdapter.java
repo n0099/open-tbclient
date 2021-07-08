@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.BaiduWalletServiceProviderMap;
 import d.a.c.k.e.a;
-import d.a.s0.g1.c.n;
-/* loaded from: classes5.dex */
+import d.a.p0.g1.c.n;
+/* loaded from: classes4.dex */
 public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,20 +24,20 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
     public boolean n;
     public BdUniqueId o;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class CardGroupRelateForumHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f17023a;
+        public int f17062a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d.a.s0.g1.f.a f17024b;
+        public d.a.p0.g1.f.a f17063b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public CardGroupRelateForumHolder(RelateCardForumAdapter relateCardForumAdapter, d.a.s0.g1.f.a aVar) {
-            super(aVar.l());
+        public CardGroupRelateForumHolder(RelateCardForumAdapter relateCardForumAdapter, d.a.p0.g1.f.a aVar) {
+            super(aVar.k());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,20 +53,20 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
                     return;
                 }
             }
-            this.f17023a = 3;
-            this.f17024b = aVar;
+            this.f17062a = 3;
+            this.f17063b = aVar;
         }
 
         public void b(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f17023a == i2) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f17062a == i2) {
                 return;
             }
-            d.a.s0.g1.f.a aVar = this.f17024b;
+            d.a.p0.g1.f.a aVar = this.f17063b;
             if (aVar != null) {
-                aVar.n(aVar.k(), i2);
+                aVar.m(aVar.j(), i2);
             }
-            this.f17023a = i2;
+            this.f17062a = i2;
         }
     }
 
@@ -108,8 +108,8 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            d.a.s0.g1.f.a aVar = new d.a.s0.g1.f.a(this.m.getPageContext());
-            aVar.p(f0());
+            d.a.p0.g1.f.a aVar = new d.a.p0.g1.f.a(this.m.getPageContext());
+            aVar.o(f0());
             aVar.setFrom(BaiduWalletServiceProviderMap.PLUGIN_WALLETHOME);
             this.n = true;
             return new CardGroupRelateForumHolder(this, aVar);
@@ -122,14 +122,14 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
     /* renamed from: h0 */
     public View X(int i2, View view, ViewGroup viewGroup, n nVar, CardGroupRelateForumHolder cardGroupRelateForumHolder) {
         InterceptResult invokeCommon;
-        d.a.s0.g1.f.a aVar;
+        d.a.p0.g1.f.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, nVar, cardGroupRelateForumHolder})) == null) {
-            if (cardGroupRelateForumHolder == null || (aVar = cardGroupRelateForumHolder.f17024b) == null) {
+            if (cardGroupRelateForumHolder == null || (aVar = cardGroupRelateForumHolder.f17063b) == null) {
                 return null;
             }
             if (this.n) {
-                aVar.m(nVar);
+                aVar.l(nVar);
                 this.n = false;
             }
             cardGroupRelateForumHolder.b(TbadkCoreApplication.getInst().getSkinType());

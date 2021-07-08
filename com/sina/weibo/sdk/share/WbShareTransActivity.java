@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +30,7 @@ import com.sina.weibo.sdk.utils.MD5;
 import com.sina.weibo.sdk.utils.Utility;
 import com.sina.weibo.sdk.utils.WbSdkVersion;
 import com.sina.weibo.sdk.web.view.WbSdkProgressBar;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class WbShareTransActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +92,7 @@ public class WbShareTransActivity extends BaseActivity {
 
     private void checkSource(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, intent) == null) {
             try {
                 Bundle extras = intent.getExtras();
                 if (extras == null) {

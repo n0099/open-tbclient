@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.n1.o.k.b;
+import d.a.p0.n1.o.k.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FocusListCard extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MIN_FOCUS_ITEMS = 3;
@@ -23,31 +23,31 @@ public class FocusListCard extends BaseCardInfo {
     public final int titleColor;
     public final int titleColorNight;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f18148a;
+        public String f18188a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18149b;
+        public String f18189b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f18150c;
+        public String f18190c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f18151d;
+        public int f18191d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f18152e;
+        public int f18192e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f18153f;
+        public String f18193f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f18154g;
+        public long f18194g;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -96,18 +96,18 @@ public class FocusListCard extends BaseCardInfo {
                 a aVar = new a();
                 try {
                     if (optJSONArray.length() > 0) {
-                        aVar.f18148a = optJSONArray.getString(0);
+                        aVar.f18188a = optJSONArray.getString(0);
                     }
                     if (optJSONArray.length() > 1) {
-                        aVar.f18149b = optJSONArray.getString(1);
+                        aVar.f18189b = optJSONArray.getString(1);
                     }
                     if (optJSONArray.length() > 2) {
-                        aVar.f18150c = optJSONArray.getString(2);
+                        aVar.f18190c = optJSONArray.getString(2);
                     }
-                    aVar.f18151d = b.b(optJSONObject.optString("focusColor", ""));
-                    aVar.f18152e = b.b(optJSONObject.optString("focusColorNight", ""));
-                    aVar.f18153f = optJSONObject.optString("scheme");
-                    aVar.f18154g = optJSONObject.optLong("resourceId");
+                    aVar.f18191d = b.b(optJSONObject.optString("focusColor", ""));
+                    aVar.f18192e = b.b(optJSONObject.optString("focusColorNight", ""));
+                    aVar.f18193f = optJSONObject.optString("scheme");
+                    aVar.f18194g = optJSONObject.optLong("resourceId");
                     this.focusItemList.add(aVar);
                 } catch (Exception unused) {
                 }

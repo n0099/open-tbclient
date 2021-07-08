@@ -2,6 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,21 +18,21 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class hb {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f43233a;
+    public static boolean f40247a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f43234a;
+        public Context f40248a;
 
         /* renamed from: a  reason: collision with other field name */
         public he f468a;
@@ -52,14 +53,14 @@ public class hb {
                 }
             }
             this.f468a = heVar;
-            this.f43234a = context;
+            this.f40248a = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                hb.c(this.f43234a, this.f468a);
+                hb.c(this.f40248a, this.f468a);
             }
         }
     }
@@ -182,7 +183,7 @@ public class hb {
 
     public static void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             SharedPreferences.Editor edit = context.getSharedPreferences("mipush_extra", 4).edit();
             edit.putLong("last_tiny_data_upload_timestamp", System.currentTimeMillis() / 1000);
             edit.commit();
@@ -199,11 +200,11 @@ public class hb {
         File file;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, heVar) == null) {
-            if (f43233a) {
+            if (f40247a) {
                 com.xiaomi.channel.commonutils.logger.b.m70a("TinyData extractTinyData is running");
                 return;
             }
-            f43233a = true;
+            f40247a = true;
             File file2 = new File(context.getFilesDir(), "tiny_data.data");
             if (!file2.exists()) {
                 com.xiaomi.channel.commonutils.logger.b.m70a("TinyData no ready file to get data.");
@@ -285,7 +286,7 @@ public class hb {
             a(context, heVar, file, a2);
             ha.a(false);
             b(context);
-            f43233a = false;
+            f40247a = false;
         }
     }
 }

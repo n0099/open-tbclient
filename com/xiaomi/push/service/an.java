@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,21 +23,21 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.net.URL;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class an {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f43576a;
+    public static long f40590a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f43577a;
+        public int f40591a;
 
         /* renamed from: a  reason: collision with other field name */
         public byte[] f891a;
@@ -57,17 +58,17 @@ public class an {
                 }
             }
             this.f891a = bArr;
-            this.f43577a = i2;
+            this.f40591a = i2;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f43578a;
+        public long f40592a;
 
         /* renamed from: a  reason: collision with other field name */
         public Bitmap f892a;
@@ -88,7 +89,7 @@ public class an {
                 }
             }
             this.f892a = bitmap;
-            this.f43578a = j;
+            this.f40592a = j;
         }
     }
 
@@ -324,7 +325,7 @@ public class an {
                 com.xiaomi.push.y.a((Closeable) null);
                 return bVar;
             }
-            bVar.f43578a = a2.f43577a;
+            bVar.f40592a = a2.f40591a;
             byte[] bArr = a2.f891a;
             if (bArr != null) {
                 if (z) {
@@ -361,13 +362,13 @@ public class an {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             File file = new File(context.getCacheDir().getPath() + File.separator + "mipush_icon");
             if (file.exists()) {
-                if (f43576a == 0) {
-                    f43576a = com.xiaomi.push.x.a(file);
+                if (f40590a == 0) {
+                    f40590a = com.xiaomi.push.x.a(file);
                 }
-                if (f43576a > 15728640) {
+                if (f40590a > 15728640) {
                     try {
                         File[] listFiles = file.listFiles();
                         for (int i2 = 0; i2 < listFiles.length; i2++) {
@@ -378,7 +379,7 @@ public class an {
                     } catch (Exception e2) {
                         com.xiaomi.channel.commonutils.logger.b.a(e2);
                     }
-                    f43576a = 0L;
+                    f40590a = 0L;
                 }
             }
         }
@@ -429,7 +430,7 @@ public class an {
                     com.xiaomi.channel.commonutils.logger.b.a(e);
                     com.xiaomi.push.y.a(bufferedOutputStream2);
                     com.xiaomi.push.y.a(fileOutputStream);
-                    if (f43576a != 0) {
+                    if (f40590a != 0) {
                     }
                 } catch (Throwable th2) {
                     th = th2;
@@ -446,8 +447,8 @@ public class an {
                 fileOutputStream = null;
             }
             com.xiaomi.push.y.a(fileOutputStream);
-            if (f43576a != 0) {
-                f43576a = com.xiaomi.push.x.a(new File(context.getCacheDir().getPath() + File.separator + "mipush_icon")) + file2.length();
+            if (f40590a != 0) {
+                f40590a = com.xiaomi.push.x.a(new File(context.getCacheDir().getPath() + File.separator + "mipush_icon")) + file2.length();
             }
         }
     }

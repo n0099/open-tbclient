@@ -6,9 +6,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.y0.g.a;
+import d.a.v0.g.a;
 import org.vinuxproject.sonic.Sonic;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AudioSpeedOperator implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class AudioSpeedOperator implements a {
         }
     }
 
-    @Override // d.a.y0.g.a
+    @Override // d.a.v0.g.a
     public int availableBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class AudioSpeedOperator implements a {
         return invokeV.intValue;
     }
 
-    @Override // d.a.y0.g.a
+    @Override // d.a.v0.g.a
     public void close() {
         Sonic sonic;
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class AudioSpeedOperator implements a {
         sonic.b();
     }
 
-    @Override // d.a.y0.g.a
+    @Override // d.a.v0.g.a
     public void flush() {
         Sonic sonic;
         Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class AudioSpeedOperator implements a {
         sonic.c();
     }
 
-    @Override // d.a.y0.g.a
+    @Override // d.a.v0.g.a
     public byte[] getOutPutBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public class AudioSpeedOperator implements a {
         return (byte[]) invokeV.objValue;
     }
 
-    @Override // d.a.y0.g.a
+    @Override // d.a.v0.g.a
     public void init(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
@@ -83,7 +83,7 @@ public class AudioSpeedOperator implements a {
         }
     }
 
-    @Override // d.a.y0.g.a
+    @Override // d.a.v0.g.a
     public boolean putBytes(byte[] bArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class AudioSpeedOperator implements a {
         return invokeLI.booleanValue;
     }
 
-    @Override // d.a.y0.g.a
+    @Override // d.a.v0.g.a
     public int receiveBytes(byte[] bArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public class AudioSpeedOperator implements a {
         return invokeLI.intValue;
     }
 
-    @Override // d.a.y0.g.a
+    @Override // d.a.v0.g.a
     public void setSpeed(float f2) {
         Sonic sonic;
         Interceptable interceptable = $ic;

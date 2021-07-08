@@ -13,6 +13,7 @@ import android.graphics.RectF;
 import android.os.Build;
 import android.provider.Settings;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.airbnb.lottie.L;
 import com.airbnb.lottie.animation.LPaint;
 import com.airbnb.lottie.animation.content.TrimPathContent;
@@ -194,7 +195,7 @@ public final class Utils {
 
     public static void closeQuietly(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, null, closeable) == null) || closeable == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, closeable) == null) || closeable == null) {
             return;
         }
         try {

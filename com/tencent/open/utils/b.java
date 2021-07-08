@@ -20,28 +20,28 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f41983c;
+    public static String f38997c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f41984a;
+    public String f38998a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f41985b;
+    public c f38999b;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f41986d;
+    public long f39000d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f41987e;
+    public Handler f39001e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Runnable f41988f;
+    public Runnable f39002f;
 
     public b(Activity activity) {
         Interceptable interceptable = $ic;
@@ -58,12 +58,12 @@ public class b {
                 return;
             }
         }
-        this.f41988f = new Runnable(this) { // from class: com.tencent.open.utils.b.2
+        this.f39002f = new Runnable(this) { // from class: com.tencent.open.utils.b.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f41990a;
+            public final /* synthetic */ b f39004a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -80,7 +80,7 @@ public class b {
                         return;
                     }
                 }
-                this.f41990a = this;
+                this.f39004a = this;
             }
 
             @Override // java.lang.Runnable
@@ -89,14 +89,14 @@ public class b {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     com.tencent.open.a.f.a("AsynLoadImg", "saveFileRunnable:");
-                    String str = "share_qq_" + j.f(this.f41990a.f41984a) + ".jpg";
-                    String str2 = b.f41983c + str;
+                    String str = "share_qq_" + j.f(this.f39004a.f38998a) + ".jpg";
+                    String str2 = b.f38997c + str;
                     File file = new File(str2);
-                    Message obtainMessage = this.f41990a.f41987e.obtainMessage();
+                    Message obtainMessage = this.f39004a.f39001e.obtainMessage();
                     if (!file.exists()) {
-                        Bitmap a2 = b.a(this.f41990a.f41984a);
+                        Bitmap a2 = b.a(this.f39004a.f38998a);
                         if (a2 != null) {
-                            z = this.f41990a.a(a2, str);
+                            z = this.f39004a.a(a2, str);
                         } else {
                             com.tencent.open.a.f.a("AsynLoadImg", "saveFileRunnable:get bmp fail---");
                             z = false;
@@ -107,22 +107,22 @@ public class b {
                         } else {
                             obtainMessage.arg1 = 1;
                         }
-                        com.tencent.open.a.f.a("AsynLoadImg", "file not exists: download time:" + (System.currentTimeMillis() - this.f41990a.f41986d));
+                        com.tencent.open.a.f.a("AsynLoadImg", "file not exists: download time:" + (System.currentTimeMillis() - this.f39004a.f39000d));
                     } else {
                         obtainMessage.arg1 = 0;
                         obtainMessage.obj = str2;
-                        com.tencent.open.a.f.a("AsynLoadImg", "file exists: time:" + (System.currentTimeMillis() - this.f41990a.f41986d));
+                        com.tencent.open.a.f.a("AsynLoadImg", "file exists: time:" + (System.currentTimeMillis() - this.f39004a.f39000d));
                     }
-                    this.f41990a.f41987e.sendMessage(obtainMessage);
+                    this.f39004a.f39001e.sendMessage(obtainMessage);
                 }
             }
         };
-        this.f41987e = new Handler(this, activity.getMainLooper()) { // from class: com.tencent.open.utils.b.1
+        this.f39001e = new Handler(this, activity.getMainLooper()) { // from class: com.tencent.open.utils.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f41989a;
+            public final /* synthetic */ b f39003a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -142,7 +142,7 @@ public class b {
                         return;
                     }
                 }
-                this.f41989a = this;
+                this.f39003a = this;
             }
 
             @Override // android.os.Handler
@@ -151,9 +151,9 @@ public class b {
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
                     com.tencent.open.a.f.a("AsynLoadImg", "handleMessage:" + message.arg1);
                     if (message.arg1 == 0) {
-                        this.f41989a.f41985b.a(message.arg1, (String) message.obj);
+                        this.f39003a.f38999b.a(message.arg1, (String) message.obj);
                     } else {
-                        this.f41989a.f41985b.a(message.arg1, (String) null);
+                        this.f39003a.f38999b.a(message.arg1, (String) null);
                     }
                 }
             }
@@ -169,11 +169,11 @@ public class b {
                     cVar.a(2, (String) null);
                     return;
                 }
-                f41983c = Environment.getExternalStorageDirectory() + "/tmp/";
-                this.f41986d = System.currentTimeMillis();
-                this.f41984a = str;
-                this.f41985b = cVar;
-                new Thread(this.f41988f).start();
+                f38997c = Environment.getExternalStorageDirectory() + "/tmp/";
+                this.f39000d = System.currentTimeMillis();
+                this.f38998a = str;
+                this.f38999b = cVar;
+                new Thread(this.f39002f).start();
                 return;
             }
             cVar.a(1, (String) null);
@@ -185,7 +185,7 @@ public class b {
         BufferedOutputStream bufferedOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, str)) == null) {
-            String str2 = f41983c;
+            String str2 = f38997c;
             BufferedOutputStream bufferedOutputStream2 = null;
             try {
                 try {

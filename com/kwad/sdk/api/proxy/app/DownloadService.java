@@ -12,7 +12,7 @@ import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.proxy.BaseProxyService;
 import com.kwad.sdk.api.proxy.IServiceProxy;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DownloadService extends BaseProxyService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

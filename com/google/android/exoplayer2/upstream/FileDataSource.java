@@ -14,27 +14,27 @@ import d.f.b.a.h0.p;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class FileDataSource implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final p<? super FileDataSource> f32817a;
+    public final p<? super FileDataSource> f32927a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RandomAccessFile f32818b;
+    public RandomAccessFile f32928b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Uri f32819c;
+    public Uri f32929c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f32820d;
+    public long f32930d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f32821e;
+    public boolean f32931e;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class FileDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +75,7 @@ public final class FileDataSource implements e {
                 return;
             }
         }
-        this.f32817a = pVar;
+        this.f32927a = pVar;
     }
 
     @Override // d.f.b.a.h0.e
@@ -84,19 +84,19 @@ public final class FileDataSource implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
             try {
-                this.f32819c = gVar.f73280a;
-                RandomAccessFile randomAccessFile = new RandomAccessFile(gVar.f73280a.getPath(), r.f7745a);
-                this.f32818b = randomAccessFile;
-                randomAccessFile.seek(gVar.f73283d);
-                long length = gVar.f73284e == -1 ? this.f32818b.length() - gVar.f73283d : gVar.f73284e;
-                this.f32820d = length;
+                this.f32929c = gVar.f70383a;
+                RandomAccessFile randomAccessFile = new RandomAccessFile(gVar.f70383a.getPath(), r.f7762a);
+                this.f32928b = randomAccessFile;
+                randomAccessFile.seek(gVar.f70386d);
+                long length = gVar.f70387e == -1 ? this.f32928b.length() - gVar.f70386d : gVar.f70387e;
+                this.f32930d = length;
                 if (length >= 0) {
-                    this.f32821e = true;
-                    p<? super FileDataSource> pVar = this.f32817a;
+                    this.f32931e = true;
+                    p<? super FileDataSource> pVar = this.f32927a;
                     if (pVar != null) {
                         pVar.d(this, gVar);
                     }
-                    return this.f32820d;
+                    return this.f32930d;
                 }
                 throw new EOFException();
             } catch (IOException e2) {
@@ -110,20 +110,20 @@ public final class FileDataSource implements e {
     public void close() throws FileDataSourceException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f32819c = null;
+            this.f32929c = null;
             try {
                 try {
-                    if (this.f32818b != null) {
-                        this.f32818b.close();
+                    if (this.f32928b != null) {
+                        this.f32928b.close();
                     }
                 } catch (IOException e2) {
                     throw new FileDataSourceException(e2);
                 }
             } finally {
-                this.f32818b = null;
-                if (this.f32821e) {
-                    this.f32821e = false;
-                    p<? super FileDataSource> pVar = this.f32817a;
+                this.f32928b = null;
+                if (this.f32931e) {
+                    this.f32931e = false;
+                    p<? super FileDataSource> pVar = this.f32927a;
                     if (pVar != null) {
                         pVar.b(this);
                     }
@@ -136,7 +136,7 @@ public final class FileDataSource implements e {
     public Uri getUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32819c : (Uri) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32929c : (Uri) invokeV.objValue;
     }
 
     @Override // d.f.b.a.h0.e
@@ -147,15 +147,15 @@ public final class FileDataSource implements e {
             if (i3 == 0) {
                 return 0;
             }
-            long j = this.f32820d;
+            long j = this.f32930d;
             if (j == 0) {
                 return -1;
             }
             try {
-                int read = this.f32818b.read(bArr, i2, (int) Math.min(j, i3));
+                int read = this.f32928b.read(bArr, i2, (int) Math.min(j, i3));
                 if (read > 0) {
-                    this.f32820d -= read;
-                    p<? super FileDataSource> pVar = this.f32817a;
+                    this.f32930d -= read;
+                    p<? super FileDataSource> pVar = this.f32927a;
                     if (pVar != null) {
                         pVar.a(this, read);
                     }

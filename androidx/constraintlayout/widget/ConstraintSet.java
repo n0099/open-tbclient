@@ -701,7 +701,7 @@ public class ConstraintSet {
     private Constraint fillFromAttributeList(Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, context, attributeSet)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, attributeSet)) == null) {
             Constraint constraint = new Constraint(null);
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ConstraintSet);
             populateConstraint(constraint, obtainStyledAttributes);

@@ -10,13 +10,13 @@ import com.xiaomi.push.ai;
 import com.xiaomi.push.hf;
 import com.xiaomi.push.hs;
 import com.xiaomi.push.ie;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class p extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f42802a;
+    public final /* synthetic */ Context f39816a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ ie f95a;
@@ -37,7 +37,7 @@ public final class p extends ai.a {
             }
         }
         this.f95a = ieVar;
-        this.f42802a = context;
+        this.f39816a = context;
     }
 
     @Override // com.xiaomi.push.ai.a
@@ -56,6 +56,6 @@ public final class p extends ai.a {
             return;
         }
         ieVar.a(com.xiaomi.push.service.at.a());
-        an.a(this.f42802a.getApplicationContext()).a((an) this.f95a, hf.f43244i, true, (hs) null, true);
+        an.a(this.f39816a.getApplicationContext()).a((an) this.f95a, hf.f40258i, true, (hs) null, true);
     }
 }

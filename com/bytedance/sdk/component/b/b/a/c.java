@@ -1,5 +1,6 @@
 package com.bytedance.sdk.component.b.b.a;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -35,36 +36,36 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 import org.apache.commons.base.CharEncoding;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f28111a;
+    public static final byte[] f28221a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f28112b;
+    public static final String[] f28222b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ac f28113c;
+    public static final ac f28223c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final aa f28114d;
+    public static final aa f28224d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Charset f28115e;
+    public static final Charset f28225e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Charset f28116f;
+    public static final Charset f28226f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final TimeZone f28117g;
+    public static final TimeZone f28227g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Comparator<String> f28118h;
+    public static final Comparator<String> f28228h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final f f28119i;
+    public static final f f28229i;
     public static final f j;
     public static final f k;
     public static final f l;
@@ -90,23 +91,23 @@ public final class c {
             }
         }
         byte[] bArr = new byte[0];
-        f28111a = bArr;
-        f28112b = new String[0];
-        f28113c = ac.a(null, bArr);
-        f28114d = aa.a((v) null, f28111a);
-        f28119i = f.b("efbbbf");
+        f28221a = bArr;
+        f28222b = new String[0];
+        f28223c = ac.a(null, bArr);
+        f28224d = aa.a((v) null, f28221a);
+        f28229i = f.b("efbbbf");
         j = f.b("feff");
         k = f.b("fffe");
         l = f.b("0000ffff");
         m = f.b("ffff0000");
-        f28115e = Charset.forName("UTF-8");
-        f28116f = Charset.forName("ISO-8859-1");
+        f28225e = Charset.forName("UTF-8");
+        f28226f = Charset.forName("ISO-8859-1");
         n = Charset.forName(CharEncoding.UTF_16BE);
         o = Charset.forName(CharEncoding.UTF_16LE);
         p = Charset.forName("UTF-32BE");
         q = Charset.forName("UTF-32LE");
-        f28117g = TimeZone.getTimeZone("GMT");
-        f28118h = new Comparator<String>() { // from class: com.bytedance.sdk.component.b.b.a.c.1
+        f28227g = TimeZone.getTimeZone("GMT");
+        f28228h = new Comparator<String>() { // from class: com.bytedance.sdk.component.b.b.a.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -394,10 +395,10 @@ public final class c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f28120a;
+            public final /* synthetic */ String f28230a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ boolean f28121b;
+            public final /* synthetic */ boolean f28231b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -414,8 +415,8 @@ public final class c {
                         return;
                     }
                 }
-                this.f28120a = str;
-                this.f28121b = z;
+                this.f28230a = str;
+                this.f28231b = z;
             }
 
             @Override // java.util.concurrent.ThreadFactory
@@ -423,8 +424,8 @@ public final class c {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, runnable)) == null) {
-                    Thread thread = new Thread(runnable, "tt_pangle_thread_" + this.f28120a);
-                    thread.setDaemon(this.f28121b);
+                    Thread thread = new Thread(runnable, "tt_pangle_thread_" + this.f28230a);
+                    thread.setDaemon(this.f28231b);
                     return thread;
                 }
                 return (Thread) invokeL.objValue;
@@ -576,7 +577,7 @@ public final class c {
     public static int a(String str, int i2, int i3, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), str2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), str2})) == null) {
             while (i2 < i3) {
                 if (str2.indexOf(str.charAt(i2)) != -1) {
                     return i2;
@@ -649,9 +650,9 @@ public final class c {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, eVar, charset)) == null) {
-            if (eVar.a(0L, f28119i)) {
-                eVar.h(f28119i.g());
-                return f28115e;
+            if (eVar.a(0L, f28229i)) {
+                eVar.h(f28229i.g());
+                return f28225e;
             } else if (eVar.a(0L, j)) {
                 eVar.h(j.g());
                 return n;

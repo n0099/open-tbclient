@@ -17,26 +17,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ArrowView extends View {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f20429i = 20;
+    public static int f20475i = 20;
     public static int j = 13;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20430e;
+    public int f20476e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20431f;
+    public int f20477f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f20432g;
+    public Paint f20478g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Path f20433h;
+    public Path f20479h;
 
     static {
         InterceptResult invokeClinit;
@@ -77,13 +77,13 @@ public class ArrowView extends View {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            f20429i = l.g(context, R.dimen.tbds20);
+            f20475i = l.g(context, R.dimen.tbds20);
             j = l.g(context, R.dimen.tbds13);
             Paint paint = new Paint();
-            this.f20432g = paint;
+            this.f20478g = paint;
             paint.setColor(context.getResources().getColor(R.color.CAM_X0201));
-            this.f20432g.setAntiAlias(true);
-            this.f20433h = new Path();
+            this.f20478g.setAntiAlias(true);
+            this.f20479h = new Path();
         }
     }
 
@@ -92,12 +92,12 @@ public class ArrowView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             super.onDraw(canvas);
-            this.f20433h.reset();
-            this.f20433h.moveTo(this.f20430e / 2, 0.0f);
-            this.f20433h.lineTo(0.0f, this.f20431f);
-            this.f20433h.lineTo(this.f20430e, this.f20431f);
-            this.f20433h.close();
-            canvas.drawPath(this.f20433h, this.f20432g);
+            this.f20479h.reset();
+            this.f20479h.moveTo(this.f20476e / 2, 0.0f);
+            this.f20479h.lineTo(0.0f, this.f20477f);
+            this.f20479h.lineTo(this.f20476e, this.f20477f);
+            this.f20479h.close();
+            canvas.drawPath(this.f20479h, this.f20478g);
         }
     }
 
@@ -111,9 +111,9 @@ public class ArrowView extends View {
             int mode2 = View.MeasureSpec.getMode(i3);
             int size2 = View.MeasureSpec.getSize(i3);
             if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
-                setMeasuredDimension(f20429i, j);
+                setMeasuredDimension(f20475i, j);
             } else if (mode == Integer.MIN_VALUE) {
-                setMeasuredDimension(f20429i, size2);
+                setMeasuredDimension(f20475i, size2);
             } else if (mode2 == Integer.MIN_VALUE) {
                 setMeasuredDimension(size, j);
             }
@@ -125,8 +125,8 @@ public class ArrowView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f20430e = i2;
-            this.f20431f = i3;
+            this.f20476e = i2;
+            this.f20477f = i3;
         }
     }
 

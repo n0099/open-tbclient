@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.DebugConfig;
 import com.baidu.wallet.core.domain.DomainConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ScanCodeConstant {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String API_CLOSE_SCANCODE = "/_u/o2o/b2c/close";

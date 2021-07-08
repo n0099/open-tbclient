@@ -1,6 +1,7 @@
 package com.baidu.tieba.tbean;
 
 import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
@@ -23,13 +24,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.z0.p0;
-/* loaded from: classes5.dex */
+import d.a.o0.z0.p0;
+/* loaded from: classes4.dex */
 public class BuyTBeanActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +89,7 @@ public class BuyTBeanActivityStatic {
             }
         }
         TbadkApplication.getInst().RegisterIntent(BuyTBeanActivityConfig.class, BuyTBeanActivity.class);
-        d.a.s0.h3.d0.a.f(306001, GetYinJiResponseMessage.class, false);
+        d.a.p0.h3.d0.a.f(306001, GetYinJiResponseMessage.class, false);
         c();
         a();
         b();
@@ -130,8 +131,8 @@ public class BuyTBeanActivityStatic {
 
     public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_YINJI, d.a.s0.h3.d0.a.a(BuyTBeanModel.GET_ICON_URL, 306001));
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_YINJI, d.a.p0.h3.d0.a.a(BuyTBeanModel.GET_ICON_URL, 306001));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);

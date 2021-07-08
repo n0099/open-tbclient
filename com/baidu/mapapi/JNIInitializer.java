@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class JNIInitializer {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f6804a;
+    public static Context f6821a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public JNIInitializer() {
@@ -32,7 +32,7 @@ public class JNIInitializer {
     public static Context getCachedContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f6804a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f6821a : (Context) invokeV.objValue;
     }
 
     public static void setContext(Application application) {
@@ -41,8 +41,8 @@ public class JNIInitializer {
             if (application == null) {
                 throw new RuntimeException();
             }
-            if (f6804a == null) {
-                f6804a = application;
+            if (f6821a == null) {
+                f6821a = application;
             }
         }
     }

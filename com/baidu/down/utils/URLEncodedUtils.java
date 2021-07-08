@@ -1,5 +1,6 @@
 package com.baidu.down.utils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.down.common.NameValuePair;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,7 +14,7 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.List;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class URLEncodedUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_TYPE = "application/x-www-form-urlencoded";
@@ -86,7 +87,7 @@ public class URLEncodedUtils {
     public static String format(List<? extends NameValuePair> list, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, list, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, str)) == null) {
             StringBuilder sb = new StringBuilder();
             for (NameValuePair nameValuePair : list) {
                 String encode = encode(nameValuePair.getName(), str);

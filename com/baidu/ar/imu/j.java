@@ -3,6 +3,7 @@ package com.baidu.ar.imu;
 import android.hardware.Sensor;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.representation.Matrix;
 import com.baidu.ar.arplay.representation.Matrixf4x4;
@@ -134,7 +135,7 @@ public abstract class j extends Observable implements SensorEventListener {
 
     public static void b(float[] fArr, float[] fArr2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, fArr, fArr2) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, fArr, fArr2) == null) {
             System.arraycopy(fArr2, 0, fArr, 0, fArr2.length);
         }
     }

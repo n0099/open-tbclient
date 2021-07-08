@@ -14,7 +14,7 @@ import com.baidu.wallet.base.datamodel.UserData;
 import com.baidu.wallet.paysdk.storage.PayDataCache;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CardListResponse implements IBeanResponse, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class CardListResponse implements IBeanResponse, Serializable {
     public Misc card_bind_misc_info;
     public User user;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Card implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public class CardListResponse implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Misc implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +78,7 @@ public class CardListResponse implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class User implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

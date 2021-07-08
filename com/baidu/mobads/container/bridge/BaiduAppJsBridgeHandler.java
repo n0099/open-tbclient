@@ -36,7 +36,7 @@ import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiver.InstallListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_DOWNLOAD = "com.baidu.channel.aladdin.downloadapk";
@@ -99,7 +99,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
     public String mProd;
     public WebView mWebView;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class DownloadAppInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

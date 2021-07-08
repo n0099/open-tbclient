@@ -214,7 +214,7 @@ public final class ViewKt {
     public static final OneShotPreDrawListener doOnPreDraw(final View view, final Function1<? super View, Unit> function1) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, view, function1)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, view, function1)) == null) {
             OneShotPreDrawListener add = OneShotPreDrawListener.add(view, new Runnable(view, function1) { // from class: androidx.core.view.ViewKt$doOnPreDraw$1
                 public static /* synthetic */ Interceptable $ic;
                 public final /* synthetic */ Function1 $action;

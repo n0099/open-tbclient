@@ -4,13 +4,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class r extends Exception {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f27678a;
+    public int f27788a;
 
     public r(int i2) {
         Interceptable interceptable = $ic;
@@ -27,7 +27,7 @@ public class r extends Exception {
                 return;
             }
         }
-        this.f27678a = i2;
+        this.f27788a = i2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -48,6 +48,6 @@ public class r extends Exception {
                 return;
             }
         }
-        this.f27678a = i2;
+        this.f27788a = i2;
     }
 }

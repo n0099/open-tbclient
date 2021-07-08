@@ -1,5 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.payservice.utils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class JsonDataParerUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AppPayServiceImpl";
@@ -105,7 +106,7 @@ public class JsonDataParerUtil {
     public static String getGPOrderId(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             String str2 = "";
             if (str != null) {
                 try {

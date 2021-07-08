@@ -80,7 +80,7 @@ public class g implements d {
     private float[] s(float[] fArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, fArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, fArr)) == null) {
             if (fArr == null || fArr.length != 16) {
                 return null;
             }

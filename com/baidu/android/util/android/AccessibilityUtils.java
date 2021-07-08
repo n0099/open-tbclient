@@ -3,6 +3,7 @@ package com.baidu.android.util.android;
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.os.Build;
 import android.view.accessibility.AccessibilityManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -70,7 +71,7 @@ public class AccessibilityUtils {
     public static void removeTalkBackChangeListener(AccessibilityManager.TouchExplorationStateChangeListener touchExplorationStateChangeListener) {
         AccessibilityManager accessibilityManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, null, touchExplorationStateChangeListener) == null) || (accessibilityManager = (AccessibilityManager) AppRuntime.getAppContext().getSystemService("accessibility")) == null || Build.VERSION.SDK_INT < 19) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, touchExplorationStateChangeListener) == null) || (accessibilityManager = (AccessibilityManager) AppRuntime.getAppContext().getSystemService("accessibility")) == null || Build.VERSION.SDK_INT < 19) {
             return;
         }
         accessibilityManager.addTouchExplorationStateChangeListener(touchExplorationStateChangeListener);

@@ -1,5 +1,6 @@
 package org.apache.commons.codec.digest4util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.zip.Checksum;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class XXHash32 implements Checksum {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUF_SIZE = 16;
@@ -68,7 +69,7 @@ public class XXHash32 implements Checksum {
 
     private void initializeState() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             int[] iArr = this.state;
             int i2 = this.seed;
             iArr[0] = i2 + PRIME1 + PRIME2;

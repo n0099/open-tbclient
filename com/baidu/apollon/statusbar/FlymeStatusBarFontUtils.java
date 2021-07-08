@@ -5,6 +5,7 @@ import android.os.Build;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -112,7 +113,7 @@ public class FlymeStatusBarFontUtils {
 
     public static void setStatusBarColor(Window window, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65540, null, window, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, window, i2) == null) {
             WindowManager.LayoutParams attributes = window.getAttributes();
             Field field = mStatusBarColorFiled;
             if (field != null) {
