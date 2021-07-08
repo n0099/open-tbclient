@@ -195,6 +195,7 @@ public class WalletStatic {
                         if (customMessage.getData() == null) {
                             return null;
                         }
+                        WalletPluginManager.getInstance().invokePlugin(null);
                         return new CustomResponsedMessage<>(2921539, WalletPluginManager.getInstance().doAliPay(customMessage.getData().f51881a, customMessage.getData().f51882b, customMessage.getData().f51883c));
                     }
                     return (CustomResponsedMessage) invokeL.objValue;
@@ -807,7 +808,11 @@ public class WalletStatic {
                 public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2921432, WalletPluginManager.getInstance().doTiebaPay(b.f().b())) : (CustomResponsedMessage) invokeL.objValue;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
+                        WalletPluginManager.getInstance().invokePlugin(null);
+                        return new CustomResponsedMessage<>(2921432, WalletPluginManager.getInstance().doTiebaPay(b.f().b()));
+                    }
+                    return (CustomResponsedMessage) invokeL.objValue;
                 }
             });
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

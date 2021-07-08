@@ -452,6 +452,12 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
         return (String) invokeV.objValue;
     }
 
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.ufosdk.screencapedt.g.onClick(android.view.View):void] */
+    public static /* synthetic */ void b(ScreenCapEditActivity screenCapEditActivity, boolean z) {
+        screenCapEditActivity.a(z);
+    }
+
     public static /* synthetic */ void i(ScreenCapEditActivity screenCapEditActivity) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         screenCapEditActivity.J = byteArrayOutputStream;
@@ -509,12 +515,6 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
     /* JADX DEBUG: Method not inlined, still used in: [com.baidu.ufosdk.screencapedt.g.onClick(android.view.View):void] */
     public static /* synthetic */ ImageView m(ScreenCapEditActivity screenCapEditActivity) {
         return screenCapEditActivity.f23349e;
-    }
-
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.ufosdk.screencapedt.g.onClick(android.view.View):void] */
-    public static /* synthetic */ Bitmap n(ScreenCapEditActivity screenCapEditActivity) {
-        return screenCapEditActivity.f23351g;
     }
 
     @Override // android.app.Activity, android.view.Window.Callback

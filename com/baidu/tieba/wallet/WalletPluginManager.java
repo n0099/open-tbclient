@@ -5,7 +5,6 @@ import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.nps.main.install.IInstallCallback;
 import com.baidu.nps.main.invoke.IInvokeCallback;
 import com.baidu.nps.main.manager.NPSManager;
@@ -111,26 +110,6 @@ public class WalletPluginManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? SingletonHolder.instance : (WalletPluginManager) invokeV.objValue;
-    }
-
-    private void invokePlugin(IInvokeCallback iInvokeCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, iInvokeCallback) == null) {
-            try {
-                IWalletPlugin iWalletPlugin = (IWalletPlugin) Class.forName(PLUGIN_IMPL_CLASS).newInstance();
-                this.mIWalletPlugin = iWalletPlugin;
-                iWalletPlugin.init();
-                if (iInvokeCallback != null) {
-                    iInvokeCallback.onResult(14, null, null);
-                }
-            } catch (ClassNotFoundException e2) {
-                e2.printStackTrace();
-            } catch (IllegalAccessException e3) {
-                e3.printStackTrace();
-            } catch (InstantiationException e4) {
-                e4.printStackTrace();
-            }
-        }
     }
 
     public void accessWalletEntry(Context context, String str) {
@@ -635,9 +614,29 @@ public class WalletPluginManager {
         }
     }
 
+    public void invokePlugin(IInvokeCallback iInvokeCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, iInvokeCallback) == null) {
+            try {
+                IWalletPlugin iWalletPlugin = (IWalletPlugin) Class.forName(PLUGIN_IMPL_CLASS).newInstance();
+                this.mIWalletPlugin = iWalletPlugin;
+                iWalletPlugin.init();
+                if (iInvokeCallback != null) {
+                    iInvokeCallback.onResult(14, null, null);
+                }
+            } catch (ClassNotFoundException e2) {
+                e2.printStackTrace();
+            } catch (IllegalAccessException e3) {
+                e3.printStackTrace();
+            } catch (InstantiationException e4) {
+                e4.printStackTrace();
+            }
+        }
+    }
+
     public void openH5Module(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048587, this, context, str) == null) {
             IWalletPlugin iWalletPlugin = this.mIWalletPlugin;
             if (iWalletPlugin == null) {
                 invokePlugin(new IInvokeCallback(this, context, str) { // from class: com.baidu.tieba.wallet.WalletPluginManager.3
@@ -693,7 +692,7 @@ public class WalletPluginManager {
 
     public void registerIntent() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             IWalletPlugin iWalletPlugin = this.mIWalletPlugin;
             if (iWalletPlugin == null) {
                 invokePlugin(new IInvokeCallback(this) { // from class: com.baidu.tieba.wallet.WalletPluginManager.13
@@ -745,7 +744,7 @@ public class WalletPluginManager {
 
     public void startWallet(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, context) == null) {
             IWalletPlugin iWalletPlugin = this.mIWalletPlugin;
             if (iWalletPlugin == null) {
                 invokePlugin(new IInvokeCallback(this, context) { // from class: com.baidu.tieba.wallet.WalletPluginManager.1
